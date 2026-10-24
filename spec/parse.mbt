@@ -47,6 +47,14 @@ let unsupported_mark_props : Array[String] = [
 ]
 
 ///|
+let supported_config_keys : Array[String] = [
+  "view", "mark", "point", "circle", "square", "bar", "line", "area", "tick", "rule",
+  "text", "rect", "axis", "axisX", "axisY", "axisBand", "axisLeft", "axisRight",
+  "axisTop", "axisBottom", "scale", "range", "legend", "background", "padding", "countTitle",
+  "font", "fieldTitle", "invalid", "style", "title",
+]
+
+///|
 let supported_scale_props : Array[String] = [
   "type", "domain", "domainMin", "domainMax", "range", "scheme", "zero", "nice",
   "round", "padding", "paddingInner", "paddingOuter", "reverse", "clamp", "base",
@@ -622,10 +630,13 @@ pub fn parse_spec(j : Json) -> Spec raise SpecError {
     None => ()
     Some(c) => {
       let props = obj_props("config", c)
-      for k, _ in props {
-        raise unsupported(join_path("config", k))
+      for k, v in props {
+        if supported_config_keys.contains(k) {
+          config[k] = v
+        } else {
+          raise unsupported(join_path("config", k))
+        }
       }
-      ignore(config)
     }
   }
   r.finish(unsupported_keys=["autosize", "center", "bounds", "spacing", "align"])

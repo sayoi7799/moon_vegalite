@@ -203,22 +203,54 @@ fn flush(range : (Double, Double), value : Double, t : Double?) -> Int32 {
 }
 
 ///|
+fn AxisPlan::effective_count(
+  self : AxisPlan,
+  d0 : Double,
+  d1 : Double,
+) -> Double {
+  match self.props.get("tickMinStep") {
+    Some(Num(step)) => {
+      let q = (d1 - d0) / step
+      let q = if q.is_nan() || q == 0.0 { 1.0 } else { q }
+      min(self.tick_count, q.floor() + 1.0)
+    }
+    _ => self.tick_count
+  }
+}
+
+///|
 fn AxisPlan::ticks(self : AxisPlan) -> Array[Tick] raise CompileError {
   let spec = self.opt_str("format")
   match self.scale {
     Band(_) => {
       let out : Array[Tick] = []
+      let as_time = self.opt_str("formatType") == Some("time")
       for v in self.domain {
         let label = match spec {
           None => v.to_js_string()
           Some(f) =>
-            (@format.format(f) catch {
-              _ => raise CompileError("axis.format 无效: " + f)
-            })(v.to_number())
+            if as_time {
+              @time.utc_format(f)(v.to_number())
+            } else {
+              (@format.format(f) catch {
+                _ => raise CompileError("axis.format 无效: " + f)
+              })(v.to_number())
+            }
         }
         out.push({ value: v, label, index: 0.0, })
       }
       out
+    }
+    Binned(c, bins) => {
+      let d0 = c.domain[0]
+      let d1 = c.domain[c.domain.length() - 1]
+      let count = max(self.tick_count, bins.length().to_double())
+      let fmt = @format.format_span(d0, d1, count, specifier?=spec) catch {
+        _ => raise CompileError("axis.format 无效")
+      }
+      valid_ticks(c, bins, count).map(fn(x) {
+        { value: Num(x), label: fmt(x), index: 0.0, }
+      })
     }
     Time(c) => {
       let d0 = c.domain[0]
@@ -227,7 +259,7 @@ fn AxisPlan::ticks(self : AxisPlan) -> Array[Tick] raise CompileError {
         Some(f) => @time.utc_format(f)
         None => @time.utc_multi_format()
       }
-      @time.utc_ticks(d0, d1, self.tick_count).map(fn(x) {
+      @time.utc_ticks(d0, d1, self.effective_count(d0, d1)).map(fn(x) {
         { value: Num(x), label: fmt(x), index: 0.0, }
       })
     }
@@ -498,6 +530,16 @@ fn build_axis(
   for c in children {
     item.children.push(c)
   }
+  match plan.props.get("format") {
+    Some(Str(f)) => {
+      item.set_str("format", f)
+      match plan.props.get("formatType") {
+        Some(Str(t)) => item.set_str("formatType", t)
+        _ => ()
+      }
+    }
+    _ => ()
+  }
   let mark = @scene.Mark::new(
     Group,
     role="axis",
@@ -758,4 +800,53 @@ fn bound_axis(ax : Axis) -> Unit raise CompileError {
   ignore(item.bounds.clear())
   ignore(@scene.bound_group(item.bounds, item))
   ignore(ax.mark.bounds.union(item.bounds))
+}
+
+///|
+/// vega-scale `validTicks`: keep candidate ticks inside the range, in range
+/// order, and thin them out to at most `count`.
+fn valid_ticks(
+  c : @scale.Continuous,
+  candidates : Array[Double],
+  count : Double,
+) -> Array[Double] {
+  let r0 = c.range[0]
+  let r1 = c.range[c.range.length() - 1]
+  let reversed = r0 > r1
+  let lo = (if reversed { r1 } else { r0 }).floor()
+  let hi = (if reversed { r0 } else { r1 }).ceil()
+  let pairs : Array[(Double, Double)] = []
+  for v in candidates {
+    match c.map(v) {
+      Some(s) => if lo <= s && s <= hi { pairs.push((v, s)) }
+      None => ()
+    }
+  }
+  let sorted = @transform.stable_sort(pairs, fn(a, b) {
+    let d = if reversed { b.1 - a.1 } else { a.1 - b.1 }
+    if d < 0.0 {
+      -1
+    } else if d > 0.0 {
+      1
+    } else {
+      0
+    }
+  })
+  let mut ticks = sorted.map(fn(p) { p.0 })
+  if count > 0.0 && ticks.length() > 1 {
+    let endpoints = [ticks[0], ticks[ticks.length() - 1]]
+    while ticks.length().to_double() > count && ticks.length() >= 3 {
+      let kept : Array[Double] = []
+      for i in 0..<ticks.length() {
+        if i % 2 == 0 {
+          kept.push(ticks[i])
+        }
+      }
+      ticks = kept
+    }
+    if ticks.length() < 3 {
+      ticks = endpoints
+    }
+  }
+  ticks
 }

@@ -4,6 +4,7 @@ fn assemble(
   spec : @spec.Spec,
   axes : Array[Axis],
   marks : Array[@scene.Mark],
+  legends : Array[Legend],
   width : Double,
   height : Double,
 ) -> Compiled raise CompileError {
@@ -40,12 +41,28 @@ fn assemble(
   for m in marks {
     ignore(view.union(m.bounds))
   }
+  // legends: lay out each, then place them by orient next to the plot
+  for l in legends {
+    legend_layout(l)
+  }
+  for orient in ["left", "right", "top", "bottom"] {
+    let group = legends.filter(fn(l) { l.orient == orient })
+    if group.length() > 0 {
+      place_legends(group, orient, xb, yb, 0.0, 0.0)
+    }
+  }
+  for l in legends {
+    ignore(view.union(legend_item(l).bounds))
+  }
   ignore(view.union(xb).union(yb))
   for a in axes {
     root.children.push(a.mark)
   }
   for m in marks {
     root.children.push(m)
+  }
+  for l in legends {
+    root.children.push(l.mark)
   }
   ignore(@scene.bound_group(root.bounds.clear(), root))
   let left = max(0.0, ceil(-view.x1))

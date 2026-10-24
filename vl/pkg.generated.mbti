@@ -8,6 +8,8 @@ import {
 }
 
 // Values
+pub fn build_legend(LegendPlan) -> Legend raise CompileError
+
 pub fn compile(String) -> Compiled raise CompileError
 
 // Errors
@@ -50,8 +52,30 @@ pub(all) struct Compiled {
   background : String?
 }
 
+pub(all) struct Legend {
+  mark : @scene.Mark
+  orient : String
+  entry_items : Array[@scene.Item]
+  scope_mark : @scene.Mark
+  entry_mark : @scene.Mark
+  title_mark : @scene.Mark?
+}
+
+pub(all) struct LegendEntry {
+  label : String
+  props : Map[String, @value.Value]
+}
+
+pub(all) struct LegendPlan {
+  title : String?
+  orient : String
+  symbol : Map[String, @value.Value]
+  entries : Array[LegendEntry]
+}
+
 pub(all) enum RScale {
   Cont(@scale.Continuous)
+  Binned(@scale.Continuous, Array[Double])
   Time(@scale.Continuous)
   Band(@scale.Band)
 }

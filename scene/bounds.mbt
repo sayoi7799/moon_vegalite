@@ -1,7 +1,7 @@
 // Axis-aligned bounding boxes, as vega-scenegraph's `Bounds`.
 
 ///|
-pub struct Bounds {
+pub(all) struct Bounds {
   mut x1 : Double
   mut y1 : Double
   mut x2 : Double

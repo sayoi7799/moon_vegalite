@@ -75,7 +75,7 @@ pub fn BoundCtx::new(Bounds, deg? : Double) -> Self
 pub fn BoundCtx::quad_to(Self, Double, Double, Double, Double) -> Unit
 pub fn BoundCtx::rect(Self, Double, Double, Double, Double) -> Unit
 
-pub struct Bounds {
+pub(all) struct Bounds {
   mut x1 : Double
   mut y1 : Double
   mut x2 : Double

@@ -4,6 +4,8 @@
 ///|
 pub(all) enum RScale {
   Cont(@scale.Continuous)
+  /// a linear scale over bin boundaries (the boundaries drive axis ticks)
+  Binned(@scale.Continuous, Array[Double])
   /// a time scale over epoch milliseconds (UTC)
   Time(@scale.Continuous)
   Band(@scale.Band)
@@ -12,7 +14,8 @@ pub(all) enum RScale {
 ///|
 fn RScale::range_ends(self : RScale) -> (Double, Double) {
   match self {
-    Cont(c) | Time(c) => (c.range[0], c.range[c.range.length() - 1])
+    Cont(c) | Time(c) | Binned(c, _) =>
+      (c.range[0], c.range[c.range.length() - 1])
     Band(b) => b.range
   }
 }
@@ -21,7 +24,7 @@ fn RScale::range_ends(self : RScale) -> (Double, Double) {
 /// `scale(value)`, None for values outside a discrete domain or invalid input.
 fn RScale::map(self : RScale, v : @value.Value) -> Double? {
   match self {
-    Cont(c) | Time(c) =>
+    Cont(c) | Time(c) | Binned(c, _) =>
       match v.coerce_number() {
         Num(x) => c.map(x)
         _ => None
@@ -33,7 +36,7 @@ fn RScale::map(self : RScale, v : @value.Value) -> Double? {
 ///|
 fn RScale::bandwidth(self : RScale) -> Double {
   match self {
-    Cont(_) | Time(_) => 0.0
+    Cont(_) | Time(_) | Binned(_, _) => 0.0
     Band(b) => b.bandwidth
   }
 }
