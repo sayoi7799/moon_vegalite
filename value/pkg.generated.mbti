@@ -1,0 +1,33 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/value"
+
+// Values
+pub fn compare_values(Value, Value) -> Int32
+
+pub fn parse_date(String) -> Double
+
+pub fn string_to_number(String) -> Double
+
+// Errors
+
+// Types and methods
+pub(all) enum Value {
+  Null
+  Bool(Bool)
+  Num(Double)
+  Str(String)
+  Arr(Array[Value])
+  Obj(Map[String, Value])
+}
+pub fn Value::coerce_boolean(Self) -> Self
+pub fn Value::coerce_date(Self) -> Self
+pub fn Value::coerce_number(Self) -> Self
+pub fn Value::coerce_string(Self) -> Self
+pub fn Value::is_valid(Self) -> Bool
+pub fn Value::to_js_string(Self) -> String
+pub fn Value::to_number(Self) -> Double
+pub fn Value::truthy(Self) -> Bool
+
+// Type aliases
+
+// Traits

@@ -54,3 +54,16 @@ export function writeFixturePackage(root, area, constants) {
   fs.writeFileSync(path.join(dir, 'data.mbt'), src.replace(/\n+$/, '\n'));
   return dir;
 }
+
+const BACKSLASH = String.fromCharCode(92);
+
+/** Escape a string so it fits on one printable-ASCII fixture line without '|' or backslashes. */
+export function escLine(s) {
+  let out = '';
+  for (let i = 0; i < s.length; i++) {
+    const c = s.charCodeAt(i);
+    if (c >= 0x20 && c <= 0x7e && s[i] !== BACKSLASH && s[i] !== '|') out += s[i];
+    else out += BACKSLASH + 'u' + c.toString(16).padStart(4, '0');
+  }
+  return out;
+}

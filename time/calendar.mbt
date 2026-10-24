@@ -142,7 +142,7 @@ pub fn utc_ms(
 ///|
 /// Like `utc_ms` but without the 0..99 year mapping (JavaScript's
 /// `setUTCFullYear` semantics). All arguments must be integral and finite.
-fn utc_ms_exact_year(
+pub fn utc_ms_exact_year(
   y : Double,
   mo : Double,
   d : Double,

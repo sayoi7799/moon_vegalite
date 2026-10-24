@@ -28,6 +28,8 @@ pub let utc_month : TimeInterval
 
 pub fn utc_ms(Double, Double, Double, Double, Double, Double, Double) -> Double
 
+pub fn utc_ms_exact_year(Double, Double, Double, Double, Double, Double, Double) -> Double
+
 pub fn utc_multi_format() -> (Double) -> String
 
 pub fn utc_nice(Double, Double, Double) -> (Double, Double)
