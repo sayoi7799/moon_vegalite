@@ -10,3 +10,9 @@ import {
   "sayoi7799/moon_vegalite/util",
   "sayoi7799/moon_vegalite/value",
 }
+
+import {
+  "moonbitlang/core/json",
+  "sayoi7799/moon_vegalite/fixtures/vlexamples",
+  "sayoi7799/moon_vegalite/svg",
+} for "test"

@@ -251,6 +251,9 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     mark != "tick" &&
     mark != "line" &&
     mark != "area" &&
+    mark != "rule" &&
+    mark != "text" &&
+    mark != "rect" &&
     mark != "circle" &&
     mark != "square" {
     raise CompileError("mark " + mark + " 暂不支持")
@@ -324,6 +327,26 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     Some({ field: Some(_), .. } as d) => Some(resolve_pos("color", d))
     _ => None
   }
+  let px2 : Pos? = match find_channel(spec, "x2") {
+    Some({ field: Some(_), .. } as d) => Some(resolve_pos("x2", d))
+    _ => None
+  }
+  let py2 : Pos? = match find_channel(spec, "y2") {
+    Some({ field: Some(_), .. } as d) => Some(resolve_pos("y2", d))
+    _ => None
+  }
+  let px = match (px, px2) {
+    (Some(a), Some(b)) => Some({ ..a, title: merge_titles(a.title, b.title), })
+    _ => px
+  }
+  let py = match (py, py2) {
+    (Some(a), Some(b)) => Some({ ..a, title: merge_titles(a.title, b.title), })
+    _ => py
+  }
+  let ptext : Pos? = match find_channel(spec, "text") {
+    Some({ field: Some(_), .. } as d) => Some(resolve_pos("text", d))
+    _ => None
+  }
   let color_value : String? = match find_channel(spec, "color") {
     Some({ value: Some(Str(c)), .. }) => Some(c)
     _ => None
@@ -331,7 +354,14 @@ pub fn compile(text : String) -> Compiled raise CompileError {
   // encoding-level aggregates
   let measures : Array[@transform.Measure] = []
   let groupby : Array[String] = []
-  for p in positions {
+  let measured : Array[Pos] = positions.copy()
+  for o in [px2, py2, ptext] {
+    match o {
+      Some(p) => measured.push(p)
+      None => ()
+    }
+  }
+  for p in measured {
     match p.aggregate {
       Some(op) =>
         measures.push({
@@ -445,6 +475,8 @@ pub fn compile(text : String) -> Compiled raise CompileError {
           (0.1, 0.05)
         } else if mark == "tick" {
           (0.25, 0.125)
+        } else if mark == "rect" || mark == "rule" {
+          (0.0, 0.0)
         } else {
           (1.0, 0.5)
         }
@@ -452,7 +484,7 @@ pub fn compile(text : String) -> Compiled raise CompileError {
           Some(v) => v
           None => 20.0
         }
-        if mark == "bar" || mark == "tick" {
+        if mark == "bar" || mark == "tick" || mark == "rect" || mark == "rule" {
           @scale.band_space(n, pi, po) * s
         } else {
           @scale.band_space(n, 1.0, 0.5) * s
@@ -480,7 +512,10 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       } else if is_ranged(mark, p) {
         [p.field, p.field + "_end"]
       } else {
-        [p.field]
+        match px2 {
+          Some(q) => [p.field, q.field]
+          None => [p.field]
+        }
       }
     None => []
   }
@@ -491,7 +526,10 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       } else if is_ranged(mark, p) {
         [p.field, p.field + "_end"]
       } else {
-        [p.field]
+        match py2 {
+          Some(q) => [p.field, q.field]
+          None => [p.field]
+        }
       }
     None => []
   }
@@ -860,6 +898,86 @@ pub fn compile(text : String) -> Compiled raise CompileError {
         )
         items.push(it)
       }
+      "rule" => {
+        let it = mk_item([
+          (
+            "stroke",
+            str(
+              match color_value {
+                Some(c) => c
+                None => "black"
+              },
+            ),
+          ),
+        ])
+        match (px, py) {
+          (Some(a), Some(b)) =>
+            if py2 is Some(_) {
+              it.set_num(
+                "x",
+                pos_of(xs, r, a.field) + xs.unwrap().0.bandwidth() * 0.5,
+              )
+              it.set_num("y", pos_of(ys, r, b.field))
+              it.set_num("y2", pos_of(ys, r, py2.unwrap().field))
+            } else {
+              it.set_num(
+                "y",
+                pos_of(ys, r, b.field) + ys.unwrap().0.bandwidth() * 0.5,
+              )
+              it.set_num("x", pos_of(xs, r, a.field))
+              it.set_num("x2", pos_of(xs, r, px2.unwrap().field))
+            }
+          _ => raise CompileError("rule 需要 x 与 y 通道")
+        }
+        items.push(it)
+      }
+      "text" => {
+        let it = mk_item([
+          ("font", str("sans-serif")),
+          ("fontSize", num(11.0)),
+          (
+            "fill",
+            str(
+              match pcolor {
+                Some(_) => color_of(r)
+                None =>
+                  match color_value {
+                    Some(c) => c
+                    None => "black"
+                  }
+              },
+            ),
+          ),
+          ("align", str("center")),
+          ("baseline", str("middle")),
+        ])
+        it.set_num(
+          "x",
+          match px {
+            Some(p) => pos_of(xs, r, p.field) + xs.unwrap().0.bandwidth() * 0.5
+            None => width * 0.5
+          },
+        )
+        it.set_num(
+          "y",
+          match py {
+            Some(p) => pos_of(ys, r, p.field) + ys.unwrap().0.bandwidth() * 0.5
+            None => height * 0.5
+          },
+        )
+        it.set_str("text", text_of(r, ptext))
+        items.push(it)
+      }
+      "rect" => {
+        let it = mk_item([("fill", str(color_of(r)))])
+        let a = px.unwrap()
+        let b = py.unwrap()
+        it.set_num("x", pos_of(xs, r, a.field))
+        it.set_num("width", max(0.25, xs.unwrap().0.bandwidth()))
+        it.set_num("y", pos_of(ys, r, b.field))
+        it.set_num("height", max(0.25, ys.unwrap().0.bandwidth()))
+        items.push(it)
+      }
       "tick" => {
         let it = mk_item([("opacity", num(0.7)), ("fill", str(color_of(r)))])
         let thickness = 1.0
@@ -944,6 +1062,8 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     "point" | "circle" | "square" => @scene.MarkType::Symbol
     "line" => @scene.MarkType::Line
     "area" => @scene.MarkType::Area
+    "rule" => @scene.MarkType::Rule
+    "text" => @scene.MarkType::Text
     _ => @scene.MarkType::Rect
   }
   if mark == "line" || mark == "area" {
@@ -1177,5 +1297,36 @@ fn orient_or_vertical(o : String) -> String {
     "vertical"
   } else {
     o
+  }
+}
+
+///|
+/// The string a text mark shows for a row.
+fn text_of(
+  r : Map[String, @value.Value],
+  p : Pos?,
+) -> String raise CompileError {
+  match p {
+    None => ""
+    Some(q) => {
+      let v = @value.get_field(r, q.field)
+      match q.def.format {
+        Some(f) =>
+          (@format.format(f) catch {
+            _ => raise CompileError("text.format 无效: " + f)
+          })(v.to_number())
+        None => v.to_js_string()
+      }
+    }
+  }
+}
+
+///|
+/// Titles of a range channel and its second channel, joined unless equal.
+fn merge_titles(a : String, b : String) -> String {
+  if a == b {
+    a
+  } else {
+    a + ", " + b
   }
 }

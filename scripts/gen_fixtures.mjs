@@ -16,7 +16,7 @@ if (new Date(2020, 5, 15, 12).getTimezoneOffset() !== 0) {
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const only = process.argv.slice(2);
-const generators = ['numfmt', 'ticks', 'libm', 'format', 'time', 'value', 'scale', 'expr', 'transform', 'scene'];
+const generators = ['numfmt', 'ticks', 'libm', 'format', 'time', 'value', 'scale', 'expr', 'transform', 'scene', 'vlexamples'];
 
 for (const name of generators) {
   if (only.length && !only.includes(name)) continue;

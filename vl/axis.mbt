@@ -71,7 +71,14 @@ fn axis_default(name : String, band : Bool) -> @value.Value {
 /// `value(spec[name], value(config[name], dflt))`
 fn AxisPlan::lookup(self : AxisPlan, name : String) -> @value.Value {
   match self.props.get(name) {
-    Some(Null) | Some(Undef) | None => axis_default(name, self.scale is Band(_))
+    Some(Null) | Some(Undef) | None =>
+      axis_default(
+        name,
+        match self.scale {
+          Band(b) => !b.is_point
+          _ => false
+        },
+      )
     Some(v) => v
   }
 }
