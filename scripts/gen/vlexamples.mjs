@@ -50,7 +50,17 @@ export async function generate() {
       }
       return names.join(' + ');
     });
-    entries.push(`    ("${name}", ${refs[0]}, ${refs[1]}, ${refs[2]}),`);
+    // laid out the way `moon fmt` prints it, so the generated file is already formatted
+    const one = `    ("${name}", ${refs[0]}, ${refs[1]}, ${refs[2]}),`;
+    if (one.length <= 84) entries.push(one);
+    else {
+      const fmt = (r) => {
+        const parts = r.split(' + ');
+        const line = `      ${r},`;
+        return line.length <= 80 ? line : parts.map((p, k) => `      ${p}${k < parts.length - 1 ? ' +' : ','}`).join('\n');
+      };
+      entries.push(`    (\n      "${name}",\n${refs.map(fmt).join('\n')}\n    ),`);
+    }
     i++;
   }
   const src = '// GENERATED FILE. DO NOT EDIT.\n// Regenerate with: cd scripts && npm ci && npm run fixtures\n\n' +

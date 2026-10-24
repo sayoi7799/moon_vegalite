@@ -20,6 +20,8 @@ pub fn quantize_interpolator((Double) -> String, Int32) -> Array[String]
 
 pub fn scheme(String) -> Scheme?
 
+pub fn scheme_interpolator(String) -> ((Double) -> String)?
+
 pub fn value_key(@value.Value) -> String
 
 // Errors

@@ -21,3 +21,13 @@ pub fn scheme(name : String) -> Scheme? {
       }
   }
 }
+
+///|
+/// The continuous interpolator of a named scheme (vega's `scheme(name)` for
+/// sequential scales), when the scheme has one.
+pub fn scheme_interpolator(name : String) -> ((Double) -> String)? {
+  match continuous_palette(name.to_lower()) {
+    Some(colors) => Some(interpolate_colors(colors))
+    None => None
+  }
+}

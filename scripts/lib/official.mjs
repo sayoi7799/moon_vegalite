@@ -41,6 +41,12 @@ export async function runOfficial(vlSpec) {
   await view.runAsync();
   const scene = exportMark(view.scenegraph().root);
   scene.view = { width: view.width(), height: view.height(), origin: view.origin(), background: compiled.background ?? null };
-  const svg = await view.toSVG();
+  let svg = await view.toSVG();
+  // gradient ids count up across documents in one process; number them per document
+  const ids = new Map();
+  svg = svg.replace(/gradient_\d+/g, (m) => {
+    if (!ids.has(m)) ids.set(m, `gradient_${ids.size}`);
+    return ids.get(m);
+  });
   return { compiled, scene, svg, view };
 }

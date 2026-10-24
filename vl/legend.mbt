@@ -419,3 +419,185 @@ fn place_legends(
   }
   ignore(grid_layout(group.map(legend_item), group.map(fn(l) { l.mark }), o))
 }
+
+// ---- gradient legends (continuous colour scales) ----
+
+///|
+/// A vertical gradient legend: a colour ramp with tick labels
+/// (vega-parser `legend-gradient.js` and `legend-gradient-labels.js`).
+pub fn build_gradient_legend(
+  title : String?,
+  seq : @scale.Sequential,
+  length : Double,
+  ramp_opacity : Double,
+  label_format : String?,
+) -> Legend raise CompileError {
+  let thickness = 16.0
+  let d = seq.scale.domain
+  let lo = d[0]
+  let hi = d[d.length() - 1]
+  let frac = @scale.Continuous::new(Linear)
+  frac.domain = [lo, hi]
+  let fraction = fn(v : Double) -> Double {
+    match frac.map(v) {
+      Some(x) => x
+      None => @double.not_a_number
+    }
+  }
+  // the colour ramp
+  let stop_values = seq.scale.ticks(count=15.0)
+  if lo != stop_values[0] {
+    stop_values.insert(0, lo)
+  }
+  if hi != stop_values[stop_values.length() - 1] {
+    stop_values.push(hi)
+  }
+  let stops : Array[@value.Value] = []
+  for v in stop_values {
+    stops.push(
+      Obj(
+        Map::from_array([
+          ("offset", Num(fraction(v))),
+          ("color", Str(seq.map(v).unwrap_or(""))),
+        ]),
+      ),
+    )
+  }
+  let ramp = mk_item([
+    ("x", num(0.0)),
+    ("y", num(0.0)),
+    ("width", num(thickness)),
+    ("height", num(length)),
+    ("stroke", str("#ddd")),
+    ("strokeWidth", num(0.0)),
+    (
+      "fill",
+      Obj(
+        Map::from_array([
+          ("gradient", Str("linear")),
+          ("x1", Num(0.0)),
+          ("y1", Num(1.0)),
+          ("x2", Num(0.0)),
+          ("y2", Num(0.0)),
+          ("stops", Arr(stops)),
+        ]),
+      ),
+    ),
+  ])
+  ramp.set_num("opacity", ramp_opacity)
+  // labels at the ticks
+  let count = max(2.0, 2.0 * (length / 100.0).floor())
+  let mut values = seq.scale.ticks(count~)
+  if values.length() < 3 && lo != hi {
+    values = [lo, hi]
+  }
+  let fmt = @format.format_span(lo, hi, count, specifier?=label_format) catch {
+    _ => raise CompileError("legend.format 无效")
+  }
+  let label_items = values.map(fn(v) {
+    let perc = fraction(v)
+    let it = text_item(
+      [
+        ("opacity", num(1.0)),
+        ("text", str(fmt(v))),
+        ("align", str("left")),
+        (
+          "baseline",
+          str(
+            if perc <= 0.0 {
+              "bottom"
+            } else if perc >= 1.0 {
+              "top"
+            } else {
+              "middle"
+            },
+          ),
+        ),
+      ],
+      "guide-label",
+    )
+    it.set_num("y", (1.0 - perc) * length)
+    it.set_num("x", thickness + 2.0)
+    it
+  })
+  let ramp_mark = @scene.Mark::new(
+    Rect,
+    role="legend-gradient",
+    interactive=false,
+    items=[ramp],
+  )
+  let label_mark = @scene.Mark::new(
+    Text,
+    role="legend-label",
+    interactive=false,
+    items=label_items,
+  )
+  let entry_group = mk_item([("x", num(0.0)), ("y", num(0.0))])
+  entry_group.children.push(ramp_mark)
+  entry_group.children.push(label_mark)
+  let entry_mark = @scene.Mark::new(
+    Group,
+    role="legend-entry",
+    interactive=false,
+    items=[entry_group],
+  )
+  let item = mk_item([
+    ("orient", str("right")),
+    ("padding", num(0.0)),
+    ("titlePadding", num(5.0)),
+  ])
+  item.children.push(entry_mark)
+  let title_mark = match title {
+    Some(t) => {
+      let it = text_item(
+        [
+          ("opacity", num(1.0)),
+          ("orient", str("top")),
+          ("text", str(t)),
+          ("limit", num(180.0)),
+          ("x", num(0.0)),
+          ("y", num(0.0)),
+          ("anchor", str("start")),
+          ("angle", num(0.0)),
+          ("align", str("left")),
+          ("baseline", str("top")),
+        ],
+        "guide-title",
+      )
+      let m = @scene.Mark::new(Text, role="legend-title", interactive=false, items=[
+        it,
+      ])
+      item.children.push(m)
+      Some(m)
+    }
+    None => None
+  }
+  let mark = @scene.Mark::new(Group, role="legend", interactive=false, items=[
+    item,
+  ])
+  try {
+    @scene.bound_mark(ramp_mark)
+    @scene.bound_mark(label_mark)
+    remove_overlap(label_mark, "parity", 0.0)
+    ignore(entry_group.bounds.clear())
+    ignore(@scene.bound_group(entry_group.bounds, entry_group))
+    ignore(entry_mark.bounds.clear().union(entry_group.bounds))
+    match title_mark {
+      Some(m) => @scene.bound_mark(m)
+      None => ()
+    }
+    ignore(item.bounds.clear())
+    ignore(@scene.bound_group(item.bounds, item))
+    ignore(mark.bounds.clear().union(item.bounds))
+  } catch {
+    @scene.SceneError(m) => raise CompileError(m)
+  }
+  {
+    mark,
+    orient: "right",
+    entry_items: [],
+    scope_mark: @scene.Mark::new(Group, role="scope"),
+    entry_mark,
+    title_mark,
+  }
+}

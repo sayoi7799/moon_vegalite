@@ -191,6 +191,7 @@ fn pos_scale(
   range_stop : Double,
   bins : (Double, Double, Double)?,
   zero_default : Bool,
+  order : Array[@value.Value]?,
 ) -> (RScale, Array[@value.Value]) {
   if p.def.bin is Some(_) && bins is Some((start, stop, step)) {
     let c = @scale.Continuous::new(Linear)
@@ -205,7 +206,10 @@ fn pos_scale(
     }
     (Binned(c, seq), [])
   } else if p.discrete {
-    let domain = sorted_unique(rows, p.field)
+    let domain = match order {
+      Some(o) => o
+      None => sorted_unique(rows, p.field)
+    }
     let band = if mark == "bar" ||
       mark == "rect" ||
       mark == "tick" ||
@@ -325,6 +329,7 @@ fn pos_scale(
 ///|
 pub fn compile(text : String) -> Compiled raise CompileError {
   let spec = @spec.parse_spec_text(text) catch { e => raise spec_err(e) }
+  validate(spec)
   let source = match spec.data {
     Some(d) => d
     None => raise CompileError("data 缺失")
@@ -510,6 +515,7 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     }
   }
   let has_aggregate = measures.length() > 0
+  let rows_pre = rows
   if has_aggregate {
     rows = @transform.aggregate(rows, groupby, measures) catch {
       @transform.TransformError(m) => raise CompileError(m)
@@ -525,11 +531,19 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     None => false
   }
   let orient = infer_orient(mark, px, py)
+  let config_zero = match spec.config.get("scale") {
+    Some(Obj(m)) =>
+      match m.get("zero") {
+        Some(Bool(z)) => z
+        _ => true
+      }
+    _ => true
+  }
   let vertical = orient != "horizontal"
   ignore(x_cont)
   ignore(y_cont)
   // stacking: bars with an unaggregated continuous field
-  let stack_chan : String? = if (mark == "bar" || mark == "area") &&
+  let stack_chan0 : String? = if (mark == "bar" || mark == "area") &&
     !(has_aggregate && pcolor is None) {
     match (px, py) {
       (Some(x), Some(y)) =>
@@ -544,6 +558,16 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     }
   } else {
     None
+  }
+  let stack_req : String? = match stack_chan0 {
+    Some("y") => py.unwrap().def.stack
+    Some("x") => px.unwrap().def.stack
+    _ => None
+  }
+  let stack_chan = if stack_req == Some("none") { None } else { stack_chan0 }
+  let stack_offset = match stack_req {
+    Some(o) => o
+    None => "zero"
   }
   let stacked_field = match stack_chan {
     Some("y") => py.unwrap().field
@@ -561,7 +585,7 @@ pub fn compile(text : String) -> Compiled raise CompileError {
           Some(c) => Some({ fields: [c.field], descending: [true], })
           None => None
         },
-        "zero",
+        stack_offset,
         stacked_field + "_start",
         stacked_field + "_end",
       )
@@ -575,7 +599,7 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       valid_fields.push(p.field)
     }
   }
-  for o in [psize, popacity] {
+  for o in [psize, popacity, pcolor] {
     match o {
       Some(p) =>
         if p.typ == "quantitative" && p.aggregate != Some("count") {
@@ -666,6 +690,16 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       }
     None => []
   }
+  let x_order = match px {
+    Some({ def: { sort: Some(sv), .. }, discrete: true, .. } as p) =>
+      sort_domain(p, sv, rows_pre, data, px, py)
+    _ => None
+  }
+  let y_order = match py {
+    Some({ def: { sort: Some(sv), .. }, discrete: true, .. } as p) =>
+      sort_domain(p, sv, rows_pre, data, px, py)
+    _ => None
+  }
   let xs = match px {
     Some(p) =>
       Some(
@@ -677,7 +711,8 @@ pub fn compile(text : String) -> Compiled raise CompileError {
           0.0,
           width,
           bin_info.get("x"),
-          zero_of_chan(mark, orient, "x", px2 is Some(_)),
+          zero_of_chan(mark, orient, "x", px2 is Some(_), config_zero),
+          x_order,
         ),
       )
     None => None
@@ -694,7 +729,8 @@ pub fn compile(text : String) -> Compiled raise CompileError {
             0.0,
             height,
             bin_info.get("y"),
-            zero_of_chan(mark, orient, "y", py2 is Some(_)),
+            zero_of_chan(mark, orient, "y", py2 is Some(_), config_zero),
+            y_order,
           ),
         )
       } else {
@@ -707,7 +743,8 @@ pub fn compile(text : String) -> Compiled raise CompileError {
             height,
             0.0,
             bin_info.get("y"),
-            zero_of_chan(mark, orient, "y", py2 is Some(_)),
+            zero_of_chan(mark, orient, "y", py2 is Some(_), config_zero),
+            y_order,
           ),
         )
       }
@@ -841,6 +878,9 @@ pub fn compile(text : String) -> Compiled raise CompileError {
         props["labelFlush"] = Bool(true)
         props["labelOverlap"] = Bool(true)
       }
+      if stack_chan == Some("x") && stack_offset == "normalize" {
+        props["format"] = Str(".0%")
+      }
       time_axis_props(p, props)
       apply_axis_spec(props, p.def.axis)
       axes.push(
@@ -849,7 +889,11 @@ pub fn compile(text : String) -> Compiled raise CompileError {
             scale: s,
             domain: d,
             orient: "bottom",
-            title: Some(p.title),
+            title: if p.def.title is Some(None) {
+              None
+            } else {
+              Some(p.title)
+            },
             props,
             grid_scale: None,
             tick_count: tick_x,
@@ -879,6 +923,9 @@ pub fn compile(text : String) -> Compiled raise CompileError {
           }
         _ => ()
       }
+      if stack_chan == Some("y") && stack_offset == "normalize" {
+        props["format"] = Str(".0%")
+      }
       time_axis_props(p, props)
       apply_axis_spec(props, p.def.axis)
       axes.push(
@@ -887,7 +934,11 @@ pub fn compile(text : String) -> Compiled raise CompileError {
             scale: s,
             domain: d,
             orient: "left",
-            title: Some(p.title),
+            title: if p.def.title is Some(None) {
+              None
+            } else {
+              Some(p.title)
+            },
             props,
             grid_scale: None,
             tick_count: tick_y,
@@ -905,9 +956,28 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     None => mark_color(spec)
   }
   let color_scale = @scale.Ordinal::new()
+  let color_is_quant = match pcolor {
+    Some(c) => c.typ == "quantitative"
+    None => false
+  }
   let color_domain = match pcolor {
-    Some(c) => sorted_unique(data, c.field)
-    None => []
+    Some(c) if !color_is_quant => sorted_unique(data, c.field)
+    _ => []
+  }
+  let color_seq : @scale.Sequential? = match pcolor {
+    Some(c) if color_is_quant =>
+      match @scale.scheme_interpolator("blues") {
+        Some(f) => {
+          let sq = @scale.Sequential::new(Linear, f)
+          match domain_extent(data, [c.field], false) {
+            Some((lo, hi)) => sq.scale.domain = [lo, hi]
+            None => ()
+          }
+          Some(sq)
+        }
+        _ => None
+      }
+    _ => None
   }
   color_scale.set_domain(color_domain)
   match @scale.scheme("tableau10") {
@@ -943,6 +1013,11 @@ pub fn compile(text : String) -> Compiled raise CompileError {
   shape_scale.set_range(symbol_shapes.map(fn(x) { Str(x) }))
   let color_of = fn(r : Map[String, @value.Value]) -> String {
     match pcolor {
+      Some(c) if color_seq is Some(_) =>
+        match color_seq.unwrap().map(@value.get_field(r, c.field).to_number()) {
+          Some(v) => v
+          None => base_color
+        }
       Some(c) =>
         match color_scale.map(@value.get_field(r, c.field)) {
           Some(Str(v)) => v
@@ -1318,7 +1393,7 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     })
   let leg_chs : Array[LegCh] = []
   match pcolor {
-    Some(c) =>
+    Some(c) if !(c.def.legend is Off) && color_seq is None =>
       leg_chs.push({
         channel: if filled_mark {
           "fill"
@@ -1328,7 +1403,7 @@ pub fn compile(text : String) -> Compiled raise CompileError {
         pos: c,
         kind: Disc(color_scale, color_domain),
       })
-    None => ()
+    _ => ()
   }
   match (psize, size_scale) {
     (Some(p), Some(sc)) =>
@@ -1356,10 +1431,43 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     base_color,
     pcolor is Some(_),
   )
+  match (pcolor, color_seq) {
+    (Some(c), Some(sq)) =>
+      if !(c.def.legend is Off) {
+        legends.insert(
+          0,
+          build_gradient_legend(
+            Some(c.title),
+            sq,
+            max(64.0, min(200.0, height)),
+            if mark == "point" ||
+              mark == "circle" ||
+              mark == "square" ||
+              mark == "tick" {
+              0.7
+            } else {
+              1.0
+            },
+            None,
+          ),
+        )
+      }
+    _ => ()
+  }
   let title = match spec.title {
     Some(t) => Some(build_title(t))
     None => None
   }
+  let hidden : Array[String] = []
+  match px {
+    Some({ def: { axis: Off, .. }, .. }) => hidden.push("bottom")
+    _ => ()
+  }
+  match py {
+    Some({ def: { axis: Off, .. }, .. }) => hidden.push("left")
+    _ => ()
+  }
+  let axes = axes.filter(fn(a) { !hidden.contains(a.orient) })
   assemble(spec, axes, [marks], legends, title, width, height)
 }
 
@@ -1576,14 +1684,21 @@ fn zero_of_chan(
   mark : String,
   orient : String,
   chan : String,
-  _secondary : Bool,
+  secondary : Bool,
+  config_zero : Bool,
 ) -> Bool {
   let perpendicular = (mark == "bar" || mark == "area" || mark == "line") &&
     (
       (orient == "horizontal" && chan == "y") ||
       (orient == "vertical" && chan == "x")
     )
-  !perpendicular
+  if perpendicular {
+    false
+  } else if (mark == "bar" || mark == "area") && !secondary {
+    true
+  } else {
+    config_zero
+  }
 }
 
 ///|

@@ -4,15 +4,20 @@ package "sayoi7799/moon_vegalite/vl"
 import {
   "sayoi7799/moon_vegalite/scale",
   "sayoi7799/moon_vegalite/scene",
+  "sayoi7799/moon_vegalite/spec",
   "sayoi7799/moon_vegalite/value",
 }
 
 // Values
+pub fn build_gradient_legend(String?, @scale.Sequential, Double, Double, String?) -> Legend raise CompileError
+
 pub fn build_legend(LegendPlan) -> Legend raise CompileError
 
 pub fn build_title(String) -> Title raise CompileError
 
 pub fn compile(String) -> Compiled raise CompileError
+
+pub fn validate(@spec.Spec) -> Unit raise CompileError
 
 // Errors
 pub suberror CompileError {

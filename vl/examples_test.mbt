@@ -49,7 +49,8 @@ fn json_diff(
         }
       }
       for k, _ in b {
-        if !a.contains(k) {
+        // gradient ids are assigned while rendering
+        if !a.contains(k) && !(k == "id" && path.has_suffix(".fill")) {
           out.push(path + "." + k + ": missing")
         }
       }

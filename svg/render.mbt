@@ -129,9 +129,14 @@ pub fn SvgOptions::new(
 }
 
 ///|
+/// Gradient ids are numbered per rendered document.
+let gradient_counter : Ref[Int32] = { val: 0, }
+
+///|
 priv struct Defs {
   clips : Array[(String, @scene.Item)]
   mut next_clip : Int32
+  gradients : Array[(String, @value.Value)]
 }
 
 ///|
@@ -215,6 +220,7 @@ fn style_attrs(
   item : @scene.Item,
   interactive : Bool,
   tag : String,
+  defs : Defs,
 ) -> Unit {
   if tag == "bgrect" && !interactive {
     attrs.emit("pointer-events", Some("none"))
@@ -261,6 +267,12 @@ fn style_attrs(
     match item.get(pair.0) {
       Null | Undef => ()
       Str("transparent") if name == "fill" || name == "stroke" => ()
+      Obj(g) if g.contains("gradient") => {
+        let id = "gradient_" + gradient_counter.val.to_string()
+        gradient_counter.val = gradient_counter.val + 1
+        defs.gradients.push((id, Obj(g)))
+        attrs.emit(name, Some("url(#" + id + ")"))
+      }
       v => attrs.emit(name, Some(v.to_js_string()))
     }
   }
@@ -336,7 +348,7 @@ fn render_mark(
         @scene.area_path(mark.items)
       }
       a.emit("d", if d == "" { None } else { Some(d) })
-      style_attrs(a, item, mark.interactive, tag)
+      style_attrs(a, item, mark.interactive, tag, defs)
       m.open(tag, [a])
       m.close()
     }
@@ -417,7 +429,7 @@ fn render_item(
     _ => ()
   }
   if tag != "g" {
-    style_attrs(a, item, mark.interactive, tag)
+    style_attrs(a, item, mark.interactive, tag, defs)
   }
   m.open(tag, [a])
   match mark.marktype {
@@ -463,7 +475,7 @@ fn render_group_content(
   } else {
     item
   }
-  style_attrs(bg, bg_item, mark.interactive, "bgrect")
+  style_attrs(bg, bg_item, mark.interactive, "bgrect", defs)
   m.open("path", [bg])
   m.close()
   // content
@@ -491,9 +503,9 @@ fn render_group_content(
     } else {
       item
     }
-    style_attrs(fg, fi, mark.interactive, "bgrect")
+    style_attrs(fg, fi, mark.interactive, "bgrect", defs)
   } else {
-    style_attrs(fg, item, mark.interactive, "bgfore")
+    style_attrs(fg, item, mark.interactive, "bgfore", defs)
   }
   m.open("path", [fg])
   m.close()
@@ -546,7 +558,8 @@ pub fn render_svg(
   opts : SvgOptions,
 ) -> String raise @scene.SceneError {
   let m = Markup::new()
-  let defs : Defs = { clips: [], next_clip: 1, }
+  gradient_counter.val = 0
+  let defs : Defs = { clips: [], next_clip: 1, gradients: [], }
   let root = Attrs::new()
   root.emit("xmlns", Some("http://www.w3.org/2000/svg"))
   root.emit("xmlns:xlink", Some("http://www.w3.org/1999/xlink"))
@@ -584,8 +597,60 @@ pub fn render_svg(
   m.open("g", [g1, g2])
   render_mark(m, scene, None, defs)
   m.close()
-  if defs.clips.length() > 0 {
+  if defs.clips.length() > 0 || defs.gradients.length() > 0 {
     m.open("defs", [])
+    for gd in defs.gradients {
+      let ga = Attrs::new()
+      ga.emit("id", Some(gd.0))
+      let g = match gd.1 {
+        Obj(o) => o
+        _ => Map([])
+      }
+      let num_or = fn(k : String, d : Double) {
+        match g.get(k) {
+          Some(Num(x)) => js_num(x)
+          _ => js_num(d)
+        }
+      }
+      ga.emit("x1", Some(num_or("x1", 0.0)))
+      ga.emit("x2", Some(num_or("x2", 1.0)))
+      ga.emit("y1", Some(num_or("y1", 0.0)))
+      ga.emit("y2", Some(num_or("y2", 0.0)))
+      m.open("linearGradient", [ga])
+      match g.get("stops") {
+        Some(Arr(stops)) =>
+          for st in stops {
+            match st {
+              Obj(so) => {
+                let sa = Attrs::new()
+                sa.emit(
+                  "offset",
+                  Some(
+                    match so.get("offset") {
+                      Some(v) => v.to_js_string()
+                      None => "0"
+                    },
+                  ),
+                )
+                sa.emit(
+                  "stop-color",
+                  Some(
+                    match so.get("color") {
+                      Some(v) => v.to_js_string()
+                      None => ""
+                    },
+                  ),
+                )
+                m.open("stop", [sa])
+                m.close()
+              }
+              _ => ()
+            }
+          }
+        _ => ()
+      }
+      m.close()
+    }
     for c in defs.clips {
       let ca = Attrs::new()
       ca.emit("id", Some(c.0))
