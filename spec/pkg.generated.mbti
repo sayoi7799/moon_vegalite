@@ -1,0 +1,128 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/spec"
+
+import {
+  "sayoi7799/moon_vegalite/value",
+}
+
+// Values
+pub fn index_path(String, Int32) -> String
+
+pub fn invalid(String, String) -> SpecError
+
+pub fn join_path(String, String) -> String
+
+pub fn parse_spec(Json) -> Spec raise SpecError
+
+pub fn parse_spec_text(String) -> Spec raise SpecError
+
+pub fn unsupported(String) -> SpecError
+
+// Errors
+pub(all) suberror SpecError {
+  SpecError(String)
+}
+pub fn SpecError::message(Self) -> String
+
+// Types and methods
+pub(all) struct AggregateOp {
+  op : String
+  field : String?
+  out : String
+}
+
+pub(all) struct ChannelDef {
+  field : String?
+  mut typ : String?
+  aggregate : String?
+  bin : Map[String, @value.Value]?
+  binned : Bool
+  time_unit : String?
+  sort : @value.Value?
+  scale : Map[String, @value.Value]?
+  scale_off : Bool
+  axis : Guide
+  legend : Guide
+  title : String??
+  format : String?
+  format_type : String?
+  value : @value.Value?
+  datum : @value.Value?
+  stack : String?
+  band : Double?
+  band_position : Double?
+}
+
+pub(all) enum FilterSpec {
+  Expr(String)
+  Predicate(Predicate)
+}
+
+pub(all) enum Guide {
+  Default
+  Off
+  Props(Map[String, @value.Value])
+}
+
+pub(all) struct Mark {
+  typ : String
+  props : Map[String, @value.Value]
+}
+
+pub(all) enum Predicate {
+  Equal(String, @value.Value, String?)
+  Lt(String, @value.Value, String?)
+  Lte(String, @value.Value, String?)
+  Gt(String, @value.Value, String?)
+  Gte(String, @value.Value, String?)
+  Range(String, @value.Value, @value.Value, String?)
+  OneOf(String, Array[@value.Value], String?)
+  Valid(String)
+  And(Array[Predicate])
+  Or(Array[Predicate])
+  Not(Predicate)
+  Expr(String)
+}
+
+pub struct Reader {
+  path : String
+  obj : Map[String, Json]
+  used : Array[String]
+}
+pub fn Reader::boolean(Self, String) -> Bool? raise SpecError
+pub fn Reader::finish(Self, unsupported_keys? : Array[String]) -> Unit raise SpecError
+pub fn Reader::has(Self, String) -> Bool
+pub fn Reader::ignore(Self, Array[String]) -> Unit
+pub fn Reader::new(String, Json) -> Self raise SpecError
+pub fn Reader::number(Self, String) -> Double? raise SpecError
+pub fn Reader::path_of(Self, String) -> String
+pub fn Reader::string(Self, String) -> String? raise SpecError
+pub fn Reader::take(Self, String) -> Json?
+pub fn Reader::value(Self, String) -> @value.Value?
+
+pub(all) struct Spec {
+  mark : Mark
+  encoding : Array[(String, ChannelDef)]
+  transform : Array[Transform]
+  data : Array[Map[String, @value.Value]]?
+  width : @value.Value?
+  height : @value.Value?
+  padding : @value.Value?
+  background : String?
+  title : String?
+  description : String?
+  config : Map[String, @value.Value]
+}
+
+pub(all) enum Transform {
+  Filter(FilterSpec)
+  Calculate(String, String)
+  Aggregate(Array[AggregateOp], Array[String])
+  Bin(String, Map[String, @value.Value], Array[String])
+  TimeUnit(String, String, String)
+  Fold(Array[String], Array[String])
+}
+
+// Type aliases
+
+// Traits
