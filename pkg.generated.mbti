@@ -1,13 +1,30 @@
 // Generated using `moon info`, DON'T EDIT IT
 package "sayoi7799/moon_vegalite"
 
+import {
+  "sayoi7799/moon_vegalite/vl",
+}
+
 // Values
+pub fn compile(String) -> @vl.Compiled raise RenderError
+
+pub fn render_svg(String, scale? : Double) -> String raise RenderError
+
+pub fn scene_json(@vl.Compiled) -> Json
+
+pub fn svg_of(@vl.Compiled, scale? : Double) -> String raise RenderError
+
 pub fn version() -> String
 
 // Errors
+pub suberror RenderError {
+  RenderError(String)
+}
+pub fn RenderError::message(Self) -> String
 
 // Types and methods
 
 // Type aliases
+pub using @vl {type Compiled}
 
 // Traits

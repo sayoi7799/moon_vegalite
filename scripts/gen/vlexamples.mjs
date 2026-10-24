@@ -10,6 +10,7 @@ import { asciiJson } from '../lib/mbt.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const specDir = path.join(root, 'scripts/.cache/vega-lite-5.23.0/examples/specs');
+const LIMIT = 50000;
 const stripAria = (s) => s.replace(/ (role|aria-roledescription|aria-label)="[^"]*"/g, '');
 
 /** Keep only the data fields that the spec text refers to. */
@@ -38,10 +39,18 @@ export async function generate() {
     const spec = project(loadSpec(file));
     const official = await runOfficial(spec);
     const scene = official.scene;
-    constants[`spec_${i}`] = asciiJson(JSON.stringify(spec));
-    constants[`scene_${i}`] = asciiJson(JSON.stringify(scene));
-    constants[`svg_${i}`] = asciiJson(stripAria(official.svg));
-    entries.push(`    ("${name}", spec_${i}, scene_${i}, svg_${i}),`);
+    const refs = [['spec', JSON.stringify(spec)], ['scene', JSON.stringify(scene)], ['svg', stripAria(official.svg)]].map(([kind, text]) => {
+      // keep every string literal below the compiler's line-length limit
+      const ascii = asciiJson(text);
+      const names = [];
+      for (let k = 0; k * LIMIT < ascii.length || k === 0; k++) {
+        const key = `${kind}_${i}_${k}`;
+        constants[key] = ascii.slice(k * LIMIT, (k + 1) * LIMIT);
+        names.push(key);
+      }
+      return names.join(' + ');
+    });
+    entries.push(`    ("${name}", ${refs[0]}, ${refs[1]}, ${refs[2]}),`);
     i++;
   }
   const src = '// GENERATED FILE. DO NOT EDIT.\n// Regenerate with: cd scripts && npm ci && npm run fixtures\n\n' +

@@ -5,7 +5,9 @@
   "description": "Generates test fixtures for moon_vegalite from the official vega-lite / vega implementations",
   "type": "module",
   "scripts": {
-    "fixtures": "node gen_fixtures.mjs"
+    "examples": "node fetch_examples.mjs",
+    "fixtures": "node fetch_examples.mjs && node gen_fixtures.mjs",
+    "gallery": "node fetch_examples.mjs && node gen_gallery.mjs"
   },
   "dependencies": {
     "vega": "5.33.1",

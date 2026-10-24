@@ -21,7 +21,7 @@ fn unit_parts(name : String) -> Array[String] raise CompileError {
       ] {
       if !matched && rest.has_prefix(tok) {
         found.push(tok)
-        rest = rest[tok.length():].to_string()
+        rest = rest[tok.length():].to_owned()
         matched = true
       }
     }
@@ -78,7 +78,7 @@ fn time_unit_specifier(parts : Array[String]) -> String {
     let mut end = n
     let mut hit = false
     while end > start && !hit {
-      let key = parts[start:end].to_array().join("-")
+      let key = parts[start:end].to_owned().join("-")
       match defaults.get(key) {
         Some(f) => {
           fmt = fmt + f

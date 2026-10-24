@@ -8,23 +8,41 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
       - name: Install MoonBit
         run: |
           curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
-          echo "$HOME/.moon/bin" >> $GITHUB_PATH
-      - name: Toolchain version
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - name: Toolchain
         run: moon version --all
-      - name: Check
-        run: moon check --deny-warn
       - name: Format
         run: moon fmt --check
+      - name: Check
+        run: moon check --deny-warn
       - name: Test (wasm-gc)
         run: moon test --target wasm-gc
       - name: Test (js)
         run: moon test --target js
       - name: Test (native)
         run: moon test --target native
+      - name: Build the CLI
+        run: moon build --target native cmd/vl2svg
+
+  fixtures:
+    # The committed fixtures must be exactly what the pinned official packages produce.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Regenerate fixtures
+        working-directory: scripts
+        run: |
+          npm ci
+          npm run fixtures
+      - name: Fixtures are up to date
+        run: git diff --exit-code -- fixtures

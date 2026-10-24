@@ -3,7 +3,6 @@
 ///|
 /// A position channel with everything resolved from its definition.
 priv struct Pos {
-  chan : String
   def : @spec.ChannelDef
   typ : String
   /// the data field this channel reads after the data pipeline
@@ -55,7 +54,7 @@ fn capitalize(s : String) -> String {
   if s.length() == 0 {
     s
   } else {
-    s[0:1].to_upper().to_string() + s[1:].to_string()
+    s[0:1].to_upper().to_owned() + s[1:].to_owned()
   }
 }
 
@@ -78,7 +77,10 @@ fn default_title(def : @spec.ChannelDef) -> String raise CompileError {
 }
 
 ///|
-fn resolve_pos(chan : String, def : @spec.ChannelDef) -> Pos raise CompileError {
+fn resolve_pos(
+  _chan : String,
+  def : @spec.ChannelDef,
+) -> Pos raise CompileError {
   let typ = match def.typ {
     Some(t) => t
     None =>
@@ -108,7 +110,6 @@ fn resolve_pos(chan : String, def : @spec.ChannelDef) -> Pos raise CompileError 
     _ => default_title(def)
   }
   {
-    chan,
     def,
     typ,
     field: derived_field(def),
@@ -117,14 +118,6 @@ fn resolve_pos(chan : String, def : @spec.ChannelDef) -> Pos raise CompileError 
     temporal: typ == "temporal",
     time_unit: def.time_unit,
     aggregate: def.aggregate,
-  }
-}
-
-///|
-fn config_number(v : @value.Value?, dflt : Double) -> Double {
-  match v {
-    Some(Num(x)) => x
-    _ => dflt
   }
 }
 

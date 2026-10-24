@@ -2,9 +2,7 @@ import {
   "moonbitlang/core/env",
   "moonbitlang/x/fs",
   "moonbitlang/x/sys",
-  "sayoi7799/moon_vegalite/scene",
-  "sayoi7799/moon_vegalite/svg",
-  "sayoi7799/moon_vegalite/vl",
+  "sayoi7799/moon_vegalite",
 }
 
 pkgtype(kind: "executable")

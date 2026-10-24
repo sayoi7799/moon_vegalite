@@ -30,17 +30,6 @@ fn find_channel(spec : @spec.Spec, name : String) -> @spec.ChannelDef? {
 }
 
 ///|
-fn need_field(
-  c : @spec.ChannelDef?,
-  what : String,
-) -> String raise CompileError {
-  match c {
-    Some({ field: Some(f), .. }) => f
-    _ => raise CompileError("encoding." + what + ".field 缺失")
-  }
-}
-
-///|
 fn is_finite_valid(v : @value.Value) -> Bool {
   v.is_valid() && !v.to_number().is_nan() && !v.to_number().is_inf()
 }

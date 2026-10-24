@@ -4,311 +4,489 @@ package "sayoi7799/moon_vegalite/fixtures/vlexamples"
 // Values
 pub fn cases() -> Array[(String, String, String, String)]
 
-pub let scene_0 : String
+pub let scene_0_0 : String
 
-pub let scene_1 : String
+pub let scene_10_0 : String
 
-pub let scene_10 : String
+pub let scene_11_0 : String
 
-pub let scene_11 : String
+pub let scene_12_0 : String
 
-pub let scene_12 : String
+pub let scene_13_0 : String
 
-pub let scene_13 : String
+pub let scene_14_0 : String
 
-pub let scene_14 : String
+pub let scene_15_0 : String
 
-pub let scene_15 : String
+pub let scene_16_0 : String
 
-pub let scene_16 : String
+pub let scene_17_0 : String
 
-pub let scene_17 : String
+pub let scene_18_0 : String
 
-pub let scene_18 : String
+pub let scene_19_0 : String
 
-pub let scene_19 : String
+pub let scene_1_0 : String
 
-pub let scene_2 : String
+pub let scene_20_0 : String
 
-pub let scene_20 : String
+pub let scene_21_0 : String
 
-pub let scene_21 : String
+pub let scene_21_1 : String
 
-pub let scene_22 : String
+pub let scene_22_0 : String
 
-pub let scene_23 : String
+pub let scene_23_0 : String
 
-pub let scene_24 : String
+pub let scene_24_0 : String
 
-pub let scene_25 : String
+pub let scene_25_0 : String
 
-pub let scene_26 : String
+pub let scene_26_0 : String
 
-pub let scene_27 : String
+pub let scene_27_0 : String
 
-pub let scene_28 : String
+pub let scene_28_0 : String
 
-pub let scene_29 : String
+pub let scene_29_0 : String
 
-pub let scene_3 : String
+pub let scene_2_0 : String
 
-pub let scene_30 : String
+pub let scene_30_0 : String
 
-pub let scene_31 : String
+pub let scene_31_0 : String
 
-pub let scene_32 : String
+pub let scene_31_1 : String
 
-pub let scene_33 : String
+pub let scene_31_10 : String
 
-pub let scene_34 : String
+pub let scene_31_11 : String
 
-pub let scene_35 : String
+pub let scene_31_12 : String
 
-pub let scene_36 : String
+pub let scene_31_13 : String
 
-pub let scene_37 : String
+pub let scene_31_2 : String
 
-pub let scene_38 : String
+pub let scene_31_3 : String
 
-pub let scene_39 : String
+pub let scene_31_4 : String
 
-pub let scene_4 : String
+pub let scene_31_5 : String
 
-pub let scene_40 : String
+pub let scene_31_6 : String
 
-pub let scene_41 : String
+pub let scene_31_7 : String
 
-pub let scene_42 : String
+pub let scene_31_8 : String
 
-pub let scene_43 : String
+pub let scene_31_9 : String
 
-pub let scene_44 : String
+pub let scene_32_0 : String
 
-pub let scene_45 : String
+pub let scene_33_0 : String
 
-pub let scene_46 : String
+pub let scene_33_1 : String
 
-pub let scene_47 : String
+pub let scene_34_0 : String
 
-pub let scene_48 : String
+pub let scene_35_0 : String
 
-pub let scene_49 : String
+pub let scene_35_1 : String
 
-pub let scene_5 : String
+pub let scene_35_2 : String
 
-pub let scene_50 : String
+pub let scene_36_0 : String
 
-pub let scene_6 : String
+pub let scene_36_1 : String
 
-pub let scene_7 : String
+pub let scene_37_0 : String
 
-pub let scene_8 : String
+pub let scene_38_0 : String
 
-pub let scene_9 : String
+pub let scene_38_1 : String
 
-pub let spec_0 : String
+pub let scene_39_0 : String
 
-pub let spec_1 : String
+pub let scene_3_0 : String
 
-pub let spec_10 : String
+pub let scene_40_0 : String
 
-pub let spec_11 : String
+pub let scene_41_0 : String
 
-pub let spec_12 : String
+pub let scene_42_0 : String
 
-pub let spec_13 : String
+pub let scene_43_0 : String
 
-pub let spec_14 : String
+pub let scene_44_0 : String
 
-pub let spec_15 : String
+pub let scene_45_0 : String
 
-pub let spec_16 : String
+pub let scene_45_1 : String
 
-pub let spec_17 : String
+pub let scene_46_0 : String
 
-pub let spec_18 : String
+pub let scene_46_1 : String
 
-pub let spec_19 : String
+pub let scene_46_2 : String
 
-pub let spec_2 : String
+pub let scene_46_3 : String
 
-pub let spec_20 : String
+pub let scene_46_4 : String
 
-pub let spec_21 : String
+pub let scene_47_0 : String
 
-pub let spec_22 : String
+pub let scene_47_1 : String
 
-pub let spec_23 : String
+pub let scene_48_0 : String
 
-pub let spec_24 : String
+pub let scene_48_1 : String
 
-pub let spec_25 : String
+pub let scene_49_0 : String
 
-pub let spec_26 : String
+pub let scene_4_0 : String
 
-pub let spec_27 : String
+pub let scene_50_0 : String
 
-pub let spec_28 : String
+pub let scene_51_0 : String
 
-pub let spec_29 : String
+pub let scene_52_0 : String
 
-pub let spec_3 : String
+pub let scene_53_0 : String
 
-pub let spec_30 : String
+pub let scene_54_0 : String
 
-pub let spec_31 : String
+pub let scene_55_0 : String
 
-pub let spec_32 : String
+pub let scene_56_0 : String
 
-pub let spec_33 : String
+pub let scene_57_0 : String
 
-pub let spec_34 : String
+pub let scene_58_0 : String
 
-pub let spec_35 : String
+pub let scene_59_0 : String
 
-pub let spec_36 : String
+pub let scene_5_0 : String
 
-pub let spec_37 : String
+pub let scene_60_0 : String
 
-pub let spec_38 : String
+pub let scene_61_0 : String
 
-pub let spec_39 : String
+pub let scene_6_0 : String
 
-pub let spec_4 : String
+pub let scene_7_0 : String
 
-pub let spec_40 : String
+pub let scene_8_0 : String
 
-pub let spec_41 : String
+pub let scene_9_0 : String
 
-pub let spec_42 : String
+pub let spec_0_0 : String
 
-pub let spec_43 : String
+pub let spec_0_1 : String
 
-pub let spec_44 : String
+pub let spec_0_2 : String
 
-pub let spec_45 : String
+pub let spec_10_0 : String
 
-pub let spec_46 : String
+pub let spec_11_0 : String
 
-pub let spec_47 : String
+pub let spec_12_0 : String
 
-pub let spec_48 : String
+pub let spec_12_1 : String
 
-pub let spec_49 : String
+pub let spec_13_0 : String
 
-pub let spec_5 : String
+pub let spec_13_1 : String
 
-pub let spec_50 : String
+pub let spec_14_0 : String
 
-pub let spec_6 : String
+pub let spec_15_0 : String
 
-pub let spec_7 : String
+pub let spec_16_0 : String
 
-pub let spec_8 : String
+pub let spec_17_0 : String
 
-pub let spec_9 : String
+pub let spec_18_0 : String
 
-pub let svg_0 : String
+pub let spec_19_0 : String
 
-pub let svg_1 : String
+pub let spec_19_1 : String
 
-pub let svg_10 : String
+pub let spec_1_0 : String
 
-pub let svg_11 : String
+pub let spec_20_0 : String
 
-pub let svg_12 : String
+pub let spec_20_1 : String
 
-pub let svg_13 : String
+pub let spec_21_0 : String
 
-pub let svg_14 : String
+pub let spec_22_0 : String
 
-pub let svg_15 : String
+pub let spec_22_1 : String
 
-pub let svg_16 : String
+pub let spec_23_0 : String
 
-pub let svg_17 : String
+pub let spec_23_1 : String
 
-pub let svg_18 : String
+pub let spec_24_0 : String
 
-pub let svg_19 : String
+pub let spec_25_0 : String
 
-pub let svg_2 : String
+pub let spec_25_1 : String
 
-pub let svg_20 : String
+pub let spec_26_0 : String
 
-pub let svg_21 : String
+pub let spec_26_1 : String
 
-pub let svg_22 : String
+pub let spec_27_0 : String
 
-pub let svg_23 : String
+pub let spec_27_1 : String
 
-pub let svg_24 : String
+pub let spec_28_0 : String
 
-pub let svg_25 : String
+pub let spec_29_0 : String
 
-pub let svg_26 : String
+pub let spec_29_1 : String
 
-pub let svg_27 : String
+pub let spec_2_0 : String
 
-pub let svg_28 : String
+pub let spec_30_0 : String
 
-pub let svg_29 : String
+pub let spec_31_0 : String
 
-pub let svg_3 : String
+pub let spec_31_1 : String
 
-pub let svg_30 : String
+pub let spec_32_0 : String
 
-pub let svg_31 : String
+pub let spec_33_0 : String
 
-pub let svg_32 : String
+pub let spec_34_0 : String
 
-pub let svg_33 : String
+pub let spec_35_0 : String
 
-pub let svg_34 : String
+pub let spec_36_0 : String
 
-pub let svg_35 : String
+pub let spec_37_0 : String
 
-pub let svg_36 : String
+pub let spec_38_0 : String
 
-pub let svg_37 : String
+pub let spec_39_0 : String
 
-pub let svg_38 : String
+pub let spec_39_1 : String
 
-pub let svg_39 : String
+pub let spec_3_0 : String
 
-pub let svg_4 : String
+pub let spec_40_0 : String
 
-pub let svg_40 : String
+pub let spec_41_0 : String
 
-pub let svg_41 : String
+pub let spec_42_0 : String
 
-pub let svg_42 : String
+pub let spec_43_0 : String
 
-pub let svg_43 : String
+pub let spec_44_0 : String
 
-pub let svg_44 : String
+pub let spec_45_0 : String
 
-pub let svg_45 : String
+pub let spec_46_0 : String
 
-pub let svg_46 : String
+pub let spec_47_0 : String
 
-pub let svg_47 : String
+pub let spec_48_0 : String
 
-pub let svg_48 : String
+pub let spec_49_0 : String
 
-pub let svg_49 : String
+pub let spec_4_0 : String
 
-pub let svg_5 : String
+pub let spec_50_0 : String
 
-pub let svg_50 : String
+pub let spec_51_0 : String
 
-pub let svg_6 : String
+pub let spec_52_0 : String
 
-pub let svg_7 : String
+pub let spec_53_0 : String
 
-pub let svg_8 : String
+pub let spec_54_0 : String
 
-pub let svg_9 : String
+pub let spec_55_0 : String
+
+pub let spec_56_0 : String
+
+pub let spec_57_0 : String
+
+pub let spec_58_0 : String
+
+pub let spec_59_0 : String
+
+pub let spec_5_0 : String
+
+pub let spec_60_0 : String
+
+pub let spec_61_0 : String
+
+pub let spec_6_0 : String
+
+pub let spec_7_0 : String
+
+pub let spec_8_0 : String
+
+pub let spec_9_0 : String
+
+pub let svg_0_0 : String
+
+pub let svg_10_0 : String
+
+pub let svg_11_0 : String
+
+pub let svg_12_0 : String
+
+pub let svg_13_0 : String
+
+pub let svg_14_0 : String
+
+pub let svg_15_0 : String
+
+pub let svg_16_0 : String
+
+pub let svg_17_0 : String
+
+pub let svg_18_0 : String
+
+pub let svg_19_0 : String
+
+pub let svg_1_0 : String
+
+pub let svg_20_0 : String
+
+pub let svg_21_0 : String
+
+pub let svg_21_1 : String
+
+pub let svg_22_0 : String
+
+pub let svg_23_0 : String
+
+pub let svg_24_0 : String
+
+pub let svg_25_0 : String
+
+pub let svg_26_0 : String
+
+pub let svg_27_0 : String
+
+pub let svg_28_0 : String
+
+pub let svg_29_0 : String
+
+pub let svg_2_0 : String
+
+pub let svg_30_0 : String
+
+pub let svg_31_0 : String
+
+pub let svg_31_1 : String
+
+pub let svg_31_2 : String
+
+pub let svg_31_3 : String
+
+pub let svg_31_4 : String
+
+pub let svg_31_5 : String
+
+pub let svg_31_6 : String
+
+pub let svg_31_7 : String
+
+pub let svg_31_8 : String
+
+pub let svg_31_9 : String
+
+pub let svg_32_0 : String
+
+pub let svg_33_0 : String
+
+pub let svg_33_1 : String
+
+pub let svg_34_0 : String
+
+pub let svg_35_0 : String
+
+pub let svg_35_1 : String
+
+pub let svg_36_0 : String
+
+pub let svg_36_1 : String
+
+pub let svg_37_0 : String
+
+pub let svg_38_0 : String
+
+pub let svg_38_1 : String
+
+pub let svg_39_0 : String
+
+pub let svg_3_0 : String
+
+pub let svg_40_0 : String
+
+pub let svg_41_0 : String
+
+pub let svg_42_0 : String
+
+pub let svg_43_0 : String
+
+pub let svg_44_0 : String
+
+pub let svg_45_0 : String
+
+pub let svg_45_1 : String
+
+pub let svg_46_0 : String
+
+pub let svg_46_1 : String
+
+pub let svg_47_0 : String
+
+pub let svg_48_0 : String
+
+pub let svg_49_0 : String
+
+pub let svg_4_0 : String
+
+pub let svg_50_0 : String
+
+pub let svg_51_0 : String
+
+pub let svg_52_0 : String
+
+pub let svg_53_0 : String
+
+pub let svg_54_0 : String
+
+pub let svg_55_0 : String
+
+pub let svg_56_0 : String
+
+pub let svg_57_0 : String
+
+pub let svg_58_0 : String
+
+pub let svg_59_0 : String
+
+pub let svg_5_0 : String
+
+pub let svg_60_0 : String
+
+pub let svg_61_0 : String
+
+pub let svg_6_0 : String
+
+pub let svg_7_0 : String
+
+pub let svg_8_0 : String
+
+pub let svg_9_0 : String
 
 // Errors
 

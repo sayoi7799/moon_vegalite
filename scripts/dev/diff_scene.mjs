@@ -39,7 +39,7 @@ export function diff(a, b, p, out, tol = 1e-9) {
     return;
   }
   for (const k of new Set([...Object.keys(a), ...Object.keys(b)])) {
-    if (k === 'view') continue;
+    if (k === 'view' || k === 'padding') continue;
     if ((k === 'clip' && a[k] === false && !(k in b)) || (k === 'interactive' && a[k] === true && !(k in b))) continue;
     if (!(k in a)) out.push(`${p}.${k}: missing in ours (official ${JSON.stringify(b[k]).slice(0, 80)})`);
     else if (!(k in b)) out.push(`${p}.${k}: extra in ours (${JSON.stringify(a[k]).slice(0, 80)})`);

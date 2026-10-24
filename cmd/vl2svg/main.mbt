@@ -20,37 +20,22 @@ fn run() -> Unit raise Error {
     return
   }
   let text = @fs.read_file_to_string(files[0])
-  let c = @vl.compile(text) catch {
+  let c = @moon_vegalite.compile(text) catch {
     e => {
       fail_with(e.message())
       return
     }
   }
   if scene_mode {
-    let j : Json = {
-      "view": {
-        "width": c.width,
-        "height": c.height,
-        "origin": [c.origin.0, c.origin.1],
-        "background": match c.background {
-          Some(b) => b
-          None => Json::null()
-        },
-      },
-      "scene": @scene.mark_to_json(c.scene, with_bounds=true),
-    }
-    println(j.stringify())
+    println(@moon_vegalite.scene_json(c).stringify())
     return
   }
-  let svg = @svg.render_svg(
-    c.scene,
-    @svg.SvgOptions::new(
-      c.view_width + 2.0 * c.padding,
-      c.view_height + 2.0 * c.padding,
-      origin=(c.origin.0 + c.padding, c.origin.1 + c.padding),
-      background?=c.background,
-    ),
-  )
+  let svg = @moon_vegalite.svg_of(c) catch {
+    e => {
+      fail_with(e.message())
+      return
+    }
+  }
   if files.length() > 1 {
     @fs.write_string_to_file(files[1], svg)
   } else {

@@ -64,7 +64,7 @@ fn bin_params(
   field : String,
   m : Map[String, @value.Value],
   default_maxbins : Double,
-) -> @transform.BinParams raise CompileError {
+) -> @transform.BinParams {
   let extent = match m.get("extent") {
     Some(Arr([Num(a), Num(b)])) => (a, b)
     _ =>

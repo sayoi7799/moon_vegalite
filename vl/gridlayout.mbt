@@ -47,11 +47,6 @@ fn offset_value(v : Double) -> Double {
 }
 
 ///|
-fn dbl(n : Int32) -> Double {
-  n.to_double()
-}
-
-///|
 /// Lay out `groups` (whose containing marks are `marks`), returning the
 /// bounds of the resulting grid.
 fn grid_layout(
