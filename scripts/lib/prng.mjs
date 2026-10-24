@@ -21,4 +21,5 @@ export function doubleToBits(x) {
   return b.getBigUint64(0);
 }
 
-export const hex16 = (x) => doubleToBits(x).toString(16).padStart(16, '0');
+// Every NaN prints as the canonical quiet NaN: payloads are not observable from JS and differ between engines.
+export const hex16 = (x) => (Number.isNaN(x) ? '7ff8000000000000' : doubleToBits(x).toString(16).padStart(16, '0'));

@@ -35,5 +35,5 @@ export function generate() {
   for (const x of values) lines.push(`numstr ${hex16(x)} ${String(x)}`);
   for (const x of values) lines.push(`round ${hex16(x)} ${hex16(Math.round(x))}`);
   for (const x of values) lines.push(`int32 ${hex16(x)} ${~~x}`);
-  return { numfmt: { cases: lines.join('\n') } };
+  return { fixtures: { numfmt: { cases: lines.join('\n') } } };
 }

@@ -59,3 +59,39 @@ pub fn js_to_int32(x : Double) -> Int32 {
   }
   t.to_int()
 }
+
+///|
+/// `Math.max(a, b)`: NaN if either side is NaN; `+0` is larger than `-0`.
+pub fn js_max(a : Double, b : Double) -> Double {
+  if a.is_nan() || b.is_nan() {
+    @double.not_a_number
+  } else if a == 0.0 && b == 0.0 {
+    if 1.0 / a > 0.0 {
+      a
+    } else {
+      b
+    }
+  } else if a > b {
+    a
+  } else {
+    b
+  }
+}
+
+///|
+/// `Math.min(a, b)`: NaN if either side is NaN; `-0` is smaller than `+0`.
+pub fn js_min(a : Double, b : Double) -> Double {
+  if a.is_nan() || b.is_nan() {
+    @double.not_a_number
+  } else if a == 0.0 && b == 0.0 {
+    if 1.0 / a < 0.0 {
+      a
+    } else {
+      b
+    }
+  } else if a < b {
+    a
+  } else {
+    b
+  }
+}

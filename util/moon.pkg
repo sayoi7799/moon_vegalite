@@ -1,4 +1,11 @@
 import {
+  "moonbitlang/core/double",
+  "moonbitlang/core/math",
+}
+
+import {
+  "moonbitlang/core/double",
   "moonbitlang/core/string",
+  "sayoi7799/moon_vegalite/fixtures/libm",
   "sayoi7799/moon_vegalite/fixtures/numfmt",
 } for "test"

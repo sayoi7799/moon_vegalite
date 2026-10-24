@@ -1,0 +1,17 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/stats"
+
+// Values
+pub fn tick_increment(Double, Double, Double) -> Double
+
+pub fn tick_step(Double, Double, Double) -> Double
+
+pub fn ticks(Double, Double, Double) -> Array[Double]
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

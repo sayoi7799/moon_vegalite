@@ -1,0 +1,7 @@
+import {
+  "sayoi7799/moon_vegalite/util",
+}
+
+import {
+  "sayoi7799/moon_vegalite/fixtures/ticks",
+} for "test"
