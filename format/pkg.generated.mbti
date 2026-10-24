@@ -1,0 +1,53 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/format"
+
+// Values
+pub fn decimal_parts(Double, Int32) -> (String, Int32)?
+
+pub fn format(String) -> ((Double) -> String) raise FormatError
+
+pub fn format_float(String) -> ((Double) -> String) raise FormatError
+
+pub fn format_prefix(FormatSpecifier, Double) -> ((Double) -> String) raise FormatError
+
+pub fn format_span(Double, Double, Double, specifier? : String) -> ((Double) -> String) raise FormatError
+
+pub fn parse_specifier(String) -> FormatSpecifier raise FormatError
+
+pub fn precision_fixed(Double) -> Double
+
+pub fn precision_prefix(Double, Double) -> Double
+
+pub fn precision_round(Double, Double) -> Double
+
+pub fn to_exponential(Double, Int32) -> String
+
+pub fn to_exponential_shortest(Double) -> String
+
+pub fn to_fixed(Double, Int32) -> String
+
+pub fn to_precision(Double, Int32) -> String
+
+// Errors
+pub(all) suberror FormatError {
+  FormatError(String)
+}
+
+// Types and methods
+pub struct FormatSpecifier {
+  fill : String
+  align : String
+  sign : String
+  symbol : String
+  zero : Bool
+  width : Int32?
+  comma : Bool
+  precision : Int32?
+  trim : Bool
+  kind : String
+}
+pub fn FormatSpecifier::to_spec_string(Self) -> String
+
+// Type aliases
+
+// Traits

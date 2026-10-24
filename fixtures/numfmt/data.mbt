@@ -3,7 +3,7 @@
 // Expected values come from the official vega-lite / vega packages pinned in scripts/package-lock.json.
 
 ///|
-pub let cases : String =
+let cases_part0 : String =
   #|numstr 0000000000000000 0
   #|numstr 8000000000000000 0
   #|numstr 3ff0000000000000 1
@@ -8004,6 +8004,9 @@ pub let cases : String =
   #|round 3fab730eeb554e10 0000000000000000
   #|round 40303eecbfb15b57 4030000000000000
   #|round 40f1bca000000000 40f1bca000000000
+
+///|
+let cases_part1 : String =
   #|round 40a7cbfae147ae14 40a7cc0000000000
   #|round 400504e50c5eb314 4008000000000000
   #|round bf638e727410c8fb 8000000000000000
@@ -15937,3 +15940,6 @@ pub let cases : String =
   #|int32 c4ea717cc0a3e4f9 939524096
   #|int32 45246c90a251ffba 0
   #|int32 c5246c90a251ffba 0
+
+///|
+pub let cases : String = cases_part0 + "\n" + cases_part1

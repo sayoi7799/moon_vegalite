@@ -35,8 +35,21 @@ export function writeFixturePackage(root, area, constants) {
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'moon.pkg'), '// Generated fixtures; see scripts/gen_fixtures.mjs\n');
   let src = HEADER;
+  // The compiler warns when one multi-line string segment gets too long, so split big constants.
+  const CHUNK = 8000;
   for (const [name, text] of Object.entries(constants)) {
-    src += `///|\npub let ${name} : String =\n${mbtMultiline(text)}\n\n`;
+    const lines = text.split('\n');
+    if (lines.length <= CHUNK) {
+      src += `///|\npub let ${name} : String =\n${mbtMultiline(text)}\n\n`;
+      continue;
+    }
+    const parts = [];
+    for (let i = 0; i < lines.length; i += CHUNK) {
+      const partName = `${name}_part${parts.length}`;
+      parts.push(partName);
+      src += `///|\nlet ${partName} : String =\n${mbtMultiline(lines.slice(i, i + CHUNK).join('\n'))}\n\n`;
+    }
+    src += `///|\npub let ${name} : String = ${parts.join(' + "\\n" + ')}\n\n`;
   }
   fs.writeFileSync(path.join(dir, 'data.mbt'), src.replace(/\n+$/, '\n'));
   return dir;
