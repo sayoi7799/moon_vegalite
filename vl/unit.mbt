@@ -427,6 +427,40 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     (Some(a), Some(b)) => Some({ ..a, title: merge_titles(a.title, b.title), })
     _ => py
   }
+  let psize : Pos? = match find_channel(spec, "size") {
+    Some({ field: Some(_), .. } as d) => Some(resolve_pos("size", d))
+    _ => None
+  }
+  let popacity : Pos? = match find_channel(spec, "opacity") {
+    Some({ field: Some(_), .. } as d) => Some(resolve_pos("opacity", d))
+    _ => None
+  }
+  let pshape : Pos? = match find_channel(spec, "shape") {
+    Some({ field: Some(_), .. } as d) => Some(resolve_pos("shape", d))
+    _ => None
+  }
+  let size_value : Double? = match find_channel(spec, "size") {
+    Some({ value: Some(Num(v)), .. }) => Some(v)
+    _ => None
+  }
+  let opacity_value : Double? = match find_channel(spec, "opacity") {
+    Some({ value: Some(Num(v)), .. }) => Some(v)
+    _ => None
+  }
+  let shape_value : String? = match find_channel(spec, "shape") {
+    Some({ value: Some(Str(v)), .. }) => Some(v)
+    _ => None
+  }
+  if mark != "point" && mark != "circle" && mark != "square" {
+    for ch in ["size", "opacity", "shape"] {
+      if find_channel(spec, ch) is Some(_) &&
+        !(ch == "opacity" && (mark == "bar" || mark == "tick" || mark == "area")) {
+        raise CompileError(
+          "encoding." + ch + " 暂不支持用于 mark " + mark,
+        )
+      }
+    }
+  }
   let ptext : Pos? = match find_channel(spec, "text") {
     Some({ field: Some(_), .. } as d) => Some(resolve_pos("text", d))
     _ => None
@@ -439,7 +473,7 @@ pub fn compile(text : String) -> Compiled raise CompileError {
   let measures : Array[@transform.Measure] = []
   let groupby : Array[String] = []
   let measured : Array[Pos] = positions.copy()
-  for o in [px2, py2, ptext] {
+  for o in [px2, py2, ptext, psize, popacity, pshape] {
     match o {
       Some(p) => measured.push(p)
       None => ()
@@ -468,6 +502,12 @@ pub fn compile(text : String) -> Compiled raise CompileError {
   match pcolor {
     Some(c) => groupby.push(c.field)
     None => ()
+  }
+  for o in [psize, popacity, pshape] {
+    match o {
+      Some(p) => if p.aggregate is None { groupby.push(p.field) }
+      None => ()
+    }
   }
   let has_aggregate = measures.length() > 0
   if has_aggregate {
@@ -533,6 +573,15 @@ pub fn compile(text : String) -> Compiled raise CompileError {
   for p in positions {
     if !p.discrete && p.aggregate != Some("count") {
       valid_fields.push(p.field)
+    }
+  }
+  for o in [psize, popacity] {
+    match o {
+      Some(p) =>
+        if p.typ == "quantitative" && p.aggregate != Some("count") {
+          valid_fields.push(p.field)
+        }
+      None => ()
     }
   }
   let is_path = mark == "line" || mark == "area"
@@ -865,6 +914,33 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     Some(Discrete(cs)) => color_scale.set_range(cs.map(fn(c) { Str(c) }))
     _ => ()
   }
+  let step_w = match step_of(spec.width) {
+    Some(v) => v
+    None => 20.0
+  }
+  let step_h = match step_of(spec.height) {
+    Some(v) => v
+    None => 20.0
+  }
+  let max_size = {
+    let m = 0.95 * min(step_w, step_h)
+    m * m
+  }
+  let size_scale = match psize {
+    Some(p) => Some(extent_scale(data, p.field, true, 4.0, max_size))
+    None => None
+  }
+  let opacity_scale = match popacity {
+    Some(p) => Some(extent_scale(data, p.field, false, 0.3, 0.8))
+    None => None
+  }
+  let shape_scale = @scale.Ordinal::new()
+  let shape_domain = match pshape {
+    Some(p) => sorted_unique(data, p.field)
+    None => []
+  }
+  shape_scale.set_domain(shape_domain)
+  shape_scale.set_range(symbol_shapes.map(fn(x) { Str(x) }))
   let color_of = fn(r : Map[String, @value.Value]) -> String {
     match pcolor {
       Some(c) =>
@@ -1175,6 +1251,42 @@ pub fn compile(text : String) -> Compiled raise CompileError {
         }
         it.set_num("x", xv)
         it.set_num("y", yv)
+        match (psize, size_scale) {
+          (Some(p), Some(sc)) =>
+            match sc.map(@value.get_field(r, p.field).to_number()) {
+              Some(v) => it.set_num("size", v)
+              None => ()
+            }
+          _ =>
+            match size_value {
+              Some(v) => it.set_num("size", v)
+              None => ()
+            }
+        }
+        match (popacity, opacity_scale) {
+          (Some(p), Some(sc)) =>
+            match sc.map(@value.get_field(r, p.field).to_number()) {
+              Some(v) => it.set_num("opacity", v)
+              None => ()
+            }
+          _ =>
+            match opacity_value {
+              Some(v) => it.set_num("opacity", v)
+              None => ()
+            }
+        }
+        match pshape {
+          Some(p) =>
+            match shape_scale.map(@value.get_field(r, p.field)) {
+              Some(v) => it.set("shape", v)
+              None => ()
+            }
+          None =>
+            match shape_value {
+              Some(v) => it.set_str("shape", v)
+              None => ()
+            }
+        }
         items.push(it)
       }
     }
@@ -1199,51 +1311,51 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     }
   }
   let marks = @scene.Mark::new(mt, name="marks", role="mark", items~)
-  let legends : Array[Legend] = []
+  let filled_mark = mark != "point" ||
+    (match spec.mark.props.get("filled") {
+      Some(Bool(true)) => true
+      _ => false
+    })
+  let leg_chs : Array[LegCh] = []
   match pcolor {
-    Some(c) => {
-      let filled_mark = mark != "point" ||
-        (match spec.mark.props.get("filled") {
-          Some(Bool(true)) => true
-          _ => false
-        })
-      let channel = if filled_mark { "fill" } else { "stroke" }
-      let symbol : Map[String, @value.Value] = Map([
-        (
-          "shape",
-          str(
-            match mark {
-              "bar" => "square"
-              "circle" | "square" => mark
-              _ => "circle"
-            },
-          ),
-        ),
-        ("size", num(100.0)),
-        ("strokeWidth", num(1.5)),
-      ])
-      if !filled_mark {
-        symbol["fill"] = str("transparent")
-      }
-      if mark == "point" ||
-        mark == "circle" ||
-        mark == "square" ||
-        mark == "tick" {
-        symbol["opacity"] = num(0.7)
-      }
-      let entries = color_domain.map(fn(v) {
-        let col = match color_scale.map(v) {
-          Some(x) => x
-          None => str(base_color)
-        }
-        { label: v.to_js_string(), props: Map::from_array([(channel, col)]), }
+    Some(c) =>
+      leg_chs.push({
+        channel: if filled_mark {
+          "fill"
+        } else {
+          "stroke"
+        },
+        pos: c,
+        kind: Disc(color_scale, color_domain),
       })
-      legends.push(
-        build_legend({ title: Some(c.title), orient: "right", symbol, entries, }),
-      )
-    }
     None => ()
   }
+  match (psize, size_scale) {
+    (Some(p), Some(sc)) =>
+      leg_chs.push({ channel: "size", pos: p, kind: Cont(sc), })
+    _ => ()
+  }
+  match (pshape, ()) {
+    (Some(p), _) =>
+      leg_chs.push({
+        channel: "shape",
+        pos: p,
+        kind: Disc(shape_scale, shape_domain),
+      })
+    _ => ()
+  }
+  match (popacity, opacity_scale) {
+    (Some(p), Some(sc)) =>
+      leg_chs.push({ channel: "opacity", pos: p, kind: Cont(sc), })
+    _ => ()
+  }
+  let legends = legends_of(
+    leg_chs,
+    mark,
+    filled_mark,
+    base_color,
+    pcolor is Some(_),
+  )
   let title = match spec.title {
     Some(t) => Some(build_title(t))
     None => None

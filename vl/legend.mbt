@@ -50,7 +50,18 @@ pub fn build_legend(plan : LegendPlan) -> Legend raise CompileError {
     Some(Num(v)) => v
     _ => 1.5
   }
-  let offset = max(ceil(size.sqrt() + stroke_width), label_size)
+  // per-entry symbol extent: max(ceil(sqrt(size) + strokeWidth), fontSize)
+  let sizes = plan.entries.map(fn(e) {
+    let sz = match e.props.get("size") {
+      Some(Num(v)) => v
+      _ => size
+    }
+    max(ceil(sz.sqrt() + stroke_width), label_size)
+  })
+  let mut offset = 0.0
+  for v in sizes {
+    offset = max(offset, v)
+  }
   let entry_items : Array[@scene.Item] = []
   let n = plan.entries.length()
   for i in 0..<n {
@@ -63,12 +74,12 @@ pub fn build_legend(plan : LegendPlan) -> Legend raise CompileError {
       sym.set(k, v)
     }
     sym.set_num("x", offset * 0.5 + 0.0)
-    sym.set_num("y", offset * 0.5)
+    sym.set_num("y", sizes[i] * 0.5)
     let label = text_item(
       [
         ("opacity", num(1.0)),
         ("x", num(offset + (0.0 + 4.0))),
-        ("y", num(offset * 0.5)),
+        ("y", num(sizes[i] * 0.5)),
         ("align", str("left")),
         ("baseline", str("middle")),
         ("limit", num(160.0)),

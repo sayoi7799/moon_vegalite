@@ -48,3 +48,6 @@ tick_dot
 tick_strip
 tick_strip_1D_with_height
 time_parse_local
+point_bubble
+point_color_with_shape
+point_color_shape_constant
