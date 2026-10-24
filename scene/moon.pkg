@@ -1,0 +1,10 @@
+import {
+  "moonbitlang/core/double",
+  "sayoi7799/moon_vegalite/util",
+  "sayoi7799/moon_vegalite/value",
+}
+
+import {
+  "moonbitlang/core/json",
+  "sayoi7799/moon_vegalite/fixtures/scenecases",
+} for "test"

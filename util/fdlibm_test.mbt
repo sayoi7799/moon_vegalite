@@ -44,3 +44,14 @@ test "js_pow10 is exact for integer exponents and finite for others" {
   assert_true(@util.js_pow10(400.0).is_inf())
   assert_true(@util.js_pow10(0.5) > 3.16 && @util.js_pow10(0.5) < 3.17)
 }
+
+///|
+test "js_cos / js_sin agree with V8 for whole degrees" {
+  let d = 3.141592653589793 / 180.0
+  assert_eq(@util.js_sin(45.0 * d), 0.7071067811865475)
+  assert_eq(@util.js_cos(45.0 * d), 0.7071067811865476)
+  assert_eq(@util.js_cos(90.0 * d), 6.123233995736766e-17)
+  assert_eq(@util.js_cos(270.0 * d), -1.8369701987210297e-16)
+  assert_eq(@util.js_sin(-90.0 * d), -1.0)
+  assert_eq(@util.js_cos(0.0), 1.0)
+}

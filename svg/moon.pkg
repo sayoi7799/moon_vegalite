@@ -1,0 +1,11 @@
+import {
+  "sayoi7799/moon_vegalite/scene",
+  "sayoi7799/moon_vegalite/util",
+  "sayoi7799/moon_vegalite/value",
+}
+
+import {
+  "moonbitlang/core/json",
+  "moonbitlang/core/string",
+  "sayoi7799/moon_vegalite/fixtures/scenecases",
+} for "test"

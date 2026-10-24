@@ -1,0 +1,25 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/svg"
+
+import {
+  "sayoi7799/moon_vegalite/scene",
+}
+
+// Values
+pub fn render_svg(@scene.Mark, SvgOptions) -> String raise @scene.SceneError
+
+// Errors
+
+// Types and methods
+pub struct SvgOptions {
+  width : Double
+  height : Double
+  origin : (Double, Double)
+  background : String?
+  scale : Double
+}
+pub fn SvgOptions::new(Double, Double, origin? : (Double, Double), background? : String, scale? : Double) -> Self
+
+// Type aliases
+
+// Traits

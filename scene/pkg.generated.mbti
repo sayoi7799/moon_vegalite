@@ -1,0 +1,205 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/scene"
+
+import {
+  "sayoi7799/moon_vegalite/value",
+}
+
+// Values
+pub fn area_path(Array[Item]) -> String raise SceneError
+
+pub fn baseline_offset(Item) -> Double
+
+pub fn bound_mark(Mark) -> Unit raise SceneError
+
+pub fn bound_stroke(Bounds, Item) -> Bounds
+
+pub fn curve_kind(String, String) -> CurveKind?
+
+pub fn draw_area(Ctx, Array[Item]) -> Unit raise SceneError
+
+pub fn draw_item_symbol(Ctx, Item) -> Unit raise SceneError
+
+pub fn draw_line(Ctx, Array[Item]) -> Unit raise SceneError
+
+pub fn draw_rect(Ctx, Item, x0? : Double, y0? : Double) -> Unit
+
+pub fn draw_symbol(Ctx, String, Double) -> Unit raise SceneError
+
+pub fn font_size(Item) -> Double
+
+pub fn line_height(Item) -> Double
+
+pub fn line_path(Array[Item]) -> String raise SceneError
+
+pub fn mark_from_json(Json) -> Mark raise SceneError
+
+pub fn mark_to_json(Mark, with_bounds? : Bool) -> Json
+
+pub fn rect_path(Item, x? : Double, y? : Double) -> String
+
+pub fn symbol_path(Item) -> String raise SceneError
+
+pub fn text_lines(Item) -> TextLines
+
+pub fn text_value(Item, @value.Value) -> String
+
+pub fn text_width(Item, @value.Value) -> Double
+
+// Errors
+pub(all) suberror SceneError {
+  SceneError(String)
+}
+
+// Types and methods
+pub struct BoundCtx {
+  bounds : Bounds
+  rot : Double
+  ma : Double
+  mb : Double
+  mc : Double
+  md : Double
+  mut lx : Double
+  mut ly : Double
+}
+pub fn BoundCtx::arc(Self, Double, Double, Double, Double, Double, Bool) -> Unit
+pub fn BoundCtx::bezier_to(Self, Double, Double, Double, Double, Double, Double) -> Unit
+pub fn BoundCtx::close_path(Self) -> Unit
+pub fn BoundCtx::line_to(Self, Double, Double) -> Unit
+pub fn BoundCtx::move_to(Self, Double, Double) -> Unit
+pub fn BoundCtx::new(Bounds, deg? : Double) -> Self
+pub fn BoundCtx::quad_to(Self, Double, Double, Double, Double) -> Unit
+pub fn BoundCtx::rect(Self, Double, Double, Double, Double) -> Unit
+
+pub struct Bounds {
+  mut x1 : Double
+  mut y1 : Double
+  mut x2 : Double
+  mut y2 : Double
+}
+pub fn Bounds::add(Self, Double, Double) -> Self
+pub fn Bounds::clear(Self) -> Self
+pub fn Bounds::copy(Self) -> Self
+pub fn Bounds::encloses(Self, Self) -> Bool
+pub fn Bounds::expand(Self, Double) -> Self
+pub fn Bounds::height(Self) -> Double
+pub fn Bounds::intersect(Self, Self) -> Self
+pub fn Bounds::is_empty(Self) -> Bool
+pub fn Bounds::new() -> Self
+pub fn Bounds::rotate(Self, Double, Double, Double) -> Self
+pub fn Bounds::rotated_points(Self, Double, Double, Double) -> Array[Double]
+pub fn Bounds::set(Self, Double, Double, Double, Double) -> Self
+pub fn Bounds::translate(Self, Double, Double) -> Self
+pub fn Bounds::union(Self, Self) -> Self
+pub fn Bounds::width(Self) -> Double
+
+pub enum Ctx {
+  Buf(PathBuf)
+  Bound(BoundCtx)
+}
+pub fn Ctx::arc(Self, Double, Double, Double, Double, Double, Bool) -> Unit
+pub fn Ctx::bezier_to(Self, Double, Double, Double, Double, Double, Double) -> Unit
+pub fn Ctx::close_path(Self) -> Unit
+pub fn Ctx::line_to(Self, Double, Double) -> Unit
+pub fn Ctx::move_to(Self, Double, Double) -> Unit
+pub fn Ctx::quad_to(Self, Double, Double, Double, Double) -> Unit
+pub fn Ctx::rect(Self, Double, Double, Double, Double) -> Unit
+
+pub struct Curve {
+  kind : CurveKind
+  mut line : Double
+  mut point : Int32
+  mut x0 : Double
+  mut y0 : Double
+  mut x1 : Double
+  mut y1 : Double
+  mut t0 : Double
+  mut t : Double
+}
+pub fn Curve::area_end(Self) -> Unit
+pub fn Curve::area_start(Self) -> Unit
+pub fn Curve::line_end(Self, Ctx) -> Unit
+pub fn Curve::line_start(Self, Ctx) -> Unit
+pub fn Curve::new(CurveKind) -> Self
+pub fn Curve::point(Self, Ctx, Double, Double) -> Unit
+
+pub(all) enum CurveKind {
+  Linear
+  Step
+  StepBefore
+  StepAfter
+  MonotoneX
+  MonotoneY
+}
+
+pub(all) struct Item {
+  props : Map[String, @value.Value]
+  bounds : Bounds
+  children : Array[Mark]
+}
+pub fn Item::get(Self, String) -> @value.Value
+pub fn Item::has(Self, String) -> Bool
+pub fn Item::has_corner_radius(Self) -> Bool
+pub fn Item::new(props? : Map[String, @value.Value]) -> Self
+pub fn Item::num0(Self, String) -> Double
+pub fn Item::num_or(Self, String, Double) -> Double
+pub fn Item::opt_num(Self, String) -> Double?
+pub fn Item::set(Self, String, @value.Value) -> Unit
+pub fn Item::set_num(Self, String, Double) -> Unit
+pub fn Item::set_str(Self, String, String) -> Unit
+pub fn Item::str(Self, String) -> String?
+pub fn Item::truthy(Self, String) -> Bool
+
+pub(all) struct Mark {
+  marktype : MarkType
+  name : String?
+  role : String?
+  interactive : Bool
+  clip : Bool
+  zindex : Int32?
+  aria : Bool
+  items : Array[Item]
+  bounds : Bounds
+}
+pub fn Mark::new(MarkType, name? : String, role? : String, interactive? : Bool, clip? : Bool, zindex? : Int32, aria? : Bool, items? : Array[Item]) -> Self
+
+pub(all) enum MarkType {
+  Group
+  Rect
+  Rule
+  Text
+  Symbol
+  Line
+  Area
+}
+pub fn MarkType::from_name(String) -> Self?
+pub fn MarkType::is_nested(Self) -> Bool
+pub fn MarkType::name(Self) -> String
+
+pub struct PathBuf {
+  out : StringBuilder
+  digits : Int32?
+  mut x0 : Double
+  mut y0 : Double
+  mut x1 : Double
+  mut y1 : Double
+  mut started : Bool
+}
+pub fn PathBuf::arc(Self, Double, Double, Double, Double, Double, Bool) -> Unit
+pub fn PathBuf::bezier_to(Self, Double, Double, Double, Double, Double, Double) -> Unit
+pub fn PathBuf::close_path(Self) -> Unit
+pub fn PathBuf::line_to(Self, Double, Double) -> Unit
+pub fn PathBuf::move_to(Self, Double, Double) -> Unit
+pub fn PathBuf::new(digits? : Int32) -> Self
+pub fn PathBuf::quad_to(Self, Double, Double, Double, Double) -> Unit
+pub fn PathBuf::rect(Self, Double, Double, Double, Double) -> Unit
+pub fn PathBuf::to_string(Self) -> String
+
+pub enum TextLines {
+  Single(@value.Value)
+  Lines(Array[@value.Value])
+}
+
+// Type aliases
+
+// Traits

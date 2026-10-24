@@ -32,5 +32,21 @@ export function generate() {
     '///|\nlet pow10_max_exp : Int = 310\n\n' +
     '///|\nlet pow10_bits : Array[UInt64] = [\n' +
     bits.map((b) => `  0x${b}UL,`).join('\n') + '\n]\n';
-  return { fixtures: { libm: { cases: lines.join('\n') } }, sources: { 'util/pow10_table.mbt': source } };
+  // sin / cos of whole degrees converted with the same constant the scenegraph uses
+  const DegToRad = Math.PI / 180;
+  const trigBits = (f) => {
+    const out = [];
+    for (let k = -720; k <= 720; k++) out.push('0x' + hex16(f(k * DegToRad)) + 'UL');
+    return out;
+  };
+  const trig =
+    '// GENERATED FILE. DO NOT EDIT.\n' +
+    '// Regenerate with: cd scripts && npm ci && npm run fixtures\n' +
+    '// Bit patterns of JavaScript Math.cos / Math.sin of (k * Math.PI / 180) for k in [-720, 720].\n\n' +
+    '///|\nlet cos_deg_bits : Array[UInt64] = [\n  ' + trigBits(Math.cos).join(',\n  ') + ',\n]\n\n' +
+    '///|\nlet sin_deg_bits : Array[UInt64] = [\n  ' + trigBits(Math.sin).join(',\n  ') + ',\n]\n';
+  return {
+    fixtures: { libm: { cases: lines.join('\n') } },
+    sources: { 'util/pow10_table.mbt': source, 'util/trig_table.mbt': trig },
+  };
 }
