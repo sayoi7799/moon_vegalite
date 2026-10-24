@@ -102,3 +102,21 @@ test "from_json keeps types and key order" {
     _ => fail("object expected")
   }
 }
+
+///|
+test "access paths" {
+  assert_eq(@value.split_access_path("a.b"), ["a", "b"])
+  assert_eq(@value.split_access_path("a"), ["a"])
+  assert_eq(@value.split_access_path("a\\.b"), ["a.b"])
+  assert_eq(@value.split_access_path("a[\"b.c\"].d"), ["a", "b.c", "d"])
+  assert_eq(@value.split_access_path("a[0]"), ["a", "0"])
+  let inner : Map[String, @value.Value] = Map([("y", @value.Value::Num(2.0))])
+  let row : Map[String, @value.Value] = Map([
+    ("a.b", @value.Value::Num(1.0)),
+    ("o", @value.Value::Obj(inner)),
+  ])
+  assert_true(@value.get_field(row, "a\\.b") is Num(1.0))
+  assert_true(@value.get_field(row, "o.y") is Num(2.0))
+  assert_true(@value.get_field(row, "o.z") is Undef)
+  assert_true(@value.get_field(row, "missing.deep") is Undef)
+}

@@ -1,0 +1,86 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/transform"
+
+import {
+  "sayoi7799/moon_vegalite/value",
+}
+
+// Values
+pub fn aggregate(Array[Map[String, @value.Value]], Array[String], Array[Measure]) -> Array[Map[String, @value.Value]] raise TransformError
+
+pub fn bin_rows(Array[Map[String, @value.Value]], String, BinParams, String, String, interval? : Bool) -> Unit
+
+pub fn compute_bins(BinParams) -> Bins
+
+pub fn extent(Array[Map[String, @value.Value]], String) -> (Double, Double)?
+
+pub fn filter(Array[Map[String, @value.Value]], String) -> Array[Map[String, @value.Value]] raise TransformError
+
+pub fn fold(Array[Map[String, @value.Value]], Array[String], String, String) -> Array[Map[String, @value.Value]]
+
+pub fn formula(Array[Map[String, @value.Value]], String, String) -> Unit raise TransformError
+
+pub fn is_aggregate_op(String) -> Bool
+
+pub fn make_binner(BinParams) -> Binner
+
+pub fn measure_name(String, String?, String?) -> String
+
+pub fn numbers_of(Array[@value.Value]) -> Array[Double]
+
+pub fn quantile_sorted(Array[Double], Double) -> Double?
+
+pub fn[T] stable_sort(Array[T], (T, T) -> Int32) -> Array[T]
+
+pub fn stack(Array[Map[String, @value.Value]], String?, Array[String], StackSort?, String, String, String) -> Unit
+
+pub fn timeunit(Array[Map[String, @value.Value]], String, Array[String], step? : Int32, as0? : String, as1? : String, interval? : Bool) -> Unit raise TransformError
+
+// Errors
+pub(all) suberror TransformError {
+  TransformError(String)
+}
+
+// Types and methods
+pub(all) struct BinParams {
+  extent : (Double, Double)
+  maxbins : Double
+  base : Double
+  divide : Array[Double]
+  step : Double?
+  steps : Array[Double]?
+  minstep : Double
+  nice : Bool
+  span : Double?
+  anchor : Double?
+}
+pub fn BinParams::new((Double, Double), maxbins? : Double, base? : Double, divide? : Array[Double], step? : Double, steps? : Array[Double], minstep? : Double, nice? : Bool, span? : Double, anchor? : Double) -> Self
+
+pub struct Binner {
+  start : Double
+  stop : Double
+  step : Double
+  raw_stop : Double
+}
+pub fn Binner::bin(Self, @value.Value) -> Double?
+
+pub struct Bins {
+  start : Double
+  stop : Double
+  step : Double
+}
+
+pub(all) struct Measure {
+  op : String
+  field : String?
+  out : String
+}
+
+pub(all) struct StackSort {
+  fields : Array[String]
+  descending : Array[Bool]
+}
+
+// Type aliases
+
+// Traits

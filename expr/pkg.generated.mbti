@@ -8,6 +8,8 @@ import {
 // Values
 pub fn eval_expr(Expr, @value.Value) -> @value.Value raise ExprError
 
+pub fn js_less(@value.Value, @value.Value) -> Bool
+
 pub fn parse_expr(String) -> Expr raise ExprError
 
 // Errors

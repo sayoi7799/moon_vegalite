@@ -27,7 +27,7 @@ fn js_add(a0 : @value.Value, b0 : @value.Value) -> @value.Value {
 
 ///|
 /// Abstract relational comparison `a < b` (false when either side is NaN).
-fn js_less(a0 : @value.Value, b0 : @value.Value) -> Bool {
+pub fn js_less(a0 : @value.Value, b0 : @value.Value) -> Bool {
   let a = prim(a0)
   let b = prim(b0)
   match (a, b) {
