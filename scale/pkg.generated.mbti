@@ -1,0 +1,102 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/scale"
+
+import {
+  "sayoi7799/moon_vegalite/value",
+}
+
+// Values
+pub fn band_space(Double, Double, Double) -> Double
+
+pub fn interpolate_colors(Array[String]) -> (Double) -> String
+
+pub fn interpolate_range((Double) -> String, Double, Double) -> (Double) -> String
+
+pub fn interpolate_rgb(String, String) -> (Double) -> String
+
+pub fn parse_color(String) -> Rgb?
+
+pub fn quantize_interpolator((Double) -> String, Int32) -> Array[String]
+
+pub fn scheme(String) -> Scheme?
+
+pub fn value_key(@value.Value) -> String
+
+// Errors
+
+// Types and methods
+pub struct Band {
+  is_point : Bool
+  mut keys : Array[String]
+  mut range : (Double, Double)
+  mut padding_inner : Double
+  mut padding_outer : Double
+  mut align : Double
+  mut round : Bool
+  mut step : Double
+  mut bandwidth : Double
+  mut positions : Array[Double]
+}
+pub fn Band::band() -> Self
+pub fn Band::map(Self, @value.Value) -> Double?
+pub fn Band::point() -> Self
+pub fn Band::set_align(Self, Double) -> Unit
+pub fn Band::set_domain(Self, Array[@value.Value]) -> Unit
+pub fn Band::set_padding(Self, Double) -> Unit
+pub fn Band::set_padding_inner(Self, Double) -> Unit
+pub fn Band::set_padding_outer(Self, Double) -> Unit
+pub fn Band::set_range(Self, Double, Double) -> Unit
+pub fn Band::set_range_round(Self, Double, Double) -> Unit
+pub fn Band::set_round(Self, Bool) -> Unit
+
+pub(all) struct Continuous {
+  kind : ScaleKind
+  mut domain : Array[Double]
+  mut range : Array[Double]
+  mut clamp : Bool
+  mut round : Bool
+}
+pub fn Continuous::map(Self, Double) -> Double?
+pub fn Continuous::new(ScaleKind) -> Self
+pub fn Continuous::nice(Self, count? : Double) -> Unit
+pub fn Continuous::ticks(Self, count? : Double) -> Array[Double]
+
+pub struct Ordinal {
+  mut keys : Array[String]
+  mut range : Array[@value.Value]
+}
+pub fn Ordinal::map(Self, @value.Value) -> @value.Value?
+pub fn Ordinal::new() -> Self
+pub fn Ordinal::set_domain(Self, Array[@value.Value]) -> Unit
+pub fn Ordinal::set_range(Self, Array[@value.Value]) -> Unit
+
+pub struct Rgb {
+  r : Double
+  g : Double
+  b : Double
+  opacity : Double
+}
+pub fn Rgb::format_rgb(Self) -> String
+
+pub(all) enum ScaleKind {
+  Linear
+  Pow(Double)
+  Log(Double)
+}
+pub fn ScaleKind::sqrt() -> Self
+
+pub enum Scheme {
+  Discrete(Array[String])
+  Interpolating((Double) -> String)
+}
+
+pub(all) struct Sequential {
+  scale : Continuous
+  mut interpolator : (Double) -> String
+}
+pub fn Sequential::map(Self, Double) -> String?
+pub fn Sequential::new(ScaleKind, (Double) -> String) -> Self
+
+// Type aliases
+
+// Traits

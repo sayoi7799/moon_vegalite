@@ -1,0 +1,12 @@
+import {
+  "moonbitlang/core/double",
+  "moonbitlang/core/math",
+  "moonbitlang/core/string",
+  "sayoi7799/moon_vegalite/stats",
+  "sayoi7799/moon_vegalite/util",
+  "sayoi7799/moon_vegalite/value",
+}
+
+import {
+  "sayoi7799/moon_vegalite/fixtures/scalecases",
+} for "test"
