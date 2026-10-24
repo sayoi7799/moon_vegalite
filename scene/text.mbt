@@ -151,3 +151,12 @@ pub fn baseline_offset(item : Item) -> Double {
   }
   @util.js_round(r)
 }
+
+///|
+/// vega `multiLineOffset(item)`: the extra height of a multi-line text.
+pub fn multi_line_offset(item : Item) -> Double {
+  match text_lines(item) {
+    Lines(lines) => (lines.length() - 1).to_double() * line_height(item)
+    Single(_) => 0.0
+  }
+}

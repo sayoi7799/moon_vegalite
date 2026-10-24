@@ -1,0 +1,61 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/vl"
+
+import {
+  "sayoi7799/moon_vegalite/scale",
+  "sayoi7799/moon_vegalite/scene",
+  "sayoi7799/moon_vegalite/value",
+}
+
+// Values
+pub fn compile(String) -> Compiled raise CompileError
+
+// Errors
+pub suberror CompileError {
+  CompileError(String)
+}
+pub fn CompileError::message(Self) -> String
+
+// Types and methods
+pub(all) struct Axis {
+  mark : @scene.Mark
+  orient : String
+  has_grid : Bool
+  has_ticks : Bool
+  has_labels : Bool
+  has_domain : Bool
+  has_title : Bool
+  overlap : String?
+  overlap_separation : Double
+}
+
+pub(all) struct AxisPlan {
+  scale : RScale
+  domain : Array[@value.Value]
+  orient : String
+  title : String?
+  props : Map[String, @value.Value]
+  grid_scale : RScale?
+  tick_count : Double
+}
+
+pub(all) struct Compiled {
+  scene : @scene.Mark
+  width : Double
+  height : Double
+  origin : (Double, Double)
+  padding : Double
+  view_width : Double
+  view_height : Double
+  background : String?
+}
+
+pub(all) enum RScale {
+  Cont(@scale.Continuous)
+  Time(@scale.Continuous)
+  Band(@scale.Band)
+}
+
+// Type aliases
+
+// Traits

@@ -2,13 +2,12 @@
 
 ///|
 let supported_marks : Array[String] = [
-  "bar", "line", "point", "area", "rule", "tick", "rect", "text",
+  "bar", "line", "point", "area", "rule", "tick", "rect", "text", "circle", "square",
 ]
 
 ///|
 let known_unsupported_marks : Array[String] = [
-  "circle", "square", "arc", "trail", "geoshape", "image", "boxplot", "errorbar",
-  "errorband",
+  "arc", "trail", "geoshape", "image", "boxplot", "errorbar", "errorband",
 ]
 
 ///|

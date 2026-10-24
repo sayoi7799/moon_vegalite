@@ -10,6 +10,8 @@ pub fn area_path(Array[Item]) -> String raise SceneError
 
 pub fn baseline_offset(Item) -> Double
 
+pub fn bound_group(Bounds, Item) -> Bounds
+
 pub fn bound_mark(Mark) -> Unit raise SceneError
 
 pub fn bound_stroke(Bounds, Item) -> Bounds
@@ -35,6 +37,8 @@ pub fn line_path(Array[Item]) -> String raise SceneError
 pub fn mark_from_json(Json) -> Mark raise SceneError
 
 pub fn mark_to_json(Mark, with_bounds? : Bool) -> Json
+
+pub fn multi_line_offset(Item) -> Double
 
 pub fn rect_path(Item, x? : Double, y? : Double) -> String
 

@@ -13,3 +13,7 @@ keywords = [ "vega-lite", "visualization", "chart", "svg", "declarative" ]
 preferred_target = "wasm-gc"
 
 description = "Spec-driven Vega-Lite renderer: Vega-Lite JSON in, backend-neutral scenegraph and SVG out."
+
+import {
+  "moonbitlang/x@0.5.6",
+}

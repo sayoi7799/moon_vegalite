@@ -91,7 +91,7 @@ fn bound_symbol(bounds : Bounds, item : Item) -> Bounds raise SceneError {
 }
 
 ///|
-fn bound_group(bounds : Bounds, group : Item) -> Bounds {
+pub fn bound_group(bounds : Bounds, group : Item) -> Bounds {
   let clip = group.truthy("clip")
   if !clip {
     for m in group.children {

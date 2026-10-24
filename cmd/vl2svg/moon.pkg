@@ -1,0 +1,19 @@
+import {
+  "moonbitlang/core/env",
+  "moonbitlang/x/fs",
+  "moonbitlang/x/sys",
+  "sayoi7799/moon_vegalite/scene",
+  "sayoi7799/moon_vegalite/svg",
+  "sayoi7799/moon_vegalite/vl",
+}
+
+pkgtype(kind: "executable")
+
+warnings = "-29"
+
+options(
+  targets: {
+    "main.mbt": [ "native" ],
+    "main_other.mbt": [ "js", "wasm-gc", "wasm" ],
+  },
+)
