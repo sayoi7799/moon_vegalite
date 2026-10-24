@@ -417,10 +417,12 @@ fn parse_legacy(s : String) -> Double {
         }
         1 => {
           let (a, ad) = nums[0]
-          if a > 31.0 || ad >= 3 {
-            (a, 1.0, 1.0)
-          } else {
+          if a >= 1.0 && a <= 12.0 && ad <= 2 {
             (2001.0, a, 1.0)
+          } else if a == 0.0 || a >= 32.0 {
+            (two_digit_year(a, ad), 1.0, 1.0)
+          } else {
+            return @double.not_a_number
           }
         }
         _ => return @double.not_a_number

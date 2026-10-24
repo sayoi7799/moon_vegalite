@@ -1,0 +1,32 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/expr"
+
+import {
+  "sayoi7799/moon_vegalite/value",
+}
+
+// Values
+pub fn eval_expr(Expr, @value.Value) -> @value.Value raise ExprError
+
+pub fn parse_expr(String) -> Expr raise ExprError
+
+// Errors
+pub(all) suberror ExprError {
+  ExprError(String)
+}
+
+// Types and methods
+pub(all) enum Expr {
+  Lit(@value.Value)
+  Ident(String)
+  Member(Expr, Expr)
+  Call(String, Array[Expr])
+  Unary(String, Expr)
+  Binary(String, Expr, Expr)
+  Logical(String, Expr, Expr)
+  Cond(Expr, Expr, Expr)
+}
+
+// Type aliases
+
+// Traits

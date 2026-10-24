@@ -73,3 +73,32 @@ test "Map keeps insertion order" {
   m["mid"] = Null
   assert_eq(m.keys().collect(), ["zeta", "alpha", "mid"])
 }
+
+///|
+test "from_json keeps types and key order" {
+  let j = @json.parse(
+    "{\"b\": 1, \"a\": [true, null, \"x\", 2.5], \"c\": {\"z\": 1, \"y\": 2}}",
+  ) catch {
+    _ => fail("parse")
+  }
+  match @value.from_json(j) {
+    Obj(m) => {
+      assert_eq(m.keys().collect(), ["b", "a", "c"])
+      assert_true(m["b"] is Num(1.0))
+      match m["a"] {
+        Arr(items) => {
+          assert_eq(items.length(), 4)
+          assert_true(items[0] is Bool(true))
+          assert_true(items[1] is Null)
+          assert_true(items[3] is Num(2.5))
+        }
+        _ => fail("array")
+      }
+      match m["c"] {
+        Obj(inner) => assert_eq(inner.keys().collect(), ["z", "y"])
+        _ => fail("object")
+      }
+    }
+    _ => fail("object expected")
+  }
+}

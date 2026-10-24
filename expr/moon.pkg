@@ -1,0 +1,14 @@
+import {
+  "moonbitlang/core/double",
+  "moonbitlang/core/math",
+  "moonbitlang/core/string",
+  "sayoi7799/moon_vegalite/format",
+  "sayoi7799/moon_vegalite/time",
+  "sayoi7799/moon_vegalite/util",
+  "sayoi7799/moon_vegalite/value",
+}
+
+import {
+  "moonbitlang/core/json",
+  "sayoi7799/moon_vegalite/fixtures/exprcases",
+} for "test"

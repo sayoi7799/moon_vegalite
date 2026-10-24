@@ -7,6 +7,8 @@
 
 ///|
 pub(all) enum Value {
+  /// JavaScript `undefined`: a missing field
+  Undef
   Null
   Bool(Bool)
   Num(Double)
@@ -36,7 +38,7 @@ fn is_js_space(c : Char) -> Bool {
 }
 
 ///|
-fn trim_js(s : String) -> String {
+pub fn trim_js(s : String) -> String {
   let cs = s.to_array()
   let mut a = 0
   let mut b = cs.length()
@@ -161,6 +163,7 @@ pub fn string_to_number(s : String) -> Double {
 /// `+value`: JavaScript's unary plus on a cell value.
 pub fn Value::to_number(self : Value) -> Double {
   match self {
+    Undef => @double.not_a_number
     Null => 0.0
     Bool(b) => if b { 1.0 } else { 0.0 }
     Num(x) => x
@@ -179,6 +182,7 @@ pub fn Value::to_number(self : Value) -> Double {
 /// `String(value)`.
 pub fn Value::to_js_string(self : Value) -> String {
   match self {
+    Undef => "undefined"
     Null => "null"
     Bool(b) => if b { "true" } else { "false" }
     Num(x) => @util.js_number_to_string(x)
@@ -187,7 +191,7 @@ pub fn Value::to_js_string(self : Value) -> String {
       items
       .map(fn(v) {
         match v {
-          Null => ""
+          Null | Undef => ""
           other => other.to_js_string()
         }
       })
@@ -200,7 +204,7 @@ pub fn Value::to_js_string(self : Value) -> String {
 /// vega-lite / vega `isValid`: not null and not NaN.
 pub fn Value::is_valid(self : Value) -> Bool {
   match self {
-    Null => false
+    Null | Undef => false
     Num(x) => !x.is_nan()
     _ => true
   }
@@ -210,7 +214,7 @@ pub fn Value::is_valid(self : Value) -> Bool {
 /// JavaScript truthiness.
 pub fn Value::truthy(self : Value) -> Bool {
   match self {
-    Null => false
+    Null | Undef => false
     Bool(b) => b
     Num(x) => !(x == 0.0 || x.is_nan())
     Str(s) => s != ""
@@ -221,7 +225,7 @@ pub fn Value::truthy(self : Value) -> Bool {
 ///|
 fn is_blank(v : Value) -> Bool {
   match v {
-    Null => true
+    Null | Undef => true
     Str("") => true
     _ => false
   }
@@ -278,9 +282,9 @@ pub fn Value::coerce_date(self : Value) -> Value {
 /// vega-util `ascending`: nulls first, then natural order; NaN after numbers.
 pub fn compare_values(u : Value, v : Value) -> Int32 {
   match (u, v) {
-    (Null, Null) => 0
-    (Null, _) => -1
-    (_, Null) => 1
+    (Null | Undef, Null | Undef) => 0
+    (Null | Undef, _) => -1
+    (_, Null | Undef) => 1
     (Num(a), Num(b)) =>
       if a < b {
         -1
@@ -297,7 +301,7 @@ pub fn compare_values(u : Value, v : Value) -> Int32 {
         0
       }
     (Str(a), Str(b)) => {
-      let c = a.compare(b)
+      let c = a.lexical_compare(b)
       if c < 0 {
         -1
       } else if c > 0 {

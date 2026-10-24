@@ -7,5 +7,6 @@ import {
 
 import {
   "moonbitlang/core/double",
+  "moonbitlang/core/json",
   "sayoi7799/moon_vegalite/fixtures/valuecases",
 } for "test"

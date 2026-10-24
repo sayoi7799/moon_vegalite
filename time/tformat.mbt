@@ -73,8 +73,41 @@ fn count_between(iv : TimeInterval, a : Double, b : Double) -> Int32 {
 }
 
 ///|
+/// d3-time-format applied to an Invalid Date: numeric directives print "NaN"
+/// (padded like any other number), names print nothing.
+fn directive_invalid(c : String, p : String) -> String? {
+  let padded = fn(width : Int32) {
+    if "NaN".length() < width {
+      p.repeat(width - 3) + "NaN"
+    } else {
+      "NaN"
+    }
+  }
+  match c {
+    "a" | "A" | "b" | "B" => Some("")
+    "c" => Some(format_with(locale_date_time, @double.not_a_number))
+    "x" => Some(format_with(locale_date, @double.not_a_number))
+    "X" => Some(format_with(locale_time, @double.not_a_number))
+    "d" | "e" | "H" | "I" | "m" | "M" | "S" | "U" | "V" | "W" | "g" | "y" =>
+      Some(padded(2))
+    "j" | "L" => Some(padded(3))
+    "f" => Some(padded(3) + "000")
+    "Y" | "G" => Some(padded(4))
+    "p" => Some("AM")
+    "q" => Some("1")
+    "Q" | "s" | "u" | "w" => Some("NaN")
+    "Z" => Some("+0000")
+    "%" => Some("%")
+    _ => None
+  }
+}
+
+///|
 /// The text of one `%` directive, or None when the directive is unknown.
 fn directive(c : String, p : String, t : Double) -> String? {
+  if t.is_nan() {
+    return directive_invalid(c, p)
+  }
   let parts = utc_parts(t)
   match c {
     "a" => Some(short_weekdays[parts.day])
@@ -156,13 +189,7 @@ fn format_with(spec : String, t : Double) -> String {
 ///|
 /// `d3.utcFormat(specifier)`.
 pub fn utc_format(spec : String) -> (Double) -> String {
-  fn(t : Double) {
-    if t.is_nan() {
-      "Invalid Date"
-    } else {
-      format_with(spec, t)
-    }
-  }
+  fn(t : Double) { format_with(spec, t) }
 }
 
 ///|
