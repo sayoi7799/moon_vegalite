@@ -1,0 +1,90 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/time"
+
+// Values
+pub fn nice_domain(Double, Double, TimeInterval) -> (Double, Double)
+
+pub fn time_units(Array[String]) -> Array[String] raise TimeError
+
+pub let unix_day : TimeInterval
+
+pub let utc_day : TimeInterval
+
+pub fn utc_floor(Array[String], step? : Int32) -> ((Double) -> Double) raise TimeError
+
+pub fn utc_format(String) -> (Double) -> String
+
+pub let utc_hour : TimeInterval
+
+pub fn utc_interval(String) -> TimeInterval?
+
+pub let utc_millisecond : TimeInterval
+
+pub let utc_minute : TimeInterval
+
+pub let utc_monday : TimeInterval
+
+pub let utc_month : TimeInterval
+
+pub fn utc_ms(Double, Double, Double, Double, Double, Double, Double) -> Double
+
+pub fn utc_multi_format() -> (Double) -> String
+
+pub fn utc_nice(Double, Double, Double) -> (Double, Double)
+
+pub fn utc_parse(String) -> (String) -> Double?
+
+pub fn utc_parts(Double) -> DateParts
+
+pub let utc_second : TimeInterval
+
+pub let utc_sunday : TimeInterval
+
+pub let utc_thursday : TimeInterval
+
+pub fn utc_tick_interval(Double, Double, Double) -> TimeInterval?
+
+pub fn utc_ticks(Double, Double, Double) -> Array[Double]
+
+pub fn utc_ticks_for(Double, Double, TimeInterval) -> Array[Double]
+
+pub fn utc_weekday(Int32) -> TimeInterval
+
+pub let utc_year : TimeInterval
+
+// Errors
+pub(all) suberror TimeError {
+  TimeError(String)
+}
+
+// Types and methods
+pub struct DateParts {
+  year : Int32
+  month : Int32
+  date : Int32
+  day : Int32
+  hours : Int32
+  minutes : Int32
+  seconds : Int32
+  millis : Int32
+}
+
+pub struct TimeInterval {
+  floor_fn : (Double) -> Double
+  offset_fn : (Double, Int32) -> Double
+  count_fn : ((Double, Double) -> Double)?
+  field_fn : ((Double) -> Double)?
+  every_fn : ((TimeInterval, Double) -> TimeInterval?)?
+}
+pub fn TimeInterval::ceil(Self, Double) -> Double
+pub fn TimeInterval::count(Self, Double, Double) -> Double?
+pub fn TimeInterval::every(Self, Double) -> Self?
+pub fn TimeInterval::filter(Self, (Double) -> Bool) -> Self
+pub fn TimeInterval::floor(Self, Double) -> Double
+pub fn TimeInterval::offset(Self, Double, Int32) -> Double
+pub fn TimeInterval::range(Self, Double, Double, step? : Int32) -> Array[Double]
+pub fn TimeInterval::round(Self, Double) -> Double
+
+// Type aliases
+
+// Traits
