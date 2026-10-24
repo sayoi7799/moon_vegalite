@@ -1,0 +1,17 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/util"
+
+// Values
+pub fn js_number_to_string(Double) -> String
+
+pub fn js_round(Double) -> Double
+
+pub fn js_to_int32(Double) -> Int32
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

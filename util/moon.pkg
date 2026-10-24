@@ -1,0 +1,4 @@
+import {
+  "moonbitlang/core/string",
+  "sayoi7799/moon_vegalite/fixtures/numfmt",
+} for "test"

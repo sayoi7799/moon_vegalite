@@ -1,0 +1,9 @@
+.DS_Store
+_build/
+target/
+.mooncakes/
+.moonagent/
+node_modules/
+scripts/node_modules/
+scripts/.cache/
+*.log

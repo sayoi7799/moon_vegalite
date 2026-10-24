@@ -1,0 +1,15 @@
+{
+  "name": "moon-vegalite-fixtures",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Generates test fixtures for moon_vegalite from the official vega-lite / vega implementations",
+  "type": "module",
+  "scripts": {
+    "fixtures": "node gen_fixtures.mjs"
+  },
+  "dependencies": {
+    "vega": "5.33.1",
+    "vega-datasets": "3.2.1",
+    "vega-lite": "5.23.0"
+  }
+}
