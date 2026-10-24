@@ -5,6 +5,7 @@ fn assemble(
   axes : Array[Axis],
   marks : Array[@scene.Mark],
   legends : Array[Legend],
+  title : Title?,
   width : Double,
   height : Double,
 ) -> Compiled raise CompileError {
@@ -55,6 +56,10 @@ fn assemble(
     ignore(view.union(legend_item(l).bounds))
   }
   ignore(view.union(xb).union(yb))
+  match title {
+    Some(t) => ignore(view.union(title_layout(t, width, view)))
+    None => ()
+  }
   for a in axes {
     root.children.push(a.mark)
   }
@@ -63,6 +68,10 @@ fn assemble(
   }
   for l in legends {
     root.children.push(l.mark)
+  }
+  match title {
+    Some(t) => root.children.push(t.mark)
+    None => ()
   }
   ignore(@scene.bound_group(root.bounds.clear(), root))
   let left = max(0.0, ceil(-view.x1))

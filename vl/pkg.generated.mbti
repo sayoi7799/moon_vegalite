@@ -10,6 +10,8 @@ import {
 // Values
 pub fn build_legend(LegendPlan) -> Legend raise CompileError
 
+pub fn build_title(String) -> Title raise CompileError
+
 pub fn compile(String) -> Compiled raise CompileError
 
 // Errors
@@ -78,6 +80,10 @@ pub(all) enum RScale {
   Binned(@scale.Continuous, Array[Double])
   Time(@scale.Continuous)
   Band(@scale.Band)
+}
+
+pub struct Title {
+  mark : @scene.Mark
 }
 
 // Type aliases

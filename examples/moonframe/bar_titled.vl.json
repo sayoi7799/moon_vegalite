@@ -1,0 +1,1 @@
+{"$schema":"https://vega.github.io/schema/vega-lite/v5.json","title":"Revenue by region","mark":"bar","encoding":{"x":{"field":"region","type":"nominal"},"y":{"field":"revenue","type":"quantitative"}},"data":{"values":[{"region":"North","revenue":120},{"region":"South","revenue":95},{"region":"East","revenue":143},{"region":"West","revenue":78}]}}

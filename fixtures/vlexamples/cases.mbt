@@ -56,5 +56,16 @@ pub fn cases() -> Array[(String, String, String, String)] {
     ("tick_strip_1D_with_height", spec_48, scene_48, svg_48),
     ("time_parse_local", spec_49, scene_49, svg_49),
     ("custom_bar_basic", spec_50, scene_50, svg_50),
+    ("custom_edge_all_null", spec_51, scene_51, svg_51),
+    ("custom_edge_empty_data", spec_52, scene_52, svg_52),
+    ("custom_edge_log_out_of_range", spec_53, scene_53, svg_53),
+    ("custom_edge_single_value", spec_54, scene_54, svg_54),
+    ("moonframe_area", spec_55, scene_55, svg_55),
+    ("moonframe_bar", spec_56, scene_56, svg_56),
+    ("moonframe_bar_null", spec_57, scene_57, svg_57),
+    ("moonframe_bar_stacked", spec_58, scene_58, svg_58),
+    ("moonframe_bar_titled", spec_59, scene_59, svg_59),
+    ("moonframe_line", spec_60, scene_60, svg_60),
+    ("moonframe_point_color", spec_61, scene_61, svg_61),
   ]
 }

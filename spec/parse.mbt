@@ -55,6 +55,16 @@ let supported_config_keys : Array[String] = [
 ]
 
 ///|
+let supported_scale_types : Array[String] = [
+  "linear", "log", "sqrt", "pow", "time", "utc", "band", "point", "ordinal",
+]
+
+///|
+let known_scale_types : Array[String] = [
+  "symlog", "quantile", "quantize", "threshold", "bin-ordinal", "sequential",
+]
+
+///|
 let supported_scale_props : Array[String] = [
   "type", "domain", "domainMin", "domainMax", "range", "scheme", "zero", "nice",
   "round", "padding", "paddingInner", "paddingOuter", "reverse", "clamp", "base",
@@ -195,6 +205,17 @@ fn parse_channel(path : String, j : Json) -> ChannelDef raise SpecError {
     Some(Object(_) as o) => {
       let props = obj_props(r.path_of("scale"), o)
       check_props(r.path_of("scale"), props, supported_scale_props)
+      match props.get("type") {
+        Some(Str(t)) =>
+          if !supported_scale_types.contains(t) {
+            let p = join_path(r.path_of("scale"), "type")
+            if known_scale_types.contains(t) {
+              raise unsupported(p)
+            }
+            raise invalid(p, "未知的 scale 类型 " + t)
+          }
+        _ => ()
+      }
       Some(props)
     }
     Some(Null) | None => None

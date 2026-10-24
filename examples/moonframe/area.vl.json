@@ -1,0 +1,1 @@
+{"$schema":"https://vega.github.io/schema/vega-lite/v5.json","mark":"area","encoding":{"x":{"field":"day","type":"quantitative"},"y":{"field":"temp","type":"quantitative"}},"data":{"values":[{"day":1,"temp":12.5},{"day":2,"temp":14},{"day":3,"temp":13.2},{"day":4,"temp":17.8},{"day":5,"temp":19.1},{"day":6,"temp":18.4},{"day":7,"temp":21}]}}

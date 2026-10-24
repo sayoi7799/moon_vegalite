@@ -1,0 +1,1 @@
+{"$schema":"https://vega.github.io/schema/vega-lite/v5.json","mark":"bar","encoding":{"x":{"field":"item","type":"nominal"},"y":{"field":"score","type":"quantitative"}},"data":{"values":[{"item":"x","score":3.5},{"item":"y","score":null},{"item":"z","score":7.25}]}}

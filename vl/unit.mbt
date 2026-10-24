@@ -89,7 +89,18 @@ fn resolve_pos(chan : String, def : @spec.ChannelDef) -> Pos raise CompileError 
       } else if def.bin is Some(_) {
         "quantitative"
       } else {
-        "nominal"
+        match def.scale {
+          Some(m) =>
+            match m.get("type") {
+              Some(Str("log"))
+              | Some(Str("linear"))
+              | Some(Str("sqrt"))
+              | Some(Str("pow")) => "quantitative"
+              Some(Str("time")) | Some(Str("utc")) => "temporal"
+              _ => "nominal"
+            }
+          None => "nominal"
+        }
       }
   }
   let title = match def.title {
@@ -156,7 +167,17 @@ fn domain_extent(
     }
   }
   if lo > hi {
-    return None
+    // no data: one field leaves the domain undefined (NaN); several fields
+    // give an inverted infinite extent that `zero` collapses to [0, 0]
+    return if fields.length() > 1 {
+      if zero {
+        Some((0.0, 0.0))
+      } else {
+        Some((@double.infinity, @double.neg_infinity))
+      }
+    } else {
+      Some((@double.not_a_number, @double.not_a_number))
+    }
   }
   if zero {
     lo = min(lo, 0.0)
@@ -176,6 +197,7 @@ fn pos_scale(
   range_start : Double,
   range_stop : Double,
   bins : (Double, Double, Double)?,
+  zero_default : Bool,
 ) -> (RScale, Array[@value.Value]) {
   if p.def.bin is Some(_) && bins is Some((start, stop, step)) {
     let c = @scale.Continuous::new(Linear)
@@ -223,17 +245,86 @@ fn pos_scale(
     c.range = [range_start, range_stop]
     (Time(c), [])
   } else {
-    let zero = match mark {
-      "bar" | "area" => true
-      _ => true
+    let sprops : Map[String, @value.Value] = match p.def.scale {
+      Some(m) => m
+      None => Map([])
     }
-    let c = @scale.Continuous::new(Linear)
-    match domain_extent(rows, domain_fields, zero) {
-      Some((lo, hi)) => c.domain = [lo, hi]
-      None => ()
+    let stype = match sprops.get("type") {
+      Some(Str(t)) => t
+      _ => "linear"
+    }
+    let kind = match stype {
+      "log" =>
+        @scale.ScaleKind::Log(
+          match sprops.get("base") {
+            Some(Num(b)) => b
+            _ => 10.0
+          },
+        )
+      "sqrt" => @scale.ScaleKind::sqrt()
+      "pow" =>
+        @scale.ScaleKind::Pow(
+          match sprops.get("exponent") {
+            Some(Num(e)) => e
+            _ => 1.0
+          },
+        )
+      _ => @scale.ScaleKind::Linear
+    }
+    let c = @scale.Continuous::new(kind)
+    let user_domain = match sprops.get("domain") {
+      Some(Arr(a)) if a.length() >= 2 => Some(a.map(fn(v) { v.to_number() }))
+      _ => None
+    }
+    let zero = match sprops.get("zero") {
+      Some(Bool(z)) => z
+      _ =>
+        if user_domain is Some(_) || kind is Log(_) {
+          false
+        } else {
+          zero_default
+        }
+    }
+    match user_domain {
+      Some(d) => c.domain = d
+      None =>
+        match domain_extent(rows, domain_fields, zero) {
+          Some((lo, hi)) => c.domain = [lo, hi]
+          None => ()
+        }
+    }
+    match sprops.get("domainMin") {
+      Some(Num(v)) => c.domain[0] = v
+      _ => ()
+    }
+    match sprops.get("domainMax") {
+      Some(Num(v)) => c.domain[c.domain.length() - 1] = v
+      _ => ()
     }
     c.range = [range_start, range_stop]
-    c.nice()
+    match sprops.get("range") {
+      Some(Arr([Num(a), Num(b)])) => c.range = [a, b]
+      _ => ()
+    }
+    match sprops.get("reverse") {
+      Some(Bool(true)) => c.range = [c.range[1], c.range[0]]
+      _ => ()
+    }
+    match sprops.get("clamp") {
+      Some(Bool(true)) => c.clamp = true
+      _ => ()
+    }
+    let nice = match sprops.get("nice") {
+      Some(Bool(n)) => n
+      Some(Num(_)) => true
+      _ =>
+        user_domain is None &&
+        sprops.get("domainMin") is None &&
+        sprops.get("domainMax") is None
+    }
+    if nice {
+      c.nice()
+    }
     (Cont(c), [])
   }
 }
@@ -535,15 +626,48 @@ pub fn compile(text : String) -> Compiled raise CompileError {
   }
   let xs = match px {
     Some(p) =>
-      Some(pos_scale(p, data, xfields, mark, 0.0, width, bin_info.get("x")))
+      Some(
+        pos_scale(
+          p,
+          data,
+          xfields,
+          mark,
+          0.0,
+          width,
+          bin_info.get("x"),
+          zero_of_chan(mark, orient, "x", px2 is Some(_)),
+        ),
+      )
     None => None
   }
   let ys = match py {
     Some(p) =>
       if p.discrete {
-        Some(pos_scale(p, data, yfields, mark, 0.0, height, bin_info.get("y")))
+        Some(
+          pos_scale(
+            p,
+            data,
+            yfields,
+            mark,
+            0.0,
+            height,
+            bin_info.get("y"),
+            zero_of_chan(mark, orient, "y", py2 is Some(_)),
+          ),
+        )
       } else {
-        Some(pos_scale(p, data, yfields, mark, height, 0.0, bin_info.get("y")))
+        Some(
+          pos_scale(
+            p,
+            data,
+            yfields,
+            mark,
+            height,
+            0.0,
+            bin_info.get("y"),
+            zero_of_chan(mark, orient, "y", py2 is Some(_)),
+          ),
+        )
       }
     None => None
   }
@@ -699,7 +823,11 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     (Some(p), Some((s, d))) => {
       let props : Map[String, @value.Value] = Map([])
       if !p.discrete || p.time_unit is Some(_) {
-        props["labelOverlap"] = Bool(true)
+        props["labelOverlap"] = if is_log(p) {
+          Str("greedy")
+        } else {
+          Bool(true)
+        }
       }
       match p.def.axis {
         Props(m) =>
@@ -1123,7 +1251,11 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     }
     None => ()
   }
-  assemble(spec, axes, [marks], legends, width, height)
+  let title = match spec.title {
+    Some(t) => Some(build_title(t))
+    None => None
+  }
+  assemble(spec, axes, [marks], legends, title, width, height)
 }
 
 ///|
@@ -1272,7 +1404,9 @@ fn label_angle_props(
 fn tick_count_of(p : Pos?, size : Double) -> Double {
   match p {
     Some(q) =>
-      if q.def.bin is Some(_) {
+      if is_log(q) {
+        10.0
+      } else if q.def.bin is Some(_) {
         ceil(size / 10.0)
       } else {
         match q.time_unit {
@@ -1328,5 +1462,33 @@ fn merge_titles(a : String, b : String) -> String {
     a
   } else {
     a + ", " + b
+  }
+}
+
+///|
+/// vega-lite's default of the `zero` scale property for a position channel.
+fn zero_of_chan(
+  mark : String,
+  orient : String,
+  chan : String,
+  _secondary : Bool,
+) -> Bool {
+  let perpendicular = (mark == "bar" || mark == "area" || mark == "line") &&
+    (
+      (orient == "horizontal" && chan == "y") ||
+      (orient == "vertical" && chan == "x")
+    )
+  !perpendicular
+}
+
+///|
+fn is_log(p : Pos) -> Bool {
+  match p.def.scale {
+    Some(m) =>
+      match m.get("type") {
+        Some(Str("log")) => true
+        _ => false
+      }
+    None => false
   }
 }

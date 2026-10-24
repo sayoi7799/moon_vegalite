@@ -1,0 +1,319 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/fixtures/vlexamples"
+
+// Values
+pub fn cases() -> Array[(String, String, String, String)]
+
+pub let scene_0 : String
+
+pub let scene_1 : String
+
+pub let scene_10 : String
+
+pub let scene_11 : String
+
+pub let scene_12 : String
+
+pub let scene_13 : String
+
+pub let scene_14 : String
+
+pub let scene_15 : String
+
+pub let scene_16 : String
+
+pub let scene_17 : String
+
+pub let scene_18 : String
+
+pub let scene_19 : String
+
+pub let scene_2 : String
+
+pub let scene_20 : String
+
+pub let scene_21 : String
+
+pub let scene_22 : String
+
+pub let scene_23 : String
+
+pub let scene_24 : String
+
+pub let scene_25 : String
+
+pub let scene_26 : String
+
+pub let scene_27 : String
+
+pub let scene_28 : String
+
+pub let scene_29 : String
+
+pub let scene_3 : String
+
+pub let scene_30 : String
+
+pub let scene_31 : String
+
+pub let scene_32 : String
+
+pub let scene_33 : String
+
+pub let scene_34 : String
+
+pub let scene_35 : String
+
+pub let scene_36 : String
+
+pub let scene_37 : String
+
+pub let scene_38 : String
+
+pub let scene_39 : String
+
+pub let scene_4 : String
+
+pub let scene_40 : String
+
+pub let scene_41 : String
+
+pub let scene_42 : String
+
+pub let scene_43 : String
+
+pub let scene_44 : String
+
+pub let scene_45 : String
+
+pub let scene_46 : String
+
+pub let scene_47 : String
+
+pub let scene_48 : String
+
+pub let scene_49 : String
+
+pub let scene_5 : String
+
+pub let scene_50 : String
+
+pub let scene_6 : String
+
+pub let scene_7 : String
+
+pub let scene_8 : String
+
+pub let scene_9 : String
+
+pub let spec_0 : String
+
+pub let spec_1 : String
+
+pub let spec_10 : String
+
+pub let spec_11 : String
+
+pub let spec_12 : String
+
+pub let spec_13 : String
+
+pub let spec_14 : String
+
+pub let spec_15 : String
+
+pub let spec_16 : String
+
+pub let spec_17 : String
+
+pub let spec_18 : String
+
+pub let spec_19 : String
+
+pub let spec_2 : String
+
+pub let spec_20 : String
+
+pub let spec_21 : String
+
+pub let spec_22 : String
+
+pub let spec_23 : String
+
+pub let spec_24 : String
+
+pub let spec_25 : String
+
+pub let spec_26 : String
+
+pub let spec_27 : String
+
+pub let spec_28 : String
+
+pub let spec_29 : String
+
+pub let spec_3 : String
+
+pub let spec_30 : String
+
+pub let spec_31 : String
+
+pub let spec_32 : String
+
+pub let spec_33 : String
+
+pub let spec_34 : String
+
+pub let spec_35 : String
+
+pub let spec_36 : String
+
+pub let spec_37 : String
+
+pub let spec_38 : String
+
+pub let spec_39 : String
+
+pub let spec_4 : String
+
+pub let spec_40 : String
+
+pub let spec_41 : String
+
+pub let spec_42 : String
+
+pub let spec_43 : String
+
+pub let spec_44 : String
+
+pub let spec_45 : String
+
+pub let spec_46 : String
+
+pub let spec_47 : String
+
+pub let spec_48 : String
+
+pub let spec_49 : String
+
+pub let spec_5 : String
+
+pub let spec_50 : String
+
+pub let spec_6 : String
+
+pub let spec_7 : String
+
+pub let spec_8 : String
+
+pub let spec_9 : String
+
+pub let svg_0 : String
+
+pub let svg_1 : String
+
+pub let svg_10 : String
+
+pub let svg_11 : String
+
+pub let svg_12 : String
+
+pub let svg_13 : String
+
+pub let svg_14 : String
+
+pub let svg_15 : String
+
+pub let svg_16 : String
+
+pub let svg_17 : String
+
+pub let svg_18 : String
+
+pub let svg_19 : String
+
+pub let svg_2 : String
+
+pub let svg_20 : String
+
+pub let svg_21 : String
+
+pub let svg_22 : String
+
+pub let svg_23 : String
+
+pub let svg_24 : String
+
+pub let svg_25 : String
+
+pub let svg_26 : String
+
+pub let svg_27 : String
+
+pub let svg_28 : String
+
+pub let svg_29 : String
+
+pub let svg_3 : String
+
+pub let svg_30 : String
+
+pub let svg_31 : String
+
+pub let svg_32 : String
+
+pub let svg_33 : String
+
+pub let svg_34 : String
+
+pub let svg_35 : String
+
+pub let svg_36 : String
+
+pub let svg_37 : String
+
+pub let svg_38 : String
+
+pub let svg_39 : String
+
+pub let svg_4 : String
+
+pub let svg_40 : String
+
+pub let svg_41 : String
+
+pub let svg_42 : String
+
+pub let svg_43 : String
+
+pub let svg_44 : String
+
+pub let svg_45 : String
+
+pub let svg_46 : String
+
+pub let svg_47 : String
+
+pub let svg_48 : String
+
+pub let svg_49 : String
+
+pub let svg_5 : String
+
+pub let svg_50 : String
+
+pub let svg_6 : String
+
+pub let svg_7 : String
+
+pub let svg_8 : String
+
+pub let svg_9 : String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

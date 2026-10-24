@@ -1,5 +1,6 @@
 import {
   "moonbitlang/core/double",
+  "moonbitlang/core/math",
   "sayoi7799/moon_vegalite/expr",
   "sayoi7799/moon_vegalite/format",
   "sayoi7799/moon_vegalite/scale",

@@ -25,7 +25,9 @@ function sources() {
     .map((n) => ({ name: n, file: path.join(specDir, n + '.vl.json') }));
   const custom = fs.readdirSync(path.join(root, 'examples')).filter((f) => f.endsWith('.vl.json'))
     .map((f) => ({ name: 'custom_' + f.replace('.vl.json', ''), file: path.join(root, 'examples', f) }));
-  return [...names, ...custom];
+  const frame = fs.readdirSync(path.join(root, 'examples/moonframe')).filter((f) => f.endsWith('.vl.json'))
+    .map((f) => ({ name: 'moonframe_' + f.replace('.vl.json', ''), file: path.join(root, 'examples/moonframe', f) }));
+  return [...names, ...custom, ...frame];
 }
 
 export async function generate() {

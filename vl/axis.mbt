@@ -270,16 +270,61 @@ fn AxisPlan::ticks(self : AxisPlan) -> Array[Tick] raise CompileError {
         { value: Num(x), label: fmt(x), index: 0.0, }
       })
     }
-    Cont(c) => {
-      let d0 = c.domain[0]
-      let d1 = c.domain[c.domain.length() - 1]
-      let fmt = @format.format_span(d0, d1, self.tick_count, specifier?=spec) catch {
-        _ => raise CompileError("axis.format 无效")
+    Cont(c) =>
+      match c.kind {
+        Log(base) => {
+          let count = self.tick_count
+          let ticks = c.ticks(count~)
+          let varfmt = @format.format_float(
+            match spec {
+              Some(f) => f
+              None => ""
+            },
+          ) catch {
+            _ => raise CompileError("axis.format 无效")
+          }
+          let logb = @util.js_log(base)
+          let k = max(1.0, base * count / ticks.length().to_double())
+          let keep = fn(d : Double) {
+            let pw = if base == 10.0 {
+              @util.js_pow10(round(@util.js_log(d) / logb))
+            } else {
+              @math.pow(base, round(@util.js_log(d) / logb))
+            }
+            let mut i = d / pw
+            if i * base < base - 0.5 {
+              i = i * base
+            }
+            i <= k
+          }
+          ticks.map(fn(x) {
+            {
+              value: Num(x),
+              label: if keep(x) {
+                varfmt(x)
+              } else {
+                ""
+              },
+              index: 0.0,
+            }
+          })
+        }
+        _ => {
+          let d0 = c.domain[0]
+          let d1 = c.domain[c.domain.length() - 1]
+          let fmt = @format.format_span(
+            d0,
+            d1,
+            self.tick_count,
+            specifier?=spec,
+          ) catch {
+            _ => raise CompileError("axis.format 无效")
+          }
+          c
+          .ticks(count=self.tick_count)
+          .map(fn(x) { { value: Num(x), label: fmt(x), index: 0.0, } })
+        }
       }
-      c
-      .ticks(count=self.tick_count)
-      .map(fn(x) { { value: Num(x), label: fmt(x), index: 0.0, } })
-    }
   }
 }
 
@@ -292,10 +337,14 @@ fn text_item(
 ) -> @scene.Item {
   // the `guide-label` / `guide-title` styles of the default config
   let base = [("fill", str("#000")), ("font", str("sans-serif"))]
-  let size = if style == "guide-title" { 11.0 } else { 10.0 }
+  let size = match style {
+    "guide-title" => 11.0
+    "group-title" => 13.0
+    _ => 10.0
+  }
   let all = base + [("fontSize", num(size))]
   let it = mk_item(all)
-  if style == "guide-title" {
+  if style == "guide-title" || style == "group-title" {
     it.set_str("fontWeight", "bold")
   }
   for p in props {
