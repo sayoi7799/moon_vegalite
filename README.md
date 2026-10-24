@@ -16,6 +16,8 @@ vl2svg spec.vl.json chart.svg        # SVG file (stdout without the second argum
 vl2svg --scene spec.vl.json          # scenegraph JSON, with the bounds of every item
 ```
 
+Repositories: [GitHub](https://github.com/sayoi7799/moon_vegalite) · [GitLink](https://gitlink.org.cn/sayoi7799/moon_vegalite).
+
 See the [gallery](gallery/index.html): the SVG from this library next to the official vega output.
 
 ## Positioning and differences from other charting libraries
