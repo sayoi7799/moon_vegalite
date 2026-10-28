@@ -180,15 +180,33 @@ fn is_band_mark(mark : String) -> Bool {
 }
 
 ///|
-fn merge_titles_all(titles : Array[String]) -> String {
-  let uniq : Array[String] = []
-  for t in titles {
-    // a datum contributes no title
-    if t != "" && !uniq.contains(t) {
-      uniq.push(t)
+/// Titles of the layers of a shared guide, merged pairwise as vega-lite's
+/// `mergeTitleComponent` does: an explicit title (set on the channel) beats an
+/// implicit one, otherwise a title is appended unless it repeats the previous
+/// result or is empty (a datum has no title).
+fn merge_titles_all(ps : Array[Pos]) -> String {
+  let mut title = ""
+  let mut explicit = false
+  for i in 0..<ps.length() {
+    let t = ps[i].title
+    let e = ps[i].def.title is Some(Some(_))
+    if i == 0 {
+      title = t
+      explicit = e
+    } else if explicit != e {
+      if e {
+        title = t
+        explicit = true
+      }
+    } else if t == title || t == "" {
+      ()
+    } else if title == "" {
+      title = t
+    } else {
+      title = title + ", " + t
     }
   }
-  uniq.join(", ")
+  title
 }
 
 ///|
@@ -489,7 +507,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     let u_legend = if first_color {
       let c = u.pcolor.unwrap()
       let joined = merge_titles_all(
-        color_users.map(fn(k) { units[k].pcolor.unwrap().title }),
+        color_users.map(fn(k) { units[k].pcolor.unwrap() }),
       )
       { ..u, pcolor: Some({ ..c, title: joined, }), }
     } else {
@@ -562,7 +580,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
       let p = pos_of_unit(i, chan)
       let titled = if shared {
         let joined = merge_titles_all(
-          members.map(fn(m) { pos_of_unit(m, chan).title }),
+          members.map(fn(m) { pos_of_unit(m, chan) }),
         )
         { ..p, title: joined, }
       } else {

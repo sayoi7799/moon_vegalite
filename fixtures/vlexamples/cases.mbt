@@ -34,152 +34,160 @@ pub fn cases() -> Array[(String, String, String, String)] {
     ("circle", spec_26_0, scene_26_0 + scene_26_1, svg_26_0 + svg_26_1),
     ("histogram", spec_27_0 + spec_27_1, scene_27_0, svg_27_0),
     ("histogram_bin_change", spec_28_0 + spec_28_1, scene_28_0, svg_28_0),
-    ("layer_bar_labels", spec_29_0, scene_29_0, svg_29_0),
-    ("layer_bar_line", spec_30_0, scene_30_0, svg_30_0),
-    ("layer_bar_line_union", spec_31_0, scene_31_0, svg_31_0),
-    ("layer_bar_month", spec_32_0 + spec_32_1, scene_32_0, svg_32_0),
-    ("layer_line_color_rule", spec_33_0, scene_33_0 + scene_33_1, svg_33_0),
-    ("layer_line_datum_rule", spec_34_0, scene_34_0 + scene_34_1, svg_34_0),
-    ("layer_line_mean_point_raw", spec_35_0, scene_35_0, svg_35_0),
-    ("layer_precipitation_mean", spec_36_0 + spec_36_1, scene_36_0, svg_36_0),
-    ("layer_single_color", spec_37_0, scene_37_0 + scene_37_1, svg_37_0),
-    ("line", spec_38_0, scene_38_0, svg_38_0),
-    ("line_calculate", spec_39_0 + spec_39_1, scene_39_0, svg_39_0),
-    ("line_color", spec_40_0, scene_40_0 + scene_40_1, svg_40_0),
-    ("line_mean_month", spec_41_0 + spec_41_1, scene_41_0, svg_41_0),
-    ("line_mean_year", spec_42_0 + spec_42_1, scene_42_0, svg_42_0),
-    ("line_monotone", spec_43_0, scene_43_0, svg_43_0),
-    ("line_month", spec_44_0 + spec_44_1, scene_44_0, svg_44_0),
-    ("line_sort_axis", spec_45_0, scene_45_0, svg_45_0),
-    ("line_step", spec_46_0, scene_46_0, svg_46_0),
+    ("layer_bar_annotations", spec_29_0, scene_29_0, svg_29_0),
+    ("layer_bar_labels", spec_30_0, scene_30_0, svg_30_0),
+    ("layer_bar_line", spec_31_0, scene_31_0, svg_31_0),
+    ("layer_bar_line_union", spec_32_0, scene_32_0, svg_32_0),
+    ("layer_bar_month", spec_33_0 + spec_33_1, scene_33_0, svg_33_0),
+    ("layer_line_color_rule", spec_34_0, scene_34_0 + scene_34_1, svg_34_0),
+    ("layer_line_datum_rule", spec_35_0, scene_35_0 + scene_35_1, svg_35_0),
+    ("layer_line_mean_point_raw", spec_36_0, scene_36_0, svg_36_0),
+    ("layer_precipitation_mean", spec_37_0 + spec_37_1, scene_37_0, svg_37_0),
+    (
+      "layer_rect_extent",
+      spec_38_0,
+      scene_38_0 + scene_38_1 + scene_38_2,
+      svg_38_0 + svg_38_1,
+    ),
+    ("layer_single_color", spec_39_0, scene_39_0 + scene_39_1, svg_39_0),
+    ("line", spec_40_0, scene_40_0, svg_40_0),
+    ("line_calculate", spec_41_0 + spec_41_1, scene_41_0, svg_41_0),
+    ("line_color", spec_42_0, scene_42_0 + scene_42_1, svg_42_0),
+    ("line_mean_month", spec_43_0 + spec_43_1, scene_43_0, svg_43_0),
+    ("line_mean_year", spec_44_0 + spec_44_1, scene_44_0, svg_44_0),
+    ("line_monotone", spec_45_0, scene_45_0, svg_45_0),
+    ("line_month", spec_46_0 + spec_46_1, scene_46_0, svg_46_0),
+    ("line_sort_axis", spec_47_0, scene_47_0, svg_47_0),
+    ("line_step", spec_48_0, scene_48_0, svg_48_0),
     (
       "point_1d",
-      spec_47_0 + spec_47_1,
-      scene_47_0 +
-      scene_47_1 +
-      scene_47_2 +
-      scene_47_3 +
-      scene_47_4 +
-      scene_47_5 +
-      scene_47_6 +
-      scene_47_7 +
-      scene_47_8 +
-      scene_47_9 +
-      scene_47_10 +
-      scene_47_11 +
-      scene_47_12 +
-      scene_47_13,
-      svg_47_0 +
-      svg_47_1 +
-      svg_47_2 +
-      svg_47_3 +
-      svg_47_4 +
-      svg_47_5 +
-      svg_47_6 +
-      svg_47_7 +
-      svg_47_8 +
-      svg_47_9,
+      spec_49_0 + spec_49_1,
+      scene_49_0 +
+      scene_49_1 +
+      scene_49_2 +
+      scene_49_3 +
+      scene_49_4 +
+      scene_49_5 +
+      scene_49_6 +
+      scene_49_7 +
+      scene_49_8 +
+      scene_49_9 +
+      scene_49_10 +
+      scene_49_11 +
+      scene_49_12 +
+      scene_49_13,
+      svg_49_0 +
+      svg_49_1 +
+      svg_49_2 +
+      svg_49_3 +
+      svg_49_4 +
+      svg_49_5 +
+      svg_49_6 +
+      svg_49_7 +
+      svg_49_8 +
+      svg_49_9,
     ),
-    ("point_1d_array", spec_48_0, scene_48_0, svg_48_0),
-    ("point_2d", spec_49_0, scene_49_0 + scene_49_1, svg_49_0 + svg_49_1),
-    ("point_2d_array", spec_50_0, scene_50_0, svg_50_0),
+    ("point_1d_array", spec_50_0, scene_50_0, svg_50_0),
+    ("point_2d", spec_51_0, scene_51_0 + scene_51_1, svg_51_0 + svg_51_1),
+    ("point_2d_array", spec_52_0, scene_52_0, svg_52_0),
     (
       "point_bubble",
-      spec_51_0,
-      scene_51_0 + scene_51_1 + scene_51_2,
-      svg_51_0 + svg_51_1,
-    ),
-    (
-      "point_color",
-      spec_52_0,
-      scene_52_0 + scene_52_1 + scene_52_2,
-      svg_52_0 + svg_52_1,
-    ),
-    (
-      "point_color_quantitative",
       spec_53_0,
       scene_53_0 + scene_53_1 + scene_53_2,
       svg_53_0 + svg_53_1,
     ),
     (
-      "point_color_shape_constant",
+      "point_color",
       spec_54_0,
-      scene_54_0 + scene_54_1,
+      scene_54_0 + scene_54_1 + scene_54_2,
       svg_54_0 + svg_54_1,
     ),
     (
-      "point_color_with_shape",
+      "point_color_quantitative",
       spec_55_0,
-      scene_55_0 + scene_55_1,
+      scene_55_0 + scene_55_1 + scene_55_2,
       svg_55_0 + svg_55_1,
     ),
-    ("point_filled", spec_56_0, scene_56_0 + scene_56_1, svg_56_0 + svg_56_1),
-    ("point_ordinal_color", spec_57_0, scene_57_0, svg_57_0),
-    ("rule_extent", spec_58_0, scene_58_0, svg_58_0),
-    ("square", spec_59_0, scene_59_0 + scene_59_1, svg_59_0 + svg_59_1),
-    ("stacked_area_ordinal", spec_60_0, scene_60_0, svg_60_0),
-    ("stacked_bar_count", spec_61_0 + spec_61_1, scene_61_0, svg_61_0),
-    ("stacked_bar_unaggregate", spec_62_0, scene_62_0, svg_62_0),
-    ("stacked_bar_v", spec_63_0, scene_63_0, svg_63_0),
-    ("test_field_with_spaces", spec_64_0, scene_64_0, svg_64_0),
-    ("test_subobject_missing", spec_65_0, scene_65_0, svg_65_0),
-    ("text_format", spec_66_0, scene_66_0, svg_66_0),
+    (
+      "point_color_shape_constant",
+      spec_56_0,
+      scene_56_0 + scene_56_1,
+      svg_56_0 + svg_56_1,
+    ),
+    (
+      "point_color_with_shape",
+      spec_57_0,
+      scene_57_0 + scene_57_1,
+      svg_57_0 + svg_57_1,
+    ),
+    ("point_filled", spec_58_0, scene_58_0 + scene_58_1, svg_58_0 + svg_58_1),
+    ("point_ordinal_color", spec_59_0, scene_59_0, svg_59_0),
+    ("rule_extent", spec_60_0, scene_60_0, svg_60_0),
+    ("square", spec_61_0, scene_61_0 + scene_61_1, svg_61_0 + svg_61_1),
+    ("stacked_area_ordinal", spec_62_0, scene_62_0, svg_62_0),
+    ("stacked_bar_count", spec_63_0 + spec_63_1, scene_63_0, svg_63_0),
+    ("stacked_bar_unaggregate", spec_64_0, scene_64_0, svg_64_0),
+    ("stacked_bar_v", spec_65_0, scene_65_0, svg_65_0),
+    ("test_field_with_spaces", spec_66_0, scene_66_0, svg_66_0),
+    ("test_subobject_missing", spec_67_0, scene_67_0, svg_67_0),
+    ("text_format", spec_68_0, scene_68_0, svg_68_0),
     (
       "text_scatterplot_colored",
-      spec_67_0,
-      scene_67_0 + scene_67_1,
-      svg_67_0 + svg_67_1,
+      spec_69_0,
+      scene_69_0 + scene_69_1,
+      svg_69_0 + svg_69_1,
     ),
     (
       "tick_dot",
-      spec_68_0,
-      scene_68_0 + scene_68_1 + scene_68_2 + scene_68_3 + scene_68_4,
-      svg_68_0 + svg_68_1,
+      spec_70_0,
+      scene_70_0 + scene_70_1 + scene_70_2 + scene_70_3 + scene_70_4,
+      svg_70_0 + svg_70_1,
     ),
-    ("tick_strip", spec_69_0, scene_69_0 + scene_69_1, svg_69_0),
-    ("tick_strip_1D_with_height", spec_70_0, scene_70_0 + scene_70_1, svg_70_0),
-    ("time_parse_local", spec_71_0, scene_71_0, svg_71_0),
-    ("custom_bar_basic", spec_72_0, scene_72_0, svg_72_0),
-    ("custom_channel_color_ordinal", spec_73_0, scene_73_0, svg_73_0),
-    ("custom_channel_constants", spec_74_0, scene_74_0, svg_74_0),
-    ("custom_channel_opacity", spec_75_0, scene_75_0, svg_75_0),
-    ("custom_channel_shape_size", spec_76_0, scene_76_0, svg_76_0),
-    ("custom_channel_size_color", spec_77_0, scene_77_0, svg_77_0),
-    ("custom_channel_two_legends", spec_78_0, scene_78_0, svg_78_0),
-    ("custom_color_quantitative_bar", spec_79_0, scene_79_0, svg_79_0),
-    ("custom_color_quantitative_size", spec_80_0, scene_80_0, svg_80_0),
-    ("custom_edge_all_null", spec_81_0, scene_81_0, svg_81_0),
-    ("custom_edge_empty_data", spec_82_0, scene_82_0, svg_82_0),
-    ("custom_edge_log_out_of_range", spec_83_0, scene_83_0, svg_83_0),
-    ("custom_edge_single_value", spec_84_0, scene_84_0, svg_84_0),
-    ("custom_layer_bar_color_point", spec_85_0, scene_85_0, svg_85_0),
-    ("custom_layer_datum_rules", spec_86_0, scene_86_0, svg_86_0),
-    ("custom_layer_independent_color", spec_87_0, scene_87_0, svg_87_0),
-    ("custom_layer_independent_xy", spec_88_0, scene_88_0, svg_88_0),
-    ("custom_layer_independent_y", spec_89_0, scene_89_0, svg_89_0),
-    ("custom_layer_inherit_encoding", spec_90_0, scene_90_0, svg_90_0),
-    ("custom_layer_nested", spec_91_0, scene_91_0, svg_91_0),
-    ("custom_layer_own_data", spec_92_0, scene_92_0, svg_92_0),
-    ("custom_layer_rule_x", spec_93_0, scene_93_0, svg_93_0),
-    ("custom_layer_series_and_points", spec_94_0, scene_94_0, svg_94_0),
-    ("custom_layer_shared_color", spec_95_0, scene_95_0, svg_95_0),
-    ("custom_layer_three_y", spec_96_0, scene_96_0, svg_96_0),
-    ("custom_layer_title_size", spec_97_0, scene_97_0, svg_97_0),
-    ("custom_layer_transform_scope", spec_98_0, scene_98_0, svg_98_0),
-    ("custom_layer_two_y_fields", spec_99_0, scene_99_0, svg_99_0),
-    ("custom_series_area", spec_100_0, scene_100_0, svg_100_0),
-    ("custom_series_line_opacity", spec_101_0, scene_101_0, svg_101_0),
-    ("custom_stack_area_impute", spec_102_0, scene_102_0, svg_102_0),
-    ("custom_stack_center", spec_103_0, scene_103_0, svg_103_0),
-    ("custom_stack_none", spec_104_0, scene_104_0, svg_104_0),
-    ("custom_stack_normalize", spec_105_0, scene_105_0, svg_105_0),
-    ("custom_text_props", spec_106_0, scene_106_0, svg_106_0),
-    ("moonframe_area", spec_107_0, scene_107_0, svg_107_0),
-    ("moonframe_bar", spec_108_0, scene_108_0, svg_108_0),
-    ("moonframe_bar_null", spec_109_0, scene_109_0, svg_109_0),
-    ("moonframe_bar_stacked", spec_110_0, scene_110_0, svg_110_0),
-    ("moonframe_bar_titled", spec_111_0, scene_111_0, svg_111_0),
-    ("moonframe_line", spec_112_0, scene_112_0, svg_112_0),
-    ("moonframe_point_color", spec_113_0, scene_113_0, svg_113_0),
+    ("tick_strip", spec_71_0, scene_71_0 + scene_71_1, svg_71_0),
+    ("tick_strip_1D_with_height", spec_72_0, scene_72_0 + scene_72_1, svg_72_0),
+    ("time_parse_local", spec_73_0, scene_73_0, svg_73_0),
+    ("custom_bar_basic", spec_74_0, scene_74_0, svg_74_0),
+    ("custom_channel_color_ordinal", spec_75_0, scene_75_0, svg_75_0),
+    ("custom_channel_constants", spec_76_0, scene_76_0, svg_76_0),
+    ("custom_channel_opacity", spec_77_0, scene_77_0, svg_77_0),
+    ("custom_channel_shape_size", spec_78_0, scene_78_0, svg_78_0),
+    ("custom_channel_size_color", spec_79_0, scene_79_0, svg_79_0),
+    ("custom_channel_two_legends", spec_80_0, scene_80_0, svg_80_0),
+    ("custom_color_quantitative_bar", spec_81_0, scene_81_0, svg_81_0),
+    ("custom_color_quantitative_size", spec_82_0, scene_82_0, svg_82_0),
+    ("custom_edge_all_null", spec_83_0, scene_83_0, svg_83_0),
+    ("custom_edge_empty_data", spec_84_0, scene_84_0, svg_84_0),
+    ("custom_edge_log_out_of_range", spec_85_0, scene_85_0, svg_85_0),
+    ("custom_edge_single_value", spec_86_0, scene_86_0, svg_86_0),
+    ("custom_layer_bar_color_point", spec_87_0, scene_87_0, svg_87_0),
+    ("custom_layer_datum_rules", spec_88_0, scene_88_0, svg_88_0),
+    ("custom_layer_independent_color", spec_89_0, scene_89_0, svg_89_0),
+    ("custom_layer_independent_xy", spec_90_0, scene_90_0, svg_90_0),
+    ("custom_layer_independent_y", spec_91_0, scene_91_0, svg_91_0),
+    ("custom_layer_inherit_encoding", spec_92_0, scene_92_0, svg_92_0),
+    ("custom_layer_nested", spec_93_0, scene_93_0, svg_93_0),
+    ("custom_layer_own_data", spec_94_0, scene_94_0, svg_94_0),
+    ("custom_layer_ranged", spec_95_0, scene_95_0, svg_95_0),
+    ("custom_layer_rule_x", spec_96_0, scene_96_0, svg_96_0),
+    ("custom_layer_series_and_points", spec_97_0, scene_97_0, svg_97_0),
+    ("custom_layer_shared_color", spec_98_0, scene_98_0, svg_98_0),
+    ("custom_layer_three_y", spec_99_0, scene_99_0, svg_99_0),
+    ("custom_layer_title_size", spec_100_0, scene_100_0, svg_100_0),
+    ("custom_layer_transform_scope", spec_101_0, scene_101_0, svg_101_0),
+    ("custom_layer_two_y_fields", spec_102_0, scene_102_0, svg_102_0),
+    ("custom_series_area", spec_103_0, scene_103_0, svg_103_0),
+    ("custom_series_line_opacity", spec_104_0, scene_104_0, svg_104_0),
+    ("custom_stack_area_impute", spec_105_0, scene_105_0, svg_105_0),
+    ("custom_stack_center", spec_106_0, scene_106_0, svg_106_0),
+    ("custom_stack_none", spec_107_0, scene_107_0, svg_107_0),
+    ("custom_stack_normalize", spec_108_0, scene_108_0, svg_108_0),
+    ("custom_text_props", spec_109_0, scene_109_0, svg_109_0),
+    ("moonframe_area", spec_110_0, scene_110_0, svg_110_0),
+    ("moonframe_bar", spec_111_0, scene_111_0, svg_111_0),
+    ("moonframe_bar_null", spec_112_0, scene_112_0, svg_112_0),
+    ("moonframe_bar_stacked", spec_113_0, scene_113_0, svg_113_0),
+    ("moonframe_bar_titled", spec_114_0, scene_114_0, svg_114_0),
+    ("moonframe_line", spec_115_0, scene_115_0, svg_115_0),
+    ("moonframe_point_color", spec_116_0, scene_116_0, svg_116_0),
   ]
 }

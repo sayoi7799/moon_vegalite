@@ -271,3 +271,23 @@ test "datum and rule properties are checked" {
     content="mark.strokeDash 暂不支持",
   )
 }
+
+///|
+test "second channels and constant text positions are checked" {
+  inspect(
+    message_of(
+      enc(
+        "\"point\"", "{\"x\":{\"field\":\"b\",\"type\":\"quantitative\"},\"x2\":{\"field\":\"c\"}}",
+      ),
+    ),
+    content="encoding.x2 (mark point) 暂不支持",
+  )
+  inspect(
+    message_of(enc("{\"type\":\"text\",\"x\":\"left\"}", "{}")),
+    content="mark.x 暂不支持",
+  )
+  inspect(
+    message_of(enc("{\"type\":\"text\",\"text\":1}", "{}")),
+    content="mark.text 暂不支持",
+  )
+}

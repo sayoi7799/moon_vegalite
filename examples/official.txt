@@ -27,6 +27,7 @@ bar_yearmonth_custom_format
 circle
 histogram
 histogram_bin_change
+layer_bar_annotations
 layer_bar_labels
 layer_bar_line
 layer_bar_line_union
@@ -35,6 +36,7 @@ layer_line_color_rule
 layer_line_datum_rule
 layer_line_mean_point_raw
 layer_precipitation_mean
+layer_rect_extent
 layer_single_color
 line
 line_calculate

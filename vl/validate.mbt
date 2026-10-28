@@ -15,7 +15,7 @@ let honoured_mark_props : Array[String] = [
 ///|
 /// Mark properties that only mean something for `text`.
 let honoured_text_props : Array[String] = [
-  "align", "baseline", "dx", "dy", "fontSize",
+  "align", "baseline", "dx", "dy", "fontSize", "text", "x", "y",
 ]
 
 ///|
@@ -102,6 +102,21 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
   match spec.mark.props.get("size") {
     Some(Num(_)) | None => ()
     Some(_) => raise nope("mark.size")
+  }
+  if spec.mark.typ == "text" {
+    // constant position ("width" / "height" or pixels) and constant text
+    match spec.mark.props.get("x") {
+      Some(Num(_)) | Some(Str("width")) | None => ()
+      Some(_) => raise nope("mark.x")
+    }
+    match spec.mark.props.get("y") {
+      Some(Num(_)) | Some(Str("height")) | None => ()
+      Some(_) => raise nope("mark.y")
+    }
+    match spec.mark.props.get("text") {
+      Some(Str(_)) | None => ()
+      Some(_) => raise nope("mark.text")
+    }
   }
   match spec.mark.props.get("strokeDash") {
     Some(Arr(a)) if a.all(fn(v) { v is Num(_) }) => ()
@@ -205,7 +220,7 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
     }
     match name {
       "x2" | "y2" =>
-        if mark != "rule" {
+        if mark != "rule" && mark != "bar" && mark != "rect" {
           raise nope(path + " (mark " + mark + ")")
         }
       "text" => if mark != "text" { raise nope(path + " (mark " + mark + ")") }
