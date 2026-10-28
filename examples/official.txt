@@ -27,6 +27,7 @@ bar_yearmonth_custom_format
 circle
 histogram
 histogram_bin_change
+layer_bar_labels
 layer_bar_line
 layer_bar_line_union
 layer_bar_month

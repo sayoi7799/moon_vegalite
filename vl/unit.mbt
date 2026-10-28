@@ -1550,6 +1550,12 @@ fn unit_mark(
           },
         )
         it.set_str("text", text_of(r, ptext))
+        for k in ["align", "baseline", "dx", "dy", "fontSize"] {
+          match spec.mark.props.get(k) {
+            Some(v) => it.set(k, v)
+            None => ()
+          }
+        }
         items.push(it)
       }
       "rect" => {

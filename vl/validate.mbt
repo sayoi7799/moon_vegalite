@@ -13,6 +13,12 @@ let honoured_mark_props : Array[String] = [
 ]
 
 ///|
+/// Mark properties that only mean something for `text`.
+let honoured_text_props : Array[String] = [
+  "align", "baseline", "dx", "dy", "fontSize",
+]
+
+///|
 let honoured_axis_props : Array[String] = [
   "domain", "domainColor", "domainWidth", "format", "formatType", "grid", "gridColor",
   "gridWidth", "labelAlign", "labelAngle", "labelBaseline", "labelColor", "labelFlush",
@@ -80,7 +86,8 @@ fn validate_config(
 ///|
 pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
   for k, _ in spec.mark.props {
-    if !honoured_mark_props.contains(k) {
+    if !honoured_mark_props.contains(k) &&
+      !(spec.mark.typ == "text" && honoured_text_props.contains(k)) {
       raise nope("mark." + k)
     }
   }
