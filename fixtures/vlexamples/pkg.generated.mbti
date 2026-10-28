@@ -246,6 +246,16 @@ pub let scene_89_0 : String
 
 pub let scene_8_0 : String
 
+pub let scene_90_0 : String
+
+pub let scene_91_0 : String
+
+pub let scene_92_0 : String
+
+pub let scene_93_0 : String
+
+pub let scene_94_0 : String
+
 pub let scene_9_0 : String
 
 pub let spec_0_0 : String
@@ -453,6 +463,16 @@ pub let spec_88_0 : String
 pub let spec_89_0 : String
 
 pub let spec_8_0 : String
+
+pub let spec_90_0 : String
+
+pub let spec_91_0 : String
+
+pub let spec_92_0 : String
+
+pub let spec_93_0 : String
+
+pub let spec_94_0 : String
 
 pub let spec_9_0 : String
 
@@ -673,6 +693,16 @@ pub let svg_88_0 : String
 pub let svg_89_0 : String
 
 pub let svg_8_0 : String
+
+pub let svg_90_0 : String
+
+pub let svg_91_0 : String
+
+pub let svg_92_0 : String
+
+pub let svg_93_0 : String
+
+pub let svg_94_0 : String
 
 pub let svg_9_0 : String
 

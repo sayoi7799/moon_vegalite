@@ -199,38 +199,35 @@ test "layers that cannot be merged yet are rejected with their path" {
     ),
     content="layer[1].mark.opacity 暂不支持",
   )
-  // independent scales
+  // independent discrete scales need one step per layer
   inspect(
     message_of(
       layered(
-        "\"resolve\":{\"scale\":{\"y\":\"independent\"}},",
-        "[{\"mark\":\"point\"," + q + "},{\"mark\":\"line\"," + q + "}]",
+        "\"resolve\":{\"scale\":{\"x\":\"independent\"}},", "[{\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"c\",\"type\":\"nominal\"}}},{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"c\",\"type\":\"nominal\"}}}]",
       ),
     ),
-    content="resolve.scale.y independent 暂不支持",
+    content="resolve.scale.x independent (离散比例尺) 暂不支持",
   )
-  // the same non-positional channel in two layers
+  // the same size channel in two layers shares one scale and one legend
+  let sized = "{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"},\"size\":{\"field\":\"b\",\"type\":\"quantitative\"}}}"
   inspect(
-    message_of(
-      layered(
-        "", "[{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"},\"color\":{\"field\":\"c\",\"type\":\"nominal\"}}},{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"},\"color\":{\"field\":\"c\",\"type\":\"nominal\"}}}]",
-      ),
-    ),
-    content="encoding.color (多个 layer 使用同一通道) 暂不支持",
+    message_of(layered("", "[" + sized + "," + sized + "]")),
+    content="encoding.size (多个 layer 使用同一通道) 暂不支持",
   )
-  // size of a single layer
+  // a layer carries no size of its own
   inspect(
     message_of(layered("", "[{\"mark\":\"point\",\"width\":100," + q + "}]")),
     content="layer[0].width 暂不支持",
   )
-  // incompatible scale types on a shared channel
+  // scales of different kinds cannot be merged, so they become independent,
+  // which a discrete scale cannot be
   inspect(
     message_of(
       layered(
         "", "[{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"}}},{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"c\",\"type\":\"nominal\"}}}]",
       ),
     ),
-    content="layer 间 x 比例尺类型不兼容 (需要 independent) 暂不支持",
+    content="resolve.scale.x independent (离散比例尺) 暂不支持",
   )
   // lines and areas coloured by a field are not drawn per series yet
   inspect(

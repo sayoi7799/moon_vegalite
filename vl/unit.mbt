@@ -991,6 +991,11 @@ fn unit_axes(
   sc : UnitScales,
   width : Double,
   height : Double,
+  x_orient~ : String = "bottom",
+  y_orient~ : String = "left",
+  with_x~ : Bool = true,
+  with_y~ : Bool = true,
+  with_grid~ : Bool = true,
 ) -> Array[Axis] raise CompileError {
   let px = u.px
   let py = u.py
@@ -1048,7 +1053,7 @@ fn unit_axes(
                 {
                   scale: s,
                   domain: [],
-                  orient: "bottom",
+                  orient: x_orient,
                   title: None,
                   props: grid_props(p.def.axis, Some(p)),
                   grid_scale: Some(gs),
@@ -1064,7 +1069,7 @@ fn unit_axes(
                 {
                   scale: s,
                   domain: [],
-                  orient: "bottom",
+                  orient: x_orient,
                   title: None,
                   props: grid_props(p.def.axis, Some(p)),
                   grid_scale: None,
@@ -1086,7 +1091,7 @@ fn unit_axes(
             {
               scale: s,
               domain: [],
-              orient: "left",
+              orient: y_orient,
               title: None,
               props: grid_props(p.def.axis, Some(p)),
               grid_scale: match xs {
@@ -1118,7 +1123,7 @@ fn unit_axes(
           Some(a) => Some(a)
           None => if p.time_unit is None { Some(270.0) } else { None }
         }
-        label_angle_props("x", angle, "bottom", props)
+        label_angle_props("x", angle, x_orient, props)
         if p.time_unit is Some(_) {
           props["labelOverlap"] = Bool(true)
         }
@@ -1136,7 +1141,7 @@ fn unit_axes(
           {
             scale: s,
             domain: d,
-            orient: "bottom",
+            orient: x_orient,
             title: if p.def.title is Some(None) {
               None
             } else {
@@ -1166,7 +1171,7 @@ fn unit_axes(
       match p.def.axis {
         Props(m) =>
           match m.get("labelAngle") {
-            Some(Num(a)) => label_angle_props("y", Some(a), "left", props)
+            Some(Num(a)) => label_angle_props("y", Some(a), y_orient, props)
             _ => ()
           }
         _ => ()
@@ -1181,7 +1186,7 @@ fn unit_axes(
           {
             scale: s,
             domain: d,
-            orient: "left",
+            orient: y_orient,
             title: if p.def.title is Some(None) {
               None
             } else {
@@ -1200,14 +1205,19 @@ fn unit_axes(
   }
   let hidden : Array[String] = []
   match px {
-    Some({ def: { axis: Off, .. }, .. }) => hidden.push("bottom")
+    Some({ def: { axis: Off, .. }, .. }) => hidden.push(x_orient)
     _ => ()
   }
   match py {
-    Some({ def: { axis: Off, .. }, .. }) => hidden.push("left")
+    Some({ def: { axis: Off, .. }, .. }) => hidden.push(y_orient)
     _ => ()
   }
-  axes.filter(fn(a) { !hidden.contains(a.orient) })
+  axes.filter(fn(a) {
+    !hidden.contains(a.orient) &&
+    (with_x || a.orient != x_orient) &&
+    (with_y || a.orient != y_orient) &&
+    (with_grid || !a.has_grid)
+  })
 }
 
 ///|
@@ -1635,6 +1645,7 @@ fn unit_legends(
   u : UnitModel,
   sc : UnitScales,
   height : Double,
+  skip_color~ : Bool = false,
 ) -> Array[Legend] raise CompileError {
   let spec = u.spec
   let default_opacity = has_default_opacity(u.mark, spec)
@@ -1659,7 +1670,7 @@ fn unit_legends(
     })
   let leg_chs : Array[LegCh] = []
   match pcolor {
-    Some(c) if !(c.def.legend is Off) && color_seq is None =>
+    Some(c) if !(c.def.legend is Off) && color_seq is None && !skip_color =>
       leg_chs.push({
         channel: if filled_mark {
           "fill"
@@ -1700,7 +1711,7 @@ fn unit_legends(
   )
   match (pcolor, color_seq) {
     (Some(c), Some(sq)) =>
-      if !(c.def.legend is Off) {
+      if !(c.def.legend is Off) && !skip_color {
         legends.insert(
           0,
           build_gradient_legend(
