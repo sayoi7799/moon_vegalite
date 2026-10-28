@@ -318,3 +318,23 @@ test "bin is only drawn by marks that know how" {
     content="encoding.x.bin (mark line) 暂不支持",
   )
 }
+
+///|
+test "only the side of a symbol legend can be set" {
+  let color = fn(legend : String) {
+    enc(
+      "\"point\"",
+      "{\"x\":{\"field\":\"b\",\"type\":\"quantitative\"},\"color\":{\"field\":\"a\",\"type\":\"nominal\",\"legend\":" +
+      legend +
+      "}}",
+    )
+  }
+  inspect(
+    message_of(color("{\"orient\":\"top\"}")),
+    content="encoding.color.legend 暂不支持",
+  )
+  inspect(
+    message_of(color("{\"title\":\"t\"}")),
+    content="encoding.color.legend.title 暂不支持",
+  )
+}

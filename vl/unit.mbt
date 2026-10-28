@@ -1979,6 +1979,17 @@ fn unit_mark(
 }
 
 ///|
+/// Whether a mark is drawn with a fill (vega-lite's `filled`): everything but
+/// `point`, `line` and `rule` unless it says so.
+fn is_filled_mark(mark : String, spec : @spec.Spec) -> Bool {
+  !(mark == "point" || mark == "line" || mark == "rule") ||
+  (match spec.mark.props.get("filled") {
+    Some(Bool(true)) => true
+    _ => false
+  })
+}
+
+///|
 fn unit_legends(
   u : UnitModel,
   sc : UnitScales,
@@ -1986,6 +1997,7 @@ fn unit_legends(
   skip_color~ : Bool = false,
   shape_override? : String,
   opacity_override? : Double,
+  color_channels? : Array[String],
 ) -> Array[Legend] raise CompileError {
   let spec = u.spec
   let default_opacity = mark_opacity(u.mark, spec)
@@ -2003,23 +2015,25 @@ fn unit_legends(
   let shape_scale = sc.shape_scale
   let shape_domain = sc.shape_domain
   let base_color = base_color
-  let filled_mark = !(mark == "point" || mark == "line" || mark == "rule") ||
-    (match spec.mark.props.get("filled") {
-      Some(Bool(true)) => true
-      _ => false
-    })
+  let filled_mark = is_filled_mark(mark, spec)
   let leg_chs : Array[LegCh] = []
   match pcolor {
     Some(c) if !(c.def.legend is Off) && color_seq is None && !skip_color =>
-      leg_chs.push({
-        channel: if filled_mark {
-          "fill"
-        } else {
-          "stroke"
-        },
-        pos: c,
-        kind: Disc(color_scale, color_domain),
-      })
+      // layers that merge into one legend may colour through both channels
+      for
+        ch in color_channels.unwrap_or([
+          if filled_mark {
+            "fill"
+          } else {
+            "stroke"
+          },
+        ]) {
+        leg_chs.push({
+          channel: ch,
+          pos: c,
+          kind: Disc(color_scale, color_domain),
+        })
+      }
     _ => ()
   }
   match (psize, size_scale) {

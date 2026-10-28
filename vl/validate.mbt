@@ -192,8 +192,24 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
     if d.scale_off {
       raise nope(path + ".scale")
     }
-    if d.legend is Props(_) {
-      raise nope(path + ".legend")
+    match d.legend {
+      Props(m) =>
+        for k, v in m {
+          // only the side of the plot a symbol legend sits on
+          let side = match v {
+            Str("left") | Str("right") => true
+            _ => false
+          }
+          let ok = k == "orient" &&
+            side &&
+            !(name == "color" && typ == "quantitative")
+          if !ok {
+            raise nope(
+              path + ".legend" + (if k == "orient" { "" } else { "." + k }),
+            )
+          }
+        }
+      _ => ()
     }
     if (d.bin is Some(_) || d.time_unit is Some(_)) && !positional {
       raise nope(path + (if d.bin is Some(_) { ".bin" } else { ".timeUnit" }))

@@ -184,7 +184,14 @@ fn legends_of(
     out.push(
       build_legend({
         title: Some(canon.pos.title),
-        orient: "right",
+        orient: match canon.pos.def.legend {
+          Props(m) =>
+            match m.get("orient") {
+              Some(Str(o)) => o
+              _ => "right"
+            }
+          _ => "right"
+        },
         symbol,
         entries,
       }),

@@ -651,6 +651,23 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     } else {
       None
     }
+    // a layer colouring by stroke and another by fill give a legend with both
+    let channels : Array[String]? = if first_color {
+      let chs : Array[String] = []
+      for k in color_users {
+        let ch = if is_filled_mark(units[k].mark, units[k].spec) {
+          "fill"
+        } else {
+          "stroke"
+        }
+        if !chs.contains(ch) {
+          chs.push(ch)
+        }
+      }
+      Some(chs)
+    } else {
+      None
+    }
     let made = unit_legends(
       u_legend,
       sc,
@@ -658,6 +675,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
       skip_color=color_shared && !first_color,
       shape_override?=shape_hint,
       opacity_override?=opacity_hint,
+      color_channels?=channels,
     )
     for l in made {
       legends.push(l)
