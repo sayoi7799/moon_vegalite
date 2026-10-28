@@ -8,7 +8,9 @@ fn nope(path : String) -> CompileError {
 }
 
 ///|
-let honoured_mark_props : Array[String] = ["color", "filled", "interpolate"]
+let honoured_mark_props : Array[String] = [
+  "color", "filled", "interpolate", "opacity",
+]
 
 ///|
 let honoured_axis_props : Array[String] = [
@@ -55,13 +57,10 @@ fn inferred_type(d : @spec.ChannelDef) -> String {
 }
 
 ///|
-pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
-  for k, _ in spec.mark.props {
-    if !honoured_mark_props.contains(k) {
-      raise nope("mark." + k)
-    }
-  }
-  for k, v in spec.config {
+fn validate_config(
+  config : Map[String, @value.Value],
+) -> Unit raise CompileError {
+  for k, v in config {
     if k == "scale" {
       match v {
         Obj(m) =>
@@ -76,6 +75,16 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
       raise nope("config." + k)
     }
   }
+}
+
+///|
+pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
+  for k, _ in spec.mark.props {
+    if !honoured_mark_props.contains(k) {
+      raise nope("mark." + k)
+    }
+  }
+  validate_config(spec.config)
   let mark = spec.mark.typ
   // a continuous colour sharing its field with another legend channel makes
   // vega-lite merge them into one symbol legend, which is not implemented

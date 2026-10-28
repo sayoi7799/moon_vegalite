@@ -58,6 +58,8 @@ fn legends_of(
   filled : Bool,
   base_color : String,
   has_color_field : Bool,
+  default_opacity : Double?,
+  shape_override? : String,
 ) -> Array[Legend] raise CompileError {
   let groups : Array[Array[LegCh]] = []
   for c in chs {
@@ -94,12 +96,10 @@ fn legends_of(
     symbol["shape"] = str(
       if has_shape {
         "circle"
+      } else if shape_override is Some(o) {
+        o
       } else {
-        match mark {
-          "bar" => "square"
-          "circle" | "square" => mark
-          _ => "circle"
-        }
+        legend_symbol_shape(mark)
       },
     )
     if !has_size {
@@ -109,10 +109,9 @@ fn legends_of(
       if filled {
         symbol["fill"] = str("black")
         symbol["fillOpacity"] = num(
-          if mark == "point" || mark == "circle" || mark == "square" {
-            0.7
-          } else {
-            1.0
+          match default_opacity {
+            Some(o) => o
+            None => 1.0
           },
         )
         symbol["stroke"] = str("transparent")
@@ -130,14 +129,8 @@ fn legends_of(
     } else if !g.any(fn(c) { c.channel == "fill" }) {
       symbol["fill"] = str("transparent")
     }
-    if !has_opacity &&
-      (
-        mark == "point" ||
-        mark == "circle" ||
-        mark == "square" ||
-        mark == "tick"
-      ) {
-      symbol["opacity"] = num(0.7)
+    if !has_opacity && default_opacity is Some(o) {
+      symbol["opacity"] = num(o)
     }
     let values : Array[@value.Value] = []
     let labels : Array[String] = []

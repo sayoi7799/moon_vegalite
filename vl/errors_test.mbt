@@ -29,8 +29,8 @@ test "unsupported top-level features name their path" {
     content="params 暂不支持",
   )
   inspect(
-    message_of("{" + base + ",\"layer\":[{\"mark\":\"point\"}]}"),
-    content="layer 暂不支持",
+    message_of("{" + base + ",\"vconcat\":[{\"mark\":\"point\"}]}"),
+    content="vconcat 暂不支持",
   )
   inspect(
     message_of(
@@ -96,8 +96,8 @@ test "properties the compiler would ignore are rejected" {
   let xy = "\"x\":{\"field\":\"a\",\"type\":\"nominal\"},\"y\":{\"field\":\"b\",\"type\":\"quantitative\"}"
   // mark properties
   inspect(
-    message_of(enc("{\"type\":\"bar\",\"opacity\":0.5}", "{" + xy + "}")),
-    content="mark.opacity 暂不支持",
+    message_of(enc("{\"type\":\"bar\",\"cornerRadius\":3}", "{" + xy + "}")),
+    content="mark.cornerRadius 暂不支持",
   )
   // config
   inspect(
@@ -170,5 +170,73 @@ test "properties the compiler would ignore are rejected" {
       ),
     ),
     content="encoding.size.type nominal 暂不支持",
+  )
+}
+
+///|
+fn layered(top : String, layers : String) -> String {
+  "{\"data\":{\"values\":[{\"a\":1,\"b\":2,\"c\":\"u\"}]}," +
+  top +
+  "\"layer\":" +
+  layers +
+  "}"
+}
+
+///|
+test "layers that cannot be merged yet are rejected with their path" {
+  let q = "\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"},\"y\":{\"field\":\"b\",\"type\":\"quantitative\"}}"
+  // an error inside a layer names the layer
+  inspect(
+    message_of(
+      layered(
+        "",
+        "[{\"mark\":\"point\"," +
+        q +
+        "},{\"mark\":{\"type\":\"line\",\"cornerRadius\":3}," +
+        q +
+        "}]",
+      ),
+    ),
+    content="layer[1].mark.cornerRadius 暂不支持",
+  )
+  // independent discrete scales need one step per layer
+  inspect(
+    message_of(
+      layered(
+        "\"resolve\":{\"scale\":{\"x\":\"independent\"}},", "[{\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"c\",\"type\":\"nominal\"}}},{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"c\",\"type\":\"nominal\"}}}]",
+      ),
+    ),
+    content="resolve.scale.x independent (离散比例尺) 暂不支持",
+  )
+  // the same size channel in two layers shares one scale and one legend
+  let sized = "{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"},\"size\":{\"field\":\"b\",\"type\":\"quantitative\"}}}"
+  inspect(
+    message_of(layered("", "[" + sized + "," + sized + "]")),
+    content="encoding.size (多个 layer 使用同一通道) 暂不支持",
+  )
+  // a layer carries no size of its own
+  inspect(
+    message_of(layered("", "[{\"mark\":\"point\",\"width\":100," + q + "}]")),
+    content="layer[0].width 暂不支持",
+  )
+  // scales of different kinds cannot be merged, so they become independent,
+  // which a discrete scale cannot be
+  inspect(
+    message_of(
+      layered(
+        "", "[{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"}}},{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"c\",\"type\":\"nominal\"}}}]",
+      ),
+    ),
+    content="resolve.scale.x independent (离散比例尺) 暂不支持",
+  )
+  // separate axes on a shared scale are not implemented
+  inspect(
+    message_of(
+      layered(
+        "\"resolve\":{\"axis\":{\"y\":\"independent\"}},",
+        "[{\"mark\":\"point\"," + q + "},{\"mark\":\"line\"," + q + "}]",
+      ),
+    ),
+    content="resolve.axis.y independent (共用比例尺) 暂不支持",
   )
 }

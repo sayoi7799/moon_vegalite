@@ -30,13 +30,15 @@ test "scale multiplies the pixel size only" {
 ///|
 test "errors carry a message" {
   let r = try
-    @moon_vegalite.render_svg("{\"mark\":\"bar\",\"layer\":[]}")
+    @moon_vegalite.render_svg(
+      "{\"data\":{\"values\":[{\"a\":1}]},\"vconcat\":[{\"mark\":\"point\"}]}",
+    )
   catch {
     e => e.message()
   } noraise {
     _ => ""
   }
-  assert_eq(r, "layer 暂不支持")
+  assert_eq(r, "vconcat 暂不支持")
 }
 
 ///|

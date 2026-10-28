@@ -40,7 +40,14 @@ fn assemble(
     }
   }
   for m in marks {
-    ignore(view.union(m.bounds))
+    if m.role == Some("scope") {
+      // a group of marks (the paths of a coloured line) counts for the axes
+      // bounds that the legends are placed against
+      ignore(xb.union(m.bounds))
+      ignore(yb.union(m.bounds))
+    } else {
+      ignore(view.union(m.bounds))
+    }
   }
   // legends: lay out each, then place them by orient next to the plot
   for l in legends {

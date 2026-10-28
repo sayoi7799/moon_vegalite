@@ -3,6 +3,17 @@
 All notable changes to this project are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+
+- `layer`: layered views with nested layers; the encoding, data and transforms of a parent are inherited by its layers (a layer with its own `data` starts from that data), the position scales are shared with merged domains, the axes are drawn once with joined titles, colours and their legend are shared.
+- `resolve.scale` for `x` / `y` (independent scales, each with its own axis; the second axis of a channel goes to the opposite side) and for colour; `resolve.axis` on a shared scale is rejected.
+- Lines and areas coloured by a field are drawn as one path per series.
+- Mark property `opacity`, a constant `size` for `rule` and `line`, rules across the whole plot (`rule` with only `x` or only `y`).
+- Errors inside a layer carry its path (`layer[1].mark.cornerRadius 暂不支持`).
+- Official `layer` examples with scenegraph and SVG comparison: `layer_bar_line`, `layer_bar_line_union`, `layer_precipitation_mean`, `layer_bar_month`, `layer_line_mean_point_raw`, `layer_single_color`, `layer_line_color_rule`, and `line_color`; plus specs of our own in `examples/layer_*.vl.json`.
+
 ## [0.1.0] - not yet published
 
 First version: a Vega-Lite specification goes in, a scenegraph and an SVG document come out.

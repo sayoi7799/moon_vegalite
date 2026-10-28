@@ -143,26 +143,30 @@ fn mark_color(spec : @spec.Spec) -> String {
 }
 
 ///|
-fn domain_extent(
-  rows : Array[Map[String, @value.Value]],
-  fields : Array[String],
+fn domain_extent_multi(
+  srcs : Array[(Array[Map[String, @value.Value]], Array[String])],
   zero : Bool,
 ) -> (Double, Double)? {
   let mut lo = @double.infinity
   let mut hi = @double.neg_infinity
-  for f in fields {
-    match @transform.extent(rows, f) {
-      Some((a, b)) => {
-        lo = min(lo, a)
-        hi = max(hi, b)
+  let mut nfields = 0
+  for src in srcs {
+    let (rows, fields) = src
+    nfields += fields.length()
+    for f in fields {
+      match @transform.extent(rows, f) {
+        Some((a, b)) => {
+          lo = min(lo, a)
+          hi = max(hi, b)
+        }
+        None => ()
       }
-      None => ()
     }
   }
   if lo > hi {
     // no data: one field leaves the domain undefined (NaN); several fields
     // give an inverted infinite extent that `zero` collapses to [0, 0]
-    return if fields.length() > 1 {
+    return if nfields > 1 {
       if zero {
         Some((0.0, 0.0))
       } else {
@@ -180,12 +184,42 @@ fn domain_extent(
 }
 
 ///|
+fn domain_extent(
+  rows : Array[Map[String, @value.Value]],
+  fields : Array[String],
+  zero : Bool,
+) -> (Double, Double)? {
+  domain_extent_multi([(rows, fields)], zero)
+}
+
+///|
+/// Distinct values of several fields of several sources, in ascending order.
+fn sorted_unique_multi(
+  srcs : Array[(Array[Map[String, @value.Value]], Array[String])],
+) -> Array[@value.Value] {
+  let seen : Map[String, Bool] = Map([])
+  let out : Array[@value.Value] = []
+  for src in srcs {
+    let (rows, fields) = src
+    for f in fields {
+      for v in first_appearance(rows, f) {
+        let k = @scale.value_key(v)
+        if !seen.contains(k) {
+          seen[k] = true
+          out.push(v)
+        }
+      }
+    }
+  }
+  @transform.stable_sort(out, fn(a, b) { @value.compare_values(a, b) })
+}
+
+///|
 /// The scale of a position channel; `size` is the view size along it (None
 /// for a discrete scale whose size follows from its step).
 fn pos_scale(
   p : Pos,
-  rows : Array[Map[String, @value.Value]],
-  domain_fields : Array[String],
+  srcs : Array[(Array[Map[String, @value.Value]], Array[String])],
   mark : String,
   range_start : Double,
   range_stop : Double,
@@ -208,7 +242,7 @@ fn pos_scale(
   } else if p.discrete {
     let domain = match order {
       Some(o) => o
-      None => sorted_unique(rows, p.field)
+      None => sorted_unique_multi(srcs)
     }
     let band = if mark == "bar" ||
       mark == "rect" ||
@@ -235,7 +269,7 @@ fn pos_scale(
     (Band(band), domain)
   } else if p.temporal {
     let c = @scale.Continuous::new(Linear)
-    match domain_extent(rows, domain_fields, false) {
+    match domain_extent_multi(srcs, false) {
       Some((lo, hi)) => c.domain = [lo, hi]
       None => ()
     }
@@ -285,7 +319,7 @@ fn pos_scale(
     match user_domain {
       Some(d) => c.domain = d
       None =>
-        match domain_extent(rows, domain_fields, zero) {
+        match domain_extent_multi(srcs, zero) {
           Some((lo, hi)) => c.domain = [lo, hi]
           None => ()
         }
@@ -327,9 +361,53 @@ fn pos_scale(
 }
 
 ///|
-pub fn compile(text : String) -> Compiled raise CompileError {
-  let spec = @spec.parse_spec_text(text) catch { e => raise spec_err(e) }
-  validate(spec)
+priv struct UnitModel {
+  spec : @spec.Spec
+  mark : String
+  px : Pos?
+  py : Pos?
+  px2 : Pos?
+  py2 : Pos?
+  pcolor : Pos?
+  psize : Pos?
+  popacity : Pos?
+  pshape : Pos?
+  ptext : Pos?
+  color_value : String?
+  size_value : Double?
+  opacity_value : Double?
+  shape_value : String?
+  bin_info : Map[String, (Double, Double, Double)]
+  orient : String
+  vertical : Bool
+  config_zero : Bool
+  stack_chan : String?
+  stack_offset : String
+  valid_fields : Array[String]
+  data : Array[Map[String, @value.Value]]
+  xfields : Array[String]
+  yfields : Array[String]
+  x_order : Array[@value.Value]?
+  y_order : Array[@value.Value]?
+}
+
+///|
+priv struct UnitScales {
+  xs : (RScale, Array[@value.Value])?
+  ys : (RScale, Array[@value.Value])?
+  base_color : String
+  color_scale : @scale.Ordinal
+  color_domain : Array[@value.Value]
+  color_seq : @scale.Sequential?
+  size_scale : @scale.Continuous?
+  opacity_scale : @scale.Continuous?
+  shape_scale : @scale.Ordinal
+  shape_domain : Array[@value.Value]
+}
+
+///|
+/// Run the data pipeline of a unit specification and resolve its channels.
+fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
   let source = match spec.data {
     Some(d) => d
     None => raise CompileError("data 缺失")
@@ -458,7 +536,14 @@ pub fn compile(text : String) -> Compiled raise CompileError {
   }
   if mark != "point" && mark != "circle" && mark != "square" {
     for ch in ["size", "opacity", "shape"] {
+      let constant_size = ch == "size" &&
+        (mark == "rule" || mark == "line") &&
+        (match find_channel(spec, ch) {
+          Some({ field: None, value: Some(_), .. }) => true
+          _ => false
+        })
       if find_channel(spec, ch) is Some(_) &&
+        !constant_size &&
         !(ch == "opacity" && (mark == "bar" || mark == "tick" || mark == "area")) {
         raise CompileError(
           "encoding." + ch + " 暂不支持用于 mark " + mark,
@@ -546,14 +631,40 @@ pub fn compile(text : String) -> Compiled raise CompileError {
   let stack_chan0 : String? = if (mark == "bar" || mark == "area") &&
     !(has_aggregate && pcolor is None) {
     match (px, py) {
-      (Some(x), Some(y)) =>
-        if x.typ == "quantitative" && y.typ != "quantitative" {
+      (Some(x), Some(y)) => {
+        // vega-lite's `potentialStackedChannel`
+        let xq = is_measure(px)
+        let yq = is_measure(py)
+        let requested = fn(p : Pos) -> Bool {
+          match p.def.stack {
+            Some("none") | None => false
+            Some(_) => true
+          }
+        }
+        if xq && yq {
+          if requested(x) {
+            Some("x")
+          } else if requested(y) {
+            Some("y")
+          } else if (x.aggregate is Some(_)) != (y.aggregate is Some(_)) {
+            if x.aggregate is Some(_) {
+              Some("x")
+            } else {
+              Some("y")
+            }
+          } else if orient == "horizontal" {
+            Some("x")
+          } else {
+            Some("y")
+          }
+        } else if xq {
           Some("x")
-        } else if y.typ == "quantitative" && x.typ != "quantitative" {
+        } else if yq {
           Some("y")
         } else {
           None
         }
+      }
       _ => None
     }
   } else {
@@ -616,52 +727,7 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       valid_fields.all(fn(f) { is_finite_valid(@value.get_field(r, f)) })
     })
   }
-  // view sizes
-  let xstep = step_of(spec.width)
-  let ystep = step_of(spec.height)
-  let width_of = fn(
-    p : Pos?,
-    step : Double?,
-    dflt : Double,
-    spec_size : @value.Value?,
-  ) -> Double {
-    match p {
-      Some(q) if q.discrete => {
-        let n = sorted_unique(data, q.field).length().to_double()
-        let (pi, po) = if mark == "bar" {
-          (0.1, 0.05)
-        } else if mark == "tick" {
-          (0.25, 0.125)
-        } else if mark == "rect" || mark == "rule" {
-          (0.0, 0.0)
-        } else {
-          (1.0, 0.5)
-        }
-        let s = match step {
-          Some(v) => v
-          None => 20.0
-        }
-        if mark == "bar" || mark == "tick" || mark == "rect" || mark == "rule" {
-          @scale.band_space(n, pi, po) * s
-        } else {
-          @scale.band_space(n, 1.0, 0.5) * s
-        }
-      }
-      Some(_) =>
-        match spec_size {
-          Some(Num(v)) => v
-          _ => dflt
-        }
-      None =>
-        match spec_size {
-          Some(Num(v)) => v
-          _ => 20.0
-        }
-    }
-  }
-  let width = width_of(px, xstep, 200.0, spec.width)
-  let height = width_of(py, ystep, 200.0, spec.height)
-  // scales
+  // domain fields and sort orders of the position scales
   let xfields = match px {
     Some(p) =>
       if stack_chan == Some("x") {
@@ -700,257 +766,184 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       sort_domain(p, sv, rows_pre, data, px, py)
     _ => None
   }
-  let xs = match px {
-    Some(p) =>
-      Some(
-        pos_scale(
-          p,
-          data,
-          xfields,
-          mark,
-          0.0,
-          width,
-          bin_info.get("x"),
-          zero_of_chan(mark, orient, "x", px2 is Some(_), config_zero),
-          x_order,
-        ),
-      )
-    None => None
+  {
+    spec,
+    mark,
+    px,
+    py,
+    px2,
+    py2,
+    pcolor,
+    psize,
+    popacity,
+    pshape,
+    ptext,
+    color_value,
+    size_value,
+    opacity_value,
+    shape_value,
+    bin_info,
+    orient,
+    vertical,
+    config_zero,
+    stack_chan,
+    stack_offset,
+    valid_fields,
+    data,
+    xfields,
+    yfields,
+    x_order,
+    y_order,
   }
-  let ys = match py {
-    Some(p) =>
-      if p.discrete {
-        Some(
-          pos_scale(
-            p,
-            data,
-            yfields,
-            mark,
-            0.0,
-            height,
-            bin_info.get("y"),
-            zero_of_chan(mark, orient, "y", py2 is Some(_), config_zero),
-            y_order,
-          ),
-        )
-      } else {
-        Some(
-          pos_scale(
-            p,
-            data,
-            yfields,
-            mark,
-            height,
-            0.0,
-            bin_info.get("y"),
-            zero_of_chan(mark, orient, "y", py2 is Some(_), config_zero),
-            y_order,
-          ),
-        )
-      }
-    None => None
-  }
-  // axes
-  let axes : Array[Axis] = []
-  let tick_x = tick_count_of(px, width)
-  let tick_y = tick_count_of(py, height)
-  let grid_props = fn(
-    axis : @spec.Guide,
-    p : Pos?,
-  ) -> Map[String, @value.Value] raise CompileError {
-    let m : Map[String, @value.Value] = Map([
-      ("grid", Bool(true)),
-      ("domain", Bool(false)),
-      ("labels", Bool(false)),
-      ("aria", Bool(false)),
-      ("maxExtent", Num(0.0)),
-      ("minExtent", Num(0.0)),
-      ("ticks", Bool(false)),
-    ])
-    match axis {
-      Props(a) =>
-        for k, v in a {
-          if k.has_prefix("grid") && k != "grid" {
-            m[k] = v
-          }
-        }
-      _ => ()
-    }
+}
+
+///|
+/// The size of the plot area.
+fn unit_size(u : UnitModel) -> (Double, Double) {
+  let spec = u.spec
+  let data = u.data
+  let count = fn(p : Pos?) -> Int32 {
     match p {
-      Some(q) =>
-        match q.time_unit {
-          Some(u) =>
-            match unit_duration(unit_parts(u)) {
-              Some(d) => m["tickMinStep"] = Num(d)
-              None => ()
-            }
-          None => ()
-        }
-      None => ()
+      Some(q) if q.discrete => sorted_unique(data, q.field).length()
+      _ => 0
     }
-    m
   }
-  match (px, xs, ys) {
-    (Some(p), Some((s, _)), _) =>
-      if !p.discrete && p.def.bin is None {
-        match ys {
-          Some((gs, _)) =>
-            axes.push(
-              build_axis(
-                {
-                  scale: s,
-                  domain: [],
-                  orient: "bottom",
-                  title: None,
-                  props: grid_props(p.def.axis, Some(p)),
-                  grid_scale: Some(gs),
-                  tick_count: tick_x,
-                },
-                width,
-                height,
-              ),
-            )
-          None =>
-            axes.push(
-              build_axis(
-                {
-                  scale: s,
-                  domain: [],
-                  orient: "bottom",
-                  title: None,
-                  props: grid_props(p.def.axis, Some(p)),
-                  grid_scale: None,
-                  tick_count: tick_x,
-                },
-                width,
-                height,
-              ),
-            )
-        }
-      }
-    _ => ()
-  }
-  match (py, ys, xs) {
-    (Some(p), Some((s, _)), _) =>
-      if !p.discrete && p.def.bin is None {
-        axes.push(
-          build_axis(
-            {
-              scale: s,
-              domain: [],
-              orient: "left",
-              title: None,
-              props: grid_props(p.def.axis, Some(p)),
-              grid_scale: match xs {
-                Some((gs, _)) => Some(gs)
-                None => None
-              },
-              tick_count: tick_y,
-            },
-            width,
-            height,
-          ),
-        )
-      }
-    _ => ()
-  }
-  match (px, xs) {
-    (Some(p), Some((s, d))) => {
-      let props : Map[String, @value.Value] = Map([])
-      if p.discrete {
-        let user_angle = match p.def.axis {
-          Props(m) =>
-            match m.get("labelAngle") {
-              Some(Num(a)) => Some(a)
-              _ => None
-            }
-          _ => None
-        }
-        let angle = match user_angle {
-          Some(a) => Some(a)
-          None => if p.time_unit is None { Some(270.0) } else { None }
-        }
-        label_angle_props("x", angle, "bottom", props)
-        if p.time_unit is Some(_) {
-          props["labelOverlap"] = Bool(true)
-        }
+  (
+    axis_size(u.px, count(u.px), u.mark, step_of(spec.width), 200.0, spec.width),
+    axis_size(
+      u.py,
+      count(u.py),
+      u.mark,
+      step_of(spec.height),
+      200.0,
+      spec.height,
+    ),
+  )
+}
+
+///|
+/// The size of the plot area along one axis: `step * bandspace` for a discrete
+/// scale with `n_discrete` domain values, the given size or 200 for a
+/// continuous one, and 20 when the channel is missing.
+fn axis_size(
+  p : Pos?,
+  n_discrete : Int32,
+  mark : String,
+  step : Double?,
+  dflt : Double,
+  spec_size : @value.Value?,
+) -> Double {
+  match p {
+    Some(q) if q.discrete => {
+      let n = n_discrete.to_double()
+      let (pi, po) = if mark == "bar" {
+        (0.1, 0.05)
+      } else if mark == "tick" {
+        (0.25, 0.125)
+      } else if mark == "rect" || mark == "rule" {
+        (0.0, 0.0)
       } else {
-        props["labelFlush"] = Bool(true)
-        props["labelOverlap"] = Bool(true)
+        (1.0, 0.5)
       }
-      if stack_chan == Some("x") && stack_offset == "normalize" {
-        props["format"] = Str(".0%")
+      let s = match step {
+        Some(v) => v
+        None => 20.0
       }
-      time_axis_props(p, props)
-      apply_axis_spec(props, p.def.axis)
-      axes.push(
-        build_axis(
-          {
-            scale: s,
-            domain: d,
-            orient: "bottom",
-            title: if p.def.title is Some(None) {
-              None
-            } else {
-              Some(p.title)
-            },
-            props,
-            grid_scale: None,
-            tick_count: tick_x,
-          },
-          width,
-          height,
-        ),
-      )
+      if mark == "bar" || mark == "tick" || mark == "rect" || mark == "rule" {
+        @scale.band_space(n, pi, po) * s
+      } else {
+        @scale.band_space(n, 1.0, 0.5) * s
+      }
     }
-    _ => ()
+    Some(_) =>
+      match spec_size {
+        Some(Num(v)) => v
+        _ => dflt
+      }
+    None =>
+      match spec_size {
+        Some(Num(v)) => v
+        _ => 20.0
+      }
   }
-  match (py, ys) {
-    (Some(p), Some((s, d))) => {
-      let props : Map[String, @value.Value] = Map([])
-      if !p.discrete || p.time_unit is Some(_) {
-        props["labelOverlap"] = if is_log(p) {
-          Str("greedy")
-        } else {
-          Bool(true)
-        }
+}
+
+///|
+/// Position scales and the scales of the non-positional channels.
+fn unit_scales(
+  u : UnitModel,
+  width : Double,
+  height : Double,
+  xs_shared? : (RScale, Array[@value.Value]),
+  ys_shared? : (RScale, Array[@value.Value]),
+) -> UnitScales {
+  let spec = u.spec
+  let mark = u.mark
+  let px = u.px
+  let py = u.py
+  let px2 = u.px2
+  let py2 = u.py2
+  let pcolor = u.pcolor
+  let psize = u.psize
+  let popacity = u.popacity
+  let pshape = u.pshape
+  let color_value = u.color_value
+  let bin_info = u.bin_info
+  let orient = u.orient
+  let config_zero = u.config_zero
+  let data = u.data
+  let xfields = u.xfields
+  let yfields = u.yfields
+  let x_order = u.x_order
+  let y_order = u.y_order
+  let xs = match xs_shared {
+    Some(_) => xs_shared
+    None =>
+      match px {
+        Some(p) =>
+          Some(
+            pos_scale(
+              p,
+              [(data, xfields)],
+              mark,
+              0.0,
+              width,
+              bin_info.get("x"),
+              zero_of_chan(mark, orient, "x", px2 is Some(_), config_zero),
+              x_order,
+            ),
+          )
+        None => None
       }
-      match p.def.axis {
-        Props(m) =>
-          match m.get("labelAngle") {
-            Some(Num(a)) => label_angle_props("y", Some(a), "left", props)
-            _ => ()
-          }
-        _ => ()
-      }
-      if stack_chan == Some("y") && stack_offset == "normalize" {
-        props["format"] = Str(".0%")
-      }
-      time_axis_props(p, props)
-      apply_axis_spec(props, p.def.axis)
-      axes.push(
-        build_axis(
-          {
-            scale: s,
-            domain: d,
-            orient: "left",
-            title: if p.def.title is Some(None) {
-              None
-            } else {
-              Some(p.title)
-            },
-            props,
-            grid_scale: None,
-            tick_count: tick_y,
-          },
-          width,
-          height,
-        ),
-      )
-    }
-    _ => ()
   }
-  // marks
+  let ys = match ys_shared {
+    Some(_) => ys_shared
+    None =>
+      match py {
+        Some(p) =>
+          Some(
+            pos_scale(
+              p,
+              [(data, yfields)],
+              mark,
+              if p.discrete {
+                0.0
+              } else {
+                height
+              },
+              if p.discrete {
+                height
+              } else {
+                0.0
+              },
+              bin_info.get("y"),
+              zero_of_chan(mark, orient, "y", py2 is Some(_), config_zero),
+              y_order,
+            ),
+          )
+        None => None
+      }
+  }
   let base_color = match color_value {
     Some(c) => c
     None => mark_color(spec)
@@ -1011,6 +1004,292 @@ pub fn compile(text : String) -> Compiled raise CompileError {
   }
   shape_scale.set_domain(shape_domain)
   shape_scale.set_range(symbol_shapes.map(fn(x) { Str(x) }))
+  {
+    xs,
+    ys,
+    base_color,
+    color_scale,
+    color_domain,
+    color_seq,
+    size_scale,
+    opacity_scale,
+    shape_scale,
+    shape_domain,
+  }
+}
+
+///|
+fn unit_axes(
+  u : UnitModel,
+  sc : UnitScales,
+  width : Double,
+  height : Double,
+  x_orient~ : String = "bottom",
+  y_orient~ : String = "left",
+  with_x~ : Bool = true,
+  with_y~ : Bool = true,
+  with_grid~ : Bool = true,
+) -> Array[Axis] raise CompileError {
+  let px = u.px
+  let py = u.py
+  let stack_chan = u.stack_chan
+  let stack_offset = u.stack_offset
+  let xs = sc.xs
+  let ys = sc.ys
+  // axes
+  let axes : Array[Axis] = []
+  let tick_x = tick_count_of(px, width)
+  let tick_y = tick_count_of(py, height)
+  let grid_props = fn(
+    axis : @spec.Guide,
+    p : Pos?,
+  ) -> Map[String, @value.Value] raise CompileError {
+    let m : Map[String, @value.Value] = Map([
+      ("grid", Bool(true)),
+      ("domain", Bool(false)),
+      ("labels", Bool(false)),
+      ("aria", Bool(false)),
+      ("maxExtent", Num(0.0)),
+      ("minExtent", Num(0.0)),
+      ("ticks", Bool(false)),
+    ])
+    match axis {
+      Props(a) =>
+        for k, v in a {
+          if k.has_prefix("grid") && k != "grid" {
+            m[k] = v
+          }
+        }
+      _ => ()
+    }
+    match p {
+      Some(q) =>
+        match q.time_unit {
+          Some(u) =>
+            match unit_duration(unit_parts(u)) {
+              Some(d) => m["tickMinStep"] = Num(d)
+              None => ()
+            }
+          None => ()
+        }
+      None => ()
+    }
+    m
+  }
+  match (px, xs, ys) {
+    (Some(p), Some((s, _)), _) =>
+      if !p.discrete && p.def.bin is None {
+        match ys {
+          Some((gs, _)) =>
+            axes.push(
+              build_axis(
+                {
+                  scale: s,
+                  domain: [],
+                  orient: x_orient,
+                  title: None,
+                  props: grid_props(p.def.axis, Some(p)),
+                  grid_scale: Some(gs),
+                  tick_count: tick_x,
+                },
+                width,
+                height,
+              ),
+            )
+          None =>
+            axes.push(
+              build_axis(
+                {
+                  scale: s,
+                  domain: [],
+                  orient: x_orient,
+                  title: None,
+                  props: grid_props(p.def.axis, Some(p)),
+                  grid_scale: None,
+                  tick_count: tick_x,
+                },
+                width,
+                height,
+              ),
+            )
+        }
+      }
+    _ => ()
+  }
+  match (py, ys, xs) {
+    (Some(p), Some((s, _)), _) =>
+      if !p.discrete && p.def.bin is None {
+        axes.push(
+          build_axis(
+            {
+              scale: s,
+              domain: [],
+              orient: y_orient,
+              title: None,
+              props: grid_props(p.def.axis, Some(p)),
+              grid_scale: match xs {
+                Some((gs, _)) => Some(gs)
+                None => None
+              },
+              tick_count: tick_y,
+            },
+            width,
+            height,
+          ),
+        )
+      }
+    _ => ()
+  }
+  match (px, xs) {
+    (Some(p), Some((s, d))) => {
+      let props : Map[String, @value.Value] = Map([])
+      if p.discrete {
+        let user_angle = match p.def.axis {
+          Props(m) =>
+            match m.get("labelAngle") {
+              Some(Num(a)) => Some(a)
+              _ => None
+            }
+          _ => None
+        }
+        let angle = match user_angle {
+          Some(a) => Some(a)
+          None => if p.time_unit is None { Some(270.0) } else { None }
+        }
+        label_angle_props("x", angle, x_orient, props)
+        if p.time_unit is Some(_) {
+          props["labelOverlap"] = Bool(true)
+        }
+      } else {
+        props["labelFlush"] = Bool(true)
+        props["labelOverlap"] = Bool(true)
+      }
+      if stack_chan == Some("x") && stack_offset == "normalize" {
+        props["format"] = Str(".0%")
+      }
+      time_axis_props(p, props)
+      apply_axis_spec(props, p.def.axis)
+      axes.push(
+        build_axis(
+          {
+            scale: s,
+            domain: d,
+            orient: x_orient,
+            title: if p.def.title is Some(None) {
+              None
+            } else {
+              Some(p.title)
+            },
+            props,
+            grid_scale: None,
+            tick_count: tick_x,
+          },
+          width,
+          height,
+        ),
+      )
+    }
+    _ => ()
+  }
+  match (py, ys) {
+    (Some(p), Some((s, d))) => {
+      let props : Map[String, @value.Value] = Map([])
+      if !p.discrete || p.time_unit is Some(_) {
+        props["labelOverlap"] = if is_log(p) {
+          Str("greedy")
+        } else {
+          Bool(true)
+        }
+      }
+      match p.def.axis {
+        Props(m) =>
+          match m.get("labelAngle") {
+            Some(Num(a)) => label_angle_props("y", Some(a), y_orient, props)
+            _ => ()
+          }
+        _ => ()
+      }
+      if stack_chan == Some("y") && stack_offset == "normalize" {
+        props["format"] = Str(".0%")
+      }
+      time_axis_props(p, props)
+      apply_axis_spec(props, p.def.axis)
+      axes.push(
+        build_axis(
+          {
+            scale: s,
+            domain: d,
+            orient: y_orient,
+            title: if p.def.title is Some(None) {
+              None
+            } else {
+              Some(p.title)
+            },
+            props,
+            grid_scale: None,
+            tick_count: tick_y,
+          },
+          width,
+          height,
+        ),
+      )
+    }
+    _ => ()
+  }
+  let hidden : Array[String] = []
+  match px {
+    Some({ def: { axis: Off, .. }, .. }) => hidden.push(x_orient)
+    _ => ()
+  }
+  match py {
+    Some({ def: { axis: Off, .. }, .. }) => hidden.push(y_orient)
+    _ => ()
+  }
+  axes.filter(fn(a) {
+    !hidden.contains(a.orient) &&
+    (with_x || a.orient != x_orient) &&
+    (with_y || a.orient != y_orient) &&
+    (with_grid || !a.has_grid)
+  })
+}
+
+///|
+fn unit_mark(
+  u : UnitModel,
+  sc : UnitScales,
+  width : Double,
+  height : Double,
+  name~ : String = "marks",
+) -> @scene.Mark raise CompileError {
+  let spec = u.spec
+  let mark = u.mark
+  let px = u.px
+  let py = u.py
+  let px2 = u.px2
+  let py2 = u.py2
+  let pcolor = u.pcolor
+  let psize = u.psize
+  let popacity = u.popacity
+  let pshape = u.pshape
+  let ptext = u.ptext
+  let color_value = u.color_value
+  let size_value = u.size_value
+  let opacity_value = u.opacity_value
+  let shape_value = u.shape_value
+  let orient = u.orient
+  let vertical = u.vertical
+  let stack_chan = u.stack_chan
+  let valid_fields = u.valid_fields
+  let data = u.data
+  let xs = sc.xs
+  let ys = sc.ys
+  let base_color = sc.base_color
+  let color_scale = sc.color_scale
+  let color_seq = sc.color_seq
+  let size_scale = sc.size_scale
+  let opacity_scale = sc.opacity_scale
+  let shape_scale = sc.shape_scale
+  let default_opacity = mark_opacity(mark, spec)
   let color_of = fn(r : Map[String, @value.Value]) -> String {
     match pcolor {
       Some(c) if color_seq is Some(_) =>
@@ -1107,11 +1386,19 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       }
       "line" => {
         let it = mk_item([
-          ("strokeWidth", num(2.0)),
+          (
+            "strokeWidth",
+            num(
+              match size_value {
+                Some(v) => v
+                None => 2.0
+              },
+            ),
+          ),
           ("stroke", str(color_of(r))),
         ])
-        it.set_num("x", pos_of(xs, r, px.unwrap().field))
-        it.set_num("y", pos_of(ys, r, py.unwrap().field))
+        it.set_num("x", pos_of(xs, r, px.unwrap().field) + band_half(xs))
+        it.set_num("y", pos_of(ys, r, py.unwrap().field) + band_half(ys))
         match spec.mark.props.get("interpolate") {
           Some(v) => it.set("interpolate", v)
           None => ()
@@ -1132,7 +1419,7 @@ pub fn compile(text : String) -> Compiled raise CompileError {
         let px_ = px.unwrap()
         let py_ = py.unwrap()
         if vertical {
-          it.set_num("x", pos_of(xs, r, px_.field))
+          it.set_num("x", pos_of(xs, r, px_.field) + band_half(xs))
           let (a, b) = if stack_chan == Some("y") {
             (
               pos_of(ys, r, py_.field + "_end"),
@@ -1145,7 +1432,7 @@ pub fn compile(text : String) -> Compiled raise CompileError {
           it.set_num("y2", b)
           it.set_num("height", b - a)
         } else {
-          it.set_num("y", pos_of(ys, r, py_.field))
+          it.set_num("y", pos_of(ys, r, py_.field) + band_half(ys))
           let (a, b) = if stack_chan == Some("x") {
             (
               pos_of(xs, r, px_.field + "_end"),
@@ -1175,9 +1462,13 @@ pub fn compile(text : String) -> Compiled raise CompileError {
           (
             "stroke",
             str(
-              match color_value {
-                Some(c) => c
-                None => "black"
+              match pcolor {
+                Some(_) => color_of(r)
+                None =>
+                  match color_value {
+                    Some(c) => c
+                    None => "black"
+                  }
               },
             ),
           ),
@@ -1199,7 +1490,28 @@ pub fn compile(text : String) -> Compiled raise CompileError {
               it.set_num("x", pos_of(xs, r, a.field))
               it.set_num("x2", pos_of(xs, r, px2.unwrap().field))
             }
-          _ => raise CompileError("rule 需要 x 与 y 通道")
+          (None, Some(b)) => {
+            // a horizontal rule across the whole plot
+            it.set_num("x", width)
+            it.set_num("x2", 0.0)
+            it.set_num(
+              "y",
+              pos_of(ys, r, b.field) + ys.unwrap().0.bandwidth() * 0.5,
+            )
+          }
+          (Some(a), None) => {
+            it.set_num(
+              "x",
+              pos_of(xs, r, a.field) + xs.unwrap().0.bandwidth() * 0.5,
+            )
+            it.set_num("y", 0.0)
+            it.set_num("y2", height)
+          }
+          _ => raise CompileError("rule 需要 x 或 y 通道")
+        }
+        match size_value {
+          Some(v) => it.set_num("strokeWidth", v)
+          None => ()
         }
         items.push(it)
       }
@@ -1251,7 +1563,11 @@ pub fn compile(text : String) -> Compiled raise CompileError {
         items.push(it)
       }
       "tick" => {
-        let it = mk_item([("opacity", num(0.7)), ("fill", str(color_of(r)))])
+        let it = mk_item([("fill", str(color_of(r)))])
+        match default_opacity {
+          Some(o) => it.set_num("opacity", o)
+          None => ()
+        }
         let thickness = 1.0
         if orient == "horizontal" {
           // size along x, thickness along y
@@ -1300,8 +1616,11 @@ pub fn compile(text : String) -> Compiled raise CompileError {
           ("size", num(30.0)),
           ("strokeWidth", num(2.0)),
           ("shape", str(if mark == "point" { "circle" } else { mark })),
-          ("opacity", num(0.7)),
         ])
+        match default_opacity {
+          Some(o) => it.set_num("opacity", o)
+          None => ()
+        }
         if filled {
           it.set_str("fill", color_of(r))
         } else {
@@ -1366,6 +1685,18 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       }
     }
   }
+  match spec.mark.props.get("opacity") {
+    Some(Num(o)) =>
+      if !(mark == "point" ||
+        mark == "circle" ||
+        mark == "square" ||
+        mark == "tick") {
+        for it in items {
+          it.set_num("opacity", o)
+        }
+      }
+    _ => ()
+  }
   let mt = match mark {
     "point" | "circle" | "square" => @scene.MarkType::Symbol
     "line" => @scene.MarkType::Line
@@ -1374,26 +1705,101 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     "text" => @scene.MarkType::Text
     _ => @scene.MarkType::Rect
   }
+  // the series (colour) of every item, kept in step with `items`
+  let item_keys : Array[String] = match pcolor {
+    Some(c) =>
+      data.map(fn(r) { @scale.value_key(@value.get_field(r, c.field)) })
+    None => data.map(fn(_) { "" })
+  }
+  // the series appear in the order of the data, whatever the sort of the paths
+  let series_order : Array[String] = []
+  for k in item_keys {
+    if !series_order.contains(k) {
+      series_order.push(k)
+    }
+  }
   if mark == "line" || mark == "area" {
     // `sort: {field: "x"}`
     let sort_key = if vertical { "x" } else { "y" }
-    let sorted = @transform.stable_sort(items, fn(a, b) {
-      @value.compare_values(a.get(sort_key), b.get(sort_key))
+    let idx = Array::makei(items.length(), fn(i) { i })
+    let sorted = @transform.stable_sort(idx, fn(a, b) {
+      @value.compare_values(items[a].get(sort_key), items[b].get(sort_key))
     })
+    let sorted_items = sorted.map(fn(i) { items[i] })
+    let sorted_keys = sorted.map(fn(i) { item_keys[i] })
     items.clear()
-    for it in sorted {
+    for it in sorted_items {
       items.push(it)
     }
+    item_keys.clear()
+    for k in sorted_keys {
+      item_keys.push(k)
+    }
   }
-  let marks = @scene.Mark::new(mt, name="marks", role="mark", items~)
-  let filled_mark = mark != "point" ||
+  let marks = match pcolor {
+    Some(_) if mark == "line" || mark == "area" => {
+      // one path per colour, each in its own group (vega-lite's `pathgroup`)
+      let order = series_order
+      let by_key : Map[String, Array[@scene.Item]] = Map([])
+      for i in 0..<items.length() {
+        let k = item_keys[i]
+        match by_key.get(k) {
+          Some(a) => a.push(items[i])
+          None => by_key[k] = [items[i]]
+        }
+      }
+      let group_name = if name.has_suffix("marks") {
+        name[0:name.length() - 5].to_owned() + "pathgroup"
+      } else {
+        name
+      }
+      let group_items = order.map(fn(k) {
+        let g = mk_item([("width", num(width)), ("height", num(height))])
+        g.children.push(
+          @scene.Mark::new(mt, name~, role="mark", items=by_key[k]),
+        )
+        g
+      })
+      @scene.Mark::new(Group, name=group_name, role="scope", items=group_items)
+    }
+    _ => @scene.Mark::new(mt, name~, role="mark", items~)
+  }
+  marks
+}
+
+///|
+fn unit_legends(
+  u : UnitModel,
+  sc : UnitScales,
+  height : Double,
+  skip_color~ : Bool = false,
+  shape_override? : String,
+  opacity_override? : Double,
+) -> Array[Legend] raise CompileError {
+  let spec = u.spec
+  let default_opacity = mark_opacity(u.mark, spec)
+  let mark = u.mark
+  let pcolor = u.pcolor
+  let psize = u.psize
+  let popacity = u.popacity
+  let pshape = u.pshape
+  let base_color = sc.base_color
+  let color_scale = sc.color_scale
+  let color_domain = sc.color_domain
+  let color_seq = sc.color_seq
+  let size_scale = sc.size_scale
+  let opacity_scale = sc.opacity_scale
+  let shape_scale = sc.shape_scale
+  let shape_domain = sc.shape_domain
+  let base_color = base_color
+  let filled_mark = !(mark == "point" || mark == "line" || mark == "rule") ||
     (match spec.mark.props.get("filled") {
       Some(Bool(true)) => true
       _ => false
     })
   let leg_chs : Array[LegCh] = []
   match pcolor {
-    Some(c) if !(c.def.legend is Off) && color_seq is None =>
+    Some(c) if !(c.def.legend is Off) && color_seq is None && !skip_color =>
       leg_chs.push({
         channel: if filled_mark {
           "fill"
@@ -1430,23 +1836,24 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     filled_mark,
     base_color,
     pcolor is Some(_),
+    match opacity_override {
+      Some(_) => opacity_override
+      None => default_opacity
+    },
+    shape_override?,
   )
   match (pcolor, color_seq) {
     (Some(c), Some(sq)) =>
-      if !(c.def.legend is Off) {
+      if !(c.def.legend is Off) && !skip_color {
         legends.insert(
           0,
           build_gradient_legend(
             Some(c.title),
             sq,
             max(64.0, min(200.0, height)),
-            if mark == "point" ||
-              mark == "circle" ||
-              mark == "square" ||
-              mark == "tick" {
-              0.7
-            } else {
-              1.0
+            match default_opacity {
+              Some(o) => o
+              None => 1.0
             },
             None,
           ),
@@ -1454,20 +1861,26 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       }
     _ => ()
   }
+  legends
+}
+
+///|
+pub fn compile(text : String) -> Compiled raise CompileError {
+  let spec = @spec.parse_spec_text(text) catch { e => raise spec_err(e) }
+  if spec.layer.length() > 0 {
+    return compile_layers(spec)
+  }
+  validate(spec)
+  let u = build_unit(spec)
+  let (width, height) = unit_size(u)
+  let sc = unit_scales(u, width, height)
+  let axes = unit_axes(u, sc, width, height)
+  let marks = unit_mark(u, sc, width, height)
+  let legends = unit_legends(u, sc, height)
   let title = match spec.title {
     Some(t) => Some(build_title(t))
     None => None
   }
-  let hidden : Array[String] = []
-  match px {
-    Some({ def: { axis: Off, .. }, .. }) => hidden.push("bottom")
-    _ => ()
-  }
-  match py {
-    Some({ def: { axis: Off, .. }, .. }) => hidden.push("left")
-    _ => ()
-  }
-  let axes = axes.filter(fn(a) { !hidden.contains(a.orient) })
   assemble(spec, axes, [marks], legends, title, width, height)
 }
 
@@ -1710,5 +2123,46 @@ fn is_log(p : Pos) -> Bool {
         _ => false
       }
     None => false
+  }
+}
+
+///|
+/// Half the bandwidth of a band scale (a path mark through the centre of its
+/// band); 0 for point and continuous scales.
+fn band_half(s : (RScale, Array[@value.Value])?) -> Double {
+  match s {
+    Some((sc, _)) => sc.bandwidth() * 0.5
+    None => 0.0
+  }
+}
+
+///|
+/// The opacity of a unit's marks: the `opacity` mark property, else 0.7 for
+/// point-like marks unless the unit aggregates a field (vega-lite's default).
+fn mark_opacity(mark : String, spec : @spec.Spec) -> Double? {
+  match spec.mark.props.get("opacity") {
+    Some(Num(o)) => Some(o)
+    _ =>
+      if (
+          mark == "point" ||
+          mark == "circle" ||
+          mark == "square" ||
+          mark == "tick"
+        ) &&
+        !spec.encoding.any(fn(e) { e.1.aggregate is Some(_) }) {
+        Some(0.7)
+      } else {
+        None
+      }
+  }
+}
+
+///|
+/// The shape of the legend symbol that a mark gives to a colour legend.
+fn legend_symbol_shape(mark : String) -> String {
+  match mark {
+    "bar" | "rect" | "square" => "square"
+    "line" | "rule" => "stroke"
+    _ => "circle"
   }
 }

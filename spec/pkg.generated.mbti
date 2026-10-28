@@ -100,7 +100,15 @@ pub fn Reader::string(Self, String) -> String? raise SpecError
 pub fn Reader::take(Self, String) -> Json?
 pub fn Reader::value(Self, String) -> @value.Value?
 
+pub(all) struct Resolve {
+  scale : Map[String, String]
+  axis : Map[String, String]
+  legend : Map[String, String]
+}
+
 pub(all) struct Spec {
+  layer : Array[Spec]
+  resolve : Resolve
   mark : Mark
   encoding : Array[(String, ChannelDef)]
   transform : Array[Transform]
