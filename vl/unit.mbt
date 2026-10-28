@@ -529,7 +529,8 @@ fn build_unit(
     None => ()
   }
   let pcolor : Pos? = match find_channel(spec, "color") {
-    Some({ field: Some(_), .. } as d) => Some(resolve_pos("color", d))
+    Some(d) if d.field is Some(_) || d.aggregate is Some("count") =>
+      Some(resolve_pos("color", d))
     _ => None
   }
   let px2 : Pos? = match find_channel(spec, "x2") {
@@ -561,15 +562,18 @@ fn build_unit(
     _ => py
   }
   let psize : Pos? = match find_channel(spec, "size") {
-    Some({ field: Some(_), .. } as d) => Some(resolve_pos("size", d))
+    Some(d) if d.field is Some(_) || d.aggregate is Some("count") =>
+      Some(resolve_pos("size", d))
     _ => None
   }
   let popacity : Pos? = match find_channel(spec, "opacity") {
-    Some({ field: Some(_), .. } as d) => Some(resolve_pos("opacity", d))
+    Some(d) if d.field is Some(_) || d.aggregate is Some("count") =>
+      Some(resolve_pos("opacity", d))
     _ => None
   }
   let pshape : Pos? = match find_channel(spec, "shape") {
-    Some({ field: Some(_), .. } as d) => Some(resolve_pos("shape", d))
+    Some(d) if d.field is Some(_) || d.aggregate is Some("count") =>
+      Some(resolve_pos("shape", d))
     _ => None
   }
   // for rules and lines a constant size is the stroke width; the encoding
@@ -645,7 +649,7 @@ fn build_unit(
         })
       None => {
         groupby.push(p.field)
-        if is_ranged(mark, p) {
+        if is_ranged(mark, p) || p.def.bin is Some(_) {
           groupby.push(p.field + "_end")
         }
       }
@@ -1060,13 +1064,28 @@ fn unit_scales(
       None => false
     },
   )
-  let step_w = match step_of(spec.width) {
-    Some(v) => v
-    None => 20.0
+  // a binned channel's step is the plot size over the number of bins
+  let bin_step = fn(chan : String, size : Double) -> Double? {
+    match u.bin_info.get(chan) {
+      Some((start, stop, step)) => Some(size / ((stop - start) / step))
+      None => None
+    }
   }
-  let step_h = match step_of(spec.height) {
+  let step_w = match bin_step("x", width) {
     Some(v) => v
-    None => 20.0
+    None =>
+      match step_of(spec.width) {
+        Some(v) => v
+        None => 20.0
+      }
+  }
+  let step_h = match bin_step("y", height) {
+    Some(v) => v
+    None =>
+      match step_of(spec.height) {
+        Some(v) => v
+        None => 20.0
+      }
   }
   let max_size = {
     let m = 0.95 * min(step_w, step_h)
@@ -1421,6 +1440,29 @@ fn unit_mark(
       None => 0.0
     }
   }
+  // where a mark sits on a channel: a binned field is drawn at the middle of
+  // its bin, anything else at the mapped value
+  let pos_at = fn(
+    s : (RScale, Array[@value.Value])?,
+    r : Map[String, @value.Value],
+    p : Pos,
+  ) -> Double {
+    if p.def.bin is Some(_) {
+      match s {
+        Some((sc, _)) => {
+          let a = @value.get_field(r, p.field).to_number()
+          let b = @value.get_field(r, p.field + "_end").to_number()
+          match sc.map(Num(0.5 * a + 0.5 * b)) {
+            Some(v) => v
+            None => @double.not_a_number
+          }
+        }
+        None => 0.0
+      }
+    } else {
+      pos_of(s, r, p.field)
+    }
+  }
   let zero_of = fn(s : (RScale, Array[@value.Value])?) -> Double {
     match s {
       Some((sc, _)) =>
@@ -1675,14 +1717,14 @@ fn unit_mark(
         it.set_num(
           "x",
           match px {
-            Some(p) => pos_of(xs, r, p.field) + xs.unwrap().0.bandwidth() * 0.5
+            Some(p) => pos_at(xs, r, p) + xs.unwrap().0.bandwidth() * 0.5
             None => const_pos("x", width)
           },
         )
         it.set_num(
           "y",
           match py {
-            Some(p) => pos_of(ys, r, p.field) + ys.unwrap().0.bandwidth() * 0.5
+            Some(p) => pos_at(ys, r, p) + ys.unwrap().0.bandwidth() * 0.5
             None => const_pos("y", height)
           },
         )
@@ -1816,11 +1858,11 @@ fn unit_mark(
           None => 0.0
         }
         let xv = match px {
-          Some(p) => pos_of(xs, r, p.field) + bx
+          Some(p) => pos_at(xs, r, p) + bx
           None => width * 0.5
         }
         let yv = match py {
-          Some(p) => pos_of(ys, r, p.field) + by
+          Some(p) => pos_at(ys, r, p) + by
           None => height * 0.5
         }
         it.set_num("x", xv)

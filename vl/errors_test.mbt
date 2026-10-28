@@ -306,3 +306,15 @@ test "layers that bin differently are rejected with their path" {
     content="layer[1].encoding.x.bin (多个 layer 的分箱不一致) 暂不支持",
   )
 }
+
+///|
+test "bin is only drawn by marks that know how" {
+  inspect(
+    message_of(
+      enc(
+        "\"line\"", "{\"x\":{\"field\":\"b\",\"type\":\"quantitative\",\"bin\":true},\"y\":{\"aggregate\":\"count\"}}",
+      ),
+    ),
+    content="encoding.x.bin (mark line) 暂不支持",
+  )
+}

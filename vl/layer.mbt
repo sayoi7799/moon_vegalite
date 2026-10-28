@@ -528,9 +528,40 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
         _ => u.pshape is Some(_)
       }
     })
-    if users.length() > 1 && resolve_mode(top, "scale", ch) != "independent" {
+    // a size scale may be shared when each layer keeps its own legend
+    let separate_legends = ch == "size" &&
+      resolve_mode(top, "legend", ch) == "independent"
+    if users.length() > 1 &&
+      resolve_mode(top, "scale", ch) != "independent" &&
+      !separate_legends {
       raise nope("encoding." + ch + " (多个 layer 使用同一通道)")
     }
+  }
+  // one size scale over the domains of all layers that encode size
+  let size_users : Array[Int32] = []
+  for i in 0..<n {
+    if units[i].psize is Some(_) {
+      size_users.push(i)
+    }
+  }
+  let size_shared = size_users.length() > 1 &&
+    resolve_mode(top, "scale", "size") != "independent"
+  let merged_size : @scale.Continuous? = if size_shared {
+    let s = units[size_users[0]]
+    let base = unit_scales(s, width, height).size_scale.unwrap()
+    match
+      domain_extent_multi(
+        size_users.map(fn(i) {
+          (units[i].data, [units[i].psize.unwrap().field])
+        }),
+        true,
+      ) {
+      Some((lo, hi)) => base.domain = [lo, hi]
+      None => ()
+    }
+    Some(base)
+  } else {
+    None
   }
   let color_shared = color_users.length() > 1 &&
     resolve_mode(top, "scale", "color") != "independent"
@@ -577,6 +608,10 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
       { ..base, color_scale: merged_color, color_domain: merged_color_domain, }
     } else {
       base
+    }
+    let sc = match merged_size {
+      Some(ms) if u.psize is Some(_) => { ..sc, size_scale: Some(ms), }
+      _ => sc
     }
     scales.push(sc)
     marks.push(unit_mark(u, sc, width, height, name=leaves[i].name + "_marks"))

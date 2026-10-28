@@ -165,6 +165,16 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
     if d.band_position is Some(_) {
       raise nope(path + ".bandPosition")
     }
+    // only these marks know how to draw a binned field (bars as a range,
+    // points and text at the middle of the bin)
+    if d.bin is Some(_) &&
+      !(mark == "bar" ||
+      mark == "point" ||
+      mark == "circle" ||
+      mark == "square" ||
+      mark == "text") {
+      raise nope(path + ".bin (mark " + mark + ")")
+    }
     match d.datum {
       Some(Num(_)) =>
         if !positional || (d.typ is Some(_) && typ != "quantitative") {

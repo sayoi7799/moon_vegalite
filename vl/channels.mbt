@@ -122,6 +122,13 @@ fn legends_of(
     } else if !has_color {
       if filled {
         symbol["fill"] = str(base_color)
+        // vega-lite's colour mixin adds a transparent stroke to these marks
+        if mark == "bar" ||
+          mark == "point" ||
+          mark == "circle" ||
+          mark == "square" {
+          symbol["stroke"] = str("transparent")
+        }
       } else {
         symbol["fill"] = str("transparent")
         symbol["stroke"] = str(base_color)
