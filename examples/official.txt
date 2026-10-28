@@ -32,6 +32,7 @@ layer_bar_line
 layer_bar_line_union
 layer_bar_month
 layer_line_color_rule
+layer_line_datum_rule
 layer_line_mean_point_raw
 layer_precipitation_mean
 layer_single_color

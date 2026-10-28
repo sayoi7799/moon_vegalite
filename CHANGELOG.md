@@ -13,8 +13,9 @@ All notable changes to this project are recorded here. The format follows
 - Mark property `opacity`, a constant `size` for `rule` and `line`, rules across the whole plot (`rule` with only `x` or only `y`).
 - Text marks: `align`, `baseline`, `dx`, `dy` and `fontSize`.
 - Ordinal colour fields use the blues scheme sampled once per domain value; stacked areas are imputed (zero-filled) so every series has a point at every key.
+- `datum` (a number) on `x` / `y`: a constant that enters the scale domain and draws rules at that value; rule mark properties `strokeDash` and `size`.
 - Errors inside a layer carry its path (`layer[1].mark.cornerRadius 暂不支持`).
-- Official `layer` examples with scenegraph and SVG comparison: `layer_bar_line`, `layer_bar_line_union`, `layer_precipitation_mean`, `layer_bar_month`, `layer_line_mean_point_raw`, `layer_single_color`, `layer_line_color_rule`, `layer_bar_labels`, and `line_color`; plus specs of our own in `examples/layer_*.vl.json`.
+- Official `layer` examples with scenegraph and SVG comparison: `layer_bar_line`, `layer_bar_line_union`, `layer_precipitation_mean`, `layer_bar_month`, `layer_line_mean_point_raw`, `layer_single_color`, `layer_line_color_rule`, `layer_bar_labels`, `layer_line_datum_rule`, and `line_color`; plus specs of our own in `examples/layer_*.vl.json`.
 
 ## [0.1.0] - not yet published
 

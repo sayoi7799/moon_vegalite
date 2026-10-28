@@ -183,7 +183,8 @@ fn is_band_mark(mark : String) -> Bool {
 fn merge_titles_all(titles : Array[String]) -> String {
   let uniq : Array[String] = []
   for t in titles {
-    if !uniq.contains(t) {
+    // a datum contributes no title
+    if t != "" && !uniq.contains(t) {
       uniq.push(t)
     }
   }

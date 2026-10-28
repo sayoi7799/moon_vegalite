@@ -19,6 +19,10 @@ let honoured_text_props : Array[String] = [
 ]
 
 ///|
+/// Mark properties that only mean something for `rule` (`size` also for `line`).
+let honoured_rule_props : Array[String] = ["strokeDash", "size"]
+
+///|
 let honoured_axis_props : Array[String] = [
   "domain", "domainColor", "domainWidth", "format", "formatType", "grid", "gridColor",
   "gridWidth", "labelAlign", "labelAngle", "labelBaseline", "labelColor", "labelFlush",
@@ -39,7 +43,9 @@ fn inferred_type(d : @spec.ChannelDef) -> String {
   match d.typ {
     Some(t) => t
     None =>
-      if d.aggregate is Some(_) {
+      if d.datum is Some(Num(_)) {
+        "quantitative"
+      } else if d.aggregate is Some(_) {
         "quantitative"
       } else if d.time_unit is Some(_) {
         "temporal"
@@ -87,9 +93,20 @@ fn validate_config(
 pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
   for k, _ in spec.mark.props {
     if !honoured_mark_props.contains(k) &&
-      !(spec.mark.typ == "text" && honoured_text_props.contains(k)) {
+      !(spec.mark.typ == "text" && honoured_text_props.contains(k)) &&
+      !(spec.mark.typ == "rule" && honoured_rule_props.contains(k)) &&
+      !(spec.mark.typ == "line" && k == "size") {
       raise nope("mark." + k)
     }
+  }
+  match spec.mark.props.get("size") {
+    Some(Num(_)) | None => ()
+    Some(_) => raise nope("mark.size")
+  }
+  match spec.mark.props.get("strokeDash") {
+    Some(Arr(a)) if a.all(fn(v) { v is Num(_) }) => ()
+    None => ()
+    Some(_) => raise nope("mark.strokeDash")
   }
   validate_config(spec.config)
   let mark = spec.mark.typ
@@ -133,8 +150,13 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
     if d.band_position is Some(_) {
       raise nope(path + ".bandPosition")
     }
-    if d.datum is Some(_) {
-      raise nope(path + ".datum")
+    match d.datum {
+      Some(Num(_)) =>
+        if !positional || (d.typ is Some(_) && typ != "quantitative") {
+          raise nope(path + ".datum")
+        }
+      Some(_) => raise nope(path + ".datum")
+      None => ()
     }
     if d.format_type is Some(_) {
       raise nope(path + ".formatType")

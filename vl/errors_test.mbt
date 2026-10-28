@@ -240,3 +240,34 @@ test "layers that cannot be merged yet are rejected with their path" {
     content="resolve.axis.y independent (共用比例尺) 暂不支持",
   )
 }
+
+///|
+test "datum and rule properties are checked" {
+  let rule = fn(mark : String, enc : String) {
+    "{\"data\":{\"values\":[{\"a\":1}]},\"mark\":" +
+    mark +
+    ",\"encoding\":" +
+    enc +
+    "}"
+  }
+  inspect(
+    message_of(rule("\"rule\"", "{\"y\":{\"datum\":\"x\"}}")),
+    content="encoding.y.datum 暂不支持",
+  )
+  inspect(
+    message_of(rule("\"rule\"", "{\"color\":{\"datum\":3}}")),
+    content="encoding.color.datum 暂不支持",
+  )
+  inspect(
+    message_of(
+      rule("{\"type\":\"rule\",\"strokeDash\":\"4\"}", "{\"y\":{\"datum\":3}}"),
+    ),
+    content="mark.strokeDash 暂不支持",
+  )
+  inspect(
+    message_of(
+      rule("{\"type\":\"point\",\"strokeDash\":[1,1]}", "{\"y\":{\"datum\":3}}"),
+    ),
+    content="mark.strokeDash 暂不支持",
+  )
+}

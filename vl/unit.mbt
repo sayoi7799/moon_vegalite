@@ -77,14 +77,13 @@ fn default_title(def : @spec.ChannelDef) -> String raise CompileError {
 }
 
 ///|
-fn resolve_pos(
-  _chan : String,
-  def : @spec.ChannelDef,
-) -> Pos raise CompileError {
+fn resolve_pos(chan : String, def : @spec.ChannelDef) -> Pos raise CompileError {
   let typ = match def.typ {
     Some(t) => t
     None =>
-      if def.aggregate is Some(_) {
+      if def.datum is Some(Num(_)) {
+        "quantitative"
+      } else if def.aggregate is Some(_) {
         "quantitative"
       } else if def.time_unit is Some(_) {
         "temporal"
@@ -105,14 +104,21 @@ fn resolve_pos(
         }
       }
   }
+  // a datum has no field to name an axis after; it is stored under a
+  // synthetic field of every row so that scales and marks treat it as data
+  let is_datum = def.datum is Some(_)
   let title = match def.title {
     Some(Some(t)) => t
-    _ => default_title(def)
+    _ => if is_datum { "" } else { default_title(def) }
   }
   {
     def,
     typ,
-    field: derived_field(def),
+    field: if is_datum {
+      "__datum_" + chan
+    } else {
+      derived_field(def)
+    },
     title,
     discrete: typ == "nominal" || typ == "ordinal",
     temporal: typ == "temporal",
@@ -548,9 +554,20 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
     Some({ field: Some(_), .. } as d) => Some(resolve_pos("shape", d))
     _ => None
   }
+  // for rules and lines a constant size is the stroke width; the encoding
+  // wins over the mark property
   let size_value : Double? = match find_channel(spec, "size") {
     Some({ value: Some(Num(v)), .. }) => Some(v)
-    _ => None
+    Some(_) => None
+    None =>
+      if mark == "rule" || mark == "line" {
+        match spec.mark.props.get("size") {
+          Some(Num(v)) => Some(v)
+          _ => None
+        }
+      } else {
+        None
+      }
   }
   let opacity_value : Double? = match find_channel(spec, "opacity") {
     Some({ value: Some(Num(v)), .. }) => Some(v)
@@ -626,6 +643,16 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
     }
   }
   let has_aggregate = measures.length() > 0
+  // a datum is a constant of every row under its synthetic field
+  for p in positions {
+    match p.def.datum {
+      Some(v) =>
+        for r in rows {
+          r[p.field] = v
+        }
+      None => ()
+    }
+  }
   let rows_pre = rows
   if has_aggregate {
     rows = @transform.aggregate(rows, groupby, measures) catch {
@@ -1210,7 +1237,7 @@ fn unit_axes(
             scale: s,
             domain: d,
             orient: x_orient,
-            title: if p.def.title is Some(None) {
+            title: if p.def.title is Some(None) || p.title == "" {
               None
             } else {
               Some(p.title)
@@ -1255,7 +1282,7 @@ fn unit_axes(
             scale: s,
             domain: d,
             orient: y_orient,
-            title: if p.def.title is Some(None) {
+            title: if p.def.title is Some(None) || p.title == "" {
               None
             } else {
               Some(p.title)
@@ -1546,6 +1573,10 @@ fn unit_mark(
         }
         match size_value {
           Some(v) => it.set_num("strokeWidth", v)
+          None => ()
+        }
+        match spec.mark.props.get("strokeDash") {
+          Some(v) => it.set("strokeDash", v)
           None => ()
         }
         items.push(it)
