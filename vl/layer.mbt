@@ -11,6 +11,9 @@ priv struct Leaf {
   name : String
   /// the unit specification with everything inherited filled in
   spec : @spec.Spec
+  /// whether its data is the top-level data with only top-level transforms
+  /// before the layer's own ones (so that a bin can be shared by all layers)
+  on_root_data : Bool
 }
 
 ///|
@@ -138,11 +141,15 @@ fn flatten_layers(top : @spec.Spec) -> Array[Leaf] raise CompileError {
       raise CompileError("data 缺失")
     }
     let transform : Array[@spec.Transform] = []
+    let mut ancestor_transforms = 0
     let mut encoding : Array[(String, @spec.ChannelDef)] = []
     for i in 0..<chain.length() {
       if i >= owner {
         for t in chain[i].transform {
           transform.push(t)
+        }
+        if i < chain.length() - 1 {
+          ancestor_transforms += chain[i].transform.length()
         }
       }
       encoding = merge_encoding(encoding, chain[i].encoding)
@@ -150,6 +157,7 @@ fn flatten_layers(top : @spec.Spec) -> Array[Leaf] raise CompileError {
     out.push({
       path,
       name,
+      on_root_data: owner == 0 && ancestor_transforms == top.transform.length(),
       spec: {
         layer: [],
         resolve: top.resolve,
@@ -244,10 +252,61 @@ fn scale_category(p : Pos) -> String {
 }
 
 ///|
+/// Layers that bin the same field in the same way share one bin transform:
+/// vega-lite's optimizer hoists it above the layers' own transforms, so the
+/// bins come from the extent of the data they have in common.
+fn shared_layer_bins(
+  top : @spec.Spec,
+  leaves : Array[Leaf],
+) -> Map[String, @transform.BinParams] raise CompileError {
+  let out : Map[String, @transform.BinParams] = Map([])
+  for chan in ["x", "y"] {
+    let binned : Array[(Leaf, String, Map[String, @value.Value])] = []
+    for leaf in leaves {
+      match find_channel(leaf.spec, chan) {
+        Some({ field: Some(f), bin: Some(m), aggregate: None, .. }) =>
+          binned.push((leaf, f, m))
+        _ => ()
+      }
+    }
+    if binned.length() < 2 {
+      continue
+    }
+    let signature = fn(f : String, m : Map[String, @value.Value]) -> String {
+      let keys : Array[String] = []
+      for k, _ in m {
+        keys.push(k)
+      }
+      keys.sort()
+      f + "|" + keys.map(fn(k) { k + "=" + m[k].to_js_string() }).join(";")
+    }
+    let first = signature(binned[0].1, binned[0].2)
+    for b in binned {
+      if signature(b.1, b.2) != first || !b.0.on_root_data {
+        raise nope(
+          b.0.path +
+          ".encoding." +
+          chan +
+          ".bin (多个 layer 的分箱不一致)",
+        )
+      }
+    }
+    let data = match top.data {
+      Some(d) => d
+      None => raise CompileError("data 缺失")
+    }
+    let rows = apply_transforms(data.map(fn(r) { r.copy() }), top.transform)
+    out[chan] = bin_params(rows, binned[0].1, binned[0].2, 10.0)
+  }
+  out
+}
+
+///|
 /// Compile a layered specification.
 fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
   validate_config(top.config)
   let leaves = flatten_layers(top)
+  let shared_bins = shared_layer_bins(top, leaves)
   let units : Array[UnitModel] = []
   for leaf in leaves {
     try validate(leaf.spec) catch {
@@ -255,7 +314,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     } noraise {
       _ => ()
     }
-    units.push(build_unit(leaf.spec))
+    units.push(build_unit(leaf.spec, shared_bins~))
   }
   let n = units.length()
   let pos_of_unit = fn(i : Int32, chan : String) -> Pos {
@@ -275,15 +334,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
   }
   let xm = members_of("x")
   let ym = members_of("y")
-  let shared_pos = fn(
-    chan : String,
-    members : Array[Int32],
-  ) -> Bool raise CompileError {
-    for i in members {
-      if pos_of_unit(i, chan).def.bin is Some(_) {
-        raise nope("layer 中的 " + chan + " bin")
-      }
-    }
+  let shared_pos = fn(chan : String, members : Array[Int32]) -> Bool {
     if members.length() < 2 {
       return true
     }
@@ -373,6 +424,18 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
   }
   let width = size_of(xm, "x", x_shared)
   let height = size_of(ym, "y", y_shared)
+  // a binned layer leads a shared scale: its bins give the ticks and the style
+  let is_binned = fn(i : Int32, chan : String) -> Bool {
+    pos_of_unit(i, chan).def.bin is Some(_) && units[i].bin_info.contains(chan)
+  }
+  let lead_of = fn(members : Array[Int32], chan : String) -> Int32 {
+    for i in members {
+      if is_binned(i, chan) {
+        return i
+      }
+    }
+    members[0]
+  }
   let make_scale = fn(
     members : Array[Int32],
     chan : String,
@@ -380,15 +443,17 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     r1 : Double,
   ) -> (RScale, Array[@value.Value]) {
     let si = style_unit(members)
-    let f = members[0]
+    let f = lead_of(members, chan)
     let u = units[f]
-    pos_scale(
+    let binned = members.filter(fn(i) { is_binned(i, chan) })
+    let others = members.filter(fn(i) { !is_binned(i, chan) })
+    let result = pos_scale(
       pos_of_unit(f, chan),
-      srcs_of(members, chan),
+      srcs_of(if binned.length() > 0 { binned } else { members }, chan),
       units[si].mark,
       r0,
       r1,
-      None,
+      u.bin_info.get(chan),
       zero_of_chan(
         u.mark,
         u.orient,
@@ -402,6 +467,19 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
       ),
       order_of(members, chan),
     )
+    // other layers sharing a binned scale widen its domain, which is then niced
+    match result.0 {
+      Binned(c, _) if others.length() > 0 =>
+        match domain_extent_multi(srcs_of(others, chan), false) {
+          Some((lo, hi)) => {
+            c.domain = [min(c.domain[0], lo), max(c.domain[1], hi)]
+            c.nice()
+          }
+          None => ()
+        }
+      _ => ()
+    }
+    result
   }
   // one scale per layer (layers of a shared channel point at the same one)
   let xs_per : Array[(RScale, Array[@value.Value])?] = Array::make(n, None)
@@ -570,7 +648,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     let members = if chan == "x" { xm } else { ym }
     let shared = if chan == "x" { x_shared } else { y_shared }
     let owners = if shared && members.length() > 0 {
-      [members[0]]
+      [lead_of(members, chan)]
     } else {
       members
     }

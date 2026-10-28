@@ -439,7 +439,10 @@ fn set_color_range(
 
 ///|
 /// Run the data pipeline of a unit specification and resolve its channels.
-fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
+fn build_unit(
+  spec : @spec.Spec,
+  shared_bins~ : Map[String, @transform.BinParams] = Map([]),
+) -> UnitModel raise CompileError {
   let source = match spec.data {
     Some(d) => d
     None => raise CompileError("data 缺失")
@@ -495,7 +498,10 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
     match find_channel(spec, ch) {
       Some({ field: Some(f), bin: Some(m), aggregate: None, .. } as d) => {
         let name = derived_field(d)
-        let p = bin_params(rows, f, m, 10.0)
+        let p = match shared_bins.get(ch) {
+          Some(p) => p
+          None => bin_params(rows, f, m, 10.0)
+        }
         let bins = @transform.compute_bins(p)
         bin_info[ch] = (bins.start, bins.stop, bins.step)
         @transform.bin_rows(rows, f, p, name, name + "_end")
@@ -1467,8 +1473,25 @@ fn unit_mark(
           it.set_num("y2", max(a, b))
           it.set_num("height", (b - a).abs())
         } else {
-          it.set_num("y", pos_of(ys, r, py_.field))
-          it.set_num("height", max(0.25, ys.unwrap().0.bandwidth()))
+          if is_ranged(mark, py_) {
+            let sv = pos_of(ys, r, py_.field)
+            let ev = pos_of(ys, r, py_.field + "_end")
+            let d = (ev - sv).abs()
+            let y2v = sv +
+              (0.5 + (if d < 0.25 { 0.5 * (0.25 - d) } else { -0.5 }))
+            let yv = ev +
+              (0.5 + (if d < 0.25 { -0.5 * (0.25 - d) } else { 0.5 }))
+            it.set_num("y2", y2v)
+            it.set_num("y", yv)
+            if yv > y2v {
+              it.set_num("y", y2v)
+              it.set_num("y2", yv)
+            }
+            it.set_num("height", it.num0("y2") - it.num0("y"))
+          } else {
+            it.set_num("y", pos_of(ys, r, py_.field))
+            it.set_num("height", max(0.25, ys.unwrap().0.bandwidth()))
+          }
           let (a, b) = if stack_chan == Some("x") {
             (
               pos_of(xs, r, px_.field + "_start"),

@@ -291,3 +291,18 @@ test "second channels and constant text positions are checked" {
     content="mark.text 暂不支持",
   )
 }
+
+///|
+test "layers that bin differently are rejected with their path" {
+  let bar = fn(bin : String) {
+    "{\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\",\"bin\":" +
+    bin +
+    "},\"y\":{\"aggregate\":\"count\"}}}"
+  }
+  inspect(
+    message_of(
+      layered("", "[" + bar("true") + "," + bar("{\"maxbins\":5}") + "]"),
+    ),
+    content="layer[1].encoding.x.bin (多个 layer 的分箱不一致) 暂不支持",
+  )
+}

@@ -16,8 +16,9 @@ All notable changes to this project are recorded here. The format follows
 - `datum` (a number) on `x` / `y`: a constant that enters the scale domain and draws rules at that value; rule mark properties `strokeDash` and `size`.
 - `x2` / `y2` on `bar` and `rect` (ranged bars; a `rect` without `x` or `y` spans the plot), `opacity` on `bar` and `rect`, constant `text`, `x` (`"width"`) and `y` (`"height"`) mark properties for `text`.
 - Axis and legend titles of layers merge like vega-lite: an explicit title beats implicit ones, and an explicit `y` title stands for `y` / `y2` together.
+- `bin` inside layers: layers with the same bin on a field share one bin transform and a binned scale (other layers on that scale widen and nice its domain); differing bins are rejected with their layer path. Bars binned on `y` now use the bin range like bars binned on `x`.
 - Errors inside a layer carry its path (`layer[1].mark.cornerRadius 暂不支持`).
-- Official `layer` examples with scenegraph and SVG comparison: `layer_bar_line`, `layer_bar_line_union`, `layer_precipitation_mean`, `layer_bar_month`, `layer_line_mean_point_raw`, `layer_single_color`, `layer_line_color_rule`, `layer_bar_labels`, `layer_line_datum_rule`, `layer_rect_extent`, `layer_bar_annotations`, and `line_color`; plus specs of our own in `examples/layer_*.vl.json`.
+- Official `layer` examples with scenegraph and SVG comparison: `layer_bar_line`, `layer_bar_line_union`, `layer_precipitation_mean`, `layer_bar_month`, `layer_line_mean_point_raw`, `layer_single_color`, `layer_line_color_rule`, `layer_bar_labels`, `layer_line_datum_rule`, `layer_rect_extent`, `layer_bar_annotations`, `layer_histogram`, `layer_histogram_global_mean`, and `line_color`; plus specs of our own in `examples/layer_*.vl.json`.
 
 ## [0.1.0] - not yet published
 
