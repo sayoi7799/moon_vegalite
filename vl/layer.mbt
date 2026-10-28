@@ -11,6 +11,9 @@ priv struct Leaf {
   name : String
   /// the unit specification with everything inherited filled in
   spec : @spec.Spec
+  /// whether its data is the top-level data with only top-level transforms
+  /// before the layer's own ones (so that a bin can be shared by all layers)
+  on_root_data : Bool
 }
 
 ///|
@@ -138,11 +141,15 @@ fn flatten_layers(top : @spec.Spec) -> Array[Leaf] raise CompileError {
       raise CompileError("data 缺失")
     }
     let transform : Array[@spec.Transform] = []
+    let mut ancestor_transforms = 0
     let mut encoding : Array[(String, @spec.ChannelDef)] = []
     for i in 0..<chain.length() {
       if i >= owner {
         for t in chain[i].transform {
           transform.push(t)
+        }
+        if i < chain.length() - 1 {
+          ancestor_transforms += chain[i].transform.length()
         }
       }
       encoding = merge_encoding(encoding, chain[i].encoding)
@@ -150,6 +157,7 @@ fn flatten_layers(top : @spec.Spec) -> Array[Leaf] raise CompileError {
     out.push({
       path,
       name,
+      on_root_data: owner == 0 && ancestor_transforms == top.transform.length(),
       spec: {
         layer: [],
         resolve: top.resolve,
@@ -180,14 +188,33 @@ fn is_band_mark(mark : String) -> Bool {
 }
 
 ///|
-fn merge_titles_all(titles : Array[String]) -> String {
-  let uniq : Array[String] = []
-  for t in titles {
-    if !uniq.contains(t) {
-      uniq.push(t)
+/// Titles of the layers of a shared guide, merged pairwise as vega-lite's
+/// `mergeTitleComponent` does: an explicit title (set on the channel) beats an
+/// implicit one, otherwise a title is appended unless it repeats the previous
+/// result or is empty (a datum has no title).
+fn merge_titles_all(ps : Array[Pos]) -> String {
+  let mut title = ""
+  let mut explicit = false
+  for i in 0..<ps.length() {
+    let t = ps[i].title
+    let e = ps[i].def.title is Some(Some(_))
+    if i == 0 {
+      title = t
+      explicit = e
+    } else if explicit != e {
+      if e {
+        title = t
+        explicit = true
+      }
+    } else if t == title || t == "" {
+      ()
+    } else if title == "" {
+      title = t
+    } else {
+      title = title + ", " + t
     }
   }
-  uniq.join(", ")
+  title
 }
 
 ///|
@@ -225,10 +252,61 @@ fn scale_category(p : Pos) -> String {
 }
 
 ///|
+/// Layers that bin the same field in the same way share one bin transform:
+/// vega-lite's optimizer hoists it above the layers' own transforms, so the
+/// bins come from the extent of the data they have in common.
+fn shared_layer_bins(
+  top : @spec.Spec,
+  leaves : Array[Leaf],
+) -> Map[String, @transform.BinParams] raise CompileError {
+  let out : Map[String, @transform.BinParams] = Map([])
+  for chan in ["x", "y"] {
+    let binned : Array[(Leaf, String, Map[String, @value.Value])] = []
+    for leaf in leaves {
+      match find_channel(leaf.spec, chan) {
+        Some({ field: Some(f), bin: Some(m), aggregate: None, .. }) =>
+          binned.push((leaf, f, m))
+        _ => ()
+      }
+    }
+    if binned.length() < 2 {
+      continue
+    }
+    let signature = fn(f : String, m : Map[String, @value.Value]) -> String {
+      let keys : Array[String] = []
+      for k, _ in m {
+        keys.push(k)
+      }
+      keys.sort()
+      f + "|" + keys.map(fn(k) { k + "=" + m[k].to_js_string() }).join(";")
+    }
+    let first = signature(binned[0].1, binned[0].2)
+    for b in binned {
+      if signature(b.1, b.2) != first || !b.0.on_root_data {
+        raise nope(
+          b.0.path +
+          ".encoding." +
+          chan +
+          ".bin (多个 layer 的分箱不一致)",
+        )
+      }
+    }
+    let data = match top.data {
+      Some(d) => d
+      None => raise CompileError("data 缺失")
+    }
+    let rows = apply_transforms(data.map(fn(r) { r.copy() }), top.transform)
+    out[chan] = bin_params(rows, binned[0].1, binned[0].2, 10.0)
+  }
+  out
+}
+
+///|
 /// Compile a layered specification.
 fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
   validate_config(top.config)
   let leaves = flatten_layers(top)
+  let shared_bins = shared_layer_bins(top, leaves)
   let units : Array[UnitModel] = []
   for leaf in leaves {
     try validate(leaf.spec) catch {
@@ -236,7 +314,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     } noraise {
       _ => ()
     }
-    units.push(build_unit(leaf.spec))
+    units.push(build_unit(leaf.spec, shared_bins~))
   }
   let n = units.length()
   let pos_of_unit = fn(i : Int32, chan : String) -> Pos {
@@ -256,15 +334,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
   }
   let xm = members_of("x")
   let ym = members_of("y")
-  let shared_pos = fn(
-    chan : String,
-    members : Array[Int32],
-  ) -> Bool raise CompileError {
-    for i in members {
-      if pos_of_unit(i, chan).def.bin is Some(_) {
-        raise nope("layer 中的 " + chan + " bin")
-      }
-    }
+  let shared_pos = fn(chan : String, members : Array[Int32]) -> Bool {
     if members.length() < 2 {
       return true
     }
@@ -354,6 +424,18 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
   }
   let width = size_of(xm, "x", x_shared)
   let height = size_of(ym, "y", y_shared)
+  // a binned layer leads a shared scale: its bins give the ticks and the style
+  let is_binned = fn(i : Int32, chan : String) -> Bool {
+    pos_of_unit(i, chan).def.bin is Some(_) && units[i].bin_info.contains(chan)
+  }
+  let lead_of = fn(members : Array[Int32], chan : String) -> Int32 {
+    for i in members {
+      if is_binned(i, chan) {
+        return i
+      }
+    }
+    members[0]
+  }
   let make_scale = fn(
     members : Array[Int32],
     chan : String,
@@ -361,15 +443,17 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     r1 : Double,
   ) -> (RScale, Array[@value.Value]) {
     let si = style_unit(members)
-    let f = members[0]
+    let f = lead_of(members, chan)
     let u = units[f]
-    pos_scale(
+    let binned = members.filter(fn(i) { is_binned(i, chan) })
+    let others = members.filter(fn(i) { !is_binned(i, chan) })
+    let result = pos_scale(
       pos_of_unit(f, chan),
-      srcs_of(members, chan),
+      srcs_of(if binned.length() > 0 { binned } else { members }, chan),
       units[si].mark,
       r0,
       r1,
-      None,
+      u.bin_info.get(chan),
       zero_of_chan(
         u.mark,
         u.orient,
@@ -383,6 +467,19 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
       ),
       order_of(members, chan),
     )
+    // other layers sharing a binned scale widen its domain, which is then niced
+    match result.0 {
+      Binned(c, _) if others.length() > 0 =>
+        match domain_extent_multi(srcs_of(others, chan), false) {
+          Some((lo, hi)) => {
+            c.domain = [min(c.domain[0], lo), max(c.domain[1], hi)]
+            c.nice()
+          }
+          None => ()
+        }
+      _ => ()
+    }
+    result
   }
   // one scale per layer (layers of a shared channel point at the same one)
   let xs_per : Array[(RScale, Array[@value.Value])?] = Array::make(n, None)
@@ -431,9 +528,40 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
         _ => u.pshape is Some(_)
       }
     })
-    if users.length() > 1 && resolve_mode(top, "scale", ch) != "independent" {
+    // a size scale may be shared when each layer keeps its own legend
+    let separate_legends = ch == "size" &&
+      resolve_mode(top, "legend", ch) == "independent"
+    if users.length() > 1 &&
+      resolve_mode(top, "scale", ch) != "independent" &&
+      !separate_legends {
       raise nope("encoding." + ch + " (多个 layer 使用同一通道)")
     }
+  }
+  // one size scale over the domains of all layers that encode size
+  let size_users : Array[Int32] = []
+  for i in 0..<n {
+    if units[i].psize is Some(_) {
+      size_users.push(i)
+    }
+  }
+  let size_shared = size_users.length() > 1 &&
+    resolve_mode(top, "scale", "size") != "independent"
+  let merged_size : @scale.Continuous? = if size_shared {
+    let s = units[size_users[0]]
+    let base = unit_scales(s, width, height).size_scale.unwrap()
+    match
+      domain_extent_multi(
+        size_users.map(fn(i) {
+          (units[i].data, [units[i].psize.unwrap().field])
+        }),
+        true,
+      ) {
+      Some((lo, hi)) => base.domain = [lo, hi]
+      None => ()
+    }
+    Some(base)
+  } else {
+    None
   }
   let color_shared = color_users.length() > 1 &&
     resolve_mode(top, "scale", "color") != "independent"
@@ -458,11 +586,11 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
   } else {
     []
   }
-  merged_color.set_domain(merged_color_domain)
-  match @scale.scheme("tableau10") {
-    Some(Discrete(cs)) => merged_color.set_range(cs.map(fn(c) { Str(c) }))
-    _ => ()
-  }
+  set_color_range(
+    merged_color,
+    merged_color_domain,
+    color_users.any(fn(i) { units[i].pcolor.unwrap().typ == "ordinal" }),
+  )
   // --- marks and legends, one mark group per layer in layer order
   let marks : Array[@scene.Mark] = []
   let legends : Array[Legend] = []
@@ -481,6 +609,10 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     } else {
       base
     }
+    let sc = match merged_size {
+      Some(ms) if u.psize is Some(_) => { ..sc, size_scale: Some(ms), }
+      _ => sc
+    }
     scales.push(sc)
     marks.push(unit_mark(u, sc, width, height, name=leaves[i].name + "_marks"))
     let first_color = color_shared && color_users[0] == i
@@ -488,7 +620,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     let u_legend = if first_color {
       let c = u.pcolor.unwrap()
       let joined = merge_titles_all(
-        color_users.map(fn(k) { units[k].pcolor.unwrap().title }),
+        color_users.map(fn(k) { units[k].pcolor.unwrap() }),
       )
       { ..u, pcolor: Some({ ..c, title: joined, }), }
     } else {
@@ -519,6 +651,23 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     } else {
       None
     }
+    // a layer colouring by stroke and another by fill give a legend with both
+    let channels : Array[String]? = if first_color {
+      let chs : Array[String] = []
+      for k in color_users {
+        let ch = if is_filled_mark(units[k].mark, units[k].spec) {
+          "fill"
+        } else {
+          "stroke"
+        }
+        if !chs.contains(ch) {
+          chs.push(ch)
+        }
+      }
+      Some(chs)
+    } else {
+      None
+    }
     let made = unit_legends(
       u_legend,
       sc,
@@ -526,6 +675,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
       skip_color=color_shared && !first_color,
       shape_override?=shape_hint,
       opacity_override?=opacity_hint,
+      color_channels?=channels,
     )
     for l in made {
       legends.push(l)
@@ -551,7 +701,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     let members = if chan == "x" { xm } else { ym }
     let shared = if chan == "x" { x_shared } else { y_shared }
     let owners = if shared && members.length() > 0 {
-      [members[0]]
+      [lead_of(members, chan)]
     } else {
       members
     }
@@ -561,7 +711,7 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
       let p = pos_of_unit(i, chan)
       let titled = if shared {
         let joined = merge_titles_all(
-          members.map(fn(m) { pos_of_unit(m, chan).title }),
+          members.map(fn(m) { pos_of_unit(m, chan) }),
         )
         { ..p, title: joined, }
       } else {

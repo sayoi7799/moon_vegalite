@@ -77,14 +77,13 @@ fn default_title(def : @spec.ChannelDef) -> String raise CompileError {
 }
 
 ///|
-fn resolve_pos(
-  _chan : String,
-  def : @spec.ChannelDef,
-) -> Pos raise CompileError {
+fn resolve_pos(chan : String, def : @spec.ChannelDef) -> Pos raise CompileError {
   let typ = match def.typ {
     Some(t) => t
     None =>
-      if def.aggregate is Some(_) {
+      if def.datum is Some(Num(_)) {
+        "quantitative"
+      } else if def.aggregate is Some(_) {
         "quantitative"
       } else if def.time_unit is Some(_) {
         "temporal"
@@ -105,14 +104,21 @@ fn resolve_pos(
         }
       }
   }
+  // a datum has no field to name an axis after; it is stored under a
+  // synthetic field of every row so that scales and marks treat it as data
+  let is_datum = def.datum is Some(_)
   let title = match def.title {
     Some(Some(t)) => t
-    _ => default_title(def)
+    _ => if is_datum { "" } else { default_title(def) }
   }
   {
     def,
     typ,
-    field: derived_field(def),
+    field: if is_datum {
+      "__datum_" + chan
+    } else {
+      derived_field(def)
+    },
     title,
     discrete: typ == "nominal" || typ == "ordinal",
     temporal: typ == "temporal",
@@ -406,8 +412,37 @@ priv struct UnitScales {
 }
 
 ///|
+/// Discrete colour range: nominal fields use the categorical scheme, ordinal
+/// fields sample the sequential `blues` scheme once per domain value (vega's
+/// `configureScheme` for an interpolating scheme on an ordinal scale).
+fn set_color_range(
+  scale : @scale.Ordinal,
+  domain : Array[@value.Value],
+  ordinal : Bool,
+) -> Unit {
+  scale.set_domain(domain)
+  if ordinal {
+    match @scale.scheme_interpolator("blues") {
+      Some(f) =>
+        scale.set_range(
+          @scale.quantize_interpolator(f, domain.length()).map(fn(c) { Str(c) }),
+        )
+      None => ()
+    }
+    return
+  }
+  match @scale.scheme("tableau10") {
+    Some(Discrete(cs)) => scale.set_range(cs.map(fn(c) { Str(c) }))
+    _ => ()
+  }
+}
+
+///|
 /// Run the data pipeline of a unit specification and resolve its channels.
-fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
+fn build_unit(
+  spec : @spec.Spec,
+  shared_bins~ : Map[String, @transform.BinParams] = Map([]),
+) -> UnitModel raise CompileError {
   let source = match spec.data {
     Some(d) => d
     None => raise CompileError("data 缺失")
@@ -463,7 +498,10 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
     match find_channel(spec, ch) {
       Some({ field: Some(f), bin: Some(m), aggregate: None, .. } as d) => {
         let name = derived_field(d)
-        let p = bin_params(rows, f, m, 10.0)
+        let p = match shared_bins.get(ch) {
+          Some(p) => p
+          None => bin_params(rows, f, m, 10.0)
+        }
         let bins = @transform.compute_bins(p)
         bin_info[ch] = (bins.start, bins.stop, bins.step)
         @transform.bin_rows(rows, f, p, name, name + "_end")
@@ -491,7 +529,8 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
     None => ()
   }
   let pcolor : Pos? = match find_channel(spec, "color") {
-    Some({ field: Some(_), .. } as d) => Some(resolve_pos("color", d))
+    Some(d) if d.field is Some(_) || d.aggregate is Some("count") =>
+      Some(resolve_pos("color", d))
     _ => None
   }
   let px2 : Pos? = match find_channel(spec, "x2") {
@@ -503,28 +542,54 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
     _ => None
   }
   let px = match (px, px2) {
-    (Some(a), Some(b)) => Some({ ..a, title: merge_titles(a.title, b.title), })
+    (Some(a), Some(b)) =>
+      // an explicit title of the first channel stands for the whole range
+      if a.def.title is Some(Some(_)) {
+        Some(a)
+      } else {
+        Some({ ..a, title: merge_titles(a.title, b.title), })
+      }
     _ => px
   }
   let py = match (py, py2) {
-    (Some(a), Some(b)) => Some({ ..a, title: merge_titles(a.title, b.title), })
+    (Some(a), Some(b)) =>
+      // an explicit title of the first channel stands for the whole range
+      if a.def.title is Some(Some(_)) {
+        Some(a)
+      } else {
+        Some({ ..a, title: merge_titles(a.title, b.title), })
+      }
     _ => py
   }
   let psize : Pos? = match find_channel(spec, "size") {
-    Some({ field: Some(_), .. } as d) => Some(resolve_pos("size", d))
+    Some(d) if d.field is Some(_) || d.aggregate is Some("count") =>
+      Some(resolve_pos("size", d))
     _ => None
   }
   let popacity : Pos? = match find_channel(spec, "opacity") {
-    Some({ field: Some(_), .. } as d) => Some(resolve_pos("opacity", d))
+    Some(d) if d.field is Some(_) || d.aggregate is Some("count") =>
+      Some(resolve_pos("opacity", d))
     _ => None
   }
   let pshape : Pos? = match find_channel(spec, "shape") {
-    Some({ field: Some(_), .. } as d) => Some(resolve_pos("shape", d))
+    Some(d) if d.field is Some(_) || d.aggregate is Some("count") =>
+      Some(resolve_pos("shape", d))
     _ => None
   }
+  // for rules and lines a constant size is the stroke width; the encoding
+  // wins over the mark property
   let size_value : Double? = match find_channel(spec, "size") {
     Some({ value: Some(Num(v)), .. }) => Some(v)
-    _ => None
+    Some(_) => None
+    None =>
+      if mark == "rule" || mark == "line" {
+        match spec.mark.props.get("size") {
+          Some(Num(v)) => Some(v)
+          _ => None
+        }
+      } else {
+        None
+      }
   }
   let opacity_value : Double? = match find_channel(spec, "opacity") {
     Some({ value: Some(Num(v)), .. }) => Some(v)
@@ -544,7 +609,8 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
         })
       if find_channel(spec, ch) is Some(_) &&
         !constant_size &&
-        !(ch == "opacity" && (mark == "bar" || mark == "tick" || mark == "area")) {
+        !(ch == "opacity" &&
+        (mark == "bar" || mark == "tick" || mark == "area" || mark == "rect")) {
         raise CompileError(
           "encoding." + ch + " 暂不支持用于 mark " + mark,
         )
@@ -583,7 +649,7 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
         })
       None => {
         groupby.push(p.field)
-        if is_ranged(mark, p) {
+        if is_ranged(mark, p) || p.def.bin is Some(_) {
           groupby.push(p.field + "_end")
         }
       }
@@ -600,6 +666,16 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
     }
   }
   let has_aggregate = measures.length() > 0
+  // a datum is a constant of every row under its synthetic field
+  for p in positions {
+    match p.def.datum {
+      Some(v) =>
+        for r in rows {
+          r[p.field] = v
+        }
+      None => ()
+    }
+  }
   let rows_pre = rows
   if has_aggregate {
     rows = @transform.aggregate(rows, groupby, measures) catch {
@@ -629,6 +705,8 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
   ignore(y_cont)
   // stacking: bars with an unaggregated continuous field
   let stack_chan0 : String? = if (mark == "bar" || mark == "area") &&
+    px2 is None &&
+    py2 is None &&
     !(has_aggregate && pcolor is None) {
     match (px, py) {
       (Some(x), Some(y)) => {
@@ -688,6 +766,12 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
   match stack_chan {
     Some(c) => {
       let dim = if c == "y" { px.unwrap().field } else { py.unwrap().field }
+      // stacked areas are imputed so every series has a point at every key
+      match pcolor {
+        Some(col) if mark == "area" =>
+          @transform.impute(rows, stacked_field, [col.field], dim, 0.0)
+        _ => ()
+      }
       @transform.stack(
         rows,
         Some(stacked_field),
@@ -972,18 +1056,36 @@ fn unit_scales(
       }
     _ => None
   }
-  color_scale.set_domain(color_domain)
-  match @scale.scheme("tableau10") {
-    Some(Discrete(cs)) => color_scale.set_range(cs.map(fn(c) { Str(c) }))
-    _ => ()
+  set_color_range(
+    color_scale,
+    color_domain,
+    match pcolor {
+      Some(c) => c.typ == "ordinal"
+      None => false
+    },
+  )
+  // a binned channel's step is the plot size over the number of bins
+  let bin_step = fn(chan : String, size : Double) -> Double? {
+    match u.bin_info.get(chan) {
+      Some((start, stop, step)) => Some(size / ((stop - start) / step))
+      None => None
+    }
   }
-  let step_w = match step_of(spec.width) {
+  let step_w = match bin_step("x", width) {
     Some(v) => v
-    None => 20.0
+    None =>
+      match step_of(spec.width) {
+        Some(v) => v
+        None => 20.0
+      }
   }
-  let step_h = match step_of(spec.height) {
+  let step_h = match bin_step("y", height) {
     Some(v) => v
-    None => 20.0
+    None =>
+      match step_of(spec.height) {
+        Some(v) => v
+        None => 20.0
+      }
   }
   let max_size = {
     let m = 0.95 * min(step_w, step_h)
@@ -1175,7 +1277,7 @@ fn unit_axes(
             scale: s,
             domain: d,
             orient: x_orient,
-            title: if p.def.title is Some(None) {
+            title: if p.def.title is Some(None) || p.title == "" {
               None
             } else {
               Some(p.title)
@@ -1220,7 +1322,7 @@ fn unit_axes(
             scale: s,
             domain: d,
             orient: y_orient,
-            title: if p.def.title is Some(None) {
+            title: if p.def.title is Some(None) || p.title == "" {
               None
             } else {
               Some(p.title)
@@ -1305,6 +1407,24 @@ fn unit_mark(
       None => base_color
     }
   }
+  // opacity from the encoding: a mapped field or a constant
+  let apply_opacity = fn(
+    it : @scene.Item,
+    r : Map[String, @value.Value],
+  ) -> Unit {
+    match (popacity, opacity_scale) {
+      (Some(p), Some(sc)) =>
+        match sc.map(@value.get_field(r, p.field).to_number()) {
+          Some(v) => it.set_num("opacity", v)
+          None => ()
+        }
+      _ =>
+        match opacity_value {
+          Some(v) => it.set_num("opacity", v)
+          None => ()
+        }
+    }
+  }
   let items : Array[@scene.Item] = []
   let pos_of = fn(
     s : (RScale, Array[@value.Value])?,
@@ -1318,6 +1438,29 @@ fn unit_mark(
           None => @double.not_a_number
         }
       None => 0.0
+    }
+  }
+  // where a mark sits on a channel: a binned field is drawn at the middle of
+  // its bin, anything else at the mapped value
+  let pos_at = fn(
+    s : (RScale, Array[@value.Value])?,
+    r : Map[String, @value.Value],
+    p : Pos,
+  ) -> Double {
+    if p.def.bin is Some(_) {
+      match s {
+        Some((sc, _)) => {
+          let a = @value.get_field(r, p.field).to_number()
+          let b = @value.get_field(r, p.field + "_end").to_number()
+          match sc.map(Num(0.5 * a + 0.5 * b)) {
+            Some(v) => v
+            None => @double.not_a_number
+          }
+        }
+        None => 0.0
+      }
+    } else {
+      pos_of(s, r, p.field)
     }
   }
   let zero_of = fn(s : (RScale, Array[@value.Value])?) -> Double {
@@ -1334,6 +1477,7 @@ fn unit_mark(
     match mark {
       "bar" => {
         let it = mk_item([("fill", str(color_of(r)))])
+        apply_opacity(it, r)
         let px_ = px.unwrap()
         let py_ = py.unwrap()
         if vertical {
@@ -1362,21 +1506,44 @@ fn unit_mark(
               pos_of(ys, r, py_.field + "_start"),
             )
           } else {
-            (pos_of(ys, r, py_.field), zero_of(ys))
+            match py2 {
+              Some(q) => (pos_of(ys, r, py_.field), pos_of(ys, r, q.field))
+              None => (pos_of(ys, r, py_.field), zero_of(ys))
+            }
           }
           it.set_num("y", min(a, b))
           it.set_num("y2", max(a, b))
           it.set_num("height", (b - a).abs())
         } else {
-          it.set_num("y", pos_of(ys, r, py_.field))
-          it.set_num("height", max(0.25, ys.unwrap().0.bandwidth()))
+          if is_ranged(mark, py_) {
+            let sv = pos_of(ys, r, py_.field)
+            let ev = pos_of(ys, r, py_.field + "_end")
+            let d = (ev - sv).abs()
+            let y2v = sv +
+              (0.5 + (if d < 0.25 { 0.5 * (0.25 - d) } else { -0.5 }))
+            let yv = ev +
+              (0.5 + (if d < 0.25 { -0.5 * (0.25 - d) } else { 0.5 }))
+            it.set_num("y2", y2v)
+            it.set_num("y", yv)
+            if yv > y2v {
+              it.set_num("y", y2v)
+              it.set_num("y2", yv)
+            }
+            it.set_num("height", it.num0("y2") - it.num0("y"))
+          } else {
+            it.set_num("y", pos_of(ys, r, py_.field))
+            it.set_num("height", max(0.25, ys.unwrap().0.bandwidth()))
+          }
           let (a, b) = if stack_chan == Some("x") {
             (
               pos_of(xs, r, px_.field + "_start"),
               pos_of(xs, r, px_.field + "_end"),
             )
           } else {
-            (pos_of(xs, r, px_.field), zero_of(xs))
+            match px2 {
+              Some(q) => (pos_of(xs, r, px_.field), pos_of(xs, r, q.field))
+              None => (pos_of(xs, r, px_.field), zero_of(xs))
+            }
           }
           it.set_num("x", min(a, b))
           it.set_num("x2", max(a, b))
@@ -1513,6 +1680,10 @@ fn unit_mark(
           Some(v) => it.set_num("strokeWidth", v)
           None => ()
         }
+        match spec.mark.props.get("strokeDash") {
+          Some(v) => it.set("strokeDash", v)
+          None => ()
+        }
         items.push(it)
       }
       "text" => {
@@ -1535,31 +1706,82 @@ fn unit_mark(
           ("align", str("center")),
           ("baseline", str("middle")),
         ])
+        // without a channel the position comes from the mark property
+        let const_pos = fn(key : String, extent : Double) -> Double {
+          match spec.mark.props.get(key) {
+            Some(Num(v)) => v
+            Some(Str(_)) => extent
+            _ => extent * 0.5
+          }
+        }
         it.set_num(
           "x",
           match px {
-            Some(p) => pos_of(xs, r, p.field) + xs.unwrap().0.bandwidth() * 0.5
-            None => width * 0.5
+            Some(p) => pos_at(xs, r, p) + xs.unwrap().0.bandwidth() * 0.5
+            None => const_pos("x", width)
           },
         )
         it.set_num(
           "y",
           match py {
-            Some(p) => pos_of(ys, r, p.field) + ys.unwrap().0.bandwidth() * 0.5
-            None => height * 0.5
+            Some(p) => pos_at(ys, r, p) + ys.unwrap().0.bandwidth() * 0.5
+            None => const_pos("y", height)
           },
         )
-        it.set_str("text", text_of(r, ptext))
+        it.set_str(
+          "text",
+          match (ptext, spec.mark.props.get("text")) {
+            (None, Some(Str(s))) => s
+            _ => text_of(r, ptext)
+          },
+        )
+        for k in ["align", "baseline", "dx", "dy", "fontSize"] {
+          match spec.mark.props.get(k) {
+            Some(v) => it.set(k, v)
+            None => ()
+          }
+        }
         items.push(it)
       }
       "rect" => {
         let it = mk_item([("fill", str(color_of(r)))])
-        let a = px.unwrap()
-        let b = py.unwrap()
-        it.set_num("x", pos_of(xs, r, a.field))
-        it.set_num("width", max(0.25, xs.unwrap().0.bandwidth()))
-        it.set_num("y", pos_of(ys, r, b.field))
-        it.set_num("height", max(0.25, ys.unwrap().0.bandwidth()))
+        apply_opacity(it, r)
+        // each direction: a range between two fields, the whole plot when the
+        // channel is absent, otherwise one band / point cell
+        match (px, px2) {
+          (Some(a), Some(a2)) => {
+            let (lo, hi) = (pos_of(xs, r, a.field), pos_of(xs, r, a2.field))
+            it.set_num("x", min(lo, hi))
+            it.set_num("x2", max(lo, hi))
+            it.set_num("width", (hi - lo).abs())
+          }
+          (Some(a), None) => {
+            it.set_num("x", pos_of(xs, r, a.field))
+            it.set_num("width", max(0.25, xs.unwrap().0.bandwidth()))
+          }
+          (None, _) => {
+            it.set_num("x", 0.0)
+            it.set_num("x2", width)
+            it.set_num("width", width)
+          }
+        }
+        match (py, py2) {
+          (Some(b), Some(b2)) => {
+            let (lo, hi) = (pos_of(ys, r, b.field), pos_of(ys, r, b2.field))
+            it.set_num("y", min(lo, hi))
+            it.set_num("y2", max(lo, hi))
+            it.set_num("height", (hi - lo).abs())
+          }
+          (Some(b), None) => {
+            it.set_num("y", pos_of(ys, r, b.field))
+            it.set_num("height", max(0.25, ys.unwrap().0.bandwidth()))
+          }
+          (None, _) => {
+            it.set_num("y", 0.0)
+            it.set_num("y2", height)
+            it.set_num("height", height)
+          }
+        }
         items.push(it)
       }
       "tick" => {
@@ -1636,11 +1858,11 @@ fn unit_mark(
           None => 0.0
         }
         let xv = match px {
-          Some(p) => pos_of(xs, r, p.field) + bx
+          Some(p) => pos_at(xs, r, p) + bx
           None => width * 0.5
         }
         let yv = match py {
-          Some(p) => pos_of(ys, r, p.field) + by
+          Some(p) => pos_at(ys, r, p) + by
           None => height * 0.5
         }
         it.set_num("x", xv)
@@ -1657,18 +1879,7 @@ fn unit_mark(
               None => ()
             }
         }
-        match (popacity, opacity_scale) {
-          (Some(p), Some(sc)) =>
-            match sc.map(@value.get_field(r, p.field).to_number()) {
-              Some(v) => it.set_num("opacity", v)
-              None => ()
-            }
-          _ =>
-            match opacity_value {
-              Some(v) => it.set_num("opacity", v)
-              None => ()
-            }
-        }
+        apply_opacity(it, r)
         match pshape {
           Some(p) =>
             match shape_scale.map(@value.get_field(r, p.field)) {
@@ -1768,6 +1979,17 @@ fn unit_mark(
 }
 
 ///|
+/// Whether a mark is drawn with a fill (vega-lite's `filled`): everything but
+/// `point`, `line` and `rule` unless it says so.
+fn is_filled_mark(mark : String, spec : @spec.Spec) -> Bool {
+  !(mark == "point" || mark == "line" || mark == "rule") ||
+  (match spec.mark.props.get("filled") {
+    Some(Bool(true)) => true
+    _ => false
+  })
+}
+
+///|
 fn unit_legends(
   u : UnitModel,
   sc : UnitScales,
@@ -1775,6 +1997,7 @@ fn unit_legends(
   skip_color~ : Bool = false,
   shape_override? : String,
   opacity_override? : Double,
+  color_channels? : Array[String],
 ) -> Array[Legend] raise CompileError {
   let spec = u.spec
   let default_opacity = mark_opacity(u.mark, spec)
@@ -1792,23 +2015,25 @@ fn unit_legends(
   let shape_scale = sc.shape_scale
   let shape_domain = sc.shape_domain
   let base_color = base_color
-  let filled_mark = !(mark == "point" || mark == "line" || mark == "rule") ||
-    (match spec.mark.props.get("filled") {
-      Some(Bool(true)) => true
-      _ => false
-    })
+  let filled_mark = is_filled_mark(mark, spec)
   let leg_chs : Array[LegCh] = []
   match pcolor {
     Some(c) if !(c.def.legend is Off) && color_seq is None && !skip_color =>
-      leg_chs.push({
-        channel: if filled_mark {
-          "fill"
-        } else {
-          "stroke"
-        },
-        pos: c,
-        kind: Disc(color_scale, color_domain),
-      })
+      // layers that merge into one legend may colour through both channels
+      for
+        ch in color_channels.unwrap_or([
+          if filled_mark {
+            "fill"
+          } else {
+            "stroke"
+          },
+        ]) {
+        leg_chs.push({
+          channel: ch,
+          pos: c,
+          kind: Disc(color_scale, color_domain),
+        })
+      }
     _ => ()
   }
   match (psize, size_scale) {

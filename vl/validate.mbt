@@ -13,6 +13,16 @@ let honoured_mark_props : Array[String] = [
 ]
 
 ///|
+/// Mark properties that only mean something for `text`.
+let honoured_text_props : Array[String] = [
+  "align", "baseline", "dx", "dy", "fontSize", "text", "x", "y",
+]
+
+///|
+/// Mark properties that only mean something for `rule` (`size` also for `line`).
+let honoured_rule_props : Array[String] = ["strokeDash", "size"]
+
+///|
 let honoured_axis_props : Array[String] = [
   "domain", "domainColor", "domainWidth", "format", "formatType", "grid", "gridColor",
   "gridWidth", "labelAlign", "labelAngle", "labelBaseline", "labelColor", "labelFlush",
@@ -33,7 +43,9 @@ fn inferred_type(d : @spec.ChannelDef) -> String {
   match d.typ {
     Some(t) => t
     None =>
-      if d.aggregate is Some(_) {
+      if d.datum is Some(Num(_)) {
+        "quantitative"
+      } else if d.aggregate is Some(_) {
         "quantitative"
       } else if d.time_unit is Some(_) {
         "temporal"
@@ -80,9 +92,36 @@ fn validate_config(
 ///|
 pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
   for k, _ in spec.mark.props {
-    if !honoured_mark_props.contains(k) {
+    if !honoured_mark_props.contains(k) &&
+      !(spec.mark.typ == "text" && honoured_text_props.contains(k)) &&
+      !(spec.mark.typ == "rule" && honoured_rule_props.contains(k)) &&
+      !(spec.mark.typ == "line" && k == "size") {
       raise nope("mark." + k)
     }
+  }
+  match spec.mark.props.get("size") {
+    Some(Num(_)) | None => ()
+    Some(_) => raise nope("mark.size")
+  }
+  if spec.mark.typ == "text" {
+    // constant position ("width" / "height" or pixels) and constant text
+    match spec.mark.props.get("x") {
+      Some(Num(_)) | Some(Str("width")) | None => ()
+      Some(_) => raise nope("mark.x")
+    }
+    match spec.mark.props.get("y") {
+      Some(Num(_)) | Some(Str("height")) | None => ()
+      Some(_) => raise nope("mark.y")
+    }
+    match spec.mark.props.get("text") {
+      Some(Str(_)) | None => ()
+      Some(_) => raise nope("mark.text")
+    }
+  }
+  match spec.mark.props.get("strokeDash") {
+    Some(Arr(a)) if a.all(fn(v) { v is Num(_) }) => ()
+    None => ()
+    Some(_) => raise nope("mark.strokeDash")
   }
   validate_config(spec.config)
   let mark = spec.mark.typ
@@ -126,8 +165,23 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
     if d.band_position is Some(_) {
       raise nope(path + ".bandPosition")
     }
-    if d.datum is Some(_) {
-      raise nope(path + ".datum")
+    // only these marks know how to draw a binned field (bars as a range,
+    // points and text at the middle of the bin)
+    if d.bin is Some(_) &&
+      !(mark == "bar" ||
+      mark == "point" ||
+      mark == "circle" ||
+      mark == "square" ||
+      mark == "text") {
+      raise nope(path + ".bin (mark " + mark + ")")
+    }
+    match d.datum {
+      Some(Num(_)) =>
+        if !positional || (d.typ is Some(_) && typ != "quantitative") {
+          raise nope(path + ".datum")
+        }
+      Some(_) => raise nope(path + ".datum")
+      None => ()
     }
     if d.format_type is Some(_) {
       raise nope(path + ".formatType")
@@ -138,8 +192,24 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
     if d.scale_off {
       raise nope(path + ".scale")
     }
-    if d.legend is Props(_) {
-      raise nope(path + ".legend")
+    match d.legend {
+      Props(m) =>
+        for k, v in m {
+          // only the side of the plot a symbol legend sits on
+          let side = match v {
+            Str("left") | Str("right") => true
+            _ => false
+          }
+          let ok = k == "orient" &&
+            side &&
+            !(name == "color" && typ == "quantitative")
+          if !ok {
+            raise nope(
+              path + ".legend" + (if k == "orient" { "" } else { "." + k }),
+            )
+          }
+        }
+      _ => ()
     }
     if (d.bin is Some(_) || d.time_unit is Some(_)) && !positional {
       raise nope(path + (if d.bin is Some(_) { ".bin" } else { ".timeUnit" }))
@@ -176,7 +246,7 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
     }
     match name {
       "x2" | "y2" =>
-        if mark != "rule" {
+        if mark != "rule" && mark != "bar" && mark != "rect" {
           raise nope(path + " (mark " + mark + ")")
         }
       "text" => if mark != "text" { raise nope(path + " (mark " + mark + ")") }

@@ -122,6 +122,13 @@ fn legends_of(
     } else if !has_color {
       if filled {
         symbol["fill"] = str(base_color)
+        // vega-lite's colour mixin adds a transparent stroke to these marks
+        if mark == "bar" ||
+          mark == "point" ||
+          mark == "circle" ||
+          mark == "square" {
+          symbol["stroke"] = str("transparent")
+        }
       } else {
         symbol["fill"] = str("transparent")
         symbol["stroke"] = str(base_color)
@@ -177,7 +184,14 @@ fn legends_of(
     out.push(
       build_legend({
         title: Some(canon.pos.title),
-        orient: "right",
+        orient: match canon.pos.def.legend {
+          Props(m) =>
+            match m.get("orient") {
+              Some(Str(o)) => o
+              _ => "right"
+            }
+          _ => "right"
+        },
         symbol,
         entries,
       }),
