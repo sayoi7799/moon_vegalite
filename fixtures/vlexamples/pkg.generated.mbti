@@ -228,6 +228,22 @@ pub let scene_80_0 : String
 
 pub let scene_81_0 : String
 
+pub let scene_82_0 : String
+
+pub let scene_83_0 : String
+
+pub let scene_84_0 : String
+
+pub let scene_85_0 : String
+
+pub let scene_86_0 : String
+
+pub let scene_87_0 : String
+
+pub let scene_88_0 : String
+
+pub let scene_89_0 : String
+
 pub let scene_8_0 : String
 
 pub let scene_9_0 : String
@@ -419,6 +435,22 @@ pub let spec_7_0 : String
 pub let spec_80_0 : String
 
 pub let spec_81_0 : String
+
+pub let spec_82_0 : String
+
+pub let spec_83_0 : String
+
+pub let spec_84_0 : String
+
+pub let spec_85_0 : String
+
+pub let spec_86_0 : String
+
+pub let spec_87_0 : String
+
+pub let spec_88_0 : String
+
+pub let spec_89_0 : String
 
 pub let spec_8_0 : String
 
@@ -623,6 +655,22 @@ pub let svg_7_0 : String
 pub let svg_80_0 : String
 
 pub let svg_81_0 : String
+
+pub let svg_82_0 : String
+
+pub let svg_83_0 : String
+
+pub let svg_84_0 : String
+
+pub let svg_85_0 : String
+
+pub let svg_86_0 : String
+
+pub let svg_87_0 : String
+
+pub let svg_88_0 : String
+
+pub let svg_89_0 : String
 
 pub let svg_8_0 : String
 

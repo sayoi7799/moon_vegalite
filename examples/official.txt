@@ -58,3 +58,4 @@ bar_custom_sort_partial
 bar_aggregate_sort_mean
 line_sort_axis
 point_color_quantitative
+layer_bar_line

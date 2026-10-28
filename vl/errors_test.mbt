@@ -29,8 +29,8 @@ test "unsupported top-level features name their path" {
     content="params 暂不支持",
   )
   inspect(
-    message_of("{" + base + ",\"layer\":[{\"mark\":\"point\"}]}"),
-    content="layer 暂不支持",
+    message_of("{" + base + ",\"vconcat\":[{\"mark\":\"point\"}]}"),
+    content="vconcat 暂不支持",
   )
   inspect(
     message_of(
@@ -170,5 +170,75 @@ test "properties the compiler would ignore are rejected" {
       ),
     ),
     content="encoding.size.type nominal 暂不支持",
+  )
+}
+
+///|
+fn layered(top : String, layers : String) -> String {
+  "{\"data\":{\"values\":[{\"a\":1,\"b\":2,\"c\":\"u\"}]}," +
+  top +
+  "\"layer\":" +
+  layers +
+  "}"
+}
+
+///|
+test "layers that cannot be merged yet are rejected with their path" {
+  let q = "\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"},\"y\":{\"field\":\"b\",\"type\":\"quantitative\"}}"
+  // an error inside a layer names the layer
+  inspect(
+    message_of(
+      layered(
+        "",
+        "[{\"mark\":\"point\"," +
+        q +
+        "},{\"mark\":{\"type\":\"line\",\"opacity\":0.5}," +
+        q +
+        "}]",
+      ),
+    ),
+    content="layer[1].mark.opacity 暂不支持",
+  )
+  // independent scales
+  inspect(
+    message_of(
+      layered(
+        "\"resolve\":{\"scale\":{\"y\":\"independent\"}},",
+        "[{\"mark\":\"point\"," + q + "},{\"mark\":\"line\"," + q + "}]",
+      ),
+    ),
+    content="resolve.scale.y independent 暂不支持",
+  )
+  // the same non-positional channel in two layers
+  inspect(
+    message_of(
+      layered(
+        "", "[{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"},\"color\":{\"field\":\"c\",\"type\":\"nominal\"}}},{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"},\"color\":{\"field\":\"c\",\"type\":\"nominal\"}}}]",
+      ),
+    ),
+    content="encoding.color (多个 layer 使用同一通道) 暂不支持",
+  )
+  // size of a single layer
+  inspect(
+    message_of(layered("", "[{\"mark\":\"point\",\"width\":100," + q + "}]")),
+    content="layer[0].width 暂不支持",
+  )
+  // incompatible scale types on a shared channel
+  inspect(
+    message_of(
+      layered(
+        "", "[{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"}}},{\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"c\",\"type\":\"nominal\"}}}]",
+      ),
+    ),
+    content="layer 间 x 比例尺类型不兼容 (需要 independent) 暂不支持",
+  )
+  // lines and areas coloured by a field are not drawn per series yet
+  inspect(
+    message_of(
+      enc(
+        "\"line\"", "{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"},\"y\":{\"field\":\"b\",\"type\":\"quantitative\"},\"color\":{\"field\":\"c\",\"type\":\"nominal\"}}",
+      ),
+    ),
+    content="encoding.color (line / area 按颜色分组) 暂不支持",
   )
 }

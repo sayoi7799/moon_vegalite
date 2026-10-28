@@ -13,12 +13,22 @@ const specDir = path.join(root, 'scripts/.cache/vega-lite-5.23.0/examples/specs'
 const LIMIT = 50000;
 const stripAria = (s) => s.replace(/ (role|aria-roledescription|aria-label)="[^"]*"/g, '');
 
-/** Keep only the data fields that the spec text refers to. */
+/** Keep only the data fields that the spec text refers to (in every data source, also those inside layers). */
 function project(spec) {
-  const { values } = spec.data;
-  const rest = JSON.stringify({ ...spec, data: undefined });
-  const keep = [...new Set(values.flatMap((r) => Object.keys(r)))].filter((k) => rest.includes(JSON.stringify(k).slice(1, -1)));
-  return { ...spec, data: { values: values.map((r) => Object.fromEntries(keep.filter((k) => k in r).map((k) => [k, r[k]]))) } };
+  const stripped = JSON.stringify(spec, (k, v) => (k === 'values' ? undefined : v));
+  const out = JSON.parse(JSON.stringify(spec));
+  (function walk(node) {
+    if (Array.isArray(node)) return node.forEach(walk);
+    if (node && typeof node === 'object') {
+      if (node.data && Array.isArray(node.data.values)) {
+        const values = node.data.values;
+        const keep = [...new Set(values.flatMap((r) => Object.keys(r)))].filter((k) => stripped.includes(JSON.stringify(k).slice(1, -1)));
+        node.data = { values: values.map((r) => Object.fromEntries(keep.filter((k) => k in r).map((k) => [k, r[k]]))) };
+      }
+      Object.values(node).forEach(walk);
+    }
+  })(out);
+  return out;
 }
 
 function sources() {

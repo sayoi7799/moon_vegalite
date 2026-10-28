@@ -55,13 +55,10 @@ fn inferred_type(d : @spec.ChannelDef) -> String {
 }
 
 ///|
-pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
-  for k, _ in spec.mark.props {
-    if !honoured_mark_props.contains(k) {
-      raise nope("mark." + k)
-    }
-  }
-  for k, v in spec.config {
+fn validate_config(
+  config : Map[String, @value.Value],
+) -> Unit raise CompileError {
+  for k, v in config {
     if k == "scale" {
       match v {
         Obj(m) =>
@@ -76,6 +73,16 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
       raise nope("config." + k)
     }
   }
+}
+
+///|
+pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
+  for k, _ in spec.mark.props {
+    if !honoured_mark_props.contains(k) {
+      raise nope("mark." + k)
+    }
+  }
+  validate_config(spec.config)
   let mark = spec.mark.typ
   // a continuous colour sharing its field with another legend channel makes
   // vega-lite merge them into one symbol legend, which is not implemented
@@ -171,13 +178,17 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
           raise nope(path + " (mark " + mark + ")")
         }
       "text" => if mark != "text" { raise nope(path + " (mark " + mark + ")") }
-      "color" =>
+      "color" => {
+        if (mark == "line" || mark == "area") && d.field is Some(_) {
+          raise nope(path + " (line / area 按颜色分组)")
+        }
         if d.field is Some(_) &&
           typ != "nominal" &&
           typ != "ordinal" &&
           typ != "quantitative" {
           raise nope(path + ".type " + typ)
         }
+      }
       "size" | "opacity" =>
         if d.field is Some(_) && typ != "quantitative" {
           raise nope(path + ".type " + typ)

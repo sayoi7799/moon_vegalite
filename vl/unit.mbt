@@ -143,26 +143,30 @@ fn mark_color(spec : @spec.Spec) -> String {
 }
 
 ///|
-fn domain_extent(
-  rows : Array[Map[String, @value.Value]],
-  fields : Array[String],
+fn domain_extent_multi(
+  srcs : Array[(Array[Map[String, @value.Value]], Array[String])],
   zero : Bool,
 ) -> (Double, Double)? {
   let mut lo = @double.infinity
   let mut hi = @double.neg_infinity
-  for f in fields {
-    match @transform.extent(rows, f) {
-      Some((a, b)) => {
-        lo = min(lo, a)
-        hi = max(hi, b)
+  let mut nfields = 0
+  for src in srcs {
+    let (rows, fields) = src
+    nfields += fields.length()
+    for f in fields {
+      match @transform.extent(rows, f) {
+        Some((a, b)) => {
+          lo = min(lo, a)
+          hi = max(hi, b)
+        }
+        None => ()
       }
-      None => ()
     }
   }
   if lo > hi {
     // no data: one field leaves the domain undefined (NaN); several fields
     // give an inverted infinite extent that `zero` collapses to [0, 0]
-    return if fields.length() > 1 {
+    return if nfields > 1 {
       if zero {
         Some((0.0, 0.0))
       } else {
@@ -180,12 +184,42 @@ fn domain_extent(
 }
 
 ///|
+fn domain_extent(
+  rows : Array[Map[String, @value.Value]],
+  fields : Array[String],
+  zero : Bool,
+) -> (Double, Double)? {
+  domain_extent_multi([(rows, fields)], zero)
+}
+
+///|
+/// Distinct values of several fields of several sources, in ascending order.
+fn sorted_unique_multi(
+  srcs : Array[(Array[Map[String, @value.Value]], Array[String])],
+) -> Array[@value.Value] {
+  let seen : Map[String, Bool] = Map([])
+  let out : Array[@value.Value] = []
+  for src in srcs {
+    let (rows, fields) = src
+    for f in fields {
+      for v in first_appearance(rows, f) {
+        let k = @scale.value_key(v)
+        if !seen.contains(k) {
+          seen[k] = true
+          out.push(v)
+        }
+      }
+    }
+  }
+  @transform.stable_sort(out, fn(a, b) { @value.compare_values(a, b) })
+}
+
+///|
 /// The scale of a position channel; `size` is the view size along it (None
 /// for a discrete scale whose size follows from its step).
 fn pos_scale(
   p : Pos,
-  rows : Array[Map[String, @value.Value]],
-  domain_fields : Array[String],
+  srcs : Array[(Array[Map[String, @value.Value]], Array[String])],
   mark : String,
   range_start : Double,
   range_stop : Double,
@@ -208,7 +242,7 @@ fn pos_scale(
   } else if p.discrete {
     let domain = match order {
       Some(o) => o
-      None => sorted_unique(rows, p.field)
+      None => sorted_unique_multi(srcs)
     }
     let band = if mark == "bar" ||
       mark == "rect" ||
@@ -235,7 +269,7 @@ fn pos_scale(
     (Band(band), domain)
   } else if p.temporal {
     let c = @scale.Continuous::new(Linear)
-    match domain_extent(rows, domain_fields, false) {
+    match domain_extent_multi(srcs, false) {
       Some((lo, hi)) => c.domain = [lo, hi]
       None => ()
     }
@@ -285,7 +319,7 @@ fn pos_scale(
     match user_domain {
       Some(d) => c.domain = d
       None =>
-        match domain_extent(rows, domain_fields, zero) {
+        match domain_extent_multi(srcs, zero) {
           Some((lo, hi)) => c.domain = [lo, hi]
           None => ()
         }
@@ -734,61 +768,82 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
 /// The size of the plot area.
 fn unit_size(u : UnitModel) -> (Double, Double) {
   let spec = u.spec
-  let mark = u.mark
-  let px = u.px
-  let py = u.py
   let data = u.data
-  // view sizes
-  let xstep = step_of(spec.width)
-  let ystep = step_of(spec.height)
-  let width_of = fn(
-    p : Pos?,
-    step : Double?,
-    dflt : Double,
-    spec_size : @value.Value?,
-  ) -> Double {
+  let count = fn(p : Pos?) -> Int32 {
     match p {
-      Some(q) if q.discrete => {
-        let n = sorted_unique(data, q.field).length().to_double()
-        let (pi, po) = if mark == "bar" {
-          (0.1, 0.05)
-        } else if mark == "tick" {
-          (0.25, 0.125)
-        } else if mark == "rect" || mark == "rule" {
-          (0.0, 0.0)
-        } else {
-          (1.0, 0.5)
-        }
-        let s = match step {
-          Some(v) => v
-          None => 20.0
-        }
-        if mark == "bar" || mark == "tick" || mark == "rect" || mark == "rule" {
-          @scale.band_space(n, pi, po) * s
-        } else {
-          @scale.band_space(n, 1.0, 0.5) * s
-        }
-      }
-      Some(_) =>
-        match spec_size {
-          Some(Num(v)) => v
-          _ => dflt
-        }
-      None =>
-        match spec_size {
-          Some(Num(v)) => v
-          _ => 20.0
-        }
+      Some(q) if q.discrete => sorted_unique(data, q.field).length()
+      _ => 0
     }
   }
-  let width = width_of(px, xstep, 200.0, spec.width)
-  let height = width_of(py, ystep, 200.0, spec.height)
-  (width, height)
+  (
+    axis_size(u.px, count(u.px), u.mark, step_of(spec.width), 200.0, spec.width),
+    axis_size(
+      u.py,
+      count(u.py),
+      u.mark,
+      step_of(spec.height),
+      200.0,
+      spec.height,
+    ),
+  )
+}
+
+///|
+/// The size of the plot area along one axis: `step * bandspace` for a discrete
+/// scale with `n_discrete` domain values, the given size or 200 for a
+/// continuous one, and 20 when the channel is missing.
+fn axis_size(
+  p : Pos?,
+  n_discrete : Int32,
+  mark : String,
+  step : Double?,
+  dflt : Double,
+  spec_size : @value.Value?,
+) -> Double {
+  match p {
+    Some(q) if q.discrete => {
+      let n = n_discrete.to_double()
+      let (pi, po) = if mark == "bar" {
+        (0.1, 0.05)
+      } else if mark == "tick" {
+        (0.25, 0.125)
+      } else if mark == "rect" || mark == "rule" {
+        (0.0, 0.0)
+      } else {
+        (1.0, 0.5)
+      }
+      let s = match step {
+        Some(v) => v
+        None => 20.0
+      }
+      if mark == "bar" || mark == "tick" || mark == "rect" || mark == "rule" {
+        @scale.band_space(n, pi, po) * s
+      } else {
+        @scale.band_space(n, 1.0, 0.5) * s
+      }
+    }
+    Some(_) =>
+      match spec_size {
+        Some(Num(v)) => v
+        _ => dflt
+      }
+    None =>
+      match spec_size {
+        Some(Num(v)) => v
+        _ => 20.0
+      }
+  }
 }
 
 ///|
 /// Position scales and the scales of the non-positional channels.
-fn unit_scales(u : UnitModel, width : Double, height : Double) -> UnitScales {
+fn unit_scales(
+  u : UnitModel,
+  width : Double,
+  height : Double,
+  xs_shared? : (RScale, Array[@value.Value]),
+  ys_shared? : (RScale, Array[@value.Value]),
+) -> UnitScales {
   let spec = u.spec
   let mark = u.mark
   let px = u.px
@@ -808,55 +863,53 @@ fn unit_scales(u : UnitModel, width : Double, height : Double) -> UnitScales {
   let yfields = u.yfields
   let x_order = u.x_order
   let y_order = u.y_order
-  let xs = match px {
-    Some(p) =>
-      Some(
-        pos_scale(
-          p,
-          data,
-          xfields,
-          mark,
-          0.0,
-          width,
-          bin_info.get("x"),
-          zero_of_chan(mark, orient, "x", px2 is Some(_), config_zero),
-          x_order,
-        ),
-      )
-    None => None
-  }
-  let ys = match py {
-    Some(p) =>
-      if p.discrete {
-        Some(
-          pos_scale(
-            p,
-            data,
-            yfields,
-            mark,
-            0.0,
-            height,
-            bin_info.get("y"),
-            zero_of_chan(mark, orient, "y", py2 is Some(_), config_zero),
-            y_order,
-          ),
-        )
-      } else {
-        Some(
-          pos_scale(
-            p,
-            data,
-            yfields,
-            mark,
-            height,
-            0.0,
-            bin_info.get("y"),
-            zero_of_chan(mark, orient, "y", py2 is Some(_), config_zero),
-            y_order,
-          ),
-        )
+  let xs = match xs_shared {
+    Some(_) => xs_shared
+    None =>
+      match px {
+        Some(p) =>
+          Some(
+            pos_scale(
+              p,
+              [(data, xfields)],
+              mark,
+              0.0,
+              width,
+              bin_info.get("x"),
+              zero_of_chan(mark, orient, "x", px2 is Some(_), config_zero),
+              x_order,
+            ),
+          )
+        None => None
       }
-    None => None
+  }
+  let ys = match ys_shared {
+    Some(_) => ys_shared
+    None =>
+      match py {
+        Some(p) =>
+          Some(
+            pos_scale(
+              p,
+              [(data, yfields)],
+              mark,
+              if p.discrete {
+                0.0
+              } else {
+                height
+              },
+              if p.discrete {
+                height
+              } else {
+                0.0
+              },
+              bin_info.get("y"),
+              zero_of_chan(mark, orient, "y", py2 is Some(_), config_zero),
+              y_order,
+            ),
+          )
+        None => None
+      }
   }
   let base_color = match color_value {
     Some(c) => c
@@ -1163,6 +1216,7 @@ fn unit_mark(
   sc : UnitScales,
   width : Double,
   height : Double,
+  name~ : String = "marks",
 ) -> @scene.Mark raise CompileError {
   let spec = u.spec
   let mark = u.mark
@@ -1192,6 +1246,7 @@ fn unit_mark(
   let size_scale = sc.size_scale
   let opacity_scale = sc.opacity_scale
   let shape_scale = sc.shape_scale
+  let default_opacity = has_default_opacity(mark, spec)
   let color_of = fn(r : Map[String, @value.Value]) -> String {
     match pcolor {
       Some(c) if color_seq is Some(_) =>
@@ -1291,8 +1346,8 @@ fn unit_mark(
           ("strokeWidth", num(2.0)),
           ("stroke", str(color_of(r))),
         ])
-        it.set_num("x", pos_of(xs, r, px.unwrap().field))
-        it.set_num("y", pos_of(ys, r, py.unwrap().field))
+        it.set_num("x", pos_of(xs, r, px.unwrap().field) + band_half(xs))
+        it.set_num("y", pos_of(ys, r, py.unwrap().field) + band_half(ys))
         match spec.mark.props.get("interpolate") {
           Some(v) => it.set("interpolate", v)
           None => ()
@@ -1313,7 +1368,7 @@ fn unit_mark(
         let px_ = px.unwrap()
         let py_ = py.unwrap()
         if vertical {
-          it.set_num("x", pos_of(xs, r, px_.field))
+          it.set_num("x", pos_of(xs, r, px_.field) + band_half(xs))
           let (a, b) = if stack_chan == Some("y") {
             (
               pos_of(ys, r, py_.field + "_end"),
@@ -1326,7 +1381,7 @@ fn unit_mark(
           it.set_num("y2", b)
           it.set_num("height", b - a)
         } else {
-          it.set_num("y", pos_of(ys, r, py_.field))
+          it.set_num("y", pos_of(ys, r, py_.field) + band_half(ys))
           let (a, b) = if stack_chan == Some("x") {
             (
               pos_of(xs, r, px_.field + "_end"),
@@ -1432,7 +1487,10 @@ fn unit_mark(
         items.push(it)
       }
       "tick" => {
-        let it = mk_item([("opacity", num(0.7)), ("fill", str(color_of(r)))])
+        let it = mk_item([("fill", str(color_of(r)))])
+        if default_opacity {
+          it.set_num("opacity", 0.7)
+        }
         let thickness = 1.0
         if orient == "horizontal" {
           // size along x, thickness along y
@@ -1481,8 +1539,10 @@ fn unit_mark(
           ("size", num(30.0)),
           ("strokeWidth", num(2.0)),
           ("shape", str(if mark == "point" { "circle" } else { mark })),
-          ("opacity", num(0.7)),
         ])
+        if default_opacity {
+          it.set_num("opacity", 0.7)
+        }
         if filled {
           it.set_str("fill", color_of(r))
         } else {
@@ -1566,7 +1626,7 @@ fn unit_mark(
       items.push(it)
     }
   }
-  let marks = @scene.Mark::new(mt, name="marks", role="mark", items~)
+  let marks = @scene.Mark::new(mt, name~, role="mark", items~)
   marks
 }
 
@@ -1577,6 +1637,7 @@ fn unit_legends(
   height : Double,
 ) -> Array[Legend] raise CompileError {
   let spec = u.spec
+  let default_opacity = has_default_opacity(u.mark, spec)
   let mark = u.mark
   let pcolor = u.pcolor
   let psize = u.psize
@@ -1635,6 +1696,7 @@ fn unit_legends(
     filled_mark,
     base_color,
     pcolor is Some(_),
+    default_opacity,
   )
   match (pcolor, color_seq) {
     (Some(c), Some(sq)) =>
@@ -1645,10 +1707,7 @@ fn unit_legends(
             Some(c.title),
             sq,
             max(64.0, min(200.0, height)),
-            if mark == "point" ||
-              mark == "circle" ||
-              mark == "square" ||
-              mark == "tick" {
+            if default_opacity {
               0.7
             } else {
               1.0
@@ -1666,7 +1725,7 @@ fn unit_legends(
 pub fn compile(text : String) -> Compiled raise CompileError {
   let spec = @spec.parse_spec_text(text) catch { e => raise spec_err(e) }
   if spec.layer.length() > 0 {
-    raise CompileError("layer 暂不支持")
+    return compile_layers(spec)
   }
   validate(spec)
   let u = build_unit(spec)
@@ -1922,4 +1981,22 @@ fn is_log(p : Pos) -> Bool {
       }
     None => false
   }
+}
+
+///|
+/// Half the bandwidth of a band scale (a path mark through the centre of its
+/// band); 0 for point and continuous scales.
+fn band_half(s : (RScale, Array[@value.Value])?) -> Double {
+  match s {
+    Some((sc, _)) => sc.bandwidth() * 0.5
+    None => 0.0
+  }
+}
+
+///|
+/// vega-lite gives point-like marks an opacity of 0.7 unless the unit
+/// aggregates a field.
+fn has_default_opacity(mark : String, spec : @spec.Spec) -> Bool {
+  (mark == "point" || mark == "circle" || mark == "square" || mark == "tick") &&
+  !spec.encoding.any(fn(e) { e.1.aggregate is Some(_) })
 }
