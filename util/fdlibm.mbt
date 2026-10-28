@@ -172,8 +172,11 @@ pub fn js_log10(x0 : Double) -> Double {
 }
 
 ///|
-/// `Math.pow(10, k)` as computed by V8. Exact table for integer exponents in
-/// [-330, 310]; other exponents fall back to the platform `pow`.
+/// `Math.pow(10, k)`. For integer exponents in [-330, 310] this is the correctly
+/// rounded 10^k from a table. V8 itself is not consistent here: a few exponents
+/// (23 on some builds, 210 on others) differ by one ulp between platforms and
+/// Node versions, so the table does not follow any one build. Other exponents
+/// fall back to the platform `pow`.
 pub fn js_pow10(k : Double) -> Double {
   if k.is_nan() {
     return k

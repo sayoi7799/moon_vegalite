@@ -21,13 +21,15 @@ export function generate() {
     lines.push(`log10 ${hex16(x)} ${hex16(Math.log10(x))}`);
   }
 
-  // table of Math.pow(10, k) for every integer exponent that can produce a finite or subnormal result
+  // Table of 10^k for every integer exponent that can produce a finite or subnormal result.
+  // Math.pow(10, k) is not used: V8 builds disagree on it by one ulp for a few k (Linux and macOS differ from
+  // Windows, Node 22 from Node 24), so the table holds the correctly rounded value, which is the same everywhere.
   const bits = [];
-  for (let k = -330; k <= 310; k++) bits.push(hex16(Math.pow(10, k)));
+  for (let k = -330; k <= 310; k++) bits.push(hex16(Number('1e' + k)));
   const source =
     '// GENERATED FILE. DO NOT EDIT.\n' +
     '// Regenerate with: cd scripts && npm ci && npm run fixtures\n' +
-    '// Bit patterns of JavaScript Math.pow(10, k) (V8) for k in [-330, 310].\n\n' +
+    '// Bit patterns of the correctly rounded 10^k, i.e. Number("1e" + k), for k in [-330, 310].\n\n' +
     '///|\nlet pow10_min_exp : Int = -330\n\n' +
     '///|\nlet pow10_max_exp : Int = 310\n\n' +
     '///|\nlet pow10_bits : Array[UInt64] = [\n' +

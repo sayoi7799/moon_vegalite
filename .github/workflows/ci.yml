@@ -6,16 +6,28 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Install MoonBit
+      - name: Install MoonBit (Linux, macOS)
+        if: runner.os != 'Windows'
         run: |
           curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
           echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - name: Install MoonBit (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+          irm https://cli.moonbitlang.com/install/powershell.ps1 | iex
+          Add-Content -Path $env:GITHUB_PATH -Value "$env:USERPROFILE\.moon\bin"
       - name: Toolchain
         run: moon version --all
       - name: Update the package registry
@@ -30,8 +42,12 @@ jobs:
         run: moon test --target js
       - name: Test (native)
         run: moon test --target native
-      - name: Build the CLI
-        run: moon build --target native cmd/vl2svg
+      - name: Build (all targets)
+        run: moon build --target all
+      - name: Interface files are up to date
+        run: |
+          moon info
+          git diff --exit-code -- '*.mbti'
 
   fixtures:
     # The committed fixtures must be exactly what the pinned official packages produce.
@@ -54,13 +70,11 @@ jobs:
         run: |
           moon update
           moon fmt
-      # util/pow10_table.mbt (V8's Math.pow(10, k)) regenerates differently on this runner than on
-      # the Windows machine that produced the committed file, so it is not compared here.
       - name: Fixtures are up to date
         run: |
-          if ! git diff --quiet -- fixtures scale util ':!util/pow10_table.mbt'; then
-            files=$(git diff --name-only -- fixtures scale util ':!util/pow10_table.mbt' | paste -sd, -)
+          if ! git diff --quiet -- fixtures scale util; then
+            files=$(git diff --name-only -- fixtures scale util | paste -sd, -)
             echo "::error::fixtures differ: $files"
-            git diff -- fixtures scale util ':!util/pow10_table.mbt' | head -60
+            git diff -- fixtures scale util | head -60
             exit 1
           fi

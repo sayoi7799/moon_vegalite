@@ -1,6 +1,6 @@
 // GENERATED FILE. DO NOT EDIT.
 // Regenerate with: cd scripts && npm ci && npm run fixtures
-// Bit patterns of JavaScript Math.pow(10, k) (V8) for k in [-330, 310].
+// Bit patterns of the correctly rounded 10^k, i.e. Number("1e" + k), for k in [-330, 310].
 
 ///|
 let pow10_min_exp : Int32 = -330
@@ -98,7 +98,7 @@ let pow10_bits : Array[UInt64] = [
   0x4202a05f20000000UL, 0x42374876e8000000UL, 0x426d1a94a2000000UL, 0x42a2309ce5400000UL,
   0x42d6bcc41e900000UL, 0x430c6bf526340000UL, 0x4341c37937e08000UL, 0x4376345785d8a000UL,
   0x43abc16d674ec800UL, 0x43e158e460913d00UL, 0x4415af1d78b58c40UL, 0x444b1ae4d6e2ef50UL,
-  0x4480f0cf064dd592UL, 0x44b52d02c7e14af7UL, 0x44ea784379d99db4UL, 0x45208b2a2c280291UL,
+  0x4480f0cf064dd592UL, 0x44b52d02c7e14af6UL, 0x44ea784379d99db4UL, 0x45208b2a2c280291UL,
   0x4554adf4b7320335UL, 0x4589d971e4fe8402UL, 0x45c027e72f1f1281UL, 0x45f431e0fae6d721UL,
   0x46293e5939a08ceaUL, 0x465f8def8808b024UL, 0x4693b8b5b5056e17UL, 0x46c8a6e32246c99cUL,
   0x46fed09bead87c03UL, 0x4733426172c74d82UL, 0x476812f9cf7920e3UL, 0x479e17b84357691bUL,

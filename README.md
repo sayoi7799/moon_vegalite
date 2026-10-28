@@ -87,7 +87,9 @@ npm run fixtures            # downloads the example specs of the vega-lite tag, 
 npm run gallery             # regenerates ../gallery (needs: moon build --target native cmd/vl2svg)
 ```
 
-CI regenerates the fixtures and fails if the committed files differ. The one exception is `util/pow10_table.mbt` (V8's `Math.pow(10, k)`): regenerated on the Linux runner it differs from the committed file, which was generated on Windows, so it is not compared there (the cause was not investigated further).
+CI regenerates the fixtures and fails if any committed generated file differs.
+
+`util/pow10_table.mbt` holds 10^k for integer k in [-330, 310]. It is generated as `Number("1e" + k)` (the correctly rounded value) and not with `Math.pow(10, k)`: V8 is not consistent about `Math.pow`, which differs by one ulp for a few exponents between Linux, macOS and Windows builds of Node 24 (and for about 70 exponents between Node 22 and 24). `js_pow10` therefore matches V8 on most builds rather than on one particular build. Compared with the Windows build that produced the previous table, only 10^23 changed, and the full test-suite, including the end-to-end comparison with the official output, passes unchanged.
 
 `examples/moonframe/*.vl.json` were produced by `ihb2032/MoonFrame` 0.7.0 (`@chart.format_vega_lite`). MoonFrame 0.7.0 does
 not currently build with the latest MoonBit toolchain (its dependencies `NyaCSV` and `quickcheck` still ship `moon.mod.json`, and
@@ -105,6 +107,14 @@ manifests and removing the three tests locally. The generated JSON is committed 
 | `spec` | strict reader of Vega-Lite JSON (unsupported features raise errors with paths) |
 | `vl` | the compiler: data pipeline, scales, axes, legends, layout |
 | `cmd/vl2svg` | command line tool (native) |
+
+## Development history
+
+Most of the work before 24 October 2026 was done locally, without committing step by step. On 24 October 2026 the
+existing code was organised into commits by module (low-level numeric and time libraries, scales, expressions and
+transforms, scenegraph and SVG, specification reader, compiler stages, tests, CI). The history on GitHub was rewritten
+once at that time, to fold a few follow-up CI fixes into one commit. Since then every change is made on its own branch
+for a GitHub issue and merged through a pull request that closes the issue.
 
 ## License
 
