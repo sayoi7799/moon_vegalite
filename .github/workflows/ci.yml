@@ -58,13 +58,11 @@ jobs:
         run: |
           moon update
           moon fmt
-      # util/pow10_table.mbt (V8's Math.pow(10, k)) regenerates differently on this runner than on
-      # the Windows machine that produced the committed file, so it is not compared here.
       - name: Fixtures are up to date
         run: |
-          if ! git diff --quiet -- fixtures scale util ':!util/pow10_table.mbt'; then
-            files=$(git diff --name-only -- fixtures scale util ':!util/pow10_table.mbt' | paste -sd, -)
+          if ! git diff --quiet -- fixtures scale util; then
+            files=$(git diff --name-only -- fixtures scale util | paste -sd, -)
             echo "::error::fixtures differ: $files"
-            git diff -- fixtures scale util ':!util/pow10_table.mbt' | head -60
+            git diff -- fixtures scale util | head -60
             exit 1
           fi

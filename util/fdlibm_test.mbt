@@ -55,3 +55,19 @@ test "js_cos / js_sin agree with V8 for whole degrees" {
   assert_eq(@util.js_sin(-90.0 * d), -1.0)
   assert_eq(@util.js_cos(0.0), 1.0)
 }
+
+///|
+test "js_pow10 is the correctly rounded power of ten for every finite exponent" {
+  for k in -323..<=308 {
+    let expected = @string.parse_double("1e" + k.to_string())
+    assert_eq(
+      @util.double_to_hex(@util.js_pow10(k.to_double())),
+      @util.double_to_hex(expected),
+    )
+  }
+  // beyond the finite range the table holds 0 and +Infinity
+  assert_eq(@util.js_pow10(-330.0), 0.0)
+  assert_true(@util.js_pow10(310.0).is_inf())
+  // 10^23 is the classic case where Math.pow(10, 23) in some V8 builds is one ulp off
+  assert_eq(@util.js_pow10(23.0), 1.0e23)
+}
