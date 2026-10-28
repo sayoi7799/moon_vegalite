@@ -8,7 +8,9 @@ fn nope(path : String) -> CompileError {
 }
 
 ///|
-let honoured_mark_props : Array[String] = ["color", "filled", "interpolate"]
+let honoured_mark_props : Array[String] = [
+  "color", "filled", "interpolate", "opacity",
+]
 
 ///|
 let honoured_axis_props : Array[String] = [
@@ -178,17 +180,13 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
           raise nope(path + " (mark " + mark + ")")
         }
       "text" => if mark != "text" { raise nope(path + " (mark " + mark + ")") }
-      "color" => {
-        if (mark == "line" || mark == "area") && d.field is Some(_) {
-          raise nope(path + " (line / area 按颜色分组)")
-        }
+      "color" =>
         if d.field is Some(_) &&
           typ != "nominal" &&
           typ != "ordinal" &&
           typ != "quantitative" {
           raise nope(path + ".type " + typ)
         }
-      }
       "size" | "opacity" =>
         if d.field is Some(_) && typ != "quantitative" {
           raise nope(path + ".type " + typ)

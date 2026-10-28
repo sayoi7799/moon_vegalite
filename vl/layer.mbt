@@ -277,6 +277,16 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
   }
   let x_shared = shared_pos("x", xm)
   let y_shared = shared_pos("y", ym)
+  // separate axes on a shared scale are not implemented
+  for chan in ["x", "y"] {
+    let shared = if chan == "x" { x_shared } else { y_shared }
+    let members = if chan == "x" { xm } else { ym }
+    if shared &&
+      members.length() > 1 &&
+      resolve_mode(top, "axis", chan) == "independent" {
+      raise nope("resolve.axis." + chan + " independent (共用比例尺)")
+    }
+  }
   for chan in ["x", "y"] {
     let members = if chan == "x" { xm } else { ym }
     let shared = if chan == "x" { x_shared } else { y_shared }
@@ -484,13 +494,40 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     } else {
       u
     }
-    for
-      l in unit_legends(
-        u_legend,
-        sc,
-        height,
-        skip_color=color_shared && !first_color,
-      ) {
+    // layers sharing a colour scale give one legend: "circle" is preferred over
+    // other symbol shapes and the first opacity found is kept
+    let shape_hint : String? = if first_color {
+      let mut shape = legend_symbol_shape(units[color_users[0]].mark)
+      for k in color_users {
+        let st = legend_symbol_shape(units[k].mark)
+        if st == "circle" {
+          shape = st
+        }
+      }
+      Some(shape)
+    } else {
+      None
+    }
+    let opacity_hint : Double? = if first_color {
+      let mut found : Double? = None
+      for k in color_users {
+        if found is None {
+          found = mark_opacity(units[k].mark, units[k].spec)
+        }
+      }
+      found
+    } else {
+      None
+    }
+    let made = unit_legends(
+      u_legend,
+      sc,
+      height,
+      skip_color=color_shared && !first_color,
+      shape_override?=shape_hint,
+      opacity_override?=opacity_hint,
+    )
+    for l in made {
       legends.push(l)
     }
   }

@@ -536,7 +536,14 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
   }
   if mark != "point" && mark != "circle" && mark != "square" {
     for ch in ["size", "opacity", "shape"] {
+      let constant_size = ch == "size" &&
+        (mark == "rule" || mark == "line") &&
+        (match find_channel(spec, ch) {
+          Some({ field: None, value: Some(_), .. }) => true
+          _ => false
+        })
       if find_channel(spec, ch) is Some(_) &&
+        !constant_size &&
         !(ch == "opacity" && (mark == "bar" || mark == "tick" || mark == "area")) {
         raise CompileError(
           "encoding." + ch + " 暂不支持用于 mark " + mark,
@@ -624,14 +631,40 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
   let stack_chan0 : String? = if (mark == "bar" || mark == "area") &&
     !(has_aggregate && pcolor is None) {
     match (px, py) {
-      (Some(x), Some(y)) =>
-        if x.typ == "quantitative" && y.typ != "quantitative" {
+      (Some(x), Some(y)) => {
+        // vega-lite's `potentialStackedChannel`
+        let xq = is_measure(px)
+        let yq = is_measure(py)
+        let requested = fn(p : Pos) -> Bool {
+          match p.def.stack {
+            Some("none") | None => false
+            Some(_) => true
+          }
+        }
+        if xq && yq {
+          if requested(x) {
+            Some("x")
+          } else if requested(y) {
+            Some("y")
+          } else if (x.aggregate is Some(_)) != (y.aggregate is Some(_)) {
+            if x.aggregate is Some(_) {
+              Some("x")
+            } else {
+              Some("y")
+            }
+          } else if orient == "horizontal" {
+            Some("x")
+          } else {
+            Some("y")
+          }
+        } else if xq {
           Some("x")
-        } else if y.typ == "quantitative" && x.typ != "quantitative" {
+        } else if yq {
           Some("y")
         } else {
           None
         }
+      }
       _ => None
     }
   } else {
@@ -1256,7 +1289,7 @@ fn unit_mark(
   let size_scale = sc.size_scale
   let opacity_scale = sc.opacity_scale
   let shape_scale = sc.shape_scale
-  let default_opacity = has_default_opacity(mark, spec)
+  let default_opacity = mark_opacity(mark, spec)
   let color_of = fn(r : Map[String, @value.Value]) -> String {
     match pcolor {
       Some(c) if color_seq is Some(_) =>
@@ -1353,7 +1386,15 @@ fn unit_mark(
       }
       "line" => {
         let it = mk_item([
-          ("strokeWidth", num(2.0)),
+          (
+            "strokeWidth",
+            num(
+              match size_value {
+                Some(v) => v
+                None => 2.0
+              },
+            ),
+          ),
           ("stroke", str(color_of(r))),
         ])
         it.set_num("x", pos_of(xs, r, px.unwrap().field) + band_half(xs))
@@ -1421,9 +1462,13 @@ fn unit_mark(
           (
             "stroke",
             str(
-              match color_value {
-                Some(c) => c
-                None => "black"
+              match pcolor {
+                Some(_) => color_of(r)
+                None =>
+                  match color_value {
+                    Some(c) => c
+                    None => "black"
+                  }
               },
             ),
           ),
@@ -1445,7 +1490,28 @@ fn unit_mark(
               it.set_num("x", pos_of(xs, r, a.field))
               it.set_num("x2", pos_of(xs, r, px2.unwrap().field))
             }
-          _ => raise CompileError("rule 需要 x 与 y 通道")
+          (None, Some(b)) => {
+            // a horizontal rule across the whole plot
+            it.set_num("x", width)
+            it.set_num("x2", 0.0)
+            it.set_num(
+              "y",
+              pos_of(ys, r, b.field) + ys.unwrap().0.bandwidth() * 0.5,
+            )
+          }
+          (Some(a), None) => {
+            it.set_num(
+              "x",
+              pos_of(xs, r, a.field) + xs.unwrap().0.bandwidth() * 0.5,
+            )
+            it.set_num("y", 0.0)
+            it.set_num("y2", height)
+          }
+          _ => raise CompileError("rule 需要 x 或 y 通道")
+        }
+        match size_value {
+          Some(v) => it.set_num("strokeWidth", v)
+          None => ()
         }
         items.push(it)
       }
@@ -1498,8 +1564,9 @@ fn unit_mark(
       }
       "tick" => {
         let it = mk_item([("fill", str(color_of(r)))])
-        if default_opacity {
-          it.set_num("opacity", 0.7)
+        match default_opacity {
+          Some(o) => it.set_num("opacity", o)
+          None => ()
         }
         let thickness = 1.0
         if orient == "horizontal" {
@@ -1550,8 +1617,9 @@ fn unit_mark(
           ("strokeWidth", num(2.0)),
           ("shape", str(if mark == "point" { "circle" } else { mark })),
         ])
-        if default_opacity {
-          it.set_num("opacity", 0.7)
+        match default_opacity {
+          Some(o) => it.set_num("opacity", o)
+          None => ()
         }
         if filled {
           it.set_str("fill", color_of(r))
@@ -1617,6 +1685,18 @@ fn unit_mark(
       }
     }
   }
+  match spec.mark.props.get("opacity") {
+    Some(Num(o)) =>
+      if !(mark == "point" ||
+        mark == "circle" ||
+        mark == "square" ||
+        mark == "tick") {
+        for it in items {
+          it.set_num("opacity", o)
+        }
+      }
+    _ => ()
+  }
   let mt = match mark {
     "point" | "circle" | "square" => @scene.MarkType::Symbol
     "line" => @scene.MarkType::Line
@@ -1625,18 +1705,65 @@ fn unit_mark(
     "text" => @scene.MarkType::Text
     _ => @scene.MarkType::Rect
   }
+  // the series (colour) of every item, kept in step with `items`
+  let item_keys : Array[String] = match pcolor {
+    Some(c) =>
+      data.map(fn(r) { @scale.value_key(@value.get_field(r, c.field)) })
+    None => data.map(fn(_) { "" })
+  }
+  // the series appear in the order of the data, whatever the sort of the paths
+  let series_order : Array[String] = []
+  for k in item_keys {
+    if !series_order.contains(k) {
+      series_order.push(k)
+    }
+  }
   if mark == "line" || mark == "area" {
     // `sort: {field: "x"}`
     let sort_key = if vertical { "x" } else { "y" }
-    let sorted = @transform.stable_sort(items, fn(a, b) {
-      @value.compare_values(a.get(sort_key), b.get(sort_key))
+    let idx = Array::makei(items.length(), fn(i) { i })
+    let sorted = @transform.stable_sort(idx, fn(a, b) {
+      @value.compare_values(items[a].get(sort_key), items[b].get(sort_key))
     })
+    let sorted_items = sorted.map(fn(i) { items[i] })
+    let sorted_keys = sorted.map(fn(i) { item_keys[i] })
     items.clear()
-    for it in sorted {
+    for it in sorted_items {
       items.push(it)
     }
+    item_keys.clear()
+    for k in sorted_keys {
+      item_keys.push(k)
+    }
   }
-  let marks = @scene.Mark::new(mt, name~, role="mark", items~)
+  let marks = match pcolor {
+    Some(_) if mark == "line" || mark == "area" => {
+      // one path per colour, each in its own group (vega-lite's `pathgroup`)
+      let order = series_order
+      let by_key : Map[String, Array[@scene.Item]] = Map([])
+      for i in 0..<items.length() {
+        let k = item_keys[i]
+        match by_key.get(k) {
+          Some(a) => a.push(items[i])
+          None => by_key[k] = [items[i]]
+        }
+      }
+      let group_name = if name.has_suffix("marks") {
+        name[0:name.length() - 5].to_owned() + "pathgroup"
+      } else {
+        name
+      }
+      let group_items = order.map(fn(k) {
+        let g = mk_item([("width", num(width)), ("height", num(height))])
+        g.children.push(
+          @scene.Mark::new(mt, name~, role="mark", items=by_key[k]),
+        )
+        g
+      })
+      @scene.Mark::new(Group, name=group_name, role="scope", items=group_items)
+    }
+    _ => @scene.Mark::new(mt, name~, role="mark", items~)
+  }
   marks
 }
 
@@ -1646,9 +1773,11 @@ fn unit_legends(
   sc : UnitScales,
   height : Double,
   skip_color~ : Bool = false,
+  shape_override? : String,
+  opacity_override? : Double,
 ) -> Array[Legend] raise CompileError {
   let spec = u.spec
-  let default_opacity = has_default_opacity(u.mark, spec)
+  let default_opacity = mark_opacity(u.mark, spec)
   let mark = u.mark
   let pcolor = u.pcolor
   let psize = u.psize
@@ -1663,7 +1792,7 @@ fn unit_legends(
   let shape_scale = sc.shape_scale
   let shape_domain = sc.shape_domain
   let base_color = base_color
-  let filled_mark = mark != "point" ||
+  let filled_mark = !(mark == "point" || mark == "line" || mark == "rule") ||
     (match spec.mark.props.get("filled") {
       Some(Bool(true)) => true
       _ => false
@@ -1707,7 +1836,11 @@ fn unit_legends(
     filled_mark,
     base_color,
     pcolor is Some(_),
-    default_opacity,
+    match opacity_override {
+      Some(_) => opacity_override
+      None => default_opacity
+    },
+    shape_override?,
   )
   match (pcolor, color_seq) {
     (Some(c), Some(sq)) =>
@@ -1718,10 +1851,9 @@ fn unit_legends(
             Some(c.title),
             sq,
             max(64.0, min(200.0, height)),
-            if default_opacity {
-              0.7
-            } else {
-              1.0
+            match default_opacity {
+              Some(o) => o
+              None => 1.0
             },
             None,
           ),
@@ -2005,9 +2137,32 @@ fn band_half(s : (RScale, Array[@value.Value])?) -> Double {
 }
 
 ///|
-/// vega-lite gives point-like marks an opacity of 0.7 unless the unit
-/// aggregates a field.
-fn has_default_opacity(mark : String, spec : @spec.Spec) -> Bool {
-  (mark == "point" || mark == "circle" || mark == "square" || mark == "tick") &&
-  !spec.encoding.any(fn(e) { e.1.aggregate is Some(_) })
+/// The opacity of a unit's marks: the `opacity` mark property, else 0.7 for
+/// point-like marks unless the unit aggregates a field (vega-lite's default).
+fn mark_opacity(mark : String, spec : @spec.Spec) -> Double? {
+  match spec.mark.props.get("opacity") {
+    Some(Num(o)) => Some(o)
+    _ =>
+      if (
+          mark == "point" ||
+          mark == "circle" ||
+          mark == "square" ||
+          mark == "tick"
+        ) &&
+        !spec.encoding.any(fn(e) { e.1.aggregate is Some(_) }) {
+        Some(0.7)
+      } else {
+        None
+      }
+  }
+}
+
+///|
+/// The shape of the legend symbol that a mark gives to a colour legend.
+fn legend_symbol_shape(mark : String) -> String {
+  match mark {
+    "bar" | "rect" | "square" => "square"
+    "line" | "rule" => "stroke"
+    _ => "circle"
+  }
 }

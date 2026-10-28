@@ -46,8 +46,9 @@ See the [gallery](gallery/index.html): the SVG from this library next to the off
 | Scales | `linear`, `log`, `sqrt`, `pow`, `time`, `utc`, `band`, `point`, `ordinal` (`domain`, `range`, `zero`, `nice`, `reverse`, `clamp`, `base`, `exponent`) |
 | Stacking | default stacking for `bar` and `area`; `stack: zero / center / normalize / null` |
 | Sorting | `sort` on discrete x / y: `ascending`, `descending`, a value list, `-x` / `-y`, `{op, field, order}` |
+| Layers | position scales are shared by default (domains are merged, a band scale wins over a point scale); `resolve.scale.x / y: independent` gives each layer its own scale and axis, the second one on the opposite side; colour scales and their legend are shared, or independent with `resolve.scale.color`; marks are named `layer_0_marks`, ... |
 | Guides | axes (grid, ticks, labels with flush / overlap removal, title), symbol legends, chart title |
-| Layout | single view, `autosize: pad`, `width` / `height` as numbers or `{step}` |
+| Layout | single view or `layer` (nested layers, inherited `data` / `transform` / `encoding`, `resolve.scale` / `legend`), `autosize: pad`, `width` / `height` as numbers or `{step}` |
 | Config | accepted keys are recorded; a subset (`view`, `scale.zero`, …) is honoured |
 
 Not supported — each raises an error that names the JSON path: `params` / `selection`, `tooltip`, `projection`, `layer`,

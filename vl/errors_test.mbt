@@ -96,8 +96,8 @@ test "properties the compiler would ignore are rejected" {
   let xy = "\"x\":{\"field\":\"a\",\"type\":\"nominal\"},\"y\":{\"field\":\"b\",\"type\":\"quantitative\"}"
   // mark properties
   inspect(
-    message_of(enc("{\"type\":\"bar\",\"opacity\":0.5}", "{" + xy + "}")),
-    content="mark.opacity 暂不支持",
+    message_of(enc("{\"type\":\"bar\",\"cornerRadius\":3}", "{" + xy + "}")),
+    content="mark.cornerRadius 暂不支持",
   )
   // config
   inspect(
@@ -192,12 +192,12 @@ test "layers that cannot be merged yet are rejected with their path" {
         "",
         "[{\"mark\":\"point\"," +
         q +
-        "},{\"mark\":{\"type\":\"line\",\"opacity\":0.5}," +
+        "},{\"mark\":{\"type\":\"line\",\"cornerRadius\":3}," +
         q +
         "}]",
       ),
     ),
-    content="layer[1].mark.opacity 暂不支持",
+    content="layer[1].mark.cornerRadius 暂不支持",
   )
   // independent discrete scales need one step per layer
   inspect(
@@ -229,13 +229,14 @@ test "layers that cannot be merged yet are rejected with their path" {
     ),
     content="resolve.scale.x independent (离散比例尺) 暂不支持",
   )
-  // lines and areas coloured by a field are not drawn per series yet
+  // separate axes on a shared scale are not implemented
   inspect(
     message_of(
-      enc(
-        "\"line\"", "{\"x\":{\"field\":\"a\",\"type\":\"quantitative\"},\"y\":{\"field\":\"b\",\"type\":\"quantitative\"},\"color\":{\"field\":\"c\",\"type\":\"nominal\"}}",
+      layered(
+        "\"resolve\":{\"axis\":{\"y\":\"independent\"}},",
+        "[{\"mark\":\"point\"," + q + "},{\"mark\":\"line\"," + q + "}]",
       ),
     ),
-    content="encoding.color (line / area 按颜色分组) 暂不支持",
+    content="resolve.axis.y independent (共用比例尺) 暂不支持",
   )
 }
