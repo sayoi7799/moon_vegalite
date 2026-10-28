@@ -108,6 +108,14 @@ manifests and removing the three tests locally. The generated JSON is committed 
 | `vl` | the compiler: data pipeline, scales, axes, legends, layout |
 | `cmd/vl2svg` | command line tool (native) |
 
+## Development history
+
+Most of the work before 24 October 2026 was done locally, without committing step by step. On 24 October 2026 the
+existing code was organised into commits by module (low-level numeric and time libraries, scales, expressions and
+transforms, scenegraph and SVG, specification reader, compiler stages, tests, CI). The history on GitHub was rewritten
+once at that time, to fold a few follow-up CI fixes into one commit. Since then every change is made on its own branch
+for a GitHub issue and merged through a pull request that closes the issue.
+
 ## License
 
 Apache-2.0. Parts of the code are ports of vega, vega-lite and d3 (BSD-3-Clause / ISC); see the file headers.
