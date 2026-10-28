@@ -94,6 +94,15 @@ add('stack', { type: 'stack', groupby: ['c'], offset: 'zero', as: ['v0', 'v1'] }
 add('stack', { type: 'stack', groupby: ['c'], field: 'v', offset: 'zero', as: ['v0', 'v1'] }, [...stackRows, { c: 'a', k: 'w', v: null }, { c: 'a', k: 'q', v: 'x' }, { c: 'd', k: 'q' }]);
 add('stack', { type: 'stack', groupby: ['c'], field: 'v', offset: 'normalize', as: ['v0', 'v1'] }, [{ c: 'a', v: 0 }, { c: 'a', v: 0 }, { c: 'b', v: 2 }]);
 
+// impute (method value): missing keys per group
+const imputeRows = [
+  { c: 'a', k: 1, v: 3 }, { c: 'a', k: 2, v: 5 }, { c: 'a', k: 4, v: 6 },
+  { c: 'b', k: 2, v: 2 }, { c: 'b', k: 3, v: 3 }, { c: 'c', k: 4, v: 1 },
+];
+add('impute', { type: 'impute', field: 'v', groupby: ['c'], key: 'k', method: 'value', value: 0 }, imputeRows);
+add('impute', { type: 'impute', field: 'v', groupby: [], key: 'k', method: 'value', value: 0 }, imputeRows);
+add('impute', { type: 'impute', field: 'v', groupby: ['c'], key: 'k', method: 'value', value: 0 }, [{ c: 'a', k: 'x', v: 1 }, { c: 'b', k: 'y', v: 2 }, { c: null, k: 'x', v: 3 }]);
+
 // fold
 add('fold', { type: 'fold', fields: ['a', 'b'], as: ['key', 'value'] }, [{ id: 1, a: 10, b: 20 }, { id: 2, a: null, b: 'x' }, { id: 3, a: 5 }, { id: 4, b: 7 }]);
 add('fold', { type: 'fold', fields: ['a', 'b', 'c'], as: ['k', 'v'] }, [{ id: 1, a: 1, b: 2, c: 3 }, { id: 2, a: 4, b: 5, c: 6 }]);

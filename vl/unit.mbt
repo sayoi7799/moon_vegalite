@@ -406,6 +406,32 @@ priv struct UnitScales {
 }
 
 ///|
+/// Discrete colour range: nominal fields use the categorical scheme, ordinal
+/// fields sample the sequential `blues` scheme once per domain value (vega's
+/// `configureScheme` for an interpolating scheme on an ordinal scale).
+fn set_color_range(
+  scale : @scale.Ordinal,
+  domain : Array[@value.Value],
+  ordinal : Bool,
+) -> Unit {
+  scale.set_domain(domain)
+  if ordinal {
+    match @scale.scheme_interpolator("blues") {
+      Some(f) =>
+        scale.set_range(
+          @scale.quantize_interpolator(f, domain.length()).map(fn(c) { Str(c) }),
+        )
+      None => ()
+    }
+    return
+  }
+  match @scale.scheme("tableau10") {
+    Some(Discrete(cs)) => scale.set_range(cs.map(fn(c) { Str(c) }))
+    _ => ()
+  }
+}
+
+///|
 /// Run the data pipeline of a unit specification and resolve its channels.
 fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
   let source = match spec.data {
@@ -688,6 +714,12 @@ fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
   match stack_chan {
     Some(c) => {
       let dim = if c == "y" { px.unwrap().field } else { py.unwrap().field }
+      // stacked areas are imputed so every series has a point at every key
+      match pcolor {
+        Some(col) if mark == "area" =>
+          @transform.impute(rows, stacked_field, [col.field], dim, 0.0)
+        _ => ()
+      }
       @transform.stack(
         rows,
         Some(stacked_field),
@@ -972,11 +1004,14 @@ fn unit_scales(
       }
     _ => None
   }
-  color_scale.set_domain(color_domain)
-  match @scale.scheme("tableau10") {
-    Some(Discrete(cs)) => color_scale.set_range(cs.map(fn(c) { Str(c) }))
-    _ => ()
-  }
+  set_color_range(
+    color_scale,
+    color_domain,
+    match pcolor {
+      Some(c) => c.typ == "ordinal"
+      None => false
+    },
+  )
   let step_w = match step_of(spec.width) {
     Some(v) => v
     None => 20.0

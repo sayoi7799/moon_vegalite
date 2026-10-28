@@ -54,8 +54,10 @@ point_color_quantitative
 point_color_shape_constant
 point_color_with_shape
 point_filled
+point_ordinal_color
 rule_extent
 square
+stacked_area_ordinal
 stacked_bar_count
 stacked_bar_unaggregate
 stacked_bar_v

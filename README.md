@@ -38,7 +38,7 @@ See the [gallery](gallery/index.html): the SVG from this library next to the off
 | Area | Supported |
 | --- | --- |
 | Marks | `bar`, `line`, `point`, `circle`, `square`, `area`, `rule`, `tick`, `rect`, `text` |
-| Channels | `x`, `y`, `x2`, `y2`, `color` (nominal/ordinal fields with the category scheme, quantitative fields with a blues ramp and gradient legend, constant values), `size`, `opacity`, `shape`, `text` (size, opacity and shape on `point`, `circle`, `square`; quantitative fields give continuous scales, shape is nominal) |
+| Channels | `x`, `y`, `x2`, `y2`, `color` (nominal fields with the category scheme, ordinal fields with a blues ramp sampled per value, quantitative fields with a blues ramp and gradient legend, constant values), `size`, `opacity`, `shape`, `text` (size, opacity and shape on `point`, `circle`, `square`; quantitative fields give continuous scales, shape is nominal) |
 | Field types | `quantitative`, `ordinal`, `nominal`, `temporal` |
 | Aggregates | `count`, `sum`, `mean`, `average`, `min`, `max`, `median`, `distinct`, … (vega aggregate ops) |
 | Transforms | `filter` (expression or predicate), `calculate` (expression subset), `aggregate`, `bin`, `timeUnit`, `fold`; field `bin`, `timeUnit`, `aggregate` |

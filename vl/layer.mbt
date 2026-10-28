@@ -458,11 +458,11 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
   } else {
     []
   }
-  merged_color.set_domain(merged_color_domain)
-  match @scale.scheme("tableau10") {
-    Some(Discrete(cs)) => merged_color.set_range(cs.map(fn(c) { Str(c) }))
-    _ => ()
-  }
+  set_color_range(
+    merged_color,
+    merged_color_domain,
+    color_users.any(fn(i) { units[i].pcolor.unwrap().typ == "ordinal" }),
+  )
   // --- marks and legends, one mark group per layer in layer order
   let marks : Array[@scene.Mark] = []
   let legends : Array[Legend] = []

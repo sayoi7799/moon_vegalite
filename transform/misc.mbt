@@ -267,3 +267,71 @@ pub fn stack(
     }
   }
 }
+
+///|
+/// vega `Impute` with method "value": every group (rows sharing the `groupby`
+/// values) gets a row for each `key` value it lacks, with `field` set to
+/// `value`. The new rows are appended after the existing ones, groups in order
+/// of first appearance and keys in the order they were first seen.
+pub fn impute(
+  rows : Array[Map[String, @value.Value]],
+  field : String,
+  groupby : Array[String],
+  key : String,
+  value : Double,
+) -> Unit {
+  let domain : Array[@value.Value] = []
+  let key_index : Map[String, Int32] = Map([])
+  let groups : Array[(Array[@value.Value], Map[Int32, Bool])] = []
+  let group_index : Map[String, Int32] = Map([])
+  for t in rows {
+    let k = @value.get_field(t, key)
+    let ks = k.to_js_string()
+    let j = match key_index.get(ks) {
+      Some(j) => j
+      None => {
+        key_index[ks] = domain.length()
+        domain.push(k)
+        domain.length() - 1
+      }
+    }
+    let gvals = groupby.map(fn(g) { @value.get_field(t, g) })
+    let gkey = gvals
+      .map(fn(v) {
+        match v {
+          Null | Undef => ""
+          v => v.to_js_string()
+        }
+      })
+      .join(",")
+    match group_index.get(gkey) {
+      Some(i) => groups[i].1[j] = true
+      None => {
+        group_index[gkey] = groups.length()
+        let seen : Map[Int32, Bool] = Map([])
+        seen[j] = true
+        groups.push((gvals, seen))
+      }
+    }
+  }
+  let added : Array[Map[String, @value.Value]] = []
+  for g in groups {
+    let (gvals, seen) = g
+    for j in 0..<domain.length() {
+      if seen.contains(j) {
+        continue
+      }
+      let t : Map[String, @value.Value] = Map([])
+      t["_impute"] = Bool(true)
+      for i in 0..<groupby.length() {
+        t[groupby[i]] = gvals[i]
+      }
+      t[key] = domain[j]
+      t[field] = Num(value)
+      added.push(t)
+    }
+  }
+  for t in added {
+    rows.push(t)
+  }
+}

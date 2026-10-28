@@ -269,6 +269,16 @@ test "transforms match vega" {
         )
         rows
       }
+      "impute" => {
+        @transform.impute(
+          rows,
+          strs(Arr([jfield(spec, "field")]))[0],
+          strs(jfield(spec, "groupby")),
+          strs(Arr([jfield(spec, "key")]))[0],
+          0.0,
+        )
+        rows
+      }
       "fold" => {
         let as_names = strs(jfield(spec, "as"))
         @transform.fold(

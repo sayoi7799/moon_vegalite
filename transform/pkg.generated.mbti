@@ -20,6 +20,8 @@ pub fn fold(Array[Map[String, @value.Value]], Array[String], String, String) -> 
 
 pub fn formula(Array[Map[String, @value.Value]], String, String) -> Unit raise TransformError
 
+pub fn impute(Array[Map[String, @value.Value]], String, Array[String], String, Double) -> Unit
+
 pub fn is_aggregate_op(String) -> Bool
 
 pub fn make_binner(BinParams) -> Binner
