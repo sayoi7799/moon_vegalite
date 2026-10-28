@@ -30,8 +30,12 @@ jobs:
         run: moon test --target js
       - name: Test (native)
         run: moon test --target native
-      - name: Build the CLI
-        run: moon build --target native cmd/vl2svg
+      - name: Build (all targets)
+        run: moon build --target all
+      - name: Interface files are up to date
+        run: |
+          moon info
+          git diff --exit-code -- '*.mbti'
 
   fixtures:
     # The committed fixtures must be exactly what the pinned official packages produce.
