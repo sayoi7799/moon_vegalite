@@ -584,58 +584,132 @@ fn parse_data(
 ///|
 /// Parse a Vega-Lite specification from parsed JSON.
 pub fn parse_spec(j : Json) -> Spec raise SpecError {
-  let r = Reader::new("", j)
+  parse_view("", j)
+}
+
+///|
+fn parse_resolve(path : String, j : Json) -> Resolve raise SpecError {
+  let r = Reader::new(path, j)
+  let out : Resolve = { scale: Map([]), axis: Map([]), legend: Map([]), }
+  for kind in ["scale", "axis", "legend"] {
+    match r.take(kind) {
+      None => ()
+      Some(Object(m)) =>
+        for channel, v in m {
+          let target = match kind {
+            "scale" => out.scale
+            "axis" => out.axis
+            _ => out.legend
+          }
+          match v {
+            String("shared") => target[channel] = "shared"
+            String("independent") => target[channel] = "independent"
+            _ =>
+              raise invalid(
+                join_path(join_path(path, kind), channel),
+                "应为 shared 或 independent",
+              )
+          }
+        }
+      Some(_) => raise invalid(join_path(path, kind), "应为对象")
+    }
+  }
+  r.finish()
+  out
+}
+
+///|
+/// Parse one view: the top-level specification, a layer, or a nested layer.
+/// `path` is the JSON path of the view ("" for the top level).
+fn parse_view(path : String, j : Json) -> Spec raise SpecError {
+  let r = Reader::new(path, j)
   r.ignore(["$schema", "description", "name", "usermeta"])
   for
     k in [
-      "layer", "facet", "concat", "hconcat", "vconcat", "repeat", "spec", "params",
-      "selection", "projection", "resolve", "datasets", "view",
+      "facet", "concat", "hconcat", "vconcat", "repeat", "spec", "params", "selection",
+      "projection", "datasets", "view",
     ] {
     if r.has(k) {
-      raise unsupported(k)
+      raise unsupported(r.path_of(k))
     }
   }
+  let layer : Array[Spec] = []
+  match r.take("layer") {
+    None => ()
+    Some(Array(items)) => {
+      if items.length() == 0 {
+        raise invalid(r.path_of("layer"), "不能为空")
+      }
+      for i in 0..<items.length() {
+        layer.push(parse_view(index_path(r.path_of("layer"), i), items[i]))
+      }
+    }
+    Some(_) => raise invalid(r.path_of("layer"), "应为数组")
+  }
+  let is_layer = layer.length() > 0
+  let resolve = match r.take("resolve") {
+    None => { scale: Map([]), axis: Map([]), legend: Map([]), }
+    Some(rj) =>
+      if is_layer {
+        parse_resolve(r.path_of("resolve"), rj)
+      } else {
+        raise SpecError(r.path_of("resolve") + " 只能用于 layer")
+      }
+  }
   let mark = match r.take("mark") {
-    Some(m) => parse_mark("mark", m)
-    None => raise SpecError("mark: 缺少 mark（仅支持单视图规格）")
+    Some(m) =>
+      if is_layer {
+        raise SpecError(r.path_of("mark") + " 不能与 layer 同时出现")
+      } else {
+        parse_mark(r.path_of("mark"), m)
+      }
+    None =>
+      if is_layer {
+        { typ: "", props: Map([]), }
+      } else {
+        raise SpecError(r.path_of("mark") + ": 缺少 mark")
+      }
   }
   let encoding : Array[(String, ChannelDef)] = []
   match r.take("encoding") {
     None => ()
     Some(Object(m)) =>
       for k, v in m {
+        let ep = join_path(r.path_of("encoding"), k)
         if unsupported_channels.contains(k) {
-          raise unsupported(join_path("encoding", k))
+          raise unsupported(ep)
         }
         if !supported_channels.contains(k) {
-          raise SpecError(join_path("encoding", k) + " 未知属性")
+          raise SpecError(ep + " 未知属性")
         }
-        encoding.push((k, parse_channel(join_path("encoding", k), v)))
+        encoding.push((k, parse_channel(ep, v)))
       }
-    Some(_) => raise invalid("encoding", "应为对象")
+    Some(_) => raise invalid(r.path_of("encoding"), "应为对象")
   }
   let transform : Array[Transform] = []
   match r.take("transform") {
     None => ()
     Some(Array(items)) =>
       for i in 0..<items.length() {
-        transform.push(parse_transform(index_path("transform", i), items[i]))
+        transform.push(
+          parse_transform(index_path(r.path_of("transform"), i), items[i]),
+        )
       }
-    Some(_) => raise invalid("transform", "应为数组")
+    Some(_) => raise invalid(r.path_of("transform"), "应为数组")
   }
   let data = match r.take("data") {
     None => None
     Some(Null) => None
-    Some(d) => parse_data("data", d)
+    Some(d) => parse_data(r.path_of("data"), d)
   }
   let width = r.value("width")
   let height = r.value("height")
   match width {
-    Some(Str(_)) => raise unsupported("width")
+    Some(Str(_)) => raise unsupported(r.path_of("width"))
     _ => ()
   }
   match height {
-    Some(Str(_)) => raise unsupported("height")
+    Some(Str(_)) => raise unsupported(r.path_of("height"))
     _ => ()
   }
   let padding = r.value("padding")
@@ -643,25 +717,27 @@ pub fn parse_spec(j : Json) -> Spec raise SpecError {
   let title = match r.take("title") {
     None => None
     Some(String(s)) => Some(s)
-    Some(_) => raise unsupported("title")
+    Some(_) => raise unsupported(r.path_of("title"))
   }
   let description = None
   let config : Map[String, @value.Value] = Map([])
   match r.take("config") {
     None => ()
     Some(c) => {
-      let props = obj_props("config", c)
+      let props = obj_props(r.path_of("config"), c)
       for k, v in props {
         if supported_config_keys.contains(k) {
           config[k] = v
         } else {
-          raise unsupported(join_path("config", k))
+          raise unsupported(join_path(r.path_of("config"), k))
         }
       }
     }
   }
   r.finish(unsupported_keys=["autosize", "center", "bounds", "spacing", "align"])
   {
+    layer,
+    resolve,
     mark,
     encoding,
     transform,

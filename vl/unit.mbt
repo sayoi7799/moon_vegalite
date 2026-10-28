@@ -1665,6 +1665,9 @@ fn unit_legends(
 ///|
 pub fn compile(text : String) -> Compiled raise CompileError {
   let spec = @spec.parse_spec_text(text) catch { e => raise spec_err(e) }
+  if spec.layer.length() > 0 {
+    raise CompileError("layer 暂不支持")
+  }
   validate(spec)
   let u = build_unit(spec)
   let (width, height) = unit_size(u)

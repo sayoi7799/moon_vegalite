@@ -92,7 +92,22 @@ pub(all) struct AggregateOp {
 }
 
 ///|
+/// `resolve`: for each channel, whether the layers share or keep their own
+/// scale / axis / legend ("shared" or "independent").
+pub(all) struct Resolve {
+  scale : Map[String, String]
+  axis : Map[String, String]
+  legend : Map[String, String]
+}
+
+///|
+/// A view: a single plot (`layer` is empty) or a layering of views. A layered
+/// spec has no mark of its own (`mark.typ` is empty); `encoding`, `transform`,
+/// `data` and the sizes of a layered spec are inherited by its layers.
 pub(all) struct Spec {
+  /// the layers of a layered view, each a unit or a nested layered view
+  layer : Array[Spec]
+  resolve : Resolve
   mark : Mark
   encoding : Array[(String, ChannelDef)]
   transform : Array[Transform]
