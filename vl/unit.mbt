@@ -327,9 +327,53 @@ fn pos_scale(
 }
 
 ///|
-pub fn compile(text : String) -> Compiled raise CompileError {
-  let spec = @spec.parse_spec_text(text) catch { e => raise spec_err(e) }
-  validate(spec)
+priv struct UnitModel {
+  spec : @spec.Spec
+  mark : String
+  px : Pos?
+  py : Pos?
+  px2 : Pos?
+  py2 : Pos?
+  pcolor : Pos?
+  psize : Pos?
+  popacity : Pos?
+  pshape : Pos?
+  ptext : Pos?
+  color_value : String?
+  size_value : Double?
+  opacity_value : Double?
+  shape_value : String?
+  bin_info : Map[String, (Double, Double, Double)]
+  orient : String
+  vertical : Bool
+  config_zero : Bool
+  stack_chan : String?
+  stack_offset : String
+  valid_fields : Array[String]
+  data : Array[Map[String, @value.Value]]
+  xfields : Array[String]
+  yfields : Array[String]
+  x_order : Array[@value.Value]?
+  y_order : Array[@value.Value]?
+}
+
+///|
+priv struct UnitScales {
+  xs : (RScale, Array[@value.Value])?
+  ys : (RScale, Array[@value.Value])?
+  base_color : String
+  color_scale : @scale.Ordinal
+  color_domain : Array[@value.Value]
+  color_seq : @scale.Sequential?
+  size_scale : @scale.Continuous?
+  opacity_scale : @scale.Continuous?
+  shape_scale : @scale.Ordinal
+  shape_domain : Array[@value.Value]
+}
+
+///|
+/// Run the data pipeline of a unit specification and resolve its channels.
+fn build_unit(spec : @spec.Spec) -> UnitModel raise CompileError {
   let source = match spec.data {
     Some(d) => d
     None => raise CompileError("data 缺失")
@@ -616,6 +660,84 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       valid_fields.all(fn(f) { is_finite_valid(@value.get_field(r, f)) })
     })
   }
+  // domain fields and sort orders of the position scales
+  let xfields = match px {
+    Some(p) =>
+      if stack_chan == Some("x") {
+        [p.field + "_start", p.field + "_end"]
+      } else if is_ranged(mark, p) {
+        [p.field, p.field + "_end"]
+      } else {
+        match px2 {
+          Some(q) => [p.field, q.field]
+          None => [p.field]
+        }
+      }
+    None => []
+  }
+  let yfields = match py {
+    Some(p) =>
+      if stack_chan == Some("y") {
+        [p.field + "_start", p.field + "_end"]
+      } else if is_ranged(mark, p) {
+        [p.field, p.field + "_end"]
+      } else {
+        match py2 {
+          Some(q) => [p.field, q.field]
+          None => [p.field]
+        }
+      }
+    None => []
+  }
+  let x_order = match px {
+    Some({ def: { sort: Some(sv), .. }, discrete: true, .. } as p) =>
+      sort_domain(p, sv, rows_pre, data, px, py)
+    _ => None
+  }
+  let y_order = match py {
+    Some({ def: { sort: Some(sv), .. }, discrete: true, .. } as p) =>
+      sort_domain(p, sv, rows_pre, data, px, py)
+    _ => None
+  }
+  {
+    spec,
+    mark,
+    px,
+    py,
+    px2,
+    py2,
+    pcolor,
+    psize,
+    popacity,
+    pshape,
+    ptext,
+    color_value,
+    size_value,
+    opacity_value,
+    shape_value,
+    bin_info,
+    orient,
+    vertical,
+    config_zero,
+    stack_chan,
+    stack_offset,
+    valid_fields,
+    data,
+    xfields,
+    yfields,
+    x_order,
+    y_order,
+  }
+}
+
+///|
+/// The size of the plot area.
+fn unit_size(u : UnitModel) -> (Double, Double) {
+  let spec = u.spec
+  let mark = u.mark
+  let px = u.px
+  let py = u.py
+  let data = u.data
   // view sizes
   let xstep = step_of(spec.width)
   let ystep = step_of(spec.height)
@@ -661,45 +783,31 @@ pub fn compile(text : String) -> Compiled raise CompileError {
   }
   let width = width_of(px, xstep, 200.0, spec.width)
   let height = width_of(py, ystep, 200.0, spec.height)
-  // scales
-  let xfields = match px {
-    Some(p) =>
-      if stack_chan == Some("x") {
-        [p.field + "_start", p.field + "_end"]
-      } else if is_ranged(mark, p) {
-        [p.field, p.field + "_end"]
-      } else {
-        match px2 {
-          Some(q) => [p.field, q.field]
-          None => [p.field]
-        }
-      }
-    None => []
-  }
-  let yfields = match py {
-    Some(p) =>
-      if stack_chan == Some("y") {
-        [p.field + "_start", p.field + "_end"]
-      } else if is_ranged(mark, p) {
-        [p.field, p.field + "_end"]
-      } else {
-        match py2 {
-          Some(q) => [p.field, q.field]
-          None => [p.field]
-        }
-      }
-    None => []
-  }
-  let x_order = match px {
-    Some({ def: { sort: Some(sv), .. }, discrete: true, .. } as p) =>
-      sort_domain(p, sv, rows_pre, data, px, py)
-    _ => None
-  }
-  let y_order = match py {
-    Some({ def: { sort: Some(sv), .. }, discrete: true, .. } as p) =>
-      sort_domain(p, sv, rows_pre, data, px, py)
-    _ => None
-  }
+  (width, height)
+}
+
+///|
+/// Position scales and the scales of the non-positional channels.
+fn unit_scales(u : UnitModel, width : Double, height : Double) -> UnitScales {
+  let spec = u.spec
+  let mark = u.mark
+  let px = u.px
+  let py = u.py
+  let px2 = u.px2
+  let py2 = u.py2
+  let pcolor = u.pcolor
+  let psize = u.psize
+  let popacity = u.popacity
+  let pshape = u.pshape
+  let color_value = u.color_value
+  let bin_info = u.bin_info
+  let orient = u.orient
+  let config_zero = u.config_zero
+  let data = u.data
+  let xfields = u.xfields
+  let yfields = u.yfields
+  let x_order = u.x_order
+  let y_order = u.y_order
   let xs = match px {
     Some(p) =>
       Some(
@@ -750,6 +858,93 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       }
     None => None
   }
+  let base_color = match color_value {
+    Some(c) => c
+    None => mark_color(spec)
+  }
+  let color_scale = @scale.Ordinal::new()
+  let color_is_quant = match pcolor {
+    Some(c) => c.typ == "quantitative"
+    None => false
+  }
+  let color_domain = match pcolor {
+    Some(c) if !color_is_quant => sorted_unique(data, c.field)
+    _ => []
+  }
+  let color_seq : @scale.Sequential? = match pcolor {
+    Some(c) if color_is_quant =>
+      match @scale.scheme_interpolator("blues") {
+        Some(f) => {
+          let sq = @scale.Sequential::new(Linear, f)
+          match domain_extent(data, [c.field], false) {
+            Some((lo, hi)) => sq.scale.domain = [lo, hi]
+            None => ()
+          }
+          Some(sq)
+        }
+        _ => None
+      }
+    _ => None
+  }
+  color_scale.set_domain(color_domain)
+  match @scale.scheme("tableau10") {
+    Some(Discrete(cs)) => color_scale.set_range(cs.map(fn(c) { Str(c) }))
+    _ => ()
+  }
+  let step_w = match step_of(spec.width) {
+    Some(v) => v
+    None => 20.0
+  }
+  let step_h = match step_of(spec.height) {
+    Some(v) => v
+    None => 20.0
+  }
+  let max_size = {
+    let m = 0.95 * min(step_w, step_h)
+    m * m
+  }
+  let size_scale = match psize {
+    Some(p) => Some(extent_scale(data, p.field, true, 4.0, max_size))
+    None => None
+  }
+  let opacity_scale = match popacity {
+    Some(p) => Some(extent_scale(data, p.field, false, 0.3, 0.8))
+    None => None
+  }
+  let shape_scale = @scale.Ordinal::new()
+  let shape_domain = match pshape {
+    Some(p) => sorted_unique(data, p.field)
+    None => []
+  }
+  shape_scale.set_domain(shape_domain)
+  shape_scale.set_range(symbol_shapes.map(fn(x) { Str(x) }))
+  {
+    xs,
+    ys,
+    base_color,
+    color_scale,
+    color_domain,
+    color_seq,
+    size_scale,
+    opacity_scale,
+    shape_scale,
+    shape_domain,
+  }
+}
+
+///|
+fn unit_axes(
+  u : UnitModel,
+  sc : UnitScales,
+  width : Double,
+  height : Double,
+) -> Array[Axis] raise CompileError {
+  let px = u.px
+  let py = u.py
+  let stack_chan = u.stack_chan
+  let stack_offset = u.stack_offset
+  let xs = sc.xs
+  let ys = sc.ys
   // axes
   let axes : Array[Axis] = []
   let tick_x = tick_count_of(px, width)
@@ -950,67 +1145,53 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     }
     _ => ()
   }
-  // marks
-  let base_color = match color_value {
-    Some(c) => c
-    None => mark_color(spec)
-  }
-  let color_scale = @scale.Ordinal::new()
-  let color_is_quant = match pcolor {
-    Some(c) => c.typ == "quantitative"
-    None => false
-  }
-  let color_domain = match pcolor {
-    Some(c) if !color_is_quant => sorted_unique(data, c.field)
-    _ => []
-  }
-  let color_seq : @scale.Sequential? = match pcolor {
-    Some(c) if color_is_quant =>
-      match @scale.scheme_interpolator("blues") {
-        Some(f) => {
-          let sq = @scale.Sequential::new(Linear, f)
-          match domain_extent(data, [c.field], false) {
-            Some((lo, hi)) => sq.scale.domain = [lo, hi]
-            None => ()
-          }
-          Some(sq)
-        }
-        _ => None
-      }
-    _ => None
-  }
-  color_scale.set_domain(color_domain)
-  match @scale.scheme("tableau10") {
-    Some(Discrete(cs)) => color_scale.set_range(cs.map(fn(c) { Str(c) }))
+  let hidden : Array[String] = []
+  match px {
+    Some({ def: { axis: Off, .. }, .. }) => hidden.push("bottom")
     _ => ()
   }
-  let step_w = match step_of(spec.width) {
-    Some(v) => v
-    None => 20.0
+  match py {
+    Some({ def: { axis: Off, .. }, .. }) => hidden.push("left")
+    _ => ()
   }
-  let step_h = match step_of(spec.height) {
-    Some(v) => v
-    None => 20.0
-  }
-  let max_size = {
-    let m = 0.95 * min(step_w, step_h)
-    m * m
-  }
-  let size_scale = match psize {
-    Some(p) => Some(extent_scale(data, p.field, true, 4.0, max_size))
-    None => None
-  }
-  let opacity_scale = match popacity {
-    Some(p) => Some(extent_scale(data, p.field, false, 0.3, 0.8))
-    None => None
-  }
-  let shape_scale = @scale.Ordinal::new()
-  let shape_domain = match pshape {
-    Some(p) => sorted_unique(data, p.field)
-    None => []
-  }
-  shape_scale.set_domain(shape_domain)
-  shape_scale.set_range(symbol_shapes.map(fn(x) { Str(x) }))
+  axes.filter(fn(a) { !hidden.contains(a.orient) })
+}
+
+///|
+fn unit_mark(
+  u : UnitModel,
+  sc : UnitScales,
+  width : Double,
+  height : Double,
+) -> @scene.Mark raise CompileError {
+  let spec = u.spec
+  let mark = u.mark
+  let px = u.px
+  let py = u.py
+  let px2 = u.px2
+  let py2 = u.py2
+  let pcolor = u.pcolor
+  let psize = u.psize
+  let popacity = u.popacity
+  let pshape = u.pshape
+  let ptext = u.ptext
+  let color_value = u.color_value
+  let size_value = u.size_value
+  let opacity_value = u.opacity_value
+  let shape_value = u.shape_value
+  let orient = u.orient
+  let vertical = u.vertical
+  let stack_chan = u.stack_chan
+  let valid_fields = u.valid_fields
+  let data = u.data
+  let xs = sc.xs
+  let ys = sc.ys
+  let base_color = sc.base_color
+  let color_scale = sc.color_scale
+  let color_seq = sc.color_seq
+  let size_scale = sc.size_scale
+  let opacity_scale = sc.opacity_scale
+  let shape_scale = sc.shape_scale
   let color_of = fn(r : Map[String, @value.Value]) -> String {
     match pcolor {
       Some(c) if color_seq is Some(_) =>
@@ -1386,6 +1567,30 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     }
   }
   let marks = @scene.Mark::new(mt, name="marks", role="mark", items~)
+  marks
+}
+
+///|
+fn unit_legends(
+  u : UnitModel,
+  sc : UnitScales,
+  height : Double,
+) -> Array[Legend] raise CompileError {
+  let spec = u.spec
+  let mark = u.mark
+  let pcolor = u.pcolor
+  let psize = u.psize
+  let popacity = u.popacity
+  let pshape = u.pshape
+  let base_color = sc.base_color
+  let color_scale = sc.color_scale
+  let color_domain = sc.color_domain
+  let color_seq = sc.color_seq
+  let size_scale = sc.size_scale
+  let opacity_scale = sc.opacity_scale
+  let shape_scale = sc.shape_scale
+  let shape_domain = sc.shape_domain
+  let base_color = base_color
   let filled_mark = mark != "point" ||
     (match spec.mark.props.get("filled") {
       Some(Bool(true)) => true
@@ -1454,20 +1659,23 @@ pub fn compile(text : String) -> Compiled raise CompileError {
       }
     _ => ()
   }
+  legends
+}
+
+///|
+pub fn compile(text : String) -> Compiled raise CompileError {
+  let spec = @spec.parse_spec_text(text) catch { e => raise spec_err(e) }
+  validate(spec)
+  let u = build_unit(spec)
+  let (width, height) = unit_size(u)
+  let sc = unit_scales(u, width, height)
+  let axes = unit_axes(u, sc, width, height)
+  let marks = unit_mark(u, sc, width, height)
+  let legends = unit_legends(u, sc, height)
   let title = match spec.title {
     Some(t) => Some(build_title(t))
     None => None
   }
-  let hidden : Array[String] = []
-  match px {
-    Some({ def: { axis: Off, .. }, .. }) => hidden.push("bottom")
-    _ => ()
-  }
-  match py {
-    Some({ def: { axis: Off, .. }, .. }) => hidden.push("left")
-    _ => ()
-  }
-  let axes = axes.filter(fn(a) { !hidden.contains(a.orient) })
   assemble(spec, axes, [marks], legends, title, width, height)
 }
 
