@@ -87,6 +87,13 @@ import {
 
 仓库：[GitHub](https://github.com/sayoi7799/moon_vegalite) · [GitLink](https://gitlink.org.cn/sayoi7799/moon_vegalite)。
 
+## 用 MoonFrame 从 CSV 生成图表
+
+[`examples/moonframe_demo`](examples/moonframe_demo) 用 [MoonFrame](https://github.com/ihb2032/MoonFrame) 读取 CSV 并做汇总，
+由 MoonFrame 生成 Vega-Lite 规格，再用本库直接渲染成 SVG，整个过程是一个 MoonBit 程序，不需要打开 Vega 编辑器。
+它写出的三张 SVG 与官方 vega 的输出逐字相同。MoonFrame 0.7.0 在当前工具链下需要一步准备工作，
+由示例里的 `setup.sh` 完成，示例自己的 README 里有说明。
+
 ## 与官方输出并排对照
 
 左：本库；右：vega-lite 5.23.0 + vega 5.33.1。除无障碍属性外，SVG 文本逐字相同。

@@ -87,6 +87,13 @@ import {
 
 Repositories: [GitHub](https://github.com/sayoi7799/moon_vegalite) · [GitLink](https://gitlink.org.cn/sayoi7799/moon_vegalite).
 
+## From a CSV file with MoonFrame
+
+[`examples/moonframe_demo`](examples/moonframe_demo) reads a CSV with [MoonFrame](https://github.com/ihb2032/MoonFrame),
+summarises it, lets MoonFrame generate the Vega-Lite specification and renders it to SVG with this library, all in one
+MoonBit program and without the Vega editor. The three SVG files it writes are identical to the official vega output.
+MoonFrame 0.7.0 needs a small setup step with the current toolchain, which the demo's `setup.sh` performs and its README explains.
+
 ## Side by side with the official output
 
 Left: this library. Right: vega-lite 5.23.0 + vega 5.33.1. Apart from the accessibility attributes the SVG text is identical.
