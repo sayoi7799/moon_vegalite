@@ -261,6 +261,7 @@ CI 会重新生成测试数据，只要已提交的生成文件有任何不同�
 
 ```sh
 moon bench --release --target js -p sayoi7799/moon_vegalite/benchmarks        # 另外还有 wasm-gc 和 native
+moon build --target native cmd/vl2svg                                          # 检查 SVG 是否相同时要用到这个可执行文件
 cd scripts && npm ci && npm run bench                                          # vega 一侧，同时检查 SVG 是否相同
 ```
 

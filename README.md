@@ -261,6 +261,7 @@ For both scenarios the SVG is identical to the official one (15.8 MB for the sca
 
 ```sh
 moon bench --release --target js -p sayoi7799/moon_vegalite/benchmarks        # also wasm-gc and native
+moon build --target native cmd/vl2svg                                          # the identical-SVG check runs this binary
 cd scripts && npm ci && npm run bench                                          # the vega side, with the identical-SVG check
 ```
 
