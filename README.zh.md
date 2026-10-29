@@ -87,6 +87,18 @@ import {
 
 仓库：[GitHub](https://github.com/sayoi7799/moon_vegalite) · [GitLink](https://gitlink.org.cn/sayoi7799/moon_vegalite)。
 
+## 在线演示
+
+**<https://sayoi7799.github.io/moon_vegalite/>**：修改 Vega-Lite 规格，实时看到本库（编译成 JavaScript，运行在你的浏览器里）渲染的 SVG，
+旁边是官方 vega-embed 的渲染结果，并有标签说明两边的 SVG 文本是否逐字相同。示例包括官方图表、分层图、
+MoonFrame 生成的规格，以及几个不支持的特性（会显示带 JSON 路径的错误）。页面由 `.github/workflows/pages.yml`
+用 [`site/`](site) 和 `web` 包（`moon build --target js --release`）构建；本地运行：
+
+```sh
+moon build --target js --release
+node scripts/build_site.mjs && node scripts/serve_site.mjs     # http://localhost:8080/
+```
+
 ## 用 MoonFrame 从 CSV 生成图表
 
 [`examples/moonframe_demo`](examples/moonframe_demo) 用 [MoonFrame](https://github.com/ihb2032/MoonFrame) 读取 CSV 并做汇总，

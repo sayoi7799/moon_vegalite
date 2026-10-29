@@ -1,0 +1,8 @@
+import {
+  "sayoi7799/moon_vegalite",
+}
+
+options(
+  "is-main": false,
+  link: { "js": { "exports": [ "render", "version" ], "format": "esm" } },
+)
