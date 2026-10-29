@@ -1,0 +1,17 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/benchmarks"
+
+// Values
+pub fn aggregate_bar_spec(Int32) -> String
+
+pub fn checksum(String) -> Int64
+
+pub fn scatter_spec(Int32) -> String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

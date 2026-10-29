@@ -10,7 +10,8 @@
     "gallery": "node fetch_examples.mjs && node gen_gallery.mjs",
     "site-examples": "node fetch_examples.mjs && node gen_site_examples.mjs",
     "site": "node build_site.mjs",
-    "serve": "node serve_site.mjs"
+    "serve": "node serve_site.mjs",
+    "bench": "node bench/vega_bench.mjs --check"
   },
   "dependencies": {
     "roughjs": "4.6.6",

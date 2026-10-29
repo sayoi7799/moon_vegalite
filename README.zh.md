@@ -245,6 +245,36 @@ CI 会重新生成测试数据，只要已提交的生成文件有任何不同�
 `NyaCSV` 里还有三个测试用到了已被移除的 `Buffer` API），所以这些规格是在一个临时工程里，
 迁移了这些清单文件并在本地删掉那三个测试后生成的。生成出的 JSON 原样提交。
 
+## 性能
+
+两个场景，每一列用的是同一份规格（由 `benchmarks/data.mbt` 生成；`scripts/bench/specs.mjs` 用 JavaScript 实现了同一个生成器，测试里固定了用 JavaScript 算出的校验和）。
+每次运行都从规格文本开始，和 `render_svg` 一样。「到 SVG」是完整流程；「到场景图」是在写出 SVG 文本之前停下。数值是 10 批的平均值 ± 标准差。
+
+| 场景 | native | js | wasm-gc | Node 24 + vega-lite 5.23.0 + vega 5.33.1 |
+| --- | --- | --- | --- | --- |
+| 1 万行数据按类别求均值画柱状图：到 SVG | 21.5 ± 0.4 ms | 9.5 ± 0.2 ms | 8.6 ± 0.7 ms | 5.9 ± 0.8 ms |
+| 1 万行数据按类别求均值画柱状图：到场景图 | 21.4 ± 0.6 ms | 9.6 ± 0.4 ms | 7.9 ± 0.2 ms | 4.5 ± 0.3 ms |
+| 10 万个点的散点图：到 SVG | 1.68 ± 0.03 s | 0.83 ± 0.03 s | 0.68 ± 0.04 s | 0.88 ± 0.04 s |
+| 10 万个点的散点图：到场景图 | 0.66 ± 0.02 s | 0.32 ± 0.03 s | 0.28 ± 0.03 s | 0.17 ± 0.01 s |
+
+两个场景输出的 SVG 都与官方逐字相同（散点图的 SVG 有 15.8 MB），由 `scripts/bench/vega_bench.mjs --check` 检查。
+
+```sh
+moon bench --release --target js -p sayoi7799/moon_vegalite/benchmarks        # 另外还有 wasm-gc 和 native
+moon build --target native cmd/vl2svg                                          # 检查 SVG 是否相同时要用到这个可执行文件
+cd scripts && npm ci && npm run bench                                          # vega 一侧，同时检查 SVG 是否相同
+```
+
+数字说明的事：
+
+* 小图上 Node 里的 vega 更快（5.9 ms，对比 `wasm-gc` 和 `js` 的 8.6 到 9.5 ms）：JIT 已经热了，也没有启动开销。
+* 10 万点散点图上，`wasm-gc`（0.68 s）和 `js`（0.83 s）端到端和 Node 里的 vega（0.88 s）一样快。构建场景图比 vega 慢
+  （0.28 到 0.32 s，对比 0.17 s），写出 SVG 则更快（0.40 和 0.52 s，对比 0.71 s）。
+* `native` 最慢，在这种大量分配内存的工作上大约是 `wasm-gc` 和 `js` 的两倍。这里只做了测量，没有调查原因，也没有优化。
+
+测量环境：一台机器（AMD Ryzen 9 7945HX，Windows 11），每种配置跑一次，`moon 0.1.20261016` release 模式，Node 24.20.0。
+vega 一侧在三次预热后计时，并且包含对规格文本的 `JSON.parse`。这些数字只是参考，不是结论。
+
 ## 目录结构
 
 | 包 | 内容 |
@@ -257,6 +287,7 @@ CI 会重新生成测试数据，只要已提交的生成文件有任何不同�
 | `vl` | 编译器：数据管线、比例尺、坐标轴、图例、布局 |
 | `sketch` | 手绘风格：场景图里的图形交给 moon_rough 来画 |
 | `web` | 演示页的入口（js）：`render`、`render_sketch` |
+| `benchmarks` | 性能表用的 `moon bench`（不属于库） |
 | `cmd/vl2svg` | 命令行工具（native） |
 
 ## 开发记录说明
