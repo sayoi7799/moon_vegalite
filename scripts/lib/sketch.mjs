@@ -149,6 +149,7 @@ function drawShape(shape, element, o) {
   if (fillColor !== undefined) options.fill = fillColor;
   if (o.hachureGap !== undefined) options.hachureGap = o.hachureGap;
   if (o.fillWeight !== undefined) options.fillWeight = o.fillWeight;
+  if (o.fixedDecimals !== undefined) options.fixedDecimalPlaceDigits = o.fixedDecimals;
   if (Array.isArray(item.strokeDash) && item.strokeDash.length > 0) options.strokeLineDash = item.strokeDash.map(Number);
   const svg = rough.svg(fakeSvg);
   let g;
@@ -178,7 +179,7 @@ function drawShape(shape, element, o) {
 /**
  * The hand-drawn SVG of a specification, given what the official packages produced for it.
  * @param scene the exported vega scenegraph (lib/official.mjs), svg the official SVG (accessibility attributes stripped)
- * @param opts  { seed, roughness, bowing, fillStyle, hachureGap?, fillWeight? }
+ * @param opts  { seed, roughness, bowing, fillStyle, hachureGap?, fillWeight?, fixedDecimals? }
  */
 export function sketchify(scene, svg, opts) {
   const o = { seed: 1, roughness: 1, bowing: 1, fillStyle: 'hachure', ...opts };

@@ -1,10 +1,12 @@
 // The demo page: edit a Vega-Lite specification, see this library's SVG next to the official vega-embed rendering.
-import { render, version } from './web.js';
+import { render, render_sketch, version } from './web.js';
 
 const $ = (id) => document.getElementById(id);
 const el = {
   example: $('example'), spec: $('spec'), badge: $('badge'), ours: $('ours'), error: $('error'),
   oursStatus: $('ours-status'), source: $('svg-source'), official: $('official'), officialStatus: $('official-status'),
+  sketchOn: $('sketch-on'), seed: $('seed'), reseed: $('reseed'), rough: $('rough'), roughOut: $('rough-out'),
+  sketchBlock: $('sketch-block'), sketch: $('sketch'), sketchStatus: $('sketch-status'),
 };
 const stripAria = (s) => s.replace(/ (role|aria-roledescription|aria-label)="[^"]*"/g, '');
 const kb = (n) => (n / 1024).toFixed(1) + ' KB';
@@ -14,6 +16,7 @@ $('version').textContent = 'v' + version();
 if (window.vega) vega.textMetrics.canvas(false);
 
 let ourUrl = null;
+let sketchUrl = null;
 let officialView = null;
 let sequence = 0;
 let timer = 0;
@@ -46,6 +49,33 @@ function showOurs(text) {
   el.oursStatus.textContent = `渲染 ${ms.toFixed(1)} ms · SVG ${kb(out.length)}`;
   el.source.textContent = out;
   return { svg: out, error: false };
+}
+
+// The hand-drawn version of the same specification: same seed, same bytes.
+function showSketch(text) {
+  const on = el.sketchOn.checked;
+  for (const c of [el.seed, el.reseed, el.rough]) c.disabled = !on;
+  el.sketchBlock.hidden = !on;
+  if (sketchUrl) { URL.revokeObjectURL(sketchUrl); sketchUrl = null; }
+  el.sketch.replaceChildren();
+  el.sketchStatus.textContent = '';
+  if (!on) return;
+  const seed = Math.min(2147483646, Math.max(1, Math.floor(Number(el.seed.value)) || 1));
+  const roughness = Number(el.rough.value);
+  el.roughOut.textContent = String(roughness);
+  const t0 = performance.now();
+  const out = render_sketch(text, seed, roughness);
+  const ms = performance.now() - t0;
+  if (out.startsWith('ERROR: ')) {
+    el.sketchStatus.textContent = '本库不能渲染这份规格（见上面的错误）。';
+    return;
+  }
+  sketchUrl = URL.createObjectURL(new Blob([out], { type: 'image/svg+xml' }));
+  const img = new Image();
+  img.src = sketchUrl;
+  img.alt = 'moon_vegalite 手绘风格';
+  el.sketch.append(img);
+  el.sketchStatus.textContent = `seed ${seed} · 粗糙度 ${roughness} · 渲染 ${ms.toFixed(1)} ms · SVG ${kb(out.length)}`;
 }
 
 async function showOfficial(text, seq) {
@@ -81,6 +111,7 @@ async function update() {
   const seq = ++sequence;
   const text = el.spec.value;
   const ours = showOurs(text);
+  showSketch(text);
   setBadge('', '正在渲染官方结果…');
   const official = await showOfficial(text, seq);
   if (official.stale || seq !== sequence) return;
@@ -123,6 +154,13 @@ async function main() {
   }
   el.example.addEventListener('change', () => loadExample(el.example.value));
   el.spec.addEventListener('input', () => { el.example.selectedIndex = -1; schedule(); });
+  // the hand-drawn controls only redraw the hand-drawn picture
+  const redraw = () => showSketch(el.spec.value);
+  el.sketchOn.addEventListener('change', redraw);
+  el.seed.addEventListener('input', redraw);
+  el.rough.addEventListener('input', redraw);
+  el.reseed.addEventListener('click', () => { el.seed.value = String(1 + Math.floor(Math.random() * 99999)); redraw(); });
+  showSketch(el.spec.value); // sets the initial disabled state
   await loadExample(location.hash.slice(1) || 'layer_bar_line');
 }
 main();

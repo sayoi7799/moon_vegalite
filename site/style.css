@@ -21,6 +21,12 @@ header p { margin: 4px 0; max-width: 62em; }
 a { color: var(--accent); }
 .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 14px auto; }
 select { font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--text); max-width: 100%; }
+.sketch-controls { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-left: auto; }
+.inline { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; }
+.sketch-controls input[type="number"] { width: 9em; font: inherit; padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--text); }
+.sketch-controls button { font: inherit; padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--text); cursor: pointer; }
+.sketch-controls input:disabled, .sketch-controls button:disabled { opacity: 0.45; cursor: default; }
+#sketch-block { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
 .badge { padding: 4px 10px; border-radius: 999px; font-size: 13px; background: var(--code-bg); color: var(--muted); }
 .badge.ok { background: var(--ok-bg); color: var(--ok); }
 .badge.warn { background: var(--warn-bg); color: var(--warn); }

@@ -6,6 +6,10 @@ pub fn cases() -> Array[SketchCase]
 
 pub let spec_0_0 : String
 
+pub let spec_10_0 : String
+
+pub let spec_11_0 : String
+
 pub let spec_1_0 : String
 
 pub let spec_2_0 : String
@@ -28,6 +32,12 @@ pub let svg_0_0 : String
 
 pub let svg_0_1 : String
 
+pub let svg_10_0 : String
+
+pub let svg_11_0 : String
+
+pub let svg_11_1 : String
+
 pub let svg_1_0 : String
 
 pub let svg_1_1 : String
@@ -46,21 +56,19 @@ pub let svg_3_0 : String
 
 pub let svg_4_0 : String
 
-pub let svg_4_1 : String
-
-pub let svg_4_2 : String
-
 pub let svg_5_0 : String
 
 pub let svg_6_0 : String
 
 pub let svg_6_1 : String
 
+pub let svg_6_2 : String
+
 pub let svg_7_0 : String
 
-pub let svg_7_1 : String
-
 pub let svg_8_0 : String
+
+pub let svg_8_1 : String
 
 pub let svg_9_0 : String
 
@@ -78,6 +86,7 @@ pub(all) struct SketchCase {
   fill_style : String
   hachure_gap : Double?
   fill_weight : Double?
+  fixed_decimals : Int32?
   svg : String
 }
 

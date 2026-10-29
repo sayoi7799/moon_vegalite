@@ -4,6 +4,8 @@ package "sayoi7799/moon_vegalite/web"
 // Values
 pub fn render(String) -> String
 
+pub fn render_sketch(String, Int32, Double) -> String
+
 pub fn version() -> String
 
 // Errors

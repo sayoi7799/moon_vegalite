@@ -27,6 +27,9 @@ pub struct SketchOptions {
   hachure_gap : Double?
   /// width of the hachure lines; rough.js uses half the stroke width when absent
   fill_weight : Double?
+  /// round the coordinates to this many decimals (rough.js `fixedDecimalPlaceDigits`), which makes
+  /// the SVG much smaller; absent: full precision
+  fixed_decimals : Int32?
 }
 
 ///|
@@ -37,8 +40,17 @@ pub fn SketchOptions::new(
   fill_style~ : FillStyle = Hachure,
   hachure_gap? : Double,
   fill_weight? : Double,
+  fixed_decimals? : Int32,
 ) -> SketchOptions {
-  { seed, roughness, bowing, fill_style, hachure_gap, fill_weight, }
+  {
+    seed,
+    roughness,
+    bowing,
+    fill_style,
+    hachure_gap,
+    fill_weight,
+    fixed_decimals,
+  }
 }
 
 ///|
@@ -149,6 +161,7 @@ fn draw_shape(o : SketchOptions, shape : @svg.Shape) -> String? {
     fill_style=o.fill_style,
     hachure_gap?=o.hachure_gap,
     fill_weight?=o.fill_weight,
+    fixed_decimal_place_digits?=o.fixed_decimals,
     stroke_line_dash?=dash_of(item),
   )
   let gen = @moon_rough.generator(

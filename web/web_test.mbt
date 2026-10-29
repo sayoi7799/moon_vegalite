@@ -23,3 +23,24 @@ test "render reports invalid JSON" {
 test "version is the library version" {
   inspect(@web.version(), content="0.1.0")
 }
+
+///|
+test "render_sketch draws by hand, the same bytes for the same seed" {
+  let spec = "{\"data\":{\"values\":[{\"a\":\"A\",\"b\":2}]},\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"a\",\"type\":\"nominal\"},\"y\":{\"field\":\"b\",\"type\":\"quantitative\"}}}"
+  let a = @web.render_sketch(spec, 5, 1.0)
+  assert_true(a.has_prefix("<svg "))
+  assert_true(a.contains(" C"))
+  assert_eq(a, @web.render_sketch(spec, 5, 1.0))
+  assert_true(a != @web.render_sketch(spec, 6, 1.0))
+  assert_true(a != @web.render(spec))
+}
+
+///|
+test "render_sketch reports unsupported features like render" {
+  inspect(
+    @web.render_sketch(
+      "{\"data\":{\"values\":[]},\"mark\":\"bar\",\"params\":[{}]}", 1, 1.0,
+    ),
+    content="ERROR: params 暂不支持",
+  )
+}

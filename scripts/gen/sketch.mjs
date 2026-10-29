@@ -21,6 +21,8 @@ const cases = [
   { name: 'bar', file: official('bar'), seed: 7 },
   { name: 'bar_cross_hatch_rough', file: official('bar'), seed: 3, roughness: 2, fillStyle: 'cross-hatch' },
   { name: 'bar_zigzag_seed_1', file: official('bar'), seed: 1, fillStyle: 'zigzag', hachureGap: 6, fillWeight: 2 },
+  { name: 'bar_two_decimals', file: official('bar'), seed: 7, fixedDecimals: 2 },
+  { name: 'point_ordinal_color_one_decimal', file: official('point_ordinal_color'), seed: 4, fixedDecimals: 1 },
   { name: 'layer_bar_line_solid', file: official('layer_bar_line'), seed: 9, fillStyle: 'solid', bowing: 0.5 },
   { name: 'layer_bar_annotations', file: official('layer_bar_annotations'), seed: 3 },
   { name: 'point_ordinal_color', file: official('point_ordinal_color'), seed: 5 },
@@ -55,7 +57,7 @@ export async function generate() {
     entries.push(
       `    {\n      name: "${c.name}",\n      spec: ${s},\n      seed: ${c.seed},\n      roughness: ${dbl(c.roughness ?? 1)},\n` +
         `      bowing: ${dbl(c.bowing ?? 1)},\n      fill_style: "${c.fillStyle ?? 'hachure'}",\n      hachure_gap: ${opt(c.hachureGap)},\n` +
-        `      fill_weight: ${opt(c.fillWeight)},\n      svg: ${svg},\n    },`,
+        `      fill_weight: ${opt(c.fillWeight)},\n      fixed_decimals: ${c.fixedDecimals === undefined ? 'None' : `Some(${c.fixedDecimals})`},\n      svg: ${svg},\n    },`,
     );
     i++;
   }
@@ -63,7 +65,7 @@ export async function generate() {
     '// GENERATED FILE. DO NOT EDIT.\n// Regenerate with: cd scripts && npm ci && npm run fixtures\n\n' +
     '///|\n/// A hand-drawn rendering and what vega-lite 5.23.0 + vega 5.33.1 + rough.js 4.6.6 give for it.\npub(all) struct SketchCase {\n' +
     '  name : String\n  spec : String\n  seed : Int\n  roughness : Double\n  bowing : Double\n  fill_style : String\n' +
-    '  hachure_gap : Double?\n  fill_weight : Double?\n  svg : String\n}\n\n' +
+    '  hachure_gap : Double?\n  fill_weight : Double?\n  fixed_decimals : Int?\n  svg : String\n}\n\n' +
     '///|\npub fn cases() -> Array[SketchCase] {\n  [\n' + entries.join('\n') + '\n  ]\n}\n';
   return { fixtures: { sketchcases: constants }, sources: { 'fixtures/sketchcases/cases.mbt': src } };
 }

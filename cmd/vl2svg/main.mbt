@@ -1,7 +1,7 @@
 // vl2svg: render a Vega-Lite JSON file to SVG (or dump its scenegraph).
 //
 //   vl2svg spec.vl.json [out.svg]      write SVG (stdout when no output)
-//   vl2svg --sketch [--seed N] [--roughness R] spec.vl.json [out.svg]
+//   vl2svg --sketch [--seed N] [--roughness R] [--decimals D] spec.vl.json [out.svg]
 //                                      hand-drawn style (moon_rough); same spec and seed, same bytes
 //   vl2svg --scene spec.vl.json        print the scenegraph as JSON
 
@@ -46,13 +46,17 @@ fn run() -> Unit raise Error {
     Some(v) => parse_number("--roughness", v)
     None => 1.0
   }
+  let decimals = match flag_value(rest, "--decimals") {
+    Some(v) => Some(parse_number("--decimals", v).to_int())
+    None => None
+  }
   // flags with a value are not file names
   let files : Array[String] = []
   let mut skip = false
   for a in rest {
     if skip {
       skip = false
-    } else if a == "--seed" || a == "--roughness" {
+    } else if a == "--seed" || a == "--roughness" || a == "--decimals" {
       skip = true
     } else if a != "--scene" && a != "--sketch" {
       files.push(a)
@@ -60,7 +64,7 @@ fn run() -> Unit raise Error {
   }
   if files.length() == 0 {
     fail_with(
-      "usage: vl2svg [--scene | --sketch [--seed N] [--roughness R]] spec.vl.json [out.svg]",
+      "usage: vl2svg [--scene | --sketch [--seed N] [--roughness R] [--decimals D]] spec.vl.json [out.svg]",
     )
     return
   }
@@ -79,7 +83,11 @@ fn run() -> Unit raise Error {
     Ok(
       @moon_vegalite.svg_sketch_of(
         c,
-        options=@moon_vegalite.SketchOptions::new(seed~, roughness~),
+        options=@moon_vegalite.SketchOptions::new(
+          seed~,
+          roughness~,
+          fixed_decimals?=decimals,
+        ),
       ),
     ) catch {
       e => Err(e.message())
