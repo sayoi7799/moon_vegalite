@@ -44,6 +44,13 @@ jobs:
         run: moon test --target native
       - name: Build (all targets)
         run: moon build --target all
+      - name: README examples
+        shell: bash
+        run: |
+          (cd examples/hello && moon run cmd > "$RUNNER_TEMP/hello.svg")
+          head -c 4 "$RUNNER_TEMP/hello.svg" | grep -q '<svg'
+          moon run cmd/vl2svg --target native -- examples/bar_basic.vl.json "$RUNNER_TEMP/bar.svg"
+          head -c 4 "$RUNNER_TEMP/bar.svg" | grep -q '<svg'
       - name: Interface files are up to date
         run: |
           moon info

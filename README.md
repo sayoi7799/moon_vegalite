@@ -1,8 +1,54 @@
 # moon_vegalite
 
+[中文说明](README.zh.md)
+
 A spec-driven [Vega-Lite](https://vega.github.io/vega-lite/) renderer written in MoonBit.
 A Vega-Lite JSON specification goes in; a backend-neutral **scenegraph** and an **SVG** string come out.
-It runs on the `wasm-gc`, `js` and `native` backends and has no dependency outside the MoonBit core library.
+It runs on the `wasm-gc`, `js` and `native` backends; the library packages use nothing but the MoonBit core library (only the
+`vl2svg` tool uses `moonbitlang/x`, to read and write files).
+
+## Quick start
+
+A Vega-Lite specification (JSON text) in, an SVG document out
+([`examples/hello`](examples/hello), a complete project you can run):
+
+```moonbit
+let spec : String =
+  #|{
+  #|  "data": {"values": [{"a": "A", "b": 28}, {"a": "B", "b": 55}, {"a": "C", "b": 43}]},
+  #|  "mark": "bar",
+  #|  "encoding": {
+  #|    "x": {"field": "a", "type": "nominal"},
+  #|    "y": {"field": "b", "type": "quantitative"}
+  #|  }
+  #|}
+
+fn main {
+  let svg = @moon_vegalite.render_svg(spec) catch {
+    e => {
+      println("error: " + e.message())   // names the JSON path of an unsupported feature
+      return
+    }
+  }
+  println(svg)
+}
+```
+
+```sh
+git clone https://github.com/sayoi7799/moon_vegalite
+cd moon_vegalite/examples/hello
+moon run cmd > bar.svg                     # open bar.svg in a browser
+```
+
+The same chart from the command line, with the `vl2svg` tool of this repository:
+
+```sh
+cd moon_vegalite
+moon run cmd/vl2svg --target native -- examples/bar_basic.vl.json bar.svg   # SVG file (stdout without the second argument)
+moon run cmd/vl2svg --target native -- --scene examples/bar_basic.vl.json   # scenegraph JSON, with the bounds of every item
+```
+
+The library API (`moon_vegalite.mbt`):
 
 ```moonbit
 let svg = @moon_vegalite.render_svg(spec_json)        // SVG document
@@ -10,10 +56,33 @@ let c = @moon_vegalite.compile(spec_json)             // scenegraph + view metad
 let scene = @moon_vegalite.scene_json(c)              // the scenegraph as JSON
 ```
 
-```sh
-moon build --target native cmd/vl2svg
-vl2svg spec.vl.json chart.svg        # SVG file (stdout without the second argument)
-vl2svg --scene spec.vl.json          # scenegraph JSON, with the bounds of every item
+### Installation
+
+Requirements: the [MoonBit toolchain](https://www.moonbitlang.com/download/) (developed and tested with `moon 0.1.20261016`).
+
+The module `sayoi7799/moon_vegalite` is not on mooncakes.io yet, so it is used from a local checkout through a
+`moon.work` workspace. In your own module (see [`examples/hello`](examples/hello) for the whole layout):
+
+```
+// moon.mod
+import {
+  "sayoi7799/moon_vegalite@0.1.0",
+}
+```
+
+```
+// moon.work, next to your moon.mod
+members = [
+  ".",
+  "../moon_vegalite",   // the checkout
+]
+```
+
+```
+// your package's moon.pkg
+import {
+  "sayoi7799/moon_vegalite",
+}
 ```
 
 Repositories: [GitHub](https://github.com/sayoi7799/moon_vegalite) · [GitLink](https://gitlink.org.cn/sayoi7799/moon_vegalite).
