@@ -4,8 +4,8 @@
 
 用 MoonBit 写的、由规格驱动的 [Vega-Lite](https://vega.github.io/vega-lite/) 渲染器。
 输入一段 Vega-Lite JSON 规格，输出与后端无关的**场景图（scenegraph）**和一份 **SVG**。
-支持 `wasm-gc`、`js`、`native` 三个后端；库本身只依赖 MoonBit 核心库
-（只有命令行工具 `vl2svg` 为了读写文件用到了 `moonbitlang/x`）。
+支持 `wasm-gc`、`js`、`native` 三个后端；库本身只依赖 MoonBit 核心库和
+（手绘风格用到的）[moon_rough](https://github.com/sayoi7799/moon_rough)（rough.js 的移植）；只有命令行工具 `vl2svg` 为了读写文件用到了 `moonbitlang/x`。
 
 ## 快速开始
 
@@ -87,6 +87,42 @@ import {
 
 仓库：[GitHub](https://github.com/sayoi7799/moon_vegalite) · [GitLink](https://gitlink.org.cn/sayoi7799/moon_vegalite)。
 
+## 手绘风格
+
+图表里的图形可以交给 [moon_rough](https://github.com/sayoi7799/moon_rough)（rough.js 4.6.6 的 MoonBit 移植）来画：
+矩形、线、路径和符号变成带手绘抖动和斜线填充的草图风格，**文字保持不变**。
+
+```moonbit
+let svg = @moon_vegalite.render_svg_sketch(
+  spec_json,
+  options=@moon_vegalite.SketchOptions::new(seed=42, roughness=1.5, fill_style=CrossHatch),
+)
+```
+
+```sh
+vl2svg --sketch --seed 42 --roughness 1.5 spec.vl.json chart.svg      # 再加 --decimals 2 可以让文件小很多
+```
+
+`SketchOptions`：`seed`、`roughness`、`bowing`、`fill_style`（默认 `Hachure`，还有 `Solid`、`Zigzag`、`CrossHatch`、`Dots`、`Dashed`、
+`ZigzagLine`）、`hachure_gap`、`fill_weight` 和 `fixed_decimals`（对坐标取整，SVG 小很多）。
+
+| 场景图图元 | 交给 rough 的方式 |
+| --- | --- |
+| `rect`（柱、格子、图例色块）和绘图区的边框 | `rectangle` |
+| `rule`（坐标轴线、刻度、网格线、rule 标记） | `line` |
+| `line`、`area`、`symbol`（点、圆、方块等） | `path`，符号保留原来的变换 |
+| `text` | 不动 |
+| 渐变填充（连续颜色的图例条）、整张图的背景 | 不动 |
+
+只有填充没有描边的图形（比如柱子）会得到一圈和填充同色的轮廓。透明度保留。
+
+**可复现。** 同样的规格和 `seed`，在 `js`、`wasm-gc`、`native` 上输出逐字节相同。每个图形有自己的 seed：由基础 seed 和图形在场景图里的位置
+（图元、标记、图元……的下标序列）做哈希得到，落在 `[1, 2^31-2]`。所以柱子不会抖得一模一样，增删一个数据点也不会改变别的图形。
+输出用官方包验证过：12 个用例（柱、分层、各种形状的符号、面积、MoonFrame、其他填充样式、粗糙度、弯曲度、斜线间距和线宽、取整）的 SVG 与
+vega-lite 5.23.0 + vega 5.33.1 + rough.js 4.6.6 给出的逐字节相同（`scripts/lib/sketch.mjs`、`fixtures/sketchcases`）；
+[画廊](gallery/index.html)里的 30 张图也都逐字节相同，每张图有三个版本。
+[在线演示](https://sayoi7799.github.io/moon_vegalite/)里有「手绘风格」开关，可以改 seed 和粗糙度。
+
 ## 在线演示
 
 **<https://sayoi7799.github.io/moon_vegalite/>**：修改 Vega-Lite 规格，实时看到本库（编译成 JavaScript，运行在你的浏览器里）渲染的 SVG，
@@ -114,19 +150,19 @@ node scripts/build_site.mjs && node scripts/serve_site.mjs     # http://localhos
 
 ## 与官方输出并排对照
 
-左：本库；右：vega-lite 5.23.0 + vega 5.33.1。除无障碍属性外，SVG 文本逐字相同。
-直接用浏览器打开 [`gallery/index.html`](gallery/index.html)（不需要启动服务器）可以看到全部 30 张图。
+左：本库；中：vega-lite 5.23.0 + vega 5.33.1，除无障碍属性外 SVG 文本逐字相同；右：手绘风格（见下）。
+直接用浏览器打开 [`gallery/index.html`](gallery/index.html)（不需要启动服务器）可以看到全部 30 张图，每张都有三个版本。
 
 ![画廊页面](docs/gallery.png)
 
-| 图 | moon_vegalite | 官方 vega |
-| --- | --- | --- |
-| `stacked_bar_v` | <img src="gallery/ours/stacked_bar_v.svg" width="320" alt="moon_vegalite: stacked_bar_v"> | <img src="gallery/official/stacked_bar_v.svg" width="320" alt="vega: stacked_bar_v"> |
-| `point_color` | <img src="gallery/ours/point_color.svg" width="320" alt="moon_vegalite: point_color"> | <img src="gallery/official/point_color.svg" width="320" alt="vega: point_color"> |
-| `layer_bar_line` | <img src="gallery/ours/layer_bar_line.svg" width="320" alt="moon_vegalite: layer_bar_line"> | <img src="gallery/official/layer_bar_line.svg" width="320" alt="vega: layer_bar_line"> |
-| `layer_histogram` | <img src="gallery/ours/layer_histogram.svg" width="320" alt="moon_vegalite: layer_histogram"> | <img src="gallery/official/layer_histogram.svg" width="320" alt="vega: layer_histogram"> |
-| `layer_color_legend_left` | <img src="gallery/ours/layer_color_legend_left.svg" width="320" alt="moon_vegalite: layer_color_legend_left"> | <img src="gallery/official/layer_color_legend_left.svg" width="320" alt="vega: layer_color_legend_left"> |
-| `layer_circle_independent_color` | <img src="gallery/ours/layer_circle_independent_color.svg" width="320" alt="moon_vegalite: layer_circle_independent_color"> | <img src="gallery/official/layer_circle_independent_color.svg" width="320" alt="vega: layer_circle_independent_color"> |
+| 图 | moon_vegalite | 官方 vega | 手绘风格 |
+| --- | --- | --- | --- |
+| `stacked_bar_v` | <img src="gallery/ours/stacked_bar_v.svg" width="230" alt="moon_vegalite: stacked_bar_v"> | <img src="gallery/official/stacked_bar_v.svg" width="230" alt="vega: stacked_bar_v"> | <img src="gallery/sketch/stacked_bar_v.svg" width="230" alt="hand-drawn: stacked_bar_v"> |
+| `point_color` | <img src="gallery/ours/point_color.svg" width="230" alt="moon_vegalite: point_color"> | <img src="gallery/official/point_color.svg" width="230" alt="vega: point_color"> | <img src="gallery/sketch/point_color.svg" width="230" alt="hand-drawn: point_color"> |
+| `layer_bar_line` | <img src="gallery/ours/layer_bar_line.svg" width="230" alt="moon_vegalite: layer_bar_line"> | <img src="gallery/official/layer_bar_line.svg" width="230" alt="vega: layer_bar_line"> | <img src="gallery/sketch/layer_bar_line.svg" width="230" alt="hand-drawn: layer_bar_line"> |
+| `layer_histogram` | <img src="gallery/ours/layer_histogram.svg" width="230" alt="moon_vegalite: layer_histogram"> | <img src="gallery/official/layer_histogram.svg" width="230" alt="vega: layer_histogram"> | <img src="gallery/sketch/layer_histogram.svg" width="230" alt="hand-drawn: layer_histogram"> |
+| `layer_color_legend_left` | <img src="gallery/ours/layer_color_legend_left.svg" width="230" alt="moon_vegalite: layer_color_legend_left"> | <img src="gallery/official/layer_color_legend_left.svg" width="230" alt="vega: layer_color_legend_left"> | <img src="gallery/sketch/layer_color_legend_left.svg" width="230" alt="hand-drawn: layer_color_legend_left"> |
+| `layer_circle_independent_color` | <img src="gallery/ours/layer_circle_independent_color.svg" width="230" alt="moon_vegalite: layer_circle_independent_color"> | <img src="gallery/official/layer_circle_independent_color.svg" width="230" alt="vega: layer_circle_independent_color"> | <img src="gallery/sketch/layer_circle_independent_color.svg" width="230" alt="hand-drawn: layer_circle_independent_color"> |
 
 ## 定位，以及与其他图表库的区别
 
@@ -219,6 +255,8 @@ CI 会重新生成测试数据，只要已提交的生成文件有任何不同�
 | `scene`、`svg` | 场景图、mark 包围盒、路径生成、SVG 渲染器 |
 | `spec` | Vega-Lite JSON 的严格读取器（不支持的特性带路径报错） |
 | `vl` | 编译器：数据管线、比例尺、坐标轴、图例、布局 |
+| `sketch` | 手绘风格：场景图里的图形交给 moon_rough 来画 |
+| `web` | 演示页的入口（js）：`render`、`render_sketch` |
 | `cmd/vl2svg` | 命令行工具（native） |
 
 ## 开发记录说明
@@ -231,3 +269,4 @@ CI 会重新生成测试数据，只要已提交的生成文件有任何不同�
 ## 许可证
 
 Apache-2.0。部分代码移植自 vega、vega-lite 和 d3（BSD-3-Clause / ISC），详见各文件头部。
+手绘风格依赖 [moon_rough](https://github.com/sayoi7799/moon_rough)（MIT），它是 [rough.js](https://github.com/rough-stuff/rough)（MIT）的移植。

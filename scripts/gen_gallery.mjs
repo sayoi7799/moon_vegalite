@@ -1,4 +1,5 @@
-// Regenerates ../gallery: this library's SVG next to the official vega output for a set of specs.
+// Regenerates ../gallery: this library's SVG next to the official vega output for a set of specs, and the
+// hand-drawn version (moon_rough) next to what vega-lite + vega + rough.js 4.6.6 give for it.
 // Needs the native CLI:  moon build --target native cmd/vl2svg
 import fs from 'node:fs';
 import path from 'node:path';
@@ -7,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { runOfficial } from './lib/official.mjs';
 import { loadSpec } from './lib/spec.mjs';
 import { writeSpec, stripAria } from './dev/diff_scene.mjs';
+import { sketchify } from './lib/sketch.mjs';
 
 process.env.TZ = 'UTC';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -29,6 +31,9 @@ for (const n of ['bar', 'bar_stacked', 'point_color', 'line', 'bar_titled']) {
 }
 fs.mkdirSync(path.join(root, 'gallery/ours'), { recursive: true });
 fs.mkdirSync(path.join(root, 'gallery/official'), { recursive: true });
+fs.mkdirSync(path.join(root, 'gallery/sketch'), { recursive: true });
+const SEED = 7;
+const DECIMALS = 2;
 let rows = '';
 for (const { name, title, file } of files) {
   const spec = loadSpec(file);
@@ -38,17 +43,25 @@ for (const { name, title, file } of files) {
   fs.writeFileSync(path.join(root, 'gallery/ours', name + '.svg'), ours + '\n');
   fs.writeFileSync(path.join(root, 'gallery/official', name + '.svg'), official.svg + '\n');
   const same = ours === stripAria(official.svg);
-  rows += `<tr><td class="n"><b>${title}</b><br><code>${name}</code><br><span class="${same ? 'ok' : 'bad'}">${same ? 'identical to vega output (ignoring accessibility attributes)' : 'differs'}</span></td>` +
-    `<td><img src="ours/${name}.svg" alt="moon_vegalite: ${name}"></td><td><img src="official/${name}.svg" alt="vega: ${name}"></td></tr>\n`;
+  // the hand-drawn version: same seed for every chart, coordinates rounded to two decimals
+  const sketch = execFileSync(exe, ['--sketch', '--seed', String(SEED), '--decimals', String(DECIMALS), tmp], { encoding: 'utf8', maxBuffer: 1 << 28 }).trimEnd();
+  fs.writeFileSync(path.join(root, 'gallery/sketch', name + '.svg'), sketch + '\n');
+  const sketchSame = sketch === sketchify(official.scene, stripAria(official.svg), { seed: SEED, fixedDecimals: DECIMALS });
+  rows += `<tr><td class="n"><b>${title}</b><br><code>${name}</code><br><span class="${same ? 'ok' : 'bad'}">${same ? 'identical to vega output (ignoring accessibility attributes)' : 'differs'}</span><br>` +
+    `<span class="${sketchSame ? 'ok' : 'bad'}">${sketchSame ? 'hand-drawn: identical to vega-lite + rough.js' : 'hand-drawn: differs'}</span></td>` +
+    `<td><img src="ours/${name}.svg" alt="moon_vegalite: ${name}"></td><td><img src="official/${name}.svg" alt="vega: ${name}"></td>` +
+    `<td><img src="sketch/${name}.svg" alt="hand-drawn: ${name}"></td></tr>\n`;
 }
 const html = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>moon_vegalite gallery</title>
 <style>body{font:14px system-ui,sans-serif;margin:24px;color:#222}table{border-collapse:collapse}td,th{border-top:1px solid #ddd;padding:12px;vertical-align:top;text-align:left}
 .n{width:220px}.ok{color:#287d3c}.bad{color:#b3261e}img{max-width:100%}</style></head>
 <body><h1>moon_vegalite gallery</h1>
-<p>Left: SVG rendered by moon_vegalite. Right: the SVG produced by vega-lite 5.23.0 + vega 5.33.1 for the same specification.
+<p>Left: SVG rendered by moon_vegalite. Middle: the SVG produced by vega-lite 5.23.0 + vega 5.33.1 for the same specification.
+Right: the same chart in the hand-drawn style (moon_rough, seed ${SEED}, coordinates rounded to ${DECIMALS} decimals), which equals what
+vega-lite + vega + rough.js 4.6.6 give. Same specification and seed, same bytes.
 Regenerate with <code>node scripts/gen_gallery.mjs</code>.</p>
-<table><tr><th>Specification</th><th>moon_vegalite</th><th>vega (official)</th></tr>
+<table><tr><th>Specification</th><th>moon_vegalite</th><th>vega (official)</th><th>hand-drawn (moon_rough)</th></tr>
 ${rows}</table></body></html>
 `;
 fs.writeFileSync(path.join(root, 'gallery/index.html'), html);

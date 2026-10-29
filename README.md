@@ -4,8 +4,8 @@
 
 A spec-driven [Vega-Lite](https://vega.github.io/vega-lite/) renderer written in MoonBit.
 A Vega-Lite JSON specification goes in; a backend-neutral **scenegraph** and an **SVG** string come out.
-It runs on the `wasm-gc`, `js` and `native` backends; the library packages use nothing but the MoonBit core library (only the
-`vl2svg` tool uses `moonbitlang/x`, to read and write files).
+It runs on the `wasm-gc`, `js` and `native` backends; the library packages use the MoonBit core library and, for the hand-drawn style,
+[moon_rough](https://github.com/sayoi7799/moon_rough) (a port of rough.js); only the `vl2svg` tool uses `moonbitlang/x`, to read and write files.
 
 ## Quick start
 
@@ -87,6 +87,43 @@ import {
 
 Repositories: [GitHub](https://github.com/sayoi7799/moon_vegalite) · [GitLink](https://gitlink.org.cn/sayoi7799/moon_vegalite).
 
+## Hand-drawn style
+
+The shapes of a chart can be drawn by [moon_rough](https://github.com/sayoi7799/moon_rough), a MoonBit port of rough.js 4.6.6: the
+rectangles, lines, paths and symbols become sketchy, hatched, hand-drawn shapes, **text stays exactly as it is**.
+
+```moonbit
+let svg = @moon_vegalite.render_svg_sketch(
+  spec_json,
+  options=@moon_vegalite.SketchOptions::new(seed=42, roughness=1.5, fill_style=CrossHatch),
+)
+```
+
+```sh
+vl2svg --sketch --seed 42 --roughness 1.5 spec.vl.json chart.svg      # also --decimals 2 for a smaller file
+```
+
+`SketchOptions`: `seed`, `roughness`, `bowing`, `fill_style` (`Hachure` by default, `Solid`, `Zigzag`, `CrossHatch`, `Dots`, `Dashed`,
+`ZigzagLine`), `hachure_gap`, `fill_weight` and `fixed_decimals` (rounds the coordinates, which makes the SVG much smaller).
+
+| Scenegraph shape | Drawn by rough as |
+| --- | --- |
+| `rect` (bars, cells, legend swatches) and the frame of a plot | `rectangle` |
+| `rule` (axis lines, ticks, grid lines, rule marks) | `line` |
+| `line`, `area`, `symbol` (points, circles, squares, ...) | `path`, with the transform of the symbol kept |
+| `text` | not touched |
+| gradient fills (continuous colour legends), the page background | not touched |
+
+A shape that has a fill but no stroke (a bar) gets an outline in the colour of its fill. Opacity is kept.
+
+**Reproducible.** The same specification and `seed` give the same bytes, on `js`, `wasm-gc` and `native`. Every shape gets a seed of its
+own, a hash of the base seed and the position of the shape in the scenegraph (item, mark, item, ...), in `[1, 2^31-2]`: the bars do not
+all wobble alike, and adding or removing a data point does not change the other shapes. The output is tested against the official
+packages: for 12 cases (bars, layers, symbols of every shape, areas, MoonFrame, other fill styles, roughness, bowing, hachure gap and
+weight, rounding) the SVG equals what vega-lite 5.23.0 + vega 5.33.1 + rough.js 4.6.6 give (`scripts/lib/sketch.mjs`,
+`fixtures/sketchcases`), byte for byte; so do all 30 charts of the [gallery](gallery/index.html), which shows every chart in the three versions.
+The [online demo](https://sayoi7799.github.io/moon_vegalite/) has a hand-drawn switch with a seed and a roughness slider.
+
 ## Online demo
 
 **<https://sayoi7799.github.io/moon_vegalite/>** — edit a Vega-Lite specification and see this library's SVG (compiled to
@@ -116,19 +153,19 @@ ready to be sent straight back to the model.
 
 ## Side by side with the official output
 
-Left: this library. Right: vega-lite 5.23.0 + vega 5.33.1. Apart from the accessibility attributes the SVG text is identical.
-Open [`gallery/index.html`](gallery/index.html) directly in a browser (no server needed) for all 30 charts.
+Left: this library. Middle: vega-lite 5.23.0 + vega 5.33.1; apart from the accessibility attributes the SVG text is identical. Right: the hand-drawn style (see below).
+Open [`gallery/index.html`](gallery/index.html) directly in a browser (no server needed) for all 30 charts, each in the three versions.
 
 ![the gallery page](docs/gallery.png)
 
-| Chart | moon_vegalite | official vega |
-| --- | --- | --- |
-| `stacked_bar_v` | <img src="gallery/ours/stacked_bar_v.svg" width="320" alt="moon_vegalite: stacked_bar_v"> | <img src="gallery/official/stacked_bar_v.svg" width="320" alt="vega: stacked_bar_v"> |
-| `point_color` | <img src="gallery/ours/point_color.svg" width="320" alt="moon_vegalite: point_color"> | <img src="gallery/official/point_color.svg" width="320" alt="vega: point_color"> |
-| `layer_bar_line` | <img src="gallery/ours/layer_bar_line.svg" width="320" alt="moon_vegalite: layer_bar_line"> | <img src="gallery/official/layer_bar_line.svg" width="320" alt="vega: layer_bar_line"> |
-| `layer_histogram` | <img src="gallery/ours/layer_histogram.svg" width="320" alt="moon_vegalite: layer_histogram"> | <img src="gallery/official/layer_histogram.svg" width="320" alt="vega: layer_histogram"> |
-| `layer_color_legend_left` | <img src="gallery/ours/layer_color_legend_left.svg" width="320" alt="moon_vegalite: layer_color_legend_left"> | <img src="gallery/official/layer_color_legend_left.svg" width="320" alt="vega: layer_color_legend_left"> |
-| `layer_circle_independent_color` | <img src="gallery/ours/layer_circle_independent_color.svg" width="320" alt="moon_vegalite: layer_circle_independent_color"> | <img src="gallery/official/layer_circle_independent_color.svg" width="320" alt="vega: layer_circle_independent_color"> |
+| Chart | moon_vegalite | official vega | hand-drawn |
+| --- | --- | --- | --- |
+| `stacked_bar_v` | <img src="gallery/ours/stacked_bar_v.svg" width="230" alt="moon_vegalite: stacked_bar_v"> | <img src="gallery/official/stacked_bar_v.svg" width="230" alt="vega: stacked_bar_v"> | <img src="gallery/sketch/stacked_bar_v.svg" width="230" alt="hand-drawn: stacked_bar_v"> |
+| `point_color` | <img src="gallery/ours/point_color.svg" width="230" alt="moon_vegalite: point_color"> | <img src="gallery/official/point_color.svg" width="230" alt="vega: point_color"> | <img src="gallery/sketch/point_color.svg" width="230" alt="hand-drawn: point_color"> |
+| `layer_bar_line` | <img src="gallery/ours/layer_bar_line.svg" width="230" alt="moon_vegalite: layer_bar_line"> | <img src="gallery/official/layer_bar_line.svg" width="230" alt="vega: layer_bar_line"> | <img src="gallery/sketch/layer_bar_line.svg" width="230" alt="hand-drawn: layer_bar_line"> |
+| `layer_histogram` | <img src="gallery/ours/layer_histogram.svg" width="230" alt="moon_vegalite: layer_histogram"> | <img src="gallery/official/layer_histogram.svg" width="230" alt="vega: layer_histogram"> | <img src="gallery/sketch/layer_histogram.svg" width="230" alt="hand-drawn: layer_histogram"> |
+| `layer_color_legend_left` | <img src="gallery/ours/layer_color_legend_left.svg" width="230" alt="moon_vegalite: layer_color_legend_left"> | <img src="gallery/official/layer_color_legend_left.svg" width="230" alt="vega: layer_color_legend_left"> | <img src="gallery/sketch/layer_color_legend_left.svg" width="230" alt="hand-drawn: layer_color_legend_left"> |
+| `layer_circle_independent_color` | <img src="gallery/ours/layer_circle_independent_color.svg" width="230" alt="moon_vegalite: layer_circle_independent_color"> | <img src="gallery/official/layer_circle_independent_color.svg" width="230" alt="vega: layer_circle_independent_color"> | <img src="gallery/sketch/layer_circle_independent_color.svg" width="230" alt="hand-drawn: layer_circle_independent_color"> |
 
 ## Positioning and differences from other charting libraries
 
@@ -217,6 +254,8 @@ manifests and removing the three tests locally. The generated JSON is committed 
 | `scene`, `svg` | scenegraph, mark bounds, path generation, SVG renderer |
 | `spec` | strict reader of Vega-Lite JSON (unsupported features raise errors with paths) |
 | `vl` | the compiler: data pipeline, scales, axes, legends, layout |
+| `sketch` | the hand-drawn style: the shapes of the scenegraph drawn by moon_rough |
+| `web` | the entry point of the demo page (js): `render`, `render_sketch` |
 | `cmd/vl2svg` | command line tool (native) |
 
 ## Development history
@@ -230,3 +269,4 @@ for a GitHub issue and merged through a pull request that closes the issue.
 ## License
 
 Apache-2.0. Parts of the code are ports of vega, vega-lite and d3 (BSD-3-Clause / ISC); see the file headers.
+The hand-drawn style depends on [moon_rough](https://github.com/sayoi7799/moon_rough) (MIT), a port of [rough.js](https://github.com/rough-stuff/rough) (MIT).
