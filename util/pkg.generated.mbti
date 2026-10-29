@@ -32,6 +32,18 @@ pub fn same_bits(Double, Double) -> Bool
 
 pub fn unescape_fixture(String) -> String
 
+pub fn v8_acos(Double) -> Double
+
+pub fn v8_asin(Double) -> Double
+
+pub fn v8_atan(Double) -> Double
+
+pub fn v8_atan2(Double, Double) -> Double
+
+pub fn v8_cos(Double) -> Double
+
+pub fn v8_sin(Double) -> Double
+
 // Errors
 
 // Types and methods

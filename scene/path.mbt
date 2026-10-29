@@ -148,8 +148,8 @@ pub fn PathBuf::arc(
   a1 : Double,
   ccw : Bool,
 ) -> Unit {
-  let dx = r * @util.js_cos(a0)
-  let dy = r * @util.js_sin(a0)
+  let dx = r * @util.v8_cos(a0)
+  let dy = r * @util.v8_sin(a0)
   let px = x + dx
   let py = y + dy
   let cw = if ccw { 0 } else { 1 }
@@ -199,8 +199,8 @@ pub fn PathBuf::arc(
       self.num(py),
     )
   } else if da > epsilon {
-    let ex = x + r * @util.js_cos(a1)
-    let ey = y + r * @util.js_sin(a1)
+    let ex = x + r * @util.v8_cos(a1)
+    let ey = y + r * @util.v8_sin(a1)
     self.x1 = ex
     self.y1 = ey
     self.out.write_string(
@@ -457,15 +457,15 @@ pub fn BoundCtx::arc(
   let mut sa = sa0 + self.rot
   let mut ea = ea0 + self.rot
   let mut ccw = ccw0
-  self.lx = r * @util.js_cos(ea) + cx
-  self.ly = r * @util.js_sin(ea) + cy
+  self.lx = r * @util.v8_cos(ea) + cx
+  self.ly = r * @util.v8_sin(ea) + cy
   if (ea - sa).abs() > tau - 1.0e-8 {
     ignore(self.bounds.add(cx - r, cy - r))
     ignore(self.bounds.add(cx + r, cy + r))
   } else {
     let update = fn(a : Double) {
       ignore(
-        self.bounds.add(r * @util.js_cos(a) + cx, r * @util.js_sin(a) + cy),
+        self.bounds.add(r * @util.v8_cos(a) + cx, r * @util.v8_sin(a) + cy),
       )
     }
     update(sa)

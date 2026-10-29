@@ -6,6 +6,8 @@ import {
 }
 
 // Values
+pub fn arc_path(Item) -> String
+
 pub fn area_path(Array[Item]) -> String raise SceneError
 
 pub fn baseline_offset(Item) -> Double
@@ -17,6 +19,8 @@ pub fn bound_mark(Mark) -> Unit raise SceneError
 pub fn bound_stroke(Bounds, Item) -> Bounds
 
 pub fn curve_kind(String, String) -> CurveKind?
+
+pub fn draw_arc(Ctx, Item) -> Unit
 
 pub fn draw_area(Ctx, Array[Item]) -> Unit raise SceneError
 
@@ -175,6 +179,7 @@ pub(all) enum MarkType {
   Symbol
   Line
   Area
+  Arc
 }
 pub fn MarkType::from_name(String) -> Self?
 pub fn MarkType::is_nested(Self) -> Bool

@@ -124,6 +124,7 @@ pub(all) enum ShapeKind {
   Symbol
   Line
   Area
+  Arc
   /// the background of a group (the plot frame)
   Background
   /// the stroke of a group drawn above its content
@@ -277,7 +278,7 @@ fn css_class(mark : @scene.Mark) -> String {
 fn tag_of(t : @scene.MarkType) -> String {
   match t {
     Group => "g"
-    Rect | Symbol | Line | Area => "path"
+    Rect | Symbol | Line | Area | Arc => "path"
     Rule => "line"
     Text => "text"
   }
@@ -526,6 +527,13 @@ fn render_item(
       } else {
         false
       }
+    Arc =>
+      if defs.shapes is Some(_) {
+        let d = @scene.arc_path(item)
+        m.try_shape(defs, Arc, item, fn() { Path(d) }, Some(rotate_item(item)))
+      } else {
+        false
+      }
     _ => false
   }
   if drawn {
@@ -587,6 +595,11 @@ fn render_item(
     Symbol => {
       a.emit("transform", Some(rotate_item(item)))
       let d = @scene.symbol_path(item)
+      a.emit("d", if d == "" { None } else { Some(d) })
+    }
+    Arc => {
+      a.emit("transform", Some(rotate_item(item)))
+      let d = @scene.arc_path(item)
       a.emit("d", if d == "" { None } else { Some(d) })
     }
     _ => ()

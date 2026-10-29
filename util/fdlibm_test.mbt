@@ -37,6 +37,44 @@ test "js_log10 matches V8 Math.log10 bit for bit" {
 }
 
 ///|
+test "v8_sin, v8_cos, v8_atan, v8_asin and v8_acos match V8 bit for bit" {
+  let funcs : Array[(String, (Double) -> Double)] = [
+    ("sin", @util.v8_sin),
+    ("cos", @util.v8_cos),
+    ("atan", @util.v8_atan),
+    ("asin", @util.v8_asin),
+    ("acos", @util.v8_acos),
+  ]
+  for f in funcs {
+    let cs = libm_cases(f.0)
+    assert_true(cs.length() > 1000)
+    for p in cs {
+      let x = @util.double_from_hex(p[1])
+      let got = @util.double_to_hex((f.1)(x))
+      if got != p[2] {
+        fail("Math.\{f.0}(\{x}) [\{p[1]}]: expected \{p[2]}, got \{got}")
+      }
+    }
+  }
+}
+
+///|
+test "v8_atan2 matches V8 bit for bit" {
+  let cs = libm_cases("atan2")
+  assert_true(cs.length() > 4000)
+  for p in cs {
+    let y = @util.double_from_hex(p[1])
+    let x = @util.double_from_hex(p[2])
+    let got = @util.double_to_hex(@util.v8_atan2(y, x))
+    if got != p[3] {
+      fail(
+        "Math.atan2(\{y}, \{x}) [\{p[1]} \{p[2]}]: expected \{p[3]}, got \{got}",
+      )
+    }
+  }
+}
+
+///|
 test "js_pow10 is exact for integer exponents and finite for others" {
   assert_eq(@util.js_pow10(0.0), 1.0)
   assert_eq(@util.js_pow10(3.0), 1000.0)

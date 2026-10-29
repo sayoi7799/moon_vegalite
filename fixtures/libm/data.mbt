@@ -3,7 +3,7 @@
 // Expected values come from the official vega-lite / vega packages pinned in scripts/package-lock.json.
 
 ///|
-pub let cases : String =
+let cases_part0 : String =
   #|log 3ff0000000000000 0000000000000000
   #|log10 3ff0000000000000 0000000000000000
   #|log 4000000000000000 3fe62e42fefa39ef
@@ -4722,3 +4722,17601 @@ pub let cases : String =
   #|log10 2c1a28145240958e c057e0e6a74f4465
   #|log d5549bf2b2b7902b 7ff8000000000000
   #|log10 d5549bf2b2b7902b 7ff8000000000000
+  #|sin 0000000000000000 0000000000000000
+  #|cos 0000000000000000 3ff0000000000000
+  #|atan 0000000000000000 0000000000000000
+  #|sin 8000000000000000 8000000000000000
+  #|cos 8000000000000000 3ff0000000000000
+  #|atan 8000000000000000 8000000000000000
+  #|sin 3ddb7cdfd9d7bdbb 3ddb7cdfd9d7bdbb
+  #|cos 3ddb7cdfd9d7bdbb 3ff0000000000000
+  #|atan 3ddb7cdfd9d7bdbb 3ddb7cdfd9d7bdbb
+  #|sin 01a56e1fc2f8f359 01a56e1fc2f8f359
+  #|cos 01a56e1fc2f8f359 3ff0000000000000
+  #|atan 01a56e1fc2f8f359 01a56e1fc2f8f359
+  #|sin 3fe0000000000000 3fdeaee8744b05f0
+  #|cos 3fe0000000000000 3fec1528065b7d50
+  #|atan 3fe0000000000000 3fddac670561bb4f
+  #|sin bfe0000000000000 bfdeaee8744b05f0
+  #|cos bfe0000000000000 3fec1528065b7d50
+  #|atan bfe0000000000000 bfddac670561bb4f
+  #|sin 3ff0000000000000 3feaed548f090cee
+  #|cos 3ff0000000000000 3fe14a280fb5068c
+  #|atan 3ff0000000000000 3fe921fb54442d18
+  #|sin bff0000000000000 bfeaed548f090cee
+  #|cos bff0000000000000 3fe14a280fb5068c
+  #|atan bff0000000000000 bfe921fb54442d18
+  #|sin 3ff921fb54442d18 3ff0000000000000
+  #|cos 3ff921fb54442d18 3c91a62633145c07
+  #|atan 3ff921fb54442d18 3ff00fe987ed02ff
+  #|sin 400921fb54442d18 3ca1a62633145c07
+  #|cos 400921fb54442d18 bff0000000000000
+  #|atan 400921fb54442d18 3ff433b8a322ddd2
+  #|sin 401921fb54442d18 bcb1a62633145c07
+  #|cos 401921fb54442d18 3ff0000000000000
+  #|atan 401921fb54442d18 3ff69b8154baf42e
+  #|sin 4012d97c7f3321d2 bff0000000000000
+  #|cos 4012d97c7f3321d2 bcaa79394c9e8a0a
+  #|atan 4012d97c7f3321d2 3ff5c97d37d98aa4
+  #|sin 401921fb54442d18 bcb1a62633145c07
+  #|cos 401921fb54442d18 3ff0000000000000
+  #|atan 401921fb54442d18 3ff69b8154baf42e
+  #|sin 401921fb54442eea 3d5d1b9676733ae9
+  #|cos 401921fb54442eea 3ff0000000000000
+  #|atan 401921fb54442eea 3ff69b8154baf45c
+  #|sin 4059000000000000 bfe03425b78c4db8
+  #|cos 4059000000000000 3feb981dbf665fdf
+  #|atan 4059000000000000 3ff8f905eb2def22
+  #|sin 412e848000000000 bfd6664b2568d867
+  #|cos 412e848000000000 3fedf9df9906d32c
+  #|atan 412e848000000000 3ff921fa47d4b30d
+  #|sin 430c6bf526340000 3feb76f88136ceba
+  #|cos 430c6bf526340000 bfe06c154609d33e
+  #|atan 430c6bf526340000 3ff921fb54442d14
+  #|sin 7ff0000000000000 7ff8000000000000
+  #|cos 7ff0000000000000 7ff8000000000000
+  #|atan 7ff0000000000000 3ff921fb54442d18
+  #|sin fff0000000000000 7ff8000000000000
+  #|cos fff0000000000000 7ff8000000000000
+  #|atan fff0000000000000 bff921fb54442d18
+  #|sin 7ff8000000000000 7ff8000000000000
+  #|cos 7ff8000000000000 7ff8000000000000
+  #|atan 7ff8000000000000 7ff8000000000000
+  #|sin 4021a3c0ef3a08e3 3fe232f06f71c588
+  #|cos 4021a3c0ef3a08e3 bfea522f989db249
+  #|atan 4021a3c0ef3a08e3 3ff7538c70a014c9
+  #|sin c01edb1c46eec1a6 bfefafd788270ff7
+  #|cos c01edb1c46eec1a6 3fc1dcc320c2e2e2
+  #|atan c01edb1c46eec1a6 bff711f13449e7c7
+  #|sin c00378d6a2737744 bfe4ccd4e6f59cbc
+  #|cos c00378d6a2737744 bfe8515a9d058270
+  #|atan c00378d6a2737744 bff2e54644bccccc
+  #|sin c00d51b4e6e67eb6 3fdffbce293dd464
+  #|cos c00d51b4e6e67eb6 bfebb7b0cad9bac6
+  #|atan c00d51b4e6e67eb6 bff4dee935eb8d73
+  #|sin bfdf469948958070 bfde0bb4253d7025
+  #|cos bfdf469948958070 3fec41235e258bbc
+  #|atan bfdf469948958070 bfdd17693febf42a
+  #|sin c007ae2240aedc92 bfc71cee8ec9f1f4
+  #|cos c007ae2240aedc92 bfef79572275482a
+  #|atan c007ae2240aedc92 bff3eb850491f50c
+  #|sin 40074a2096966fe6 3fcd3b0e1790c88c
+  #|cos 40074a2096966fe6 bfef278821ce1178
+  #|atan 40074a2096966fe6 3ff3d6b8ee1c6b55
+  #|sin 4017f94bc98b752c bfd248d5f0f4ac58
+  #|cos 4017f94bc98b752c 3feeaa8f9ec1ae44
+  #|atan 4017f94bc98b752c 3ff67ccea7e960a9
+  #|sin c0205195558001f1 bfee8506af413f0c
+  #|cos c0205195558001f1 bfd33da452227402
+  #|atan c0205195558001f1 bff72e78b9032b18
+  #|sin 401d685e687cf226 3fec0d0df3f53bfe
+  #|cos 401d685e687cf226 3fdecc7f092917b8
+  #|atan 401d685e687cf226 3ff6f83f2e464e0a
+  #|sin c01c9e8f0844aea4 bfe87e20c705e82c
+  #|cos c01c9e8f0844aea4 3fe4980917138f94
+  #|atan c01c9e8f0844aea4 bff6e92fdaf3f707
+  #|sin 4003f319f7a46812 3fe34febb38043d0
+  #|cos 4003f319f7a46812 bfe983f5f7b4d9fb
+  #|atan 4003f319f7a46812 3ff307dc961c526f
+  #|sin bffac0487f2b8ce6 bfefd62149c5f763
+  #|cos bffac0487f2b8ce6 bfb9d98690589e2d
+  #|atan bffac0487f2b8ce6 bff08221d853b745
+  #|sin c008c1d299873ba6 bfa807ebe13952c6
+  #|cos c008c1d299873ba6 bfeff6f8c8138b73
+  #|atan c008c1d299873ba6 bff421c8e45587a4
+  #|sin 40197a1aba7298ca 3fb600e41b8b9926
+  #|cos 40197a1aba7298ca 3fefe1af307ef9b0
+  #|atan 40197a1aba7298ca 3ff6a41937ddb065
+  #|sin 4022d62020a9d9b2 3f7ae2e7a2f189e5
+  #|cos 4022d62020a9d9b2 bfefffd2d1dd6c98
+  #|atan 4022d62020a9d9b2 3ff770b3fe36a811
+  #|sin bfe496d4a5f85ea6 bfe3329d9a93376d
+  #|cos bfe496d4a5f85ea6 3fe99a09c966ae06
+  #|atan bfe496d4a5f85ea6 bfe24b9c9af9f80e
+  #|sin 402054efe5c3f86a 3fee74b9f1dfa3f4
+  #|cos 402054efe5c3f86a bfd3a3e4203c6752
+  #|atan 402054efe5c3f86a 3ff72ede490a697c
+  #|sin c00b5a6610a4cbad 3fd1892d8638d0fa
+  #|cos c00b5a6610a4cbad bfeec67ebd0eda1c
+  #|atan c00b5a6610a4cbad bff4948652cba9e1
+  #|sin 3ff77b8a8fd399c2 3fefd4786274bf08
+  #|cos 3ff77b8a8fd399c2 3fba5b126702183c
+  #|atan 3ff77b8a8fd399c2 3fef204d0590100f
+  #|sin c0237261157f48f3 3fd2d42eb389afdb
+  #|cos c0237261157f48f3 bfee9573ce3887c7
+  #|atan c0237261157f48f3 bff77e34a4e00857
+  #|sin c020b3b48b19cf4f bfec20e2d8937b99
+  #|cos c020b3b48b19cf4f bfde83cff780570a
+  #|atan c020b3b48b19cf4f bff739d3402aad99
+  #|sin 4021a8bd1691d195 3fe1f11d53470704
+  #|cos 4021a8bd1691d195 bfea7f3a008d667c
+  #|atan 4021a8bd1691d195 3ff7540de000a528
+  #|sin c017dc9fe4433472 3fd3fe911afaa35a
+  #|cos c017dc9fe4433472 3fee65f6450e4f76
+  #|atan c017dc9fe4433472 bff679afd5e7dbd0
+  #|sin 4022e40ced44b256 bf952079e40a46a2
+  #|cos 4022e40ced44b256 bfeffe419bb85d01
+  #|atan 4022e40ced44b256 3ff771f10241f143
+  #|sin 401026e372c9640c bfe8fe8f7de5ce6c
+  #|cos 401026e372c9640c bfe3fb65a75ee3cd
+  #|atan 401026e372c9640c 3ff53f9e4a75f787
+  #|sin 401819e6c19b1866 bfd0529b081c95f6
+  #|cos 401819e6c19b1866 3feef11737e65249
+  #|atan 401819e6c19b1866 3ff680524cb8fa7d
+  #|sin 4021691b25ee2754 3fe5168de39ffe99
+  #|cos 4021691b25ee2754 bfe811882dd272d2
+  #|atan 4021691b25ee2754 3ff74d84316eb1ca
+  #|sin 401e776ae4416f1c 3fef1a4edd371d29
+  #|cos 401e776ae4416f1c 3fce19140038228b
+  #|atan 401e776ae4416f1c 3ff70b44c9814e10
+  #|sin c001162f4e22fbb2 bfeb06b62656fe2f
+  #|cos c001162f4e22fbb2 bfe1226044eef4e1
+  #|atan c001162f4e22fbb2 bff22065be3de874
+  #|sin 3fc1828d21053c90 3fc1749573b46f69
+  #|cos 3fc1828d21053c90 3fefb378402efb8f
+  #|atan 3fc1828d21053c90 3fc166e66459de8f
+  #|sin bffff0d853da25b4 bfed2586e259129d
+  #|cos bffff0d853da25b4 bfda6afb5246ffb6
+  #|atan bffff0d853da25b4 bff1b3d87d4f74fe
+  #|sin 40069cb584382f56 3fd3d531d07ad948
+  #|cos 40069cb584382f56 bfee6cbc136ba2a0
+  #|atan 40069cb584382f56 3ff3b123f3287e3e
+  #|sin 4003eb2d8f5cc284 3fe36927af246ab7
+  #|cos 4003eb2d8f5cc284 bfe970c8d76a112b
+  #|atan 4003eb2d8f5cc284 3ff305a9d5ed8334
+  #|sin c0150d46da3a5e65 3feb4569270f4113
+  #|cos c0150d46da3a5e65 3fe0bde14bc324a7
+  #|atan c0150d46da3a5e65 bff620e1a1e5b551
+  #|sin c0199674005bb7da bfbd0e1b18696c12
+  #|cos c0199674005bb7da 3fefcb11098b2eaf
+  #|atan c0199674005bb7da bff6a6d0a1f70b00
+  #|sin bfc57c7127b3c0e8 bfc562a5b8fec51b
+  #|cos bfc57c7127b3c0e8 3fef8cdb8c00b153
+  #|atan bfc57c7127b3c0e8 bfc549a2dbf3bc9e
+  #|sin c0028485e8637176 bfe78be0c983d081
+  #|cos c0028485e8637176 bfe5ab642a576efd
+  #|atan c0028485e8637176 bff29ba082e114e8
+  #|sin 401edabfaebd67de 3fefaf7007b30867
+  #|cos 401edabfaebd67de 3fc1e8391605b5b9
+  #|atan 401edabfaebd67de 3ff711eb1523907a
+  #|sin 401ce916c4de4b20 3fe9ece7da373c64
+  #|cos 401ce916c4de4b20 3fe2c21e78172637
+  #|atan 401ce916c4de4b20 3ff6eed7b007f671
+  #|sin c0214ae0bf188c27 bfe678b5aab47d3b
+  #|cos c0214ae0bf188c27 bfe6c84139671288
+  #|atan c0214ae0bf188c27 bff74a587cc55081
+  #|sin 401ece8e6f00d064 3fefa137a2bdbc63
+  #|cos 401ece8e6f00d064 3fc36a3548a7b0ad
+  #|atan 401ece8e6f00d064 3ff7111c67b66b56
+  #|sin c020f56b4b2d2545 bfe9f1b83285d8d1
+  #|cos c020f56b4b2d2545 bfe2bb7578b863c3
+  #|atan c020f56b4b2d2545 bff741255e20d8ed
+  #|sin c02129b3a7364bdd bfe7e64940171e0e
+  #|cos c02129b3a7364bdd bfe5478449f5dfbe
+  #|atan c02129b3a7364bdd bff746d0ef4f3cca
+  #|sin 3ffa7cd52d2c44fa 3fefe2a5647d1ffc
+  #|cos 3ffa7cd52d2c44fa bfb5a6fc3e805d86
+  #|atan 3ffa7cd52d2c44fa 3ff0703b165ff3c9
+  #|sin c008c15e805ad272 bfa824e9f21be355
+  #|cos c008c15e805ad272 bfeff6e2ef05e9ce
+  #|atan c008c15e805ad272 bff421b2efe624c7
+  #|sin bff1b330498e1ab4 bfec9bd785354337
+  #|cos bff1b330498e1ab4 3fdcac5af84b1e6f
+  #|atan bff1b330498e1ab4 bfeabede293825f3
+  #|sin bfdc2a226fcdbf40 bfdb43a7a2a0eb46
+  #|cos bfdc2a226fcdbf40 3fecf379b858e2cb
+  #|atan bfdc2a226fcdbf40 bfda8843be2e2dd0
+  #|sin 3ffa56f9202a137e 3fefe8b3996a6db7
+  #|cos 3ffa56f9202a137e bfb34b2cae02b01f
+  #|atan 3ffa56f9202a137e 3ff06611691836a1
+  #|sin c02203e1e5737f1b bfd9eec29610cb23
+  #|cos c02203e1e5737f1b bfed415d4d84c003
+  #|atan c02203e1e5737f1b bff75d1bb52a1dbb
+  #|sin 3fe9e7a2de8c0bb8 3fe72aae9762522f
+  #|cos 3fe9e7a2de8c0bb8 3fe6132efa678ea3
+  #|atan 3fe9e7a2de8c0bb8 3fe5c6d719edcf15
+  #|sin 401b125d6ec829bf 3fddd2b90a1e30e8
+  #|cos 401b125d6ec829bf 3fec5036f49b8bf7
+  #|atan 401b125d6ec829bf 3ff6c91f54678a86
+  #|sin c02050e12aeb98f2 bfee88676e29e39b
+  #|cos c02050e12aeb98f2 bfd328288566ecba
+  #|atan c02050e12aeb98f2 bff72e6363c85868
+  #|sin 4021f1e325e77c36 3fdbf9012fad214b
+  #|cos 4021f1e325e77c36 bfecc819122ced71
+  #|atan 4021f1e325e77c36 3ff75b5947a7302d
+  #|sin c0235b019e4e1e96 3fd004939d4e3877
+  #|cos c0235b019e4e1e96 bfeefb475902a407
+  #|atan c0235b019e4e1e96 bff77c3d4e607fe0
+  #|sin 40135fb171e553d6 bfefb9be4b66a332
+  #|cos 40135fb171e553d6 3fc0ba558fce884a
+  #|atan 40135fb171e553d6 3ff5e00590f717f9
+  #|sin c021693fdd329d5d bfe514d3fcaf9b55
+  #|cos c021693fdd329d5d bfe8130b4055fbca
+  #|atan c021693fdd329d5d bff74d8804b8a6d1
+  #|sin c009a1e5fa1cd8f6 3faff5570fb2610f
+  #|cos c009a1e5fa1cd8f6 bfeff006aa7e5201
+  #|atan c009a1e5fa1cd8f6 bff44ad717c7119e
+  #|sin c018d96faca539d1 3fb21f07e49fdc30
+  #|cos c018d96faca539d1 3fefeb7358f178d8
+  #|atan c018d96faca539d1 bff69441b6245f7b
+  #|sin 4010e5b0c40a064a bfec4373de498758
+  #|cos 4010e5b0c40a064a bfde02fdd1a03001
+  #|atan 4010e5b0c40a064a 3ff569e1c3e3bd46
+  #|sin bff6926d1fc69e33 bfef974db9274546
+  #|cos bff6926d1fc69e33 3fc466153a484a86
+  #|atan bff6926d1fc69e33 bfee887a02a84200
+  #|sin 4021ab8908420471 3fe1cbfea759b499
+  #|cos 4021ab8908420471 bfea9836bf51122d
+  #|atan 4021ab8908420471 3ff754565df17d80
+  #|sin c01fad85276a35a9 bfefee72d980367c
+  #|cos c01fad85276a35a9 bfb0bfaef1e0220f
+  #|atan c01fad85276a35a9 bff71f7f481c9fa1
+  #|sin c0183b56dd3312ec 3fcc964fc8baf22a
+  #|cos c0183b56dd3312ec 3fef311493b49b43
+  #|atan c0183b56dd3312ec bff683e35aeb9081
+  #|sin 4022a5285155aa08 3fba1e6f3c054f83
+  #|cos 4022a5285155aa08 bfefd5404ec1ff22
+  #|atan 4022a5285155aa08 3ff76c4aaaa00ac2
+  #|sin 40185ff7e01e3944 bfc81b5a93d3bb8f
+  #|cos 40185ff7e01e3944 3fef6d673b967bbe
+  #|atan 40185ff7e01e3944 3ff687c09c329948
+  #|sin 401c7dc8d5f4a2ce 3fe7d235611cde21
+  #|cos 401c7dc8d5f4a2ce 3fe55dfbb7533c4c
+  #|atan 401c7dc8d5f4a2ce 3ff6e6a9fe46136c
+  #|sin c02260c17be69d24 bfcde758faecc398
+  #|cos c02260c17be69d24 bfef1d4e37d93a5f
+  #|atan c02260c17be69d24 bff765fa400fe11d
+  #|sin 40208cfcd0dd5757 3fed33645b73b2d5
+  #|cos 40208cfcd0dd5757 bfda2d74bc9fea0a
+  #|atan 40208cfcd0dd5757 3ff7356838019c0c
+  #|sin c023518af44ecc0a 3fcdbd655776e4aa
+  #|cos c023518af44ecc0a bfef1fd174e97c69
+  #|atan c023518af44ecc0a bff77b702b563b28
+  #|sin c01111b96df7879c 3fece1e77b9bdc3f
+  #|cos c01111b96df7879c bfdb8dce4c21d1f9
+  #|atan c01111b96df7879c bff57323a85ef1e9
+  #|sin c0053d80f38b1cb6 bfddecfb73bcbd79
+  #|cos c0053d80f38b1cb6 bfec4948d7a91ee8
+  #|atan c0053d80f38b1cb6 bff35e8f092b90b4
+  #|sin 40127ecf142719aa bfefdfe6fa616253
+  #|cos 40127ecf142719aa bfb6a3c5e4ee0860
+  #|atan 40127ecf142719aa 3ff5b992ccd9d55a
+  #|sin c0149bc71c4c64f8 3fecf4a3f2f0ea26
+  #|cos c0149bc71c4c64f8 3fdb3eb45dee0752
+  #|atan c0149bc71c4c64f8 bff610bbe15bf86f
+  #|sin c015370426b1a6fd 3fea90f67278dff1
+  #|cos c015370426b1a6fd 3fe1d6cfd614cffa
+  #|atan c015370426b1a6fd bff626a7e23319ab
+  #|sin c0146acce8efcd68 3fed92e5d49ddb30
+  #|cos c0146acce8efcd68 3fd871e9e63875f9
+  #|atan c0146acce8efcd68 bff6098ea5cf5356
+  #|sin 400c34b1a3b18b9a bfd7fc0d135e7868
+  #|cos 400c34b1a3b18b9a bfedaafc544a92c3
+  #|atan 400c34b1a3b18b9a 3ff4b5f768fa4de4
+  #|sin 40171ddf5486fff0 bfdee88bad8e92f9
+  #|cos 40171ddf5486fff0 3fec05565fe4da7b
+  #|atan 40171ddf5486fff0 3ff6642dcecdf9e4
+  #|sin 3fc05fd362d52b40 3fc05466f175b415
+  #|cos 3fc05fd362d52b40 3fefbd0fd09f40b9
+  #|atan 3fc05fd362d52b40 3fc0492e866db43c
+  #|sin 40167086bead1d2a bfe3f441596f5e14
+  #|cos 40167086bead1d2a 3fe904437a69ee87
+  #|atan 40167086bead1d2a 3ff64f6e8def22f7
+  #|sin c0238473a7253238 3fd4f9cab9950483
+  #|cos c0238473a7253238 bfee3b8594f0ca50
+  #|atan c0238473a7253238 bff77fb6a4a39f9c
+  #|sin c00c19a7394d9192 3fd732f6270334a9
+  #|cos c00c19a7394d9192 bfedd2db808a1346
+  #|atan c00c19a7394d9192 bff4b1ecfee12997
+  #|sin bffd9dbee1b32f49 bfeec07a396ad27f
+  #|cos bffd9dbee1b32f49 bfd1b3356ab18ecc
+  #|atan bffd9dbee1b32f49 bff135239bf8aa94
+  #|sin c01d1294d14ec4f2 bfeaa9fc72171c14
+  #|cos c01d1294d14ec4f2 3fe1b152fd97c160
+  #|atan c01d1294d14ec4f2 bff6f1f16495a9bc
+  #|sin 3fb17573c8702c00 3fb171fd0de3586b
+  #|cos 3fb17573c8702c00 3fefecf4ef98cf85
+  #|atan 3fb17573c8702c00 3fb16e8ad8cc9372
+  #|sin bfa6e78a9090c7c0 bfa6e595f2ae61dc
+  #|cos bfa6e78a9090c7c0 3feff7cde4a4a67a
+  #|atan bfa6e78a9090c7c0 bfa6e3a26e827d89
+  #|sin c022bfc67e79b457 bfa9b33ca274b22c
+  #|cos c022bfc67e79b457 bfeff5ac5817dce0
+  #|atan c022bfc67e79b457 bff76eb35e5de19a
+  #|sin c01bc28d186f4965 bfe389f52a434a29
+  #|cos c01bc28d186f4965 3fe957a01a987bab
+  #|atan c01bc28d186f4965 bff6d7d05966e7ca
+  #|sin 3fefda2e4b6028e0 3fead8d2b95dd7b9
+  #|cos 3fefda2e4b6028e0 3fe169eed4f9a36f
+  #|atan 3fefda2e4b6028e0 3fe90f0748f959af
+  #|sin 401b669d16c9e71e 3fe1301dce5181b2
+  #|cos 401b669d16c9e71e 3feafdfb2c3d52d5
+  #|atan 401b669d16c9e71e 3ff6d03cda46491f
+  #|sin bffb44fc3da4de83 bfefb70ef8835a57
+  #|cos bffb44fc3da4de83 bfc10b08603a1ef5
+  #|atan bffb44fc3da4de83 bff0a49a76bd0ac9
+  #|sin 402341270fcfc549 bfc9bd6705f34bd7
+  #|cos 402341270fcfc549 bfef58a7df809cce
+  #|atan 402341270fcfc549 3ff77a0b0ad0bad9
+  #|sin c021b39d26dc0749 bfe160023895de38
+  #|cos c021b39d26dc0749 bfeadf400abf772d
+  #|atan c021b39d26dc0749 bff7552746827d31
+  #|sin c01dd32c28823a86 bfed80769e8e4a27
+  #|cos c01dd32c28823a86 3fd8ca636a4de5e9
+  #|atan c01dd32c28823a86 bff6ffe68b1cf5fd
+  #|sin 4010b5fac23580ee bfeb88ade7513ace
+  #|cos 4010b5fac23580ee bfe04e530a1ed3df
+  #|atan 4010b5fac23580ee 3ff55fa5db349e54
+  #|sin c015872341cb8528 3fe917321b31714a
+  #|cos c015872341cb8528 3fe3dc6de25a8834
+  #|atan c015872341cb8528 bff63180dadce2a9
+  #|sin c01ff57630ced3e6 bfefb4a8f299c0be
+  #|cos c01ff57630ced3e6 bfc151dc6c7353d8
+  #|atan c01ff57630ced3e6 bff723f96fd349be
+  #|sin 4018e3f8ab65b98e bfaefc7abf13c4fc
+  #|cos 4018e3f8ab65b98e 3feff0fbe2f771a0
+  #|atan 4018e3f8ab65b98e 3ff69551be3c27bf
+  #|sin c00c0116ac24fcf2 3fd67b630123edf3
+  #|cos c00c0116ac24fcf2 bfedf5ecb9090569
+  #|atan c00c0116ac24fcf2 bff4ae3b0b3568ba
+  #|sin 4012c0cf441af4a0 bfeffd9f173dca10
+  #|cos 4012c0cf441af4a0 bf98ac9e9271223f
+  #|atan 4012c0cf441af4a0 3ff5c536ff1c34c4
+  #|sin c004cd9677e3eb13 bfe07c496c770f3f
+  #|cos c004cd9677e3eb13 bfeb6d41abcfc77f
+  #|atan c004cd9677e3eb13 bff3423da0fd92ff
+  #|sin 401f1adf85c0c938 3fefe742626c418d
+  #|cos 401f1adf85c0c938 3fb3e187a8624b11
+  #|atan 401f1adf85c0c938 3ff7161fd4ae98ae
+  #|sin c0236a98e24b2745 3fd1e5a178e548f3
+  #|cos c0236a98e24b2745 bfeeb92da1d6a934
+  #|atan c0236a98e24b2745 bff77d8d93d04a5c
+  #|sin c023f501c781a733 3fe0d40594b48576
+  #|cos c023f501c781a733 bfeb37c4ffa8a25c
+  #|atan c023f501c781a733 bff788ddc9ecf8f1
+  #|sin bfc909aa355c8d50 bfc8e0de4776a043
+  #|cos bfc909aa355c8d50 3fef63c6dc76abba
+  #|atan bfc909aa355c8d50 bfc8b9be0bacbe9a
+  #|sin 3fe1003b31de8744 3fe0365c42f25f63
+  #|cos 3fe1003b31de8744 3feb96d0f209a1e1
+  #|atan 3fe1003b31de8744 3fdf41395fdb3ff1
+  #|sin c017096bccfd40e4 3fe002bd68c41425
+  #|cos c017096bccfd40e4 3febb4e5c4a5b4c2
+  #|atan c017096bccfd40e4 bff661caf4807841
+  #|sin c0239d1263907de4 3fd7db9fd16619f3
+  #|cos c0239d1263907de4 bfedb184efa12508
+  #|atan c0239d1263907de4 bff781c00fc26e54
+  #|sin 401595098001d754 bfe8d1978f56bf0a
+  #|cos 401595098001d754 3fe43324ea159255
+  #|atan 401595098001d754 3ff6335aad3e0011
+  #|sin 401c01f476f0ce8c 3fe511d0a870d86d
+  #|cos 401c01f476f0ce8c 3fe815ae5a3d4d5c
+  #|atan 401c01f476f0ce8c 3ff6dced827c3002
+  #|sin c0071e9354d417a6 bfcfdfba2fea2bd5
+  #|cos c0071e9354d417a6 bfeefdf2dec0dac1
+  #|atan c0071e9354d417a6 bff3cd7810b43408
+  #|sin bff8cca55a07b117 bfeffe38e0e6200c
+  #|cos bff8cca55a07b117 3f9555196aa091b1
+  #|atan bff8cca55a07b117 bfefee2260aa3b37
+  #|sin c01f30e13cf87203 bfeff30b6b477a66
+  #|cos c01f30e13cf87203 3facc89325cc02df
+  #|atan c01f30e13cf87203 bff7178d6fb812d5
+  #|sin c01454d58b2d5fa9 3fedd4457a300377
+  #|cos c01454d58b2d5fa9 3fd72baf7be7d2ce
+  #|atan c01454d58b2d5fa9 bff6064bd60cb6be
+  #|sin 4012f486b504e3f7 bfeffd24e31dc0e6
+  #|cos 4012f486b504e3f7 3f9b0967e2a69b66
+  #|atan 4012f486b504e3f7 3ff5ce1fffa50444
+  #|sin 401ccf1344a4320e 3fe970c8cc8bf082
+  #|cos 401ccf1344a4320e 3fe36927bd62ca6a
+  #|atan 401ccf1344a4320e 3ff6ece19ac24238
+  #|sin c023209f273c69a4 3fc1ba0805240eeb
+  #|cos c023209f273c69a4 bfefb10f9257de58
+  #|atan c023209f273c69a4 bff7773f382edadf
+  #|sin c01ab54b4255b666 bfd88f7299624ae1
+  #|cos c01ab54b4255b666 3fed8cc723b3f28c
+  #|atan c01ab54b4255b666 bff6c110013944d2
+  #|sin c011deac4c38dd05 3fef0b7e9254a372
+  #|cos c011deac4c38dd05 bfcf0a03a8330403
+  #|atan c011deac4c38dd05 bff59bff35897e90
+  #|sin c016283d0d10c748 3fe5ab41c4541be5
+  #|cos c016283d0d10c748 3fe78c0071699c31
+  #|atan c016283d0d10c748 bff6466abe47c006
+  #|sin c01630bb35df9fe2 3fe57912674f6f3a
+  #|cos c01630bb35df9fe2 3fe7b9cd2f08a220
+  #|atan c01630bb35df9fe2 bff6477cd3fbdc84
+  #|sin c01bb7dd747e7d89 bfe345fbe8d7ec8a
+  #|cos c01bb7dd747e7d89 3fe98b7846dc99a2
+  #|atan c01bb7dd747e7d89 bff6d6f172247369
+  #|sin c0161b8374aab075 3fe5f5bc2ddd7c5f
+  #|cos c0161b8374aab075 3fe7469a8fe723a8
+  #|atan c0161b8374aab075 bff644ce95a60bd1
+  #|sin c021839484fc93cc bfe3d0e296a380c2
+  #|cos c021839484fc93cc bfe920512017d4f7
+  #|atan c021839484fc93cc bff75042381d4d7d
+  #|sin 401f0b18c3a6dfb4 3fefdc7d24d069d9
+  #|cos 401f0b18c3a6dfb4 3fb7cf86b857d44f
+  #|atan 401f0b18c3a6dfb4 3ff715188177fdfd
+  #|sin bfc64d7109e91dc0 bfc63098b81e111b
+  #|cos bfc64d7109e91dc0 3fef83f6bdccce65
+  #|atan bfc64d7109e91dc0 bfc614b1ae665cd0
+  #|sin c01e0a79b77ac7be bfee20be16b52bc9
+  #|cos c01e0a79b77ac7be 3fd591c352b79d44
+  #|atan c01e0a79b77ac7be bff703c8177ad4c4
+  #|sin c01ebd632f8ef648 bfef8b3f34cb526d
+  #|cos c01ebd632f8ef648 3fc588888b6eb318
+  #|atan c01ebd632f8ef648 bff70ff84ce6f209
+  #|sin c01c380e4ad11088 bfe64fe3602de405
+  #|cos c01c380e4ad11088 3fe6f03d533a81c9
+  #|atan c01c380e4ad11088 bff6e138c6573653
+  #|sin 401c3c4950601d4f 3fe6681995bd9d90
+  #|cos 401c3c4950601d4f 3fe6d897668f0487
+  #|atan 401c3c4950601d4f 3ff6e18e0df5f9e0
+  #|sin 401b1e22e202ff97 3fde78db618064b4
+  #|cos 401b1e22e202ff97 3fec23dac9bd9b3f
+  #|atan 401b1e22e202ff97 3ff6ca206f5c2df4
+  #|sin c01bb03d3356ce85 bfe3152582267d5e
+  #|cos c01bb03d3356ce85 3fe9b008662c6965
+  #|atan c01bb03d3356ce85 bff6d651f8a05d01
+  #|sin 4018af637c702570 bfbc96a9afd01091
+  #|cos 4018af637c702570 3fefccc21c859bd6
+  #|atan 4018af637c702570 3ff68ffb2e41223d
+  #|sin c018d86e451c31de 3fb25f37e09da17a
+  #|cos c018d86e451c31de 3fefeae092ef4d89
+  #|atan c018d86e451c31de bff69427b3da6cc4
+  #|sin c021c13cf43fbbbb bfe0a766656f3917
+  #|cos c021c13cf43fbbbb bfeb532958c9b615
+  #|atan c021c13cf43fbbbb bff75685ee22a9f0
+  #|sin 4017206b84ab3e50 bfdec4d3fca742d2
+  #|cos 4017206b84ab3e50 3fec0f2872c80442
+  #|atan 4017206b84ab3e50 3ff664799d527e8c
+  #|sin 3ff31b68e2318e80 3fedc1e4f1155adf
+  #|cos 3ff31b68e2318e80 3fd7897677ab0b01
+  #|atan 3ff31b68e2318e80 3febf51c8a097d89
+  #|sin 3feb762228146d20 3fe836754545eb3d
+  #|cos 3feb762228146d20 3fe4ec1dc2d4e4dc
+  #|atan 3feb762228146d20 3fe6b1ead6fcf060
+  #|sin 401d0ec8a81658b0 3fea99246855bf5d
+  #|cos 401d0ec8a81658b0 3fe1ca9b6e053f78
+  #|atan 401d0ec8a81658b0 3ff6f1a91ca6eab4
+  #|sin 3fe31a6f7ad22118 3fe1fd174af0f0ea
+  #|cos 3fe31a6f7ad22118 3fea7719ff1d3c25
+  #|atan 3fe31a6f7ad22118 3fe138e20f27e94c
+  #|sin 400f569708c85897 bfe66818d4667384
+  #|cos 400f569708c85897 bfe6d898242e2b9a
+  #|atan 400f569708c85897 3ff522391d98ce88
+  #|sin 401f6d66521986ca 3feffff775821f9c
+  #|cos 401f6d66521986ca bf6761440df2fec5
+  #|atan 401f6d66521986ca 3ff71b70ba3b0a6b
+  #|sin 401983bd5f4c8d56 3fb86702f5c0053e
+  #|cos 401983bd5f4c8d56 3fefdab2a21686e4
+  #|atan 401983bd5f4c8d56 3ff6a5063d9b2a50
+  #|sin c000bb126f4fbd98 bfebc2f20453b3e0
+  #|cos c000bb126f4fbd98 bfdfd4aa9f0396de
+  #|atan c000bb126f4fbd98 bff1ff1096727bf1
+  #|sin 401715128f1d04d2 bfdf638ac61ee6a8
+  #|cos 401715128f1d04d2 3febe312fc159230
+  #|atan 401715128f1d04d2 3ff6632778553f0f
+  #|sin 4006bf7f0d29a0f6 3fd2cbe069e83864
+  #|cos 4006bf7f0d29a0f6 bfee96bac20051f8
+  #|atan 4006bf7f0d29a0f6 3ff3b8d6ce3e7df0
+  #|sin 40089be750270cc2 3fb0bf7012d31db2
+  #|cos 40089be750270cc2 bfefee735d681da7
+  #|atan 40089be750270cc2 3ff41a93506b75c6
+  #|sin c020eb3c544ae0bc bfea4fc774ed1d4d
+  #|cos c020eb3c544ae0bc bfe2366b0fa2d4ee
+  #|atan c020eb3c544ae0bc bff740069d3a7d6f
+  #|sin c0202ca34281f27d bfef224158c299b5
+  #|cos c0202ca34281f27d bfcd9478a5d06fe6
+  #|atan c0202ca34281f27d bff72a0f2a9c2260
+  #|sin 3ff4497549fb649c 3fee8b27c541ff5d
+  #|cos 3ff4497549fb649c 3fd3169544e305c4
+  #|atan 3ff4497549fb649c 3fece5521e581f7e
+  #|sin 401fc20d69ec005e 3fefe20f41cd7dc2
+  #|cos 401fc20d69ec005e bfb5ddfbb2476280
+  #|atan 401fc20d69ec005e 3ff720c86ed2a4a4
+  #|sin c012b84061c07694 3feffbaf8b1cc3a7
+  #|cos c012b84061c07694 bfa09d4f89b8b169
+  #|atan c012b84061c07694 bff5c3b8fdcbf948
+  #|sin bfc9b525a3a8c4a0 bfc988fe04166e2f
+  #|cos bfc9b525a3a8c4a0 3fef5b559a04771a
+  #|atan bfc9b525a3a8c4a0 bfc95ebdae97b9e7
+  #|sin 4021a6ed046b69f0 3fe2091a2e4d4e08
+  #|cos 4021a6ed046b69f0 bfea6eebfb098585
+  #|atan 4021a6ed046b69f0 3ff753ded6bc6a20
+  #|sin c0180ae961e031fd 3fd13a0ddabd506e
+  #|cos c0180ae961e031fd 3feed1a8b66d9ba9
+  #|atan c0180ae961e031fd bff67eb5db1eb8bf
+  #|sin 40212cd841ca02d5 3fe7c4bb10ac9f6d
+  #|cos 40212cd841ca02d5 bfe56cf8ca270eb3
+  #|atan 40212cd841ca02d5 3ff747271c625496
+  #|sin c00cd5d33c1fb4fa 3fdc92ee67999826
+  #|cos c00cd5d33c1fb4fa bfeca232cccee9e4
+  #|atan c00cd5d33c1fb4fa bff4cd7998c3991d
+  #|sin 4004afae3faf4379 3fe0e25d7af278a7
+  #|cos 4004afae3faf4379 bfeb2ee182fa171c
+  #|atan 4004afae3faf4379 3ff33a7f304e4e6c
+  #|sin 40236d46080855a0 bfd237cb60b896b8
+  #|cos 40236d46080855a0 bfeead189e22b04f
+  #|atan 40236d46080855a0 3ff77dc717ad2fc9
+  #|sin c009cb357c0b5eac 3fb5211bf07039d0
+  #|cos c009cb357c0b5eac bfefe40c9d2c7342
+  #|atan c009cb357c0b5eac bff45221cf8c6675
+  #|sin c01ded6e5a7dcfd2 bfedcf5793bf30cf
+  #|cos c01ded6e5a7dcfd2 3fd74501adba67f8
+  #|atan c01ded6e5a7dcfd2 bff701c00cdd0368
+  #|sin 4002266f017738ca 3fe884497946272e
+  #|cos 4002266f017738ca bfe490b3ab716d85
+  #|atan 4002266f017738ca 3ff27d86bb3cc869
+  #|sin bfed9b27bb10d11e bfe98f3cb59e25e1
+  #|cos bfed9b27bb10d11e 3fe340fca4108ac8
+  #|atan bfed9b27bb10d11e bfe7e3cff25dbccd
+  #|sin c01b2fef18fba678 bfdf7214991f5b91
+  #|cos c01b2fef18fba678 3febdefa70f2b4eb
+  #|atan c01b2fef18fba678 bff6cba38d264a9a
+  #|sin c01eb648f881ed97 bfef817e7c868c4d
+  #|cos c01eb648f881ed97 3fc6686fcb4a14d2
+  #|atan c01eb648f881ed97 bff70f7f18afe549
+  #|sin c00584ecd5a909be bfdbef5d7be2c7f6
+  #|cos c00584ecd5a909be bfecca702879e242
+  #|atan c00584ecd5a909be bff3701a6157096a
+  #|sin bff652f9f2afcb93 bfef821c55b791b3
+  #|cos bff652f9f2afcb93 3fc65a8c5e53333d
+  #|atan bff652f9f2afcb93 bfee5db9e4d18da5
+  #|sin 4017b3cd38e9ed98 bfd666cf209b7634
+  #|cos 4017b3cd38e9ed98 3fedf9c6f0d776de
+  #|atan 4017b3cd38e9ed98 3ff67531cb33c8d4
+  #|sin 4005c04d716e346e 3fda410a17f6eb2f
+  #|cos 4005c04d716e346e bfed2efece147f0e
+  #|atan 4005c04d716e346e 3ff37e632e669be2
+  #|sin 400474281f4b3c8a 3fe1aac45ab1448f
+  #|cos 400474281f4b3c8a bfeaae55213aaf49
+  #|atan 400474281f4b3c8a 3ff32adb078998f5
+  #|sin 40086faa0014a451 3fb642f584c1637d
+  #|cos 40086faa0014a451 bfefe0f7b8946b1a
+  #|atan 40086faa0014a451 3ff412108df3cc18
+  #|sin c00e25581ef68a33 3fe2c4048aeabac0
+  #|cos c00e25581ef68a33 bfe9eb880c89983d
+  #|atan c00e25581ef68a33 bff4fb7d9271ac8a
+  #|sin c00e07d6a96e8ee2 3fe263ec81fac54b
+  #|cos c00e07d6a96e8ee2 bfea300d6214cc3c
+  #|atan c00e07d6a96e8ee2 bff4f7981b513f02
+  #|sin 4003efa67d59b01a 3fe35aebb25c3ad6
+  #|cos 4003efa67d59b01a bfe97b9edbb93afc
+  #|atan 4003efa67d59b01a 3ff306e7a9f7efca
+  #|sin 401b1d180d3de034 3fde6a30067aa33e
+  #|cos 401b1d180d3de034 3fec27d2320f74d8
+  #|atan 401b1d180d3de034 3ff6ca09b41fb147
+  #|sin c02023c99b5d3354 bfef41c95aeb055d
+  #|cos c02023c99b5d3354 bfcb6c4941da6101
+  #|atan c02023c99b5d3354 bff728fda17a3c42
+  #|sin 3fd830fafc8dd6d8 3fd79e8f12f367f0
+  #|cos 3fd830fafc8dd6d8 3fedbdb6dc43dcde
+  #|atan 3fd830fafc8dd6d8 3fd720ff85b90dd9
+  #|sin 4007ffe0dcaccaf9 3fc21225a602d6cc
+  #|cos 4007ffe0dcaccaf9 bfefadf329ee8e39
+  #|atan 4007ffe0dcaccaf9 3ff3fc11312f685b
+  #|sin bfe18a0306b9ad30 bfe0ac8e85eaa46f
+  #|cos bfe18a0306b9ad30 3feb500417207c8e
+  #|atan bfe18a0306b9ad30 bfe00b506758fe7b
+  #|sin 3fd9542995305710 3fd8ac377eb374aa
+  #|cos 3fd9542995305710 3fed86c8b3904798
+  #|atan 3fd9542995305710 3fd81e44e8494e27
+  #|sin c001e805f7faaad8 bfe921c8951fc83a
+  #|cos c001e805f7faaad8 bfe3cf065feb2b27
+  #|atan c001e805f7faaad8 bff268fd9537eac3
+  #|sin c01f8aba4eed6b9f bfeffbeffc895b2b
+  #|cos c01f8aba4eed6b9f bfa01f64193e81dc
+  #|atan c01f8aba4eed6b9f bff71d4dc4413dba
+  #|sin 4023293d911e592d bfc3dba6911b63f6
+  #|cos 4023293d911e592d bfef9cd07ce26948
+  #|atan 4023293d911e592d 3ff777fdc91e67c5
+  #|sin 4023326fefea2eac bfc62043f1fb1b44
+  #|cos 4023326fefea2eac bfef84ae7276a07b
+  #|atan 4023326fefea2eac 3ff778c866c55b7d
+  #|sin 40025f8631b8cba2 3fe7ef1b7c7e7b5b
+  #|cos 40025f8631b8cba2 bfe53d97d8de291c
+  #|atan 40025f8631b8cba2 3ff28fe9456be7b4
+  #|sin 401d5627db7a3500 3febc5cdff4d746f
+  #|cos 401d5627db7a3500 3fdfcaaeeca0caee
+  #|atan 401d5627db7a3500 3ff6f6eb979d2a9b
+  #|sin 401ce840c68f9450 3fe9e8fbbfe427d9
+  #|cos 401ce840c68f9450 3fe2c78906ad196c
+  #|atan 401ce840c68f9450 3ff6eec79b96c944
+  #|sin bfeb970a149e6d1e bfe84bec352af9b2
+  #|cos bfeb970a149e6d1e 3fe4d32cc603d2f2
+  #|atan bfeb970a149e6d1e bfe6c4d46f2b9884
+  #|sin 40195306c750310d 3fa8835328ca89dc
+  #|cos 40195306c750310d 3feff69b1326c863
+  #|atan 40195306c750310d 3ff6a050e14cabb5
+  #|sin 4022b47e10ce05e4 3fb27b18b9e6671a
+  #|cos 4022b47e10ce05e4 bfefeaa031e2bb78
+  #|atan 4022b47e10ce05e4 3ff76daec91163be
+  #|sin bfe9b3e56cd71bf2 bfe706df1c18ddef
+  #|cos bfe9b3e56cd71bf2 3fe638873bdde712
+  #|atan bfe9b3e56cd71bf2 bfe5a77caa50bfda
+  #|sin 401c5edeb80ccbde 3fe72a50f0ff8a02
+  #|cos 401c5edeb80ccbde 3fe6139140e50762
+  #|atan 401c5edeb80ccbde 3ff6e4438a585cb3
+  #|sin 401bd1a6923c267e 3fe3e913113710df
+  #|cos 401bd1a6923c267e 3fe90d2a72a5d21d
+  #|atan 401bd1a6923c267e 3ff6d90a321a0ec3
+  #|sin 4000c7f7bac200ad 3feba9265437c993
+  #|cos 4000c7f7bac200ad bfe01700abe34b5e
+  #|atan 4000c7f7bac200ad 3ff203da43e14566
+  #|sin 3fe097a901fcf5c4 3fdfb7bc4597f641
+  #|cos 3fe097a901fcf5c4 3febcb380124b66b
+  #|atan 3fe097a901fcf5c4 3fde9d41f4e72a27
+  #|sin c00a9f2207cc63a4 3fc7af4669c2ccbc
+  #|cos c00a9f2207cc63a4 bfef7289a79967b5
+  #|atan c00a9f2207cc63a4 bff4764461983d63
+  #|sin 400d8bff75a424a5 bfe0c62db043b52c
+  #|cos 400d8bff75a424a5 bfeb404f402fdcc2
+  #|atan 400d8bff75a424a5 3ff4e6ee6d1cef69
+  #|sin 400609df5b5d6678 3fd8240f5cd50f70
+  #|cos 400609df5b5d6678 bfeda2de6b504ca6
+  #|atan 400609df5b5d6678 3ff38fb7d82066ca
+  #|sin 4018abae0d8e5f06 bfbd827ce76efc49
+  #|cos 4018abae0d8e5f06 3fefc9643aaf73c7
+  #|atan 4018abae0d8e5f06 3ff68f99f551f436
+  #|sin 3fc6032bec5b6db0 3fc5e76fc3bb3f36
+  #|cos 3fc6032bec5b6db0 3fef872974651458
+  #|atan 3fc6032bec5b6db0 3fc5cc95bb5a23e8
+  #|sin bfe1e366daea02f0 bfe0f898d48152f6
+  #|cos bfe1e366daea02f0 3feb2105d2d267aa
+  #|atan bfe1e366daea02f0 bfe04fbcd2ae30b4
+  #|sin 40192212e54671a8 3f1791024407635f
+  #|cos 40192212e54671a8 3feffffffdd49f74
+  #|atan 40192212e54671a8 3ff69b83a8e473f8
+  #|sin 4002c9ada7e7efb0 3fe6cd284e830dca
+  #|cos 4002c9ada7e7efb0 bfe673bc24f3db7d
+  #|atan 4002c9ada7e7efb0 3ff2b11de79d184f
+  #|sin 4023d1979d9b70c0 bfddd04c03f480b6
+  #|cos 4023d1979d9b70c0 bfec50da75116f1d
+  #|atan 4023d1979d9b70c0 3ff78607a1672cda
+  #|sin 402270aaa80dbc98 3fca05b253033667
+  #|cos 402270aaa80dbc98 bfef54ec9e12ce97
+  #|atan 402270aaa80dbc98 3ff76776600408c2
+  #|sin 4021f7ddd89fedc2 3fdb4c6d30403144
+  #|cos 4021f7ddd89fedc2 bfecf168a26a441c
+  #|atan 4021f7ddd89fedc2 3ff75bef54c0b4ac
+  #|sin 4022a17de1ab6577 3fbbf107585e8c54
+  #|cos 4022a17de1ab6577 bfefcf0eeb1d0195
+  #|atan 4022a17de1ab6577 3ff76bf533c6f147
+  #|sin 401a5800cef4f8aa 3fd314e92e8848d8
+  #|cos 401a5800cef4f8aa 3fee8b6aa42c0a06
+  #|atan 401a5800cef4f8aa 3ff6b8c3ecdccfd3
+  #|sin c018cf75bc8adf53 3fb49baef6bf7232
+  #|cos c018cf75bc8adf53 3fefe569d45deb09
+  #|atan c018cf75bc8adf53 bff6933f4c66d627
+  #|sin 40162dddc602c364 bfe58a0b3b7702a6
+  #|cos 40162dddc602c364 3fe7aa65d775f8b8
+  #|atan 40162dddc602c364 3ff6472074d019a3
+  #|sin bfedbb6b32302930 bfe9a29948fca374
+  #|cos bfedbb6b32302930 3fe3272dbf6bcc2c
+  #|atan bfedbb6b32302930 bfe7f5296b90ba5c
+  #|sin 4016a4418e9c2a40 bfe2aa5991e6d16f
+  #|cos 4016a4418e9c2a40 3fe9fe0a02bb75d7
+  #|atan 4016a4418e9c2a40 3ff655bfc932d392
+  #|sin c01b999974221440 bfe282932757bcbf
+  #|cos c01b999974221440 3fea1a6c33d2fda0
+  #|atan c01b999974221440 bff6d4768b8bf606
+  #|sin 4023eb12800cc697 bfe04c04d9d95aeb
+  #|cos 4023eb12800cc697 bfeb8a0b4a7e0357
+  #|atan 4023eb12800cc697 3ff78813176ade17
+  #|sin 4018c459a1a373c2 bfb76013e68f0bdc
+  #|cos 4018c459a1a373c2 3fefddc73954c94a
+  #|atan 4018c459a1a373c2 3ff6921e97c74924
+  #|sin c00ec6e40d6ec9d7 3fe4bff304984153
+  #|cos c00ec6e40d6ec9d7 bfe85c598c18c1fc
+  #|atan c00ec6e40d6ec9d7 bff51056dde08199
+  #|sin c014f50a2e904a8a 3feba8e3574ff004
+  #|cos c014f50a2e904a8a 3fe01773d3227770
+  #|atan c014f50a2e904a8a bff61d7d106b57eb
+  #|sin 401d2fbfd0fe561e 3feb2836ea0c3dfa
+  #|cos 401d2fbfd0fe561e 3fe0ed14561b96ff
+  #|atan 401d2fbfd0fe561e 3ff6f41a2a96776a
+  #|sin 4015eec2360bc76a bfe6f4b5bed9adf5
+  #|cos 4015eec2360bc76a 3fe64b49e7e0473d
+  #|atan 4015eec2360bc76a 3ff63f169f2615d5
+  #|sin c00b9d0bacf93993 3fd3877b3cf25364
+  #|cos c00b9d0bacf93993 bfee794acf7e4903
+  #|atan c00b9d0bacf93993 bff49eefd2928777
+  #|sin bfc56857eb241b78 bfc54ed48a9d8408
+  #|cos bfc56857eb241b78 3fef8db210c013b5
+  #|atan bfc56857eb241b78 bfc5361620615b9b
+  #|sin 40004652e79da130 3fec9f894a09f77c
+  #|cos 40004652e79da130 bfdc9d97a712dfbf
+  #|atan 40004652e79da130 3ff1d2a10ef2cb2d
+  #|sin c0178fab6b3e0a4a 3fd880ab26ec24e7
+  #|cos c0178fab6b3e0a4a 3fed8fd8350c0d0c
+  #|atan c0178fab6b3e0a4a bff6712b469ec454
+  #|sin 4021b7e0024d5d5e 3fe1269a28981239
+  #|cos 4021b7e0024d5d5e bfeb0407c83ae915
+  #|atan 4021b7e0024d5d5e 3ff755952bc57c08
+  #|sin c02058cd25d00eba bfee6187e01f7bbd
+  #|cos c02058cd25d00eba bfd4196fbf29c321
+  #|atan c02058cd25d00eba bff72f531bc43f32
+  #|sin 4020da575f6b1ddc 3feae5edf3fe56c3
+  #|cos 4020da575f6b1ddc bfe155a952b2ab29
+  #|atan 4020da575f6b1ddc 3ff73e27f2041678
+  #|sin 4018e4d1e5d405ee bfae900fcde8989e
+  #|cos 4018e4d1e5d405ee 3feff16457537134
+  #|atan 4018e4d1e5d405ee 3ff695679d98efdb
+  #|sin bfd919f34dfd5cdc bfd87676f07a29cb
+  #|cos bfd919f34dfd5cdc 3fed91f4fad5dc18
+  #|atan bfd919f34dfd5cdc bfd7ebe103befe28
+  #|sin c0190addbcc858c1 3f971d16d3af2e84
+  #|cos c0190addbcc858c1 3feffde9b12b14a5
+  #|atan c0190addbcc858c1 bff69936827c005c
+  #|sin c0217fc3b08eafba bfe400ae7071455b
+  #|cos c0217fc3b08eafba bfe8fa5513ae8644
+  #|atan c0217fc3b08eafba bff74fdd8a646725
+  #|sin bfdee23a2377c4ec bfddb2efc5b71584
+  #|cos bfdee23a2377c4ec 3fec58900f62c353
+  #|atan bfdee23a2377c4ec bfdcc631693065c3
+  #|sin 401aa2f2a532c998 3fd77f63b8f38409
+  #|cos 401aa2f2a532c998 3fedc3e25f00525b
+  #|atan 401aa2f2a532c998 3ff6bf72c84a89b8
+  #|sin bff02cfa09e3e71c bfeb1d840b66d159
+  #|cos bff02cfa09e3e71c 3fe0fe32ae6bc2ce
+  #|atan bff02cfa09e3e71c bfe94eb662268b06
+  #|sin c0226cafaddc7f6a bfcafeeacd2e3182
+  #|cos c0226cafaddc7f6a bfef47bc171fef5e
+  #|atan c0226cafaddc7f6a bff76717848a64c1
+  #|sin c0153b3aaf595808 3fea7e1db463742a
+  #|cos c0153b3aaf595808 3fe1f2c112de1527
+  #|atan c0153b3aaf595808 bff6273bdfe40519
+  #|sin c01a97b026df5776 bfd6d77488aac47a
+  #|cos c01a97b026df5776 3fede47ebd4fb068
+  #|atan c01a97b026df5776 bff6be7417dfee5f
+  #|sin c01e8da3714e1aa6 bfef423afb1fa88f
+  #|cos c01e8da3714e1aa6 3fcb642fd0e39510
+  #|atan c01e8da3714e1aa6 bff70cc54a5e70df
+  #|sin 4022d70cc52d4069 3f737dcb5cdb39ae
+  #|cos 4022d70cc52d4069 bfefffe841573092
+  #|atan 4022d70cc52d4069 3ff770c917f7d50a
+  #|sin c001fa5977268c5a bfe8f4263ec33c42
+  #|cos c001fa5977268c5a bfe40864858e3561
+  #|atan c001fa5977268c5a bff26f11a35e2c80
+  #|sin 40155436a860ab5b bfea0c00a6a49b71
+  #|cos 40155436a860ab5b 3fe296d8545e522f
+  #|atan 40155436a860ab5b 3ff62aa4f6feb315
+  #|sin 400b505810074396 bfd13bc3c8a40bd5
+  #|cos 400b505810074396 bfeed16b80bc63e2
+  #|atan 400b505810074396 3ff492f020ea652a
+  #|sin bfed9f126bc8ca78 bfe99197d1d41ae6
+  #|cos bfed9f126bc8ca78 3fe33ddb9ce2e0a8
+  #|atan bfed9f126bc8ca78 bfe7e5ec114a034b
+  #|sin 401aef188f1e531e 3fdbdb005c07f387
+  #|cos 401aef188f1e531e 3feccf5e7a974a85
+  #|atan 401aef188f1e531e 3ff6c617d9bb3330
+  #|sin 401c2691cba69850 3fe5eac8787ed7e7
+  #|cos 401c2691cba69850 3fe750eae6d41ae8
+  #|atan 401c2691cba69850 3ff6dfd73e4786ea
+  #|sin c00174f871b7c740 bfea345d5a618b31
+  #|cos c00174f871b7c740 bfe25dc6edd5a5cc
+  #|atan c00174f871b7c740 bff241e2d9bee2d1
+  #|sin 4021266fc5349add 3fe808e6ddf1c062
+  #|cos 4021266fc5349add bfe52063626a214c
+  #|atan 4021266fc5349add 3ff74677479b3b81
+  #|sin c011c47b041a6ea3 3feed6169406251c
+  #|cos c011c47b041a6ea3 bfd11a3c2c9f491e
+  #|atan c011c47b041a6ea3 bff596f8726164da
+  #|sin 4008d78e7034fea6 3fa29a2ca3ab8300
+  #|cos 4008d78e7034fea6 bfeffa975e78b106
+  #|atan 4008d78e7034fea6 3ff425e1b8076c6e
+  #|sin 3ff56ac5560b5202 3fef24178dd32725
+  #|cos 3ff56ac5560b5202 3fcd7578f96026ff
+  #|atan 3ff56ac5560b5202 3fedbbcc7a033e9d
+  #|sin c0124cb533863298 3fefb2b49c19cde1
+  #|cos c0124cb533863298 bfc18abc09dc6788
+  #|atan c0124cb533863298 bff5b086ffaa3d6e
+  #|sin c0047f8d27e23aea bfe184b1d12e5c79
+  #|cos c0047f8d27e23aea bfeac763f53313bd
+  #|atan c0047f8d27e23aea bff32ddfa5f45938
+  #|sin 400fc49794a77465 bfe799d0330d5ad3
+  #|cos 400fc49794a77465 bfe59c35f6c9c73a
+  #|atan 400fc49794a77465 3ff52f830ffc4325
+  #|sin c01a1fd05e9b57a9 bfcf67b38fd596b0
+  #|cos c01a1fd05e9b57a9 3fef059a76679727
+  #|atan c01a1fd05e9b57a9 bff6b3a8a486259a
+  #|sin 3feaa89ea72e22b0 3fe7ae26f7666b0a
+  #|cos 3feaa89ea72e22b0 3fe585ea805095f2
+  #|atan 3feaa89ea72e22b0 3fe63a16793488dc
+  #|sin 40160a2affa09e5a bfe659db45d5f57c
+  #|cos 40160a2affa09e5a 3fe6e686e3bd6deb
+  #|atan 40160a2affa09e5a 3ff64299de495e6a
+  #|sin c01673a221b4a1e3 3fe3e0ccdbaaeb29
+  #|cos c01673a221b4a1e3 3fe913bbbca6e790
+  #|atan c01673a221b4a1e3 bff64fd07c17092f
+  #|sin 401ff5c98ec4c992 3fefb44e99563222
+  #|cos 401ff5c98ec4c992 bfc15c2f939d1763
+  #|atan 401ff5c98ec4c992 3ff723fe947561cd
+  #|sin 400ea1cd122ef66d bfe44e248094dcb0
+  #|cos 400ea1cd122ef66d bfe8bb85c507a4d1
+  #|atan 400ea1cd122ef66d 3ff50b9fab78c32a
+  #|sin c003e14dac89cb3e bfe3887fb8f1c021
+  #|cos c003e14dac89cb3e bfe958bff60e411a
+  #|atan c003e14dac89cb3e bff302ea669dc45c
+  #|sin 401622926f6e8902 bfe5cc8759a1b577
+  #|cos 401622926f6e8902 3fe76d36849eaf50
+  #|atan 401622926f6e8902 3ff645b36de74c1a
+  #|sin c0162172ebc5be53 3fe5d31a5cb01b46
+  #|cos c0162172ebc5be53 3fe76716b7dc9454
+  #|atan c0162172ebc5be53 bff6458f0dd50205
+  #|sin 3fdac22977d41d18 3fd9fc525be391b7
+  #|cos 3fdac22977d41d18 3fed3e5afee45314
+  #|atan 3fdac22977d41d18 3fd95844665fcacf
+  #|sin c011283ee8c89344 3fed2dadcdcfbc87
+  #|cos c011283ee8c89344 bfda46e3ba9241dc
+  #|atan c011283ee8c89344 bff577ce576349ed
+  #|sin 401d9cabdd1ec054 3fecccf5827c096e
+  #|cos 401d9cabdd1ec054 3fdbe4f69b9cdaa4
+  #|atan 401d9cabdd1ec054 3ff6fc057846d75b
+  #|sin 401b9176726b4dca 3fe24d53b551b04b
+  #|cos 401b9176726b4dca 3fea3fdd3d0de0f0
+  #|atan 401b9176726b4dca 3ff6d3caf227bbbe
+  #|sin 3fe23a91596384e0 3fe1423f51938168
+  #|cos 3fe23a91596384e0 3feaf266fde8666d
+  #|atan 3fe23a91596384e0 3fe091d96376050e
+  #|sin c021c8712721638e bfe0448ef7dae6e8
+  #|cos c021c8712721638e bfeb8e7424845a15
+  #|atan c021c8712721638e bff7573e80ec9236
+  #|sin c00ece3044d40c31 3fe4d62343be64c4
+  #|cos c00ece3044d40c31 bfe84961c8236f41
+  #|atan c00ece3044d40c31 bff5114323f3a611
+  #|sin 40106b275dfdae3a bfea451d4d97172e
+  #|cos 40106b275dfdae3a bfe245c9b25cee46
+  #|atan 40106b275dfdae3a 3ff54f27d86d5b86
+  #|sin c01d80d0dc34f5e6 bfec691de5820939
+  #|cos c01d80d0dc34f5e6 3fdd736646889a9f
+  #|atan c01d80d0dc34f5e6 bff6fa0479d3765b
+  #|sin bff9167f5837af58 bfeffff7c1c506aa
+  #|cos bff9167f5837af58 3f66f7f62018896f
+  #|atan bff9167f5837af58 bff00c988f5a3ac0
+  #|sin c01ac2b9aa66b090 bfd95558fe6d7eab
+  #|cos c01ac2b9aa66b090 3fed62e4cd7246f0
+  #|atan c01ac2b9aa66b090 bff6c23d275b0df2
+  #|sin 4023ade1c6b8a05e bfd9cb64917abb3c
+  #|cos 4023ade1c6b8a05e bfed492d5795ed68
+  #|atan 4023ade1c6b8a05e 3ff783212da8a722
+  #|sin c02063d7f184b931 bfee283dc14639e2
+  #|cos c02063d7f184b931 bfd567af960b0b6c
+  #|atan c02063d7f184b931 bff7309fc37ed327
+  #|sin 4004b5c3db21443b 3fe0cdac0673784f
+  #|cos 4004b5c3db21443b bfeb3bb1057e903b
+  #|atan 4004b5c3db21443b 3ff33c1414872097
+  #|sin 3ff15cd3b66f57fa 3fec4cd61a4e0b92
+  #|cos 3ff15cd3b66f57fa 3fdddf89cc7e024e
+  #|atan 3ff15cd3b66f57fa 3fea7060422b0699
+  #|sin c004c7cc43a373ed bfe0901e9c5f7780
+  #|cos c004c7cc43a373ed bfeb614c223878ec
+  #|atan c004c7cc43a373ed bff340bf5a99b5bf
+  #|sin 4004a8b8afcb85ac 3fe0f9fca250379d
+  #|cos 4004a8b8afcb85ac bfeb2027319a1e2c
+  #|atan 4004a8b8afcb85ac 3ff338af16851822
+  #|sin c01940809142d774 bf9e8414dd51c38d
+  #|cos c01940809142d774 3feffc5c9202f630
+  #|atan c01940809142d774 bff69e81dd53b7bc
+  #|sin c0157f918271ca5e 3fe93c9a854ea828
+  #|cos c0157f918271ca5e 3fe3accf9e765754
+  #|atan c0157f918271ca5e bff6307dd9235352
+  #|sin c0144e6961ba340a 3fede6b9085968eb
+  #|cos c0144e6961ba340a 3fd6cbc7c5bd28b9
+  #|atan c0144e6961ba340a bff6055678690a4b
+  #|sin bff8dc6bab636c83 bfeffed195c1e454
+  #|cos bff8dc6bab636c83 3f9163b36fd33dbb
+  #|atan bff8dc6bab636c83 bfeff76409442cd6
+  #|sin bff1154e8c56d866 bfec08f7f4d69c52
+  #|cos bff1154e8c56d866 3fdedb5d0fa9765d
+  #|atan bff1154e8c56d866 bfea2e1cf12bc196
+  #|sin 3fb4ce30a29cea40 3fb4c8542327bf11
+  #|cos 3fb4ce30a29cea40 3fefe4f5f4f40dc5
+  #|atan 3fb4ce30a29cea40 3fb4c2827d3efd34
+  #|sin bff75f581a0de48e bfefce78a806a08d
+  #|cos bff75f581a0de48e 3fbc1baa38d211cd
+  #|atan bff75f581a0de48e bfef0e5d06b56684
+  #|sin 3fd8d41116986840 3fd835d4a5a6a34b
+  #|cos 3fd8d41116986840 3fed9f3e6f2a3b2e
+  #|atan 3fd8d41116986840 3fd7af3978c1c584
+  #|sin bff910f8a078b613 bfefffedea432ee2
+  #|cos bff910f8a078b613 3f7102b0971b23e0
+  #|atan bff910f8a078b613 bff00aff44283357
+  #|sin 4017306b73369932 bfdde367e146e26a
+  #|cos 4017306b73369932 3fec4bd0bd58c5a5
+  #|atan 4017306b73369932 3ff66654422a8626
+  #|sin 400bfca80f8fb4d7 bfd65a2d231d00a9
+  #|cos 400bfca80f8fb4d7 bfedfc2264b7f910
+  #|atan 400bfca80f8fb4d7 3ff4ad8fbb5815ca
+  #|sin 4011c328e5bfb764 bfeed3421069fb4a
+  #|cos 4011c328e5bfb764 bfd12e98667d6f53
+  #|atan 4011c328e5bfb764 3ff596b72fecd27a
+  #|sin 40213428eaae0d06 3fe775bf45a402b0
+  #|cos 40213428eaae0d06 bfe5c357dc32e595
+  #|atan 40213428eaae0d06 3ff747ef35b66d01
+  #|sin 4023aadc6981e874 bfd972cea66f3f54
+  #|cos 4023aadc6981e874 bfed5c870a6a5032
+  #|atan 4023aadc6981e874 3ff782e1e43d17fb
+  #|sin bfd9adeed8666898 bfd8fef4000e40d7
+  #|cos bfd9adeed8666898 3fed755de8d36851
+  #|atan bfd9adeed8666898 bfd86bbcc760464c
+  #|sin 4011ce908c15cda7 bfeeeb43527217c5
+  #|cos 4011ce908c15cda7 bfd07e8c0eeb94b7
+  #|atan 4011ce908c15cda7 3ff598e98431e9e7
+  #|sin c001f892c82b412c bfe8f89833beb8b3
+  #|cos c001f892c82b412c bfe402d9c5edbcc4
+  #|atan c001f892c82b412c bff26e7b488d3249
+  #|sin c0217fe5b69de468 bfe3ff0579cff724
+  #|cos c0217fe5b69de468 bfe8fba94dbf8906
+  #|atan c0217fe5b69de468 bff74fe10cd66ae4
+  #|sin c00012c1a0690873 bfecf96e546c3958
+  #|cos c00012c1a0690873 bfdb2a4d81b4ef03
+  #|atan c00012c1a0690873 bff1be5b364b9d48
+  #|sin 3ffb4939ffd1c08e 3fefb5ecb887ecbc
+  #|cos 3ffb4939ffd1c08e bfc12ca880bae14c
+  #|atan 3ffb4939ffd1c08e 3ff0a5b0659954fa
+  #|sin c01d450f8bfa18a2 bfeb80e1de1ee4e6
+  #|cos c01d450f8bfa18a2 3fe05b76592fb2fa
+  #|atan c01d450f8bfa18a2 bff6f5ab6086ab4e
+  #|sin c015c2ac5de2750e 3fe7e4e63bbf6577
+  #|cos c015c2ac5de2750e 3fe54912eb0437aa
+  #|atan c015c2ac5de2750e bff6395e4ecfd8a4
+  #|sin c020421954d55b36 bfeecbecc8e87360
+  #|cos c020421954d55b36 bfd162e23d32a6f7
+  #|atan c020421954d55b36 bff72ca1b72f8aa3
+  #|sin 4014f3fb69d18905 bfebad23a63e744e
+  #|cos 4014f3fb69d18905 3fe01022eac87f47
+  #|atan 4014f3fb69d18905 3ff61d56fce144da
+  #|sin 3ff7f856e3c5facc 3fefea618034d84e
+  #|cos 3ff7f856e3c5facc 3fb2961661563c17
+  #|atan 3ff7f856e3c5facc 3fef6e53f1554810
+  #|sin c01801cf287a19cc 3fd1c62458823c55
+  #|cos c01801cf287a19cc 3feebdbf33b76c17
+  #|atan c01801cf287a19cc bff67dba72476938
+  #|sin 4002396382e6ae84 3fe8534ab7110f0a
+  #|cos 4002396382e6ae84 bfe4ca90afec122a
+  #|atan 4002396382e6ae84 3ff283ac19675e9d
+  #|sin 4017bfcc3fef3460 bfd5b29f5a24736b
+  #|cos 4017bfcc3fef3460 3fee1ad76e3ea762
+  #|atan 4017bfcc3fef3460 3ff676854d740378
+  #|sin 401902dafed3db15 bf9f1f1b52626560
+  #|cos 401902dafed3db15 3feffc373a520d1d
+  #|atan 401902dafed3db15 3ff6986a2ec74463
+  #|sin 4020ba0ccba1ecc0 3febefeea78ea082
+  #|cos 4020ba0ccba1ecc0 bfdf35acf62f6b80
+  #|atan 4020ba0ccba1ecc0 3ff73a8aac043654
+  #|sin 4022cbc669aa8927 3f9b6b54443151fd
+  #|cos 4022cbc669aa8927 bfeffd100cb73baa
+  #|atan 4022cbc669aa8927 3ff76fc72e00ea62
+  #|sin 4001b50c00027e89 3fe99dffe77b9a12
+  #|cos 4001b50c00027e89 bfe32d540f230740
+  #|atan 4001b50c00027e89 3ff257de304d0745
+  #|sin bfd6bb5c7f8b8eb0 bfd641c5aa5020c1
+  #|cos bfd6bb5c7f8b8eb0 3fee00abdcbf94d2
+  #|atan bfd6bb5c7f8b8eb0 bfd5d7a59acf025f
+  #|sin bfcfcba8c728fe28 bfcf783584627e95
+  #|cos bfcfcba8c728fe28 3fef048ec91f7f52
+  #|atan bfcfcba8c728fe28 bfcf2a2e3577ca90
+  #|sin 40075a76040449df 3fcc3c62e1c4401b
+  #|cos 40075a76040449df bfef3632b808c8ec
+  #|atan 40075a76040449df 3ff3da2963efcb39
+  #|sin 4014a84504024c3a bfecc98c2df45111
+  #|cos 4014a84504024c3a 3fdbf3090929d1b8
+  #|atan 4014a84504024c3a 3ff6128b390facf8
+  #|sin c012b8dbeecf2b11 3feffbd78e4042be
+  #|cos c012b8dbeecf2b11 bfa04f934df59f2e
+  #|atan c012b8dbeecf2b11 bff5c3d4280eda19
+  #|sin c014688cd93588e8 3fed99c16019dd5e
+  #|cos c014688cd93588e8 3fd8509fde9f09e6
+  #|atan c014688cd93588e8 bff60939709730b1
+  #|sin 3ff739183f5bf318 3fefc5b7913e320c
+  #|cos 3ff739183f5bf318 3fbe7ba2168ccc2d
+  #|atan 3ff739183f5bf318 3feef5d8ad481276
+  #|sin c020e70fc7d06621 bfea75908ec4ccc1
+  #|cos c020e70fc7d06621 bfe1ff59eb8f4ece
+  #|atan c020e70fc7d06621 bff73f90b1c0fcc0
+  #|sin c012c6ffdd1446fd 3feffeaa3ee68b6f
+  #|cos c012c6ffdd1446fd bf927c604ec74ecf
+  #|atan c012c6ffdd1446fd bff5c64a7a5d2c5c
+  #|sin 400dbd33d06ee36a bfe16c8888f57ae9
+  #|cos 400dbd33d06ee36a bfead722bfb2c01b
+  #|atan 400dbd33d06ee36a 3ff4ed9cc451f9d7
+  #|sin c017d4ccaa75c7cd 3fd47559de3cf045
+  #|cos c017d4ccaa75c7cd 3fee522d7d22fba2
+  #|atan c017d4ccaa75c7cd bff678d48cf4aa9e
+  #|sin 3feb02206325eef0 3fe7e9fdbd68071f
+  #|cos 3feb02206325eef0 3fe5435a476c881a
+  #|atan 3feb02206325eef0 3fe66ea42e851ad5
+  #|sin c01025a97bd7cf80 3fe8f86de7cecbaf
+  #|cos c01025a97bd7cf80 bfe4030e8d382be3
+  #|atan c01025a97bd7cf80 bff53f55b31cc4ca
+  #|sin 4006412c18f4c2ac 3fd688235e8017a5
+  #|cos 4006412c18f4c2ac bfedf387912f79fc
+  #|atan 4006412c18f4c2ac 3ff39c7bff5ed747
+  #|sin c0079b4660cbe624 bfc845757dad11cc
+  #|cos c0079b4660cbe624 bfef6b60a5693857
+  #|atan c0079b4660cbe624 bff3e7a51b9bf790
+  #|sin 3ff3d728761aa7c8 3fee43f06fcee05d
+  #|cos 3ff3d728761aa7c8 3fd4c90405e26339
+  #|atan 3ff3d728761aa7c8 3fec8c7413b8b82b
+  #|sin 40023f234d96bf79 3fe8445362dab202
+  #|cos 40023f234d96bf79 bfe4dc068b94c437
+  #|atan 40023f234d96bf79 3ff2858731b8eb36
+  #|sin c00cc5708afc7b19 3fdc1d67853f5787
+  #|cos c00cc5708afc7b19 bfecbf39d7c0108c
+  #|atan c00cc5708afc7b19 bff4cb20c369f86a
+  #|sin c012424c630e6cca 3fefa6dfb3e4160d
+  #|cos c012424c630e6cca bfc2d474a6d73437
+  #|atan c012424c630e6cca bff5ae9fe731d82b
+  #|sin 401a46d7b9d4d67e 3fd20e2842ae754c
+  #|cos 401a46d7b9d4d67e 3feeb33f7eb13d85
+  #|atan 401a46d7b9d4d67e 3ff6b736f0314133
+  #|sin 401fffa279d6d568 3fefa93f5b097e18
+  #|cos 401fffa279d6d568 bfc2942dbf8af44f
+  #|atan 401fffa279d6d568 3ff72499e92bbbe9
+  #|sin c00362194ec31d72 bfe5119fbcb30cd0
+  #|cos c00362194ec31d72 bfe815d925d2a287
+  #|atan c00362194ec31d72 bff2deae478e2e87
+  #|sin 3fee8fae3fddf8b0 3fea1f6d685ead0b
+  #|cos 3fee8fae3fddf8b0 3fe27b82599e2fda
+  #|atan 3fee8fae3fddf8b0 3fe8659ebe41af5a
+  #|sin c00d71e1822141b9 3fe06cdde339c35d
+  #|cos c00d71e1822141b9 bfeb768088ece8e0
+  #|atan c00d71e1822141b9 bff4e35a2745b8b6
+  #|sin 401d2c26a06ba77d 3feb18f1e5e2ab35
+  #|cos 401d2c26a06ba77d 3fe1057baea525b6
+  #|atan 401d2c26a06ba77d 3ff6f3d6336e2d49
+  #|sin 40116066ded53d1a bfeddacee4c786a3
+  #|cos 40116066ded53d1a bfd709e9f694352b
+  #|atan 40116066ded53d1a 3ff5833f389c5596
+  #|sin bff65281218dbdbd bfef81f21f62846a
+  #|cos bff65281218dbdbd 3fc65e440a82595b
+  #|atan bff65281218dbdbd bfee5d67e39ab420
+  #|sin 3ffaa357fe27f75e 3fefdbc55a98721f
+  #|cos 3ffaa357fe27f75e bfb80cb30bc78d19
+  #|atan 3ffaa357fe27f75e 3ff07a7bc84977ba
+  #|sin c0211a2676e36de2 bfe888e6dc046455
+  #|cos c0211a2676e36de2 bfe48b32082a16ad
+  #|atan c0211a2676e36de2 bff74524bd08c179
+  #|sin c00470cede929e74 bfe1b5edd960623c
+  #|cos c00470cede929e74 bfeaa6eda6baff0c
+  #|atan c00470cede929e74 bff329f76b30fb1d
+  #|sin c00b9d07128ab962 3fd387582b1cafe6
+  #|cos c00b9d07128ab962 bfee79506dd6eed8
+  #|atan c00b9d07128ab962 bff49eef1c11aaef
+  #|sin c0186eaa07a17e9d 3fc64ce15fe60a7a
+  #|cos c0186eaa07a17e9d 3fef82b74ae53cf3
+  #|atan c0186eaa07a17e9d bff6894a5682d7b7
+  #|sin c0208adc9c34c322 bfed413d58c5d70d
+  #|cos c0208adc9c34c322 bfd9ef52c7df517a
+  #|atan c0208adc9c34c322 bff735298764d38c
+  #|sin 40190e76e3f5d8de bf938422dce5e568
+  #|cos 40190e76e3f5d8de 3feffe8315c41c73
+  #|atan 40190e76e3f5d8de 3ff69992209d1808
+  #|sin 401bc316ab2a9246 3fe38d5c97e8d79a
+  #|cos 401bc316ab2a9246 3fe954ffde42a252
+  #|atan 401bc316ab2a9246 3ff6d7db8aa0cf7f
+  #|sin c01c407aea0aab97 bfe68001230be331
+  #|cos c01c407aea0aab97 3fe6c10cead2888e
+  #|atan c01c407aea0aab97 bff6e1e27ef34d98
+  #|sin c00b2e69e3c840ae 3fd035c1204e5eab
+  #|cos c00b2e69e3c840ae bfeef4e1b17fca44
+  #|atan c00b2e69e3c840ae bff48d8d6a7f7166
+  #|sin 3ffafb5ecaeb6f56 3fefc9598a1a68c4
+  #|cos 3ffafb5ecaeb6f56 bfbd855db22a1f61
+  #|atan 3ffafb5ecaeb6f56 3ff0919a17639bdb
+  #|sin 401a83970a860866 3fd5a9f4e3bf4043
+  #|cos 401a83970a860866 3fee1c66cfc50509
+  #|atan 401a83970a860866 3ff6bcab6e937d44
+  #|sin 40029ab081e77b4f 3fe74f7bfc758914
+  #|cos 40029ab081e77b4f bfe5ec4eb4d7b5e4
+  #|atan 40029ab081e77b4f 3ff2a29290909632
+  #|sin c0170fd945fbc4ea 3fdfac465fefc872
+  #|cos c0170fd945fbc4ea 3febce7c3f38461c
+  #|atan c0170fd945fbc4ea bff6628b61eab35d
+  #|sin c014f20a7b928b13 3febb4ebf1503081
+  #|cos c014f20a7b928b13 3fe002b2b964e14e
+  #|atan c014f20a7b928b13 bff61d1111f55a8e
+  #|sin c009cdc0d1693d88 3fb5723e6c01ceda
+  #|cos c009cdc0d1693d88 bfefe333f757fa6a
+  #|atan c009cdc0d1693d88 bff452941564f60c
+  #|sin 40096702e4c02eea bfa1410dfc3ee5c2
+  #|cos 40096702e4c02eea bfeffb58d7d7f87d
+  #|atan 40096702e4c02eea 3ff4404cd00d7726
+  #|sin 401634b397045c70 bfe5617b3d9e669c
+  #|cos 401634b397045c70 3fe7cf11a56b2d54
+  #|atan 401634b397045c70 3ff647fcaf81caf5
+  #|sin c01a93311282af74 bfd69431cd249237
+  #|cos c01a93311282af74 3fedf14268831b5a
+  #|atan c01a93311282af74 bff6be0e281f5216
+  #|sin 4018d5463f6efccb bfb328ae277522b8
+  #|cos 4018d5463f6efccb 3fefe906bbca6102
+  #|atan 4018d5463f6efccb 3ff693d601615b85
+  #|sin 3fd1dd9940ee7168 3fd1a26e1c6c7d97
+  #|cos 3fd1dd9940ee7168 3feec2e30de2b815
+  #|atan 3fd1dd9940ee7168 3fd16c0ffe9e715e
+  #|sin 401d64e4571451aa 3febffa0bbb36c75
+  #|cos 401d64e4571451aa 3fdefd3705fdf982
+  #|atan 401d64e4571451aa 3ff6f7fe7a990eb8
+  #|sin c0053901249e6b80 bfde0cc7cd614d18
+  #|cos c0053901249e6b80 bfec40da13f5b2d2
+  #|atan c0053901249e6b80 bff35d70a2cd616d
+  #|sin c01366c55e558102 3fefb2264aeb38b1
+  #|cos c01366c55e558102 3fc19ac735085966
+  #|atan c01366c55e558102 bff5e12d7b32bf2d
+  #|sin c00938950dd28c68 3f86999b7e786b57
+  #|cos c00938950dd28c68 bfefff804e47faac
+  #|atan c00938950dd28c68 bff437ddd25ed234
+  #|sin 4020f93a1ce170d6 3fe9cddef96a5bf5
+  #|cos 4020f93a1ce170d6 bfe2ecb8dcdb7adb
+  #|atan 4020f93a1ce170d6 3ff7419040a8915c
+  #|sin 4020986b4ab737f2 3fece6b8f8969829
+  #|cos 4020986b4ab737f2 bfdb7991564fa685
+  #|atan 4020986b4ab737f2 3ff736b8464226e8
+  #|sin bffa948e11362b2d bfefde7f1266308b
+  #|cos bffa948e11362b2d bfb72115fc9b6651
+  #|atan bffa948e11362b2d bff0768e70f02f14
+  #|sin c01df6ceefe8c353 bfedea4c212f3e71
+  #|cos c01df6ceefe8c353 3fd6b8fd9eea3f15
+  #|atan c01df6ceefe8c353 bff702685fbaaa15
+  #|sin c021a535f06db9bb bfe21fbead4970cb
+  #|cos c021a535f06db9bb bfea5f6ac266c8f6
+  #|atan c021a535f06db9bb bff753b24d2c8ad8
+  #|sin 40114c42bfe96ddf bfed9f54969ac101
+  #|cos 40114c42bfe96ddf bfd8356837cb3f75
+  #|atan 40114c42bfe96ddf 3ff57f2cd9c368ec
+  #|sin 3ff80d06b908ce30 3fefed47cdfc01a7
+  #|cos 3ff80d06b908ce30 3fb14be97ddadb7b
+  #|atan 3ff80d06b908ce30 3fef7b0cf3768910
+  #|sin c01e866a435aefb3 bfef35aa518a36f8
+  #|cos c01e866a435aefb3 3fcc45cda4fbb538
+  #|atan c01e866a435aefb3 bff70c488921f268
+  #|sin c01e7e9566cb2104 bfef2797dc98fc6f
+  #|cos c01e7e9566cb2104 3fcd3a01d59d10e0
+  #|atan c01e7e9566cb2104 bff70bc105758787
+  #|sin c00cb524175d589e 3fdba80b2591f41b
+  #|cos c00cb524175d589e bfecdba1d95c1268
+  #|atan c00cb524175d589e bff4c8c8a6151875
+  #|sin c015d3bd44e377e4 3fe7893d5568475d
+  #|cos c015d3bd44e377e4 3fe5ae41c5eee103
+  #|atan c015d3bd44e377e4 bff63b97d0c1ba25
+  #|sin c01622e5a7cfc4a5 3fe5ca9fe2d6b6d4
+  #|cos c01622e5a7cfc4a5 3fe76efbf809e2ec
+  #|atan c01622e5a7cfc4a5 bff645bdf497208b
+  #|sin c014230b3cc5ed3a 3fee5b660313abf2
+  #|cos c014230b3cc5ed3a 3fd43e5db8a948bf
+  #|atan c014230b3cc5ed3a bff5fece3f88fc91
+  #|sin 40105b8f0b8dc63c bfe9fd18d266555d
+  #|cos 40105b8f0b8dc63c bfe2aba95d69ea71
+  #|atan 40105b8f0b8dc63c 3ff54ba5f793fc5a
+  #|sin 40150a2b849ed2f8 bfeb5261bcf10fb2
+  #|cos 40150a2b849ed2f8 3fe0a8add61dcab7
+  #|atan 40150a2b849ed2f8 3ff62072b7d4d4f0
+  #|sin c000232700be1e48 bfecdd5b219e5acb
+  #|cos c000232700be1e48 bfdba0d82e478cb6
+  #|atan c000232700be1e48 bff1c4d89db0a1ae
+  #|sin 3fe45d5568dd2adc 3fe3047e8876911a
+  #|cos 3fe45d5568dd2adc 3fe9bc5ee18b11c8
+  #|atan 3fe45d5568dd2adc 3fe222d189ca6a8e
+  #|sin c0234d7f8a63c48c 3fccc1642a1fac85
+  #|cos c0234d7f8a63c48c bfef2e9ae6b9d133
+  #|atan c0234d7f8a63c48c bff77b18426b2365
+  #|sin 401da754a01fc88b 3fecf1b9b8c27fd5
+  #|cos 401da754a01fc88b 3fdb4b15429a90c7
+  #|atan 401da754a01fc88b 3ff6fcc8cb7ab990
+  #|sin c011ecf36ddeca50 3fef266b536f6033
+  #|cos c011ecf36ddeca50 bfcd4e00692c8124
+  #|atan c011ecf36ddeca50 bff59eb6bf65748d
+  #|sin 400485d15f48f3df 3fe16fb2903fc2c4
+  #|cos 400485d15f48f3df bfead514a33df0ee
+  #|atan 400485d15f48f3df 3ff32f874f046f42
+  #|sin 4019967304076916 3fbd0ddc6bae2bda
+  #|cos 4019967304076916 3fefcb11eea5d980
+  #|atan 4019967304076916 3ff6a6d089e35e60
+  #|sin c01305b9f74f8a83 3feff85b1de17d36
+  #|cos c01305b9f74f8a83 3fa61cf920b40251
+  #|atan c01305b9f74f8a83 bff5d10c599d3353
+  #|sin 4017f5e0f5d86b0c bfd27d35139082e6
+  #|cos 4017f5e0f5d86b0c 3feea2b4f59e5c23
+  #|atan 4017f5e0f5d86b0c 3ff67c6fd3d82fa7
+  #|sin bffa700ed0928e8e bfefe4c47016151f
+  #|cos bffa700ed0928e8e bfb4db4b22bc7767
+  #|atan bffa700ed0928e8e bff06ccf978677ab
+  #|sin 3ff087a662e82600 3feb7c1b8ab88226
+  #|cos 3ff087a662e82600 3fe0637aede5a04f
+  #|atan 3ff087a662e82600 3fe9a76908713363
+  #|sin 4013a3a8fc42f784 bfef60da5d515235
+  #|cos 4013a3a8fc42f784 3fc91b9c8f421d3a
+  #|atan 4013a3a8fc42f784 3ff5eafe2582904e
+  #|sin 3fb8e1e6e265be40 3fb8d7e07fa46c0e
+  #|cos 3fb8e1e6e265be40 3fefd955a1bdea9c
+  #|atan 3fb8e1e6e265be40 3fb8cdf499cfc268
+  #|sin c02213b7707e061e bfd81c6d14bb2945
+  #|cos c02213b7707e061e bfeda46c1bea2a44
+  #|atan c02213b7707e061e bff75ea52eef8a61
+  #|sin 3fe63320ac05cfb0 3fe4761ce78da56a
+  #|cos 3fe63320ac05cfb0 3fe89a7ead5f4c68
+  #|atan 3fe63320ac05cfb0 3fe3688e099dc904
+  #|sin 401063ccd1152e55 bfea235934d7fb67
+  #|cos 401063ccd1152e55 bfe275f659ed0387
+  #|atan 401063ccd1152e55 3ff54d813e065643
+  #|sin 4013fc3dd8a91421 bfeeb7fbd2b20a27
+  #|cos 4013fc3dd8a91421 3fd1edd3569a5557
+  #|atan 4013fc3dd8a91421 3ff5f8def453f384
+  #|sin 3fede1f930b17988 3fe9b99a2b7d0faa
+  #|cos 3fede1f930b17988 3fe3083d09c16c73
+  #|atan 3fede1f930b17988 3fe809ce1da78921
+  #|sin c022db68e7ed5c96 3f6ec686e525ab6b
+  #|cos c022db68e7ed5c96 bfeffff13376495d
+  #|atan c022db68e7ed5c96 bff7712c8202df5d
+  #|sin c0202f97b6874ff4 bfef1732664b3d7b
+  #|cos c0202f97b6874ff4 bfce4c56a4692ba4
+  #|atan c0202f97b6874ff4 bff72a6a3ce70196
+  #|sin c017cc598997d318 3fd4f545f7028149
+  #|cos c017cc598997d318 3fee3c4e21a5928c
+  #|atan c017cc598997d318 bff677e72585b6f1
+  #|sin bff375e5c073eadb bfee029625425981
+  #|cos bff375e5c073eadb 3fd6376f4d5aba77
+  #|atan bff375e5c073eadb bfec3ee708c0ecde
+  #|sin c014800b602162b9 3fed505c0d6a738a
+  #|cos c014800b602162b9 3fd9aaad7c8851d7
+  #|atan c014800b602162b9 bff60caf9b76a56d
+  #|sin c01d288568f961a3 bfeb09749a839b79
+  #|cos c01d288568f961a3 3fe11e0b824560b6
+  #|atan c01d288568f961a3 bff6f39193fba7ba
+  #|sin 402274fff09411c6 3fc8f5ee89bd8e9b
+  #|cos 402274fff09411c6 bfef62bb4b8f9a23
+  #|atan 402274fff09411c6 3ff767dd759eda58
+  #|sin 40100d516dfc9c50 bfe87cd78bd84350
+  #|cos 40100d516dfc9c50 bfe499908dc8e4b5
+  #|atan 40100d516dfc9c50 3ff539ac5a85c775
+  #|sin 3fd9d9dd5e3b5ef0 3fd9275f63a05aac
+  #|cos 3fd9d9dd5e3b5ef0 3fed6cc2bea1ffa1
+  #|atan 3fd9d9dd5e3b5ef0 3fd8918ac4847525
+  #|sin 401dbd90613e7412 3fed3bd36ee83ef3
+  #|cos 401dbd90613e7412 3fda07b260f0f8fa
+  #|atan 401dbd90613e7412 3ff6fe5e7b7a22fd
+  #|sin c00530a1cd20fb20 bfde47da7018b56b
+  #|cos c00530a1cd20fb20 bfec311129c142cc
+  #|atan c00530a1cd20fb20 bff35b5a94f81854
+  #|sin 3faeb7615214e680 3faeb2aa02ea80bf
+  #|cos 3faeb7615214e680 3feff143290e9514
+  #|atan 3faeb7615214e680 3faeadf7782fcd89
+  #|sin 3ff36737bd4293ec 3fedf85874d89c5f
+  #|cos 3ff36737bd4293ec 3fd66e7736d89e43
+  #|atan 3ff36737bd4293ec 3fec330a3dfeb4c3
+  #|sin 4016f749b67f17fe bfe07fb15f0d6cd7
+  #|cos 4016f749b67f17fe 3feb6b35477336a1
+  #|atan 4016f749b67f17fe 3ff65fa9e444fdb2
+  #|sin 4015cc664f5f2cc6 bfe7b0dde833cd8d
+  #|cos 4015cc664f5f2cc6 3fe582ed87eb680d
+  #|atan 4015cc664f5f2cc6 3ff63aa34c0a3f6c
+  #|sin 401487fd26ccc02e bfed36a5426b4f03
+  #|cos 401487fd26ccc02e 3fda1eeb85ff4242
+  #|atan 401487fd26ccc02e 3ff60dd98865aa51
+  #|sin c015d6453c93d1f0 3fe77b80877620b9
+  #|cos c015d6453c93d1f0 3fe5bd2215a7fa5e
+  #|atan c015d6453c93d1f0 bff63bebfea3e256
+  #|sin 4002050e695fe4fa 3fe8d940548d66ec
+  #|cos 4002050e695fe4fa bfe429b8235aea72
+  #|atan 4002050e695fe4fa 3ff27299f74bcd0d
+  #|sin c023b3a61b1039e4 3fda73dbfbd7623b
+  #|cos c023b3a61b1039e4 bfed238380a35e36
+  #|atan c023b3a61b1039e4 bff78399c85ba4b0
+  #|sin c0239b693c6572b8 3fd7aa475ca77358
+  #|cos c0239b693c6572b8 bfedbb6282782b98
+  #|atan c0239b693c6572b8 bff7819d0c602a72
+  #|sin c003546a84c24bb9 bfe53ab293ee8d41
+  #|cos c003546a84c24bb9 bfe7f1ad061ad866
+  #|atan c003546a84c24bb9 bff2dab033e71f98
+  #|sin c0172dae6e085876 3fde0a1ef3dfeb9a
+  #|cos c0172dae6e085876 3fec418f12e767a3
+  #|atan c0172dae6e085876 bff6660333041f0f
+  #|sin 401b212014c8cba2 3fdea2e1385950ad
+  #|cos 401b212014c8cba2 3fec187049220276
+  #|atan 401b212014c8cba2 3ff6ca6195d96e93
+  #|sin c00682998150545c bfd49b5ea5eeaaa0
+  #|cos c00682998150545c bfee4bbd1a972724
+  #|atan c00682998150545c bff3ab4ed88a6e26
+  #|sin 400d4e8a87eda92c bfdfe5dc4963b913
+  #|cos 400d4e8a87eda92c bfebbe0288b0efc4
+  #|atan 400d4e8a87eda92c 3ff4de78dc412381
+  #|sin 400688fa691bec1d 3fd46b088d3e865d
+  #|cos 400688fa691bec1d bfee53ea8ac07c52
+  #|atan 400688fa691bec1d 3ff3acbcb8327480
+  #|sin c01884beaac41a5a 3fc393d560c7ff16
+  #|cos c01884beaac41a5a 3fef9f9d13db7ff9
+  #|atan c01884beaac41a5a bff68b9689b7b27d
+  #|sin 4011e14151eeb1ca bfef107a72e1df38
+  #|cos 4011e14151eeb1ca bfceb9d3d7184fc5
+  #|atan 4011e14151eeb1ca 3ff59c7d4d431079
+  #|sin 4022baf947a54669 3fae7e981c189329
+  #|cos 4022baf947a54669 bfeff17509038580
+  #|atan 4022baf947a54669 3ff76e449f294544
+  #|sin c0092c427c8c9946 3f748e4ae936111e
+  #|cos c0092c427c8c9946 bfefffe59748602e
+  #|atan c0092c427c8c9946 bff4359c113521af
+  #|sin c019e1ad51d83b07 bfc7d27b9103372f
+  #|cos c019e1ad51d83b07 3fef70e01caf4360
+  #|atan c019e1ad51d83b07 bff6ade9c310b54a
+  #|sin bfc49897a40f1b60 bfc481dea39a2b05
+  #|cos bfc49897a40f1b60 3fef962ddcde1c1b
+  #|atan bfc49897a40f1b60 bfc46bc83fcbc7ea
+  #|sin 400b4037c439463d bfd0bf62983285f6
+  #|cos 400b4037c439463d bfeee28b655eff0f
+  #|atan 400b4037c439463d 3ff49062678d0916
+  #|sin 4021c1e32f524dd4 3fe09e86676862ee
+  #|cos 4021c1e32f524dd4 bfeb58901a1aef41
+  #|atan 4021c1e32f524dd4 3ff75696973fcaba
+  #|sin 401d600732b70b98 3febecb4d20bcc2b
+  #|cos 401d600732b70b98 3fdf413721ca84bc
+  #|atan 401d600732b70b98 3ff6f7a3ddf4a894
+  #|sin c01ab59929bf336e bfd893f18e3c7124
+  #|cos c01ab59929bf336e 3fed8bd7e2aee81b
+  #|atan c01ab59929bf336e bff6c116d7398d9f
+  #|sin 40007b5ff77554c1 3fec3e354cdbb820
+  #|cos 40007b5ff77554c1 bfde16b6f4b1a2d0
+  #|atan 40007b5ff77554c1 3ff1e71153cd28f9
+  #|sin c0134a19f73767aa 3fefce829d0c50e0
+  #|cos c0134a19f73767aa 3fbc18d8f92bb73e
+  #|atan c0134a19f73767aa bff5dc79d17d75c7
+  #|sin c01bb911801ea08f bfe34daa46e502cb
+  #|cos c01bb911801ea08f 3fe985aada44019c
+  #|atan c01bb911801ea08f bff6d70a9421f382
+  #|sin 3fdc3641219334d8 3fdb4e9e382586c5
+  #|cos 3fdc3641219334d8 3fecf0e452073dea
+  #|atan 3fdc3641219334d8 3fda926a56bed374
+  #|sin c01824cda96fe33f 3fcf536ae9d420b2
+  #|cos c01824cda96fe33f 3fef06e2922b7040
+  #|atan c01824cda96fe33f bff6817d0b9a4669
+  #|sin 40215086828b6a14 3fe638078b0f4444
+  #|cos 40215086828b6a14 bfe7075a51ffcd95
+  #|atan 40215086828b6a14 3ff74af0f7d3164f
+  #|sin c00848782d385bae bfbb2350e19683d5
+  #|cos c00848782d385bae bfefd1d736574f28
+  #|atan c00848782d385bae bff40a6edd819651
+  #|sin 4020391d2418dc45 3feef1c36c967d7b
+  #|cos 4020391d2418dc45 bfd04d806c9520ac
+  #|atan 4020391d2418dc45 3ff72b8ed1732eb2
+  #|sin 401a2305866ffd65 3fcfcb2b38285b96
+  #|cos 401a2305866ffd65 3feeff44b642fc1d
+  #|atan 401a2305866ffd65 3ff6b3f3d91fdb8b
+  #|sin 4010113d6ce85524 bfe890fe4ea1cd42
+  #|cos 4010113d6ce85524 bfe481844a232f1b
+  #|atan 4010113d6ce85524 3ff53a96f00ea364
+  #|sin c01a5e8f916f42c3 bfd378f5e1c82f4a
+  #|cos c01a5e8f916f42c3 3fee7b9d6d4158fd
+  #|atan c01a5e8f916f42c3 bff6b95b1b9148ea
+  #|sin 401fd73d863bf46c 3fefd1d5b271aa53
+  #|cos 401fd73d863bf46c bfbb23c294d81a26
+  #|atan 401fd73d863bf46c 3ff7221a6237fc4a
+  #|sin c012d02d52ed29e8 3fefffa9568dd78d
+  #|cos c012d02d52ed29e8 bf829e47bd35e91e
+  #|atan c012d02d52ed29e8 bff5c7e1af0166b4
+  #|sin 402278be8d9cdbee 3fc80ab5e03277cf
+  #|cos 402278be8d9cdbee bfef6e33364ec045
+  #|atan 402278be8d9cdbee 3ff7683664514a59
+  #|sin 40112d3c6a687bcd bfed3dfb321d2818
+  #|cos 40112d3c6a687bcd bfd9fe01896d94b1
+  #|atan 40112d3c6a687bcd 3ff578d57c9b8e31
+  #|sin c01ca234a9d3f337 bfe890dd5c5b1623
+  #|cos c01ca234a9d3f337 3fe481abc243c8ca
+  #|atan c01ca234a9d3f337 bff6e9775fcf6bfe
+  #|sin 40207d67451c3f92 3fed95e70e96c0da
+  #|cos 40207d67451c3f92 bfd8635a58d8e889
+  #|atan 40207d67451c3f92 3ff7339b32bbf9da
+  #|sin 3ffcc1e6c46a1984 3fef2eaf140ea876
+  #|cos 3ffcc1e6c46a1984 bfccc0060dc5e73b
+  #|atan 3ffcc1e6c46a1984 3ff102553cb81b78
+  #|sin 3fed21a7bcb71b94 3fe9456a6b646699
+  #|cos 3fed21a7bcb71b94 3fe3a17ccbf85ef3
+  #|atan 3fed21a7bcb71b94 3fe7a1dca6ea2926
+  #|sin 3fef4fe1a11dc260 3fea8c965c17a796
+  #|cos 3fef4fe1a11dc260 3fe1dd5229a4c9e6
+  #|atan 3fef4fe1a11dc260 3fe8c8f814c67c69
+  #|sin 4021ec0822a1d0be 3fdca11064f6e1aa
+  #|cos 4021ec0822a1d0be bfec9eab18d0089c
+  #|atan 4021ec0822a1d0be 3ff75ac5f5dbcd1c
+  #|sin 4021c506f47e08fd 3fe0738410902971
+  #|cos 4021c506f47e08fd bfeb728563475716
+  #|atan 4021c506f47e08fd 3ff756e71540f27a
+  #|sin 3fe748ed3c21279c 3fe548a61a8e2891
+  #|cos 3fe748ed3c21279c 3fe7e547292f5037
+  #|atan 3fe748ed3c21279c 3fe42121c770aa9b
+  #|sin 4017339366197140 bfddb6b7ac600854
+  #|cos 4017339366197140 3fec5792745484eb
+  #|atan 4017339366197140 3ff666b1977f2d38
+  #|sin 4013ec8c5bc5be04 bfeeda3ac07fbf5b
+  #|cos 4013ec8c5bc5be04 3fd0fc41cbc67a53
+  #|atan 4013ec8c5bc5be04 3ff5f6722cd950ef
+  #|sin 400c09d856d3b72a bfd6bcebee1f7dc0
+  #|cos 400c09d856d3b72a bfede98cf742d0a8
+  #|atan 400c09d856d3b72a 3ff4af8cee9780e5
+  #|sin 401f4a178b103c22 3feffbe748d21b94
+  #|cos 401f4a178b103c22 3fa0309e3d20a419
+  #|atan 401f4a178b103c22 3ff7192ddd9c6998
+  #|sin 40163b764bc98112 bfe5391f3dc90477
+  #|cos 40163b764bc98112 3fe7f31289ac732c
+  #|atan 40163b764bc98112 3ff648d601724747
+  #|sin 40192a4e5182394d 3f80a5ee77d941fe
+  #|cos 40192a4e5182394d 3fefffbab55deac9
+  #|atan 40192a4e5182394d 3ff69c53a558b834
+  #|sin 4018d63453b41236 bfb2ed534d469e46
+  #|cos 4018d63453b41236 3fefe99469b06b6b
+  #|atan 4018d63453b41236 3ff693ee15d0a84d
+  #|sin 401503927a2211ea bfeb6db6ea1de9f7
+  #|cos 401503927a2211ea 3fe07b8657c6474e
+  #|atan 401503927a2211ea 3ff61f86c2c194d1
+  #|sin 401e21998548be5e 3fee5d1e1fcc4d69
+  #|cos 401e21998548be5e 3fd4340adab6cb08
+  #|atan 401e21998548be5e 3ff705636182b06e
+  #|sin bfe8b0793c4ad0b6 bfe64fcd88d11afd
+  #|cos bfe8b0793c4ad0b6 3fe6f05291d494b8
+  #|atan bfe8b0793c4ad0b6 bfe5075761333442
+  #|sin 3ff26872c62016ac 3fed3708e240bf78
+  #|cos 3ff26872c62016ac 3fda1d2dc64f460c
+  #|atan 3ff26872c62016ac 3feb5e5b0180aaf2
+  #|sin c0207edbc16fcc62 bfed8d002d33baa4
+  #|cos c0207edbc16fcc62 bfd88e6012da8bc2
+  #|atan c0207edbc16fcc62 bff733c6622ce7b5
+  #|sin c02104f5c99ef56e bfe95d1f9f261525
+  #|cos c02104f5c99ef56e bfe382d1832ab8e8
+  #|atan c02104f5c99ef56e bff742d86f32d018
+  #|sin 402097f42fcdb59d 3fece9ea49dbd3c1
+  #|cos 402097f42fcdb59d bfdb6c1e4e57b9d5
+  #|atan 402097f42fcdb59d 3ff736aaa1cef782
+  #|sin 400f954e4b8dd445 bfe7187b250c6abb
+  #|cos 400f954e4b8dd445 bfe6263928be69bd
+  #|atan 400f954e4b8dd445 3ff529d756588b14
+  #|sin c011e6d562dc99d4 3fef1b12a3aa8e88
+  #|cos c011e6d562dc99d4 bfce0c6c353ce8fb
+  #|atan c011e6d562dc99d4 bff59d8d3fcbf718
+  #|sin 3ff57b2bb00584be 3fef2b93aba5baa0
+  #|cos 3ff57b2bb00584be 3fccf5bc6324125e
+  #|atan 3ff57b2bb00584be 3fedc7866220716a
+  #|sin c01cd62df72c3048 bfe9931a2dcf7c95
+  #|cos c01cd62df72c3048 3fe33bda0bc3ade1
+  #|atan c01cd62df72c3048 bff6ed6b112ceba4
+  #|sin 3ff274bbc9f39c0e 3fed4106cb76dd5c
+  #|cos 3ff274bbc9f39c0e 3fd9f048e69555cb
+  #|atan 3ff274bbc9f39c0e 3feb68e9f36b7750
+  #|sin 401b5832fb79d86b 3fe0ce6a1547145c
+  #|cos 401b5832fb79d86b 3feb3b3bbcec83be
+  #|atan 401b5832fb79d86b 3ff6cf083e6f4d8a
+  #|sin c009f6f4cce982ce 3fba92e8354ed258
+  #|cos c009f6f4cce982ce bfefd3beae64e981
+  #|atan c009f6f4cce982ce bff459c38c821311
+  #|sin c02329dee1e65fc5 3fc4037cc5c5cb0a
+  #|cos c02329dee1e65fc5 bfef9b3e7e3d5562
+  #|atan c02329dee1e65fc5 bff7780bb13c8862
+  #|sin 40077789bdc71485 3fca75e692ec1c00
+  #|cos 40077789bdc71485 bfef4f0c785cd810
+  #|atan 40077789bdc71485 3ff3e03e2a4bbb18
+  #|sin c017da4b2046e0ee 3fd421fc073fb7e5
+  #|cos c017da4b2046e0ee 3fee601d9cd52e49
+  #|atan c017da4b2046e0ee bff6796e9136c88e
+  #|sin c01b909ee01dc72a bfe247cca4be2410
+  #|cos c01b909ee01dc72a 3fea43b701db0abb
+  #|atan c01b909ee01dc72a bff6d3b92a369274
+  #|sin 401609f9ac6c749f bfe65af5a380f9d7
+  #|cos 401609f9ac6c749f 3fe6e5733f46531b
+  #|atan 401609f9ac6c749f 3ff6429393960049
+  #|sin c01fd80b68318523 bfefd1267113ce44
+  #|cos c01fd80b68318523 bfbb56f044373e58
+  #|atan c01fd80b68318523 bff722272d5b780a
+  #|sin 400b4e021cb5edfc bfd129c422494497
+  #|cos 400b4e021cb5edfc bfeed3ee3c7b18bb
+  #|atan 400b4e021cb5edfc 3ff492919d2adbad
+  #|sin 40227b9afc72d268 3fc756c417ddee11
+  #|cos 40227b9afc72d268 bfef76ac2b8479ab
+  #|atan 40227b9afc72d268 3ff7687a3f501787
+  #|sin c00b7a88a8508f27 3fd27fdb90c2d6bd
+  #|cos c00b7a88a8508f27 bfeea24e8ee951d4
+  #|atan c00b7a88a8508f27 bff499915bf3ddea
+  #|sin c00c5b8493d46c39 3fd91ae31e415e2a
+  #|cos c00c5b8493d46c39 bfed6f6d0b40d8b3
+  #|atan c00c5b8493d46c39 bff4bbb81b078a31
+  #|sin c0233c04babbdb33 3fc87b34a73c0ef0
+  #|cos c0233c04babbdb33 bfef68c55c564a30
+  #|atan c0233c04babbdb33 bff7799ab0e93a08
+  #|sin 40122b7e12b68f0a bfef8a06e8f3afba
+  #|cos 40122b7e12b68f0a bfc5a50cc6e350b4
+  #|atan 40122b7e12b68f0a 3ff5aa6d75fee850
+  #|sin c012649813b7ed15 3fefcaaf078b8b61
+  #|cos c012649813b7ed15 bfbd28de39325122
+  #|atan c012649813b7ed15 bff5b4dcf393cad7
+  #|sin 401671caa3b42262 bfe3ec56a95f5ccb
+  #|cos 401671caa3b42262 3fe90a91fc10d3a8
+  #|atan 401671caa3b42262 3ff64f9672163802
+  #|sin c000e2189de36c32 bfeb7406435b6b71
+  #|cos c000e2189de36c32 bfe07101ad15aa97
+  #|atan c000e2189de36c32 bff20d7b5da86c5f
+  #|sin 3fe89e50a57fe714 3fe642c5aaf59c92
+  #|cos 3fe89e50a57fe714 3fe6fcf81032df13
+  #|atan 3fe89e50a57fe714 3fe4fbf248fc834a
+  #|sin c02364f5aa78d0ab 3fd13826c569fc5f
+  #|cos c02364f5aa78d0ab bfeed1ecc33849d2
+  #|atan c02364f5aa78d0ab bff77d143992fa4c
+  #|sin bfffd0506ea1c864 bfed4025bd8a43a1
+  #|cos bfffd0506ea1c864 bfd9f43fd1a2fc61
+  #|atan bfffd0506ea1c864 bff1ad4ca4560873
+  #|sin c0190b6d05252df7 3f968dd795cd60fc
+  #|cos c0190b6d05252df7 3feffe03408eeec3
+  #|atan c0190b6d05252df7 bff69944c464482a
+  #|sin bfe656777df57c68 bfe4913c230b1973
+  #|cos bfe656777df57c68 3fe883d6fdeac688
+  #|atan bfe656777df57c68 bfe3805d2745f40d
+  #|sin c01944108cf885b0 bfa109ce2783d7b8
+  #|cos c01944108cf885b0 3feffb7676a1b1bd
+  #|atan c01944108cf885b0 bff69edb1bdde21f
+  #|sin c01fbd15190d8025 bfefe55c13c18d59
+  #|cos c01fbd15190d8025 bfb4a100866e4801
+  #|atan c01fbd15190d8025 bff72078e8e040ff
+  #|sin 401c9e00d9c34ca4 3fe87b4485e60f12
+  #|cos 401c9e00d9c34ca4 3fe49b6f7e8d1ed8
+  #|atan 401c9e00d9c34ca4 3ff6e924f525f728
+  #|sin 400cf9dca34d61e2 bfdd93c032f79cbf
+  #|cos 400cf9dca34d61e2 bfec60b5c3438063
+  #|atan 400cf9dca34d61e2 3ff4d29a566407ae
+  #|sin c01439dd2f3ec731 3fee1fba77ce89d9
+  #|cos c01439dd2f3ec731 3fd5976d06d287b0
+  #|atan c01439dd2f3ec731 bff60241881e5e60
+  #|sin c0200155665b2309 bfefa5b0cf32695a
+  #|cos c0200155665b2309 bfc2f42ba7693f61
+  #|atan c0200155665b2309 bff724c9abdf6e35
+  #|sin 4020e5d0813eabe5 3fea80c47c9ef395
+  #|cos 4020e5d0813eabe5 bfe1eed687a7b1db
+  #|atan 4020e5d0813eabe5 3ff73f6d6ac7315a
+  #|sin 4023427099b15f3b bfca0e154f242011
+  #|cos 4023427099b15f3b bfef547d18d68af8
+  #|atan 4023427099b15f3b 3ff77a272ce8cfeb
+  #|sin 40053bd77b2c6d4f 3fddf8bb8c04121c
+  #|cos 40053bd77b2c6d4f bfec462c73712390
+  #|atan 40053bd77b2c6d4f 3ff35e254a3d6dc0
+  #|sin c0207d96b678f394 bfed94c5ab81ae5b
+  #|cos c0207d96b678f394 bfd868d5dd569634
+  #|atan c0207d96b678f394 bff733a0b3435b36
+  #|sin c00226f1f3af6aa4 bfe882f8ce60cb85
+  #|cos c00226f1f3af6aa4 bfe49244eca61356
+  #|atan c00226f1f3af6aa4 bff27db1548da44e
+  #|sin 400e17d0e7b6c126 bfe29814f4768369
+  #|cos 400e17d0e7b6c126 bfea0b1ea2e0c3d9
+  #|atan 400e17d0e7b6c126 3ff4f9b52043ece5
+  #|sin 40205be4a649ea9c 3fee51da6d465d77
+  #|cos 40205be4a649ea9c bfd477462f8378ae
+  #|atan 40205be4a649ea9c 3ff72fb06d1021d1
+  #|sin 4022552626618ad2 3fd05bcc4c1a63eb
+  #|cos 4022552626618ad2 bfeeefe07fca4579
+  #|atan 4022552626618ad2 3ff764e358ba3390
+  #|sin bfcdc978ec565c38 bfcd84d540710eaa
+  #|cos bfcdc978ec565c38 3fef232ecfdbdb67
+  #|atan bfcdc978ec565c38 bfcd4420c7699c98
+  #|sin c010a944ae6941e0 3feb545202f1c238
+  #|cos c010a944ae6941e0 bfe0a57f7ede1897
+  #|atan c010a944ae6941e0 bff55ce280e89997
+  #|sin c00f725b5a18449d 3fe6b6dce2ff2aeb
+  #|cos c00f725b5a18449d bfe68a49f65c0720
+  #|atan c00f725b5a18449d bff5259c142da6c8
+  #|sin 40217bbb82c33dcc 3fe432e0782eb776
+  #|cos 40217bbb82c33dcc bfe8d1cf43adf540
+  #|atan 40217bbb82c33dcc 3ff74f72f925154c
+  #|sin c022d4bfdc7199e9 bf82f2794f52ffbd
+  #|cos c022d4bfdc7199e9 bfefffa63fd3f47c
+  #|atan c022d4bfdc7199e9 bff77094915c7a32
+  #|sin 401643a44c0bfcec bfe507f96e257340
+  #|cos 401643a44c0bfcec 3fe81e46a91395de
+  #|atan 401643a44c0bfcec 3ff649dc46a9ce2a
+  #|sin 4007450729de7934 3fcd8a7702068425
+  #|cos 4007450729de7934 bfef22d95a413d18
+  #|atan 4007450729de7934 3ff3d5a52b5ec18c
+  #|sin 401c17a2f31809d6 3fe59325152d13c9
+  #|cos 401c17a2f31809d6 3fe7a21a20809e5d
+  #|atan 401c17a2f31809d6 3ff6dea7fff8c8c4
+  #|sin c0178ba003566830 3fd8bc66dd84d5ae
+  #|cos c0178ba003566830 3fed8365d5bd1a81
+  #|atan c0178ba003566830 bff670b72c9a2019
+  #|sin c01f5babb628e187 bfefff24c5e3e9bf
+  #|cos c01f5babb628e187 3f8d9ca2b8b48704
+  #|atan c01f5babb628e187 bff71a4eb12350d0
+  #|sin c012fa99e05a1c74 3feffbb7820b9ede
+  #|cos c012fa99e05a1c74 3fa08df3745ebc52
+  #|atan c012fa99e05a1c74 bff5cf28e2a4ad09
+  #|sin 3fe1679a465fe41c 3fe08f267b43b12f
+  #|cos 3fe1679a465fe41c 3feb61e235e9b91e
+  #|atan 3fe1679a465fe41c 3fdfe19d2e3a4a80
+  #|sin 3ff97fcd4a26abe6 3feffdd9e29aaa7c
+  #|cos 3ff97fcd4a26abe6 bf9773f7101d8695
+  #|atan 3ff97fcd4a26abe6 3ff02ab115f4f83a
+  #|sin c01b3a053dffea3e bfdffe3f87943227
+  #|cos c01b3a053dffea3e 3febb6fc59f4ecdc
+  #|atan c01b3a053dffea3e bff6cc7e153206f9
+  #|sin c00d315454027d6e 3fdf1a6fe6632f68
+  #|cos c00d315454027d6e bfebf785c45b5248
+  #|atan c00d315454027d6e bff4da67e650362c
+  #|sin c020b1026af6ea4b bfec355a0bbbe6d2
+  #|cos c020b1026af6ea4b bfde37e02ab6acf8
+  #|atan c020b1026af6ea4b bff73985279105be
+  #|sin bffc204d26dcaf9b bfef710c12b58071
+  #|cos bffc204d26dcaf9b bfc7cedaf3e701ea
+  #|atan bffc204d26dcaf9b bff0db7bc3524679
+  #|sin 4011f007f2a5bd41 bfef2c064b65a49b
+  #|cos 4011f007f2a5bd41 bfccee0558172b9f
+  #|atan 4011f007f2a5bd41 3ff59f4c415e4317
+  #|sin 3fbcfa6634b111e0 3fbcea9129a9fc8c
+  #|cos 3fbcfa6634b111e0 3fefcb92a2a0676f
+  #|atan 3fbcfa6634b111e0 3fbcdaf4b806609a
+  #|sin 4013ded8f7566c1b bfeef69c5a0e94fe
+  #|cos 4013ded8f7566c1b 3fd02885eff7e01f
+  #|atan 4013ded8f7566c1b 3ff5f451349bee07
+  #|sin 40200e0904ac361c 3fef851b9bb7edbf
+  #|cos 40200e0904ac361c bfc61689c29e7648
+  #|atan 40200e0904ac361c 3ff7265865a4f303
+  #|sin 3fe9eb080e104d8c 3fe72d060fba6b7a
+  #|cos 3fe9eb080e104d8c 3fe610b9991ddd30
+  #|atan 3fe9eb080e104d8c 3fe5c8e413c0663f
+  #|sin c01fab57b063da7a bfefef91e4e5dbe4
+  #|cos c01fab57b063da7a bfb0349b2c546235
+  #|atan c01fab57b063da7a bff71f5c46cadb45
+  #|sin c00dc10a298105e4 3fe179665a1574b7
+  #|cos c00dc10a298105e4 bfeacec41d1d6e06
+  #|atan c00dc10a298105e4 bff4ee2148dc3928
+  #|sin 4011183098a59a7a bfecf8068222a19a
+  #|cos 4011183098a59a7a bfdb304bd61b2cb6
+  #|atan 4011183098a59a7a 3ff5747bd2bd1b16
+  #|sin 3fef3e767481098c 3fea82d905118124
+  #|cos 3fef3e767481098c 3fe1ebc31e60a344
+  #|atan 3fef3e767481098c 3fe8c00f9f4fadac
+  #|sin bfdf99bf355a5c78 bfde5505255139b1
+  #|cos bfdf99bf355a5c78 3fec2d870d7dd953
+  #|atan bfdf99bf355a5c78 bfdd5a655a8ffe88
+  #|sin 3fa5dc9c4b17bb80 3fa5dae8fa392ec1
+  #|cos 3fa5dc9c4b17bb80 3feff8888b54d597
+  #|atan 3fa5dc9c4b17bb80 3fa5d936888d93d7
+  #|sin 402255c1de635d0f 3fd048fa11260665
+  #|cos 402255c1de635d0f bfeef25be727baee
+  #|atan 402255c1de635d0f 3ff764f1ff380c96
+  #|sin 40215dcd20d3dd74 3fe59d45887ec70f
+  #|cos 40215dcd20d3dd74 bfe798d77dff52ee
+  #|atan 40215dcd20d3dd74 3ff74c55e7bf97d1
+  #|sin 40229294fd27aa90 3fc1ab62e1b0a7ec
+  #|cos 40229294fd27aa90 bfefb1926c5e3f0e
+  #|atan 40229294fd27aa90 3ff76a98407592fa
+  #|sin 4017b7f74b36a4f6 bfd62858ea8d01e7
+  #|cos 4017b7f74b36a4f6 3fee055fe6a63b42
+  #|atan 4017b7f74b36a4f6 3ff675a7cc5088a7
+  #|sin c017abeeb816895e 3fd6dc948b7654bb
+  #|cos c017abeeb816895e 3fede383fa96141a
+  #|atan c017abeeb816895e bff67452604e3f19
+  #|sin c0183094352e9360 3fcde5893c6afe74
+  #|cos c0183094352e9360 3fef1d6a1220d315
+  #|atan c0183094352e9360 bff682be946d56b2
+  #|sin c00b944e1122dee2 3fd344d8864038f7
+  #|cos c00b944e1122dee2 bfee83e3c93d4a54
+  #|atan c00b944e1122dee2 bff49d94e3ca5eba
+  #|sin c00674e32285b26e bfd5031b98569396
+  #|cos c00674e32285b26e bfee39e783efbb7c
+  #|atan c00674e32285b26e bff3a839dcb207fa
+  #|sin 4006fc2d1609dae8 3fd0f9cd511c2064
+  #|cos 4006fc2d1609dae8 bfeeda9139c968a0
+  #|atan 4006fc2d1609dae8 3ff3c612e482abfa
+  #|sin 3fdc18e977e18c60 3fdb3411c30d0401
+  #|cos 3fdc18e977e18c60 3fecf723ca9e9fdc
+  #|atan 3fdc18e977e18c60 3fda79d4aa8dcb83
+  #|sin 401e606312e97d70 3feeecf987f11242
+  #|cos 401e606312e97d70 3fd071b0f6178fa6
+  #|atan 401e606312e97d70 3ff709b3fe980c03
+  #|sin c0223b9210c364d4 bfd36d90b1e23acc
+  #|cos c0223b9210c364d4 bfee7d6eb7483101
+  #|atan c0223b9210c364d4 bff76277df941226
+  #|sin 4016dc459abec445 bfe137636666caeb
+  #|cos 4016dc459abec445 3feaf958600257b5
+  #|atan 4016dc459abec445 3ff65c77bd0297e2
+  #|sin 401bfc7aaa51c7d6 3fe4f0c47ade4283
+  #|cos 401bfc7aaa51c7d6 3fe8326f95859c47
+  #|atan 401bfc7aaa51c7d6 3ff6dc7d577bf602
+  #|sin c022a8a1a57f0f70 bfb863f0a6071769
+  #|cos c022a8a1a57f0f70 bfefdabc0af24001
+  #|atan c022a8a1a57f0f70 bff76c9b89ef8ace
+  #|sin 4021734d4ad83bab 3fe49acad68a90e0
+  #|cos 4021734d4ad83bab bfe87bcf1b68a7d9
+  #|atan 4021734d4ad83bab 3ff74e9388c5004d
+  #|sin c0177f94fd6a5278 3fd96dacc1c6a1a1
+  #|cos c0177f94fd6a5278 3fed5da39b00fe42
+  #|atan c0177f94fd6a5278 bff66f5c925681de
+  #|sin 3fec1f295d54074c 3fe8a3a532d10d84
+  #|cos 3fec1f295d54074c 3fe46b1728708edc
+  #|atan 3fec1f295d54074c 3fe712456aa39a69
+  #|sin 4023cace693557de bfdd0f7b72a6aaf8
+  #|cos 4023cace693557de bfec82cb32a502ef
+  #|atan 4023cace693557de 3ff7857b5752a508
+  #|sin c01f46b2caf28f70 bfeffb000243c061
+  #|cos c01f46b2caf28f70 3fa1e2c0a8cf1d35
+  #|atan c01f46b2caf28f70 bff718f5f6e9f09c
+  #|sin bfdebf87461966d4 bfdd942ee0037d28
+  #|cos bfdebf87461966d4 3fec6098ec5cb6ef
+  #|atan bfdebf87461966d4 bfdcaa065d46c9d2
+  #|sin 400783d00fb98c17 3fc9b5a09c779c99
+  #|cos 400783d00fb98c17 bfef590df614d8b5
+  #|atan 400783d00fb98c17 3ff3e2cb4d7fa097
+  #|sin c023c19a07afe9df 3fdc07dcbc0c3f6d
+  #|cos c023c19a07afe9df bfecc47bb97d0a07
+  #|atan c023c19a07afe9df bff784bc743fbf9d
+  #|sin 401cec06aa8988c2 3fe9faa6eeb30e90
+  #|cos 401cec06aa8988c2 3fe2af101ba4ad71
+  #|atan 401cec06aa8988c2 3ff6ef10288590ac
+  #|sin 40080f734e8808e0 3fc11b5bc0507f08
+  #|cos 40080f734e8808e0 bfefb682555a6ce2
+  #|atan 40080f734e8808e0 3ff3ff2cb1d9206c
+  #|sin 4006409793c224c4 3fd68c7b67488efe
+  #|cos 4006409793c224c4 bfedf2b6562c0d31
+  #|atan 4006409793c224c4 3ff39c5a009ffc36
+  #|sin 3ffb9a9170726a2a 3fef9e7f53df1373
+  #|cos 3ffb9a9170726a2a bfc3b098e350bc6d
+  #|atan 3ffb9a9170726a2a 3ff0ba5291406582
+  #|sin 400d13fe4d1336f8 bfde4c848fc99b07
+  #|cos 400d13fe4d1336f8 bfec2fd062fa1b83
+  #|atan 400d13fe4d1336f8 3ff4d64add067d28
+  #|sin 4021720d1609f86c 3fe4aa16b5dc9eca
+  #|cos 4021720d1609f86c bfe86ee773b19457
+  #|atan 4021720d1609f86c 3ff74e725004eab2
+  #|sin 4020d24e62425892 3feb2ab8b3de41f6
+  #|cos 4020d24e62425892 bfe0e90df43bf225
+  #|atan 4020d24e62425892 3ff73d42fc8b9f6d
+  #|sin c0093a36d3e0472a 3f883b5a8dd2eb61
+  #|cos c0093a36d3e0472a bfefff6d32ffe8e2
+  #|atan c0093a36d3e0472a bff4382a2faab003
+  #|sin 4014021ddc5ea672 bfeeaab00593dd55
+  #|cos 4014021ddc5ea672 3fd247fc8c21d0b9
+  #|atan 4014021ddc5ea672 3ff5f9c669a54ef2
+  #|sin 3ffbafc5cff309fc 3fef97dd823da28c
+  #|cos 3ffbafc5cff309fc bfc45825838219a4
+  #|atan 3ffbafc5cff309fc 3ff0bfa4a41b177a
+  #|sin 4015cc887650843b bfe7b0263a83997a
+  #|cos 4015cc887650843b 3fe583b7cadf249b
+  #|atan 4015cc887650843b 3ff63aa7bf398497
+  #|sin 401d634012263c6e 3febf9426769e99e
+  #|cos 401d634012263c6e 3fdf142fe0048477
+  #|atan 401d634012263c6e 3ff6f7dfe864bac0
+  #|sin 402020ef19c7467c 3fef4b719c6d92c1
+  #|cos 402020ef19c7467c bfcab9cabfa0ae08
+  #|atan 402020ef19c7467c 3ff728a5307fc08b
+  #|sin 3fec927a179e268c 3fe8ec98f6a136ee
+  #|cos 3fec927a179e268c 3fe411c913872d08
+  #|atan 3fec927a179e268c 3fe752e2623007f2
+  #|sin 400465ec19b82912 3fe1da218d573efb
+  #|cos 400465ec19b82912 bfea8ebb90fb387c
+  #|atan 400465ec19b82912 3ff32711c01176f8
+  #|sin 400594885eda2399 3fdb7ed1f4f6625b
+  #|cos 400594885eda2399 bfece57942a49c15
+  #|atan 400594885eda2399 3ff373e247d07fc9
+  #|sin 40047d8dfc48c026 3fe18b60576d815e
+  #|cos 40047d8dfc48c026 bfeac303c45dca88
+  #|atan 40047d8dfc48c026 3ff32d5877c385aa
+  #|sin 401edeb80a83c0b5 3fefb3d1ec6f553a
+  #|cos 401edeb80a83c0b5 3fc16a64b81e3326
+  #|atan 401edeb80a83c0b5 3ff7122e3f25db4c
+  #|sin bfeaff5059e3fa80 bfe7e81f342cc080
+  #|cos bfeaff5059e3fa80 3fe545744a1d52ab
+  #|atan bfeaff5059e3fa80 bfe66cff9d7c8898
+  #|sin c0099d7baa1d6b22 3faedb4b4f4112ad
+  #|cos c0099d7baa1d6b22 bfeff11c03132242
+  #|atan c0099d7baa1d6b22 bff44a0e4f4f277e
+  #|sin 402140353cca7cd2 3fe6f0fe968c2810
+  #|cos 402140353cca7cd2 bfe64f1ca933469c
+  #|atan 402140353cca7cd2 3ff749375a31c0a1
+  #|sin bfb067af64c83530 bfb064cfb64d2a11
+  #|cos bfb067af64c83530 3fefef2f7a7a4e8e
+  #|atan bfb067af64c83530 bfb061f3580707bc
+  #|sin c001f67b9ec4288a bfe8fdd1ffa32a98
+  #|cos c001f67b9ec4288a bfe3fc52a51bc4fd
+  #|atan c001f67b9ec4288a bff26dca3122dfbd
+  #|sin 401630f47922390c bfe577beb818399e
+  #|cos 401630f47922390c 3fe7bb008be106a7
+  #|atan 401630f47922390c 3ff647840940c736
+  #|sin 3fff9735e0b2b0c0 3fed6dbbac9347ac
+  #|cos 3fff9735e0b2b0c0 bfd922d21d33f269
+  #|atan 3fff9735e0b2b0c0 3ff1a1b4ed03e316
+  #|sin c0213ab7e4dba1b3 bfe72de3cb5439bb
+  #|cos c0213ab7e4dba1b3 bfe60fd0ab774a16
+  #|atan c0213ab7e4dba1b3 bff748a20e73c028
+  #|sin c002b870a681c100 bfe6fd54601508cb
+  #|cos c002b870a681c100 bfe642665567198c
+  #|atan c002b870a681c100 bff2abcf21bdb25e
+  #|sin c0179de3096350e1 3fd7aded1d858268
+  #|cos c0179de3096350e1 3fedbaa8a3c28095
+  #|atan c0179de3096350e1 bff672c23184e76c
+  #|sin c021a3f78eb359fe bfe230217728349d
+  #|cos c021a3f78eb359fe bfea54207cc17246
+  #|atan c021a3f78eb359fe bff75391fc6442e7
+  #|sin c0031c72f9b772ce bfe5e028304515d9
+  #|cos c0031c72f9b772ce bfe75ae369f1620e
+  #|atan c0031c72f9b772ce bff2ca28df0f4441
+  #|sin 3fe926a07566ddac 3fe6a3e700e10dcb
+  #|cos 3fe926a07566ddac 3fe69d55520f7f1c
+  #|atan 3fe926a07566ddac 3fe550e4026336d0
+  #|sin 40205677124862d0 3fee6d30602396a6
+  #|cos 40205677124862d0 bfd3d267f41a4c11
+  #|atan 40205677124862d0 3ff72f0c8167b2ce
+  #|sin bfe8e6ee2dddf656 bfe676b686e0a6eb
+  #|cos bfe8e6ee2dddf656 3fe6ca393863a726
+  #|atan bfe8e6ee2dddf656 bfe5295e35336169
+  #|sin 400f88bb75df2e0a bfe6f58ecde18b6a
+  #|cos 400f88bb75df2e0a bfe64a6a5ed4453c
+  #|atan 400f88bb75df2e0a 3ff52852a10d3008
+  #|sin 400eeac385e09bc7 bfe52c5d80322215
+  #|cos 400eeac385e09bc7 bfe7fe5a753cf07d
+  #|atan 400eeac385e09bc7 3ff514dc5f6fdcd7
+  #|sin c01ed38651d05462 bfefa7269353c979
+  #|cos c01ed38651d05462 3fc2cd0105fae579
+  #|atan c01ed38651d05462 bff71170b352fffa
+  #|sin 40037f40815e94a9 3fe4b94f6488f703
+  #|cos 40037f40815e94a9 bfe861ffae5b9ff5
+  #|atan 40037f40815e94a9 3ff2e71ffa00ee34
+  #|sin c00b2ce1f3fa6b06 3fd029e79354e721
+  #|cos c00b2ce1f3fa6b06 bfeef66e34f103fb
+  #|atan c00b2ce1f3fa6b06 bff48d4ee9fc1457
+  #|sin 4001a2d16d8c905e 3fe9c96fa602e599
+  #|cos 4001a2d16d8c905e bfe2f2c36acde41c
+  #|atan 4001a2d16d8c905e 3ff251aac56287e4
+  #|sin c002559b9cdb2bf4 bfe8095d326637ea
+  #|cos c002559b9cdb2bf4 bfe51fdcc0f573de
+  #|atan c002559b9cdb2bf4 bff28cbeab58e21c
+  #|sin 3ffc663e476897fc 3fef55db48407b7e
+  #|cos 3ffc663e476897fc bfc9f3b610b80069
+  #|atan 3ffc663e476897fc 3ff0ec7573cb4f71
+  #|sin 401b582899f707ce 3fe0ce236922299e
+  #|cos 401b582899f707ce 3feb3b675a4d31ec
+  #|atan 401b582899f707ce 3ff6cf075fbbee94
+  #|sin 4012ece4ca64d646 bfeffe875d3c4d2b
+  #|cos 4012ece4ca64d646 3f9367ff0d6aa2fa
+  #|atan 4012ece4ca64d646 3ff5ccd24b12e1bb
+  #|sin 400e27322ea1c133 bfe2ca04002ab273
+  #|cos 400e27322ea1c133 bfe9e72f580080ea
+  #|atan 400e27322ea1c133 3ff4fbbbefac1446
+  #|sin 3ff9dfd4e19467b8 3feff733b803aa6e
+  #|cos 3ff9dfd4e19467b8 bfa7b904dc19a6e2
+  #|atan 3ff9dfd4e19467b8 3ff04589318c8a86
+  #|sin c021d84ce3486c6e bfded031323fda4c
+  #|cos c021d84ce3486c6e bfec0c0a29a0cd04
+  #|atan c021d84ce3486c6e bff758d2ca14e33d
+  #|sin 3ff64cfa59b3994c 3fef8001c5bc7146
+  #|cos 3ff64cfa59b3994c 3fc689caca1c39cd
+  #|atan 3ff64cfa59b3994c 3fee59a6effde145
+  #|sin bff194dd72d51aa6 bfec80786506b6f0
+  #|cos bff194dd72d51aa6 3fdd1897de10ce42
+  #|atan bff194dd72d51aa6 bfeaa37eba720568
+  #|sin 40195e9d8515f508 3fae4c8f9916f6be
+  #|cos 40195e9d8515f508 3feff1a4a5501957
+  #|atan 40195e9d8515f508 3ff6a1713bc8f77c
+  #|sin 4012028e5a5c313e bfef4c3655161c44
+  #|cos 4012028e5a5c313e bfcaab610ce00b18
+  #|atan 4012028e5a5c313e 3ff5a2cb6d85f64a
+  #|sin c01472e8c13c8e06 3fed79e2220b84c2
+  #|cos c01472e8c13c8e06 3fd8e99eae895e2d
+  #|atan c01472e8c13c8e06 bff60ac11c39a1e3
+  #|sin c010e0dd5969e4a2 3fec3144b3196043
+  #|cos c010e0dd5969e4a2 bfde471a8065ba12
+  #|atan c010e0dd5969e4a2 bff568db41fe1ed8
+  #|sin 4007079203c8e6b0 3fd0a1d8a58a89b7
+  #|cos 4007079203c8e6b0 bfeee688bcf420ea
+  #|atan 4007079203c8e6b0 3ff3c88828d8e92e
+  #|sin c012542858960347 3fefbaa88dbc063b
+  #|cos c012542858960347 bfc09e7957b539e8
+  #|atan c012542858960347 bff5b1e255c8c4fd
+  #|sin 3ffbabc7f9996db6 3fef992158e60d5e
+  #|cos 3ffbabc7f9996db6 bfc4389e1927c8a2
+  #|atan 3ffbabc7f9996db6 3ff0bea4b6072208
+  #|sin bff29295bf6f631f bfed590641c04b08
+  #|cos bff29295bf6f631f 3fd982f342c90d0d
+  #|atan bff29295bf6f631f bfeb827066db6476
+  #|sin c011bb7d0bb2a017 3feec28f8cb87d2f
+  #|cos c011bb7d0bb2a017 bfd1a4b49b739e3a
+  #|atan c011bb7d0bb2a017 bff5953b6eff8402
+  #|sin c00b97985b488fdb 3fd35df08ccfc089
+  #|cos c00b97985b488fdb bfee7fead45e3c3a
+  #|atan c00b97985b488fdb bff49e17939a5e18
+  #|sin c022961b4077cd4f bfc0cbdfe72087ae
+  #|cos c022961b4077cd4f bfefb92a02aa396e
+  #|atan c022961b4077cd4f bff76aeaef26df42
+  #|sin c02150b0b66688f2 bfe63621883dede1
+  #|cos c02150b0b66688f2 bfe7092f16adce0c
+  #|atan c02150b0b66688f2 bff74af569cd8f47
+  #|sin 400ddfa4f1954a05 bfe1df738c7cbe26
+  #|cos 400ddfa4f1954a05 bfea8b2740e2abe4
+  #|atan 400ddfa4f1954a05 3ff4f23dbf85f1fd
+  #|sin c0196adbabebb445 bfb234263e50da01
+  #|cos c0196adbabebb445 3fefeb4347db46c2
+  #|atan c0196adbabebb445 bff6a2a0c512d967
+  #|sin c02045c889e13db8 bfeebbb4d9bf1556
+  #|cos c02045c889e13db8 bfd1d43c0b6c1874
+  #|atan c02045c889e13db8 bff72d1219e995f6
+  #|sin 402174254e8fbcd8 3fe490749882d246
+  #|cos 402174254e8fbcd8 bfe8847e612c2af7
+  #|atan 402174254e8fbcd8 3ff74ea9ef82406b
+  #|sin 40216aec640e92bc 3fe500a65a08dec4
+  #|cos 40216aec640e92bc bfe824a7c6591b51
+  #|atan 40216aec640e92bc 3ff74db4a5d26462
+  #|sin c01dba73f87d7214 bfed31ab45d42471
+  #|cos c01dba73f87d7214 3fda35237adbf9fb
+  #|atan c01dba73f87d7214 bff6fe25db76e707
+  #|sin 40182d4ae605983c bfce4bc05a51dfa8
+  #|cos 40182d4ae605983c 3fef173b8d8b092a
+  #|atan 40182d4ae605983c 3ff68264f6f767bf
+  #|sin c0192c4fa615d30e bf84a88cad7276d3
+  #|cos c0192c4fa615d30e 3fefff954e111df4
+  #|atan c0192c4fa615d30e bff69c863aa51de2
+  #|sin 40097e87a62db91c bfa721107507b148
+  #|cos 40097e87a62db91c bfeff7a31354ceea
+  #|atan 40097e87a62db91c 3ff44487c7ea3c07
+  #|sin c02265cad4d5352f bfccad90b8ea3df3
+  #|cos c02265cad4d5352f bfef2fbf04004743
+  #|atan c02265cad4d5352f bff76672da15f13f
+  #|sin 4020c4ccd9ee1f36 3feb9a7bfac27eb6
+  #|cos 4020c4ccd9ee1f36 bfe0301ca7996dc2
+  #|atan 4020c4ccd9ee1f36 3ff73bc03b69cd6a
+  #|sin c0146535ff348498 3feda3dd43a59fe7
+  #|cos c0146535ff348498 3fd81f2b5b44dd5c
+  #|atan c0146535ff348498 bff608badd4bd111
+  #|sin c00a995d8d34439e 3fc754909174909d
+  #|cos c00a995d8d34439e bfef76c64a657648
+  #|atan c00a995d8d34439e bff4754f9c8a382e
+  #|sin bfe2c6df456f281a bfe1b7be14a405ff
+  #|cos bfe2c6df456f281a 3feaa5b912fc8a30
+  #|atan bfe2c6df456f281a bfe0faffb4f415b5
+  #|sin 402312e877e9efee bfbca6965eaa7528
+  #|cos 402312e877e9efee bfefcc88c8604040
+  #|atan 402312e877e9efee 3ff7760ea1fa1d21
+  #|sin 4022090739955076 3fd957e284399a0c
+  #|cos 4022090739955076 bfed6258c8e13349
+  #|atan 4022090739955076 3ff75d9bdf6407af
+  #|sin 3fcebbd39222c320 3fce70721089b979
+  #|cos 3fcebbd39222c320 3fef14fe057fef2e
+  #|atan 3fcebbd39222c320 3fce29a7404c5d2c
+  #|sin c01a1639c0b5c7a0 bfce3de799c69338
+  #|cos c01a1639c0b5c7a0 3fef18133b59ac2b
+  #|atan c01a1639c0b5c7a0 bff6b2c76a7a0471
+  #|sin 401bb6e3ac7c0d3a 3fe33fc02ed1f955
+  #|cos 401bb6e3ac7c0d3a 3fe9902b0c7c0d70
+  #|atan 401bb6e3ac7c0d3a 3ff6d6dd0f8422bf
+  #|sin 4013b69c7eaeec9d bfef41bd7333d84f
+  #|cos 4013b69c7eaeec9d 3fcb6d225b5c45a3
+  #|atan 4013b69c7eaeec9d 3ff5ee004fc2f723
+  #|sin c00e10c621600223 3fe28120f4d7e164
+  #|cos c00e10c621600223 bfea1b72a7278e9e
+  #|atan c00e10c621600223 bff4f8c6ee274b64
+  #|sin 3ff70ebad8d36f22 3fefbb316dae0258
+  #|cos 3ff70ebad8d36f22 3fc08e1bff764cea
+  #|atan 3ff70ebad8d36f22 3feeda70cd95090f
+  #|sin c021f7b6d57bd08f bfdb50d63dcfeabd
+  #|cos c021f7b6d57bd08f bfecf05e4e4fe642
+  #|atan c021f7b6d57bd08f bff75beb82f581c7
+  #|sin bff0d4de13fb569f bfebc9f21156161f
+  #|cos bff0d4de13fb569f 3fdfbc324ffe0455
+  #|atan bff0d4de13fb569f bfe9f169e67da5ae
+  #|sin 4009d3b527664300 bfb63017b10653e0
+  #|cos 4009d3b527664300 bfefe12c551ea594
+  #|atan 4009d3b527664300 3ff4539f34c86ba4
+  #|sin 3ffb7cef99a101a0 3fefa766e47e2601
+  #|cos 3ffb7cef99a101a0 bfc2c63b3c081d08
+  #|atan 3ffb7cef99a101a0 3ff0b2d8ddf2d584
+  #|sin c01472c46ff97ea4 3fed7a5335a4ddcc
+  #|cos c01472c46ff97ea4 3fd8e7876afba538
+  #|atan c01472c46ff97ea4 bff60abbc1a845a6
+  #|sin 401cfc2b90c6064a 3fea453b265edc0a
+  #|cos 401cfc2b90c6064a 3fe2459ec926d29f
+  #|atan 401cfc2b90c6064a 3ff6f045c5f7a426
+  #|sin 400af7037834eb43 bfcd0f142ce979d3
+  #|cos 400af7037834eb43 bfef2a1a422cd5cc
+  #|atan 400af7037834eb43 3ff484a785b846ce
+  #|sin c004cceed51d3fd8 bfe07e88151b8b1c
+  #|cos c004cceed51d3fd8 bfeb6be8225fd39e
+  #|atan c004cceed51d3fd8 bff342126e25a415
+  #|sin 401267249f20caac bfefccfb329953d6
+  #|cos 401267249f20caac bfbc86c54cc3dc31
+  #|atan 401267249f20caac 3ff5b552c3c2eff8
+  #|sin c003c371c672fc38 bfe3e6913e512b1c
+  #|cos c003c371c672fc38 bfe90f285a926906
+  #|atan c003c371c672fc38 bff2fa8cf8a06379
+  #|sin c0134772ff3bbcda 3fefd0cfc72d4d51
+  #|cos c0134772ff3bbcda 3fbb701b5d837e9e
+  #|atan c0134772ff3bbcda bff5dc09ca312a42
+  #|sin 402025b403f10cd9 3fef3b29f65abd2a
+  #|cos 402025b403f10cd9 bfcbe3fdfb9483c5
+  #|atan 402025b403f10cd9 3ff72938efb4ab23
+  #|sin 4020e0ebedac4fa3 3feaac54352e7f1a
+  #|cos 4020e0ebedac4fa3 bfe1adca9a320ab5
+  #|atan 4020e0ebedac4fa3 3ff73ee2d2f80293
+  #|sin c01d9e4d99c74c92 bfecd2a3ad594e63
+  #|cos c01d9e4d99c74c92 3fdbcd74bf5e779a
+  #|atan c01d9e4d99c74c92 bff6fc23680c9c1a
+  #|sin c018d1682bfe5011 3fb41f783537d45e
+  #|cos c018d1682bfe5011 3fefe6a70b9b0c7d
+  #|atan c018d1682bfe5011 bff69371cb191113
+  #|sin 4011871e58a50872 bfee44d13dbc1493
+  #|cos 4011871e58a50872 bfd4c3e5f778635b
+  #|atan 4011871e58a50872 3ff58af9f843deee
+  #|sin 400695b7f17ba516 3fd40a560b0c9789
+  #|cos 400695b7f17ba516 bfee64063343ad7e
+  #|atan 400695b7f17ba516 3ff3af955c8dc11c
+  #|sin bffc0c49a4489683 bfef78656a880128
+  #|cos bffc0c49a4489683 bfc73177a93fcb40
+  #|atan bffc0c49a4489683 bff0d6947c512f0b
+  #|sin 40155de71727bcc6 bfe9dead11be959c
+  #|cos 40155de71727bcc6 3fe2d5b970612a41
+  #|atan 40155de71727bcc6 3ff62bf57c6547f4
+  #|sin bffd6fceaeb531dc bfeed96436037c82
+  #|cos bffd6fceaeb531dc bfd10257673ce4ba
+  #|atan bffd6fceaeb531dc bff12ab62bba1e43
+  #|sin 40013eb1f3d56df4 3feaae996865b861
+  #|cos 40013eb1f3d56df4 bfe1aa5d3bc4f2ef
+  #|atan 40013eb1f3d56df4 3ff22edade48f5b8
+  #|sin 4023e4159fd2aff9 bfdfd6d404ec70a2
+  #|cos 4023e4159fd2aff9 bfebc2535c45d7b3
+  #|atan 4023e4159fd2aff9 3ff787840ce93dd0
+  #|sin bfe54daecce05514 bfe3c3abb7c0d23d
+  #|cos bfe54daecce05514 3fe92ab76b645e32
+  #|atan bfe54daecce05514 bfe2cb9e58137f2c
+  #|sin 401ef14e77ebcd93 3fefc6b6ca966ddb
+  #|cos 401ef14e77ebcd93 3fbe38d69afcfbd9
+  #|atan 401ef14e77ebcd93 3ff71367d145870f
+  #|sin c02373f7dfb0802e 3fd304c1ea870986
+  #|cos c02373f7dfb0802e bfee8def4f9163dc
+  #|atan c02373f7dfb0802e bff77e56b1ae8f09
+  #|sin c02360c4afda8c8c 3fd0b6d418a90a90
+  #|cos c02360c4afda8c8c bfeee3b40815a8e6
+  #|atan c02360c4afda8c8c bff77cb9d3b327f6
+  #|sin c014a0b78be007fe 3fece3bbb4c586a6
+  #|cos c014a0b78be007fe 3fdb8621ca9fcdf3
+  #|atan c014a0b78be007fe bff6117356114a41
+  #|sin bffbee07ea6d70b2 bfef832420aec0aa
+  #|cos bffbee07ea6d70b2 bfc64342ab85730a
+  #|atan bffbee07ea6d70b2 bff0cf20b38db494
+  #|sin 3fd0875fa39115f0 3fd0587de44cb00a
+  #|cos 3fd0875fa39115f0 3feef050572ba51f
+  #|atan 3fd0875fa39115f0 3fd02ce41dbf185d
+  #|sin c01fb4a68e9740d8 bfefea84b5789207
+  #|cos c01fb4a68e9740d8 bfb286f2e2c91fc9
+  #|atan c01fb4a68e9740d8 bff71ff1c692b0bf
+  #|sin 3ff1842ff631a2fc 3fec713ee1bc5102
+  #|cos 3ff1842ff631a2fc 3fdd53f30bdc20a7
+  #|atan 3ff1842ff631a2fc 3fea945aa36c564f
+  #|sin 4006794c4080ec4e 3fd4e1c42e7262e8
+  #|cos 4006794c4080ec4e bfee3fadbe4c9c3f
+  #|atan 4006794c4080ec4e 3ff3a938011d5e8d
+  #|sin c017e33a5bd2725a 3fd39a1862b42589
+  #|cos c017e33a5bd2725a 3fee764dcd94d221
+  #|atan c017e33a5bd2725a bff67a68759c39fb
+  #|sin 400aa86755de2a68 bfc840fb887606aa
+  #|cos 400aa86755de2a68 bfef6b97f40b2c87
+  #|atan 400aa86755de2a68 3ff477cd07eca87f
+  #|sin c01b2f0602774606 bfdf656395ecbd27
+  #|cos c01b2f0602774606 3febe28deb2d07a4
+  #|atan c01b2f0602774606 bff6cb8fcb515652
+  #|sin c0109bd30631e75c 3feb1bc532eecea0
+  #|cos c0109bd30631e75c bfe100fb62a696b6
+  #|atan c0109bd30631e75c bff559f20676b46e
+  #|sin c010b4d6360f39d4 3feb840436babe61
+  #|cos c010b4d6360f39d4 bfe056301df76065
+  #|atan c010b4d6360f39d4 bff55f666d395888
+  #|sin 401a595aeed0e36b 3fd3298e34b5da1b
+  #|cos 401a595aeed0e36b 3fee882f5127b7f4
+  #|atan 401a595aeed0e36b 3ff6b8e31e8df53f
+  #|sin 40136a084ab8dfe4 bfefae851a4134df
+  #|cos 40136a084ab8dfe4 3fc20220f4cddbba
+  #|atan 40136a084ab8dfe4 3ff5e1b590a1823f
+  #|sin 401f21c3e1f58500 3fefeb5b2eab8824
+  #|cos 401f21c3e1f58500 3fb229a8f8fdc882
+  #|atan 401f21c3e1f58500 3ff716928b594871
+  #|sin 40010b6fa48096f4 3feb1da332e8ef39
+  #|cos 40010b6fa48096f4 bfe0fe00f7ae5f7f
+  #|atan 40010b6fa48096f4 3ff21c8641549b06
+  #|sin 4012d02b05b5e9cf bfefffa92bae5bbb
+  #|cos 4012d02b05b5e9cf bf82a2e21f3b9cd7
+  #|atan 4012d02b05b5e9cf 3ff5c7e14911bd5c
+  #|sin 40160801c10e2780 bfe6663766b53780
+  #|cos 40160801c10e2780 3fe6da702863746f
+  #|atan 40160801c10e2780 3ff6425346127c64
+  #|sin c020fbe653b649b8 bfe9b47db09eb488
+  #|cos c020fbe653b649b8 bfe30f23b7f514a9
+  #|atan c020fbe653b649b8 bff741db29dd617e
+  #|sin c01883f532eb885e 3fc3acb81fe5c3a9
+  #|cos c01883f532eb885e 3fef9ea5f3602e9f
+  #|atan c01883f532eb885e bff68b81a4980503
+  #|sin 3ffd5978002a5fe6 3feee525d04265ba
+  #|cos 3ffd5978002a5fe6 bfd0ac22d9bdc3c1
+  #|atan 3ffd5978002a5fe6 3ff1259afd68ebd0
+  #|sin 3ff7fcc0b59b413e 3fefeb0457a9f910
+  #|cos 3ff7fcc0b59b413e 3fb24fa844c11844
+  #|atan 3ff7fcc0b59b413e 3fef710c12551666
+  #|sin 401926173536d200 3f706f80e69f12ba
+  #|cos 401926173536d200 3fefffef1df0ae0d
+  #|atan 401926173536d200 3ff69be935ff03a4
+  #|sin c020224a00479ad2 bfef46e3885d4cfa
+  #|cos c020224a00479ad2 bfcb0e94e0c90d3a
+  #|atan c020224a00479ad2 bff728cf3403bc0d
+  #|sin 4017ba025adefc12 bfd609aa9f6289ad
+  #|cos 4017ba025adefc12 3fee0b04b4d93347
+  #|atan 4017ba025adefc12 3ff675e1a37e5b03
+  #|sin c00297549f68fa95 bfe758ae5862fc2a
+  #|cos c00297549f68fa95 bfe5e2833bd9fb0a
+  #|atan c00297549f68fa95 bff2a18607cfe4cd
+  #|sin c01ef9c1f96cc537 bfefce6b24a00710
+  #|cos c01ef9c1f96cc537 3fbc1f7c9b3276fc
+  #|atan c01ef9c1f96cc537 bff713f5e8f5fc32
+  #|sin bff7ab28b2b93e97 bfefddb95e5e4c87
+  #|cos bff7ab28b2b93e97 3fb764cc445879d2
+  #|atan bff7ab28b2b93e97 bfef3e5546a047ab
+  #|sin c022e7286e7f27fa 3f9b5709a6a8a201
+  #|cos c022e7286e7f27fa bfeffd1464422fb8
+  #|atan c022e7286e7f27fa bff7723781a4d516
+  #|sin c01535e54011c112 3fea95f4eb0e1168
+  #|cos c01535e54011c112 3fe1cf5daa64bc5f
+  #|atan c01535e54011c112 bff626807aa9ef63
+  #|sin bffa9d141ca779e7 bfefdcf042b76f15
+  #|cos bffa9d141ca779e7 bfb7a8e49bde451f
+  #|atan bffa9d141ca779e7 bff078d24499cdeb
+  #|sin 3ff5bbb3d5a6cca0 3fef47c92f7891ca
+  #|cos 3ff5bbb3d5a6cca0 3fcafdf8027924fe
+  #|atan 3ff5bbb3d5a6cca0 3fedf53b89ba9a65
+  #|sin bffb00f06fc359e9 bfefc80ed079f088
+  #|cos bffb00f06fc359e9 bfbdddde0837f38b
+  #|atan bffb00f06fc359e9 bff0930cc2b22691
+  #|sin 401cd801e077acdc 3fe99be16f784e19
+  #|cos 401cd801e077acdc 3fe33028605443f5
+  #|atan 401cd801e077acdc 3ff6ed8e6428e26c
+  #|sin 4010beed31d31256 bfebace1d8358cc2
+  #|cos 4010beed31d31256 bfe010944a1e283e
+  #|atan 4010beed31d31256 3ff561955bdd95a0
+  #|sin c0077e7a95b52db0 bfca093543976be9
+  #|cos c0077e7a95b52db0 bfef54bdf11b1410
+  #|atan c0077e7a95b52db0 bff3e1afc7784e3e
+  #|sin 3ffda0f953c99702 3feebeb07841074f
+  #|cos 3ffda0f953c99702 bfd1bf9de638978d
+  #|atan 3ffda0f953c99702 3ff135de43367b9d
+  #|sin c022869cf341b2f2 bfc4a0c1e1f67438
+  #|cos c022869cf341b2f2 bfef94ec09ab2727
+  #|atan c022869cf341b2f2 bff7697e8f555a70
+  #|sin c00f1d87780d5d68 3fe5c2f09ef4eb7e
+  #|cos c00f1d87780d5d68 bfe7761f099186f8
+  #|atan c00f1d87780d5d68 bff51b31b4e098d4
+  #|sin c02162d70ab6f9e6 bfe5618e1d2112e8
+  #|cos c02162d70ab6f9e6 bfe7cf00b2952b53
+  #|atan c02162d70ab6f9e6 bff74cdcd3c80725
+  #|sin c01753b08738bc13 3fdbebf7497e051b
+  #|cos c01753b08738bc13 3feccb432dd96cd9
+  #|atan c01753b08738bc13 bff66a61d6cafe33
+  #|sin c021ddeac97737f2 bfde322fb1339f6a
+  #|cos c021ddeac97737f2 bfec36dfec6cfc95
+  #|atan c021ddeac97737f2 bff75961514b8cf4
+  #|sin 400b8dd78f921124 bfd313845d0f2647
+  #|cos 400b8dd78f921124 bfee8ba25c2bfd99
+  #|atan 400b8dd78f921124 3ff49c93dade3d7b
+  #|sin c00c574e8956e292 3fd8fbe28acdb25e
+  #|cos c00c574e8956e292 bfed76047af61cb0
+  #|atan c00c574e8956e292 bff4bb1912c5bcf7
+  #|sin 400862fa49af9dd0 3fb7d745fa0c75d1
+  #|cos 400862fa49af9dd0 bfefdc65f87c5def
+  #|atan 400862fa49af9dd0 3ff40f9a9d84c555
+  #|sin c0231da5f288057d 3fc0fd7cf80e500b
+  #|cos c0231da5f288057d bfefb7833e893ef6
+  #|atan c0231da5f288057d bff776fd5217d391
+  #|sin 4022d6bc6c4f6231 3f7600902ec428a8
+  #|cos 4022d6bc6c4f6231 bfefffe1be652c8d
+  #|atan 4022d6bc6c4f6231 3ff770c1ee24a054
+  #|sin 3fd1b36189f7e770 3fd179d4f050808e
+  #|cos 3fd1b36189f7e770 3feec8ad5542de83
+  #|atan 3fd1b36189f7e770 3fd144dee9233ec3
+  #|sin c020ad42c3820b9c bfec517a33d2239a
+  #|cos c020ad42c3820b9c bfddcded0443c149
+  #|atan c020ad42c3820b9c bff73918657bd006
+  #|sin bfd365f21542d65c bfd31a4248ca366a
+  #|cos bfd365f21542d65c 3fee8a94b01ad256
+  #|atan bfd365f21542d65c bfd2d5be75035eea
+  #|sin c00d4428bf51f9f7 3fdf9dc04bf78b36
+  #|cos c00d4428bf51f9f7 bfebd29dc1a22f61
+  #|atan c00d4428bf51f9f7 bff4dd07c38bb75c
+  #|sin c01f755c1782189c bfefff89924902b9
+  #|cos c01f755c1782189c bf85c3c1801b2378
+  #|atan c01f755c1782189c bff71bf28a6001c1
+  #|sin 400ca662b0cce3fb bfdb3d6857603c82
+  #|cos 400ca662b0cce3fb bfecf4f20ae390d3
+  #|atan 400ca662b0cce3fb 3ff4c6a7381fa81e
+  #|sin 4023738d016b478c bfd2f80034204744
+  #|cos 4023738d016b478c bfee8feac40e0d71
+  #|atan 4023738d016b478c 3ff77e4dc0365142
+  #|sin c009cf4cf8535e96 3fb5a39652429eeb
+  #|cos c009cf4cf8535e96 bfefe2ae9eb41924
+  #|atan c009cf4cf8535e96 bff452d98c0660e4
+  #|sin 40007d418e7e62ad 3fec3aaade19cf39
+  #|cos 40007d418e7e62ad bfde23fe8290d572
+  #|atan 40007d418e7e62ad 3ff1e7c8e9bac04a
+  #|sin 400992889c757e63 bfac1fb1ef0d7ccd
+  #|cos 400992889c757e63 bfeff3a1d0c03311
+  #|atan 400992889c757e63 3ff4481b532602b2
+  #|sin 3fe8a7d325765044 3fe649999497ab63
+  #|cos 3fe8a7d325765044 3fe6f6597c8deba0
+  #|atan 3fe8a7d325765044 3fe501eac4bc4a99
+  #|sin c023502006c545e7 3fcd651e276c2e7f
+  #|cos c023502006c545e7 bfef250ecfec4074
+  #|atan c023502006c545e7 bff77b515f2cff15
+  #|sin c014b36bba233861 3feca227180b96e9
+  #|cos c014b36bba233861 3fdc931d537b8066
+  #|atan c014b36bba233861 bff614270fc3f033
+  #|sin 4000ed1709627852 3feb5d543b481f06
+  #|cos 4000ed1709627852 bfe096ac375a3f4e
+  #|atan 4000ed1709627852 3ff2118153125547
+  #|sin 40005e994d04d977 3fec739b7ce6e254
+  #|cos 40005e994d04d977 bfdd4ac7d53e2843
+  #|atan 40005e994d04d977 3ff1dc088063c175
+  #|sin c012b20400e7d363 3feff9ea422f3d83
+  #|cos c012b20400e7d363 bfa3bafee5721547
+  #|atan c012b20400e7d363 bff5c2a1d27d21fb
+  #|sin 400aaa595df89b90 bfc85f8af6ac861e
+  #|cos 400aaa595df89b90 bfef6a1d8cca99e0
+  #|atan 400aaa595df89b90 3ff4781f4da1797a
+  #|sin c0231c291ecd09ac 3fc09f1b091fa2c9
+  #|cos c0231c291ecd09ac bfefbaa342921f22
+  #|atan c0231c291ecd09ac bff776dc5277c52e
+  #|sin bfffe4f104d76c76 bfed2f528c61a045
+  #|cos bfffe4f104d76c76 bfda3f95b1ba6416
+  #|atan bfffe4f104d76c76 bff1b174820b8108
+  #|sin bff14f188227ecf5 bfec3ffa1cd4b5f8
+  #|cos bff14f188227ecf5 3fde1011df2ceda1
+  #|atan bff14f188227ecf5 bfea63be5065fce3
+  #|sin c022ef368ba25df6 3fa5b86122220fe6
+  #|cos c022ef368ba25df6 bfeff8a01387020e
+  #|atan c022ef368ba25df6 bff772edd5ad3123
+  #|sin 3fc1460b3a97c3d0 3fc138a2516ed4ba
+  #|cos 3fc1460b3a97c3d0 3fefb584cc9d30da
+  #|atan 3fc1460b3a97c3d0 3fc12b7d47a754d7
+  #|sin 40172b22911b23b7 bfde2e1267f2e019
+  #|cos 40172b22911b23b7 3fec37f9a4bad7ca
+  #|atan 40172b22911b23b7 3ff665b7c24aa863
+  #|sin 401566515fc4e93c bfe9b6d406c4f004
+  #|cos 401566515fc4e93c 3fe30bfc56a28f1a
+  #|atan 401566515fc4e93c 3ff62d18d336279a
+  #|sin c01aa508bccc0498 bfd79e6d31a2ed6d
+  #|cos c01aa508bccc0498 3fedbdbd9641fe23
+  #|atan c01aa508bccc0498 bff6bfa1e20be3ae
+  #|sin 401dd05345a7e4ee 3fed779c75b54c8a
+  #|cos 401dd05345a7e4ee 3fd8f45cd9f6f351
+  #|atan 401dd05345a7e4ee 3ff6ffb30242e6a8
+  #|sin 4014b5516ec8380a bfec9b5d03ac8c08
+  #|cos 4014b5516ec8380a 3fdcae43cfd94e77
+  #|atan 4014b5516ec8380a 3ff6146cf75e5916
+  #|sin c01b56e11d8bcdcc bfe0c56d05f954f5
+  #|cos c01b56e11d8bcdcc 3feb40c5d439ee55
+  #|atan c01b56e11d8bcdcc bff6ceebece7e4cd
+  #|sin 401e0561f43b2fbe 3fee12ea837ac3ba
+  #|cos 401e0561f43b2fbe 3fd5de6993700280
+  #|atan 401e0561f43b2fbe 3ff7036d2f03808d
+  #|sin c01ae7b45893d9f6 bfdb7057ad1e6d61
+  #|cos c01ae7b45893d9f6 3fece8e9cbc31e2b
+  #|atan c01ae7b45893d9f6 bff6c574588018e9
+  #|sin 401e48b9e2b1bf6a 3feeba3afd2f6e16
+  #|cos 401e48b9e2b1bf6a 3fd1de664b20c04a
+  #|atan 401e48b9e2b1bf6a 3ff70815cb692beb
+  #|sin 40072cdf32767460 3fcf01fe7f1f20d2
+  #|cos 40072cdf32767460 bfef0bfecd2b83e2
+  #|atan 40072cdf32767460 3ff3d08518faf406
+  #|sin 401cefa42d107560 3fea0b7f54f936d6
+  #|cos 401cefa42d107560 3fe2978d82314f80
+  #|atan 401cefa42d107560 3ff6ef559b90acba
+  #|sin 400685609621f501 3fd48653b42410df
+  #|cos 400685609621f501 bfee4f4f1a15991d
+  #|atan 400685609621f501 3ff3abee42df7a74
+  #|sin bfd24783aacdad20 bfd2082697cfe549
+  #|cos bfd24783aacdad20 3feeb4216ada9ea2
+  #|atan bfd24783aacdad20 bfd1ce27ec4f6aab
+  #|sin 3fe7f154839a3cfc 3fe5c53df375c26a
+  #|cos 3fe7f154839a3cfc 3fe773fc32a1a6dc
+  #|atan 3fe7f154839a3cfc 3fe48e2a0f43855f
+  #|sin c01f8fe9f522aee8 bfeffa86a63a1a46
+  #|cos c01f8fe9f522aee8 bfa2b6d4a6593a43
+  #|atan c01f8fe9f522aee8 bff71da1c47fdb23
+  #|sin c0125df7d3bcc5d2 3fefc479bbdfa1ec
+  #|cos c0125df7d3bcc5d2 bfbece02ea240c41
+  #|atan c0125df7d3bcc5d2 bff5b3aa21f36988
+  #|sin 3fed77c123dc3830 3fe979e047946b6d
+  #|cos 3fed77c123dc3830 3fe35d3771e5b181
+  #|atan 3fed77c123dc3830 3fe7d0b27d8bba99
+  #|sin bfcb789dddc219d8 bfcb42c0a7b16ad6
+  #|cos bfcb789dddc219d8 3fef440e92c9554d
+  #|atan bfcb789dddc219d8 bfcb0f8784d26b35
+  #|sin bff0c584c52c5b8f bfebbaac81291da5
+  #|cos bff0c584c52c5b8f 3fdff1748be3b96d
+  #|atan bff0c584c52c5b8f bfe9e2d082107096
+  #|sin c01d0f7b4968b94e bfea9c3e864554d0
+  #|cos c01d0f7b4968b94e 3fe1c5f75932b261
+  #|atan c01d0f7b4968b94e bff6f1b6660e4549
+  #|sin c0017deca44e1103 bfea1fbe8da800cb
+  #|cos c0017deca44e1103 bfe27b0fa6f43147
+  #|atan c0017deca44e1103 bff244fd36768ab4
+  #|sin 40085daa79386b63 3fb8807d9f80df19
+  #|cos 40085daa79386b63 bfefda6465df2503
+  #|atan 40085daa79386b63 3ff40e922c5af9ea
+  #|sin 401168f9bbe624b6 bfedf33b18ff2f9a
+  #|cos 401168f9bbe624b6 bfd689b9e7e3c6b2
+  #|atan 401168f9bbe624b6 3ff584f8393f83aa
+  #|sin 400cfa4990609366 bfdd96c4ed57706c
+  #|cos 400cfa4990609366 bfec5fec5d6bc06d
+  #|atan 400cfa4990609366 3ff4d2a9c436c582
+  #|sin c010385eb283af04 3fe954f3d7d1f57c
+  #|cos c010385eb283af04 bfe38d6c2c5495be
+  #|atan c010385eb283af04 bff543a49c8a325a
+  #|sin c00388ede1a8601a bfe49bc195da3e58
+  #|cos c00388ede1a8601a bfe87aff6b79736f
+  #|atan c00388ede1a8601a bff2e9e8c5faa8cf
+  #|sin c0219f247d547228 bfe26f6f1fe51671
+  #|cos c0219f247d547228 bfea27f456a8bef0
+  #|atan c0219f247d547228 bff7531475f58435
+  #|sin 4009fd21d7e3cee7 bfbb5770449a0eb6
+  #|cos 4009fd21d7e3cee7 bfefd124b91b47fd
+  #|atan 4009fd21d7e3cee7 3ff45ad579660a9d
+  #|sin c00bf625a1e2752e 3fd62959d6196585
+  #|cos c00bf625a1e2752e bfee05307d6bf0f4
+  #|atan c00bf625a1e2752e bff4ac93c448bdaa
+  #|sin 4017b21a51f78dd1 bfd6804359a75dd9
+  #|cos 4017b21a51f78dd1 3fedf5026cce0c8b
+  #|atan 4017b21a51f78dd1 3ff675019bdcb9b8
+  #|sin c004049c40926290 bfe317e5abb8a744
+  #|cos c004049c40926290 bfe9adfd11844c36
+  #|atan c004049c40926290 bff30cb2cefcf1e0
+  #|sin c00657f6e0abfddc bfd5dd1f08ad75da
+  #|cos c00657f6e0abfddc bfee132698810989
+  #|atan c00657f6e0abfddc bff3a1aeb234fae7
+  #|sin 3ff1af2d904bbc06 3fec983ea3037279
+  #|cos 3ff1af2d904bbc06 3fdcbab1bac2b39b
+  #|atan 3ff1af2d904bbc06 3feabb424eebb658
+  #|sin 40234a32a12762c3 bfcbf36941529921
+  #|cos 40234a32a12762c3 bfef3a4d65543319
+  #|atan 40234a32a12762c3 3ff77ad06b16845f
+  #|sin 4003b20e99ffddff 3fe41cd8ef471ce1
+  #|cos 4003b20e99ffddff bfe8e3aca459ba19
+  #|atan 4003b20e99ffddff 3ff2f5a3f19dcd7a
+  #|sin 40017382fe6e4f64 3fea37b647dcd782
+  #|cos 40017382fe6e4f64 bfe258ff5c8f08a0
+  #|atan 40017382fe6e4f64 3ff241612e8f4979
+  #|sin 401dd69a674ec2be 3fed8b0d4a3ef795
+  #|cos 401dd69a674ec2be 3fd897bf689b7a59
+  #|atan 401dd69a674ec2be 3ff700249688dd5c
+  #|sin 4018546f5fb2f218 bfc98569bb98b628
+  #|cos 4018546f5fb2f218 3fef5b84394b23fd
+  #|atan 4018546f5fb2f218 3ff6868a5972ee12
+  #|sin 4001b736c527cbe8 3fe998cd1b5dda04
+  #|cos 4001b736c527cbe8 bfe33443cfb28841
+  #|atan 4001b736c527cbe8 3ff2589a32e8f1aa
+  #|sin c01c0ac7bf56bc3c bfe546c0bd729fe3
+  #|cos c01c0ac7bf56bc3c 3fe7e6f756b09f27
+  #|atan c01c0ac7bf56bc3c bff6dda1f027bb87
+  #|sin c00a00e96d63b79b 3fbbcfaec94a3a21
+  #|cos c00a00e96d63b79b bfefcf83cf1c4486
+  #|atan c00a00e96d63b79b bff45b7ce292054e
+  #|sin 402108d791fafb63 3fe9371115e8cf39
+  #|cos 402108d791fafb63 bfe3b3e7ac4c94c2
+  #|atan 402108d791fafb63 3ff74344a1b3fd6a
+  #|sin 4010f92f1093dbec bfec8b44098cd783
+  #|cos 4010f92f1093dbec bfdcee2415885a4d
+  #|atan 4010f92f1093dbec 3ff56e0081d78f51
+  #|sin 401fa02f435e9656 3feff4bc2c5d0fc8
+  #|cos 401fa02f435e9656 bfaad7664330a679
+  #|atan 401fa02f435e9656 3ff71ea89ef16a37
+  #|sin 4011a27190823efe bfee88fa066b1b88
+  #|cos 4011a27190823efe bfd324818c973eb8
+  #|atan 4011a27190823efe 3ff5905b163584fa
+  #|sin c0199f23602f2eaa bfbf361568ab27ea
+  #|cos c0199f23602f2eaa 3fefc2e35b938955
+  #|atan c0199f23602f2eaa bff6a7a482533f47
+  #|sin 401128c9fa091d13 bfed2f76514b4435
+  #|cos 401128c9fa091d13 bfda3ef69a2e6403
+  #|atan 401128c9fa091d13 3ff577eb03b44416
+  #|sin 3f7864122065dc00 3f786408adfa9a23
+  #|cos 3f7864122065dc00 3fefffdad15eef81
+  #|atan 3f7864122065dc00 3f7863ff3ba77e46
+  #|sin 40232bf85fe6819e bfc4882a0f3d0f82
+  #|cos 40232bf85fe6819e bfef95ec6f64d9db
+  #|atan 40232bf85fe6819e 3ff7783a00c63aff
+  #|sin 40149e185e5e1293 bfececbaae5f8c75
+  #|cos 40149e185e5e1293 3fdb603cddf1772f
+  #|atan 40149e185e5e1293 3ff61111ff2f08fe
+  #|sin 40203bdb28f66a18 3feee6792447a202
+  #|cos 40203bdb28f66a18 bfd0a24c8b5c22bb
+  #|atan 40203bdb28f66a18 3ff72be2d752cff8
+  #|sin c019de5555ee2deb bfc769525da354d0
+  #|cos c019de5555ee2deb 3fef75cf96b5a66b
+  #|atan c019de5555ee2deb bff6ad99d8db3619
+  #|sin 3feedaca72e6a0d8 3fea4a870e28923e
+  #|cos 3feedaca72e6a0d8 3fe23dfefabf0973
+  #|atan 3feedaca72e6a0d8 3fe88cb8e3df4367
+  #|sin c020133211c02b7c bfef767352bac5e4
+  #|cos c020133211c02b7c bfc75b8dc329e449
+  #|atan c020133211c02b7c bff726f9b2688c63
+  #|sin bfe350a4ab851eb2 bfe229d25f84b66d
+  #|cos bfe350a4ab851eb2 3fea587b16e70f5a
+  #|atan bfe350a4ab851eb2 bfe160bb4e609623
+  #|sin 401acc0114069d08 3fd9dd6aa721f166
+  #|cos 401acc0114069d08 3fed4533aed37ec4
+  #|atan 401acc0114069d08 3ff6c30c87214054
+  #|sin 40150924a689525e bfeb56a79bd51da4
+  #|cos 40150924a689525e 3fe0a1a9c8bc24a6
+  #|atan 40150924a689525e 3ff6204e084d269e
+  #|sin 40187c9c67a427e4 bfc494e49beac06e
+  #|cos 40187c9c67a427e4 3fef9567e254e557
+  #|atan 40187c9c67a427e4 3ff68abe550d1e22
+  #|sin 401835165c0f4c21 bfcd592f0aef862d
+  #|cos 401835165c0f4c21 3fef25c2e0d31dc0
+  #|atan 401835165c0f4c21 3ff683395e2f9d65
+  #|sin 40140e891896475e bfee8dbb5ed40930
+  #|cos 40140e891896475e 3fd3060fa5d831f0
+  #|atan 40140e891896475e 3ff5fbae0018c70c
+  #|sin c0149424a8c56875 3fed0e6f426a31c3
+  #|cos c0149424a8c56875 3fdacffad2ab8b05
+  #|atan c0149424a8c56875 bff60f9fa8922944
+  #|sin 4019e6417463f854 3fc86260d6785488
+  #|cos 4019e6417463f854 3fef69fa57db7b71
+  #|atan 4019e6417463f854 3ff6ae5710a86ad8
+  #|sin 3fed715f8028fe4c 3fe9760335e808b8
+  #|cos 3fed715f8028fe4c 3fe3624ba51c2ad4
+  #|atan 3fed715f8028fe4c 3fe7cd3e247de5fe
+  #|sin c0177f9609d9cc64 3fd96d9d5c5d53b0
+  #|cos c0177f9609d9cc64 3fed5da6f03c6c96
+  #|atan c0177f9609d9cc64 bff66f5cb0932e3a
+  #|sin 40109d4b90063ac2 bfeb220403d4b71d
+  #|cos 40109d4b90063ac2 bfe0f70264171404
+  #|atan 40109d4b90063ac2 3ff55a4491eeeed5
+  #|sin 3ffe92f73d27831a 3fee2ad115ca6866
+  #|cos 3ffe92f73d27831a bfd559265a2574f2
+  #|atan 3ffe92f73d27831a 3ff16b2f265e1609
+  #|sin 40220002da611adf 3fda5fd306e164d7
+  #|cos 40220002da611adf bfed280d7693f943
+  #|atan 40220002da611adf 3ff75cbb19e5abe2
+  #|sin 3fe65806d4ead2a8 3fe4926e0b48683a
+  #|cos 3fe65806d4ead2a8 3fe882d64bac200e
+  #|atan 3fe65806d4ead2a8 3fe38169a1f40331
+  #|sin 3fe65b660fb87478 3fe495032397fdf9
+  #|cos 3fe65b660fb87478 3fe880ab36016f81
+  #|atan 3fe65b660fb87478 3fe383add324fa6e
+  #|sin c0016d047f6318f0 bfea46927f7160e4
+  #|cos c0016d047f6318f0 bfe243b0fccc7999
+  #|atan c0016d047f6318f0 bff23f1f15439fe4
+  #|sin bffdd6c720c038c1 bfeea02b59514d10
+  #|cos bffdd6c720c038c1 bfd28dfe4264b8b5
+  #|atan bffdd6c720c038c1 bff141f31095668b
+  #|sin c01e062e361d9047 bfee151845eb55c1
+  #|cos c01e062e361d9047 3fd5d269bc010607
+  #|atan c01e062e361d9047 bff7037b6f0e863e
+  #|sin 3fd6e2f890492cd0 3fd666e489232aca
+  #|cos 3fd6e2f890492cd0 3fedf9c2f0e5f176
+  #|atan 3fd6e2f890492cd0 3fd5facadcf4dec0
+  #|sin 4006692ea9432ea5 3fd55b77f9de38df
+  #|cos 4006692ea9432ea5 bfee2a6809e5ed4f
+  #|atan 4006692ea9432ea5 3ff3a595bbcaf47d
+  #|sin 3fcc5e03d37a5430 3fcc22b70f72cff4
+  #|cos 3fcc5e03d37a5430 3fef37a59a643c4d
+  #|atan 3fcc5e03d37a5430 3fcbea82409c21b7
+  #|sin c00b315c749e8f7a 3fd04c8fb73a8b04
+  #|cos c00b315c749e8f7a bfeef1e31fc22472
+  #|atan c00b315c749e8f7a bff48e05acd24359
+  #|sin c00b1c5a0961c8f2 3fcf539f3d03ce93
+  #|cos c00b1c5a0961c8f2 bfef06df44e47202
+  #|atan c00b1c5a0961c8f2 bff48aaa6fa0ed13
+  #|sin 400f0c33cdc34cf5 bfe58fed5d7de93d
+  #|cos 400f0c33cdc34cf5 bfe7a509b2bd679f
+  #|atan 400f0c33cdc34cf5 3ff5190a8284ef26
+  #|sin 4020d7021b6c4ec1 3feb02ac10504104
+  #|cos 4020d7021b6c4ec1 bfe128bdb19edfb1
+  #|atan 4020d7021b6c4ec1 3ff73dc9128a4f2c
+  #|sin c006010699bbce44 bfd8658c3f20e9ca
+  #|cos c006010699bbce44 bfed95733c7dd36a
+  #|atan c006010699bbce44 bff38da7c0b71c55
+  #|sin c000a88d59d3d3de bfebe77f827550de
+  #|cos c000a88d59d3d3de bfdf53ccdeea3a93
+  #|atan c000a88d59d3d3de bff1f825d00407a3
+  #|sin c018c0fb3c3dcdbe 3fb836be4af57e3a
+  #|cos c018c0fb3c3dcdbe 3fefdb45f66a3e25
+  #|atan c018c0fb3c3dcdbe bff691c6db2265af
+  #|sin 401c78bbe0ef3eb6 3fe7b727b9ae1aae
+  #|cos 401c78bbe0ef3eb6 3fe57bfe937b29c0
+  #|atan 401c78bbe0ef3eb6 3ff6e645f50e2282
+  #|sin bff8c7ee96673fbc bfeffe0535d7aabf
+  #|cos bff8c7ee96673fbc 3f9682b89e8b82ae
+  #|atan bff8c7ee96673fbc bfefeb5ca43a1602
+  #|sin c013af02552365ce 3fef4e8cf8988197
+  #|cos c013af02552365ce 3fca7f529550ae08
+  #|atan c013af02552365ce bff5eccc08081b03
+  #|sin 400c91b0dd830f59 bfdaa73dd02132d1
+  #|cos 400c91b0dd830f59 bfed17cc82bad4bb
+  #|atan 400c91b0dd830f59 3ff4c3a6cff94ad1
+  #|sin c0119da30e294373 3fee7d639899f666
+  #|cos c0119da30e294373 bfd36dd67f7b3442
+  #|atan c0119da30e294373 bff58f69fe02093c
+  #|sin 4014479ca9660fd9 bfedf9edfa792f4e
+  #|cos 4014479ca9660fd9 3fd665fe2a26d6f1
+  #|atan 4014479ca9660fd9 3ff604520ed2cab5
+  #|sin bffcd58d54dfd288 bfef25c3bd096669
+  #|cos bffcd58d54dfd288 bfcd59206f88edec
+  #|atan bffcd58d54dfd288 bff106f7f4c48e13
+  #|sin 401d4c2637b74ce9 3feb9db363923531
+  #|cos 401d4c2637b74ce9 3fe02a9f566e52fe
+  #|atan 401d4c2637b74ce9 3ff6f63054a5d167
+  #|sin 4012648f234e641a bfefcaa6e1f1ec48
+  #|cos 4012648f234e641a bfbd2b169a186eca
+  #|atan 4012648f234e641a 3ff5b4db5633730e
+  #|sin c0203ef0e7cf2690 bfeed9803fe8b71a
+  #|cos c0203ef0e7cf2690 bfd1018bf870c1d2
+  #|atan c0203ef0e7cf2690 bff72c413bbd8951
+  #|sin c012194706321193 3fef701c173e3292
+  #|cos c012194706321193 bfc7e2a149fff344
+  #|atan c012194706321193 bff5a70c0f97fcf2
+  #|sin 4021027b41eeb1f7 3fe9753a47b3dcae
+  #|cos 4021027b41eeb1f7 bfe36353867e9127
+  #|atan 4021027b41eeb1f7 3ff74293403a3ace
+  #|sin bff630ccb15d17a8 bfef75e494361fc9
+  #|cos bff630ccb15d17a8 3fc7678efdad63e7
+  #|atan bff630ccb15d17a8 bfee46701acbb2ee
+  #|sin 3fe6b1c7dba63518 3fe4d6dc84310717
+  #|cos 3fe6b1c7dba63518 3fe848c2d409ca15
+  #|atan 3fe6b1c7dba63518 3fe3bd709505fd55
+  #|sin c01ee096be02a66b bfefb5d7836dfde6
+  #|cos c01ee096be02a66b 3fc12f1ad6b2291b
+  #|atan c01ee096be02a66b bff7124ddb9442af
+  #|sin c01ab863a5a38764 bfd8bd26b9a43231
+  #|cos c01ab863a5a38764 3fed833da19ad725
+  #|atan c01ab863a5a38764 bff6c15581fbcfc3
+  #|sin c01ae03a5d510d14 bfdb0415906b5fda
+  #|cos c01ae03a5d510d14 3fed025bea967476
+  #|atan c01ae03a5d510d14 bff6c4ce9c38fdb7
+  #|sin 402271c561a25215 3fc9c079d878d092
+  #|cos 402271c561a25215 bfef587f7b78b7bc
+  #|atan 402271c561a25215 3ff76790aa866837
+  #|sin 401a63aacfe38406 3fd3c6ba34dc7652
+  #|cos 401a63aacfe38406 3fee6f16afd9a522
+  #|atan 401a63aacfe38406 3ff6b9d0a25b24c4
+  #|sin bffd20b332e20cde bfef01f6e2925060
+  #|cos bffd20b332e20cde bfcfa0ff4b13aafb
+  #|atan bffd20b332e20cde bff11885f59a174d
+  #|sin c022b2ae63fd386f bfb3624c93cfba4e
+  #|cos c022b2ae63fd386f bfefe87b89ee6cef
+  #|atan c022b2ae63fd386f bff76d84d75c8b72
+  #|sin bffb6758d424baee bfefad9f57e3990a
+  #|cos bffb6758d424baee bfc21b525c20f48b
+  #|atan bffb6758d424baee bff0ad5f03c670a2
+  #|sin 40201b50c02b1b06 3fef5dbb263648a7
+  #|cos 40201b50c02b1b06 bfc959b99f9db8e4
+  #|atan 40201b50c02b1b06 3ff727f6b2b8a3a5
+  #|sin 401a0a908264db12 3fccd2d1cf38fc4e
+  #|cos 401a0a908264db12 3fef2d996dad442d
+  #|atan 401a0a908264db12 3ff6b1b4a5d5e3d2
+  #|sin 4023dd0f8e16974b bfdf13187e21dbb9
+  #|cos 4023dd0f8e16974b bfebf98ffee771a1
+  #|atan 4023dd0f8e16974b 3ff786f3e1d03488
+  #|sin c022a5946f0b0fe9 bfb9e8a803f8966d
+  #|cos c022a5946f0b0fe9 bfefd5f016fe7923
+  #|atan c022a5946f0b0fe9 bff76c54812021fe
+  #|sin c023efe480499d40 3fe08e34fcd2e537
+  #|cos c023efe480499d40 bfeb62743aad0972
+  #|atan c023efe480499d40 bff7887589b556fb
+  #|sin 40203ea970973f18 3feedaafc948f162
+  #|cos 40203ea970973f18 bfd0f8ef1da5fc76
+  #|atan 40203ea970973f18 3ff72c38b2817c17
+  #|sin 3fe645c8fa40ee84 3fe48471baeac635
+  #|cos 3fe645c8fa40ee84 3fe88e8c711d54e7
+  #|atan 3fe645c8fa40ee84 3fe375230d135981
+  #|sin 4021d23273056f0c 3fdf7ace72401f94
+  #|cos 4021d23273056f0c bfebdc83e7217187
+  #|atan 4021d23273056f0c 3ff75837860c9122
+  #|sin 40230b11a0ae1e53 bfb8c0a672e2a4ad
+  #|cos 40230b11a0ae1e53 bfefd99df8062e28
+  #|atan 40230b11a0ae1e53 3ff7755fc20c134e
+  #|sin 3ffff6e89e5467d8 3fed2083488ad12c
+  #|cos 3ffff6e89e5467d8 bfda8110eba62082
+  #|atan 3ffff6e89e5467d8 3ff1b50faf1b0afa
+  #|sin 4021b74dfdfe7f5e 3fe12e4dd65a02a6
+  #|cos 4021b74dfdfe7f5e bfeaff228824bffa
+  #|atan 4021b74dfdfe7f5e 3ff7558679041ec6
+  #|sin c01cd6cfe7008107 bfe99624862b9c46
+  #|cos c01cd6cfe7008107 3fe337ce6ff5a49f
+  #|atan c01cd6cfe7008107 bff6ed774b4f1458
+  #|sin c00843bc997984f2 bfbbb9e41b5dbc3a
+  #|cos c00843bc997984f2 bfefcfcfe621016a
+  #|atan c00843bc997984f2 bff40981741e346b
+  #|sin c00c93fe9daa170b 3fdab7fe1af32964
+  #|cos c00c93fe9daa170b bfed13f4e150a950
+  #|atan c00c93fe9daa170b bff4c3fc8ce57311
+  #|sin 401586c5d838fa5e bfe91901d1a3b27f
+  #|cos 401586c5d838fa5e 3fe3da23dbae7f12
+  #|atan 401586c5d838fa5e 3ff631746285c216
+  #|sin c0017fab8e2e0a84 bfea1bb58586082c
+  #|cos c0017fab8e2e0a84 bfe280c29bba8788
+  #|atan c0017fab8e2e0a84 bff24597c8f17e18
+  #|sin 40190acf0c007c00 bf972bc6a5a5b503
+  #|cos 40190acf0c007c00 3feffde70938bd2e
+  #|atan 40190acf0c007c00 3ff699350c3adba6
+  #|sin c01d8b6f6b557d1c bfec8fd18e8b1110
+  #|cos c01d8b6f6b557d1c 3fdcdc25378a8113
+  #|atan c01d8b6f6b557d1c bff6fac87b9217ae
+  #|sin c0106518dfe152f4 3fea2954581759cf
+  #|cos c0106518dfe152f4 bfe26d7b8afae28f
+  #|atan c0106518dfe152f4 bff54dcbe2b65bd1
+  #|sin bfe6c52e14e8ddfc bfe4e5917608abe8
+  #|cos bfe6c52e14e8ddfc 3fe83c1c3959c032
+  #|atan bfe6c52e14e8ddfc bfe3ca552bc0e0d9
+  #|sin 40221e90fd207cca 3fd6d97396413cc4
+  #|cos 40221e90fd207cca bfede41d17ea352b
+  #|atan 40221e90fd207cca 3ff75fb1443e059b
+  #|sin 4013016b12e66a84 bfeff9c5a4628f44
+  #|cos 4013016b12e66a84 3fa3f5fe3d995ce3
+  #|atan 4013016b12e66a84 3ff5d051627c1210
+  #|sin 4010382cf69eecc4 bfe95400b54d2f64
+  #|cos 4010382cf69eecc4 bfe38ea71d0477a9
+  #|atan 4010382cf69eecc4 3ff5439934d31692
+  #|sin 3ff01d49e8a049c0 3feb0ccda655897c
+  #|cos 3ff01d49e8a049c0 3fe118c0a7e71ab5
+  #|atan 3ff01d49e8a049c0 3fe93f2a7e9f8261
+  #|sin 3feb1685c01f8e30 3fe7f78653c2d4f6
+  #|cos 3feb1685c01f8e30 3fe53417f82f92f8
+  #|atan 3feb1685c01f8e30 3fe67a89ad36a12d
+  #|sin 400798e03f850bc2 3fc86b24356b8416
+  #|cos 400798e03f850bc2 bfef698d6dd23352
+  #|atan 400798e03f850bc2 3ff3e726889a109d
+  #|sin 4010b1b93db14c5d bfeb7744ecd3e790
+  #|cos 4010b1b93db14c5d bfe06b9574ec9336
+  #|atan 4010b1b93db14c5d 3ff55eb9775d78bc
+  #|sin c0233b2c7d4daa0d 3fc8462299d7c57c
+  #|cos c0233b2c7d4daa0d bfef6b5849aae7cc
+  #|atan c0233b2c7d4daa0d bff779882f2f956e
+  #|sin c009070d96d61d86 bf8aed8a93e53f4c
+  #|cos c009070d96d61d86 bfefff4ab6da8316
+  #|atan c009070d96d61d86 bff42ebf5afbd367
+  #|sin bff45266096a9ab1 bfee9078412bfd8a
+  #|cos bff45266096a9ab1 3fd2f46ffa7978b8
+  #|atan bff45266096a9ab1 bfecec2ba9a3f818
+  #|sin bffdd98c42479f94 bfee9e8fb659a219
+  #|cos bffdd98c42479f94 bfd29898ae84535b
+  #|atan bffdd98c42479f94 bff1429161292695
+  #|sin bfdbddb12815da9c bfdafe6b82a9e148
+  #|cos bfdbddb12815da9c 3fed03ad5a52cd53
+  #|atan bfdbddb12815da9c bfda481d45354d79
+  #|sin 3fddac253eb2b650 3fdc9eeaf0b6d1f3
+  #|cos 3fddac253eb2b650 3fec9f347aef4fa7
+  #|atan 3fddac253eb2b650 3fdbc8d28f403beb
+  #|sin c0156ae29ec67e52 3fe9a103ad4f6587
+  #|cos c0156ae29ec67e52 3fe3294c722f7677
+  #|atan c0156ae29ec67e52 bff62db696b807c4
+  #|sin bff9c1495b3c84c4 bfeff9ce12e765b3
+  #|cos bff9c1495b3c84c4 bfa3e877e3954a16
+  #|atan bff9c1495b3c84c4 bff03d0efa1b5992
+  #|sin 40126ff41e796930 bfefd488b2a23163
+  #|cos 40126ff41e796930 bfba56250a2301d6
+  #|atan 40126ff41e796930 3ff5b6e90bc825e0
+  #|sin 4014fe5ffb1f6dda bfeb830a3860ed0f
+  #|cos 4014fe5ffb1f6dda 3fe057d511140a65
+  #|atan 4014fe5ffb1f6dda 3ff61ecc7f867649
+  #|sin c01295b62ba030bc 3fefee1043d0862c
+  #|cos c01295b62ba030bc bfb0ee6a596aefa0
+  #|atan c01295b62ba030bc bff5bda5e6fa3817
+  #|sin 401bc512f4917dc0 3fe399ed2a8e4930
+  #|cos 401bc512f4917dc0 3fe94b4838059b9b
+  #|atan 401bc512f4917dc0 3ff6d804e0ff6394
+  #|sin 4023f5ea3797f45d bfe0e05f12fe6220
+  #|cos 4023f5ea3797f45d bfeb301e704213d0
+  #|atan 4023f5ea3797f45d 3ff788f04664051b
+  #|sin 4021f8ee44d3a892 3fdb2d9c999c48e9
+  #|cos 4021f8ee44d3a892 bfecf8a7b8b29d8e
+  #|atan 4021f8ee44d3a892 3ff75c09fee71cdb
+  #|sin c021855a51cfb658 bfe3ba95abf7ffb9
+  #|cos c021855a51cfb658 bfe931d77d21470d
+  #|atan c021855a51cfb658 bff75070eeef7a9d
+  #|sin 3fe2808fd5cd8de8 3fe17d06d45688d8
+  #|cos 3fe2808fd5cd8de8 3feacc668c7644b5
+  #|atan 3fe2808fd5cd8de8 3fe0c680285c17af
+  #|sin c004a7edff38c314 bfe0fcabcf98e949
+  #|cos c004a7edff38c314 bfeb1e78f0ba616d
+  #|atan c004a7edff38c314 bff3387a3834a172
+  #|sin 4021861cba6a689c 3fe3b10337ba2b56
+  #|cos 4021861cba6a689c bfe9395366918198
+  #|atan 4021861cba6a689c 3ff75084ef41cd37
+  #|sin c0207beff605822a bfed9ecf5f813997
+  #|cos c0207beff605822a bfd837f4160678b6
+  #|atan c0207beff605822a bff7336fa7e605ef
+  #|sin c0150a801f55c406 3feb51014a77652a
+  #|cos c0150a801f55c406 3fe0aaefaa58925a
+  #|atan c0150a801f55c406 bff6207e85c6acbf
+  #|sin 401a2888c2fa4d66 3fd03af68e749fa1
+  #|cos 401a2888c2fa4d66 3feef43304a9cbb7
+  #|atan 401a2888c2fa4d66 3ff6b474ee81ac75
+  #|sin 401926fc2b700ed6 3f74035777912fe2
+  #|cos 401926fc2b700ed6 3fefffe6f79ad7da
+  #|atan 401926fc2b700ed6 3ff69bffce264cd3
+  #|sin c0231e2672a009ac 3fc11d53af717ce6
+  #|cos c0231e2672a009ac bfefb67156f8dc87
+  #|atan c0231e2672a009ac bff777087361d6dd
+  #|sin c0191a34d3d9a297 3f7f19ee1409ef29
+  #|cos c0191a34d3d9a297 3fefffc38b22508f
+  #|atan c0191a34d3d9a297 bff69abc66bb8768
+  #|sin c01294c8e60d1a77 3fefed91ddcf76b6
+  #|cos c01294c8e60d1a77 bfb1299a09ab3a7b
+  #|atan c01294c8e60d1a77 bff5bd7be02925cd
+  #|sin 4001a4b0f67371e5 3fe9c4ff25606e3b
+  #|cos 4001a4b0f67371e5 bfe2f8cc9c0c803d
+  #|atan 4001a4b0f67371e5 3ff2524e6224edff
+  #|sin c01602ce8374af70 3fe683da3ddc8c70
+  #|cos c01602ce8374af70 3fe6bd3e2b391443
+  #|atan c01602ce8374af70 bff641a930ef2ff8
+  #|sin c012d675aea5d13f 3feffff6d6eeaf79
+  #|cos c012d675aea5d13f bf6836821b0c7ddd
+  #|atan c012d675aea5d13f bff5c8f79657bcaf
+  #|sin bfe6e304b4c4b5d2 bfe4fc2161c5a16c
+  #|cos bfe6e304b4c4b5d2 3fe828957f9b3049
+  #|atan bfe6e304b4c4b5d2 bfe3de1b76462841
+  #|sin 4012fab4e1e838db bfeffbb082e8fd83
+  #|cos 4012fab4e1e838db 3fa09b726b437437
+  #|atan 4012fab4e1e838db 3ff5cf2d7ac58368
+  #|sin 402336698f277f8b bfc71aab012927a0
+  #|cos 402336698f277f8b bfef7971baa8662a
+  #|atan 402336698f277f8b 3ff7791fbed48a10
+  #|sin c01bf389dac7669c bfe4ba7ac0156aa4
+  #|cos c01bf389dac7669c 3fe86101328c9881
+  #|atan c01bf389dac7669c bff6dbc5d607eef8
+  #|sin c00e919b66674060 3fe41bea6daf2c64
+  #|cos c00e919b66674060 bfe8e46d58a14831
+  #|atan c00e919b66674060 bff5098d3a434796
+  #|sin c01e7ded056da1c7 bfef2663ddd9b018
+  #|cos c01e7ded056da1c7 3fcd4e7f4568e6ff
+  #|atan c01e7ded056da1c7 bff70bb5a0ba875b
+  #|sin c00d77ede0a8ac83 3fe0819c862a4dd3
+  #|cos c00d77ede0a8ac83 bfeb6a0da5020016
+  #|atan c00d77ede0a8ac83 bff4e42edfe99b46
+  #|sin 4022dcf3cab4b925 bf7bba4e2bacb08f
+  #|cos 4022dcf3cab4b925 bfefffcff29abd89
+  #|atan 4022dcf3cab4b925 3ff7714fa3490ca3
+  #|sin c021cb760831597a bfe01ae396bcc4f7
+  #|cos c021cb760831597a bfeba6e33bffba1f
+  #|atan c021cb760831597a bff7578baf379f3a
+  #|sin 4021cd0c51893776 3fe004ed3abf0bfd
+  #|cos 4021cd0c51893776 bfebb3a226fc4e43
+  #|atan 4021cd0c51893776 3ff757b4375fa9fb
+  #|sin 3fd6a86226ec9d60 3fd62ff997108789
+  #|cos 3fd6a86226ec9d60 3fee03f752afd380
+  #|atan 3fd6a86226ec9d60 3fd5c6c9ef92016d
+  #|sin c01f32451e9f16c3 bfeff3a98b5d4470
+  #|cos c01f32451e9f16c3 3fac16e8a3629df7
+  #|atan c01f32451e9f16c3 bff717a4771215e6
+  #|sin 4023cc3b33e3bc7b bfdd38149a7fde07
+  #|cos 4023cc3b33e3bc7b bfec7869b594da8a
+  #|atan 4023cc3b33e3bc7b 3ff78598d4bc9a44
+  #|sin 3ffb4eee84d372dc 3fefb462c608b6d5
+  #|cos 3ffb4eee84d372dc bfc159e1e936223f
+  #|atan 3ffb4eee84d372dc 3ff0a725dd94b068
+  #|sin c01c8a97bb9ee29d bfe81625f3e7dc36
+  #|cos c01c8a97bb9ee29d 3fe51147ee43cbac
+  #|atan c01c8a97bb9ee29d bff6e7a712be35ae
+  #|sin 40115a6073acd96c bfedc95321b1145c
+  #|cos 40115a6073acd96c bfd763bfee8df5dc
+  #|atan 40115a6073acd96c 3ff58208580834fe
+  #|sin 4014330d4d956a74 bfee31f160fd21c0
+  #|cos 4014330d4d956a74 3fd530b39ed09284
+  #|atan 4014330d4d956a74 3ff6013aa5dc528d
+  #|sin c01628d75c06e774 3fe5a7b52677c5d6
+  #|cos c01628d75c06e774 3fe78f441a1a25ad
+  #|atan c01628d75c06e774 bff6467e38eae5df
+  #|sin c00ee11ef7219beb 3fe50f6275882602
+  #|cos c00ee11ef7219beb bfe817ce718618a2
+  #|atan c00ee11ef7219beb bff513a6328ca6c9
+  #|sin 4006ef5cf0ef6dd6 3fd15c8c984112d2
+  #|cos 4006ef5cf0ef6dd6 bfeeccd17c08dc15
+  #|atan 4006ef5cf0ef6dd6 3ff3c34caaed1541
+  #|sin c0080e357660646e bfc12f0b6ea3f2b2
+  #|cos c0080e357660646e bfefb5d80902a71c
+  #|atan c0080e357660646e bff3feed66b2d07e
+  #|sin 400186db3d7259f1 3fea0b0c0b0e8c19
+  #|cos 400186db3d7259f1 bfe2982eff1c24b3
+  #|atan 400186db3d7259f1 3ff24813056b4f91
+  #|sin 402322a268644090 bfc239917c1629ad
+  #|cos 402322a268644090 bfefac89ceb2148e
+  #|atan 402322a268644090 3ff7776bc7ec0667
+  #|sin c01ba986898cd932 bfe2e9ed9d4f51aa
+  #|cos c01ba986898cd932 3fe9cfeb4d5eefb1
+  #|atan c01ba986898cd932 bff6d5c54cae0130
+  #|sin 3fe7688f17fad180 3fe5603aab4e15de
+  #|cos 3fe7688f17fad180 3fe7d03177378955
+  #|atan 3fe7688f17fad180 3fe435c695c03889
+  #|sin 4022358cd0e93872 3fd424c83cf0a33b
+  #|cos 4022358cd0e93872 bfee5fa6e6c8cbb7
+  #|atan 4022358cd0e93872 3ff761e516b9e1ac
+  #|sin 3fed4107ff3e5638 3fe9589dc0b251c9
+  #|cos 3fed4107ff3e5638 3fe388ac1c5be36f
+  #|atan 3fed4107ff3e5638 3fe7b2fc7ebd6800
+  #|sin 4012b11d5521d780 bfeff9a255859066
+  #|cos 4012b11d5521d780 bfa42e3e58d7f2ef
+  #|atan 4012b11d5521d780 3ff5c2796cfd2075
+  #|sin c01c68459d72fe9f bfe75df4af5d08b4
+  #|cos c01c68459d72fe9f 3fe5dce1599c1f28
+  #|atan c01c68459d72fe9f bff6e4fef441aed2
+  #|sin c00d11a19e66d7c1 3fde3bde3b27b84d
+  #|cos c00d11a19e66d7c1 bfec34483bb6cbb1
+  #|atan c00d11a19e66d7c1 bff4d5f5bd9b3be0
+  #|sin 40098e833ebe0b31 bfab1eba74cd3086
+  #|cos 40098e833ebe0b31 bfeff47ff2e7d174
+  #|atan 40098e833ebe0b31 3ff44763b353441f
+  #|sin c0107aa91babaa69 3fea8b2d976b1128
+  #|cos c0107aa91babaa69 bfe1df6a22cbdf3a
+  #|atan c0107aa91babaa69 bff5529e6e3d3562
+  #|sin c002b92d724f7421 bfe6fb46f79dd4b2
+  #|cos c002b92d724f7421 bfe64484c819f934
+  #|atan c002b92d724f7421 bff2ac096e869a63
+  #|sin c010d9539e408f36 3fec148b3752f86d
+  #|cos c010d9539e408f36 bfdeb1266bb89d22
+  #|atan c010d9539e408f36 bff567401b32d1ec
+  #|sin bff3e04ebfda52fd bfee49dce4662916
+  #|cos bff3e04ebfda52fd 3fd4a663598d6e0f
+  #|atan bff3e04ebfda52fd bfec93a813d174e3
+  #|sin c01cabe243d46ea5 bfe8c233046023c8
+  #|cos c01cabe243d46ea5 3fe445ffd8f68cad
+  #|atan c01cabe243d46ea5 bff6ea34d3fd4693
+  #|sin c014eb558a0486a8 3febcf9d3ed99b2d
+  #|cos c014eb558a0486a8 3fdfa84f2a70bc77
+  #|atan c014eb558a0486a8 bff61c1f1f1a699c
+  #|sin 3ffa78e9a056532a 3fefe34e31cbd26d
+  #|cos 3ffa78e9a056532a bfb5687c54759629
+  #|atan 3ffa78e9a056532a 3ff06f2eb0260f41
+  #|sin 3ffe2cac4512a30e 3fee6ca4f2913684
+  #|cos 3ffe2cac4512a30e bfd3d5bfba2016d7
+  #|atan 3ffe2cac4512a30e 3ff154f70353409d
+  #|sin 3ffb093334630ff2 3fefc61d22017bf1
+  #|cos 3ffb093334630ff2 bfbe611f40fc7e3f
+  #|atan 3ffb093334630ff2 3ff09531ca12cf9b
+  #|sin c008a6e7133f06da bfaec052a207fbe9
+  #|cos c008a6e7133f06da bfeff13605bcf888
+  #|atan c008a6e7133f06da bff41cacb8a355ae
+  #|sin 4017612f6dc712c5 bfdb290d9d30e739
+  #|cos 4017612f6dc712c5 3fecf9b94d269894
+  #|atan 4017612f6dc712c5 3ff66bebb7cdbb51
+  #|sin 4016cd378add66ed bfe19c6e65a640a8
+  #|cos 4016cd378add66ed 3feab7cdb17378ad
+  #|atan 4016cd378add66ed 3ff65aaca081d9ac
+  #|sin bfde709ca75dd9c8 bfdd4e1cf1451da4
+  #|cos bfde709ca75dd9c8 3fec72bfd91f6103
+  #|atan bfde709ca75dd9c8 bfdc69c99cc54ce0
+  #|sin c009003d9bac6722 bf90deaa47bea172
+  #|cos c009003d9bac6722 bfeffee364199961
+  #|atan c009003d9bac6722 bff42d7bb30798d0
+  #|sin 3ff818bcfaa26e02 3fefeed46703ea86
+  #|cos 3ff818bcfaa26e02 3fb090ee719ef4c5
+  #|atan 3ff818bcfaa26e02 3fef823a33cff966
+  #|sin 401d78e645a99aef 3fec4bc1c1cf53b6
+  #|cos 401d78e645a99aef 3fdde3a09de114da
+  #|atan 401d78e645a99aef 3ff6f97201e2d8c0
+  #|sin 401033c6cc490640 bfe93e6f3cb46442
+  #|cos 401033c6cc490640 bfe3aa762e7e213b
+  #|atan 401033c6cc490640 3ff54296ae63e3bd
+  #|sin c02034007287edf9 bfef063413070422
+  #|cos c02034007287edf9 bfcf5e363c990c24
+  #|atan c02034007287edf9 bff72af1e4447c3b
+  #|sin bff996ee6e35f78e bfeffca93b77ee21
+  #|cos bff996ee6e35f78e bf9d3bc22777c4d7
+  #|atan bff996ee6e35f78e bff031358925ac44
+  #|sin 401c8da5622543c4 3fe82633c918d188
+  #|cos 401c8da5622543c4 3fe4fedefd97bdfa
+  #|atan 401c8da5622543c4 3ff6e7e346aed0a4
+  #|sin 401685292140a81a bfe3722d31c4bf29
+  #|cos 401685292140a81a 3fe969e42fe05eb1
+  #|atan 401685292140a81a 3ff651f705220589
+  #|sin c019106a3cf33b5e 3f9190ded94c6c9e
+  #|cos c019106a3cf33b5e 3feffecb6a9bce25
+  #|atan c019106a3cf33b5e bff699c3c0227bae
+  #|sin c012eea222f531d2 3feffe40d1aafd77
+  #|cos c012eea222f531d2 3f952541403cf6b4
+  #|atan c012eea222f531d2 bff5cd1e7106009b
+  #|sin 401f9dfa3f9c0085 3feff5a446250c74
+  #|cos 401f9dfa3f9c0085 bfa9bd43cda67229
+  #|atan 401f9dfa3f9c0085 3ff71e8506c00048
+  #|sin 3fee7086672a908c 3fea0d625faa03f8
+  #|cos 3fee7086672a908c 3fe294e88c3cd370
+  #|atan 3fee7086672a908c 3fe8554b8f51c0e4
+  #|sin 402006d3eef6992e 3fef9835107fab5d
+  #|cos 402006d3eef6992e bfc44fa435bba77b
+  #|atan 402006d3eef6992e 3ff7257671b40c10
+  #|sin 3ffcf9d8b353bfc2 3fef14cef65fe376
+  #|cos 3ffcf9d8b353bfc2 bfce7372c0951904
+  #|atan 3ffcf9d8b353bfc2 3ff10f7b26846792
+  #|sin bf95d398c14b8140 bf95d32c7193b7fe
+  #|cos bf95d398c14b8140 3feffe239ea92a53
+  #|atan bf95d398c14b8140 bf95d2c02fb637a2
+  #|sin c01bab1d917b8b2e bfe2f42eb57da6f1
+  #|cos c01bab1d917b8b2e 3fe9c864a3d86a0c
+  #|atan c01bab1d917b8b2e bff6d5e6a36e7020
+  #|sin c004ea567c72eba2 bfe0194f18b92efb
+  #|cos c004ea567c72eba2 bfeba7cec22be9d9
+  #|atan c004ea567c72eba2 bff3499d2c360cf6
+  #|sin c01d35e558a19614 bfeb42193d2b3c29
+  #|cos c01d35e558a19614 3fe0c3454b78f002
+  #|atan c01d35e558a19614 bff6f48e1ceee43f
+  #|sin 402043bd31bea469 3feec4c17890f335
+  #|cos 402043bd31bea469 bfd1955eb6d9885c
+  #|atan 402043bd31bea469 3ff72cd3c47e5730
+  #|sin c02365fb6b57dfbb 3fd157a7c2a95703
+  #|cos c02365fb6b57dfbb bfeecd81ee2e8aac
+  #|atan c02365fb6b57dfbb bff77d2a412c68d8
+  #|sin 3ff2674d97928714 3fed36198defb0fb
+  #|cos 3ff2674d97928714 3fda215c5ed512a3
+  #|atan 3ff2674d97928714 3feb5d5ea00121eb
+  #|sin 3fe1323493aedca0 3fe0615e5e256063
+  #|cos 3fe1323493aedca0 3feb7d5dc1d7fb5c
+  #|atan 3fe1323493aedca0 3fdf8ef965a2ddd7
+  #|sin 401210952e343cea bfef62d70e48a39a
+  #|cos 401210952e343cea bfc8f3bfefe8ae58
+  #|atan 401210952e343cea 3ff5a56caea69bc1
+  #|sin c009b26187dadb08 3fb208f295deddd3
+  #|cos c009b26187dadb08 bfefeba560098934
+  #|atan c009b26187dadb08 bff44dc276889be9
+  #|sin 3ff744d7cb4c2238 3fefc87b3e1c10ee
+  #|cos 3ff744d7cb4c2238 3fbdc0f78cffc421
+  #|atan 3ff744d7cb4c2238 3feefd6644bdf1b8
+  #|sin 401831502386b51e bfcdceb1471d2775
+  #|cos 401831502386b51e 3fef1ec8b408a172
+  #|atan 401831502386b51e 3ff682d295d5e14c
+  #|sin c01f653627855304 bfefffe445e0eba3
+  #|cos c01f653627855304 3f7510012a3d25d9
+  #|atan c01f653627855304 bff71aeaee2f8bb7
+  #|sin 3fd1d6e202292cd8 3fd19bf952286c46
+  #|cos 3fd1d6e202292cd8 3feec3cfbe8fbcbb
+  #|atan 3fd1d6e202292cd8 3fd165d4ddfb07d5
+  #|sin c0093c4294b378fa 3f8a47112db8d758
+  #|cos c0093c4294b378fa bfefff535d605fc5
+  #|atan c0093c4294b378fa bff43889df7e0120
+  #|sin c01afc2f7238375c bfdc96f77e3b6de1
+  #|cos c01afc2f7238375c 3feca130fa1fdde4
+  #|atan c01afc2f7238375c bff6c7388ef23eeb
+  #|sin c010c08affd99562 3febb35d80ca817b
+  #|cos c010c08affd99562 bfe00563ef156859
+  #|atan c010c08affd99562 bff561eeabc098aa
+  #|sin 402007b7f9a27ee0 3fef95eef5726013
+  #|cos 402007b7f9a27ee0 bfc487ebf0f90b4d
+  #|atan 402007b7f9a27ee0 3ff7259269b62b25
+  #|sin 4010bc40c4a287ce bfeba21ee0e26294
+  #|cos 4010bc40c4a287ce bfe02310207023cc
+  #|atan 4010bc40c4a287ce 3ff561017f8a2700
+  #|sin 400ce702637d9ba5 bfdd0daf010fac4b
+  #|cos 400ce702637d9ba5 bfec8340827d2300
+  #|atan 400ce702637d9ba5 3ff4cfed0fc13c8c
+  #|sin c022c4938b06d0fc bfa4e777456e6d11
+  #|cos c022c4938b06d0fc bfeff92b55b02671
+  #|atan c022c4938b06d0fc bff76f21e1be6c27
+  #|sin c012081ba9391304 3fef5559444b95b1
+  #|cos c012081ba9391304 bfc9fd83e6493be2
+  #|atan c012081ba9391304 bff5a3d661128848
+  #|sin c01bccf4cf0b9bfd bfe3cb9eea51a960
+  #|cos c01bccf4cf0b9bfd 3fe9247714f76c79
+  #|atan c01bccf4cf0b9bfd bff6d8a8c300e706
+  #|sin c01be0027ef54a9d bfe4427fd1aa8f0d
+  #|cos c01be0027ef54a9d 3fe8c5104fdd2844
+  #|atan c01be0027ef54a9d bff6da3371e8afec
+  #|sin bffa7fc53c73076c bfefe225a3476ceb
+  #|cos bffa7fc53c73076c bfb5d5d1b745c9b2
+  #|atan bffa7fc53c73076c bff07104139f266e
+  #|sin bfe74eac788be5fe bfe54cf06366291c
+  #|cos bfe74eac788be5fe 3fe7e1743aca7420
+  #|atan bfe74eac788be5fe bfe424e360eae358
+  #|sin 3ff408d20bfad88c 3fee63a066f31f8d
+  #|cos 3ff408d20bfad88c 3fd40cbf6115aba4
+  #|atan 3ff408d20bfad88c 3fecb35cdebd3c62
+  #|sin 3feddb9d4c04fa78 3fe9b5d1769b863d
+  #|cos 3feddb9d4c04fa78 3fe30d5956118861
+  #|atan 3feddb9d4c04fa78 3fe806683329018e
+  #|sin 40202d37564a95d3 3fef201c87965d73
+  #|cos 40202d37564a95d3 bfcdb87bd40ef055
+  #|atan 40202d37564a95d3 3ff72a210102ac69
+  #|sin 400daa8e646653e0 bfe12dca5ff173bc
+  #|cos 400daa8e646653e0 bfeaff7630557c86
+  #|atan 400daa8e646653e0 3ff4eb170f4e9233
+  #|sin c0177f6f1579416a 3fd96fd94f364915
+  #|cos c0177f6f1579416a 3fed5d2b195e54f3
+  #|atan c0177f6f1579416a bff66f584d3e49ea
+  #|sin c01bcd2c723b04fa bfe3ccfc99f3e981
+  #|cos c01bcd2c723b04fa 3fe92363b41a24e6
+  #|atan c01bcd2c723b04fa bff6d8ad467e8bdb
+  #|sin 401b1f1b089aa6ca 3fde867df948593f
+  #|cos 401b1f1b089aa6ca 3fec2028c0af5f62
+  #|atan 401b1f1b089aa6ca 3ff6ca3591aaccb7
+  #|sin c01f31fe0c10fd05 bfeff38a461ab56c
+  #|cos c01f31fe0c10fd05 3fac3a64259914f8
+  #|atan c01f31fe0c10fd05 bff7179fdde19f4c
+  #|sin 4007cfc3e931b0ca 3fc50ae6483c218f
+  #|cos 4007cfc3e931b0ca bfef908b56d6e87d
+  #|atan 4007cfc3e931b0ca 3ff3f2603bacaa52
+  #|sin c0192b2264944be0 bf824e10a71ff219
+  #|cos c0192b2264944be0 3fefffac3b08f0e6
+  #|atan c0192b2264944be0 bff69c688c1a065f
+  #|sin 401abb8bfbd8943c 3fd8ebb714f3bd4a
+  #|cos 401abb8bfbd8943c 3fed7970c5c6fee4
+  #|atan 401abb8bfbd8943c 3ff6c19c58a5d198
+  #|sin c01f962e6a46e2a0 bfeff88a3d7bc7e1
+  #|cos c01f962e6a46e2a0 bfa5d86dbc413d33
+  #|atan c01f962e6a46e2a0 bff71e07240b6bbd
+  #|sin 401ed4ef394543b2 3fefa8ccb0941b2e
+  #|cos 401ed4ef394543b2 3fc2a0602f70ecdf
+  #|atan 401ed4ef394543b2 3ff7118899c86695
+  #|sin c0152f756f1f3582 3feab27b5be8b5e8
+  #|cos c0152f756f1f3582 3fe1a47e902e79f2
+  #|atan c0152f756f1f3582 bff6259ddae86a22
+  #|sin 3fea5f6110d33868 3fe77ca630fc3c43
+  #|cos 3fea5f6110d33868 3fe5bbe4cd7dbc44
+  #|atan 3fea5f6110d33868 3fe60ea9a6404db0
+  #|sin 4020eb65e263b8cc 3fea4e4cf531677c
+  #|cos 4020eb65e263b8cc bfe2388db12704d4
+  #|atan 4020eb65e263b8cc 3ff7400b3209aedb
+  #|sin 3fdd079f62f96ea8 3fdc0b655a68709c
+  #|cos 3fdd079f62f96ea8 3fecc39f4b8be681
+  #|atan 3fdd079f62f96ea8 3fdb40e3cec0ae42
+  #|sin 400ee128e5370c95 bfe50f805d44fbe9
+  #|cos 400ee128e5370c95 bfe817b44d62a2eb
+  #|atan 400ee128e5370c95 3ff513a77253b72d
+  #|sin c01cddfee3c25cd4 bfe9b87e9a4a4699
+  #|cos c01cddfee3c25cd4 3fe309bc3ba4ff96
+  #|atan c01cddfee3c25cd4 bff6ee0200d9163c
+  #|sin 3ffe17d75bef217c 3fee7974b5e3b7b2
+  #|cos 3ffe17d75bef217c bfd38675aea836e5
+  #|atan 3ffe17d75bef217c 3ff150622f6c5ee2
+  #|sin c01e1d666bc15638 bfee527253f3bb3d
+  #|cos c01e1d666bc15638 3fd473c1b2c62eaf
+  #|atan c01e1d666bc15638 bff70518ddd6e540
+  #|sin 401ce62c6889e326 3fe9df34dc523b76
+  #|cos 401ce62c6889e326 3fe2d4fee8305dd8
+  #|atan 401ce62c6889e326 3ff6ee9f96d992c3
+  #|sin 4022de12dcf38947 bf825966eabffb1e
+  #|cos 4022de12dcf38947 bfefffabd324db3b
+  #|atan 4022de12dcf38947 3ff771692995d0ec
+  #|sin bfec96c2460aa0a8 bfe8ef483bc3f5eb
+  #|cos bfec96c2460aa0a8 3fe40e7319eadbc6
+  #|atan bfec96c2460aa0a8 bfe7554426cb8825
+  #|sin 401b93ea74706cd3 3fe25d697b1e0b02
+  #|cos 401b93ea74706cd3 3fea349ed86e264c
+  #|atan 401b93ea74706cd3 3ff6d3feb8eaa556
+  #|sin c01af73f258a1c82 bfdc502f8b197a55
+  #|cos c01af73f258a1c82 3fecb2c1621c1bc0
+  #|atan c01af73f258a1c82 bff6c6cbc0ffcf2e
+  #|sin 3fd45a9250198cb8 3fd4032e20db0646
+  #|cos 3fd45a9250198cb8 3fee6533f81093df
+  #|atan 3fd45a9250198cb8 3fd3b4d9518c48df
+  #|sin c020591294eff9f8 bfee602ab371fc64
+  #|cos c020591294eff9f8 bfd421ad0985bd5c
+  #|atan c020591294eff9f8 bff72f5b4cd582de
+  #|sin c01f47cd8e981fe5 bfeffb4dcfedffc2
+  #|cos c01f47cd8e981fe5 3fa15574407fefcf
+  #|atan c01f47cd8e981fe5 bff719082a1fed1f
+  #|sin c021f43ee25087a4 bfdbb50d4b1bb4b3
+  #|cos c021f43ee25087a4 bfecd88312eca813
+  #|atan c021f43ee25087a4 bff75b948249b159
+  #|sin 4014ad27d49bf022 bfecb864c94351bf
+  #|cos 4014ad27d49bf022 3fdc3947e7915fd5
+  #|atan 4014ad27d49bf022 3ff6133fe114c78c
+  #|sin bfe876d475325cf2 bfe626573a9947cd
+  #|cos bfe876d475325cf2 3fe7185e4e755698
+  #|atan bfe876d475325cf2 bfe4e3159005d345
+  #|sin 3fc0350b0d407740 3fc029f731779ac1
+  #|cos 3fc0350b0d407740 3fefbe6b5ae483d9
+  #|atan 3fc0350b0d407740 3fc01f14c556102d
+  #|sin c014e8e5c5d1afaa 3febd93c70d410ae
+  #|cos c014e8e5c5d1afaa 3fdf866784de9e17
+  #|atan c014e8e5c5d1afaa bff61bc7139b79d4
+  #|sin 4002bd38ca1beb12 3fe6f0023350ed1d
+  #|cos 4002bd38ca1beb12 bfe65020286075e1
+  #|atan 4002bd38ca1beb12 3ff2ad48dfde6342
+  #|sin c01d865eef070f66 bfec7d759f007769
+  #|cos c01d865eef070f66 3fdd2460fc40982a
+  #|atan c01d865eef070f66 bff6fa6b12fca0c1
+  #|sin bff7dba938d5cfda bfefe6043172a6d3
+  #|cos bff7dba938d5cfda 3fb45f9c3fedfc2e
+  #|atan bff7dba938d5cfda bfef5c97833d45d3
+  #|sin 4023a814bdb1933a bfd921167b81a0c2
+  #|cos 4023a814bdb1933a bfed6e1a63a944b9
+  #|atan 4023a814bdb1933a 3ff782a7963b13a3
+  #|sin c01d64611454480a bfebfda40bdbf929
+  #|cos c01d64611454480a 3fdf046452dff79e
+  #|atan c01d64611454480a bff6f7f4eea2cc1e
+  #|sin bfd33cf155842d30 bfd2f31c1a54db66
+  #|cos bfd33cf155842d30 3fee90acf0ee6118
+  #|atan bfd33cf155842d30 bfd2b02a387a6927
+  #|sin 4004f43e44978ae8 3fdfee0980d01da7
+  #|cos 4004f43e44978ae8 bfebbba870af4f11
+  #|atan 4004f43e44978ae8 3ff34c2368972fb6
+  #|sin 4006d1c94cbbbaa9 3fd23fd1b10e30fa
+  #|cos 4006d1c94cbbbaa9 bfeeabe7540c9ccb
+  #|atan 4006d1c94cbbbaa9 3ff3bcdaa37de79a
+  #|sin c00ee4c3f7a130f1 3fe51a5a1f9bcb91
+  #|cos c00ee4c3f7a130f1 bfe80e33ce46a624
+  #|atan c00ee4c3f7a130f1 bff5141b834c8d3f
+  #|sin 40210c86b4e84d58 3fe9129b318cd396
+  #|cos 40210c86b4e84d58 bfe3e238c8e5fb0a
+  #|atan 40210c86b4e84d58 3ff743ab23a8075f
+  #|sin 40072f6020f31ee5 3fcedb1f866465be
+  #|cos 40072f6020f31ee5 bfef0e6a56e3925f
+  #|atan 40072f6020f31ee5 3ff3d10d878917fd
+  #|sin 4021e8337e70a0d9 3fdd0e7d610958f5
+  #|cos 4021e8337e70a0d9 bfec830bef159595
+  #|atan 4021e8337e70a0d9 3ff75a656253b6fe
+  #|sin bfef34335a513a70 bfea7d1866e91a7d
+  #|cos bfef34335a513a70 3fe1f442adcc7626
+  #|atan bfef34335a513a70 bfe8bacdd44ebe1c
+  #|sin c0203709da903a9c bfeefa281e33defa
+  #|cos c0203709da903a9c bfd00d3f555f68b0
+  #|atan c0203709da903a9c bff72b4f2830d164
+  #|sin c0212234e73dad80 bfe8355f9614632e
+  #|cos c0212234e73dad80 bfe4ed5f0ce14fee
+  #|atan c0212234e73dad80 bff74602f0135073
+  #|sin c0227c5158babc70 bfc729ef320f95cb
+  #|cos c0227c5158babc70 bfef78be2fb68734
+  #|atan c0227c5158babc70 bff7688b21195785
+  #|sin 400777085379521d 3fca7dd07027af0c
+  #|cos 400777085379521d bfef4ea1652bef8f
+  #|atan 400777085379521d 3ff3e02336f84d59
+  #|sin 3fc034b8acf66950 3fc029a579fc70b6
+  #|cos 3fc034b8acf66950 3fefbe6df4a0bcc0
+  #|atan 3fc034b8acf66950 3fc01ec3b1c7d278
+  #|sin 40119c026f62f536 bfee796d41843b9d
+  #|cos 40119c026f62f536 bfd386a4388f0306
+  #|atan 40119c026f62f536 3ff58f1840b30e6a
+  #|sin 3fbcc5b0a06b4580 3fbcb631540f8f4e
+  #|cos 3fbcc5b0a06b4580 3fefcc507b19ce56
+  #|atan 3fbcc5b0a06b4580 3fbca6e8a78e26b8
+  #|sin bfeb3953eb8d1592 bfe80e881797623f
+  #|cos bfeb3953eb8d1592 3fe519fa09debdf3
+  #|atan bfeb3953eb8d1592 bfe68ec585c6df1c
+  #|sin 400e6223aefb37ac bfe386d956e2452e
+  #|cos 400e6223aefb37ac bfe95a0561a4b6a2
+  #|atan 400e6223aefb37ac 3ff5036e80223d9a
+  #|sin 40158434c52bf997 bfe925b9ba1657ba
+  #|cos 40158434c52bf997 3fe3ca05039009ef
+  #|atan 40158434c52bf997 3ff6311c9fa67a7d
+  #|sin c01f9c30f590cf54 bfeff658ff8d7458
+  #|cos c01f9c30f590cf54 bfa8d8e64192c5c4
+  #|atan c01f9c30f590cf54 bff71e68344d3c20
+  #|sin bff697dc24e16da7 bfef99074318b239
+  #|cos bff697dc24e16da7 3fc43b2a1dd3e51d
+  #|atan bff697dc24e16da7 bfee8c1bcf879d80
+  #|sin 3ffdb197d1cc8bf6 3feeb5682d2e1f4e
+  #|cos 3ffdb197d1cc8bf6 bfd1ff72c30c2f09
+  #|atan 3ffdb197d1cc8bf6 3ff1399d32e34547
+  #|sin c023b61e6bae989a 3fdabbc0971b036d
+  #|cos c023b61e6bae989a bfed1317b542b833
+  #|atan c023b61e6bae989a bff783cd5ab077a7
+  #|sin 401cd8fe77e24f6e 3fe9a09c58417d41
+  #|cos 401cd8fe77e24f6e 3fe329d6a51143e1
+  #|atan 401cd8fe77e24f6e 3ff6eda173fccb9b
+  #|sin c02115af31074610 bfe8b68917379a9f
+  #|cos c02115af31074610 bfe4543605fecefb
+  #|atan c02115af31074610 bff744a937f73dd4
+  #|sin bff3d3310535d99c bfee415bf0722eed
+  #|cos bff3d3310535d99c 3fd4d804f919b758
+  #|atan bff3d3310535d99c bfec8953679a15be
+  #|sin c01cd37e096898c6 bfe986288a8b006a
+  #|cos c01cd37e096898c6 3fe34d0414582ffa
+  #|atan c01cd37e096898c6 bff6ed371a17838f
+  #|sin c018428394cb4432 3fcbb657e6285b3b
+  #|cos c018428394cb4432 3fef3db4082ded22
+  #|atan c018428394cb4432 bff684a605076a94
+  #|sin c005ef786f6e2946 bfd8e727b5843f7d
+  #|cos c005ef786f6e2946 bfed7a676c7e8fa3
+  #|atan c005ef786f6e2946 bff3898b7651902e
+  #|sin 400c58ac87b9ab60 bfd905f3f8003482
+  #|cos 400c58ac87b9ab60 bfed73e189604f38
+  #|atan 400c58ac87b9ab60 3ff4bb4cb91853ac
+  #|sin 401d368712c601a5 3feb44bea5d65ddb
+  #|cos 401d368712c601a5 3fe0bef6fd06959c
+  #|atan 401d368712c601a5 3ff6f49a04f7155a
+  #|sin c0199c032d094490 bfbe6f7d373c8289
+  #|cos c0199c032d094490 3fefc5e622a80762
+  #|atan c0199c032d094490 bff6a7585132dae9
+  #|sin 40047ec0439891e4 3fe1875f9359c87f
+  #|cos 40047ec0439891e4 bfeac5a32747a0fc
+  #|atan 40047ec0439891e4 3ff32da9798b2aa1
+  #|sin c001c870104b086e bfe96f394f6ee406
+  #|cos c001c870104b086e bfe36b3327f932f9
+  #|atan c001c870104b086e bff25e6b34c8051d
+  #|sin 40211227ce7d4c62 3fe8da40fbaa4aef
+  #|cos 40211227ce7d4c62 bfe4287bc76b7526
+  #|atan 40211227ce7d4c62 3ff7444770b79b58
+  #|sin c01bf566cdfcc5d4 bfe4c5d361eb0aab
+  #|cos c01bf566cdfcc5d4 3fe85756f288d101
+  #|atan c01bf566cdfcc5d4 bff6dbec1cd5fe21
+  #|sin c01a27cdb217bd0c bfd02fa71339b434
+  #|cos c01a27cdb217bd0c 3feef5ae04f2cf3b
+  #|atan c01a27cdb217bd0c bff6b463d53e8922
+  #|sin c01851bd6d325caf 3fc9d9e6ed5478fe
+  #|cos c01851bd6d325caf 3fef57309791487c
+  #|atan c01851bd6d325caf bff68641af862e94
+  #|sin 401e778f30261ac6 3fef1a931f675195
+  #|cos 401e778f30261ac6 3fce14ab0fccbeb0
+  #|atan 401e778f30261ac6 3ff70b473f50b18c
+  #|sin 40151632e5baba9c bfeb1fcdb991c10f
+  #|cos 40151632e5baba9c 3fe0fa8b93d1728c
+  #|atan 40151632e5baba9c 3ff6221f78b8d4ba
+  #|sin bfeb8780ca343652 bfe841cd02faf5f0
+  #|cos bfeb8780ca343652 3fe4def6257d2fe1
+  #|atan bfeb8780ca343652 bfe6bbe8e8b08281
+  #|sin c01af0647db4216e bfdbedac61767da5
+  #|cos c01af0647db4216e 3feccad93344429d
+  #|atan c01af0647db4216e bff6c6347f4676d9
+  #|sin 400d0813fe56ca02 bfddf86c7e8fb2db
+  #|cos 400d0813fe56ca02 bfec4641666ab908
+  #|atan 400d0813fe56ca02 3ff4d49cf3528ab2
+  #|sin 40002bace13c4f46 3fecce932a256931
+  #|cos 40002bace13c4f46 bfdbde493f187ad1
+  #|atan 40002bace13c4f46 3ff1c83412494e59
+  #|sin c01bcce698671bd4 bfe3cb4592bda3a1
+  #|cos c01bcce698671bd4 3fe924bd6b6fdd6f
+  #|atan c01bcce698671bd4 bff6d8a79bcdec91
+  #|sin 401c93ebb51a226a 3fe84705735d6094
+  #|cos 401c93ebb51a226a 3fe4d8e35901cf22
+  #|atan 401c93ebb51a226a 3ff6e85ed73fe3fc
+  #|sin bff1e377fa770f08 bfecc697ca5bf9ff
+  #|cos bff1e377fa770f08 3fdbff3207ac5760
+  #|atan bff1e377fa770f08 bfeaea092c8d7993
+  #|sin c020c3faba264672 bfeba11e6476d0ac
+  #|cos c020c3faba264672 bfe024c73772ba89
+  #|atan c020c3faba264672 bff73ba8a68a989f
+  #|sin c004c17c303b7434 bfe0a5b47a826366
+  #|cos c004c17c303b7434 bfeb5431bcfa9abf
+  #|atan c004c17c303b7434 bff33f1db9b62710
+  #|sin 4012f5497c3f33c6 bfeffcfb2aa24732
+  #|cos 4012f5497c3f33c6 3f9bcc1d3c6cb2b4
+  #|atan 4012f5497c3f33c6 3ff5ce413595160c
+  #|sin c00aa99017c923fc 3fc85331618a3ca4
+  #|cos c00aa99017c923fc bfef6ab6b389daba
+  #|atan c00aa99017c923fc bff477fe0f18033a
+  #|sin c01938458701abad bf9649bf626e0214
+  #|cos c01938458701abad 3feffe0f2ecbb28a
+  #|atan c01938458701abad bff69db34ec79742
+  #|sin c00f8ee878cbe48e 3fe706bd2f5224d4
+  #|cos c00f8ee878cbe48e bfe638aa63760fdc
+  #|atan c00f8ee878cbe48e bff52911b1e82206
+  #|sin 3fe96f0f647f668c 3fe6d6dd3b08cfe2
+  #|cos 3fe96f0f647f668c 3fe669dc4a68be07
+  #|atan 3fe96f0f647f668c 3fe57d791ae164df
+  #|sin 40148681c831d6cc bfed3b79eecd59bc
+  #|cos 40148681c831d6cc 3fda094462630afc
+  #|atan 40148681c831d6cc 3ff60da206760e6b
+  #|sin 401d492c466f7a26 3feb91a4437df8bb
+  #|cos 401d492c466f7a26 3fe03f274f346a17
+  #|atan 401d492c466f7a26 3ff6f5f88948be3d
+  #|sin c012176a577029c4 3fef6d5114345d71
+  #|cos c012176a577029c4 bfc81d289b9bf25f
+  #|atan c012176a577029c4 bff5a6b33ab28b87
+
+///|
+let cases_part1 : String =
+  #|sin bff97e6d180cfca7 bfeffde9e6596c64
+  #|cos bff97e6d180cfca7 bf971bf05d43b467
+  #|atan bff97e6d180cfca7 bff02a4d93c1c621
+  #|sin 4021d9da19513945 3fdea4a35984f3f5
+  #|cos 4021d9da19513945 bfec17f58f05a5c2
+  #|atan 4021d9da19513945 3ff758fa324fe161
+  #|sin c016cef27f655a93 3fe190de08926c01
+  #|cos c016cef27f655a93 3feabf696b8c086a
+  #|atan c016cef27f655a93 bff65ae182aa064f
+  #|sin 4019ebf532c1410c 3fc915682cfe534c
+  #|cos 4019ebf532c1410c 3fef6129c2a0f366
+  #|atan 4019ebf532c1410c 3ff6aedefb689dc1
+  #|sin 401db51f843290f3 3fed201b7f33e07e
+  #|cos 401db51f843290f3 3fda82d913a71563
+  #|atan 401db51f843290f3 3ff6fdc4bcfbcdfe
+  #|sin 401f204da2a93fd8 3fefea84a2200d6b
+  #|cos 401f204da2a93fd8 3fb286fb37a98fcb
+  #|atan 401f204da2a93fd8 3ff7167a3a6a0af8
+  #|sin c01d294e8c43510e bfeb0cd0d1bdded1
+  #|cos c01d294e8c43510e 3fe118bba41b73df
+  #|atan c01d294e8c43510e bff6f3a0700c2a62
+  #|sin 4002a1e8a213936a 3fe73ba9ee324e1a
+  #|cos 4002a1e8a213936a bfe6014edb767a51
+  #|atan 4002a1e8a213936a 3ff2a4d2a315c5fb
+  #|sin 4020a9faef835315 3fec69c5b4e6043a
+  #|cos 4020a9faef835315 bfdd70de9ac87173
+  #|atan 4020a9faef835315 3ff738b9104a13a2
+  #|sin 402262fb84cbb10e 3fcd5cb5e5260179
+  #|cos 402262fb84cbb10e bfef258db237d37a
+  #|atan 402262fb84cbb10e 3ff7662f99dcc2a9
+  #|sin 40120ab5a1f2d555 bfef598c7059d78a
+  #|cos 40120ab5a1f2d555 bfc9abfb469b2549
+  #|atan 40120ab5a1f2d555 3ff5a453408aaf9a
+  #|sin c00d6138f32353ea 3fe0338acbfcb656
+  #|cos c00d6138f32353ea bfeb9878b5c2f45d
+  #|atan c00d6138f32353ea bff4e10e9fc87ad4
+  #|sin c004bb8f268dfcc0 bfe0b9ee45de1cc9
+  #|cos c004bb8f268dfcc0 bfeb47d56cc36c38
+  #|atan c004bb8f268dfcc0 bff33d94e74e5a14
+  #|sin bf9108d8bfa27e00 bf9108a5426cbbb6
+  #|cos bf9108d8bfa27e00 3feffeddd49ed57c
+  #|atan bf9108d8bfa27e00 bf910871c939f486
+  #|sin 40218abb8a4e370e 3fe376894a71e2f3
+  #|cos 40218abb8a4e370e bfe9668d9453a9cb
+  #|atan 40218abb8a4e370e 3ff750fe7b3eb0a7
+  #|sin 400b5e5a71b4baf0 bfd1a7987688e5f1
+  #|cos 400b5e5a71b4baf0 bfeec2256bc576dc
+  #|atan 400b5e5a71b4baf0 3ff49525ca13ad08
+  #|sin bffe1a42b604f9bc bfee77fa74c96b00
+  #|cos bffe1a42b604f9bc bfd38facc24abe80
+  #|atan bffe1a42b604f9bc bff150eaa6068263
+  #|sin 4003aee0bfd25f34 3fe426bb60aac07d
+  #|cos 4003aee0bfd25f34 bfe8dbac95536646
+  #|atan 4003aee0bfd25f34 3ff2f4bd4dc2ab74
+  #|sin 3ffe1012d6f05c64 3fee7e2e70cd2451
+  #|cos 3ffe1012d6f05c64 bfd368dc825e10fc
+  #|atan 3ffe1012d6f05c64 3ff14eab99142402
+  #|sin 401346dd4555b926 bfefd14fd180d07b
+  #|cos 401346dd4555b926 3fbb4ae3cbb93e72
+  #|atan 401346dd4555b926 3ff5dbf111db33d3
+  #|sin c00ef6ca1443b978 3fe55056b829a80d
+  #|cos c00ef6ca1443b978 bfe7de6b7f31c990
+  #|atan c00ef6ca1443b978 bff5165e341e1e14
+  #|sin 400a45bba9feebf5 bfc22c3f8abc32cd
+  #|cos 400a45bba9feebf5 bfefad0441af9ba8
+  #|atan 400a45bba9feebf5 3ff4674716703e1a
+  #|sin 4016f6e6b629be3b bfe08257eafeac19
+  #|cos 4016f6e6b629be3b 3feb699cccdfc8d9
+  #|atan 4016f6e6b629be3b 3ff65f9e3b4bea3d
+  #|sin c0161fe30be9793e 3fe5dc3c3b4c1de9
+  #|cos c0161fe30be9793e 3fe75e8f28579bbf
+  #|atan c0161fe30be9793e bff6455c70abdbaf
+  #|sin c003bd43c482c516 bfe3f9e6c7eb11e4
+  #|cos c003bd43c482c516 bfe8ffc1829e399a
+  #|atan c003bd43c482c516 bff2f8cf0ec16add
+  #|sin c0205ba3414fc7a1 bfee5328c4d01a56
+  #|cos c0205ba3414fc7a1 bfd46f8746bd93b6
+  #|atan c0205ba3414fc7a1 bff72fa8b8a13159
+  #|sin 40235768355c58ea bfcf29ee649b26a2
+  #|cos 40235768355c58ea bfef097ee7ec927d
+  #|atan 40235768355c58ea 3ff77bef60c70be2
+  #|sin c011760c3b9906e0 3fee176ed3c3eba0
+  #|cos c011760c3b9906e0 bfd5c580e4316522
+  #|atan c011760c3b9906e0 bff5879586606d03
+  #|sin c02394f4af7677b9 3fd6e9dfcfe20b93
+  #|cos c02394f4af7677b9 bfede0f85942cbff
+  #|atan c02394f4af7677b9 bff78114bc4841b4
+  #|sin bfe23d47a1df2310 bfe14487e7d7d168
+  #|cos bfe23d47a1df2310 3feaf0f0714d85e6
+  #|atan bfe23d47a1df2310 bfe093e57fb0ff54
+  #|sin 401f30bc8b125fb2 3feff2fae53222d9
+  #|cos 401f30bc8b125fb2 3facdae4a68258f4
+  #|atan 401f30bc8b125fb2 3ff7178b0fbc1bc0
+  #|sin 3fd122caf9633858 3fd0ee90e9de838e
+  #|cos 3fd122caf9633858 3feedc1c536bfde3
+  #|atan 3fd122caf9633858 3fd0be4125bf1ada
+  #|sin c017fc1c3a26692c 3fd21daad57a6ea4
+  #|cos c017fc1c3a26692c 3feeb0f6a3d63696
+  #|atan c017fc1c3a26692c bff67d1cac106bce
+  #|sin 40167be4886086d6 bfe3acdadf822756
+  #|cos 40167be4886086d6 3fe93c91bf2c23ff
+  #|atan 40167be4886086d6 3ff650d45149210f
+  #|sin 402310c92411eb6e bfbb98916e6f9c53
+  #|cos 402310c92411eb6e bfefd043cbc4c118
+  #|atan 402310c92411eb6e 3ff775df57a6b555
+  #|sin 3ff7ad6fe5278c46 3fefde23a1ff5de6
+  #|cos 3ff7ad6fe5278c46 3fb7407febac032e
+  #|atan 3ff7ad6fe5278c46 3fef3fc304b5ceca
+  #|sin 4023236314106aab bfc2693d7a6ea40d
+  #|cos 4023236314106aab bfefaad0a3e3170c
+  #|atan 4023236314106aab 3ff7777c6f44cfc5
+  #|sin c022cdd65382409d bf974bd3a6d9067c
+  #|cos c022cdd65382409d bfeffde13786fc4c
+  #|atan c022cdd65382409d bff76ff670f98a7f
+  #|sin 4022b7f58070c3b6 3fb0c06e64900a02
+  #|cos 4022b7f58070c3b6 bfefee7147ca58c1
+  #|atan 4022b7f58070c3b6 3ff76dfef9c77fc6
+  #|sin 401ea479c3272be6 3fef6755616167b8
+  #|cos 401ea479c3272be6 3fc898a42180d099
+  #|atan 401ea479c3272be6 3ff70e4e39e76c78
+  #|sin c01a1afc127ed9d7 bfced1cc89ec691b
+  #|cos c01a1afc127ed9d7 3fef0efe787f7459
+  #|atan c01a1afc127ed9d7 bff6b337488f3d65
+  #|sin c005e9bf5d69f014 bfd9114e35eb23c9
+  #|cos c005e9bf5d69f014 bfed717799242182
+  #|atan c005e9bf5d69f014 bff388332a61d35b
+  #|sin 3ff59e4265d06a32 3fef3b295421690a
+  #|cos 3ff59e4265d06a32 3fcbe4095608384d
+  #|atan 3ff59e4265d06a32 3fede076ab0789f5
+  #|sin c022880e1d504edb bfc445a6dc43dda6
+  #|cos c022880e1d504edb bfef989bb725d769
+  #|atan c022880e1d504edb bff769a092ca2fe3
+  #|sin bff54642da9fb8c5 bfef12f8664304bc
+  #|cos bff54642da9fb8c5 3fce9167faf47d26
+  #|atan bff54642da9fb8c5 bfeda1880080cd41
+  #|sin 401c5b5a6ab614cb 3fe716df21f1a683
+  #|cos 401c5b5a6ab614cb 3fe627e6a6fd784e
+  #|atan 401c5b5a6ab614cb 3ff6e3fd50d739b5
+  #|sin 401759a878a0c11e bfdb95ea89b28f0d
+  #|cos 401759a878a0c11e 3fecdff7f2ce4e4a
+  #|atan 401759a878a0c11e 3ff66b103f2136b2
+  #|sin bffcbe1bc92f166e bfef306262f63f6a
+  #|cos bffcbe1bc92f166e bfcca273dfe9fb96
+  #|atan bffcbe1bc92f166e bff1016f9fa8b82a
+  #|sin 4011c8cfcbc76a94 bfeedf46daf88f0e
+  #|cos 4011c8cfcbc76a94 bfd0d76adf9362bd
+  #|atan 4011c8cfcbc76a94 3ff597ce3285387e
+  #|sin bff48d31412ffd2d bfeeb27d0447df50
+  #|cos bff48d31412ffd2d 3fd213522cfcc569
+  #|atan bff48d31412ffd2d bfed18db21868df1
+  #|sin c0030b337ecf4d59 bfe6124fa77d5e33
+  #|cos c0030b337ecf4d59 bfe72b835bf3dfcf
+  #|atan c0030b337ecf4d59 bff2c500316e9a0a
+  #|sin bffd3ffaf6c25071 bfeef246378e060e
+  #|cos bffd3ffaf6c25071 bfd0499ee4c4b968
+  #|atan bffd3ffaf6c25071 bff11fc0275ca21f
+  #|sin bff8fa2f60abea58 bfefff9d03c7be4b
+  #|cos bff8fa2f60abea58 3f83e5e547bc211c
+  #|atan bff8fa2f60abea58 bff0046256db9a51
+  #|sin 4023a62d558339e7 bfd8e902b2c03dad
+  #|cos 4023a62d558339e7 bfed7a0316f191b6
+  #|atan 4023a62d558339e7 3ff7827f9e55ce6d
+  #|sin 4001aa10ecd29381 3fe9b83a42c8cfec
+  #|cos 4001aa10ecd29381 bfe30a188effeda2
+  #|atan 4001aa10ecd29381 3ff25423392b8a26
+  #|sin 3fe2306bf14b4700 3fe139b33383a4d8
+  #|cos 3fe2306bf14b4700 3feaf7de83979a67
+  #|atan 3fe2306bf14b4700 3fe08a2f4c32f9e1
+  #|sin 401723dea259be24 bfde9462ccb91a30
+  #|cos 401723dea259be24 3fec1c6290e834d2
+  #|atan 401723dea259be24 3ff664e029809954
+  #|sin c01b917ab59bf98e bfe24d6fae11a873
+  #|cos c01b917ab59bf98e 3fea3fc9bc3d585b
+  #|atan c01b917ab59bf98e bff6d3cb4c2639d0
+  #|sin 4014a8c7d60427c4 bfecc7c2e6cccaa2
+  #|cos 4014a8c7d60427c4 3fdbfa63ca1df773
+  #|atan 4014a8c7d60427c4 3ff6129e21e9036b
+  #|sin 4012df86695d0dec bfefffdb88aaa8d8
+  #|cos 4012df86695d0dec 3f78279f7ac9d3bc
+  #|atan 4012df86695d0dec 3ff5ca875c4d2caf
+  #|sin bfea7628bdf8cd4a bfe78c19078b1b65
+  #|cos bfea7628bdf8cd4a 3fe5ab270c9b7958
+  #|atan bfea7628bdf8cd4a bfe61c35c7579800
+  #|sin c00719bd03fa9beb bfd01554a36dc2eb
+  #|cos c00719bd03fa9beb bfeef91bc4c07da2
+  #|atan c00719bd03fa9beb bff3cc6f0a13505b
+  #|sin 40098eb2e7223d4f bfab2aa043d2578b
+  #|cos 40098eb2e7223d4f bfeff475d7bac69f
+  #|atan 40098eb2e7223d4f 3ff4476c34dd2515
+  #|sin c017245c692eeb66 3fde8d7ab8f12aee
+  #|cos c017245c692eeb66 3fec1e43212d08d6
+  #|atan c017245c692eeb66 bff664eec2057b7c
+  #|sin 40129396360cb038 bfefecebf3064c06
+  #|cos 40129396360cb038 bfb176191af23be4
+  #|atan 40129396360cb038 3ff5bd4587d43d90
+  #|sin c000a23e9347faae bfebf3d07ece6efa
+  #|cos c000a23e9347faae bfdf27c25c10b8e0
+  #|atan c000a23e9347faae bff1f5c7d7ed32c4
+  #|sin c01f80290b8fd9e6 bfeffe29dbe9598a
+  #|cos c01f80290b8fd9e6 bf95ae7809df3d59
+  #|atan c01f80290b8fd9e6 bff71ca2463bf840
+  #|sin 4017780b79487b28 bfd9dc2a3ad23969
+  #|cos 4017780b79487b28 3fed457a75fdf066
+  #|atan 4017780b79487b28 3ff66e82f672daab
+  #|sin c01bfd51abaaca11 bfe4f5d8a3beb579
+  #|cos c01bfd51abaaca11 3fe82e0978b3dd8b
+  #|atan c01bfd51abaaca11 bff6dc8e8e872aa5
+  #|sin c01f765b19ab1fbc bfefff72e61ad8ae
+  #|cos c01f765b19ab1fbc bf87c1bdc099f31c
+  #|atan c01f765b19ab1fbc bff71c02c48605ff
+  #|sin 40214017c718cd5d 3fe6f24728c4d114
+  #|cos 40214017c718cd5d bfe64dcab34b65f3
+  #|atan 40214017c718cd5d 3ff7493439f8093b
+  #|sin c004be1627486bbe bfe0b14f1c4c7921
+  #|cos c004be1627486bbe bfeb4d1cced641a4
+  #|atan c004be1627486bbe bff33e3c88277dc9
+  #|sin 401f296c9d6a2b2e 3fefef798a89b58b
+  #|cos 401f296c9d6a2b2e 3fb0409634f469f7
+  #|atan 401f296c9d6a2b2e 3ff71711cbf175dd
+  #|sin 40065b25a4636e66 3fd5c52f55a8ea53
+  #|cos 40065b25a4636e66 bfee177d94185fa5
+  #|atan 40065b25a4636e66 3ff3a267c4363792
+  #|sin 3fcc5abea49c7cd0 3fcc1f8657dd24e3
+  #|cos 3fcc5abea49c7cd0 3fef37d3991c1786
+  #|atan 3fcc5abea49c7cd0 3fcbe7643eeb701b
+  #|sin c023cc3bcb8e3d87 3fdd3825787b4029
+  #|cos c023cc3bcb8e3d87 bfec786561b112e9
+  #|atan c023cc3bcb8e3d87 bff78598e0fe7a01
+  #|sin c00ac78bebbc004e 3fca2981655b7da1
+  #|cos c00ac78bebbc004e bfef530f6e978db8
+  #|atan c00ac78bebbc004e bff47cece9be301a
+  #|sin 40203cd9ae4ce2c4 3feee252e6904d9c
+  #|cos 40203cd9ae4ce2c4 bfd0c103404fba03
+  #|atan 40203cd9ae4ce2c4 3ff72c0146f0fae0
+  #|sin c003c2e7aad0c489 bfe3e841cec2c0c1
+  #|cos c003c2e7aad0c489 bfe90dd0bdf55a1b
+  #|atan c003c2e7aad0c489 bff2fa6614a264e9
+  #|sin c020b426cf2eef9c bfec1d7a713d8ee2
+  #|cos c020b426cf2eef9c bfde905d54ed9bf4
+  #|atan c020b426cf2eef9c bff739e02bff5c31
+  #|sin 4004b85e97d03e47 3fe0c4cd7706a847
+  #|cos 4004b85e97d03e47 bfeb412802742b77
+  #|atan 4004b85e97d03e47 3ff33cc125d60811
+  #|sin c022378aaefac033 bfd3e83fc21c001b
+  #|cos c022378aaefac033 bfee699f7c79e2ed
+  #|atan c022378aaefac033 bff76215b04ccd52
+  #|sin c018b9eec309818c 3fb9f7b0567a51b3
+  #|cos c018b9eec309818c 3fefd5bf1924ebce
+  #|atan c018b9eec309818c bff6910efb374c2c
+  #|sin c00aded22bb98fba 3fcb95982247a357
+  #|cos c00aded22bb98fba bfef3f83b4e08484
+  #|atan c00aded22bb98fba bff480ba37388ac5
+  #|sin 4017454d96aa4c26 bfdcba603935fc8b
+  #|cos 4017454d96aa4c26 3fec98531bceb84b
+  #|atan 4017454d96aa4c26 3ff668bc0dab7c89
+  #|sin c02091571927c6e7 bfed16a2fe2278c8
+  #|cos c02091571927c6e7 bfdaac503b926dc2
+  #|atan c02091571927c6e7 bff735e862b1ef34
+  #|sin bffb3d28037c5852 bfefb920e56ab25c
+  #|cos bffb3d28037c5852 bfc0ccf34af7a6f8
+  #|atan bffb3d28037c5852 bff0a298c29fd590
+  #|sin c015b9cf1b52b654 3fe813d6f6996e6e
+  #|cos c015b9cf1b52b654 3fe513eb51845ad2
+  #|atan c015b9cf1b52b654 bff638352a31aa2d
+  #|sin c02250737d020ce3 bfd0ecf5694f9a78
+  #|cos c02250737d020ce3 bfeedc54c26e8f5a
+  #|atan c02250737d020ce3 bff764721230492a
+  #|sin 401e81b28ccb5e15 3fef2d3e8a48cde3
+  #|cos 401e81b28ccb5e15 3fccd8f620a3f1c2
+  #|atan 401e81b28ccb5e15 3ff70bf6ef53f3bf
+  #|sin c01bbb3c27bcc978 bfe35b7a6fb9dca0
+  #|cos c01bbb3c27bcc978 3fe97b326ecce1bb
+  #|atan c01bbb3c27bcc978 bff6d737cf8aaad2
+  #|sin c02348757f9e8553 3fcb86c5df4da03a
+  #|cos c02348757f9e8553 bfef4054d03ab561
+  #|atan c02348757f9e8553 bff77aaa880e65dc
+  #|sin c02234160f6c011d bfd45139866a9f17
+  #|cos c02234160f6c011d bfee583f870989f6
+  #|atan c02234160f6c011d bff761c15763e25d
+  #|sin c0171b0e113341fd 3fdf0ffd32eb6f82
+  #|cos c0171b0e113341fd 3febfa6ccb1441d6
+  #|atan c0171b0e113341fd bff663d9e5fde46e
+  #|sin 40022eca6fb103ad 3fe86ec05f95cc7c
+  #|cos 40022eca6fb103ad bfe4aa44ea30c8be
+  #|atan 40022eca6fb103ad 3ff2803dbd65f1b1
+  #|sin c02066c2c7fc7dc2 bfee18812c85bc28
+  #|cos c02066c2c7fc7dc2 bfd5bf9338f8e680
+  #|atan c02066c2c7fc7dc2 bff730f75cf0d1ed
+  #|sin c01b7e39120fd778 bfe1ce3fc5e7d3fe
+  #|cos c01b7e39120fd778 3fea96b467ebd412
+  #|atan c01b7e39120fd778 bff6d233a52c627d
+  #|sin c00aaf64c056c8c6 3fc8aec23396b102
+  #|cos c00aaf64c056c8c6 bfef663fb4c72776
+  #|atan c00aaf64c056c8c6 bff478f46edda9d0
+  #|sin 4023094c29c13746 bfb7def159da70f6
+  #|cos 4023094c29c13746 bfefdc4f00249abc
+  #|atan 4023094c29c13746 3ff775382a94a871
+  #|sin 400509eef87c776a 3fdf573288fa1044
+  #|cos 400509eef87c776a bfebe68b5ad56794
+  #|atan 400509eef87c776a 3ff351a33f52d3b0
+  #|sin c013d586f27cff0a 3fef091b7ad5a628
+  #|cos c013d586f27cff0a 3fcf301e17338f8a
+  #|atan c013d586f27cff0a bff5f2dcdb4ca20c
+  #|sin c0234e3d9fb29fe4 3fccefb08c887fa9
+  #|cos c0234e3d9fb29fe4 bfef2bed8307377b
+  #|atan c0234e3d9fb29fe4 bff77b2868a54130
+  #|sin 40170d650389f942 bfdfce5f47e9abf1
+  #|cos 40170d650389f942 3febc4bfa966b40d
+  #|atan 40170d650389f942 3ff66241f5a91fde
+  #|sin 4014f805055b4444 bfeb9cded7d15972
+  #|cos 4014f805055b4444 3fe02c0a549aa8af
+  #|atan 4014f805055b4444 3ff61de842559a41
+  #|sin c01cc9ddcf4d08c4 bfe9576c65500468
+  #|cos c01cc9ddcf4d08c4 3fe38a383a87d106
+  #|atan c01cc9ddcf4d08c4 bff6ec7ca70ee481
+  #|sin 4021d8021dd25ed9 3fded861fb3da25c
+  #|cos 4021d8021dd25ed9 bfec09c9e0695a9f
+  #|atan 4021d8021dd25ed9 3ff758cb5e4ed988
+  #|sin 400b934b6a29a9af bfd33d232a3b8254
+  #|cos 400b934b6a29a9af bfee851b0a292039
+  #|atan 400b934b6a29a9af 3ff49d6cbc5461b7
+  #|sin 40210c1b4456f762 3fe916c6ca32a37f
+  #|cos 40210c1b4456f762 bfe3dcf5723eb174
+  #|atan 40210c1b4456f762 3ff7439f7871f74d
+  #|sin 4015de5167c46709 bfe74f94b86ec0fe
+  #|cos 4015de5167c46709 3fe5ec3468082324
+  #|atan 4015de5167c46709 3ff63cf725c161dc
+  #|sin 40200367e5e45ccb 3fefa0b6f4c8134c
+  #|cos 40200367e5e45ccb bfc3774afbd078e7
+  #|atan 40200367e5e45ccb 3ff7250ae39ee4bc
+  #|sin 40222d8ffaeb2dfc 3fd516c22e41e757
+  #|cos 40222d8ffaeb2dfc bfee367b747aed6e
+  #|atan 40222d8ffaeb2dfc 3ff76121c3c403e8
+  #|sin c0143bb80d9bfd5b 3fee1ab596a33ef7
+  #|cos c0143bb80d9bfd5b 3fd5b35b28582430
+  #|atan c0143bb80d9bfd5b bff60289004c6293
+  #|sin 4023b1098b4d5c5a bfda27ac7c10dcdc
+  #|cos 4023b1098b4d5c5a bfed34afef74be25
+  #|atan 4023b1098b4d5c5a 3ff78363334ac1e0
+  #|sin 40216e0b0c9adb88 3fe4dae3c7e4dc5c
+  #|cos 40216e0b0c9adb88 bfe8454d46ddd766
+  #|atan 40216e0b0c9adb88 3ff74e07bc8cc9ef
+  #|sin 3ff4ea1bf30a2892 3feee4f260526cad
+  #|cos 3ff4ea1bf30a2892 3fd0ada00bd3d5f6
+  #|atan 3ff4ea1bf30a2892 3fed5e3893949e51
+  #|sin c012a4719acad37c 3feff5031dfedd12
+  #|cos c012a4719acad37c bfaa826909bac6cc
+  #|atan c012a4719acad37c bff5c03fd1f9b72a
+  #|sin c0222165eea99751 bfd684b7750ff408
+  #|cos c0222165eea99751 bfedf42c3e8ede3e
+  #|atan c0222165eea99751 bff75ff708672dd0
+  #|sin 4001b20ab656bd67 3fe9a5322e7195a7
+  #|cos 4001b20ab656bd67 bfe323b35565f0f7
+  #|atan 4001b20ab656bd67 3ff256d93b57ee09
+  #|sin c0005765c7474190 bfec80befede3715
+  #|cos c0005765c7474190 bfdd178334b6a73c
+  #|atan c0005765c7474190 bff1d940ad0c218a
+  #|sin c016c48f88cc4235 3fe1d616cc93d5ca
+  #|cos c016c48f88cc4235 3fea9172af337f06
+  #|atan c016c48f88cc4235 bff659a39afbb31b
+  #|sin c00db3a65e012542 3fe14c6f8de85f13
+  #|cos c00db3a65e012542 bfeaebddc4148606
+  #|atan c00db3a65e012542 bff4ec52563f4590
+  #|sin bffba62aa6628bfc bfef9ae5885bc071
+  #|cos bffba62aa6628bfc bfc40c42a5f216f3
+  #|atan bffba62aa6628bfc bff0bd3c5a0749db
+  #|sin bff166d53cab1ba0 bfec5627d85d1696
+  #|cos bff166d53cab1ba0 3fddbc1e8746592c
+  #|atan bff166d53cab1ba0 bfea798e085d3179
+  #|sin c020166f82e47a77 bfef6cd454342ad8
+  #|cos c020166f82e47a77 bfc8274fb9ff57c9
+  #|atan c020166f82e47a77 bff7275ec49ed2bd
+  #|sin 3fed4e856b4e36c4 3fe960d795a85a72
+  #|cos 3fed4e856b4e36c4 3fe37dfb087f1811
+  #|atan 3fed4e856b4e36c4 3fe7ba542b018cc6
+  #|sin 4020a5801649c145 3fec8a7761f41686
+  #|cos 4020a5801649c145 bfdcf14b8ec9e34a
+  #|atan 4020a5801649c145 3ff73836a5549322
+  #|sin 3ff7ba1473655898 3fefe0659f5bdd0f
+  #|cos 3ff7ba1473655898 3fb67705e6abf30f
+  #|atan 3ff7ba1473655898 3fef47ad588697a4
+  #|sin bff8c4b0385e00ae bfeffde00b8045f1
+  #|cos bff8c4b0385e00ae 3f975242d1591fa0
+  #|atan bff8c4b0385e00ae bfefe973d8012ca6
+  #|sin bffe08069397068e bfee830c3c674b8d
+  #|cos bffe08069397068e bfd34a2d22ac127c
+  #|atan bffe08069397068e bff14ce4756a27cc
+  #|sin c022197f191df5f2 bfd770b4e0de5b18
+  #|cos c022197f191df5f2 bfedc6c72a041bdf
+  #|atan c022197f191df5f2 bff75f3426b99f53
+  #|sin c013e19d4a2bd3c8 3feef0fe4888b4ca
+  #|cos c013e19d4a2bd3c8 3fd053581589f703
+  #|atan c013e19d4a2bd3c8 bff5f4bf7d816cb2
+  #|sin c001391aa570576c bfeabaeb7a40c232
+  #|cos c001391aa570576c bfe197b327f1aba3
+  #|atan c001391aa570576c bff22cdf621ff15f
+  #|sin 3fe9012836146c34 3fe6895c9c3aee4f
+  #|cos 3fe9012836146c34 3fe6b7c861bd7d41
+  #|atan 3fe9012836146c34 3fe539ad69745fdf
+  #|sin bfff58a2476a983c bfed9e01851f6a86
+  #|cos bfff58a2476a983c bfd83be2c8302484
+  #|atan bfff58a2476a983c bff194da3ef2f2c5
+  #|sin 400dacf19b6d095f bfe135d84c8dcf19
+  #|cos 400dacf19b6d095f bfeafa547d32b66c
+  #|atan 400dacf19b6d095f 3ff4eb69e7947ec7
+  #|sin c00e5705c65e4c52 3fe3638bf8fb61ed
+  #|cos c00e5705c65e4c52 bfe9750f4a418045
+  #|atan c00e5705c65e4c52 bff501fcfce465cd
+  #|sin 400742063618f390 3fcdb93804f3b686
+  #|cos 400742063618f390 bfef20114c48a741
+  #|atan 400742063618f390 3ff3d502895f35d4
+  #|sin 4014dc257e24ef98 bfec0aedec553fdf
+  #|cos 4014dc257e24ef98 3fded43bbd74a0c8
+  #|atan 4014dc257e24ef98 3ff619f90ed925ac
+  #|sin 40089350831c82ff 3fb1d1a91ce0277a
+  #|cos 40089350831c82ff bfefec21923359df
+  #|atan 40089350831c82ff 3ff418ee7a047fe3
+  #|sin 4011b09534f57fc7 bfeeaa1028a5d761
+  #|cos 4011b09534f57fc7 bfd24c2cb50893ee
+  #|atan 4011b09534f57fc7 3ff5931d76a7681a
+  #|sin 402340806b60ce37 bfc994966b2dbe82
+  #|cos 402340806b60ce37 bfef5abe61971c65
+  #|atan 402340806b60ce37 3ff779fccf6a963a
+  #|sin c013fd3170e69b7f 3feeb5d90710cfc7
+  #|cos c013fd3170e69b7f 3fd1fc7048ed28af
+  #|atan c013fd3170e69b7f bff5f9047a0d0472
+  #|sin 3fd940dc86611c48 3fd89a673e966da0
+  #|cos 3fd940dc86611c48 3fed8a7fc6770870
+  #|atan 3fd940dc86611c48 3fd80d933bc15a71
+  #|sin c000240dde2d3492 bfecdbcc4c2afe07
+  #|cos c000240dde2d3492 bfdba759f7334fb6
+  #|atan c000240dde2d3492 bff1c533b09a0cf6
+  #|sin c01362aef283c5cd 3fefb6951ab606cb
+  #|cos c01362aef283c5cd 3fc1192ed88c07ab
+  #|atan c01362aef283c5cd bff5e082aef00459
+  #|sin c0193d91779a671e bf9b9548a918064a
+  #|cos c0193d91779a671e 3feffd070846ac49
+  #|atan c0193d91779a671e bff69e384ab136a7
+  #|sin 4015ebe8b8d7bee9 bfe70491bd799fa0
+  #|cos 4015ebe8b8d7bee9 3fe63ae9bc1ad886
+  #|atan 4015ebe8b8d7bee9 3ff63eb8a5231fad
+  #|sin 3fe5c5cab28be7c0 3fe42195c2a32cd2
+  #|cos 3fe5c5cab28be7c0 3fe8dfd7d4d51737
+  #|atan 3fe5c5cab28be7c0 3fe31e47dbcd3218
+  #|sin bfedd0f82c7c875c bfe9af798f075a2e
+  #|cos bfedd0f82c7c875c 3fe315e5c456a6bc
+  #|atan bfedd0f82c7c875c bfe800b66f9a3cfc
+  #|sin c0224c4e2cbbf522 bfd16cc18959eba7
+  #|cos c0224c4e2cbbf522 bfeeca87a8f93a3c
+  #|atan c0224c4e2cbbf522 bff7640dec161f1a
+  #|sin bff3d9f910512097 bfee45c406eabf44
+  #|cos bff3d9f910512097 3fd4be5d89a6f988
+  #|atan bff3d9f910512097 bfec8eabcf7b1fc0
+  #|sin c01652e69d6873a8 3fe4ab5fdffc7520
+  #|cos c01652e69d6873a8 3fe86dd100b64596
+  #|atan c01652e69d6873a8 bff64bc3979b11dd
+  #|sin c00ab66946cd73ae 3fc91ce590d62324
+  #|cos c00ab66946cd73ae bfef60c9e8bad16a
+  #|atan c00ab66946cd73ae bff47a1c738cf84a
+  #|sin c006ecfb244c0354 bfd16ee34a447780
+  #|cos c006ecfb244c0354 bfeeca3a6dd80db0
+  #|atan c006ecfb244c0354 bff3c2c853e22ddc
+  #|sin c020e9763a4ae4be bfea5fe447404d2a
+  #|cos c020e9763a4ae4be bfe21f0dd5012aac
+  #|atan c020e9763a4ae4be bff73fd48775c1cc
+  #|sin c0123f7c31888c7c 3fefa3884d5532d2
+  #|cos c0123f7c31888c7c bfc32d7b6befe3b7
+  #|atan c0123f7c31888c7c bff5ae1be7abe47a
+  #|sin c01e8ef47ddaf440 bfef447a4d4638c3
+  #|cos c01e8ef47ddaf440 3fcb3b069dd6a3d9
+  #|atan c01e8ef47ddaf440 bff70cdc014e3086
+  #|sin c021fee0691d2d00 bfda80e30c6b8ba7
+  #|cos c021fee0691d2d00 bfed208db7f13895
+  #|atan c021fee0691d2d00 bff75c9ec230a7fa
+  #|sin 4016a03af6d2ed86 bfe2c478fad67b19
+  #|cos 4016a03af6d2ed86 3fe9eb33be86bef1
+  #|atan 4016a03af6d2ed86 3ff65542eef86b3d
+  #|sin 4022fa426f2f163e bfb0601ac9381757
+  #|cos 4022fa426f2f163e bfefef392353b5d0
+  #|atan 4022fa426f2f163e 3ff773e6e628c52e
+  #|sin c0206cd666bf1630 bfedf6ec6c1ce749
+  #|cos c0206cd666bf1630 bfd6760f404c6f19
+  #|atan c0206cd666bf1630 bff731ad71674f34
+  #|sin 4016ec9a2d663eb8 bfe0c8b56c3440ee
+  #|cos 4016ec9a2d663eb8 3feb3ec0625cf35f
+  #|atan 4016ec9a2d663eb8 3ff65e672916a331
+  #|sin 3f75cff8a3b4b000 3f75cff1e20ec511
+  #|cos 3f75cff8a3b4b000 3fefffe24388aca0
+  #|atan 3f75cff8a3b4b000 3f75cfeb2076aa1a
+  #|sin c0206d6cf8107b16 bfedf39da53a2135
+  #|cos c0206d6cf8107b16 bfd687adf8528914
+  #|atan c0206d6cf8107b16 bff731bf09f41acf
+  #|sin c01e8d2befb76534 bfef416e2da3d5c3
+  #|cos c01e8d2befb76534 3fcb72c73d4ba4ab
+  #|atan c01e8d2befb76534 bff70cbd3c2062c4
+  #|sin 4022e581f5da2c4c bf980a5c8a115e72
+  #|cos 4022e581f5da2c4c bfeffdbdf9d6412f
+  #|atan 4022e581f5da2c4c 3ff77212140419ce
+  #|sin 4000cc95c75c63e2 3feb9fd85948b03b
+  #|cos 4000cc95c75c63e2 bfe026f5085f33a8
+  #|atan 4000cc95c75c63e2 3ff2058fab9a553b
+  #|sin c02377a46e43e8c5 3fd374e3c342e619
+  #|cos c02377a46e43e8c5 bfee7c43c759d2a3
+  #|atan c02377a46e43e8c5 bff77ea5572387d0
+  #|sin 4000e850a611d4bb 3feb6736100e1e2f
+  #|cos 4000e850a611d4bb bfe086540027aece
+  #|atan 4000e850a611d4bb 3ff20fc281e277eb
+  #|sin c02061c904ad1cf7 bfee33317cfb2b10
+  #|cos c02061c904ad1cf7 bfd52991b5b6750f
+  #|atan c02061c904ad1cf7 bff73061e2e9b8af
+  #|sin 401da2861b179b23 3fece13eb8e48cad
+  #|cos 401da2861b179b23 3fdb9091b780a830
+  #|atan 401da2861b179b23 3ff6fc70c7e6dc34
+  #|sin 3fde349ad9039960 3fdd18b754bcca52
+  #|cos 3fde349ad9039960 3fec80705d5ab08b
+  #|atan 3fde349ad9039960 3fdc38c807522377
+  #|sin c01125f4c6bbbcff 3fed2623ce0cd833
+  #|cos c01125f4c6bbbcff bfda6846a372f47e
+  #|atan c01125f4c6bbbcff bff577556aec4f8c
+  #|sin bffba822be0b8fca bfef9a47632021cf
+  #|cos bffba822be0b8fca bfc41bd176f553e3
+  #|atan bffba822be0b8fca bff0bdbac8bb62fc
+  #|sin c008811c63875c42 bfb4169349628ae2
+  #|cos c008811c63875c42 bfefe6bd77ae8a12
+  #|atan c008811c63875c42 bff4156f1cfe8707
+  #|sin 40202f332d9bba48 3fef18ae8da1b4e7
+  #|cos 40202f332d9bba48 bfce33eaadcbfbeb
+  #|atan 40202f332d9bba48 3ff72a5e24408369
+  #|sin c0207465ffcde3d7 bfedcba1bf5efe02
+  #|cos c0207465ffcde3d7 bfd757fbf30aeaec
+  #|atan c0207465ffcde3d7 bff7328f467485fe
+  #|sin bfdea9f2337aad58 bfdd81099b2c6430
+  #|cos bfdea9f2337aad58 3fec659411b0e6f8
+  #|atan bfdea9f2337aad58 bfdc987b2130f0e9
+  #|sin c0213be4bba92af9 bfe720e94603fe43
+  #|cos c0213be4bba92af9 bfe61d6b78b2e984
+  #|atan c0213be4bba92af9 bff748c20bf87f11
+  #|sin c02073dac6496e24 bfedcecd26728149
+  #|cos c02073dac6496e24 bfd747c6d3b918c6
+  #|atan c02073dac6496e24 bff7327f0ee01c7a
+  #|sin 3ff7b075a90b7750 3fefdeaf9f87d9bd
+  #|cos 3ff7b075a90b7750 3fb710566fa929a0
+  #|atan 3ff7b075a90b7750 3fef41a7fb3faa76
+  #|sin 4020fab5924d8208 3fe9bfd1528d9dd9
+  #|cos 4020fab5924d8208 bfe2ffd3781ca829
+  #|atan 4020fab5924d8208 3ff741b9cf0712d8
+  #|sin c00bf1abb79138d6 3fd607be33bad716
+  #|cos c00bf1abb79138d6 bfee0b5efdd08960
+  #|atan c00bf1abb79138d6 bff4abe641f56b67
+  #|sin 40141bd5301a6541 bfee6d73fba961cc
+  #|cos 40141bd5301a6541 3fd3d0c8c575a6e3
+  #|atan 40141bd5301a6541 3ff5fdb590a3de0f
+  #|sin c02375c3b4049fc5 3fd33b9c0b427c93
+  #|cos c02375c3b4049fc5 bfee8558aab2b048
+  #|atan c02375c3b4049fc5 bff77e7d286910ec
+  #|sin c021b9403d206ea5 bfe114003b23909d
+  #|cos c021b9403d206ea5 bfeb0fcde523f764
+  #|atan c021b9403d206ea5 bff755b89ca6b3a2
+  #|sin 4021ca1731b76302 3fe02dd278002e43
+  #|cos 4021ca1731b76302 bfeb9bd39e4c7bcc
+  #|atan 4021ca1731b76302 3ff75768a96b719c
+  #|sin c01cbd510276f881 bfe919a19880d099
+  #|cos c01cbd510276f881 3fe3d959d66be001
+  #|atan c01cbd510276f881 bff6eb88d877a46b
+  #|sin c023e70900b296de 3fe0144ceebc2367
+  #|cos c023e70900b296de bfebaab886e31b49
+  #|atan c023e70900b296de bff787c07fba7a3b
+  #|sin 401a8642d7fe7c51 3fd5d22704d2ed68
+  #|cos 401a8642d7fe7c51 3fee15245f2b1a44
+  #|atan 401a8642d7fe7c51 3ff6bce846acd6de
+  #|sin 400baba700a57f6c bfd3f6a251209c53
+  #|cos 400baba700a57f6c bfee6743eb6b3119
+  #|atan 400baba700a57f6c 3ff4a131d3e6e0fc
+  #|sin c0134bcee2e6c557 3fefcd001668e83e
+  #|cos c0134bcee2e6c557 3fbc856864be8c89
+  #|atan c0134bcee2e6c557 bff5dcc1d92f96ea
+  #|sin bff24a5d6c752d05 bfed1e48859a4e3e
+  #|cos bff24a5d6c752d05 3fda8adbb6265022
+  #|atan bff24a5d6c752d05 bfeb445e2b86ecde
+  #|sin 3ff72c17656dda02 3fefc2945116b2e3
+  #|cos 3ff72c17656dda02 3fbf4a2a9df25b71
+  #|atan 3ff72c17656dda02 3feeed7676956be4
+  #|sin c001e15569d3a881 bfe93250391c6e3b
+  #|cos c001e15569d3a881 bfe3b9fb792e01dc
+  #|atan c001e15569d3a881 bff266c2fb84fa8b
+  #|sin 40175bb6321c9075 bfdb7840caa61f13
+  #|cos 40175bb6321c9075 3fece708f221a571
+  #|atan 40175bb6321c9075 3ff66b4c2d69b767
+  #|sin c01c4a033d29c584 bfe6b5fae50a26b1
+  #|cos c01c4a033d29c584 3fe68b2daa4df960
+  #|atan c01c4a033d29c584 bff6e2a213b1cfc5
+  #|sin 400a0a5112b8574a bfbcfac7f8119c60
+  #|cos 400a0a5112b8574a bfefcb5796018c59
+  #|atan 400a0a5112b8574a 3ff45d1cb3a86bed
+  #|sin c01bd2d905d6aeec bfe3f091700b7ac7
+  #|cos c01bd2d905d6aeec 3fe90733edebbb4c
+  #|atan c01bd2d905d6aeec bff6d923057b6a32
+  #|sin bff0457e95767aeb bfeb376e3cd9033f
+  #|cos bff0457e95767aeb 3fe0d491e52f0371
+  #|atan bff0457e95767aeb bfe966e3d85da372
+  #|sin bffe4c1c7d304b71 bfee58eda3422ff9
+  #|cos bffe4c1c7d304b71 bfd44d28e8b3d038
+  #|atan bffe4c1c7d304b71 bff15bd7adc52465
+  #|sin c00c0a5551a6171e 3fd6c0927f043be4
+  #|cos c00c0a5551a6171e bfede8db4c695ff6
+  #|atan c00c0a5551a6171e bff4af9fbf742404
+  #|sin 40093eaae452d60e bf8caf5296460ae3
+  #|cos 40093eaae452d60e bfefff3248e20c01
+  #|atan 40093eaae452d60e 3ff438fa662d3069
+  #|sin 40221256b98432d9 3fd8453e9d533129
+  #|cos 40221256b98432d9 bfed9c16ff7e53b9
+  #|atan 40221256b98432d9 3ff75e830d193497
+  #|sin 401a08c77e24ba36 3fcc9b2606c43f18
+  #|cos 401a08c77e24ba36 3fef30cd9fd71f66
+  #|atan 401a08c77e24ba36 3ff6b18a80070e78
+  #|sin bfe24055c93edd7c bfe1471a54cac89e
+  #|cos bfe24055c93edd7c 3feaef4a41e61c27
+  #|atan bfe24055c93edd7c bfe09633c3689b82
+  #|sin 4013b046db3a1a96 bfef4c71f5cedccf
+  #|cos 4013b046db3a1a96 3fcaa70110500dd7
+  #|atan 4013b046db3a1a96 3ff5ecff7fd4786e
+  #|sin c012d3b4d2fe480a 3fefffde978e919e
+  #|cos c012d3b4d2fe480a bf771ea8c7b28d33
+  #|atan c012d3b4d2fe480a bff5c87de1d73a8b
+  #|sin c01deee4bcaf9d26 bfedd3968d494620
+  #|cos c01deee4bcaf9d26 3fd72f33f384df11
+  #|atan c01deee4bcaf9d26 bff701da53edb876
+  #|sin 402180a6e92d97f0 3fe3f596b8b18226
+  #|cos 402180a6e92d97f0 bfe903332153fe72
+  #|atan 402180a6e92d97f0 3ff74ff4f981946e
+  #|sin c00b20636885a25a 3fcf923a5ee1ffd8
+  #|cos c00b20636885a25a bfef02e7b1622359
+  #|atan c00b20636885a25a bff48b4fe53ae890
+  #|sin c02230b2e7ffbb7a bfd4b7e5bcea0638
+  #|cos c02230b2e7ffbb7a bfee46df7c0e4d00
+  #|atan c02230b2e7ffbb7a bff7616e8a288b42
+  #|sin 4009cf0d44df2fde bfb59ba72ca3446b
+  #|cos 4009cf0d44df2fde bfefe2c424760f23
+  #|atan 4009cf0d44df2fde 3ff452ce611a1b93
+  #|sin c01e695bca74b884 bfeeff1c9decf2a1
+  #|cos c01e695bca74b884 3fcfcd9c91b2b7af
+  #|atan c01e695bca74b884 bff70a5066872d6f
+  #|sin c014d0822317defc 3fec37505097835b
+  #|cos c014d0822317defc 3fde308b92d0ed81
+  #|atan c014d0822317defc bff618518161d6c4
+  #|sin 401ceaffac3db1d8 3fe9f5d9a4faf079
+  #|cos 401ceaffac3db1d8 3fe2b5bb932148ff
+  #|atan 401ceaffac3db1d8 3ff6eefc694fa520
+  #|sin 40112c771183747c bfed3b797763ad07
+  #|cos 40112c771183747c bfda09467aac397f
+  #|atan 40112c771183747c 3ff578acdf9a92bc
+  #|sin 40109e83330a928f bfeb272c7a742181
+  #|cos 40109e83330a928f bfe0eebfb498dff1
+  #|atan 40109e83330a928f 3ff55a88d8a7fb07
+  #|sin bff8b89cb41e2900 bfeffd4a1da654b1
+  #|cos bff8b89cb41e2900 3f9a56e9a18c71bb
+  #|atan bff8b89cb41e2900 bfefe254e8b08575
+  #|sin 402238c2c00e143a 3fd3c3295019f525
+  #|cos 402238c2c00e143a bfee6faaee57a819
+  #|atan 402238c2c00e143a 3ff762336a0b11d3
+  #|sin c00cb1667aafa803 3fdb8d0b7337d027
+  #|cos c00cb1667aafa803 bfece215f3746b54
+  #|atan c00cb1667aafa803 bff4c83e919fdd16
+  #|sin 40113b456df0a31e bfed6ae09ea09584
+  #|cos 40113b456df0a31e bfd9302d852c3d3e
+  #|atan 40113b456df0a31e 3ff57bb68f7359b0
+  #|sin 3ff9851f2e1e6e6e 3feffd99bbb51fea
+  #|cos 3ff9851f2e1e6e6e bf98c857ded0af6d
+  #|atan 3ff9851f2e1e6e6e 3ff02c319698067e
+  #|sin 401f157daee1cad2 3fefe3cd7bbadd15
+  #|cos 401f157daee1cad2 3fb538e0a7da690b
+  #|atan 401f157daee1cad2 3ff715c61c9d19f1
+  #|sin 400ee09c22708e84 bfe50dd86721611c
+  #|cos 400ee09c22708e84 bfe81926ced9ca0d
+  #|atan 400ee09c22708e84 3ff51395bd1cb447
+  #|sin 401bbd0565b39a4e 3fe366d9474ff82d
+  #|cos 401bbd0565b39a4e 3fe9728b2584512c
+  #|atan 401bbd0565b39a4e 3ff6d75d1414c11f
+  #|sin 40211ae01351b846 3fe88172ad0abaaa
+  #|cos 40211ae01351b846 bfe49415a4cbd641
+  #|atan 40211ae01351b846 3ff74538c4bb0137
+  #|sin 3fc9e33124b5eb70 3fc9b61aed115842
+  #|cos 3fc9e33124b5eb70 3fef5907b0fc6556
+  #|atan 3fc9e33124b5eb70 3fc98afd11d28c58
+  #|sin c01bb2070fae1d0c bfe3209ff031d9a0
+  #|cos c01bb2070fae1d0c 3fe9a77d89f120b8
+  #|atan c01bb2070fae1d0c bff6d677671fe675
+  #|sin c00d786628e3cb88 3fe08338ad321c1d
+  #|cos c00d786628e3cb88 bfeb69156bb32b60
+  #|atan c00d786628e3cb88 bff4e43f62dec20a
+  #|sin c016df3999ff28dc 3fe12374a5e0eb6a
+  #|cos c016df3999ff28dc 3feb0606e61f81f6
+  #|atan c016df3999ff28dc bff65cd186e83189
+  #|sin 4017781908274f1f bfd9db63cb9f79cc
+  #|cos 4017781908274f1f 3fed45a648eea23b
+  #|atan 4017781908274f1f 3ff66e847e5d26d1
+  #|sin 40170f6ea8cf055e bfdfb2107cf312ba
+  #|cos 40170f6ea8cf055e 3febccd5ffb97eb1
+  #|atan 40170f6ea8cf055e 3ff6627eed4fade0
+  #|sin 3ff41981006d9472 3fee6e03de054309
+  #|cos 3ff41981006d9472 3fd3cd54ae062d0d
+  #|atan 3ff41981006d9472 3fecc054b51162a7
+  #|sin c0221e33d552378a bfd6e453b9c7e37f
+  #|cos c0221e33d552378a bfede20876232c34
+  #|atan c0221e33d552378a bff75fa84ba4a735
+  #|sin c01c7cc4cdfd511d bfe7ccc795167b11
+  #|cos c01c7cc4cdfd511d 3fe5640795e41f88
+  #|atan c01c7cc4cdfd511d bff6e695e2b57792
+  #|sin 400f3e4288ec2bb0 bfe6223688b17178
+  #|cos 400f3e4288ec2bb0 bfe71c53097d9511
+  #|atan 400f3e4288ec2bb0 3ff51f3cd088d207
+  #|sin 400d8a52b5117f4c bfe0c078d1a9285a
+  #|cos 400d8a52b5117f4c bfeb43d1a59c4d80
+  #|atan 400d8a52b5117f4c 3ff4e6b3d852afe1
+  #|sin 401ab36bedc72124 3fd873c5d3ee5f66
+  #|cos 401ab36bedc72124 3fed9283773db8cc
+  #|atan 401ab36bedc72124 3ff6c0e5ee662cfb
+  #|sin 401c0642091f6448 3fe52bad325def11
+  #|cos 401c0642091f6448 3fe7fef6056b71fc
+  #|atan 401c0642091f6448 3ff6dd458959d71c
+  #|sin c01d3e15b22fb264 bfeb64312f78b9cd
+  #|cos c01d3e15b22fb264 3fe08b54a3ff5f73
+  #|atan c01d3e15b22fb264 bff6f5284b2e7b8e
+  #|sin 40027c8c6f671f58 3fe7a16ec9181ea1
+  #|cos 40027c8c6f671f58 bfe593e0bfb2b39a
+  #|atan 40027c8c6f671f58 3ff2991d69a2bacc
+  #|sin 4013646403c7dd82 bfefb4bf24fd4f87
+  #|cos 4013646403c7dd82 3fc14f5218464ae4
+  #|atan 4013646403c7dd82 3ff5e0ca0e034715
+  #|sin c022b962862d713a bfb00a4b7752520a
+  #|cos c022b962862d713a bfefefe756132aa3
+  #|atan c022b962862d713a bff76e1fed2dbf9b
+  #|sin 402172af40ec9214 3fe4a258897f0261
+  #|cos 402172af40ec9214 bfe87571c61f3ac0
+  #|atan 402172af40ec9214 3ff74e8323cffcac
+  #|sin bfe874c3c40a6f6c bfe624d99cdad68b
+  #|cos bfe874c3c40a6f6c 3fe719cc3563fde2
+  #|atan bfe874c3c40a6f6c bfe4e1c7d9bd53f4
+  #|sin 401855281b50acc5 bfc96ec88f327bf4
+  #|cos 401855281b50acc5 3fef5caa602b4b83
+  #|atan 401855281b50acc5 3ff6869dcb70ccae
+  #|sin bff736e0062fc45f bfefc52ff0bd7fc9
+  #|cos bff736e0062fc45f 3fbe9ee4af3ea0e7
+  #|atan bff736e0062fc45f bfeef46ac6baa8ad
+  #|sin c0214d82d0d0763f bfe65aa3d2277d95
+  #|cos c0214d82d0d0763f bfe6e5c320a01888
+  #|atan c0214d82d0d0763f bff74a9fa099c03f
+  #|sin 401ede643e7ecece 3fefb3769b466ce5
+  #|cos 401ede643e7ecece 3fc174c53a2557fc
+  #|atan 401ede643e7ecece 3ff71228b62cd41b
+  #|sin 401a77e9911205a6 3fd4f9c9990ebbca
+  #|cos 401a77e9911205a6 3fee3b85c6fc76c8
+  #|atan 401a77e9911205a6 3ff6bba0e167db49
+  #|sin 401bb11370ba9906 3fe31a84eb305346
+  #|cos 401bb11370ba9906 3fe9ac09c611f9a8
+  #|atan 401bb11370ba9906 3ff6d6637d024128
+  #|sin 401064fe053f8982 bfea28d89eeea1f9
+  #|cos 401064fe053f8982 bfe26e2b2bee6c85
+  #|atan 401064fe053f8982 3ff54dc5d9c70051
+  #|sin 4007d5316bc07482 3fc4b537c86f3bcd
+  #|cos 4007d5316bc07482 bfef9415c9b18ed2
+  #|atan 4007d5316bc07482 3ff3f379e095f7ae
+  #|sin c018e6c99f8938a6 3fad94a244914a83
+  #|cos c018e6c99f8938a6 3feff25106ce28c0
+  #|atan c018e6c99f8938a6 bff6959a503bf548
+  #|sin 4021ea7d45e4a45e 3fdccd2cbddbb56e
+  #|cos 4021ea7d45e4a45e bfec9398725af9f5
+  #|atan 4021ea7d45e4a45e 3ff75a9f17a844aa
+  #|sin 4020df5f06d3c1a6 3feaba00935fd68f
+  #|cos 4020df5f06d3c1a6 bfe19917fc981b70
+  #|atan 4020df5f06d3c1a6 3ff73eb6d80125b4
+  #|sin 401b1573b3d8a32c 3fddfe63bab275f7
+  #|cos 401b1573b3d8a32c 3fec44ac7ce90f8e
+  #|atan 401b1573b3d8a32c 3ff6c962d66b7404
+  #|sin 401fbda2432cfdcc 3fefe500c599496d
+  #|cos 401fbda2432cfdcc bfb4c42d7aac4e31
+  #|atan 401fbda2432cfdcc 3ff72081bcd11737
+  #|sin c0028d0838336a4e bfe774c71eb7a044
+  #|cos c0028d0838336a4e bfe5c463507144a7
+  #|atan c0028d0838336a4e bff29e4cb5737f92
+  #|sin 402283d42029f133 3fc5508e2191f11b
+  #|cos 402283d42029f133 bfef8d9f6cb81f43
+  #|atan 402283d42029f133 3ff7693cd3297e09
+  #|sin c0200f78b2e4c2f0 bfef811c5075a2b7
+  #|cos c0200f78b2e4c2f0 bfc6710e94d3f299
+  #|atan c0200f78b2e4c2f0 bff7268554ac41d1
+  #|sin 400e7c36a549fe23 bfe3d911b6b8feb6
+  #|cos 400e7c36a549fe23 bfe919daa0d40fb2
+  #|atan 400e7c36a549fe23 3ff506cd50604ad3
+  #|sin bff33f1c1aa97a8a bfeddbdcf49dcc60
+  #|cos bff33f1c1aa97a8a 3fd70471610493a2
+  #|atan bff33f1c1aa97a8a bfec126a6cc6952c
+  #|sin c00bf7661bcffc4c 3fd632bec2d4618b
+  #|cos c00bf7661bcffc4c bfee03743b6f8d31
+  #|atan c00bf7661bcffc4c bff4acc4417f9faf
+  #|sin c0203e2598dbe649 bfeedcde2f5876bf
+  #|cos c0203e2598dbe649 bfd0e90aa593072f
+  #|atan c0203e2598dbe649 bff72c28f25767a4
+  #|sin 400b3fe192d45381 bfd0bcc9104f0c0a
+  #|cos 400b3fe192d45381 bfeee2e596c41c35
+  #|atan 400b3fe192d45381 3ff49054b9dbd7ec
+  #|sin c017bfe8baa42dfe 3fd5b0f2a92d1458
+  #|cos c017bfe8baa42dfe 3fee1b24a9402ce5
+  #|atan c017bfe8baa42dfe bff6768871e5603b
+  #|sin 400bc5cd4789068e bfd4bcf873053cb0
+  #|cos 400bc5cd4789068e bfee4601309c8c6f
+  #|atan 400bc5cd4789068e 3ff4a5371e10fe0f
+  #|sin c022ff14823649eb 3fb2c7aee842f725
+  #|cos c022ff14823649eb bfefe9ed5d8a01ac
+  #|atan c022ff14823649eb bff774533d138378
+  #|sin c022b81c9fc46c6e bfb0ace969cbf188
+  #|cos c022b81c9fc46c6e bfefee9a25c6b242
+  #|atan c022b81c9fc46c6e bff76e02821b202b
+  #|sin 4022f421f567b66c bfaaa261fe9c97a5
+  #|cos 4022f421f567b66c bfeff4e88846af1f
+  #|atan 4022f421f567b66c 3ff7735ce528a380
+  #|sin 3fec6e4bc4d3b75c 3fe8d5d7fd5afa08
+  #|cos 3fec6e4bc4d3b75c 3fe42dea7a2f4c94
+  #|atan 3fec6e4bc4d3b75c 3fe73eb569251478
+  #|sin 40034fe59a8dc10f 3fe54835d737575e
+  #|cos 40034fe59a8dc10f bfe7e5ab256abbdc
+  #|atan 40034fe59a8dc10f 3ff2d95d90f161eb
+  #|sin c0220cc525733fe8 bfd8e9c2b09d659f
+  #|cos c0220cc525733fe8 bfed79da8649f15e
+  #|atan c0220cc525733fe8 bff75df8e4a836d5
+  #|sin 401c30861e482734 3fe6248a98cba3fa
+  #|cos 401c30861e482734 3fe71a17f298e3aa
+  #|atan 401c30861e482734 3ff6e0a0b3fc0932
+  #|sin bfcca3cde21e8d48 bfcc66c7f81ec54f
+  #|cos bfcca3cde21e8d48 3fef33cb2e8e0898
+  #|atan bfcca3cde21e8d48 bfcc2d00376305fc
+  #|sin c01cedcd9899e7a2 bfea02f153b9422b
+  #|cos c01cedcd9899e7a2 3fe2a38398d07da6
+  #|atan c01cedcd9899e7a2 bff6ef324dda8c55
+  #|sin c02001a11d68b7f2 bfefa4fd13d1f32c
+  #|cos c02001a11d68b7f2 bfc306e3ca21663e
+  #|atan c02001a11d68b7f2 bff724d2fbc7f425
+  #|sin 4015573e460e7688 bfe9fde4a83a3616
+  #|cos 4015573e460e7688 3fe2aa8d95a27453
+  #|atan 4015573e460e7688 3ff62b0e5119cc80
+  #|sin 4010f725bd2e4086 bfec83e3145dea88
+  #|cos 4010f725bd2e4086 bfdd0b30b173c5ea
+  #|atan 4010f725bd2e4086 3ff56d92bd77e1a8
+  #|sin 3fe5b37bd07db850 3fe413573d34e58c
+  #|cos 3fe5b37bd07db850 3fe8eb584652035e
+  #|atan 3fe5b37bd07db850 3fe311c0c721aab4
+  #|sin bfe440c2b615edca bfe2ed7c287d4dd5
+  #|cos bfe440c2b615edca 3fe9cd4fba5ba63c
+  #|atan bfe440c2b615edca bfe20e731b4716aa
+  #|sin 4015072927cd9b43 bfeb5ee259be9cac
+  #|cos 4015072927cd9b43 3fe0941b34befb38
+  #|atan 4015072927cd9b43 3ff620072b1fa94d
+  #|sin bffb2f02e1db6f86 bfefbccb13d9b1e2
+  #|cos bffb2f02e1db6f86 bfc05cbe5a8e51e1
+  #|atan bffb2f02e1db6f86 bff09ef67345aa09
+  #|sin 402278dbb6cd7e68 3fc8038cc160023e
+  #|cos 402278dbb6cd7e68 bfef6e8acbde28b2
+  #|atan 402278dbb6cd7e68 3ff768391851abfe
+  #|sin 4018d78d52fe8d1a bfb2974ed7252e57
+  #|cos 4018d78d52fe8d1a 3fefea5ea841f85c
+  #|atan 4018d78d52fe8d1a 3ff69410f77e5313
+  #|sin 4010f906781955fc bfec8ab135b2aeea
+  #|cos 4010f906781955fc bfdcf0677133e2cc
+  #|atan 4010f906781955fc 3ff56df7f690159e
+  #|sin c0143b62ff77ac5b 3fee1b9c3412152c
+  #|cos c0143b62ff77ac5b 3fd5ae5ad12c89bf
+  #|atan c0143b62ff77ac5b bff6027c34235870
+  #|sin c0212dc202c34154 bfe7baf06c5b0bb5
+  #|cos c0212dc202c34154 bfe577d08a9c5198
+  #|atan c0212dc202c34154 bff747401fbe5dc6
+  #|sin bfef964a25b93bc2 bfeab3a475ecfb70
+  #|cos bfef964a25b93bc2 3fe1a2bcdaf751cf
+  #|atan bfef964a25b93bc2 bfe8ecc8b9a392bb
+  #|sin 401c59f1747d9342 3fe70f0e57f94cca
+  #|cos 401c59f1747d9342 3fe63008de25b14f
+  #|atan 401c59f1747d9342 3ff6e3e1243fc7ac
+  #|sin 401b84f543d90988 3fe1faeb77d4e8c6
+  #|cos 401b84f543d90988 3fea7893aa32fca5
+  #|atan 401b84f543d90988 3ff6d2c27962a8ef
+  #|sin c011e5d20ab889ea 3fef192a95ac374d
+  #|cos c011e5d20ab889ea bfce2bee57bca92c
+  #|atan c011e5d20ab889ea bff59d5be8b428f3
+  #|sin c01e1b26412f1f20 bfee4cac8c3122eb
+  #|cos c01e1b26412f1f20 3fd495ddba3959ba
+  #|atan c01e1b26412f1f20 bff704f0e66b3167
+  #|sin 40228b6c068f32e2 3fc370c86c8bdd06
+  #|cos 40228b6c068f32e2 bfefa0f705505a4c
+  #|atan 40228b6c068f32e2 3ff769efe847d89f
+  #|sin c001ee149d035912 bfe912c1daaccc3c
+  #|cos c001ee149d035912 bfe3e208088fbce2
+  #|atan c001ee149d035912 bff26b010a60a300
+  #|sin c00ad188b752ed70 3fcac5d9f51ae5ff
+  #|cos c00ad188b752ed70 bfef4accadd06a91
+  #|atan c00ad188b752ed70 bff47e8f514752b6
+  #|sin 401739b33165283a bfdd5fcbb52b9966
+  #|cos 401739b33165283a 3fec6e305467e8f2
+  #|atan 401739b33165283a 3ff667666d52d848
+  #|sin 400fe9674fb6de73 bfe7fc4511cf2df9
+  #|cos 400fe9674fb6de73 bfe52eb9b3b58ad8
+  #|atan 400fe9674fb6de73 3ff533e242762538
+  #|sin 401857f0fc803448 bfc9176d1c631946
+  #|cos 401857f0fc803448 3fef610fee0d9f28
+  #|atan 401857f0fc803448 3ff686e8cadd47c9
+  #|sin bff3394fcd8a0f89 bfedd7af594e870f
+  #|cos bff3394fcd8a0f89 3fd71a13ce1bb8fd
+  #|atan bff3394fcd8a0f89 bfec0dac69ea6b54
+  #|sin 40151cc1bf062c82 bfeb03d327a9889d
+  #|cos 40151cc1bf062c82 3fe126ed0d57e965
+  #|atan 40151cc1bf062c82 3ff6230872af2aec
+  #|sin 400123e58758e39a 3feae9305d217584
+  #|cos 400123e58758e39a bfe1509985452110
+  #|atan 400123e58758e39a 3ff22550c5897198
+  #|sin 40213ea7ce6298f0 3fe70248d2b4e971
+  #|cos 40213ea7ce6298f0 bfe63d472292dc2d
+  #|atan 40213ea7ce6298f0 3ff7490d2b28bbb8
+  #|sin 400d4ae2d83c3831 bfdfcc7f74aad7a0
+  #|cos 400d4ae2d83c3831 bfebc54909f28801
+  #|atan 400d4ae2d83c3831 3ff4ddf706ca8f88
+  #|sin bffeff9bab23b2e2 bfeddfa14725f8a0
+  #|cos bffeff9bab23b2e2 bfd6f0dc0468b962
+  #|atan bffeff9bab23b2e2 bff18249ec24e702
+  #|sin 401dd9383e8f631d 3fed93121f295bf5
+  #|cos 401dd9383e8f631d 3fd871138be69cf5
+  #|atan 401dd9383e8f631d 3ff70053df7577a5
+  #|sin 401f0cda9bcdc8db 3fefddc8ca6b02d9
+  #|cos 401f0cda9bcdc8db 3fb75f8b330781bf
+  #|atan 401f0cda9bcdc8db 3ff71535e2e15f9a
+  #|sin c01257a91137b76e 3fefbe3fcd20d541
+  #|cos c01257a91137b76e bfc02f4ed67c3969
+  #|atan c01257a91137b76e bff5b2854925708c
+  #|sin 40232e9644931b48 bfc52d665087c4d0
+  #|cos 40232e9644931b48 bfef8f1a22a9dd05
+  #|atan 40232e9644931b48 3ff77873aaa966de
+  #|sin c016ae3808e03f32 3fe26962b7116567
+  #|cos c016ae3808e03f32 3fea2c36a3f2b03b
+  #|atan c016ae3808e03f32 bff656f40b764f84
+  #|sin 402218e7eb6f78bf 3fd782496abdbffd
+  #|cos 402218e7eb6f78bf bfedc34ff366fc4f
+  #|atan 402218e7eb6f78bf 3ff75f258f6b9364
+  #|sin c00f81cfff03fea4 3fe6e23e54a6b35d
+  #|cos c00f81cfff03fea4 bfe65e3df31e21f7
+  #|atan c00f81cfff03fea4 bff5277c386d5266
+  #|sin c012913ab80cec03 3fefeb9d1994ef2a
+  #|cos c012913ab80cec03 bfb20c9b96a2b487
+  #|atan c012913ab80cec03 bff5bcda83e9c320
+  #|sin 3ff454d28ac7df74 3fee91e773fc4049
+  #|cos 3ff454d28ac7df74 3fd2eb2d182ec1f4
+  #|atan 3ff454d28ac7df74 3fecee066d6cac14
+  #|sin c00fc5aa4ebe3bc3 3fe79cb61994a88d
+  #|cos c00fc5aa4ebe3bc3 bfe5990b4bef9f30
+  #|atan c00fc5aa4ebe3bc3 bff52fa3d329a6dc
+  #|sin c007c57e933d65a2 bfc5acedc42c6b24
+  #|cos c007c57e933d65a2 bfef89b05534161d
+  #|atan c007c57e933d65a2 bff3f04a0cafe868
+  #|sin 40079838670e7b59 3fc8757055d95922
+  #|cos 40079838670e7b59 bfef690d3e7e03db
+  #|atan 40079838670e7b59 3ff3e703eca409f2
+  #|sin c013620d0c14a390 3fefb741b8e4b858
+  #|cos c013620d0c14a390 3fc105204257bc5e
+  #|atan c013620d0c14a390 bff5e0683bd66df1
+  #|sin bfe0d32dfdc8c210 bfe00f74c69f309d
+  #|cos bfe0d32dfdc8c210 3febad88b53721b4
+  #|atan bfe0d32dfdc8c210 bfdefacb7c3ae6b3
+  #|sin c0022c5470fc7c51 bfe8751a94e7f1d5
+  #|cos c0022c5470fc7c51 bfe4a2bfe2491a39
+  #|atan c0022c5470fc7c51 bff27f714c8b2b89
+  #|sin 3ffb19ca4081bcdc 3fefc21c10d009ef
+  #|cos 3ffb19ca4081bcdc bfbf689f54527acd
+  #|atan 3ffb19ca4081bcdc 3ff0997d774e4f74
+  #|sin 4013bd98222807d8 bfef359593176ac8
+  #|cos 4013bd98222807d8 3fcc473bfcca22c7
+  #|atan 4013bd98222807d8 3ff5ef1ab22b0ce9
+  #|sin c0177fc0f6418f13 3fd96b2718d54dd7
+  #|cos c0177fc0f6418f13 3fed5e2f5887353a
+  #|atan c0177fc0f6418f13 bff66f61864ad963
+  #|sin 401bbbcc066c86cc 3fe35f0ebdade019
+  #|cos 401bbbcc066c86cc 3fe97879f26c8d1e
+  #|atan 401bbbcc066c86cc 3ff6d74389f39136
+  #|sin 4017f3614ad2b892 bfd2a377c21bb17e
+  #|cos 4017f3614ad2b892 3fee9ce89f9d1269
+  #|atan 4017f3614ad2b892 3ff67c2a6cac00f4
+  #|sin c0066c86dd8c52ce bfd5423d1f84fcb4
+  #|cos c0066c86dd8c52ce bfee2edc4a449e42
+  #|atan c0066c86dd8c52ce bff3a6572da50105
+  #|sin bff3575e611d2822 bfeded2d9cf619b9
+  #|cos bff3575e611d2822 3fd6a9cc1b4173d5
+  #|atan bff3575e611d2822 bfec262f88e93c23
+  #|sin bfdf965ba8987ca4 bfde52092cf9d337
+  #|cos bfdf965ba8987ca4 3fec2e54989cb121
+  #|atan bfdf965ba8987ca4 bfdd57abcbbd4a58
+  #|sin 3fe84d3a124a0a90 3fe6083de56f5f58
+  #|cos 3fe84d3a124a0a90 3fe73516be68066f
+  #|atan 3fe84d3a124a0a90 3fe4c8c355d15a2e
+  #|sin c0068fdfd317bac0 bfd436b7b61a6f82
+  #|cos c0068fdfd317bac0 bfee5cac2b7247dd
+  #|atan c0068fdfd317bac0 bff3ae4779d812bd
+  #|sin c004a9cfcbf1b630 bfe0f64a192e2084
+  #|cos c004a9cfcbf1b630 bfeb22773b21eb85
+  #|atan c004a9cfcbf1b630 bff338f7ddeae0bd
+  #|sin 4003d526aa12e34b 3fe3aee9d938149e
+  #|cos 4003d526aa12e34b bfe93af6c40aaaf6
+  #|atan 4003d526aa12e34b 3ff2ff8578122ca0
+  #|sin 401fc8856cb140e6 3fefdd79f100f53a
+  #|cos 401fc8856cb140e6 bfb77a5bbc4585e6
+  #|atan 401fc8856cb140e6 3ff7212fcb7cc9cf
+  #|sin c00b35cd423b8c2a 3fd06ee7c149c619
+  #|cos c00b35cd423b8c2a bfeeed584e418910
+  #|atan c00b35cd423b8c2a bff48ebaad2c6c21
+  #|sin c020828cc22dc948 bfed76247bc94fa1
+  #|cos c020828cc22dc948 bfd8fb4b94d605be
+  #|atan c020828cc22dc948 bff73433d05f9ac1
+  #|sin 4004d4168ef4bc20 3fe065fae94eea6a
+  #|cos 4004d4168ef4bc20 bfeb7a9dc7b69dd5
+  #|atan 4004d4168ef4bc20 3ff343e9f3ba9a2a
+  #|sin 4004e3f6c3fc55f5 3fe02f52bbc4a1e1
+  #|cos 4004e3f6c3fc55f5 bfeb9af2615aa81d
+  #|atan 4004e3f6c3fc55f5 3ff347fc3ad5a5a0
+  #|sin c0163d24cca5ace8 3fe52f0bc81e69b5
+  #|cos c0163d24cca5ace8 3fe7fbfc93e85690
+  #|atan c0163d24cca5ace8 bff6490bfc3252b7
+  #|sin c0151bc71028fc50 3feb080547140546
+  #|cos c0151bc71028fc50 3fe1204f7dcbff43
+  #|atan c0151bc71028fc50 bff622e5b1ea6032
+  #|sin 4022966a97a2f90a 3fc0b835d118f572
+  #|cos 4022966a97a2f90a bfefb9d0356e70dc
+  #|atan 4022966a97a2f90a 3ff76af232f6680e
+  #|sin c022cefda3a82616 bf94fd56bdf58e5b
+  #|cos c022cefda3a82616 bfeffe4763e45ccd
+  #|atan c022cefda3a82616 bff77010dca16efe
+  #|sin c004e0f68c1e7276 bfe039ac73b3b3cc
+  #|cos c004e0f68c1e7276 bfeb94de40451e38
+  #|atan c004e0f68c1e7276 bff34737a1bd73a0
+  #|sin 402055661520239b 3fee7274d6d9dce0
+  #|cos 402055661520239b bfd3b1f30a441e04
+  #|atan 402055661520239b 3ff72eec40d709c9
+  #|sin c007aff170ad1b92 bfc70074ca23ce13
+  #|cos c007aff170ad1b92 bfef7aa4e1a632af
+  #|atan c007aff170ad1b92 bff3ebe3e40da2f1
+  #|sin 4017fb3e5feb38df bfd22af6dfe32938
+  #|cos 4017fb3e5feb38df 3feeaeff89b6d10d
+  #|atan 4017fb3e5feb38df 3ff67d04a7bb5a8e
+  #|sin 401b66dc150c7056 3fe131c6da73d2b6
+  #|cos 401b66dc150c7056 3feafcec70cf0fb7
+  #|atan 401b66dc150c7056 3ff6d0421c2d232c
+  #|sin 40144b74c6c8839e bfedef1cd0dca483
+  #|cos 40144b74c6c8839e 3fd69f91d710d90f
+  #|atan 40144b74c6c8839e 3ff604e55ccd464a
+  #|sin c01d193287acca47 bfeac71b7eb86f22
+  #|cos c01d193287acca47 3fe1852093d8e259
+  #|atan c01d193287acca47 bff6f26f2629668c
+  #|sin 3fde2caa5f346288 3fdd11a4d3139e47
+  #|cos 3fde2caa5f346288 3fec823e2943de72
+  #|atan 3fde2caa5f346288 3fdc32497f206682
+  #|sin c02222dfb53ee61a bfd6587d86671c4c
+  #|cos c02222dfb53ee61a bfedfc72d0f7f70a
+  #|atan c02222dfb53ee61a bff7601b5afd8fb9
+  #|sin c0234af2ed8822de 3fcc22515ddacf1b
+  #|cos c0234af2ed8822de bfef37ab54d27645
+  #|atan c0234af2ed8822de bff77ae0c704a373
+  #|sin c020fba940b064bc bfe9b6c384d588c6
+  #|cos c020fba940b064bc bfe30c129fc87bd2
+  #|atan c020fba940b064bc bff741d47b03c742
+  #|sin c01a2376c6cf05d3 bfcfd8e17f0167a1
+  #|cos c01a2376c6cf05d3 3feefe637af0c154
+  #|atan c01a2376c6cf05d3 bff6b3fe36f927fd
+  #|sin c0204f93df5e78f1 bfee8e9d2e99c541
+  #|cos c0204f93df5e78f1 bfd3006407c9a0c8
+  #|atan c0204f93df5e78f1 bff72e3be81ba1c8
+  #|sin 401dbefc8f8fc062 3fed40728a6dd2ca
+  #|cos 401dbefc8f8fc062 3fd9f2e58e9f624a
+  #|atan 401dbefc8f8fc062 3ff6fe785c516a61
+  #|sin c014e48fcac8e6d9 3febea42162b280c
+  #|cos c014e48fcac8e6d9 3fdf49f55a86086f
+  #|atan c014e48fcac8e6d9 bff61b2a36017921
+  #|sin bfe36a48cc33414e bfe23ee8c9111d66
+  #|cos bfe36a48cc33414e 3fea49e4ce0c6171
+  #|atan bfe36a48cc33414e bfe1737fe7c29845
+  #|sin 401087f5e709d4dc bfeac607aa9a81b0
+  #|cos 401087f5e709d4dc bfe186c60bbc23e4
+  #|atan 401087f5e709d4dc 3ff55591f442e429
+  #|sin 40222c03f83e2e06 3fd54578728ac896
+  #|cos 40222c03f83e2e06 bfee2e4a9091339b
+  #|atan 40222c03f83e2e06 3ff760fbdc65f03a
+  #|sin 4023c41409287060 bfdc4f05f0f4517a
+  #|cos 4023c41409287060 bfecb30ac73acc03
+  #|atan 4023c41409287060 3ff784efe1af6510
+  #|sin 4010cf5c178d0056 bfebedf745d3550c
+  #|cos 4010cf5c178d0056 bfdf3cb652a78ae0
+  #|atan 4010cf5c178d0056 3ff5651e61880a36
+  #|sin 40067f6ed9dd3ca3 3fd4b358e5607f42
+  #|cos 40067f6ed9dd3ca3 bfee47a6a9dc27c7
+  #|atan 40067f6ed9dd3ca3 3ff3aa98f0e75a0e
+  #|sin 40045a48f30364b6 3fe200b07affc44a
+  #|cos 40045a48f30364b6 bfea74a78003c1d0
+  #|atan 40045a48f30364b6 3ff323f5e96854ac
+  #|sin 3ffc49cd2d4d5fde 3fef61323c9c20f7
+  #|cos 3ffc49cd2d4d5fde bfc914be8069342a
+  #|atan 3ffc49cd2d4d5fde 3ff0e595f416862a
+  #|sin c022a3f2d5f3d84c bfbab859661fcb54
+  #|cos c022a3f2d5f3d84c bfefd34148f5f9ae
+  #|atan c022a3f2d5f3d84c bff76c2e7efca4e9
+  #|sin 40235e5c933be2c8 bfd06c70b368ddb2
+  #|cos 40235e5c933be2c8 bfeeedac1b87a81d
+  #|atan 40235e5c933be2c8 3ff77c85d9fb9e89
+  #|sin 4015d1bf2f1ea58e bfe79407292da3aa
+  #|cos 4015d1bf2f1ea58e 3fe5a285bbae45ac
+  #|atan 4015d1bf2f1ea58e 3ff63b557f3b019c
+  #|sin c02340c790b944f9 3fc9a603a766dc1a
+  #|cos c02340c790b944f9 bfef59da95f84944
+  #|atan c02340c790b944f9 bff77a02e3097cdc
+  #|sin c008c064728d51ce bfa8635b69815874
+  #|cos c008c064728d51ce bfeff6b387543e3b
+  #|atan c008c064728d51ce bff42183a41151ab
+  #|sin c01aeef8b5643bc4 bfdbd9358a0058d9
+  #|cos c01aeef8b5643bc4 3feccfcd5dc3b5be
+  #|atan c01aeef8b5643bc4 bff6c61519e66308
+  #|sin c01c2369bc9434ba bfe5d85b7640ffb6
+  #|cos c01c2369bc9434ba 3fe7622f3759296c
+  #|atan c01c2369bc9434ba bff6df973f5ecf61
+  #|sin c0203f10b574dd8d bfeed8f8fa5fdd41
+  #|cos c0203f10b574dd8d bfd105610eb5b4ce
+  #|atan c0203f10b574dd8d bff72c45081c1647
+  #|sin c0138efefe2f9fb8 3fef7fa461d3b838
+  #|cos c0138efefe2f9fb8 3fc691f1a95bb50c
+  #|atan c0138efefe2f9fb8 bff5e7affeae6531
+  #|sin 4001e25445105cab 3fe92fdb99a332f2
+  #|cos 4001e25445105cab bfe3bd1e02059bed
+  #|atan 4001e25445105cab 3ff26717fc37d121
+  #|sin 3fd0283e00087e80 3fcff8e405f8e449
+  #|cos 3fd0283e00087e80 3feefc541e030ce9
+  #|atan 3fd0283e00087e80 3fcfa72abd08c845
+  #|sin c01373c4c5d2b98a 3fefa331f5195fff
+  #|cos c01373c4c5d2b98a 3fc336607f4ee5ab
+  #|atan c01373c4c5d2b98a bff5e34acbbbc607
+  #|sin 4019d036412ca5e2 3fc5ac80e9235dcd
+  #|cos 4019d036412ca5e2 3fef89b50231b8c5
+  #|atan 4019d036412ca5e2 3ff6ac47789b8882
+  #|sin 40181c1b80ea36d0 bfd030776b0df302
+  #|cos 40181c1b80ea36d0 3feef592c90b357c
+  #|atan 40181c1b80ea36d0 3ff6808ed5a6a3f7
+  #|sin c0222b91fa9fea86 bfd552e840cab272
+  #|cos c0222b91fa9fea86 bfee2beba1db31b5
+  #|atan c0222b91fa9fea86 bff760f0f21fd283
+  #|sin bff58f70608c42b1 bfef34a6869d08b5
+  #|cos bff58f70608c42b1 3fcc57b42a362333
+  #|atan bff58f70608c42b1 bfedd5f486f80b79
+  #|sin 400f940710e6dfd2 bfe714f0dcd3cb59
+  #|cos 400f940710e6dfd2 bfe629e9925652b6
+  #|atan 400f940710e6dfd2 3ff529afdf708615
+  #|sin 3ff55ec430c8b3ac 3fef1e883cda43d7
+  #|cos 3ff55ec430c8b3ac 3fcdd2e5d7c0adf3
+  #|atan 3ff55ec430c8b3ac 3fedb32fcc45a87b
+  #|sin c012ed26148706a8 3feffe7d668984d2
+  #|cos c012ed26148706a8 3f93a94625036dce
+  #|atan c012ed26148706a8 bff5ccdd75ce88a0
+  #|sin 401e4ecb470774c3 3feec7a54264721b
+  #|cos 401e4ecb470774c3 3fd18117fa0ed270
+  #|atan 401e4ecb470774c3 3ff7088041317f58
+  #|sin c0146c1bbb0fc3ed 3fed8ee52a0586b3
+  #|cos c0146c1bbb0fc3ed 3fd8853f8e6140c4
+  #|atan c0146c1bbb0fc3ed bff609c023de88f4
+  #|sin c01191ab0af9487c 3fee5fc9eae3d327
+  #|cos c01191ab0af9487c bfd423f5060bfa0c
+  #|atan c01191ab0af9487c bff58d0f87712e6d
+  #|sin 3ff63a013318dbfa 3fef793d22d4e728
+  #|cos 3ff63a013318dbfa 3fc71f24e6cfdf7b
+  #|atan 3ff63a013318dbfa 3fee4cba7bf1bcdf
+  #|sin bff864db71521691 bfeff744e41997ff
+  #|cos bff864db71521691 3fa7a1d5eb94e45e
+  #|atan bff864db71521691 bfefb069dfc71299
+  #|sin 400247da15e94fd2 3fe82d8c638c39f4
+  #|cos 400247da15e94fd2 bfe4f668ebeea3fc
+  #|atan 400247da15e94fd2 3ff288556caab2e2
+  #|sin 3ffb0f0cf2da2a72 3fefc4b78929d95a
+  #|cos 3ffb0f0cf2da2a72 bfbebe0fc91351aa
+  #|atan 3ffb0f0cf2da2a72 3ff096b60aaf4b34
+  #|sin 400fb70e87a495f9 bfe7751e6ef57de2
+  #|cos 400fb70e87a495f9 bfe5c405384c64f8
+  #|atan 400fb70e87a495f9 3ff52de523fcc798
+  #|sin bfec8b1635a24ffc bfe8e7f5c3c7376b
+  #|cos bfec8b1635a24ffc 3fe4178a17ea3f45
+  #|atan bfec8b1635a24ffc bfe74ec53fbdab61
+  #|sin c0020b8f548118ea bfe8c8d3ea1ad9b8
+  #|cos c0020b8f548118ea bfe43de4d614580b
+  #|atan c0020b8f548118ea bff274bd91369e00
+  #|sin c00d54e3c2c6affd 3fe008ed0c997a43
+  #|cos c00d54e3c2c6affd bfebb151b73de25e
+  #|atan c00d54e3c2c6affd bff4df5a181cbc4a
+  #|sin 3fe7c17ee8784cf0 3fe5a216c5af6981
+  #|cos 3fe7c17ee8784cf0 3fe7946cf7ff4704
+  #|atan 3fe7c17ee8784cf0 3fe46f6960b76c3d
+  #|sin 400596755bc7e67a 3fdb70e7c4b90b5e
+  #|cos 400596755bc7e67a bfece8c79aa83dd1
+  #|atan 400596755bc7e67a 3ff374595f1c34c2
+  #|sin c01c9436ed51c37b bfe8488d6a3d9c9c
+  #|cos c01c9436ed51c37b 3fe4d71ac1c20c34
+  #|atan c01c9436ed51c37b bff6e8649f35680f
+  #|sin c01b79e0bdbb6e2f bfe1b15371da2430
+  #|cos c01b79e0bdbb6e2f 3feaa9fc24f2879c
+  #|atan c01b79e0bdbb6e2f bff6d1d75c1e88c5
+  #|sin bfd90714a41097d4 bfd8650605213b18
+  #|cos bfd90714a41097d4 3fed958ee86a412f
+  #|atan bfd90714a41097d4 bfd7db84bc09bc00
+  #|sin 40208e20f0f8079c 3fed2be7d2b67b06
+  #|cos 40208e20f0f8079c bfda4ec2bff93b9f
+  #|atan 40208e20f0f8079c 3ff73589d83b71be
+  #|sin 4010f2bdacfa197c bfec73d2657a9266
+  #|cos 4010f2bdacfa197c bfdd49f27c7a55f8
+  #|atan 4010f2bdacfa197c 3ff56ca4e35820a9
+  #|sin 401b984b2eefd756 3fe27a0cc92b16fd
+  #|cos 401b984b2eefd756 3fea2075a6e15839
+  #|atan 401b984b2eefd756 3ff6d45b08a886fc
+  #|sin c023e11a5da7ebe2 3fdf83ed679b5c70
+  #|cos c023e11a5da7ebe2 bfebd9efdc7474a2
+  #|atan c023e11a5da7ebe2 bff78746e69e1d2a
+  #|sin c0169665ce183437 3fe303f66ff6fbed
+  #|cos c0169665ce183437 3fe9bcc370d9bb10
+  #|atan c0169665ce183437 bff6541147cd030e
+  #|sin c02248d046dd7193 bfd1d82ae563c149
+  #|cos c02248d046dd7193 bfeebb22c20e7a7c
+  #|atan c02248d046dd7193 bff763b96f6b1320
+  #|sin bfc8b6cc42008ad8 bfc88f8fb1156292
+  #|cos bfc8b6cc42008ad8 3fef67c714ac7408
+  #|atan bfc8b6cc42008ad8 bfc869e42d6525f7
+  #|sin c01bf48c5ad448da bfe4c0a1942b81f4
+  #|cos c01bf48c5ad448da 3fe85bc4d83f4a16
+  #|atan c01bf48c5ad448da bff6dbda95773862
+  #|sin 401907b501e97e2f bf9a459569a5646b
+  #|cos 401907b501e97e2f 3feffd4dada6a830
+  #|atan 401907b501e97e2f 3ff698e5fda9eea3
+  #|sin bffab85672b51f1c bfefd7b823e8cbe1
+  #|cos bffab85672b51f1c bfb95b08f4f5e2e7
+  #|atan bffab85672b51f1c bff08009762bbabf
+  #|sin c01a07cc01ed23c8 bfcc7c812e34f5eb
+  #|cos c01a07cc01ed23c8 3fef328e4effbd35
+  #|atan c01a07cc01ed23c8 bff6b1734c3f4cb6
+  #|sin c00fe123bf145b22 3fe7e656a9a9dac7
+  #|cos c00fe123bf145b22 bfe5477539904539
+  #|atan c00fe123bf145b22 bff532e7d584366a
+  #|sin 4021c19f60f15f3b 3fe0a2255ec12f87
+  #|cos 4021c19f60f15f3b bfeb565c6b348728
+  #|atan 4021c19f60f15f3b 3ff7568fcba359d3
+  #|sin 400c9bfe491a83f8 bfdaf216396b54be
+  #|cos 400c9bfe491a83f8 bfed068ae8ecbb52
+  #|atan 400c9bfe491a83f8 3ff4c525da34808c
+  #|sin c0221e21cb8f6d3b bfd6e66ebe6c3bc0
+  #|cos c0221e21cb8f6d3b bfede1a1360e854c
+  #|atan c0221e21cb8f6d3b bff75fa68ee6a358
+  #|sin 4023a6987aeb1bcd bfd8f55874e94a88
+  #|cos 4023a6987aeb1bcd bfed77672fbffaa6
+  #|atan 4023a6987aeb1bcd 3ff7828868422b49
+  #|sin 4018f05fef9622c4 bfa8cb369a980a9b
+  #|cos 4018f05fef9622c4 3feff663a0547f7e
+  #|atan 4018f05fef9622c4 3ff69690e4c356e5
+  #|sin bff14c434016faa4 bfec3d505153f8c8
+  #|cos bff14c434016faa4 3fde1a1275b0e5ac
+  #|atan bff14c434016faa4 bfea6121bd5964c0
+  #|sin c0137f280f77ca5d 3fef950535f15200
+  #|cos c0137f280f77ca5d 3fc49e59186ef4f3
+  #|atan c0137f280f77ca5d bff5e522d7a7be4a
+  #|sin c01cdffe65421314 bfe9c1fde8745cf3
+  #|cos c01cdffe65421314 3fe2fce0ca428ad3
+  #|atan c01cdffe65421314 bff6ee2889a03476
+  #|sin c0161fc6bed6cf3b 3fe5dce1915c5968
+  #|cos c0161fc6bed6cf3b 3fe75df47b338c69
+  #|atan c0161fc6bed6cf3b bff64558db5e1b2a
+  #|sin 400dd6bdb78aec1a bfe1c1de273c3d4c
+  #|cos 400dd6bdb78aec1a bfea9efad613d6e2
+  #|atan 400dd6bdb78aec1a 3ff4f10c62d37b48
+  #|sin c01d2f1773a7a1aa bfeb256e1bc9b43c
+  #|cos c01d2f1773a7a1aa 3fe0f18b2e3ace9c
+  #|atan c01d2f1773a7a1aa bff6f40dbfcbbedf
+  #|sin 401180af5e7211a0 bfee33f722da261f
+  #|cos 401180af5e7211a0 bfd52528f9069754
+  #|atan 401180af5e7211a0 3ff589b36a34cc97
+  #|sin 3fe4dac68d7ed2fc 3fe368ce394caa0c
+  #|cos 3fe4dac68d7ed2fc 3fe9710d1832b81e
+  #|atan 3fe4dac68d7ed2fc 3fe27b7b9a392da7
+  #|sin 4000de0c4aac8827 3feb7c549497bfb6
+  #|cos 4000de0c4aac8827 bfe0631b44144c93
+  #|atan 4000de0c4aac8827 3ff20bff093136d2
+  #|sin 4003cacb605a77e8 3fe3cf82ed5c8a0f
+  #|cos 4003cacb605a77e8 bfe921666779e0ac
+  #|atan 4003cacb605a77e8 3ff2fc9e1ce17264
+  #|sin 3ff7af7675676e1f 3fefde8193d7acd2
+  #|cos 3ff7af7675676e1f 3fb72039038d1816
+  #|atan 3ff7af7675676e1f 3fef4108118dd73d
+  #|sin 4003c6ba3f89c538 3fe3dc46debf6018
+  #|cos 4003c6ba3f89c538 bfe91750fcebd0f6
+  #|atan 4003c6ba3f89c538 3ff2fb797dbd4279
+  #|sin 3fe510a303d244da 3fe393852bb28c75
+  #|cos 3fe510a303d244da 3fe9503dcff16691
+  #|atan 3fe510a303d244da 3fe2a12c868481b0
+  #|sin 4010468b1f26e37f bfe9999c61a8ef66
+  #|cos 4010468b1f26e37f bfe3332f7dc8dc33
+  #|atan 4010468b1f26e37f 3ff546e1fca4ed8e
+  #|sin 400eaf05585999f3 bfe476e767b9d690
+  #|cos 400eaf05585999f3 bfe899d63f3c25fa
+  #|atan 400eaf05585999f3 3ff50d4f2c2af5f8
+  #|sin 40163d6b03f86f07 bfe52d66b5e1c403
+  #|cos 40163d6b03f86f07 3fe7fd7061c414fb
+  #|atan 40163d6b03f86f07 3ff64914c9512b4a
+  #|sin 3fbe4d533b7bdb6f 3fbe3b392f073e50
+  #|cos 3fbe4d533b7bdb6f 3fefc6adb75df288
+  #|atan 3fbe4d533b7bdb6f 3fbe2965d5c28aab
+  #|sin 4013467823103370 bfefd1a5eb60c089
+  #|cos 4013467823103370 3fbb31bffbd3b200
+  #|atan 4013467823103370 3ff5dbe05e82f9a3
+  #|sin 3fd0329950935d16 3fd00679133199b9
+  #|cos 3fd0329950935d16 3feefb0895b79e25
+  #|atan 3fd0329950935d16 3fcfbaa2e8ea4f7a
+  #|sin 4014898cb42aafc4 bfed318a758996c5
+  #|cos 4014898cb42aafc4 3fda35b5af1567a2
+  #|atan 4014898cb42aafc4 3ff60e13f5f6ff1f
+  #|sin 4006b775eda6c00a 3fd3094a1dc92047
+  #|cos 4006b775eda6c00a bfee8d3aad5cb6ae
+  #|atan 4006b775eda6c00a 3ff3b71169c455b9
+  #|sin 3fff2d211327249a 3fedbe8632e0f34f
+  #|cos 3fff2d211327249a bfd79a7a5c12deeb
+  #|atan 3fff2d211327249a 3ff18bd263443e19
+  #|sin 4016e757aca4ca13 bfe0ec7a4815fff8
+  #|cos 4016e757aca4ca13 3feb2896ec0f1e92
+  #|atan 4016e757aca4ca13 3ff65dc7e26a821b
+  #|sin 3ff3170fb90b244e 3fedbeb11468a924
+  #|cos 3ff3170fb90b244e 3fd799a23190c07e
+  #|atan 3ff3170fb90b244e 3febf186671e7995
+  #|sin 4010f5ed80354004 bfec7f742f4cdd25
+  #|cos 4010f5ed80354004 bfdd1c931b3c137d
+  #|atan 4010f5ed80354004 3ff56d50f353856f
+  #|sin 400d517faec62d40 bfdffa5d5fa80c8c
+  #|cos 400d517faec62d40 bfebb81b2ac13c39
+  #|atan 400d517faec62d40 3ff4dee1d5c1c367
+  #|sin 40174fd958e1736e bfdc23353cec130e
+  #|cos 40174fd958e1736e 3fecbdce6633d725
+  #|atan 40174fd958e1736e 3ff669f16f2f8ca4
+  #|sin 3fff8dff90a138b1 3fed74f34035b7d5
+  #|cos 3fff8dff90a138b1 bfd900eab622e837
+  #|atan 3fff8dff90a138b1 3ff19fd3092513a9
+  #|sin 3fe42a79581e6c40 3fe2db7f43d7deb2
+  #|cos 3fe42a79581e6c40 3fe9da782209ffff
+  #|atan 3fe42a79581e6c40 3fe1fe847dd05de0
+  #|sin 3ff97ab211e29d7d 3feffe14229f3154
+  #|cos 3ff97ab211e29d7d bf962d3dc504532c
+  #|atan 3ff97ab211e29d7d 3ff0293f9863ac0b
+  #|sin 3ff40df4f7179ff0 3fee66d6b4c7bbd7
+  #|cos 3ff40df4f7179ff0 3fd3f93b7029f134
+  #|atan 3ff40df4f7179ff0 3fecb75c5e5459bc
+  #|sin 3ff9a048d1c2fddd 3feffc1b0e495be7
+  #|cos 3ff9a048d1c2fddd bf9f9217748cd9c6
+  #|atan 3ff9a048d1c2fddd 3ff033d5d21c7de6
+  #|sin 400f7558fb0b0a45 bfe6bf4879d1339a
+  #|cos 400f7558fb0b0a45 bfe681ca8c190942
+  #|atan 400f7558fb0b0a45 3ff525f91f9c9c85
+  #|sin 3ffaf658babb8a43 3fefca80949fd14c
+  #|cos 3ffaf658babb8a43 bfbd358481cbef8d
+  #|atan 3ffaf658babb8a43 3ff0904b5571ab4e
+  #|sin 4018cdfac7dc8c41 bfb4fa1c009d42aa
+  #|cos 4018cdfac7dc8c41 3fefe47398a7fb99
+  #|atan 4018cdfac7dc8c41 3ff69318e32f244c
+  #|sin 4019205639387dd4 bf5a51affd0bf702
+  #|cos 4019205639387dd4 3feffffd4b4e1279
+  #|atan 4019205639387dd4 3ff69b57b52e9abd
+  #|sin 400949e6fe0f064f bf93f5820f58a085
+  #|cos 400949e6fe0f064f bfeffe71998f7aaa
+  #|atan 400949e6fe0f064f 3ff43b06831158ec
+  #|sin 3ffcca35e7970657 3fef2aef52327bcb
+  #|cos 3ffcca35e7970657 bfcd00c874c32925
+  #|atan 3ffcca35e7970657 3ff1044b9f63683e
+  #|sin 400ef02b0f23d555 bfe53c8e291e7fa5
+  #|cos 400ef02b0f23d555 bfe7f0073bcaeb86
+  #|atan 400ef02b0f23d555 3ff51589e7b90662
+  #|sin 3ff5634488987e5a 3fef209ffea2b2f8
+  #|cos 3ff5634488987e5a 3fcdafdfa5a47374
+  #|atan 3ff5634488987e5a 3fedb66b377d2d69
+  #|sin 400b42e11ab22b7d bfd0d3ee6f6ed7b8
+  #|cos 400b42e11ab22b7d bfeedfc0838939fd
+  #|atan 400b42e11ab22b7d 3ff490ce7cc50482
+  #|sin 3fe27dcaf37d154c 3fe17ab51bb04d15
+  #|cos 3fe27dcaf37d154c 3feacde9dcac5918
+  #|atan 3fe27dcaf37d154c 3fe0c46cce1ae47b
+  #|sin 401394f97b2e89fc bfef7712422a7266
+  #|cos 401394f97b2e89fc 3fc74e286b46c04b
+  #|atan 401394f97b2e89fc 3ff5e8a57d6be71f
+  #|sin 40186d9b044908ec bfc66e3c6105591a
+  #|cos 40186d9b044908ec 3fef813c7591db32
+  #|atan 40186d9b044908ec 3ff6892e090b6af6
+  #|sin 3ff208b938ac2ed2 3fece6e1d2666a2b
+  #|cos 3ff208b938ac2ed2 3fdb78e570c6f3e2
+  #|atan 3ff208b938ac2ed2 3feb0b0088523169
+  #|sin 3ff3b587bd4f2abc 3fee2dd5f637eaec
+  #|cos 3ff3b587bd4f2abc 3fd5480e09b59a55
+  #|atan 3ff3b587bd4f2abc 3fec71d80816e07f
+  #|sin 4001b76fec659f43 3fe99843e63a49f2
+  #|cos 4001b76fec659f43 bfe334faac0c89b8
+  #|atan 4001b76fec659f43 3ff258ad8f3af2ea
+  #|sin 4015f5c53bd7222c bfe6cd7df3b580e9
+  #|cos 4015f5c53bd7222c 3fe673652959922c
+  #|atan 4015f5c53bd7222c 3ff63ffd792a9ed8
+  #|sin 4018c70d6d8d1dbf bfb6b3d498a992bc
+  #|cos 4018c70d6d8d1dbf 3fefdfb94b2958cb
+  #|atan 4018c70d6d8d1dbf 3ff69264e8712803
+  #|sin 400b04ef72b475d9 bfcde7d67c575c67
+  #|cos 400b04ef72b475d9 bfef1d46add61fa6
+  #|atan 400b04ef72b475d9 3ff486e71a62f060
+  #|sin 4009c275c0c8c0ea bfb40a0ca733aa12
+  #|cos 4009c275c0c8c0ea bfefe6dcfa9ec5fc
+  #|atan 4009c275c0c8c0ea 3ff450983f9dbce7
+  #|sin 40013ac91a8593bb 3feab73847ca0f00
+  #|cos 40013ac91a8593bb bfe19d510a918a67
+  #|atan 40013ac91a8593bb 3ff22d781e2cc463
+  #|sin 3fffa7d5fc84b297 3fed609c9ecf08e0
+  #|cos 3fffa7d5fc84b297 bfd95fecf0b1cf4f
+  #|atan 3fffa7d5fc84b297 3ff1a51865d193dd
+  #|sin 401284d4d3a3f924 bfefe4059e3e631e
+  #|cos 401284d4d3a3f924 bfb523bf8ae7cc68
+  #|atan 401284d4d3a3f924 3ff5baa6068c30f2
+  #|sin 4006f4ead8aeaa5a 3fd131c3ba50168f
+  #|cos 4006f4ead8aeaa5a bfeed2d0f627333d
+  #|atan 4006f4ead8aeaa5a 3ff3c480e192cf04
+  #|sin 401250fd922f45ef bfefb7547731d93f
+  #|cos 401250fd922f45ef bfc102f1480db41b
+  #|atan 401250fd922f45ef 3ff5b14ecd6b44e5
+  #|sin 4005d46d0ebaa91d 3fd9ade601aa8b17
+  #|cos 4005d46d0ebaa91d bfed4fa7841df80f
+  #|atan 4005d46d0ebaa91d 3ff3832af84ce92e
+  #|sin 400b75213bb67783 bfd25674661830b0
+  #|cos 400b75213bb67783 bfeea8871a7a8594
+  #|atan 400b75213bb67783 3ff498b90363cc68
+  #|sin 400a5e5ccf9cd16d bfc3b1fb71c5f490
+  #|cos 400a5e5ccf9cd16d bfef9e7186bfdf14
+  #|atan 400a5e5ccf9cd16d 3ff46b718b57dc28
+  #|sin 3fbfb5e9d8a6cd2f 3fbfa12b6cfd1418
+  #|cos 3fbfb5e9d8a6cd2f 3fefc13b914de438
+  #|atan 3fbfb5e9d8a6cd2f 3fbf8cc5a5852b76
+  #|sin 401041b5af18b0b1 bfe98256072915d7
+  #|cos 401041b5af18b0b1 bfe352110eb770a6
+  #|atan 401041b5af18b0b1 3ff545c7bc3a0af9
+  #|sin 40178e651bfbd6e6 bfd89381124dcbcd
+  #|cos 40178e651bfbd6e6 3fed8bef46dfdb8b
+  #|atan 40178e651bfbd6e6 3ff67106b3ddddb2
+  #|sin 3feec5da17f0b814 3fea3e91a9f3286c
+  #|cos 3feec5da17f0b814 3fe24f2f1fdcea90
+  #|atan 3feec5da17f0b814 3fe881db8455eb8c
+  #|sin 400fd0b9794f003b bfe7ba7ae1a259a4
+  #|cos 400fd0b9794f003b bfe57852755dbc28
+  #|atan 400fd0b9794f003b 3ff530f4fb28312d
+  #|sin 4018471b890ed522 bfcb26c3bb4d8cec
+  #|cos 4018471b890ed522 3fef459432a3dbc6
+  #|atan 4018471b890ed522 3ff685226c646ddd
+  #|sin 400fa27eaaaaa73b bfe73cdfbb322a9c
+  #|cos 400fa27eaaaaa73b bfe60007b2c2c53b
+  #|atan 400fa27eaaaaa73b 3ff52b6dd9c913fe
+  #|sin 400dd05388f9562b bfe1ac7fe28cb85f
+  #|cos 400dd05388f9562b bfeaad2f5c690dd3
+  #|atan 400dd05388f9562b 3ff4f02ff5f9b808
+  #|sin 40144a57361bfb1c bfedf24334a346e5
+  #|cos 40144a57361bfb1c 3fd68edee7334547
+  #|atan 40144a57361bfb1c 3ff604baa3db4316
+  #|sin 401263c601e2d422 bfefc9eeefd899f2
+  #|cos 401263c601e2d422 bfbd5d0a90c16fea
+  #|atan 401263c601e2d422 3ff5b4b6ffa8c3e7
+  #|sin 4003953b621df627 3fe476039e2871fd
+  #|cos 4003953b621df627 bfe89a93b4dabd0c
+  #|atan 4003953b621df627 3ff2ed6f8d5470e4
+  #|sin 4017833b39577e34 bfd9380cf2ab10b2
+  #|cos 4017833b39577e34 3fed6930e3b8824c
+  #|atan 4017833b39577e34 3ff66fc5be4b7cc3
+  #|sin 3fedca099e0b1aa6 3fe9ab5691e296be
+  #|cos 3fedca099e0b1aa6 3fe31b75b3e1c9dd
+  #|atan 3fedca099e0b1aa6 3fe7fd0025ac3fff
+  #|sin 4010629bc836e254 bfea1dd8407d2e4e
+  #|cos 4010629bc836e254 bfe27dbec9668b96
+  #|atan 4010629bc836e254 3ff54d3ca29720d0
+  #|sin 4018953f94643f4b bfc1894e0c664762
+  #|cos 4018953f94643f4b 3fefb2c1443d0b52
+  #|atan 4018953f94643f4b 3ff68d4b8bf11d62
+  #|sin 400fda49dd2b0a27 bfe7d414c52ee91f
+  #|cos 400fda49dd2b0a27 bfe55be5155029f4
+  #|atan 400fda49dd2b0a27 3ff53217dc2077e1
+  #|sin 400fc66bdd71ad50 bfe79ec08c0652d7
+  #|cos 400fc66bdd71ad50 bfe596cfe9668f40
+  #|atan 400fc66bdd71ad50 3ff52fbae70e385c
+  #|sin 400c13afe18d2fa3 bfd70673fa7cf880
+  #|cos 400c13afe18d2fa3 bfeddb79c372c1ec
+  #|atan 400c13afe18d2fa3 3ff4b107cbb6f5f8
+  #|sin 3fd444cba7646f20 3fd3ee7ddc273aa6
+  #|cos 3fd444cba7646f20 3fee6899ca729a5a
+  #|atan 3fd444cba7646f20 3fd3a110c29ee8e1
+  #|sin 4018071bcdcb24ab bfd174a061ae6d66
+  #|cos 4018071bcdcb24ab 3feec96a560d7aa6
+  #|atan 4018071bcdcb24ab 3ff67e4ce767c103
+  #|sin 40026fa842c07e83 3fe7c4154c02c92f
+  #|cos 40026fa842c07e83 bfe56db0a9808093
+  #|atan 40026fa842c07e83 3ff29509eea5dd29
+  #|sin 3fff29753d6d0f7d 3fedc13aa504da1f
+  #|cos 3fff29753d6d0f7d bfd78cd367b55828
+  #|atan 3fff29753d6d0f7d 3ff18b0e62375c68
+  #|sin 40141a618394a009 bfee710a982ecdac
+  #|cos 40141a618394a009 3fd3bab0e7889c9d
+  #|atan 40141a618394a009 3ff5fd7cf653c0e1
+  #|sin 4012f6498acd9c43 bfeffcc28f3a2f79
+  #|cos 4012f6498acd9c43 3f9ccc12c1a5a320
+  #|atan 4012f6498acd9c43 3ff5ce6cda689d13
+  #|sin 4012ac1ed0ce1486 bfeff7f6449384c7
+  #|cos 4012ac1ed0ce1486 bfa6acf0f6709448
+  #|atan 4012ac1ed0ce1486 3ff5c199429aedce
+  #|sin 40187993a7e5b193 bfc4f4b331c3a70f
+  #|cos 40187993a7e5b193 3fef9177a09ed4a3
+  #|atan 40187993a7e5b193 3ff68a6d8a6bb66b
+  #|sin 4019207fb4a9b58e bf57b9f91c56c7f6
+  #|cos 4019207fb4a9b58e 3feffffdcd0e0f93
+  #|atan 4019207fb4a9b58e 3ff69b5bcf12a31e
+  #|sin 400e0282ea93fb71 bfe2527843d5f5f0
+  #|cos 400e0282ea93fb71 bfea3c468a1c73cd
+  #|atan 400e0282ea93fb71 3ff4f6e3418d747c
+  #|sin 401367ec4ade834c bfefb0e07a180133
+  #|cos 401367ec4ade834c 3fc1bf4a5ac77dc7
+  #|atan 401367ec4ade834c 3ff5e15d9200a7ea
+  #|sin 401085aff71899de bfeabc0d8523ace3
+  #|cos 401085aff71899de bfe195fa584342ec
+  #|atan 401085aff71899de 3ff5551123ec07a5
+  #|sin 400acfc3a7938da0 bfcaaa28a923e6f0
+  #|cos 400acfc3a7938da0 bfef4c46f7ca887d
+  #|atan 400acfc3a7938da0 3ff47e454216ecb9
+  #|sin 400f29a0208ac450 bfe5e651302e33fa
+  #|cos 400f29a0208ac450 bfe7551cc84219ae
+  #|atan 400f29a0208ac450 3ff51cb12e3a3df6
+  #|sin 3ff34823ed9dcd87 3fede257135c0b98
+  #|cos 3ff34823ed9dcd87 3fd6e2b92bf3766a
+  #|atan 3ff34823ed9dcd87 3fec19c9e7e6d406
+  #|sin 4011191bc39d06f4 bfecfb24fb4469b4
+  #|cos 4011191bc39d06f4 bfdb22fcd95757f8
+  #|atan 4011191bc39d06f4 3ff574aca4f68685
+  #|sin 3ffe9a9ce851bfec 3fee25b39da7a340
+  #|cos 3ffe9a9ce851bfec bfd575fa1854af75
+  #|atan 3ffe9a9ce851bfec 3ff16cd3b2e6ae6f
+  #|sin 400f89ef2bdfae7f bfe6f8e7ee56e9e1
+  #|cos 400f89ef2bdfae7f bfe646f704d268f4
+  #|atan 400f89ef2bdfae7f 3ff52877d66e1ee6
+  #|sin 4010239495aea4ac bfe8ee00709c1486
+  #|cos 4010239495aea4ac bfe4100a84ced4ca
+  #|atan 4010239495aea4ac 3ff53eda65646655
+  #|sin 3fe3e49301c21f67 3fe2a2d948a8ddaf
+  #|cos 3fe3e49301c21f67 3fea036b5a6fe9d3
+  #|atan 3fe3e49301c21f67 3fe1cc4b44d8df9b
+  #|sin 4015e8fbbee902f9 bfe714ce09926e26
+  #|cos 4015e8fbbee902f9 3fe62a0dd6a9c9eb
+  #|atan 4015e8fbbee902f9 3ff63e580fd69fe6
+  #|sin 3ff81b2e5ddefada 3fefef24f83eb07a
+  #|cos 3ff81b2e5ddefada 3fb069ed059a8402
+  #|atan 3ff81b2e5ddefada 3fef83b8d02f49cb
+  #|sin 4003ceda47ee5c36 3fe3c2c0dc4590cc
+  #|cos 4003ceda47ee5c36 bfe92b6fd55c2a36
+  #|atan 4003ceda47ee5c36 3ff2fdc1b5108c7e
+  #|sin 40114464e94f8270 bfed874d55278715
+  #|cos 40114464e94f8270 bfd8a9bc748f44df
+  #|atan 40114464e94f8270 3ff57d9347f29ee6
+  #|sin 40191c3ec759664f bf76f22bcd7fb0c9
+  #|cos 40191c3ec759664f 3fefffdf17a531ba
+  #|atan 40191c3ec759664f 3ff69af015d7b616
+  #|sin 400ec705bd8bb664 bfe4c05999196ea9
+  #|cos 400ec705bd8bb664 bfe85c022aac6b5d
+  #|atan 400ec705bd8bb664 3ff5105b217fe901
+  #|sin 4016adb88a1c694f bfe26ca4cbbf9f97
+  #|cos 4016adb88a1c694f 3fea29eb968a0145
+  #|atan 4016adb88a1c694f 3ff656e4a8dfc0d1
+  #|sin 3fe01afb247fb0f5 3fdede38b3985f5e
+  #|cos 3fe01afb247fb0f5 3fec082e968e8101
+  #|atan 3fe01afb247fb0f5 3fddd783e220685e
+  #|sin 40042e5d068ff892 3fe290dd86ccc4f7
+  #|cos 40042e5d068ff892 bfea10441ff4da30
+  #|atan 40042e5d068ff892 3ff3181e50f3f608
+  #|sin 3fb4966e138d1d92 3fb490c033fce9dd
+  #|cos 3fb4966e138d1d92 3fefe5860df456c6
+  #|atan 3fb4966e138d1d92 3fb48b1c9fdff66a
+  #|sin 3fd6d6f1d818addb 3fd65ba02f7ba868
+  #|cos 3fd6d6f1d818addb 3fedfbdd3be394c9
+  #|atan 3fd6d6f1d818addb 3fd5f020939a6b60
+  #|sin 3fd4658058e552b4 3fd40d8f8f635e80
+  #|cos 3fd4658058e552b4 3fee637e0fb5dcef
+  #|atan 3fd4658058e552b4 3fd3bec5dbd1b649
+  #|sin 400a19ce3340e435 bfbee704e9dc9812
+  #|cos 400a19ce3340e435 bfefc4189401346d
+  #|atan 400a19ce3340e435 3ff45fc72c9f82fc
+  #|sin 400fc1a4c6724895 bfe791d7a8ff7121
+  #|cos 400fc1a4c6724895 bfe5a4e740182c7e
+  #|atan 400fc1a4c6724895 3ff52f2901b35f15
+  #|sin 3fe917617a4d1bd9 3fe6991e2d30a834
+  #|cos 3fe917617a4d1bd9 3fe6a81c241504b3
+  #|atan 3fe917617a4d1bd9 3fe5477537359025
+  #|sin 4008ddcb5bebd574 3fa10b2fb1418b9f
+  #|cos 4008ddcb5bebd574 bfeffb75ba41d7e0
+  #|atan 4008ddcb5bebd574 3ff4270d8d693cca
+  #|sin 3fe80e622934c2f7 3fe5da80148a197c
+  #|cos 3fe80e622934c2f7 3fe7602e81d60396
+  #|atan 3fe80e622934c2f7 3fe4a0c23c2419de
+  #|sin 4018c892b045b007 bfb652e470a45a41
+  #|cos 4018c892b045b007 3fefe0cb26fa1aa6
+  #|atan 4018c892b045b007 3ff6928c727fe0e2
+  #|sin 3f94a983b72df11d 3f94a927d47711d8
+  #|cos 3f94a983b72df11d 3feffe5516e17df6
+  #|atan 3f94a983b72df11d 3f94a8cbfc4857d4
+  #|sin 4005c15fc9f6c576 3fda39384292c47f
+  #|cos 4005c15fc9f6c576 bfed30c0b61d7e6f
+  #|atan 4005c15fc9f6c576 3ff37ea48cbab5cf
+  #|sin 400b9cb6045746dd bfd384eea2653da1
+  #|cos 400b9cb6045746dd bfee79b3563e50a0
+  #|atan 400b9cb6045746dd 3ff49ee28e59e1df
+  #|sin 4002b4eae05d4970 3fe7071f42d33a92
+  #|cos 4002b4eae05d4970 bfe63844c0ad738d
+  #|atan 4002b4eae05d4970 3ff2aab874bb24fb
+  #|sin 3feda505fc9baeaa 3fe9952b7fbbfcb4
+  #|cos 3feda505fc9baeaa 3fe33919eaafa021
+  #|atan 3feda505fc9baeaa 3fe7e92046c4360a
+  #|sin 40111a37c96061e5 bfecfee74b7275c2
+  #|cos 40111a37c96061e5 bfdb12e82c4d439d
+  #|atan 40111a37c96061e5 3ff574e794fcb893
+  #|sin 3ff17ceb8176c8ca 3fec6a92d8542b2c
+  #|cos 3ff17ceb8176c8ca 3fdd6dc67d1c3cab
+  #|atan 3ff17ceb8176c8ca 3fea8dbcaf52c3af
+  #|sin 40113fe604d2a812 bfed795ea1ae1adc
+  #|cos 40113fe604d2a812 bfd8ec0ce701f8fc
+  #|atan 40113fe604d2a812 3ff57ca897ea8544
+  #|sin 40066e17f15b98bc 3fd5366a47fcdb24
+  #|cos 40066e17f15b98bc bfee30f09c82d790
+  #|atan 40066e17f15b98bc 3ff3a6b1b9e3c60e
+  #|sin 3ff64c2e4e6a147f 3fef7fb9e08b09f2
+  #|cos 3ff64c2e4e6a147f 3fc690119c30345b
+  #|atan 3ff64c2e4e6a147f 3fee591c3ea2145d
+  #|sin 3fff2f4bc8f0cb25 3fedbcecc4919096
+  #|cos 3fff2f4bc8f0cb25 bfd7a2889254ec30
+  #|atan 3fff2f4bc8f0cb25 3ff18c4601a9cb46
+  #|sin 400190468dbc7325 3fe9f5156004e8ba
+  #|cos 400190468dbc7325 bfe2b6cbdb42aaa5
+  #|atan 400190468dbc7325 3ff24b5117cca114
+  #|sin 4002274a62d092ba 3fe8821561ce5539
+  #|cos 4002274a62d092ba bfe49353dceccecc
+  #|atan 4002274a62d092ba 3ff27dce1849c451
+  #|sin 4009d8512907b722 bfb6c3061664b1e1
+  #|cos 4009d8512907b722 bfefdf8df3460fa6
+  #|atan 4009d8512907b722 3ff4546db00b7042
+  #|sin 4010c744f36005f7 bfebce2728654c42
+  #|cos 4010c744f36005f7 bfdfad7127b0fbae
+  #|atan 4010c744f36005f7 3ff56361a396f64c
+  #|sin 3fff5efd83c692cd 3fed992edc64f636
+  #|cos 3fff5efd83c692cd bfd8536923ea7491
+  #|atan 3fff5efd83c692cd 3ff1962a5d19a753
+  #|sin 3feb546160371b45 3fe820564734cf51
+  #|cos 3feb546160371b45 3fe5059c217e19e0
+  #|atan 3feb546160371b45 3fe69e7098cdaff1
+  #|sin 4014122d59b0ca3a bfee8505d99fecc3
+  #|cos 4014122d59b0ca3a 3fd33da99d91421a
+  #|atan 4014122d59b0ca3a 3ff5fc3c8c08a1f4
+  #|sin 3ff07313477590c9 3feb66f1cf6b05b2
+  #|cos 3ff07313477590c9 3fe086c52d344fb3
+  #|atan 3ff07313477590c9 3fe99374a8fb3d39
+  #|sin 3fe6559b02a4e55c 3fe4909338445b7f
+  #|cos 3fe6559b02a4e55c 3fe88464b1645875
+  #|atan 3fe6559b02a4e55c 3fe37fc8e6b91556
+  #|sin 4010b7f36d2037fc bfeb90b3d49306a9
+  #|cos 4010b7f36d2037fc bfe040bf319f4bfb
+  #|atan 4010b7f36d2037fc 3ff5601333bcf114
+  #|sin 3fb2ea5826e7d1db 3fb2e5f07e8568f1
+  #|cos 3fb2ea5826e7d1db 3fefe9a5ebf47f02
+  #|atan 3fb2ea5826e7d1db 3fb2e18f94ef3ecc
+  #|sin 3fa426d34ea0478e 3fa4257e5c064abc
+  #|cos 3fa426d34ea0478e 3feff9a7da0ee28c
+  #|atan 3fa426d34ea0478e 3fa42429fdfcab07
+  #|sin 3fff4c947f8841b0 3feda71a016495e9
+  #|cos 3fff4c947f8841b0 bfd80f3be4d64903
+  #|atan 3fff4c947f8841b0 3ff1925bb17b261f
+  #|sin 4015d872f58700fa bfe76fa5fe784aba
+  #|cos 4015d872f58700fa 3fe5c9e90705b3d5
+  #|atan 4015d872f58700fa 3ff63c346411df20
+  #|sin 40055a373e23239c 3fdd2132581468f6
+  #|cos 40055a373e23239c bfec7e45e2ea41d9
+  #|atan 40055a373e23239c 3ff365a8f863bcc4
+  #|sin 4008e1a22ee82b53 3fa0159be178dd60
+  #|cos 4008e1a22ee82b53 bfeffbf4e95ebbf7
+  #|atan 4008e1a22ee82b53 3ff427c5d1fa38e8
+  #|sin 3ff8d9e94eeb24c1 3feffebb5fe07568
+  #|cos 3ff8d9e94eeb24c1 3f92044468d6f024
+  #|atan 3ff8d9e94eeb24c1 3feff5eba88a8bbe
+  #|sin 3fdc68356b6b8e5a 3fdb7bc3af4c3a42
+  #|cos 3fdc68356b6b8e5a 3fece6334c0ba791
+  #|atan 3fdc68356b6b8e5a 3fdabc31ea9b268b
+  #|sin 3ff3facd00f2653b 3fee5acc00eb14a4
+  #|cos 3ff3facd00f2653b 3fd441f928bd3b46
+  #|atan 3ff3facd00f2653b 3feca86cdf37759a
+  #|sin 4003333753cb3f9f 3fe59d58c940319a
+  #|cos 4003333753cb3f9f bfe798c5db508c5f
+  #|atan 4003333753cb3f9f 3ff2d0ec0ea03717
+  #|sin 3ffbeed2a343a3fc 3fef82dd92371ab7
+  #|cos 3ffbeed2a343a3fc bfc6497fb3524778
+  #|atan 3ffbeed2a343a3fc 3ff0cf52c97eac66
+  #|sin 400bd8733c3c4b79 bfd549e2a49d1ca6
+  #|cos 400bd8733c3c4b79 bfee2d83558ec9c1
+  #|atan 400bd8733c3c4b79 3ff4a810e2810288
+  #|sin 4010bb36db40e6b7 bfeb9ded31f9b63d
+  #|cos 4010bb36db40e6b7 bfe02a3c95d6072a
+  #|atan 4010bb36db40e6b7 3ff560c801318ada
+  #|sin 401009579dd2f045 bfe86851c2b69df3
+  #|cos 401009579dd2f045 bfe4b1dd54311277
+  #|atan 401009579dd2f045 3ff538be1c3ea5ec
+  #|sin 400fecda60c1b10e bfe80565092a9acf
+  #|cos 400fecda60c1b10e bfe52460248e8f7e
+  #|atan 400fecda60c1b10e 3ff5344aa659f1db
+  #|sin 4015df5842c6b159 bfe749f3542964e6
+  #|cos 4015df5842c6b159 3fe5f22f87f06b81
+  #|atan 4015df5842c6b159 3ff63d192e0c1282
+  #|sin 3fc112d1b2bbcebe 3fc105dea4273e11
+  #|cos 3fc112d1b2bbcebe 3fefb73b56150ca1
+  #|atan 3fc112d1b2bbcebe 3fc0f92ba2e49a52
+  #|sin 3ff10b07a76363b9 3febff0943582c4f
+  #|cos 3ff10b07a76363b9 3fdeff5a56754d8c
+  #|atan 3ff10b07a76363b9 3fea247f112639ed
+  #|sin 40142ce121cea380 bfee4226ed861c5b
+  #|cos 40142ce121cea380 3fd4d369d530227c
+  #|atan 40142ce121cea380 3ff6004bddda0064
+  #|sin 400519e47c631347 3fdee7a36b16f54c
+  #|cos 400519e47c631347 bfec05966b132d9f
+  #|atan 400519e47c631347 3ff355a8c8bec9b6
+  #|sin 4018d05252522e07 bfb464b6dc27fbef
+  #|cos 4018d05252522e07 3fefe5f725b118a2
+  #|atan 4018d05252522e07 3ff69355a620f8c8
+  #|sin 3fff3d0823421489 3fedb2bcab65890c
+  #|cos 3fff3d0823421489 bfd7d58efeab1689
+  #|atan 3fff3d0823421489 3ff18f21c4d4e0c2
+  #|sin 3ff07394d1f8f0f4 3feb67779990b7d7
+  #|cos 3ff07394d1f8f0f4 3fe085e74fe03377
+  #|atan 3ff07394d1f8f0f4 3fe993f29ae674b0
+  #|sin 4001ab86f0379950 3fe9b4bfb4f18079
+  #|cos 4001ab86f0379950 bfe30ecaad3f6507
+  #|atan 4001ab86f0379950 3ff254a280d86c5f
+  #|sin 40176c9255a53819 bfda83aa0ae3eee4
+  #|cos 40176c9255a53819 3fed1febf0f0f8a6
+  #|atan 40176c9255a53819 3ff66d36b1d05e00
+  #|sin 40126973fcd251cf bfefcf05117e3a52
+  #|cos 40126973fcd251cf bfbbf3d4dc48aa0b
+  #|atan 40126973fcd251cf 3ff5b5bd6d67cec2
+  #|sin 4015292cdb1074a4 bfeace113bbc8d86
+  #|cos 4015292cdb1074a4 3fe17a78bafa5d0f
+  #|atan 4015292cdb1074a4 3ff624c02038ead4
+  #|sin 4013ba8b9b77434e bfef3af00053d5c4
+  #|cos 4013ba8b9b77434e 3fcbe80c1fae2330
+  #|atan 4013ba8b9b77434e 3ff5ee9f7e0c2519
+  #|sin 401693b6f8e7f93f bfe3153578507ea6
+  #|cos 401693b6f8e7f93f 3fe9affc8aa62b94
+  #|atan 401693b6f8e7f93f 3ff653bdb46d8ed9
+  #|sin 3fe8a8645b0d32dc 3fe64a01c66bf85e
+  #|cos 3fe8a8645b0d32dc 3fe6f5f458ce9c50
+  #|atan 3fe8a8645b0d32dc 3fe50245e2087d45
+  #|sin 4018952de0d6d87e bfc18b7f260f6385
+  #|cos 4018952de0d6d87e 3fefb2addc58a836
+  #|atan 4018952de0d6d87e 3ff68d49b868724b
+  #|sin 40111a3b0007b6a3 bfecfef22b76139b
+  #|cos 40111a3b0007b6a3 bfdb12b9958d3fda
+  #|atan 40111a3b0007b6a3 3ff574e83fa7a196
+  #|sin 40142743eddfcbe9 bfee50a679a39687
+  #|cos 40142743eddfcbe9 3fd47e65b20bcf66
+  #|atan 40142743eddfcbe9 3ff5ff723646cb7b
+  #|sin 400932ac44d059cf bf80b0e47021c827
+  #|cos 400932ac44d059cf bfefffba5a01f9d6
+  #|atan 400932ac44d059cf 3ff436c901edf649
+  #|sin 40063b5999936969 3fd6b3b5f79e7c66
+  #|cos 40063b5999936969 bfedeb4caa0b9ed5
+  #|atan 40063b5999936969 3ff39b268e729eb0
+  #|sin 4011fe4ee90178ca bfef451018866e4c
+  #|cos 4011fe4ee90178ca bfcb30446088fbf0
+  #|atan 4011fe4ee90178ca 3ff5a1fec4eded41
+  #|sin 3ff1714dee72a1f3 3fec5fdcb6478966
+  #|cos 3ff1714dee72a1f3 3fdd9700f7d7185d
+  #|atan 3ff1714dee72a1f3 3fea8323020fd369
+  #|sin 4009a36efa9d80d5 bfb02bb2c683a707
+  #|cos 4009a36efa9d80d5 bfefefa3f4902754
+  #|atan 4009a36efa9d80d5 3ff44b1cd89b3a11
+  #|sin 3fff9d2f45d495ad 3fed6908484bb94f
+  #|cos 3fff9d2f45d495ad bfd938ca5ce3bca5
+  #|atan 3fff9d2f45d495ad 3ff1a2ecf8868a2a
+  #|sin 40001bbb287a6638 3fecea1f4bfe12df
+  #|cos 40001bbb287a6638 bfdb6b3eb957280c
+  #|atan 40001bbb287a6638 3ff1c1e9eed3b05c
+  #|sin 401265f68d2f3163 bfefcbec88822f57
+  #|cos 401265f68d2f3163 bfbcd1d023da4ff9
+  #|atan 401265f68d2f3163 3ff5b51c3e276679
+  #|sin 40140eb3749de903 bfee8d569d78d691
+  #|cos 40140eb3749de903 3fd30896bff8551b
+  #|atan 40140eb3749de903 3ff5fbb47b493b30
+  #|sin 3fee3857f301ce06 3fe9ec9ab93659e5
+  #|cos 3fee3857f301ce06 3fe2c2890f6f07a2
+  #|atan 3fee3857f301ce06 3fe837b334b5a1a3
+  #|sin 401008c00fdbfb4c bfe86541656bd4e7
+  #|cos 401008c00fdbfb4c bfe4b579de762188
+  #|atan 401008c00fdbfb4c 3ff5389a9925d6bc
+  #|sin 3fe4a0cfaa1ecf21 3fe33a98d1b7c3d1
+  #|cos 3fe4a0cfaa1ecf21 3fe9940bb6e3ab70
+  #|atan 3fe4a0cfaa1ecf21 3fe252aa92a3f048
+  #|sin 3fddbb374b21d2d7 3fdcac64eaba5b10
+  #|cos 3fddbb374b21d2d7 3fec9bd50729736b
+  #|atan 3fddbb374b21d2d7 3fdbd538e97f8a59
+  #|sin 4012515a2d73a559 bfefb7b6cbfe64c4
+  #|cos 4012515a2d73a559 bfc0f778176f2663
+  #|atan 4012515a2d73a559 3ff5b15fa9c676d9
+  #|sin 3fec9f87fbbb5894 3fe8f4c6d374101a
+  #|cos 3fec9f87fbbb5894 3fe4079c785ce632
+  #|atan 3fec9f87fbbb5894 3fe75a245fc0c457
+  #|sin 4014cbeeede99bd2 bfec4881a2a064c4
+  #|cos 4014cbeeede99bd2 3fddefec71438730
+  #|atan 4014cbeeede99bd2 3ff617aa83bd92f3
+  #|sin 4012d2880bdcb8cd bfefffcfa13811fc
+  #|cos 4012d2880bdcb8cd bf7bd1bf5544a01f
+  #|atan 4012d2880bdcb8cd 3ff5c849e8549efa
+  #|sin 401675efdcbece27 bfe3d25862397b97
+  #|cos 401675efdcbece27 3fe91f2a42bbb98e
+  #|atan 401675efdcbece27 3ff65019071f3c4e
+  #|sin 3fe13996467d6e8c 3fe067b548a71456
+  #|cos 3fe13996467d6e8c 3feb7995b75298ac
+  #|atan 3fe13996467d6e8c 3fdf9a6cd7e17e4c
+  #|sin 401402439101de1e bfeeaa59d688b351
+  #|cos 401402439101de1e 3fd24a3eb076701c
+  #|atan 401402439101de1e 3ff5f9cc35722a21
+  #|sin 4014d1a9a3d699e2 bfec32f3ffef6866
+  #|cos 4014d1a9a3d699e2 3fde40d347e69a50
+  #|atan 4014d1a9a3d699e2 3ff6187b98329735
+  #|sin 4014612bc8950ef3 bfedaffc84ee1ea0
+  #|cos 4014612bc8950ef3 3fd7e340009ada2c
+  #|atan 4014612bc8950ef3 3ff6082185dedbb9
+  #|sin 3fde598d02cdba27 3fdd399aa8b55a41
+  #|cos 3fde598d02cdba27 3fec78059e40786a
+  #|atan 3fde598d02cdba27 3fdc56f878296da2
+  #|sin 3fd66fa217facc1e 3fd5fab5ce65c335
+  #|cos 3fd66fa217facc1e 3fee0dc1cc49dab7
+  #|atan 3fd66fa217facc1e 3fd5944de97842d9
+  #|sin 3fed3c5c3a12a03a 3fe955c38b5d79f4
+  #|cos 3fed3c5c3a12a03a 3fe38c5f0881aad6
+  #|atan 3fed3c5c3a12a03a 3fe7b070ed519a22
+  #|sin 4012c77d74b61797 bfeffebc24a7c92f
+  #|cos 4012c77d74b61797 bf91fecdc6fcf6a6
+  #|atan 4012c77d74b61797 3ff5c660487a82cc
+  #|sin 3fdf4ed10b06cc0e 3fde12f56a4b1d77
+  #|cos 3fdf4ed10b06cc0e 3fec3f3550981c12
+  #|atan 3fdf4ed10b06cc0e 3fdd1e0b1eefd965
+  #|sin 4015716b54f22b41 bfe98194b24018ce
+  #|cos 4015716b54f22b41 3fe353104649263e
+  #|atan 4015716b54f22b41 3ff62e97d7c37298
+  #|sin 3fe2468d1331b65b 3fe14c5568c1fb97
+  #|cos 3fe2468d1331b65b 3feaebee90c23ded
+  #|atan 3fe2468d1331b65b 3fe09ae411c2340d
+  #|sin 3fd357d9baca96e0 3fd30ccdf2f7b017
+  #|cos 3fd357d9baca96e0 3fee8cae7425707a
+  #|atan 3fd357d9baca96e0 3fd2c8d4ea72a1cc
+  #|sin 4004f21a07a146e0 3fdffce16f90d33b
+  #|cos 4004f21a07a146e0 bfebb7615fed122b
+  #|atan 4004f21a07a146e0 3ff34b97de4d13a1
+  #|sin 4013fa8f7f6a4fdb bfeebbbd933f4528
+  #|cos 4013fa8f7f6a4fdb 3fd1d3ffe2cb9104
+  #|atan 4013fa8f7f6a4fdb 3ff5f89ca1e5e986
+  #|sin 40101281933ad98f bfe8977ad2be73a0
+  #|cos 40101281933ad98f bfe479bc776d7988
+  #|atan 40101281933ad98f 3ff53ae295e5b702
+  #|sin 4000399072b00dcd 3fecb636d1ef746d
+  #|cos 4000399072b00dcd bfdc42254e11799e
+  #|atan 4000399072b00dcd 3ff1cda68e999c29
+  #|sin 4018d1b6c2acaae5 bfb40be20a85e9aa
+  #|cos 4018d1b6c2acaae5 3fefe6d85f041ac3
+  #|atan 4018d1b6c2acaae5 3ff69379c08d93bf
+  #|sin 40170779bc184add bfe010357229e91e
+  #|cos 40170779bc184add 3febad18e534be0e
+  #|atan 40170779bc184add 3ff66190a111e122
+  #|sin 400ab8b714544d2f bfc94109f6875947
+  #|cos 400ab8b714544d2f bfef5ef9be782f46
+  #|atan 400ab8b714544d2f 3ff47a7d8363cb10
+  #|sin 400668d8791b076b 3fd55e01efef1830
+  #|cos 400668d8791b076b bfee29f4f7227188
+  #|atan 400668d8791b076b 3ff3a5823fef9691
+  #|sin 40126e076f980c2c bfefd2ef8721cfc4
+  #|cos 40126e076f980c2c bfbad0a6636c0d03
+  #|atan 40126e076f980c2c 3ff5b6906c4b09f0
+  #|sin 3ff621b12c0c97e7 3fef705038dc2632
+  #|cos 3ff621b12c0c97e7 3fc7de570a9f635e
+  #|atan 3ff621b12c0c97e7 3fee3c15ae352446
+  #|sin 40180310699c71f8 bfd1b2d9996113f4
+  #|cos 40180310699c71f8 3feec0876f8bb4ae
+  #|atan 40180310699c71f8 3ff67ddd265ad701
+  #|sin 4014a641ef8d72e4 bfecd0900e36c2cd
+  #|cos 4014a641ef8d72e4 3fdbd60fa044ee0b
+  #|atan 4014a641ef8d72e4 3ff61240bc61d910
+  #|sin 400a29c06f0a13c8 bfc070a938db0ef4
+  #|cos 400a29c06f0a13c8 bfefbc26629333bd
+  #|atan 400a29c06f0a13c8 3ff46282c9b52ab2
+  #|sin 4009fbec3b200235 bfbb30f507a7cd36
+  #|cos 4009fbec3b200235 bfefd1a8a129b8d9
+  #|atan 4009fbec3b200235 3ff45a9fde59eacf
+  #|sin 40183ca558d1c491 bfcc6d8d2a462eee
+  #|cos 40183ca558d1c491 3fef3368884da8fc
+  #|atan 40183ca558d1c491 3ff68406d6851248
+  #|sin 3fbf224e4739c2e1 3fbf0eac29322e69
+  #|cos 3fbf224e4739c2e1 3fefc37de26bdb01
+  #|atan 3fbf224e4739c2e1 3fbefb5af2c5671e
+  #|sin 4016e64f26761164 bfe0f37dbd6970b9
+  #|cos 4016e64f26761164 3feb2436d4e2de61
+  #|atan 4016e64f26761164 3ff65da88fc6e090
+  #|sin 4005f2b97a93b596 3fd8cf2a820109b5
+  #|cos 4005f2b97a93b596 bfed7f758fed9dd7
+  #|atan 4005f2b97a93b596 3ff38a4ef448b970
+  #|sin 3ff25d77f6b41f59 3fed2e0c366d4631
+  #|cos 3ff25d77f6b41f59 3fda45405580b393
+  #|atan 3ff25d77f6b41f59 3feb54e47c71c170
+  #|sin 3ff7a7175a0fc84d 3fefdcfa04c34236
+  #|cos 3ff7a7175a0fc84d 3fb7a59b5626b52b
+  #|atan 3ff7a7175a0fc84d 3fef3bc7be28f3c0
+  #|sin 4005cfa6a2eca73d 3fd9d0df10eaf06a
+  #|cos 4005cfa6a2eca73d bfed47f85d62750c
+  #|atan 4005cfa6a2eca73d 3ff38209482d0e9d
+  #|sin 40018a55ec02e122 3fea02f35ca428d9
+  #|cos 40018a55ec02e122 bfe2a380c1d728ba
+  #|atan 40018a55ec02e122 3ff24945f7386fb9
+  #|sin 400fc5690e69adfd bfe79c05ed5adaba
+  #|cos 400fc5690e69adfd bfe599cbe047fbec
+  #|atan 400fc5690e69adfd 3ff52f9c0b48ffd3
+  #|sin 4010e039ddb95256 bfec2ed99a43e791
+  #|cos 4010e039ddb95256 bfde501a9c81a66f
+  #|atan 4010e039ddb95256 3ff568b87a7d0eac
+  #|sin 3fa5441e96fb4b1a 3fa5428de4f627dd
+  #|cos 3fa5441e96fb4b1a 3feff8ef45fecc42
+  #|atan 3fa5441e96fb4b1a 3fa540fdf55c3660
+  #|sin 40186f2391e64382 bfc63deb6a287d29
+  #|cos 40186f2391e64382 3fef8360783217fd
+  #|atan 40186f2391e64382 3ff6895707146cc4
+  #|sin 4014acb77139a8e8 bfecb9f11d883974
+  #|cos 4014acb77139a8e8 3fdc32f9d2d94491
+  #|atan 4014acb77139a8e8 3ff6132fa8f82c6c
+  #|sin 3ff90ccdaded58df 3fefffe3f7ad356d
+  #|cos 3ff90ccdaded58df 3f752da027ad4748
+  #|atan 3ff90ccdaded58df 3ff009ca413fdde8
+  #|sin 400fc5dcfb8176d6 bfe79d3ee6ab0f2a
+  #|cos 400fc5dcfb8176d6 bfe59875b8e2b1fa
+  #|atan 400fc5dcfb8176d6 3ff52fa9ddfec8b5
+  #|sin 40070f0ea381bb2e 3fd067fb39b69178
+  #|cos 40070f0ea381bb2e bfeeee438eda0d6a
+  #|atan 40070f0ea381bb2e 3ff3ca2473845838
+  #|sin 3fff3139fb08d469 3fedbb7f8b0d153a
+  #|cos 3fff3139fb08d469 bfd7a9b57298ea71
+  #|atan 3fff3139fb08d469 3ff18cacf8668f10
+  #|sin 40146aab86541a95 bfed934bd3cbce0f
+  #|cos 40146aab86541a95 3fd86ffc38f8a069
+  #|atan 40146aab86541a95 3ff60989b622b8cc
+  #|sin 400dbbfc26c8c6b7 bfe16872b0be50c3
+  #|cos 400dbbfc26c8c6b7 bfead9c93cda7ea1
+  #|atan 400dbbfc26c8c6b7 3ff4ed72b2a71769
+  #|sin 3fd1e6d3412e9197 3fd1ab4c7ecffb7a
+  #|cos 3fd1e6d3412e9197 3feec19d52ad937d
+  #|atan 3fd1e6d3412e9197 3fd1749eec4ef99c
+  #|sin 400e4b71c754eebc bfe33e9fd00a573b
+  #|cos 400e4b71c754eebc bfe9910426fe690b
+  #|atan 400e4b71c754eebc 3ff5007b16ffd4ba
+  #|sin 3ff98cc3ad9cc5dc 3feffd3761e89635
+  #|cos 3ff98cc3ad9cc5dc bf9ab1502ae406ca
+  #|atan 3ff98cc3ad9cc5dc 3ff02e592e1f27f7
+  #|sin 4012c7bcd90a666f bfeffec4fe7a10c9
+  #|cos 4012c7bcd90a666f bf91bf6beb73dd6f
+  #|atan 4012c7bcd90a666f 3ff5c66b4999e2cd
+  #|sin 4002ff059e995243 3fe6357c292ec2e4
+  #|cos 4002ff059e995243 bfe709ce86250286
+  #|atan 4002ff059e995243 3ff2c156d5e92cb3
+  #|sin 3ff37405fed5114b 3fee0148dc5997cb
+  #|cos 3ff37405fed5114b 3fd63e76d783919e
+  #|atan 3ff37405fed5114b 3fec3d63f1e80fdd
+  #|sin 3ff84cfed793023f 3feff4ed710de613
+  #|cos 3ff84cfed793023f 3faa9c7d6b53c060
+  #|atan 3ff84cfed793023f 3fefa2051bc5548b
+  #|sin 400fc187618c4a3d bfe79188219e8538
+  #|cos 400fc187618c4a3d bfe5a53dd9787a70
+  #|atan 400fc187618c4a3d 3ff52f257f965dee
+  #|sin 40105594009f3f4b bfe9e11175d38fd9
+  #|cos 40105594009f3f4b bfe2d26fe05f141f
+  #|atan 40105594009f3f4b 3ff54a4bf5117b6a
+  #|sin 400a679ea269b46f bfc44447c27fb619
+  #|cos 400a679ea269b46f bfef98a9caeb2cb3
+  #|atan 400a679ea269b46f 3ff46d0089a35526
+  #|sin 4016454ff48f5740 bfe4fde500e134bd
+  #|cos 4016454ff48f5740 3fe8270d17a1dc68
+  #|atan 4016454ff48f5740 3ff64a11bffa4b2b
+  #|sin 40166d1f768a4f60 bfe409834150fbe8
+  #|cos 40166d1f768a4f60 3fe8f34003cbf4fd
+  #|atan 40166d1f768a4f60 3ff64f03296dbc2d
+  #|sin 4018b3c64da5b6d6 bfbb7fa5e8e676f5
+  #|cos 4018b3c64da5b6d6 3fefd09a1b636dce
+  #|atan 4018b3c64da5b6d6 3ff6906e03a7e17a
+  #|sin 4008c1e53ae59362 3fa80344d9c7d745
+  #|cos 4008c1e53ae59362 bfeff6fc4725b6d3
+  #|atan 4008c1e53ae59362 3ff421cc6a2e03c0
+  #|sin 4001f85100b8d61d 3fe8f93cba81190e
+  #|cos 4001f85100b8d61d bfe4020c70e7becc
+  #|atan 4001f85100b8d61d 3ff26e65860776d8
+  #|sin 3fe88f59ac7ff6d6 3fe63803241a41b0
+  #|cos 3fe88f59ac7ff6d6 3fe7075e915236a4
+  #|atan 3fe88f59ac7ff6d6 3fe4f2898f96f531
+  #|sin 400bb60e0bece171 bfd445a2bce3a44d
+  #|cos 400bb60e0bece171 bfee5a2f83d24655
+  #|atan 400bb60e0bece171 3ff4a2cc20a4a17a
+  #|sin 4018f6ad59d90f2f bfa5a5564912650a
+  #|cos 4018f6ad59d90f2f 3feff8acfdaa8211
+  #|atan 4018f6ad59d90f2f 3ff6973298f31a96
+  #|sin 3fdb075049d79d72 3fda3b75129767a2
+  #|cos 3fdb075049d79d72 3fed304009a62a9a
+  #|atan 3fdb075049d79d72 3fd9930a6cafc915
+  #|sin 3ffd1f3b2cfded94 3fef02b095e42ce4
+  #|cos 3ffd1f3b2cfded94 bfcf959c42a72141
+  #|atan 3ffd1f3b2cfded94 3ff1182ec9370406
+  #|sin 400ba0bb61adc726 bfd3a38ebc84731d
+  #|cos 400ba0bb61adc726 bfee74c7b5ecd1d8
+  #|atan 400ba0bb61adc726 3ff49f81e743e64d
+  #|sin 3fee924f60e7ae53 3fea20f21a6d3303
+  #|cos 3fee924f60e7ae53 3fe2795cc9b866b2
+  #|atan 3fee924f60e7ae53 3fe866feb92c6da8
+  #|sin 3f4e0d1646ca8f50 3f4e0d16001e62b6
+  #|cos 3f4e0d1646ca8f50 3fefffff1e3b8812
+  #|atan 3f4e0d1646ca8f50 3f4e0d15b9723a65
+  #|sin 4014bf3b4d383f83 bfec777acf7d5e4b
+  #|cos 4014bf3b4d383f83 3fdd3bb76d4c0daf
+  #|atan 4014bf3b4d383f83 3ff615d97184db95
+  #|sin 4012af4319640877 bfeff9095e64360b
+  #|cos 4012af4319640877 bfa51b2ad999246c
+  #|atan 4012af4319640877 3ff5c2265456029e
+  #|sin 4014ed137d8b865d bfebc8b5e6086246
+  #|cos 4014ed137d8b865d 3fdfc08555ae85ce
+  #|atan 4014ed137d8b865d 3ff61c5e0535bbf2
+  #|sin 3fe2c48c27b0159c 3fe1b5ce767dfc77
+  #|cos 3fe2c48c27b0159c 3feaa70281eab5a3
+  #|atan 3fe2c48c27b0159c 3fe0f944f54c0982
+  #|sin 40022a2704e17e51 3fe87ab7873681e7
+  #|cos 40022a2704e17e51 bfe49c16fad6c814
+  #|atan 40022a2704e17e51 3ff27ebc41f9c742
+  #|sin 3fe717f5b423c034 3fe523fc7ba42920
+  #|cos 3fe717f5b423c034 3fe805bcbede061f
+  #|atan 3fe717f5b423c034 3fe401067de69b8a
+  #|sin 3fd6e4bbab9258d7 3fd6688b18995b87
+  #|cos 3fd6e4bbab9258d7 3fedf973faad969f
+  #|atan 3fd6e4bbab9258d7 3fd5fc5acf26e4b6
+  #|sin 3fec9ecffee92912 3fe8f453a8114228
+  #|cos 3fec9ecffee92912 3fe4082bf40e6321
+  #|atan 3fec9ecffee92912 3fe759be28b5107f
+  #|sin 3fedec8e074aaf90 3fe9bfe3dc24d384
+  #|cos 3fedec8e074aaf90 3fe2ffba586f781e
+  #|atan 3fedec8e074aaf90 3fe80f742d2a508f
+  #|sin 400d7de1b5b649cc bfe095fdca91c163
+  #|cos 400d7de1b5b649cc bfeb5dbdf51954ef
+  #|atan 400d7de1b5b649cc 3ff4e4ffea3b7985
+  #|sin 3fdda2b7312649bc 3fdc967b6b110ac8
+  #|cos 3fdda2b7312649bc 3feca14ff38296a2
+  #|atan 3fdda2b7312649bc 3fdbc10f2c90dddb
+  #|sin 4018569ebd56a3eb bfc940e1a236e950
+  #|cos 4018569ebd56a3eb 3fef5efbc5e9cbee
+  #|atan 4018569ebd56a3eb 3ff686c537374686
+  #|sin 4001c86dc63ced29 3fe96f3eddfc7a68
+  #|cos 4001c86dc63ced29 bfe36b2be0b8681e
+  #|atan 4001c86dc63ced29 3ff25e6a6f7e8963
+  #|sin 3fe9bda5b3207986 3fe70da37451d38a
+  #|cos 3fe9bda5b3207986 3fe63181e950bceb
+  #|atan 3fe9bda5b3207986 3fe5ad6924146448
+  #|sin 40035ddafb0a27d5 3fe51e63574929b3
+  #|cos 40035ddafb0a27d5 bfe80aa8cdfdcd93
+  #|atan 40035ddafb0a27d5 3ff2dd71d0f83a24
+  #|sin 4015722279e0df5b bfe97e1f7f405d6a
+  #|cos 4015722279e0df5b 3fe3579fcaf68d82
+  #|atan 4015722279e0df5b 3ff62eb0796bb63d
+  #|sin 400329a906989552 3fe5b978f11a6d76
+  #|cos 400329a906989552 bfe77ee38ea378f6
+  #|atan 400329a906989552 3ff2ce171a3e79f7
+  #|sin 4013b7a3a4d17f33 bfef3ff957be8460
+  #|cos 4013b7a3a4d17f33 3fcb8d42a4c7db5a
+  #|atan 4013b7a3a4d17f33 3ff5ee29ed5075a7
+  #|sin 4018b06d9d2ff0b2 bfbc548b132b2618
+  #|cos 4018b06d9d2ff0b2 3fefcdaecb3a685c
+  #|atan 4018b06d9d2ff0b2 3ff6901669903aec
+  #|sin 40102169bc79abe2 bfe8e31dd926d0c8
+  #|cos 40102169bc79abe2 bfe41d899f270365
+  #|atan 40102169bc79abe2 3ff53e59e3a9a06f
+  #|sin 40150d9101865596 bfeb4432b7801deb
+  #|cos 40150d9101865596 3fe0bfdad089defc
+  #|atan 40150d9101865596 3ff620ebf7a02d5f
+  #|sin 3ffbf39531dc516a 3fef8133d4d35f60
+  #|cos 3ffbf39531dc516a bfc66efe422d7302
+  #|atan 3ffbf39531dc516a 3ff0d07facd47e8c
+  #|sin 400f11a609737084 bfe5a00123628009
+  #|cos 400f11a609737084 bfe7965661044428
+  #|atan 400f11a609737084 3ff519b801ad032d
+  #|sin 4001e37251e79fdf 3fe92d19922104d3
+  #|cos 4001e37251e79fdf bfe3c0a26810cd83
+  #|atan 4001e37251e79fdf 3ff267775afabaaf
+  #|sin 3fe1bfdff3d90460 3fe0da6fe89cc134
+  #|cos 3fe1bfdff3d90460 3feb33cc89808801
+  #|atan 3fe1bfdff3d90460 3fe0349e8745d9a8
+  #|sin 40053ca3f56d65e1 3fddf3160ac5bb79
+  #|cos 40053ca3f56d65e1 bfec47ab57b64e6b
+  #|atan 40053ca3f56d65e1 3ff35e581e1ed19e
+  #|sin 4015308066b01753 bfeaade0f4e43784
+  #|cos 4015308066b01753 3fe1ab73c7fbdac2
+  #|atan 4015308066b01753 3ff625c29b37f114
+  #|sin 4008eb89b6f963ef 3f9b37fc867d39a6
+  #|cos 4008eb89b6f963ef bfeffd1b02fa07a1
+  #|atan 4008eb89b6f963ef 3ff429a0461d1530
+  #|sin 40149a23fb4aa74f bfecfa34ea6be6e2
+  #|cos 40149a23fb4aa74f 3fdb26fe04510072
+  #|atan 40149a23fb4aa74f 3ff6107eff0608a7
+  #|sin 40189f446b6e5bb5 bfc04b835e568668
+  #|cos 40189f446b6e5bb5 3fefbd58e92accca
+  #|atan 40189f446b6e5bb5 3ff68e53c19b695e
+  #|sin 3fefa2a8109ab628 3feaba734082fd01
+  #|cos 3fefa2a8109ab628 3fe19869ce52fe67
+  #|atan 3fefa2a8109ab628 3fe8f30b085e1c26
+  #|sin 40136d8f9bfe9993 bfefaa80136e32a9
+  #|cos 40136d8f9bfe9993 3fc271e48ae523be
+  #|atan 40136d8f9bfe9993 3ff5e2489a76e9a7
+  #|sin 4003b4cae5712eb0 3fe414550635b3cd
+  #|cos 4003b4cae5712eb0 bfe8ea8bc988bf98
+  #|atan 4003b4cae5712eb0 3ff2f66a33e51c3c
+  #|sin 4013fbc716097c9a bfeeb905c5e85c41
+  #|cos 4013fbc716097c9a 3fd1e6b3236d032e
+  #|atan 4013fbc716097c9a 3ff5f8cca7fbb01d
+  #|sin 3fe9515f8c5319d7 3fe6c2084ff9b50a
+  #|cos 3fe9515f8c5319d7 3fe67f02dc0750d1
+  #|atan 3fe9515f8c5319d7 3fe56b3f4e3a7d55
+  #|sin 400e5fa6f8c1b1fb bfe37ef6af4b8258
+  #|cos 400e5fa6f8c1b1fb bfe96016452c9750
+  #|atan 400e5fa6f8c1b1fb 3ff5031bea6a3a78
+  #|sin 4000b59d9f83d2ff 3febcdc6670c3234
+  #|cos 4000b59d9f83d2ff bfdfaec4d48d568d
+  #|atan 4000b59d9f83d2ff 3ff1fd082e29a167
+  #|sin 400d61a88630b6c7 bfe0350ba49f864c
+  #|cos 400d61a88630b6c7 bfeb9796b653356d
+  #|atan 400d61a88630b6c7 3ff4e11e06d2d22e
+  #|sin 40182abab79d7d8e bfce9b6b47ed7185
+  #|cos 40182abab79d7d8e 3fef125ab20f5e3c
+  #|atan 40182abab79d7d8e 3ff6821f013f921f
+  #|sin 4015928f4674f8ea bfe8de1598e11791
+  #|cos 4015928f4674f8ea 3fe423c1e1ce5a11
+  #|atan 4015928f4674f8ea 3ff6330664204f6a
+  #|sin 401739e73b3e69b2 bfdd5ce7ee8d5d70
+  #|cos 401739e73b3e69b2 3fec6eef5dd77c39
+  #|atan 401739e73b3e69b2 3ff6676c6c53dc0e
+  #|sin 4003ad8c14cc848c 3fe42adda4d7a896
+  #|cos 4003ad8c14cc848c bfe8d8522066e28d
+  #|atan 4003ad8c14cc848c 3ff2f45cafc66b5d
+  #|sin 400433b48a2b7160 3fe27f721c48a32f
+  #|cos 400433b48a2b7160 bfea1ca3f2dc3d39
+  #|atan 400433b48a2b7160 3ff31991679f1110
+  #|sin 400596ed1588990b 3fdb6d866d078d31
+  #|cos 400596ed1588990b bfece994e4526ba0
+  #|atan 400596ed1588990b 3ff37476485843cd
+  #|sin 40171d7fbf5a7c30 bfdeedc6b2985513
+  #|cos 40171d7fbf5a7c30 3fec03e4f6d39138
+  #|atan 40171d7fbf5a7c30 3ff66422b147e844
+  #|sin 4016a8f42d60c7b6 bfe28bc5ff1c0d51
+  #|cos 4016a8f42d60c7b6 3fea13e3ebc4c442
+  #|atan 4016a8f42d60c7b6 3ff65651443121b0
+  #|sin 40046d252918c395 3fe1c21ff9c53b21
+  #|cos 40046d252918c395 bfea9eceeda0d380
+  #|atan 40046d252918c395 3ff328fe280f7718
+  #|sin 400f12b450e78c58 bfe5a31dd7ba7525
+  #|cos 400f12b450e78c58 bfe7937b93249bbe
+  #|atan 400f12b450e78c58 3ff519d99d2d6acf
+  #|sin 401193cd0845c9cb bfee6524289a1be7
+  #|cos 401193cd0845c9cb bfd4038e2d5f79f2
+  #|atan 401193cd0845c9cb 3ff58d7b1b90168a
+  #|sin 400dd1419b5695fb bfe1af99a17698ec
+  #|cos 400dd1419b5695fb bfeaab2139d73966
+  #|atan 400dd1419b5695fb 3ff4f04ff01bba72
+  #|sin 4014894a30cbedad bfed32644f4644c2
+  #|cos 4014894a30cbedad 3fda31eac0815781
+  #|atan 4014894a30cbedad 3ff60e0a3c954716
+  #|sin 3fbb44943b4fb01a 3fbb37630802ba81
+  #|cos 3fbb44943b4fb01a 3fefd192a41ac3b5
+  #|atan 3fbb44943b4fb01a 3fbb2a5ba24488fb
+  #|sin 3fa4b87f887c0cd6 3fa4b70ce19a41e5
+  #|cos 3fa4b87f887c0cd6 3feff94ad86d235c
+  #|atan 3fa4b87f887c0cd6 3fa4b59ae57777f6
+  #|sin bf17caa05c385785 bf17caa05bac0fec
+  #|cos bf17caa05c385785 3feffffffdc9f6ce
+  #|atan bf17caa05c385785 bf17caa05b1fc853
+  #|sin bf387a637748fa60 bf387a636dbc87ae
+  #|cos bf387a637748fa60 3fefffffda8d2d72
+  #|atan bf387a637748fa60 bf387a6364301514
+  #|sin bf2a1cf46099000a bf2a1cf45db31162
+  #|cos bf2a1cf46099000a 3feffffff5586c59
+  #|atan bf2a1cf46099000a bf2a1cf45acd22bd
+  #|sin 3f393d673410f71f 3f393d6729991f4b
+  #|cos 3f393d673410f71f 3fefffffd82f31e0
+  #|atan 3f393d673410f71f 3f393d671f214793
+  #|sin bf079d49e3ca26f2 bf079d49e3a7dc0c
+  #|cos bf079d49e3ca26f2 3fefffffff749705
+  #|atan bf079d49e3ca26f2 bf079d49e3859127
+  #|sin bf35c02d7f336658 bf35c02d7880624f
+  #|cos bf35c02d7f336658 3fefffffe26e8452
+  #|atan bf35c02d7f336658 bf35c02d71cd5e53
+  #|sin 3f2591d803d15283 3f2591d8022f2ecb
+  #|cos 3f2591d803d15283 3feffffff8bafde4
+  #|atan 3f2591d803d15283 3f2591d8008d0b15
+  #|sin bf401abc467bddfe bf401abc3b9b613e
+  #|cos bf401abc467bddfe 3fefffffbf296b30
+  #|atan bf401abc467bddfe bf401abc30bae4ae
+  #|sin bf34ea72823b5747 bf34ea727c46549f
+  #|cos bf34ea72823b5747 3fefffffe4a87666
+  #|atan bf34ea72823b5747 bf34ea7276515203
+  #|sin bf396f7e305df350 bf396f7e25a74c9f
+  #|cos bf396f7e305df350 3fefffffd7908cc7
+  #|atan bf396f7e305df350 bf396f7e1af0a60c
+  #|sin 3f3634e765891b8b 3f3634e75e67f580
+  #|cos 3f3634e765891b8b 3fefffffe12dd4c1
+  #|atan 3f3634e765891b8b 3f3634e75746cf83
+  #|sin 3f2e7748d02d6c1d 3f2e7748cb932f1c
+  #|cos 3f2e7748d02d6c1d 3feffffff17f4d6b
+  #|atan 3f2e7748d02d6c1d 3f2e7748c6f8f21f
+  #|sin 3f060383f5c4b439 3f060383f5a8ec41
+  #|cos 3f060383f5c4b439 3fefffffff86d951
+  #|atan 3f060383f5c4b439 3f060383f58d2449
+  #|sin bf3e0efae1196cc5 bf3e0efacf6b0aa0
+  #|cos bf3e0efae1196cc5 3fefffffc787c53e
+  #|atan bf3e0efae1196cc5 bf3e0efabdbca8c0
+  #|sin 3f317a7b2ccaf65a 3f317a7b295107b8
+  #|cos 3f317a7b2ccaf65a 3fefffffece810a9
+  #|atan 3f317a7b2ccaf65a 3f317a7b25d7191b
+  #|sin bf37f4a2fb5d343c bf37f4a2f269f6d6
+  #|cos bf37f4a2fb5d343c 3fefffffdc220f03
+  #|atan bf37f4a2fb5d343c bf37f4a2e976b985
+  #|sin 3f3135debaf149ac 3f3135deb79fab5e
+  #|cos 3f3135debaf149ac 3fefffffed7cd155
+  #|atan 3f3135debaf149ac 3f3135deb44e0d14
+  #|sin 3f1614a31a5cacfe 3f1614a319ec890b
+  #|cos 3f1614a31a5cacfe 3feffffffe18724e
+  #|atan 3f1614a31a5cacfe 3f1614a3197c6519
+  #|sin bf402c0b9a7f949d bf402c0b8f7bdf61
+  #|cos bf402c0b9a7f949d 3fefffffbe9dbe43
+  #|atan bf402c0b9a7f949d bf402c0b84782a57
+  #|sin bf2599580518215e bf259958037448e2
+  #|cos bf2599580518215e 3feffffff8b5eed4
+  #|atan bf2599580518215e bf25995801d07067
+  #|sin bf323646b2a25828 bf323646aeb39772
+  #|cos bf323646b2a25828 3fefffffeb4528d2
+  #|atan bf323646b2a25828 bf323646aac4d6c2
+  #|sin 3f3475f1dd7c8579 3f3475f1d7e8e79d
+  #|cos 3f3475f1dd7c8579 3fefffffe5d5bdea
+  #|atan 3f3475f1dd7c8579 3f3475f1d25549cb
+  #|sin 3f267dc88f7ba4a4 3f267dc88da194db
+  #|cos 3f267dc88f7ba4a4 3feffffff8188ee8
+  #|atan 3f267dc88f7ba4a4 3f267dc88bc78512
+  #|sin 3f329fce1b3795ee 3f329fce1702e951
+  #|cos 3f329fce1b3795ee 3fefffffea52342a
+  #|atan 3f329fce1b3795ee 3f329fce12ce3cba
+  #|sin bf33f3f0a3fcfb12 bf33f3f09ed10c10
+  #|cos bf33f3f0a3fcfb12 3fefffffe71e1d52
+  #|atan bf33f3f0a3fcfb12 bf33f3f099a51d16
+  #|sin 3f190d83bca34db2 3f190d83bbff8284
+  #|cos 3f190d83bca34db2 3feffffffd8c5b8f
+  #|atan 3f190d83bca34db2 3f190d83bb5bb755
+  #|sin bf3f0ef8b143017b bf3f0ef89dc1af77
+  #|cos bf3f0ef8b143017b 3fefffffc3b5ee62
+  #|atan bf3f0ef8b143017b bf3f0ef88a405dc4
+  #|sin bf2714ce790b5050 bf2714ce770af648
+  #|cos bf2714ce790b5050 3feffffff7ad04d6
+  #|atan bf2714ce790b5050 bf2714ce750a9c40
+  #|sin 3f30393f85cb1bd3 3f30393f83036a81
+  #|cos 3f30393f85cb1bd3 3fefffffef8cb420
+  #|atan 3f30393f85cb1bd3 3f30393f803bb931
+  #|sin bf1f975b5d2bc6fa bf1f975b5be35ba1
+  #|cos bf1f975b5d2bc6fa 3feffffffc19fe63
+  #|atan bf1f975b5d2bc6fa bf1f975b5a9af049
+  #|sin bf3966623ebb5d79 bf39666234103551
+  #|cos bf3966623ebb5d79 3fefffffd7ad7ddd
+  #|atan bf3966623ebb5d79 bf39666229650d46
+  #|sin 3f3d6de6c0a6cb37 3f3d6de6b00ec0dd
+  #|cos 3f3d6de6c0a6cb37 3fefffffc9dea8b0
+  #|atan 3f3d6de6c0a6cb37 3f3d6de69f76b6c1
+  #|sin bf3435b9d47acf15 bf3435b9cf1b0f6c
+  #|cos bf3435b9d47acf15 3fefffffe678fb09
+  #|atan bf3435b9d47acf15 bf3435b9c9bb4fcd
+  #|sin bf11e1dc2a038da2 bf11e1dc29c7fccf
+  #|cos bf11e1dc2a038da2 3feffffffec0397e
+  #|atan bf11e1dc2a038da2 bf11e1dc298c6bfc
+  #|sin 3f30a380b15a7b85 3f30a380ae5ac1fb
+  #|cos 3f30a380b15a7b85 3fefffffeeb277cd
+  #|atan 3f30a380b15a7b85 3f30a380ab5b0875
+  #|sin bf3f5e8fcf9c6008 bf3f5e8fbb8398e6
+  #|cos bf3f5e8fcf9c6008 3fefffffc27f63f0
+  #|atan bf3f5e8fcf9c6008 bf3f5e8fa76ad218
+  #|sin bf3bb59db75468d8 bf3bb59da97a7725
+  #|cos bf3bb59db75468d8 3fefffffd002fe3b
+  #|atan bf3bb59db75468d8 bf3bb59d9ba085a0
+  #|sin bf3061fa34470315 bf3061fa316a2cf0
+  #|cos bf3061fa34470315 3fefffffef39b3a0
+  #|atan bf3061fa34470315 bf3061fa2e8d56cd
+  #|sin 3f35f4aa05d60064 3f35f4a9fef2077c
+  #|cos 3f35f4aa05d60064 3fefffffe1df246d
+  #|atan 3f35f4aa05d60064 3f35f4a9f80e0ea2
+  #|sin bf33642ce3d5f4f6 bf33642cdf16b1b1
+  #|cos bf33642ce3d5f4f6 3fefffffe87fa234
+  #|atan bf33642ce3d5f4f6 bf33642cda576e74
+  #|sin bf3d1c11eaa3c60d bf3d1c11da94a89d
+  #|cos bf3d1c11eaa3c60d 3fefffffcb0a0ddd
+  #|atan bf3d1c11eaa3c60d bf3d1c11ca858b68
+  #|sin bf358ade2823234a bf358ade21a0e92d
+  #|cos bf358ade2823234a 3fefffffe2fec397
+  #|atan bf358ade2823234a bf358ade1b1eaf1d
+  #|sin 3f20d3b760eb4140 3f20d3b76024bb71
+  #|cos 3f20d3b760eb4140 3feffffffb9367f0
+  #|atan 3f20d3b760eb4140 3f20d3b75f5e35a2
+  #|sin bf343da5a14c8871 bf343da59be674aa
+  #|cos bf343da5a14c8871 3fefffffe664f46b
+  #|atan bf343da5a14c8871 bf343da5968060ed
+  #|sin 3f0d35490394f27f 3f0d354903540e8b
+  #|cos 3f0d35490394f27f 3fefffffff2ab897
+  #|atan 3f0d35490394f27f 3f0d354903132a97
+  #|sin 3f3162281978ef67 3f316228160d7021
+  #|cos 3f3162281978ef67 3fefffffed1d10a0
+  #|atan 3f3162281978ef67 3f31622812a1f0df
+  #|sin bf3f6646bb3e35ce bf3f6646a7169753
+  #|cos bf3f6646bb3e35ce 3fefffffc2612037
+  #|atan bf3f6646bb3e35ce bf3f664692eef92e
+  #|sin bf3a1c95424378d9 bf3a1c9536ac3ce8
+  #|cos bf3a1c95424378d9 3fefffffd562e7e2
+  #|atan bf3a1c95424378d9 bf3a1c952b150118
+  #|sin 3f2f5f078159b56d 3f2f5f077c534a20
+  #|cos 3f2f5f078159b56d 3feffffff09f63a2
+  #|atan 3f2f5f078159b56d 3f2f5f07774cded8
+  #|sin bf3705937ebf082f bf37059376cd6e90
+  #|cos bf3705937ebf082f 3fefffffdedff608
+  #|atan bf3705937ebf082f bf3705936edbd504
+  #|sin bf3d01626e8bed18 bf3d01625ea8d17b
+  #|cos bf3d01626e8bed18 3fefffffcb6afb1f
+  #|atan bf3d01626e8bed18 bf3d01624ec5b617
+  #|sin 3f3e6711d408ff69 3f3e6711c1bd60d6
+  #|cos 3f3e6711d408ff69 3fefffffc63ae541
+  #|atan 3f3e6711d408ff69 3f3e6711af71c28d
+  #|sin 3ef3252c05e56d50 3ef3252c05e0dbbc
+  #|cos 3ef3252c05e56d50 3fefffffffe91761
+  #|atan 3ef3252c05e56d50 3ef3252c05dc4a29
+  #|sin bf3a71ae998e78fb bf3a71ae8d84771d
+  #|cos bf3a71ae998e78fb 3fefffffd44b60dd
+  #|atan bf3a71ae998e78fb bf3a71ae817a7564
+  #|sin 3f10621a824108d5 3f10621a82133a64
+  #|cos 3f10621a824108d5 3feffffffef39717
+  #|atan 3f10621a824108d5 3f10621a81e56bf2
+  #|sin 3ed5f951a23027f0 3ed5f951a22fb96a
+  #|cos 3ed5f951a23027f0 3feffffffffe1d26
+  #|atan 3ed5f951a23027f0 3ed5f951a22f4ae5
+  #|sin 3f3bc6ab3fecfc21 3f3bc6ab31f967f9
+  #|cos 3f3bc6ab3fecfc21 3fefffffcfc7db3f
+  #|atan 3f3bc6ab3fecfc21 3f3bc6ab2405d400
+  #|sin 3f3367d6a2ce0ab2 3f3367d69e0c1638
+  #|cos 3f3367d6a2ce0ab2 3fefffffe876c05a
+  #|atan 3f3367d6a2ce0ab2 3f3367d6994a21c6
+  #|sin 3f1a6cb3f7a50e77 3f1a6cb3f6e4db13
+  #|cos 3f1a6cb3f7a50e77 3feffffffd45bd49
+  #|atan 3f1a6cb3f7a50e77 3f1a6cb3f624a7af
+  #|sin 3f3f27470485b5fc 3f3f2746f0d674fa
+  #|cos 3f3f27470485b5fc 3fefffffc3576c76
+  #|atan 3f3f27470485b5fc 3f3f2746dd273449
+  #|sin bf3de0ff7186ee2b bf3de0ff602934eb
+  #|cos bf3de0ff7186ee2b 3fefffffc8340614
+  #|atan bf3de0ff7186ee2b bf3de0ff4ecb7bed
+  #|sin bf3e5a25a01c3a9e bf3e5a258de7e678
+  #|cos bf3e5a25a01c3a9e 3fefffffc66bf711
+  #|atan bf3e5a25a01c3a9e bf3e5a257bb3929a
+  #|sin 3f257681174395a6 3f25768115a7a00b
+  #|cos 3f257681174395a6 3feffffff8cd5fdc
+  #|atan 3f257681174395a6 3f257681140baa72
+  #|sin bf1dc69c076f1913 bf1dc69c065c1b27
+  #|cos bf1dc69c076f1913 3feffffffc896691
+  #|atan bf1dc69c076f1913 bf1dc69c05491d3a
+  #|sin bf31b0282bce8600 bf31b02828342dc2
+  #|cos bf31b0282bce8600 3fefffffec721731
+  #|atan bf31b0282bce8600 bf31b0282499d588
+  #|sin bf0ec50d5b47dc52 bf0ec50d5afbfef2
+  #|cos bf0ec50d5b47dc52 3fefffffff134e4c
+  #|atan bf0ec50d5b47dc52 bf0ec50d5ab02191
+  #|sin bf1972074382c544 bf19720742d72791
+  #|cos bf1972074382c544 3feffffffd7887ca
+  #|atan bf1972074382c544 bf197207422b89de
+  #|sin 3ecb86859dc6cccd 3ecb86859dc6967e
+  #|cos 3ecb86859dc6cccd 3fefffffffff4296
+  #|atan 3ecb86859dc6cccd 3ecb86859dc6602f
+  #|sin 3f27dbdadb9a6d81 3f27dbdad96488ac
+  #|cos 3f27dbdadb9a6d81 3feffffff71b0772
+  #|atan 3f27dbdadb9a6d81 3f27dbdad72ea3d8
+  #|sin 3f13dc5f8b8f7344 3f13dc5f8b3dd82d
+  #|cos 3f13dc5f8b8f7344 3feffffffe758c1d
+  #|atan 3f13dc5f8b8f7344 3f13dc5f8aec3d16
+  #|sin bf37ba44d6884ea0 bf37ba44cdd5de1f
+  #|cos bf37ba44d6884ea0 3fefffffdcd0019c
+  #|atan bf37ba44d6884ea0 bf37ba44c5236db4
+  #|sin bf30f952bc0b4bf7 bf30f952b8dc39f4
+  #|cos bf30f952bc0b4bf7 3fefffffedfe2d69
+  #|atan bf30f952bc0b4bf7 bf30f952b5ad27f5
+  #|sin 3f2f696879a07b81 3f2f6968749511c3
+  #|cos 3f2f696879a07b81 3feffffff0953530
+  #|atan 3f2f696879a07b81 3f2f69686f89a80b
+  #|sin 3f1dad3cb2d11937 3f1dad3cb1c0d7ed
+  #|cos 3f1dad3cb2d11937 3feffffffc8f4b04
+  #|atan 3f1dad3cb2d11937 3f1dad3cb0b096a4
+  #|sin bf1d9199575ab5d3 bf1d9199564d6a6e
+  #|cos bf1d9199575ab5d3 3feffffffc95b073
+  #|atan bf1d9199575ab5d3 bf1d919955401f0a
+  #|sin 3ef8208d97eb3894 3ef8208d97e213c3
+  #|cos 3ef8208d97eb3894 3fefffffffdb9e15
+  #|atan 3ef8208d97eb3894 3ef8208d97d8eef2
+  #|sin 3f25b03bf6295113 3f25b03bf4803c36
+  #|cos 3f25b03bf6295113 3feffffff8a6735d
+  #|atan 3f25b03bf6295113 3f25b03bf2d7275a
+  #|sin bf31c71fad263842 bf31c71fa97dc4f4
+  #|cos bf31c71fad263842 3fefffffec3f2e8e
+  #|atan bf31c71fad263842 bf31c71fa5d551ab
+  #|sin 3f3e066d7a0e4d1f 3f3e066d686efe46
+  #|cos 3f3e066d7a0e4d1f 3fefffffc7a7e2f2
+  #|atan 3f3e066d7a0e4d1f 3f3e066d56cfafb1
+  #|sin bf3bfde37d7f18b1 bf3bfde36f37a972
+  #|cos bf3bfde37d7f18b1 3fefffffcf07638e
+  #|atan bf3bfde37d7f18b1 bf3bfde360f03a63
+  #|sin bf3df2396312be96 bf3df2395196ea9c
+  #|cos bf3df2396312be96 3fefffffc7f39d00
+  #|atan bf3df2396312be96 bf3df239401b16e5
+  #|sin 3f2edad1bef20360 3f2edad1ba2a1625
+  #|cos 3f2edad1bef20360 3feffffff11fef37
+  #|atan 3f2edad1bef20360 3f2edad1b56228f0
+  #|sin bf2805025a36d0ee bf28050257f567f9
+  #|cos bf2805025a36d0ee 3feffffff6fc3dd8
+  #|atan bf2805025a36d0ee bf28050255b3ff06
+  #|sin 3f0d1521eebc8e56 3f0d1521ee7c7fc2
+  #|cos 3f0d1521eebc8e56 3fefffffff2c8d24
+  #|atan 3f0d1521eebc8e56 3f0d1521ee3c712f
+  #|sin 3f33825007a60eb2 3f33825002d086cf
+  #|cos 3f33825007a60eb2 3fefffffe8365c9b
+  #|atan 3f33825007a60eb2 3f33824ffdfafef3
+  #|sin 3f1dae8e9bfe360c 3f1dae8e9aedd06d
+  #|cos 3f1dae8e9bfe360c 3feffffffc8efcab
+  #|atan 3f1dae8e9bfe360c 3f1dae8e99dd6ace
+  #|sin 3f2c46219dfb9740 3f2c46219a4dd040
+  #|cos 3f2c46219dfb9740 3feffffff38255bd
+  #|atan 3f2c46219dfb9740 3f2c462196a00944
+  #|sin bf3e9403fa12ba38 bf3e9403e7757f4a
+  #|cos bf3e9403fa12ba38 3fefffffc58f97de
+  #|atan bf3e9403fa12ba38 bf3e9403d4d844a6
+  #|sin bf3f6289411e1760 bf3f62892cfdabcc
+  #|cos bf3f6289411e1760 3fefffffc26fcd61
+  #|atan bf3f6289411e1760 bf3f628918dd408e
+  #|sin bf1a3428d4029687 bf1a3428d3472aab
+  #|cos bf1a3428d4029687 3feffffffd515d14
+  #|atan bf1a3428d4029687 bf1a3428d28bbecf
+  #|sin bf3d17f25e4414e1 bf3d17f24e3bc96f
+  #|cos bf3d17f25e4414e1 3fefffffcb190da2
+  #|atan bf3d17f25e4414e1 bf3d17f23e337e36
+  #|sin bf3cfc96f91ee525 bf3cfc96e943a92d
+  #|cos bf3cfc96f91ee525 3fefffffcb7c5c0d
+  #|atan bf3cfc96f91ee525 bf3cfc96d9686d6f
+  #|sin befc5ec1867770f6 befc5ec186689346
+  #|cos befc5ec1867770f6 3fefffffffcdb229
+  #|atan befc5ec1867770f6 befc5ec18659b596
+  #|sin 3f28245eb1b67fe8 3f28245eaf6c35be
+  #|cos 3f28245eb1b67fe8 3feffffff6e4a450
+  #|atan 3f28245eb1b67fe8 3f28245ead21eb95
+  #|sin 3f395d4bbbfa9f73 3f395d4bb15ae6c5
+  #|cos 3f395d4bbbfa9f73 3fefffffd7ca535b
+  #|atan 3f395d4bbbfa9f73 3f395d4ba6bb2e34
+  #|sin bf350bb3308e7371 bf350bb32a7cd9fc
+  #|cos bf350bb3308e7371 3fefffffe4514116
+  #|atan bf350bb3308e7371 bf350bb3246b4092
+  #|sin bf3ae94825575433 bf3ae94818a711cc
+  #|cos bf3ae94825575433 3fefffffd2bc8c4b
+  #|atan bf3ae94825575433 bf3ae9480bf6cf8c
+  #|sin bf3d74f8313353bd bf3d74f8208f51b9
+  #|cos bf3d74f8313353bd 3fefffffc9c4a53f
+  #|atan bf3d74f8313353bd bf3d74f80feb4ff3
+  #|sin bf38f2631ca8ef13 bf38f263128d5962
+  #|cos bf38f2631ca8ef13 3fefffffd91a7eb9
+  #|atan bf38f2631ca8ef13 bf38f2630871c3cd
+  #|sin bf3f2515b78c3647 bf3f2515a3e11cf7
+  #|cos bf3f2515b78c3647 3fefffffc35ff5f7
+  #|atan bf3f2515b78c3647 bf3f2515903603f9
+  #|sin 3f3a49863470357b 3f3a4986289cb970
+  #|cos 3f3a49863470357b 3fefffffd4cfba02
+  #|atan 3f3a49863470357b 3f3a49861cc93d87
+  #|sin bf3ff817eebf1e66 bf3ff817d9799550
+  #|cos bf3ff817eebf1e66 3fefffffc01f9c72
+  #|atan bf3ff817eebf1e66 bf3ff817c4340c96
+  #|sin bf1c6d368f05d313 bf1c6d368e168bb6
+  #|cos bf1c6d368f05d313 3feffffffcd7ed79
+  #|atan bf1c6d368f05d313 bf1c6d368d274459
+  #|sin 3f2e4ffee90f466b 3f2e4ffee486c0d5
+  #|cos 3f2e4ffee90f466b 3feffffff1a49d09
+  #|atan 3f2e4ffee90f466b 3f2e4ffedffe3b44
+  #|sin bf1ea68a0e808cfa bf1ea68a0d549ac1
+  #|cos bf1ea68a0e808cfa 3feffffffc548b4d
+  #|atan bf1ea68a0e808cfa bf1ea68a0c28a889
+  #|sin 3f4000d90890f7ed 3f4000d8fde49b1c
+  #|cos 3f4000d90890f7ed 3fefffffbff937a3
+  #|atan 3f4000d90890f7ed 3f4000d8f3383e7b
+  #|sin 3f04e1f6cdb9d9cb 3f04e1f6cda222b3
+  #|cos 3f04e1f6cdb9d9cb 3fefffffff92fa7f
+  #|atan 3f04e1f6cdb9d9cb 3f04e1f6cd8a6b9b
+  #|sin 3f4012e3fd4bb0da 3f4012e3f27b118a
+  #|cos 3f4012e3fd4bb0da 3fefffffbf6886f5
+  #|atan 3f4012e3fd4bb0da 3f4012e3e7aa726a
+  #|sin bf2d939d9bf31954 bf2d939d97bd0f4d
+  #|cos bf2d939d9bf31954 3feffffff254e4b2
+  #|atan bf2d939d9bf31954 bf2d939d93870549
+  #|sin bf3e629e8ee19f7c bf3e629e7c9e0879
+  #|cos bf3e629e8ee19f7c 3fefffffc64bcd9d
+  #|atan bf3e629e8ee19f7c bf3e629e6a5a71be
+  #|sin 3f1937f833fc9569 3f1937f833558400
+  #|cos 3f1937f833fc9569 3feffffffd840549
+  #|atan 3f1937f833fc9569 3f1937f832ae7297
+  #|sin bf209d984960fd62 bf209d9848a1db29
+  #|cos bf209d984960fd62 3feffffffbafafcb
+  #|atan bf209d984960fd62 bf209d9847e2b8f0
+  #|sin bf36781e04dfafc4 bf36781dfd7d085b
+  #|cos bf36781e04dfafc4 3fefffffe07227b5
+  #|atan bf36781e04dfafc4 bf36781df61a6103
+  #|sin 3f1ee369be7be646 3f1ee369bd48eb05
+  #|cos 3f1ee369be7be646 3feffffffc45e933
+  #|atan 3f1ee369be7be646 3f1ee369bc15efc4
+  #|sin 3f38623d3444d65a 3f38623d2ad48ab4
+  #|cos 3f38623d3444d65a 3fefffffdad6ed3c
+  #|atan 3f38623d3444d65a 3f38623d21643f26
+  #|sin 3f25ca5d807eb958 3f25ca5d7ecf9cc7
+  #|cos 3f25ca5d807eb958 3feffffff894b2c5
+  #|atan 3f25ca5d807eb958 3f25ca5d7d208036
+  #|sin 3f20a06fe7d76917 3f20a06fe717e4b7
+  #|cos 3f20a06fe7d76917 3feffffffbae35dc
+  #|atan 3f20a06fe7d76917 3f20a06fe6586057
+  #|sin bf34d49b1d3a6cd8 bf34d49b17580037
+  #|cos bf34d49b1d3a6cd8 3fefffffe4e17326
+  #|atan bf34d49b1d3a6cd8 bf34d49b117593a1
+  #|sin bf3d8f7074df6ca3 bf3d8f70640e6638
+  #|cos bf3d8f7074df6ca3 3fefffffc963027b
+  #|atan bf3d8f7074df6ca3 bf3d8f70533d600c
+  #|sin bf117b9db91aca83 bf117b9db8e320c2
+  #|cos bf117b9db91aca83 3feffffffece595c
+  #|atan bf117b9db91aca83 bf117b9db8ab7702
+  #|sin 3f3abdea99b21e9e 3f3abdea8d3ed089
+  #|cos 3f3abdea99b21e9e 3fefffffd34df753
+  #|atan 3f3abdea99b21e9e 3f3abdea80cb829a
+  #|sin bf3f99b3807abc35 bf3f99b36bef748b
+  #|cos bf3f99b3807abc35 3fefffffc196a402
+  #|atan bf3f99b3807abc35 bf3f99b357642d39
+  #|sin bf22885a1bfb0250 bf22885a1af1cb0a
+  #|cos bf22885a1bfb0250 3feffffffaa22ad1
+  #|atan bf22885a1bfb0250 bf22885a19e893c5
+  #|sin bf0031acec2e65c3 bf0031acec235689
+  #|cos bf0031acec2e65c3 3fefffffffbe7030
+  #|atan bf0031acec2e65c3 bf0031acec18474f
+  #|sin 3f2d0ca4925e7690 3f2d0ca48e610de2
+  #|cos 3f2d0ca4925e7690 3feffffff2d0885d
+  #|atan 3f2d0ca4925e7690 3f2d0ca48a63a539
+  #|sin 3f405b67e3e5e32a 3f405b67d8804c94
+  #|cos 3f405b67e3e5e32a 3fefffffbd1c9837
+  #|atan 3f405b67e3e5e32a 3f405b67cd1ab633
+  #|sin 3f37b27115e0f777 3f37b2710d371f78
+  #|cos 3f37b27115e0f777 3fefffffdce734d0
+  #|atan 3f37b27115e0f777 3f37b271048d478d
+  #|sin bf363f200cb24b21 bf363f200587484f
+  #|cos bf363f200cb24b21 3fefffffe1116ed5
+  #|atan bf363f200cb24b21 bf363f1ffe5c458b
+  #|sin bf2e9e1b1e4b6c44 bf2e9e1b199f80aa
+  #|cos bf2e9e1b1e4b6c44 3feffffff15a3fff
+  #|atan bf2e9e1b1e4b6c44 bf2e9e1b14f39514
+  #|sin 3f1a34fecdadd462 3f1a34feccf25696
+  #|cos 3f1a34fecdadd462 3feffffffd513146
+  #|atan 3f1a34fecdadd462 3f1a34fecc36d8ca
+  #|sin bf3f74cb41bcd3d4 bf3f74cb2d7933b6
+  #|cos bf3f74cb41bcd3d4 3fefffffc22817e8
+  #|atan bf3f74cb41bcd3d4 bf3f74cb193593ef
+  #|sin 3f2ecbdee318c513 3f2ecbdede57c767
+  #|cos 3f2ecbdee318c513 3feffffff12e559f
+  #|atan 3f2ecbdee318c513 3f2ecbded996c9c0
+  #|sin bf23c1219444ca6b bf23c12193039616
+  #|cos bf23c1219444ca6b 3feffffff9e70d42
+  #|atan bf23c1219444ca6b bf23c12191c261c1
+  #|sin bf2092ef8144a36d bf2092ef8086f022
+  #|cos bf2092ef8144a36d 3feffffffbb536e7
+  #|atan bf2092ef8144a36d bf2092ef7fc93cd7
+  #|sin 3f333f41cc1e2410 3f333f41c779ca5f
+  #|cos 3f333f41cc1e2410 3fefffffe8d8c9a7
+  #|atan 3f333f41cc1e2410 3f333f41c2d570b5
+  #|sin bf3acb0726d2add0 bf3acb071a4d068a
+  #|cos bf3acb0726d2add0 3fefffffd3221887
+  #|atan bf3acb0726d2add0 bf3acb070dc75f6b
+  #|sin 3f11cb9170ec9da2 3f11cb9170b1ea7d
+  #|cos 3f11cb9170ec9da2 3feffffffec354cf
+  #|atan 3f11cb9170ec9da2 3f11cb9170773758
+  #|sin bf2512b782a5ac83 bf2512b7811fc126
+  #|cos bf2512b782a5ac83 3feffffff90fb219
+  #|atan bf2512b782a5ac83 bf2512b77f99d5ca
+  #|sin bf3882c2d276e5c1 bf3882c2c8e0a368
+  #|cos bf3882c2d276e5c1 3fefffffda738ae9
+  #|atan bf3882c2d276e5c1 bf3882c2bf4a6129
+  #|sin bf1a8435a0fa43e8 bf1a8435a0380dce
+  #|cos bf1a8435a0fa43e8 3feffffffd40e0d4
+  #|atan bf1a8435a0fa43e8 bf1a84359f75d7b4
+  #|sin bf3f8b8eddae676b bf3f8b8ec93ea8f7
+  #|cos bf3f8b8eddae676b 3fefffffc1ce7532
+  #|atan bf3f8b8eddae676b bf3f8b8eb4ceeada
+  #|sin 3f1552654b796ca4 3f1552654b1473a2
+  #|cos 3f1552654b796ca4 3feffffffe3960dd
+  #|atan 3f1552654b796ca4 3f1552654aaf7aa0
+  #|sin 3f063d44a5678d50 3f063d44a54ae872
+  #|cos 3f063d44a5678d50 3fefffffff845a62
+  #|atan 3f063d44a5678d50 3f063d44a52e4394
+  #|sin 3f2e124d2c5ccfc7 3f2e124d27efbff4
+  #|cos 3f2e124d2c5ccfc7 3feffffff1ded26c
+  #|atan 3f2e124d2c5ccfc7 3f2e124d2382b026
+  #|sin 3f3aced86b7f7b3e 3f3aced85ef478fe
+  #|cos 3f3aced86b7f7b3e 3fefffffd3154e9d
+  #|atan 3f3aced86b7f7b3e 3f3aced8526976e4
+  #|sin bf3708c4d19bc66e bf3708c4c9a6de4a
+  #|cos bf3708c4d19bc66e 3fefffffded6c55d
+  #|atan bf3708c4d19bc66e bf3708c4c1b1f639
+  #|sin 3f3f334152da6d60 3f3f33413f146f35
+  #|cos 3f3f334152da6d60 3fefffffc328bec1
+  #|atan 3f3f334152da6d60 3f3f33412b4e715e
+  #|sin beed20315d2ccdd3 beed20315d28c857
+  #|cos beed20315d2ccdd3 3feffffffff2bec3
+  #|atan beed20315d2ccdd3 beed20315d24c2da
+  #|sin 3f3bc28399df7d8b 3f3bc2838bf22b37
+  #|cos 3f3bc28399df7d8b 3fefffffcfd64729
+  #|atan 3f3bc28399df7d8b 3f3bc2837e04d911
+  #|sin bf3b656303e1ad61 bf3b6562f67eb12f
+  #|cos bf3b656303e1ad61 3fefffffd1174f6a
+  #|atan bf3b656303e1ad61 bf3b6562e91bb529
+  #|sin bf2af529960cadd3 bf2af52992dc67d9
+  #|cos bf2af529960cadd3 3feffffff4a52314
+  #|atan bf2af529960cadd3 bf2af5298fac21e2
+  #|sin 3f30c61501c22b87 3f30c614feaf9874
+  #|cos 3f30c61501c22b87 3fefffffee6a41b6
+  #|atan 3f30c61501c22b87 3f30c614fb9d0564
+  #|sin bf3e0045b46fc4cb bf3e0045a2db4a46
+  #|cos bf3e0045b46fc4cb 3fefffffc7befaab
+  #|atan bf3e0045b46fc4cb bf3e00459146d005
+  #|sin 3f2d5578b08cc34c 3f2d5578ac710cf0
+  #|cos 3f2d5578b08cc34c 3feffffff28e187b
+  #|atan 3f2d5578b08cc34c 3f2d5578a8555697
+  #|sin bf3fed7d4a3a6259 bf3fed7d3509fd0d
+  #|cos bf3fed7d4a3a6259 3fefffffc049f582
+  #|atan bf3fed7d4a3a6259 bf3fed7d1fd9981e
+  #|sin bf22fd39b16e252d bf22fd39b050d7a5
+  #|cos bf22fd39b16e252d 3feffffffa5da5a0
+  #|atan bf22fd39b16e252d bf22fd39af338a1d
+  #|sin 3f3d0bc65d7c6eb6 3f3d0bc64d883a33
+  #|cos 3f3d0bc65d7c6eb6 3fefffffcb454851
+  #|atan 3f3d0bc65d7c6eb6 3f3d0bc63d9405ea
+  #|sin bf34d6e02bf4cecf bf34d6e026107589
+  #|cos bf34d6e02bf4cecf 3fefffffe4db89dd
+  #|atan bf34d6e02bf4cecf bf34d6e0202c1c4e
+  #|sin bf3baddb143ad7ea bf3baddb066c8630
+  #|cos bf3baddb143ad7ea 3fefffffd01ddb8a
+  #|atan bf3baddb143ad7ea bf3baddaf89e34a3
+  #|sin bf1cbfa5ee8fe92b bf1cbfa5ed986877
+  #|cos bf1cbfa5ee8fe92b 3feffffffcc5843b
+  #|atan bf1cbfa5ee8fe92b bf1cbfa5eca0e7c3
+  #|sin bf2c04abd71b3f42 bf2c04abd386ca83
+  #|cos bf2c04abd71b3f42 3feffffff3bbe94d
+  #|atan bf2c04abd71b3f42 bf2c04abcff255c6
+  #|sin bef1dad4ce04c927 bef1dad4ce01147c
+  #|cos bef1dad4ce04c927 3fefffffffec134b
+  #|atan bef1dad4ce04c927 bef1dad4cdfd5fd1
+  #|sin 3f3cdb076fc33fb4 3f3cdb07601ed760
+  #|cos 3f3cdb076fc33fb4 3fefffffcbf5afab
+  #|atan 3f3cdb076fc33fb4 3f3cdb07507a6f43
+  #|sin 3ee56a6377a626a8 3ee56a6377a48d6b
+  #|cos 3ee56a6377a626a8 3feffffffff8d57e
+  #|atan 3ee56a6377a626a8 3ee56a6377a2f42d
+  #|sin 3f141ef39715cf75 3f141ef396c0f4e3
+  #|cos 3f141ef39715cf75 3feffffffe6b2632
+  #|atan 3f141ef39715cf75 3f141ef3966c1a51
+  #|sin bf304d0e9ff5959c bf304d0e9d23a8e9
+  #|cos bf304d0e9ff5959c 3fefffffef646fa5
+  #|atan bf304d0e9ff5959c bf304d0e9a51bc3a
+  #|sin 3f3b9a41a8dc13b4 3f3b9a419b2b0112
+  #|cos 3f3b9a41a8dc13b4 3fefffffd0619341
+  #|atan 3f3b9a41a8dc13b4 3f3b9a418d79ee9d
+  #|sin 3f17aea868c6d9e3 3f17aea8683c7ebf
+  #|cos 3f17aea868c6d9e3 3feffffffdcf2694
+  #|atan 3f17aea868c6d9e3 3f17aea867b2239b
+  #|sin bf3f78e557885a06 bf3f78e5433ccb79
+  #|cos bf3f78e557885a06 3fefffffc217f5e4
+  #|atan bf3f78e557885a06 bf3f78e52ef13d42
+  #|sin 3f36c398670778e8 3f36c3985f596944
+  #|cos 3f36c398670778e8 3fefffffdf9cc5d2
+  #|atan 3f36c398670778e8 3f36c39857ab59b1
+  #|sin bf386e66e582f332 bf386e66dc0480ae
+  #|cos bf386e66e582f332 3fefffffdab1d18d
+  #|atan bf386e66e582f332 bf386e66d2860e42
+  #|sin 3f40003b43a7fbdc 3f40003b38fcdaaa
+  #|cos 3f40003b43a7fbdc 3fefffffbffe25f5
+  #|atan 3f40003b43a7fbdc 3f40003b2e51b9a8
+  #|sin bf3ec676b50aa5e4 bf3ec676a210b17a
+  #|cos bf3ec676b50aa5e4 3fefffffc4ce252e
+  #|atan bf3ec676b50aa5e4 bf3ec6768f16bd5e
+  #|sin 3f400ed8997acaee 3f400ed88eb2537d
+  #|cos 3f400ed8997acaee 3fefffffbf890430
+  #|atan 3f400ed8997acaee 3f400ed883e9dc3c
+  #|sin bf23ea24e032178b bf23ea24dee90259
+  #|cos bf23ea24e032178b 3feffffff9cda17d
+  #|atan bf23ea24e032178b bf23ea24dd9fed28
+  #|sin bf3130e3b239f627 bf3130e3aeeb38a3
+  #|cos bf3130e3b239f627 3fefffffed8786c4
+  #|atan bf3130e3b239f627 bf3130e3ab9c7b24
+  #|sin 3f37a3e82a957342 3f37a3e821fb8282
+  #|cos 3f37a3e82a957342 3fefffffdd123574
+  #|atan 3f37a3e82a957342 3f37a3e8196191d6
+  #|sin bf3e6c0ecca1899b bf3e6c0eba4ce83a
+  #|cos bf3e6c0ecca1899b 3fefffffc627eeca
+  #|atan bf3e6c0ecca1899b bf3e6c0ea7f84722
+  #|sin bf3e5d41fd5b186a bf3e5d41eb212ac7
+  #|cos bf3e5d41fd5b186a 3fefffffc660290b
+  #|atan bf3e5d41fd5b186a bf3e5d41d8e73d6c
+  #|sin bf402f854588cc55 bf402f853a7dfbc3
+  #|cos bf402f854588cc55 3fefffffbe81a15d
+  #|atan bf402f854588cc55 bf402f852f732b64
+  #|sin 3f3d68113dfa73d7 3f3d68112d6c45e9
+  #|cos 3f3d68113dfa73d7 3fefffffc9f41cae
+  #|atan 3f3d68113dfa73d7 3f3d68111cde1839
+  #|sin 3f39ac24cbd6e28d 3f39ac24c0d2e10d
+  #|cos 3f39ac24cbd6e28d 3fefffffd6ced0f4
+  #|atan 3f39ac24cbd6e28d 3f39ac24b5cedfad
+  #|sin 3f30ea2d05fa5a39 3f30ea2d02d3c6b0
+  #|cos 3f30ea2d05fa5a39 3fefffffee1e4290
+  #|atan 3f30ea2d05fa5a39 3f30ea2cffad332b
+  #|sin 3f242f799431a86b 3f242f7992daf743
+  #|cos 3f242f799431a86b 3feffffff9a230cc
+  #|atan 3f242f799431a86b 3f242f799184461b
+  #|sin 3f1dee43c91464ac 3f1dee43c7fd1653
+  #|cos 3f1dee43c91464ac 3feffffffc8026e2
+  #|atan 3f1dee43c91464ac 3f1dee43c6e5c7fa
+  #|sin bf30f0767f770302 bf30f0767c4ceac8
+  #|cos bf30f0767f770302 3fefffffee10f51c
+  #|atan bf30f0767f770302 bf30f0767922d293
+  #|sin bf32b094ca44fa48 bf32b094c604e5eb
+  #|cos bf32b094ca44fa48 3fefffffea2b146d
+  #|atan bf32b094ca44fa48 bf32b094c1c4d195
+  #|sin bf1ff02bd69c5be4 bf1ff02bd5490019
+  #|cos bf1ff02bd69c5be4 3feffffffc03f410
+  #|atan bf1ff02bd69c5be4 bf1ff02bd3f5a44f
+  #|sin bf059b236c27da7f bf059b236c0d966c
+  #|cos bf059b236c27da7f 3fefffffff8b4b8b
+  #|atan bf059b236c27da7f bf059b236bf3525a
+  #|sin 3f31c904d714d764 3f31c904d36b387a
+  #|cos 3f31c904d714d764 3fefffffec3af82f
+  #|atan 3f31c904d714d764 3f31c904cfc19995
+  #|sin bf1d7f0ad0bc5960 bf1d7f0acfb107c0
+  #|cos bf1d7f0ad0bc5960 3feffffffc99f881
+  #|atan bf1d7f0ad0bc5960 bf1d7f0acea5b621
+  #|sin bf0fa1fc18cc06a8 bf0fa1fc187998d9
+  #|cos bf0fa1fc18cc06a8 3fefffffff05d79d
+  #|atan bf0fa1fc18cc06a8 bf0fa1fc18272b09
+  #|sin bf3958a7e8d8a8a2 bf3958a7de3ec373
+  #|cos bf3958a7e8d8a8a2 3fefffffd7d90813
+  #|atan bf3958a7e8d8a8a2 bf3958a7d3a4de61
+  #|sin bf24fc84d26cb1ee bf24fc84d0eb91b4
+  #|cos bf24fc84d26cb1ee 3feffffff91e48a6
+  #|atan bf24fc84d26cb1ee bf24fc84cf6a717c
+  #|sin bf1ea1ebe020b411 bf1ea1ebdef54956
+  #|cos bf1ea1ebe020b411 3feffffffc55a64d
+  #|atan bf1ea1ebe020b411 bf1ea1ebddc9de9c
+  #|sin bf3baf1c2cd16e13 bf3baf1c1f013bca
+  #|cos bf3baf1c2cd16e13 3fefffffd019847c
+  #|atan bf3baf1c2cd16e13 bf3baf1c113109ae
+  #|sin bf0f48e9534bbbf8 bf0f48e952fbfeda
+  #|cos bf0f48e9534bbbf8 3fefffffff0b50ae
+  #|atan bf0f48e9534bbbf8 bf0f48e952ac41bc
+  #|sin 3f3845fb96009471 3f3845fb8cb0f2f7
+  #|cos 3f3845fb96009471 3fefffffdb2cdb2c
+  #|atan 3f3845fb96009471 3f3845fb83615195
+  #|sin 3f29b7a8a2e41c4e 3f29b7a8a01f659d
+  #|cos 3f29b7a8a2e41c4e 3feffffff5aa7537
+  #|atan 3f29b7a8a2e41c4e 3f29b7a89d5aaeed
+  #|sin 3f3543fb68b35685 3f3543fb62708a1f
+  #|cos 3f3543fb68b35685 3fefffffe3bc6b38
+  #|atan 3f3543fb68b35685 3f3543fb5c2dbdc5
+  #|sin 3ee8687595265c29 3ee868759523fe47
+  #|cos 3ee8687595265c29 3feffffffff6b0fd
+  #|atan 3ee8687595265c29 3ee868759521a066
+  #|sin bf350af64d22896e bf350af64711935a
+  #|cos bf350af64d22896e 3fefffffe45331f7
+  #|atan bf350af64d22896e bf350af641009d52
+  #|sin bee7b14c38ee2062 bee7b14c38ebf63c
+  #|cos bee7b14c38ee2062 3feffffffff73aa6
+  #|atan bee7b14c38ee2062 bee7b14c38e9cc17
+  #|sin bf13c80e9029bd06 bf13c80e8fd91b5e
+  #|cos bf13c80e9029bd06 3feffffffe78b180
+  #|atan bf13c80e9029bd06 bf13c80e8f8879b5
+  #|sin bf0fa8a334bc9c11 bf0fa8a33469fa35
+  #|cos bf0fa8a334bc9c11 3fefffffff056e59
+  #|atan bf0fa8a334bc9c11 bf0fa8a334175859
+  #|sin bf379f076bfa71c3 bf379f076365d2f4
+  #|cos bf379f076bfa71c3 3fefffffdd209e0c
+  #|atan bf379f076bfa71c3 bf379f075ad13439
+  #|sin bf3954e9b833b1ae bf3954e9ad9e7e19
+  #|cos bf3954e9b833b1ae 3fefffffd7e4e305
+  #|atan bf3954e9b833b1ae bf3954e9a3094aa1
+  #|sin 3f3b5c89931599d1 3f3b5c8985bf925a
+  #|cos 3f3b5c89931599d1 3fefffffd1359888
+  #|atan 3f3b5c89931599d1 3f3b5c8978698b0f
+  #|sin bf3d32f04e09d152 bf3d32f03dd4bcf9
+  #|cos bf3d32f04e09d152 3fefffffcab6b6c8
+  #|atan bf3d32f04e09d152 bf3d32f02d9fa8dc
+  #|sin 3f2d30d970020d02 3f2d30d96bf5a686
+  #|cos 3f2d30d970020d02 3feffffff2af95aa
+  #|atan 3f2d30d970020d02 3f2d30d967e9400d
+  #|sin bf322fc362063342 bf322fc35e1ba923
+  #|cos bf322fc362063342 3fefffffeb53f9d0
+  #|atan bf322fc362063342 bf322fc35a311f0a
+  #|sin 3f27ec2e22c73f9e 3f27ec2e208cce0b
+  #|cos 3f27ec2e22c73f9e 3feffffff70ed743
+  #|atan 3f27ec2e22c73f9e 3f27ec2e1e525c7a
+  #|sin bf16494bc4ad97cb bf16494bc43a4a09
+  #|cos bf16494bc4ad97cb 3feffffffe0f51fe
+  #|atan bf16494bc4ad97cb bf16494bc3c6fc47
+  #|sin bf3f356e37ba9a1f bf3f356e23f078db
+  #|cos bf3f356e37ba9a1f 3fefffffc320428e
+  #|atan bf3f356e37ba9a1f bf3f356e102657eb
+  #|sin 3f177ab2c680c7f0 3f177ab2c5f9f3af
+  #|cos 3f177ab2c680c7f0 3feffffffdd8b911
+  #|atan 3f177ab2c680c7f0 3f177ab2c5731f6f
+  #|sin 3f15d005b7b7fb54 3f15d005b74be029
+  #|cos 3f15d005b7b7fb54 3feffffffe243607
+  #|atan 3f15d005b7b7fb54 3f15d005b6dfc4fe
+  #|sin bf3f166cc1e5624f bf3f166cae56020c
+  #|cos bf3f166cc1e5624f 3fefffffc398fb36
+  #|atan bf3f166cc1e5624f bf3f166c9ac6a21b
+  #|sin bf2b060ce8a533db bf2b060ce56eec07
+  #|cos bf2b060ce8a533db 3feffffff496e48a
+  #|atan bf2b060ce8a533db bf2b060ce238a436
+  #|sin befb80a52cd8a656 befb80a52ccb1b3d
+  #|cos befb80a52cd8a656 3fefffffffd0b9c8
+  #|atan befb80a52cd8a656 befb80a52cbd9023
+  #|sin bf24803a94456013 bf24803a92de5d63
+  #|cos bf24803a94456013 3feffffff96eda79
+  #|atan bf24803a94456013 bf24803a91775ab4
+  #|sin bf0d36108a7e5fae bf0d36108a3d7688
+  #|cos bf0d36108a7e5fae 3fefffffff2aad35
+  #|atan bf0d36108a7e5fae bf0d361089fc8d62
+  #|sin 3f3133232963ed56 3f3133232613e37d
+  #|cos 3f3133232963ed56 3fefffffed82b1d9
+  #|atan 3f3133232963ed56 3f31332322c3d9a9
+  #|sin bf3b79b9c2d2ce23 bf3b79b9b551eb32
+  #|cos bf3b79b9c2d2ce23 3fefffffd0d18f08
+  #|atan bf3b79b9c2d2ce23 bf3b79b9a7d1086c
+  #|sin bf169384afaff1bb bf169384af3814e6
+  #|cos bf169384afaff1bb 3feffffffe025030
+  #|atan bf169384afaff1bb bf169384aec03810
+  #|sin 3f28a2d965563923 3f28a2d962e73278
+  #|cos 3f28a2d965563923 3feffffff6843e95
+  #|atan 3f28a2d965563923 3f28a2d960782bcf
+  #|sin 3f3acada495317c3 3f3acada3ccdaf64
+  #|cos 3f3acada495317c3 3fefffffd322aec9
+  #|atan 3f3acada495317c3 3f3acada3048472d
+  #|sin bf225eada24a73e5 bf225eada1482a1a
+  #|cos bf225eada24a73e5 3feffffffaba3245
+  #|atan bf225eada24a73e5 bf225eada045e04f
+  #|sin 3f2a67550616de29 3f2a67550317e502
+  #|cos 3f2a67550616de29 3feffffff51b6416
+  #|atan 3f2a67550616de29 3f2a67550018ebdd
+  #|sin bf39650825e2f35a bf3965081b397f36
+  #|cos bf39650825e2f35a 3fefffffd7b1c89b
+  #|atan bf39650825e2f35a bf39650810900b30
+  #|sin bf3b648e2c7bd43c bf3b648e1f1a1002
+  #|cos bf3b648e2c7bd43c 3fefffffd11a283f
+  #|atan bf3b648e2c7bd43c bf3b648e11b84bf3
+  #|sin bf24834371bbdb3c bf24834370543907
+  #|cos bf24834371bbdb3c 3feffffff96ce8a1
+  #|atan bf24834371bbdb3c bf2483436eec96d3
+  #|sin 3f21743119ec8b44 3f217431190eff71
+  #|cos 3f21743119ec8b44 3feffffffb3d72f8
+  #|atan 3f21743119ec8b44 3f2174311831739e
+  #|sin 3f019d664447c6ea 3f019d6644398b32
+  #|cos 3f019d664447c6ea 3fefffffffb26de9
+  #|atan 3f019d664447c6ea 3f019d66442b4f79
+  #|sin 3f2b8d29de8a86f2 3f2b8d29db231eeb
+  #|cos 3f2b8d29de8a86f2 3feffffff423ad50
+  #|atan 3f2b8d29de8a86f2 3f2b8d29d7bbb6e6
+  #|sin bf3ae56ee1601f9c bf3ae56ed4b54e12
+  #|cos bf3ae56ee1601f9c 3fefffffd2c97db5
+  #|atan bf3ae56ee1601f9c bf3ae56ec80a7caf
+  #|sin 3f20fff34414f4e1 3f20fff343484158
+  #|cos 3f20fff34414f4e1 3feffffffb7c06c4
+  #|atan 3f20fff34414f4e1 3f20fff3427b8dcf
+  #|sin bf3f7bc6b2968a45 bf3f7bc69e4568bd
+  #|cos bf3f7bc6b2968a45 3fefffffc20ca097
+  #|atan bf3f7bc6b2968a45 bf3f7bc689f4478c
+  #|sin bf22c0c773341a4c bf22c0c772214f8e
+  #|cos bf22c0c773341a4c 3feffffffa814b20
+  #|atan bf22c0c773341a4c bf22c0c7710e84d0
+  #|sin bf0d976d444ec92f bf0d976d440b4e7f
+  #|cos bf0d976d444ec92f 3fefffffff2515eb
+  #|atan bf0d976d444ec92f bf0d976d43c7d3d0
+  #|sin bf07368011878277 bf0736801166efcd
+  #|cos bf07368011878277 3fefffffff794a59
+  #|atan bf07368011878277 bf07368011465d23
+  #|sin bf26a5a8a1eccea2 bf26a5a8a008d3ed
+  #|cos bf26a5a8a1eccea2 3feffffff7fc6f46
+  #|atan bf26a5a8a1eccea2 bf26a5a89e24d93a
+  #|sin 3f2d72d808ed30a0 3f2d72d804c5169b
+  #|cos 3f2d72d808ed30a0 3feffffff2731e24
+  #|atan 3f2d72d808ed30a0 3f2d72d8009cfc9a
+  #|sin 3f3d5c3208775a0c 3f3d5c31f7fd311a
+  #|cos 3f3d5c3208775a0c 3fefffffca1fb770
+  #|atan 3f3d5c3208775a0c 3f3d5c31e7830866
+  #|sin bf35145442437be1 bf3514543c2a6856
+  #|cos bf35145442437be1 3fefffffe43a8902
+  #|atan bf35145442437be1 bf351454361154d6
+  #|sin 3f067be69e2f40a4 3f067be69e11a717
+  #|cos 3f067be69e2f40a4 3fefffffff819e19
+  #|atan 3f067be69e2f40a4 3f067be69df40d8b
+  #|sin 3f3ea61867c681b0 3f3ea61855082eaf
+  #|cos 3f3ea61867c681b0 3fefffffc54a6852
+  #|atan 3f3ea61867c681b0 3f3ea6184249dbfa
+  #|sin 3f381c3ab5a1e4bf 3f381c3aac81fd4a
+  #|cos 3f381c3ab5a1e4bf 3fefffffdbab1e18
+  #|atan 3f381c3ab5a1e4bf 3f381c3aa36215ec
+  #|sin 3f257668bad5871f 3f257668b93996ff
+  #|cos 3f257668bad5871f 3feffffff8cd7033
+  #|atan 3f257668bad5871f 3f257668b79da6e0
+  #|sin bee5464d82187b44 bee5464d8216ea0e
+  #|cos bee5464d82187b44 3feffffffff8ed90
+  #|atan bee5464d82187b44 bee5464d821558d7
+  #|sin 3f12e508798f5808 3f12e508794913e7
+  #|cos 3f12e508798f5808 3feffffffe9afde7
+  #|atan 3f12e508798f5808 3f12e5087902cfc6
+  #|sin bf40096c44325ecb bf40096c3974d07f
+  #|cos bf40096c44325ecb 3fefffffbfb487c1
+  #|atan bf40096c44325ecb bf40096c2eb74262
+  #|sin 3f3ff58ce7dfec2d 3f3ff58cd29f763a
+  #|cos 3f3ff58ce7dfec2d 3fefffffc029c5a3
+  #|atan 3f3ff58ce7dfec2d 3f3ff58cbd5f00a4
+  #|sin bf2827c15df6b3db bf2827c15bab72e9
+  #|cos bf2827c15df6b3db 3feffffff6e21648
+  #|atan bf2827c15df6b3db bf2827c1596031f8
+  #|sin bf38b4ae8c7befe1 bf38b4ae82aaa23d
+  #|cos bf38b4ae8c7befe1 3fefffffd9d9fc03
+  #|atan bf38b4ae8c7befe1 bf38b4ae78d954b2
+  #|sin 3f31dce16a6a5017 3f31dce166b45e32
+  #|cos 3f31dce16a6a5017 3fefffffec0eb7bd
+  #|atan 3f31dce16a6a5017 3f31dce162fe6c51
+  #|sin 3f3d1aa80a304d4a 3f3d1aa7fa2386a7
+  #|cos 3f3d1aa80a304d4a 3fefffffcb0f3281
+  #|atan 3f3d1aa80a304d4a 3f3d1aa7ea16c03f
+  #|sin 3f1892c5f666e6ea 3f1892c5f5cc5561
+  #|cos 3f1892c5f666e6ea 3feffffffda426bb
+  #|atan 3f1892c5f666e6ea 3f1892c5f531c3d9
+  #|sin 3f323b2f868540ae 3f323b2f829350ee
+  #|cos 3f323b2f868540ae 3fefffffeb39fa25
+  #|atan 3f323b2f868540ae 3f323b2f7ea16133
+  #|sin 3f2d0e5dc6ccb7e3 3f2d0e5dc2ce995f
+  #|cos 3f2d0e5dc6ccb7e3 3feffffff2cef7cb
+  #|atan 3f2d0e5dc6ccb7e3 3f2d0e5dbed07ade
+  #|sin 3f3f0118af8f4bc3 3f3f01189c281234
+  #|cos 3f3f0118af8f4bc3 3fefffffc3ebc057
+  #|atan 3f3f0118af8f4bc3 3f3f011888c0d8f5
+  #|sin 3ef99175885eff9e 3ef9917588541dd2
+  #|cos 3ef99175885eff9e 3fefffffffd72446
+  #|atan 3ef99175885eff9e 3ef9917588493c07
+  #|sin 3f236e41fa7d9d4c 3f236e41f94bf19e
+  #|cos 3f236e41fa7d9d4c 3feffffffa19cae0
+  #|atan 3f236e41fa7d9d4c 3f236e41f81a45f0
+  #|sin 3f3db2c8eadfbbbb 3f3db2c8d9d21a64
+  #|cos 3f3db2c8eadfbbbb 3fefffffc8e019fc
+  #|atan 3f3db2c8eadfbbbb 3f3db2c8c8c4794e
+  #|sin bf35e5a9b76a9cbd bf35e5a9b094b9e1
+  #|cos bf35e5a9b76a9cbd 3fefffffe20841f2
+  #|atan bf35e5a9b76a9cbd bf35e5a9a9bed714
+  #|sin 3f2946be79ce1d3c 3f2946be772d3e5f
+  #|cos 3f2946be79ce1d3c 3feffffff6046cfe
+  #|atan 3f2946be79ce1d3c 3f2946be748c5f84
+  #|sin 3f02ed9d71f15f7d 3f02ed9d71dfb67a
+  #|cos 3f02ed9d71f15f7d 3fefffffffa66e54
+  #|atan 3f02ed9d71f15f7d 3f02ed9d71ce0d77
+  #|sin bf28ec71c6ccf7fc bf28ec71c447e06f
+  #|cos bf28ec71c6ccf7fc 3feffffff64b4123
+  #|atan bf28ec71c6ccf7fc bf28ec71c1c2c8e3
+  #|sin 3f262c317d8c3c15 3f262c317bc60aaf
+  #|cos 3f262c317d8c3c15 3feffffff8517f76
+  #|atan 3f262c317d8c3c15 3f262c3179ffd94a
+  #|sin 3f3f217f229976e4 3f3f217f0ef52915
+  #|cos 3f3f217f229976e4 3fefffffc36ded4d
+  #|atan 3f3f217f229976e4 3f3f217efb50db97
+  #|sin 3efb1466cd633873 3efb1466cd564ad1
+  #|cos 3efb1466cd633873 3fefffffffd22b0b
+  #|atan 3efb1466cd633873 3efb1466cd495d2e
+  #|sin 3f348e0e9f488b02 3f348e0e99a11eac
+  #|cos 3f348e0e9f488b02 3fefffffe597ee32
+  #|atan 3f348e0e9f488b02 3f348e0e93f9b260
+  #|sin 3f3a2aac887b2829 3f3a2aac7cd11e5d
+  #|cos 3f3a2aac887b2829 3fefffffd534dd7d
+  #|atan 3f3a2aac887b2829 3f3a2aac712714b2
+  #|sin bf2498a3002a06e3 bf2498a2febdfbf0
+  #|cos bf2498a3002a06e3 3feffffff95f2e18
+  #|atan bf2498a3002a06e3 bf2498a2fd51f0fe
+  #|sin bf2875d91de7d39a bf2875d91b860abf
+  #|cos bf2875d91de7d39a 3feffffff6a6c429
+  #|atan bf2875d91de7d39a bf2875d9192441e5
+  #|sin 3ed29f80d9c07a5e 3ed29f80d9c03716
+  #|cos 3ed29f80d9c07a5e 3feffffffffea52f
+  #|atan 3ed29f80d9c07a5e 3ed29f80d9bff3cf
+  #|sin beea67a20508bd71 beea67a20505be5e
+  #|cos beea67a20508bd71 3feffffffff51b25
+  #|atan beea67a20508bd71 beea67a20502bf4a
+  #|sin 3f3a122528685cbf 3f3a12251cdf01a0
+  #|cos 3f3a122528685cbf 3fefffffd584f2b2
+  #|atan 3f3a122528685cbf 3f3a12251155a6a2
+  #|sin 3f27790a78a68d2f 3f27790a768bae5b
+  #|cos 3f27790a78a68d2f 3feffffff7641b8e
+  #|atan 3f27790a78a68d2f 3f27790a7470cf89
+  #|sin bf3722880644d654 bf372287fe351dc9
+  #|cos bf3722880644d654 3fefffffde8c6e6d
+  #|atan bf3722880644d654 bf372287f6256551
+  #|sin bf31e761a2bd00b8 bf31e7619f007faa
+  #|cos bf31e761a2bd00b8 3fefffffebf73e73
+  #|atan bf31e761a2bd00b8 bf31e7619b43fea2
+  #|sin bf36e9b84ebb7275 bf36e9b846e68bee
+  #|cos bf36e9b84ebb7275 3fefffffdf2fef1d
+  #|atan bf36e9b84ebb7275 bf36e9b83f11a578
+  #|sin 3f379d55335a7f85 3f379d552ac7b9c7
+  #|cos 3f379d55335a7f85 3fefffffdd259ff9
+  #|atan 3f379d55335a7f85 3f379d552234f41d
+  #|sin bf3e469efab493bf bf3e469ee8a34b2e
+  #|cos bf3e469efab493bf 3fefffffc6b5f430
+  #|atan bf3e469efab493bf bf3e469ed69202e5
+  #|sin 3ef99abc7a5107f0 3ef99abc7a461a48
+  #|cos 3ef99abc7a5107f0 3fefffffffd7069b
+  #|atan 3ef99abc7a5107f0 3ef99abc7a3b2c9f
+  #|sin bf31122b2c4cc3ba bf31122b290fa20d
+  #|cos bf31122b2c4cc3ba 3fefffffedc94fa2
+  #|atan bf31122b2c4cc3ba bf31122b25d28063
+  #|sin bf3cef6874bc8432 bf3cef6864f6e037
+  #|cos bf3cef6874bc8432 3fefffffcbac1432
+  #|atan bf3cef6874bc8432 bf3cef6855313c74
+  #|sin 3f3ab5f81bd66287 3f3ab5f80f6e2aca
+  #|cos 3f3ab5f81bd66287 3fefffffd3688423
+  #|atan 3f3ab5f81bd66287 3f3ab5f80305f332
+  #|sin 3f374ac6f59fc4b2 3f374ac6ed65b08d
+  #|cos 3f374ac6f59fc4b2 3fefffffde17a68a
+  #|atan 3f374ac6f59fc4b2 3f374ac6e52b9c7b
+  #|sin 3f13346643a0c019 3f1334664356f7e9
+  #|cos 3f13346643a0c019 3feffffffe8f2e18
+  #|atan 3f13346643a0c019 3f133466430d2fb8
+  #|sin 3f37805d1d6f69ee 3f37805d14fc0ad3
+  #|cos 3f37805d1d6f69ee 3fefffffdd7aee7e
+  #|atan 3f37805d1d6f69ee 3f37805d0c88abcd
+  #|sin 3f254667f196f371 3f254667f005b742
+  #|cos 3f254667f196f371 3feffffff8ed7e56
+  #|atan 3f254667f196f371 3f254667ee747b14
+  #|sin bee2b0d203420148 bee2b0d20340f138
+  #|cos bee2b0d203420148 3feffffffffa8aa1
+  #|atan bee2b0d203420148 bee2b0d2033fe129
+  #|sin bf34f17f0257a73c bf34f17efc5c9cb8
+  #|cos bf34f17f0257a73c 3fefffffe4960578
+  #|atan bf34f17f0257a73c bf34f17ef6619240
+  #|sin bf3d7f08ed801905 bf3d7f08dccb0243
+  #|cos bf3d7f08ed801905 3fefffffc99f8f15
+  #|atan bf3d7f08ed801905 bf3d7f08cc15ebbf
+  #|sin bf2c155ce09ec433 bf2c155cdd03e5bc
+  #|cos bf2c155ce09ec433 3feffffff3ad479b
+  #|atan bf2c155ce09ec433 bf2c155cd9690747
+  #|sin bf31a5751c908eb6 bf31a57518fcbc48
+  #|cos bf31a5751c908eb6 3fefffffec89b822
+  #|atan bf31a5751c908eb6 bf31a5751568e9de
+  #|sin bf3339e79debb300 bf3339e7994b379b
+  #|cos bf3339e79debb300 3fefffffe8e5a85c
+  #|atan bf3339e79debb300 bf3339e794aabc3e
+  #|sin 3ee0807474ef49ba 3ee0807474ee8e7f
+  #|cos 3ee0807474ef49ba 3feffffffffbbec4
+  #|atan 3ee0807474ef49ba 3ee0807474edd343
+  #|sin 3f3b61159339e14e 3f3b611585dd32ba
+  #|cos 3f3b61159339e14e 3fefffffd1260a25
+  #|atan 3f3b61159339e14e 3f3b611578808451
+  #|sin 3f1f29f54623632b 3f1f29f544e81dc6
+  #|cos 3f1f29f54623632b 3feffffffc34cfb9
+  #|atan 3f1f29f54623632b 3f1f29f543acd861
+  #|sin c0a71f725b7e10ae bfd58751329feed6
+  #|cos c0a71f725b7e10ae 3fee229c32ac5407
+  #|atan c0a71f725b7e10ae bff920990c239d9c
+  #|sin 408189f58eb15f6f 3fec857439115a82
+  #|cos 408189f58eb15f6f bfdd05087f5e1076
+  #|atan 408189f58eb15f6f 3ff91aaf06fdbc8d
+  #|sin c0a293bfb12423c4 bfd3996e592f2f01
+  #|cos c0a293bfb12423c4 bfee766927b92504
+  #|atan c0a293bfb12423c4 bff920425b71b140
+  #|sin 40a393a07840d36e bfed8e9c4e4f81ab
+  #|cos 40a393a07840d36e 3fd8869ed1847325
+  #|atan 40a393a07840d36e 3ff92058df31d906
+  #|sin c0b1c302482231af 3fecdd0e2e0e67ce
+  #|cos c0b1c302482231af bfdba219b9c94667
+  #|atan c0b1c302482231af bff92114b8a7a204
+  #|sin c09c1f137fd9f0b9 bfd6c207c177ddd8
+  #|cos c09c1f137fd9f0b9 bfede8944dbc5b1c
+  #|atan c09c1f137fd9f0b9 bff91fb4b655db3b
+  #|sin c0b27e666296f591 3f94497e2e5b90d8
+  #|cos c0b27e666296f591 bfeffe6464d85ed2
+  #|atan c0b27e666296f591 bff9211dd953df84
+  #|sin c0a8472b9fc28dee 3fe0ba55a7687405
+  #|cos c0a8472b9fc28dee bfeb47960925fccb
+  #|atan c0a8472b9fc28dee bff920a9e78be77a
+  #|sin c08fd2c810942cbf bfdd147204afdc62
+  #|cos c08fd2c810942cbf 3fec81874be0d89f
+  #|atan c08fd2c810942cbf bff91df5a553e09f
+  #|sin 40ae9751c9201d45 3fee373f746e9614
+  #|cos 40ae9751c9201d45 3fd5125e7a998202
+  #|atan 40ae9751c9201d45 3ff920ef89ee5db1
+  #|sin c0a97c3e31998163 bfed2fa7b0d6934c
+  #|cos c0a97c3e31998163 3fda3e1af95c9453
+  #|atan c0a97c3e31998163 bff920b9e3a78bad
+  #|sin 408d854ca7411d52 3fea288154ded5e1
+  #|cos 408d854ca7411d52 bfe26ea70eeaf11d
+  #|atan 408d854ca7411d52 3ff91da5542e797c
+  #|sin c0a3533cfcfe4008 3feda808c429c26c
+  #|cos c0a3533cfcfe4008 bfd80aa2509f6325
+  #|atan c0a3533cfcfe4008 bff920536cf4a899
+  #|sin 40b0da75541e6015 bfebc873127d04dc
+  #|cos 40b0da75541e6015 bfdfc16f37c4c607
+  #|atan 40b0da75541e6015 3ff921084a9e2484
+  #|sin 40a08ca341a3f37c 3fe8c60bf15493ee
+  #|cos 40a08ca341a3f37c 3fe4414c1d05d0ae
+  #|atan 40a08ca341a3f37c 3ff9200c534a00ec
+  #|sin c082cc2713d4327e 3fefda59597b501e
+  #|cos c082cc2713d4327e bfb884149a0ed349
+  #|atan c082cc2713d4327e bff91b2c1e1954d6
+  #|sin c0a00021b72d9ca4 3fcffc2aff0f89cc
+  #|cos c0a00021b72d9ca4 3feefc1e0015d8c3
+  #|atan c0a00021b72d9ca4 bff91ffb587db484
+  #|sin c0a5714dfda546ba 3fec837b86b70259
+  #|cos c0a5714dfda546ba 3fdd0cc75066969b
+  #|atan c0a5714dfda546ba bff9207d4930563c
+  #|sin 40a746bd90a3f789 3fed14ec2daa57a3
+  #|cos 40a746bd90a3f789 3fdab3c92aa664fb
+  #|atan 40a746bd90a3f789 3ff9209b6237a902
+  #|sin 4093f4e87446c4a5 3fef8a7984e4b3aa
+  #|cos 4093f4e87446c4a5 bfc59a9a2cf0de53
+  #|atan 4093f4e87446c4a5 3ff91ec659cba86c
+  #|sin c0b076f30ce4d6dd 3fec09da286c4cda
+  #|cos c0b076f30ce4d6dd 3fded826c81c724f
+  #|atan c0b076f30ce4d6dd bff921028dbf9ec0
+  #|sin c08af5adcfc72095 bfee23ae80c7f46b
+  #|cos c08af5adcfc72095 bfd581506422e193
+  #|atan c08af5adcfc72095 bff91d3be29a770b
+  #|sin 40b370af227fbf87 3fd900b34e5ba298
+  #|cos 40b370af227fbf87 3fed74ff0205a23f
+  #|atan 40b370af227fbf87 3ff92128a1a68c59
+  #|sin 409bd540adadb09b bf9ed8aa55722b5c
+  #|cos 409bd540adadb09b bfeffc48496b9fa5
+  #|atan 409bd540adadb09b 3ff91faead04d4af
+  #|sin 40981b560a709f10 bfd3a5c3bdbab8a0
+  #|cos 40981b560a709f10 bfee746c9b368074
+  #|atan 40981b560a709f10 3ff91f53afbd6871
+  #|sin c096ae68a0855c38 bfc7b7a4f87eeb4c
+  #|cos c096ae68a0855c38 3fef7224ba6b0e75
+  #|atan c096ae68a0855c38 bff91f28f8b9d060
+  #|sin c0aba981d7e32900 3fc6bfde65b8138f
+  #|cos c0aba981d7e32900 bfef7d93b59446b6
+  #|atan c0aba981d7e32900 bff920d32f2ec346
+  #|sin c094de4c6d49c041 3fd8ca6103b637f8
+  #|cos c094de4c6d49c041 bfed80771faad4f1
+  #|atan c094de4c6d49c041 bff91eea3791bb00
+  #|sin c08b60e599557240 bfd876f5476406f4
+  #|cos c08b60e599557240 bfed91dad96017d1
+  #|atan c08b60e599557240 bff91d4e7a713118
+  #|sin c0a2415ecd1d1a44 3fe39d337982fa9a
+  #|cos c0a2415ecd1d1a44 3fe948be3e926271
+  #|atan c0a2415ecd1d1a44 bff9203a95878617
+  #|sin c08445a796ba4b90 bfeffbcad2e52dcb
+  #|cos c08445a796ba4b90 3fa068778751ff85
+  #|atan c08445a796ba4b90 bff91baaebb75241
+  #|sin 40b0e4c55e9984cd 3fedd98228025425
+  #|cos 40b0e4c55e9984cd bfd710a58afcfbc0
+  #|atan 40b0e4c55e9984cd 3ff92108defaae8f
+  #|sin c0a8b73889582b91 3f9b41a141d84bdf
+  #|cos c0a8b73889582b91 bfeffd18f5761aa9
+  #|atan c0a8b73889582b91 bff920afe1491b4b
+  #|sin c090c988a1369034 3fa51e80b4ee2e4e
+  #|cos c090c988a1369034 3feff9072a901956
+  #|atan c090c988a1369034 bff91e2b59a25b3d
+  #|sin 40a85ae041f3d98a 3fea8ab5d0c461c6
+  #|cos 40a85ae041f3d98a 3fe1e01c006a473f
+  #|atan 40a85ae041f3d98a 3ff920aaf88e79d5
+  #|sin 40a07f356c14c68d 3fdc12904dd59e46
+  #|cos 40a07f356c14c68d 3fecc1dfc20522ab
+  #|atan 40a07f356c14c68d 3ff9200ac056df48
+  #|sin 40a5f83a03277e8e bfd834df5c0c0966
+  #|cos 40a5f83a03277e8e bfed9f708c679f4c
+  #|atan 40a5f83a03277e8e 3ff92086736d9b29
+  #|sin 40a62d3f3582c09f bfef658bffb560b9
+  #|cos 40a62d3f3582c09f 3fc8bd07ad72ca77
+  #|atan 40a62d3f3582c09f 3ff92089eee8617c
+  #|sin c0a4042eac238d0e 3fefc2c3628e9001
+  #|cos c0a4042eac238d0e 3fbf3e36a61a167b
+  #|atan c0a4042eac238d0e bff920621041698e
+  #|sin c0aa7dc10b8d730c 3fec7f71374baae7
+  #|cos c0aa7dc10b8d730c bfdd1c9ebb266474
+  #|atan c0aa7dc10b8d730c bff920c6183fc9bd
+  #|sin 40abcd853a41b9ed 3fe3ba37d84e653d
+  #|cos 40abcd853a41b9ed bfe93220f4c29b01
+  #|atan 40abcd853a41b9ed 3ff920d4aec815a4
+  #|sin 40a93ba2c2caa058 3fd07e3623e81659
+  #|cos 40a93ba2c2caa058 3feeeb4ec7bc2d31
+  #|atan 40a93ba2c2caa058 3ff920b6aca17c97
+  #|sin c0a532cf0a5f3392 3fe9af12a7280b10
+  #|cos c0a532cf0a5f3392 3fe316703f0f0906
+  #|atan c0a532cf0a5f3392 bff92078e2dff2e7
+  #|sin 40a3f5be95dcfe3e bfe5fc3eb94107d2
+  #|cos 40a3f5be95dcfe3e bfe74074835103a7
+  #|atan 40a3f5be95dcfe3e 3ff92060e8378ae7
+  #|sin 40551a05f8715975 3fd9e2a81c411edb
+  #|cos 40551a05f8715975 bfed440b3221ab00
+  #|atan 40551a05f8715975 3ff8f174ff677ddb
+  #|sin c0673aafd4a3be84 3fdd8dbf97d85010
+  #|cos c0673aafd4a3be84 bfec6245f2d28f90
+  #|atan c0673aafd4a3be84 bff90bf0d761940a
+  #|sin c097ae6890acc37d bfef410a2de79ebc
+  #|cos c097ae6890acc37d 3fcb79e42ee052fb
+  #|atan c097ae6890acc37d bff91f4779906df0
+  #|sin 409e547af69f2856 bfd7fcaf497c97f7
+  #|cos 409e547af69f2856 3fedaadb8aff509a
+  #|atan 409e547af69f2856 3ff91fdf23545b34
+  #|sin c0923390a8418a37 bfe319a58411f089
+  #|cos c0923390a8418a37 bfe9acaffe64d6f5
+  #|atan c0923390a8418a37 bff91e772e1d6df8
+  #|sin c07a677d2e9fdff1 bfefe8427402bdb6
+  #|cos c07a677d2e9fdff1 3fb379bc5a03ff45
+  #|atan c07a677d2e9fdff1 bff918494f3ad110
+  #|sin 4088d7f371d1800b bfc5c5bcd7387e85
+  #|cos 4088d7f371d1800b bfef889ee46eb062
+  #|atan 4088d7f371d1800b 3ff91cd45b2dcfc6
+  #|sin c0a28a2bf990168f 3feda10bebbf8f33
+  #|cos c0a28a2bf990168f bfd82d003198b6de
+  #|atan c0a28a2bf990168f bff9204177a706ad
+  #|sin c0a47d8881f9f02f bfdc994ea4950dc3
+  #|cos c0a47d8881f9f02f bfeca09b5e61a053
+  #|atan c0a47d8881f9f02f bff9206b8810e6ed
+  #|sin c08756402494b5e8 3fe96a4b798dc557
+  #|cos c08756402494b5e8 3fe371a632b42048
+  #|atan c08756402494b5e8 bff91c7f33e7ccb3
+  #|sin 4084ddd73ed6f3f5 3fefadf061eeaee6
+  #|cos 4084ddd73ed6f3f5 bfc21273a8467f42
+  #|atan 4084ddd73ed6f3f5 3ff91bd8f8a70153
+  #|sin 40b069a0a972fa81 bfeefc0ebe8410d9
+  #|cos 40b069a0a972fa81 bfcffd177271cd87
+  #|atan 40b069a0a972fa81 3ff92101c3d26079
+  #|sin 40a274dc6e3a090c bfa8215e028ec499
+  #|cos 40a274dc6e3a090c 3feff6e59ca1c45a
+  #|atan 40a274dc6e3a090c 3ff9203f797556e1
+  #|sin 4064a26f9b45cde3 3fefacf48588f7e6
+  #|cos 4064a26f9b45cde3 bfc22df648be9ff3
+  #|atan 4064a26f9b45cde3 3ff9092b54d50eb0
+  #|sin c0a8871ab90b3ee3 3fec88f90239c5df
+  #|cos c0a8871ab90b3ee3 bfdcf72f12ca3f38
+  #|atan c0a8871ab90b3ee3 bff920ad5713abaa
+  #|sin c097ec4d2eea78b6 3fecccbcc63ce1a3
+  #|cos c097ec4d2eea78b6 bfdbe5e0e74f5ddf
+  #|atan c097ec4d2eea78b6 bff91f4e77826744
+  #|sin c0a4698c57b6fb1f 3feb7320a581a96a
+  #|cos c0a4698c57b6fb1f 3fe07280fcdcbc5e
+  #|atan c0a4698c57b6fb1f bff9206a00a31a33
+  #|sin 405fbdb9c7adfeb0 3feed7209aab1c2b
+  #|cos 405fbdb9c7adfeb0 3fd112bbcac03462
+  #|atan 405fbdb9c7adfeb0 3ff901b8af62b33c
+  #|sin 40ae6bd51d1d078a bfefe06783e434da
+  #|cos 40ae6bd51d1d078a bfb6765a026a1baa
+  #|atan 40ae6bd51d1d078a 3ff920ee0b2040b2
+  #|sin c0a4c0671c1e7c54 3fefff0dabe22ed9
+  #|cos c0a4c0671c1e7c54 bf8f2206a24ec854
+  #|atan c0a4c0671c1e7c54 bff92070905e14f7
+  #|sin c0a85258b8939cc9 bfc27fe951cea257
+  #|cos c0a85258b8939cc9 bfefa9fd3a577454
+  #|atan c0a85258b8939cc9 bff920aa829919b7
+  #|sin 40a70e5c2ad6fd2b bfee19ba2c6c06b8
+  #|cos 40a70e5c2ad6fd2b bfd5b8cd7e780fd9
+  #|atan 40a70e5c2ad6fd2b 3ff920980595792f
+  #|sin 40aaff3b521bb198 bfc15c9c44dafa0b
+  #|cos 40aaff3b521bb198 3fefb44ae1095d1b
+  #|atan 40aaff3b521bb198 3ff920cbe3567cd2
+  #|sin c09e615768f9e398 bfd38dbe78e1f2e9
+  #|cos c09e615768f9e398 bfee7849c6150cfd
+  #|atan c09e615768f9e398 bff91fe008035a4d
+  #|sin 40afe439c073fac4 bfeda29b526de49a
+  #|cos 40afe439c073fac4 bfd82558ce7e33d8
+  #|atan 40afe439c073fac4 3ff920fa7551043d
+  #|sin 40ace4ab4a056af5 bfe41f0bc22ba716
+  #|cos 40ace4ab4a056af5 bfe8e1e5ac2f6bbb
+  #|atan 40ace4ab4a056af5 3ff920dfcd7946c7
+  #|sin 40b11d7e2daadc21 3feb6a365a1c6e3d
+  #|cos 40b11d7e2daadc21 bfe08158e9abb448
+  #|atan 40b11d7e2daadc21 3ff9210c0283f656
+  #|sin c09b1c354819c3ea bfe8eca2f2045953
+  #|cos c09b1c354819c3ea 3fe411bcadfa1ee5
+  #|atan c09b1c354819c3ea bff91f9efb14cbe7
+  #|sin c07538275f90f459 bfcba25f8907d012
+  #|cos c07538275f90f459 3fef3ecf0b9b602f
+  #|atan c07538275f90f459 bff915ead6212290
+  #|sin 409c5f0d84e6a93f bfb3c840d7bd994e
+  #|cos 409c5f0d84e6a93f 3fefe7813b9b2218
+  #|atan 409c5f0d84e6a93f 3ff91fb9d81f81d4
+  #|sin 4096b0205a658991 3fe27bb89bd29312
+  #|cos 4096b0205a658991 3fea1f4704663342
+  #|atan 4096b0205a658991 3ff91f292f6a2478
+  #|sin c0a84c1d38b3cd39 3fbe8eef5757d188
+  #|cos c0a84c1d38b3cd39 3fefc56d668c3cb2
+  #|atan c0a84c1d38b3cd39 bff920aa2c33a90e
+  #|sin c09dfb306017fd7f bfe500322f377b4c
+  #|cos c09dfb306017fd7f bfe8250cd2b2bbb9
+  #|atan c09dfb306017fd7f bff91fd8da823059
+  #|sin 40993f2f8c50260d 3feb3b0fc81ac9fa
+  #|cos 40993f2f8c50260d 3fe0ceb14d7d1395
+  #|atan 40993f2f8c50260d 3ff91f72604f7ccf
+  #|sin 40aaa93037322b2c 3fe77ee8d9b09b9c
+  #|cos 40aaa93037322b2c 3fe5b973379257e1
+  #|atan 40aaa93037322b2c 3ff920c81008da1f
+  #|sin c0971de53787c003 bfcb786d30fd51a5
+  #|cos c0971de53787c003 bfef411ec7f22383
+  #|atan c0971de53787c003 bff91f36947b6aec
+  #|sin c0a9c49475e341fe 3fd7e0829b2c9b8e
+  #|cos c0a9c49475e341fe 3fedb0899348d369
+  #|atan c0a9c49475e341fe bff920bd6a047560
+  #|sin c08b5cbee44adfe4 bfe949597cfb3dbe
+  #|cos c08b5cbee44adfe4 bfe39c6b53df5837
+  #|atan c08b5cbee44adfe4 bff91d4dc4dd78ba
+  #|sin 40b04acec9bd607d bfee216317a6d00e
+  #|cos 40b04acec9bd607d 3fd58e2914f39105
+  #|atan 40b04acec9bd607d 3ff920ffebb945c0
+  #|sin 40ab3f991e7813b1 3fe2e250406c2ac1
+  #|cos 40ab3f991e7813b1 3fe9d57df73fd25e
+  #|atan 40ab3f991e7813b1 3ff920ceb020d110
+  #|sin c0b1f1e6a2395bea bfe8ea66f1990b3f
+  #|cos c0b1f1e6a2395bea 3fe41482bdcb96dd
+  #|atan c0b1f1e6a2395bea bff921171341f674
+  #|sin c09fb09323ae8e63 3fef0a1b138f7f03
+  #|cos c09fb09323ae8e63 3fcf203436064d8c
+  #|atan c09fb09323ae8e63 bff91ff651081655
+  #|sin 4090d36f5b7ea30d 3fe4cc7a60529b8f
+  #|cos 4090d36f5b7ea30d bfe851a80a36ff58
+  #|atan 4090d36f5b7ea30d 3ff91e2d97f3e4cf
+  #|sin c0b1c1e67d8bc15b 3f90295c5dcefb82
+  #|cos c0b1c1e67d8bc15b bfeffefac99b6eee
+  #|atan c0b1c1e67d8bc15b bff92114aa4228c5
+  #|sin 40a22ca5ddeab2a7 3feffd5b78357e42
+  #|cos 40a22ca5ddeab2a7 3f9a0212e622a762
+  #|atan 40a22ca5ddeab2a7 3ff9203895df2b57
+  #|sin c0a56f73dbbb48d6 3fecbeecb8912f42
+  #|cos c0a56f73dbbb48d6 bfdc1ea2e8fc8b41
+  #|atan c0a56f73dbbb48d6 bff9207d282ddb37
+  #|sin c090cf723441bf50 bfefb69c24c57abc
+  #|cos c090cf723441bf50 3fc1185ded83285c
+  #|atan c090cf723441bf50 bff91e2cb0e5d09d
+  #|sin c08323081c8df25d bfcd619ef4ad2d75
+  #|cos c08323081c8df25d bfef25439b141089
+  #|atan c08323081c8df25d bff91b4b08100925
+  #|sin c0a75d3d49d9ee70 3fc679a3c410494d
+  #|cos c0a75d3d49d9ee70 3fef80ba6b129166
+  #|atan c0a75d3d49d9ee70 bff9209cb520e910
+  #|sin 4091e05ffc9700fe 3fe0d5d50ada8d34
+  #|cos 4091e05ffc9700fe 3feb36a65dfde5bc
+  #|atan 4091e05ffc9700fe 3ff91e66d12c5d9a
+  #|sin c0a98787ad0c42af bfdf2abba9601070
+  #|cos c0a98787ad0c42af 3febf2fc4f4661fb
+  #|atan c0a98787ad0c42af bff920ba71c4e7b6
+  #|sin 409ef379507f36d7 3fefdb99dad0a74a
+  #|cos 409ef379507f36d7 bfb81b16975f5a23
+  #|atan 409ef379507f36d7 3ff91fe9fa412d92
+  #|sin 4084fbf6a9675ce3 bfe7133eaa4eb179
+  #|cos 4084fbf6a9675ce3 3fe62bad9e8cf710
+  #|atan 4084fbf6a9675ce3 3ff91be1c6e30656
+  #|sin c0b293a14e588023 3fe59ae03dba168d
+  #|cos c0b293a14e588023 3fe79b0907ad7380
+  #|atan c0b293a14e588023 bff9211ed671a55c
+  #|sin 40aa03dcb95c5bbe bfc407103e41b2a7
+  #|cos 40aa03dcb95c5bbe 3fef9b1a3fe740e3
+  #|atan 40aa03dcb95c5bbe 3ff920c06f5a509a
+  #|sin c0727059ac67f2e5 3fd22abfdee2a475
+  #|cos c0727059ac67f2e5 3feeaf07ae02d1f3
+  #|atan c0727059ac67f2e5 bff914191c93fcc3
+  #|sin 40a84ea4808b871b 3fed2311897a14a1
+  #|cos 40a84ea4808b871b 3fda75d20c820ad5
+  #|atan 40a84ea4808b871b 3ff920aa4f45dc07
+  #|sin 4099879d00da1d9c 3fd1634a73429e56
+  #|cos 4099879d00da1d9c 3feecbde136f6fd0
+  #|atan 4099879d00da1d9c 3ff91f799161b3c8
+  #|sin c09034c75c390ab2 bfdcef1d8837f6a4
+  #|cos c09034c75c390ab2 3fec8b04d385895c
+  #|atan c09034c75c390ab2 bff91e085b371f86
+  #|sin c0a4a26141fada93 bfe8db035bd527d4
+  #|cos c0a4a26141fada93 bfe4278c19e855e2
+  #|atan c0a4a26141fada93 bff9206e51fc25b1
+  #|sin c0b114d6525f1e0b 3fd07083d2c61c5d
+  #|cos c0b114d6525f1e0b 3feeed218e589f48
+  #|atan c0b114d6525f1e0b bff9210b893ea54a
+  #|sin 409ef865d3e4f439 3fcf1cb83bdf287e
+  #|cos 409ef865d3e4f439 bfef0a52f78f1f76
+  #|atan 409ef865d3e4f439 3ff91fea4e6a28c5
+  #|sin c0a5c322f501a805 bfeb574d0b17b006
+  #|cos c0a5c322f501a805 bfe0a099ccbf8a56
+  #|atan c0a5c322f501a805 bff92082e5c61558
+  #|sin 40a69e4abfd25fa5 bfef8c2a984b6949
+  #|cos 40a69e4abfd25fa5 3fc572f04fd29d0a
+  #|atan 40a69e4abfd25fa5 3ff9209125207797
+  #|sin c0a4fe8916074bd9 3fede5046a49c236
+  #|cos c0a4fe8916074bd9 bfd6d4b89652649a
+  #|atan c0a4fe8916074bd9 bff9207520ad8c0c
+  #|sin c09d6956461c2cff 3fdfd078b6eba458
+  #|cos c09d6956461c2cff bfebc425bdb4ce92
+  #|atan c09d6956461c2cff bff91fce44871f04
+  #|sin c093be41d19bbf6a bfe336a95eb74fef
+  #|cos c093be41d19bbf6a 3fe997009b4fa54a
+  #|atan c093be41d19bbf6a bff91ebd79414048
+  #|sin c09e34038e0656e2 3fe98950e6288661
+  #|cos c09e34038e0656e2 bfe348d65ed30faf
+  #|atan c09e34038e0656e2 bff91fdcdea8d4f0
+  #|sin 4080ddc14af12d8f bfe2f8604c643ba3
+  #|cos 4080ddc14af12d8f 3fe9c54ee17c9011
+  #|atan 4080ddc14af12d8f 3ff91a6483ada27b
+  #|sin c0a72939d2848906 3febc417ea3b2870
+  #|cos c0a72939d2848906 3fdfd0a8fb247bba
+  #|atan c0a72939d2848906 bff92099a1b9bf61
+  #|sin c0ad8ec53dfb995e bfe937f36b5ec8b8
+  #|cos c0ad8ec53dfb995e 3fe3b2c5f6d49ec2
+  #|atan c0ad8ec53dfb995e bff920e62d237293
+  #|sin c0b2ada9b6893777 bfc441b01ff61d7f
+  #|cos c0b2ada9b6893777 3fef98c463f03101
+  #|atan c0b2ada9b6893777 bff9212009c09637
+  #|sin c0a66b39c6cef338 3fef2470d9d578e9
+  #|cos c0a66b39c6cef338 bfcd6f9204705462
+  #|atan c0a66b39c6cef338 bff9208dec222bfa
+  #|sin c0b14b061deafb19 3fdfcaae83ca5ef1
+  #|cos c0b14b061deafb19 bfebc5ce1d4e0625
+  #|atan c0b14b061deafb19 bff9210e789eedf2
+  #|sin 40aaae0255d4f370 bfb7dcaf644e5be6
+  #|cos 40aaae0255d4f370 bfefdc55c3ea4e82
+  #|atan 40aaae0255d4f370 3ff920c8478e07a1
+  #|sin 40758e16b3d28e68 bfe47bd4a7e89695
+  #|cos 40758e16b3d28e68 3fe895bc3b0d6ada
+  #|atan 40758e16b3d28e68 3ff9161aef287897
+  #|sin 40a9aa5f50a04b46 bfe974587e1fb12c
+  #|cos 40a9aa5f50a04b46 3fe3647bf2689c06
+  #|atan 40a9aa5f50a04b46 3ff920bc25634039
+  #|sin 40ac5f4d92a9d8dc bf9e4dcc3c8846bc
+  #|cos 40ac5f4d92a9d8dc 3feffc6978fe9ea1
+  #|atan 40ac5f4d92a9d8dc 3ff920da98bc46e5
+  #|sin c0b12838c58acc46 bfd164b91fe3a446
+  #|cos c0b12838c58acc46 3feecbaa4f667a98
+  #|atan c0b12838c58acc46 bff9210c982b5885
+  #|sin c0a1f1b2836c1768 3fd59c3633e0c00e
+  #|cos c0a1f1b2836c1768 bfee1eded29f21ac
+  #|atan c0a1f1b2836c1768 bff92032cd133310
+  #|sin 408aa5e72d1f0eb8 bfef5541a611ad95
+  #|cos 408aa5e72d1f0eb8 bfc9ff4b696d9a9f
+  #|atan 408aa5e72d1f0eb8 3ff91d2dabf2f5b0
+  #|sin c08d70f120d53db6 3fd68c8b9c2d29f2
+  #|cos c08d70f120d53db6 3fedf2b349367a05
+  #|atan c08d70f120d53db6 bff91da254a81cb8
+  #|sin c086ddbc9460045d bfd151631546d3ca
+  #|cos c086ddbc9460045d bfeece639f5b909d
+  #|atan c086ddbc9460045d bff91c624b998163
+  #|sin c09c97892d6271c3 bfefdc05130360f7
+  #|cos c09c97892d6271c3 3fb7f78f69f9dd31
+  #|atan c09c97892d6271c3 bff91fbe4cf008cb
+  #|sin c0985546bb5c4ccf 3fe9480c0bbd78ad
+  #|cos c0985546bb5c4ccf 3fe39e19278a662e
+  #|atan c0985546bb5c4ccf bff91f5a020de118
+  #|sin 409f15947b295ee3 bfe63431ad06f159
+  #|cos 409f15947b295ee3 bfe70b0d0aae26b0
+  #|atan 409f15947b295ee3 3ff91fec3f10ff6b
+  #|sin 4088f285bbb2b0c7 3fd5fdd0e939e89a
+  #|cos 4088f285bbb2b0c7 3fee0d30616fdd34
+  #|atan 4088f285bbb2b0c7 3ff91cd9d8043029
+  #|sin c0792c674f5f8b29 bfe3669171768799
+  #|cos c0792c674f5f8b29 3fe972c1e9c3fa0f
+  #|atan c0792c674f5f8b29 bff917cff4f6ecf4
+  #|sin c0ae271c3b0bb47c bfefcfc5af292a15
+  #|cos c0ae271c3b0bb47c bfbbbcd2068a1e0c
+  #|atan c0ae271c3b0bb47c bff920eba5634fbf
+  #|sin 407bfcd18f1aaa95 3fefc0e38edb5fdd
+  #|cos 407bfcd18f1aaa95 bfbfb73a879eeb9b
+  #|atan 407bfcd18f1aaa95 3ff918d5b8eb4772
+  #|sin c09ce753eddc2542 bfe129cf56f40aa8
+  #|cos c09ce753eddc2542 bfeb01fe315a2f6e
+  #|atan c09ce753eddc2542 bff91fc47ada65ed
+  #|sin c08cae1b60fbd9e8 bfd9ff82d4907be3
+  #|cos c08cae1b60fbd9e8 3fed3da590e227aa
+  #|atan c08cae1b60fbd9e8 bff91d84cba30e35
+  #|sin 40a897cf867ddb16 3f9e2ff3a02366b8
+  #|cos 40a897cf867ddb16 3feffc7087362777
+  #|atan 40a897cf867ddb16 3ff920ae39f56ace
+  #|sin c095b87d7f20e3ac bfeffbc14c163c85
+  #|cos c095b87d7f20e3ac 3fa07afeebf95112
+  #|atan c095b87d7f20e3ac bff91f09064acce9
+  #|sin 407b138d0888e1f0 bfd400799d50e5e8
+  #|cos 407b138d0888e1f0 3fee65a5ec9a4825
+  #|atan 407b138d0888e1f0 3ff91886eba2ee68
+  #|sin 40add804a1f93908 bfc55ad6f44c1315
+  #|cos 40add804a1f93908 3fef8d3028f3bef1
+  #|atan 40add804a1f93908 3ff920e8d55f61c6
+  #|sin c085a429154c12b2 bfef5ae0ac5c1029
+  #|cos c085a429154c12b2 3fc991f5c1fe30aa
+  #|atan c085a429154c12b2 bff91c112f56384e
+  #|sin c0b06f1b1e979bd8 3fdf6e78f26febc1
+  #|cos c0b06f1b1e979bd8 bfebdffee496d51c
+  #|atan c0b06f1b1e979bd8 bff921021703dffb
+  #|sin 409e580d6a7477a2 3fdf2db99b337a5c
+  #|cos 409e580d6a7477a2 3febf226b9b286f0
+  #|atan 409e580d6a7477a2 3ff91fdf62ebae04
+  #|sin c0ab8632f5a3f7f2 3fef6224b6ef643e
+  #|cos c0ab8632f5a3f7f2 bfc901c1144eb542
+  #|atan c0ab8632f5a3f7f2 bff920d1b349887e
+  #|sin c0977e47a76386e5 bfee658ea7164f13
+  #|cos c0977e47a76386e5 bfd4010711fc4232
+  #|atan c0977e47a76386e5 bff91f41f039aa26
+  #|sin 409dd1c9f7175d16 bfefebc32de0eb58
+  #|cos 409dd1c9f7175d16 bfb1fbbdaa8a23e9
+  #|atan 409dd1c9f7175d16 3ff91fd5e3ce73b2
+  #|sin c0afbdb54ec40887 3fe662fe77aef2f1
+  #|cos c0afbdb54ec40887 bfe6dd9842318281
+  #|atan c0afbdb54ec40887 bff920f93d9b5dd1
+  #|sin c09e85dc1994328b 3fe237f1105cfca0
+  #|cos c09e85dc1994328b 3fea4eb96fc72a51
+  #|atan c09e85dc1994328b bff91fe28d3deeda
+  #|sin c09c42bdd4de3085 3fe87fdca2c61fc1
+  #|cos c09c42bdd4de3085 3fe495f906634e8a
+  #|atan c09c42bdd4de3085 bff91fb7959ad9d1
+  #|sin c09b77f5efd4a9ac 3feed93627bc96a1
+  #|cos c09b77f5efd4a9ac 3fd103a578b5a349
+  #|atan c09b77f5efd4a9ac bff91fa6ddc4aafb
+  #|sin c0ae9c8dff30b3e3 3fe4e3e28ceeed5c
+  #|cos c0ae9c8dff30b3e3 bfe83d8fae0e276c
+  #|atan c0ae9c8dff30b3e3 bff920efb7ba8f39
+  #|sin c0a6b17329537104 bfee59a095da0392
+  #|cos c0a6b17329537104 bfd448fa6fe62fad
+  #|atan c0a6b17329537104 bff9209256e32606
+  #|sin 40751fbc0ee2e00c bfeee802616171aa
+  #|cos 40751fbc0ee2e00c 3fd096de51517d62
+  #|atan 40751fbc0ee2e00c 3ff915dce3de1529
+  #|sin c09dec26fedc8fd6 3fef1a50b0ffa68b
+  #|cos c09dec26fedc8fd6 3fce18f5c9c18047
+  #|atan c09dec26fedc8fd6 bff91fd7c7e4c779
+  #|sin 4085a32f2530a9a2 3fee57f4695d3578
+  #|cos 4085a32f2530a9a2 3fd452fa3233ba98
+  #|atan 4085a32f2530a9a2 3ff91c10eb0417d7
+  #|sin 40b353c99edde8bd 3fcc0a18b004eeb1
+  #|cos 40b353c99edde8bd bfef3907fa808309
+  #|atan 40b353c99edde8bd 3ff9212766a2163d
+  #|sin 40a69cdcf75d3b64 bfeb58b751f97a56
+  #|cos 40a69cdcf75d3b64 bfe09e45debdd1ed
+  #|atan 40a69cdcf75d3b64 3ff920910e3dc9ff
+  #|sin c08659bc408caed1 3fec030c6b252c48
+  #|cos c08659bc408caed1 3fdef0d715b1a3b4
+  #|atan c08659bc408caed1 bff91c413c2c505a
+  #|sin 40ac2a81e8de1623 bfeec99a1c74483c
+  #|cos 40ac2a81e8de1623 3fd1734f47d36617
+  #|atan 40ac2a81e8de1623 3ff920d87b860f50
+  #|sin c09b5f247ce888ec 3fee15b3d5ab35aa
+  #|cos c09b5f247ce888ec 3fd5cf0fa6e23414
+  #|atan c09b5f247ce888ec bff91fa4c0f302af
+  #|sin 40acb0468324b869 3fd7fb61d14e1bc5
+  #|cos 40acb0468324b869 bfedab1ef097c1af
+  #|atan 40acb0468324b869 3ff920ddc7ac0dd3
+  #|sin 40b16f1ba771ecda 3fec729d3b56bcc0
+  #|cos 40b16f1ba771ecda bfdd4ea35a66006e
+  #|atan 40b16f1ba771ecda 3ff9211062dbd0dc
+  #|sin 406773a49b83e7f1 bfe8b2d67ef758d2
+  #|cos 406773a49b83e7f1 3fe458b3ece67b41
+  #|atan 406773a49b83e7f1 3ff90c265ec6a6fd
+  #|sin 40b2431f3ed15ddb 3fdace8421da30f2
+  #|cos 40b2431f3ed15ddb 3fed0ec5afd10d87
+  #|atan 40b2431f3ed15ddb 3ff9211b0a6ad71b
+  #|sin c0b1699464d8ba8b bfd55caa7dad8f61
+  #|cos c0b1699464d8ba8b bfee2a31c75f353a
+  #|atan c0b1699464d8ba8b bff921101843f02f
+  #|sin 40a98539157f382d bfe33c269da0ec37
+  #|cos 40a98539157f382d 3fe992e09737b749
+  #|atan 40a98539157f382d 3ff920ba54c3014f
+  #|sin c0aa90ee17421fee bfee7bf2393f8383
+  #|cos c0aa90ee17421fee 3fd376e2c916b4d2
+  #|atan c0aa90ee17421fee bff920c6f775efdf
+  #|sin c0a5f5f02d431fd7 bfe5f5cffc0a533f
+  #|cos c0a5f5f02d431fd7 bfe74687e04e9a15
+  #|atan c0a5f5f02d431fd7 bff920864c9280a7
+  #|sin c08d8b573dd20f0e bfc9a77b9e9520ed
+  #|cos c08d8b573dd20f0e bfef59c75c1c43fd
+  #|atan c08d8b573dd20f0e bff91da63728d8a9
+  #|sin 40a12d775f62b254 bfd7d723656be7c2
+  #|cos 40a12d775f62b254 3fedb26b84fcad30
+  #|atan 40a12d775f62b254 3ff9201e6ddb223e
+  #|sin 40713d037e820c5a bfe348cbb62c5229
+  #|cos 40713d037e820c5a 3fe98958f2c31dca
+  #|atan 40713d037e820c5a 3ff913219621ad48
+  #|sin 407001921395514e bfeff20d7130a1af
+  #|cos 407001921395514e 3faddd463a36ddaa
+  #|atan 407001921395514e 3ff911fceb840e90
+  #|sin c091ee56d26507f6 3fe922a3281c9078
+  #|cos c091ee56d26507f6 bfe3cdf1039b9b83
+  #|atan c091ee56d26507f6 bff91e699aedabb3
+  #|sin 40b302abf3efdf89 bfd59fef19caf458
+  #|cos 40b302abf3efdf89 bfee1e33d798c76c
+  #|atan 40b302abf3efdf89 3ff92123de5a8702
+  #|sin 40b2ef1087130699 3fd9ae6a2b1bc76c
+  #|cos 40b2ef1087130699 bfed4f8a9175dedf
+  #|atan 40b2ef1087130699 3ff92122ff3b3627
+  #|sin 40b2b07044419ecb 3fca50e181efc17c
+  #|cos 40b2b07044419ecb bfef50ffa2fc2ee5
+  #|atan 40b2b07044419ecb 3ff921202a51e990
+  #|sin 4073b3b0ac030f97 3fec1765eeb0230d
+  #|cos 4073b3b0ac030f97 3fdea6b1f7533bcd
+  #|atan 4073b3b0ac030f97 3ff914fcf68d1b49
+  #|sin c0a3e52fa3e11154 bfee401dc2883d2a
+  #|cos c0a3e52fa3e11154 bfd4df3af505e271
+  #|atan c0a3e52fa3e11154 bff9205f92a1c199
+  #|sin c0b2ac109824f86e 3fefb92a9d2b3b0e
+  #|cos c0b2ac109824f86e 3fc0cbcdaa1b954b
+  #|atan c0b2ac109824f86e bff9211ff6fbc62a
+  #|sin c0949d5959933e0e 3fc0cdbda2f261c9
+  #|cos c0949d5959933e0e 3fefb91a32ad4787
+  #|atan c0949d5959933e0e bff91ee08df5092c
+  #|sin c09c02ae7b5bd766 bfed9349baf1b334
+  #|cos c09c02ae7b5bd766 bfd870065fdbc94b
+  #|atan c09c02ae7b5bd766 bff91fb267ba925d
+  #|sin 40abafb8937b3613 3fc25de0c77a2264
+  #|cos 40abafb8937b3613 3fefab3a341c9f17
+  #|atan 40abafb8937b3613 3ff920d371a5df67
+  #|sin c0b1361319e9d62f bfefffa9806a73e0
+  #|cos c0b1361319e9d62f 3f8299c80d07bedc
+  #|atan c0b1361319e9d62f bff9210d58520717
+  #|sin c0817f5ceb83596c bfe5066e0551d32e
+  #|cos c0817f5ceb83596c 3fe81f9f5eef1fd6
+  #|atan c0817f5ceb83596c bff91aaa9b93b515
+  #|sin 40a03de247543c1f bfe6c8f4c8ac05d6
+  #|cos 40a03de247543c1f 3fe677ff9a24bce5
+  #|atan 40a03de247543c1f 3ff92002f316674f
+  #|sin c0b137f41592201e 3fd2d98a4e4477ef
+  #|cos c0b137f41592201e bfee94a09226913b
+  #|atan c0b137f41592201e bff9210d7249def4
+  #|sin c08ffc2b98f4e516 3fe30e877246913e
+  #|cos c08ffc2b98f4e516 3fe9b4f18c2ab6e7
+  #|atan c08ffc2b98f4e516 bff91dfad9bdfc4d
+  #|sin 40a83c188ea4cead bfeeccabf304db1a
+  #|cos 40a83c188ea4cead bfd15d96ead78d1c
+  #|atan 40a83c188ea4cead 3ff920a94d5ac59e
+  #|sin c0799822c8a5b66c bfec8a23f8cb5f6b
+  #|cos c0799822c8a5b66c 3fdcf29488db53ff
+  #|atan c0799822c8a5b66c bff917fac31fbbee
+  #|sin 40989dfe40c65dc2 bfefff8e1c6abc96
+  #|cos 40989dfe40c65dc2 bf8557ed809659ad
+  #|atan 40989dfe40c65dc2 3ff91f61c6fbd929
+  #|sin c0b3008a310ce0a2 bfef40e9af83bee9
+  #|cos c0b3008a310ce0a2 3fcb7c33774daecc
+  #|atan c0b3008a310ce0a2 bff92123c62e43aa
+  #|sin c09c90223190dc78 3fd75aa00c3b76ea
+  #|cos c09c90223190dc78 3fedcb1d49f50efd
+  #|atan c09c90223190dc78 bff91fbdb86f0f4a
+  #|sin c08d27ac0ca1e164 bfb807f1fb5d1e2a
+  #|cos c08d27ac0ca1e164 bfefdbd3b427e53f
+  #|atan c08d27ac0ca1e164 bff91d9767905301
+  #|sin 40a3a6a61f47856f 3fec64023354f32e
+  #|cos 40a3a6a61f47856f bfdd8713f7cc3edf
+  #|atan 40a3a6a61f47856f 3ff9205a7442925c
+  #|sin 408b8265fceee152 3fe376cbc6ebb5b8
+  #|cos 408b8265fceee152 3fe9665aa1f72601
+  #|atan 408b8265fceee152 3ff91d542bfe11b7
+  #|sin c0ab10f7a261b350 bfe471abcfecb29e
+  #|cos c0ab10f7a261b350 bfe89e2fa81eae34
+  #|atan c0ab10f7a261b350 bff920ccaa2c1ef4
+  #|sin c0b1696f60574fe3 bfddd513bbae37b2
+  #|cos c0b1696f60574fe3 bfec4f98375b6f1a
+  #|atan c0b1696f60574fe3 bff92110164fd47c
+  #|sin c09a2ca1e5d31b0c 3fe4599377c5d132
+  #|cos c09a2ca1e5d31b0c bfe8b21e514bd757
+  #|atan c09a2ca1e5d31b0c bff91f895f6fe7c3
+  #|sin 40af42fafdb8a447 bfe90b050031cdab
+  #|cos 40af42fafdb8a447 3fe3ebc615f6530b
+  #|atan 40af42fafdb8a447 3ff920f548656637
+  #|sin c0ad71ddf626f871 3fea88c3a11cd475
+  #|cos c0ad71ddf626f871 3fe1e2ff61603037
+  #|atan c0ad71ddf626f871 bff920e51d14c915
+  #|asin 0000000000000000 0000000000000000
+  #|acos 0000000000000000 3ff921fb54442d18
+  #|asin 8000000000000000 8000000000000000
+  #|acos 8000000000000000 3ff921fb54442d18
+  #|asin 3ff0000000000000 3ff921fb54442d18
+  #|acos 3ff0000000000000 0000000000000000
+  #|asin bff0000000000000 bff921fb54442d18
+  #|acos bff0000000000000 400921fb54442d18
+  #|asin 3fe0000000000000 3fe0c152382d7366
+  #|acos 3fe0000000000000 3ff0c152382d7366
+  #|asin bfe0000000000000 bfe0c152382d7366
+  #|acos bfe0000000000000 4000c152382d7366
+  #|asin 3fdffffffffffffe 3fe0c152382d7364
+  #|acos 3fdffffffffffffe 3ff0c152382d7366
+  #|asin bfe0000000000001 bfe0c152382d7367
+  #|acos bfe0000000000001 4000c152382d7366
+  #|asin 3ff0000000000001 7ff8000000000000
+  #|acos 3ff0000000000001 7ff8000000000000
+  #|asin bff0000000000001 7ff8000000000000
+  #|acos bff0000000000001 7ff8000000000000
+  #|asin 4000000000000000 7ff8000000000000
+  #|acos 4000000000000000 7ff8000000000000
+  #|asin 7ff8000000000000 7ff8000000000000
+  #|acos 7ff8000000000000 7ff8000000000000
+  #|asin 3bc79ca10c924223 3bc79ca10c924223
+  #|acos 3bc79ca10c924223 3ff921fb54442d18
+  #|asin 3c60000000000000 3c60000000000000
+  #|acos 3c60000000000000 3ff921fb54442d18
+  #|asin 3c50000000000000 3c50000000000000
+  #|acos 3c50000000000000 3ff921fb54442d18
+  #|asin 3fefffffffffffff 3ff921fb50442d18
+  #|acos 3fefffffffffffff 3e50000000000000
+  #|asin bfefffffffffffff bff921fb50442d18
+  #|acos bfefffffffffffff 400921fb52442d18
+  #|asin 3fef333333333333 3ff58c2b5ce0c3e5
+  #|acos 3fef333333333333 3fccae7fbb1b499a
+  #|asin 3fef333333333332 3ff58c2b5ce0c3e3
+  #|acos 3fef333333333332 3fccae7fbb1b49ac
+  #|asin 3fef333333333334 3ff58c2b5ce0c3e7
+  #|acos 3fef333333333334 3fccae7fbb1b4988
+  #|asin bfc257cf9b6db4e0 bfc26808a2e56809
+  #|acos bfc257cf9b6db4e0 3ffb6efc68a0da19
+  #|asin bfdde759ab229696 bfdf1d741d0c7990
+  #|acos bfdde759ab229696 400074ac2dc3a5be
+  #|asin 3fea84c36774ed46 3fef41e25da4c2d2
+  #|acos 3fea84c36774ed46 3fe302144ae3975e
+  #|asin 3fd60e4f1b33504c 3fd684818e9955a2
+  #|acos 3fd60e4f1b33504c 3ff380daf09dd7b0
+  #|asin bfd61babc330ff2e bfd692be03d8e669
+  #|acos bfd61babc330ff2e 3ffec6aad53a66b2
+  #|asin bfed84a15db08887 bff2ca2672120800
+  #|acos bfed84a15db08887 4005f610e32b1a8c
+  #|asin 3fcb01f356165b00 3fcb364ebf0ca3c9
+  #|acos 3fcb01f356165b00 3ff5bb317c62989f
+  #|asin 3fc0064c420862c8 3fc0111711fc959f
+  #|acos 3fc0064c420862c8 3ff71fd872049a64
+  #|asin 3fcd10ea028c6460 3fcd5264ae38d408
+  #|acos 3fcd10ea028c6460 3ff577aebe7d1297
+  #|asin 3fc6a41d9a5c6748 3fc6c2c61a815dc4
+  #|acos 3fc6a41d9a5c6748 3ff649a290f40160
+  #|asin bfee20df90ce76fe bff3a22b38283c5e
+  #|acos bfee20df90ce76fe 40066213463634bb
+  #|asin bfe8c800b2d20af6 bfec58621eab7ba6
+  #|acos bfe8c800b2d20af6 4003a71631ccf576
+  #|asin bfe908e9f2a5b3e3 bfecbfc8349534d2
+  #|acos bfe908e9f2a5b3e3 4003c0efb74763c0
+  #|asin 3fea1c264ca02bfc 3fee8a0226cfcabf
+  #|acos 3fea1c264ca02bfc 3fe3b9f481b88f72
+  #|asin 3fe4aa95e509e29e 3fe6779d26826ef4
+  #|acos 3fe4aa95e509e29e 3febcc598205eb3c
+  #|asin bfe5547de01c6ada bfe758ccc3b120ce
+  #|acos bfe5547de01c6ada 40026730db0e5ec0
+  #|asin 3fd737a32fee2068 3fd7c2639ee09f24
+  #|acos 3fd737a32fee2068 3ff331626c8c054f
+  #|asin bfd4f57d1d1a48e8 bfd55a5708c7764f
+  #|acos bfd4f57d1d1a48e8 3ffe789116760aac
+  #|asin bfd905fb91678b48 bfd9b591dd553304
+  #|acos bfd905fb91678b48 3fff8f5fcb9979d9
+  #|asin bfc1afb8073292f0 bfc1be4063b30221
+  #|acos bfc1afb8073292f0 3ffb59c360ba8d5c
+  #|asin bfdf1086fe7d8f0c bfe037b8e5e5eb71
+  #|acos bfdf1086fe7d8f0c 40009eebe39b9168
+  #|asin 3fb2636da989d1a0 3fb2677c5cd44282
+  #|acos 3fb2636da989d1a0 3ff7fb838e76e8f0
+  #|asin bfedcca156f21737 bff32a128060d11b
+  #|acos bfedcca156f21737 40062606ea527f1a
+  #|asin bfeb6e9d1fc710d4 bff07a82eb15a442
+  #|acos bfeb6e9d1fc710d4 4004ce3f1face8ad
+  #|asin 3fee8d0a42825610 3ff44c9f25e1ee45
+  #|acos 3fee8d0a42825610 3fd35570b988fb4e
+  #|asin bfc73248f895b9a8 bfc75347558194bb
+  #|acos bfc73248f895b9a8 3ffc0c643ef45fb0
+  #|asin bfd73d98d4ed0dea bfd7c8c8ea94d7fa
+  #|acos bfd73d98d4ed0dea 3fff142d8ee96317
+  #|asin bfeeca87ae032321 bff4b888c9cba5be
+  #|acos bfeeca87ae032321 4006ed420f07e96b
+  #|asin 3febd8b669c9c3f8 3ff0e3ce31c7a6aa
+  #|acos 3febd8b669c9c3f8 3fe07c5a44f90cdd
+  #|asin 3fcd0dfd314640d0 3fcd4f63c8e663ea
+  #|acos 3fcd0dfd314640d0 3ff5780edb27609b
+  #|asin bfc47826c275ceac bfc48ebf43cd2614
+  #|acos bfc47826c275ceac 3ffbb3d33cbdd1db
+  #|asin bfcab0111c6ab194 bfcae28f9cfae9be
+  #|acos bfcab0111c6ab194 3ffc7e4d47e38a50
+  #|asin 3fe307a89653e2f8 3fe46144cff004f0
+  #|acos 3fe307a89653e2f8 3fede2b1d8985541
+  #|asin bfd6fc88877d3888 bfd7830310d894f7
+  #|acos bfd6fc88877d3888 3fff02bc187a5256
+  #|asin 3fe7b9877257ef66 3feab98dc92f1eef
+  #|acos 3fe7b9877257ef66 3fe78a68df593b41
+  #|asin bfd42f6524b12186 bfd489247e146855
+  #|acos bfd42f6524b12186 3ffe444473c9472e
+  #|asin 3fcde3d641294500 3fce2b24888b5df3
+  #|acos 3fcde3d641294500 3ff55c96c332c15a
+  #|asin 3fe279afa9ff20e8 3fe3b20cc7cc71b4
+  #|acos 3fe279afa9ff20e8 3fee91e9e0bbe87c
+  #|asin bfaad5d699c4a2c0 bfaad8fcce683a55
+  #|acos bfaad5d699c4a2c0 3ff9f8c33ab76eeb
+  #|asin 3f9705ad66502880 3f97062c88fe8151
+  #|acos 3f9705ad66502880 3ff8c5e2a2203313
+  #|asin 3fe914cb1741e7ea 3fecd2e1f6c2943d
+  #|acos 3fe914cb1741e7ea 3fe57114b1c5c5f4
+  #|asin bfbaac0ccb22b850 bfbab876c1dca858
+  #|acos bfbaac0ccb22b850 3ffacd82c061f79e
+  #|asin bfaaf8e2a72ec680 bfaafc1545591c46
+  #|acos bfaaf8e2a72ec680 3ff9f9dbfe6ef5fa
+  #|asin 3fa5f72bbad61840 3fa5f8e5ade7db2c
+  #|acos 3fa5f72bbad61840 3ff8723426d4ee3f
+  #|asin 3fb332dd353ce750 3fb3377b9bef43df
+  #|acos 3fb332dd353ce750 3ff7ee839a8538da
+  #|asin bfc49a5e24dea698 bfc4b1699c20c1bc
+  #|acos bfc49a5e24dea698 3ffbb82887c84550
+  #|asin bfe5c342cf423bd5 bfe7eea0a99a6422
+  #|acos bfe5c342cf423bd5 40028ca5d488af95
+  #|asin 3f9eade1f76cea80 3f9eaf0ee08e487c
+  #|acos 3f9eade1f76cea80 3ff8a73f18c1f3f6
+  #|asin bfed18d1a8ab0e38 bff243c9e4fd0941
+  #|acos bfed18d1a8ab0e38 4005b2e29ca09b2d
+  #|asin bfc4204eb6b25888 bfc435c704680182
+  #|acos bfc4204eb6b25888 3ffba8b434d12d48
+  #|asin bfedee2f9c15cdc2 bff358cad4e830a6
+  #|acos bfedee2f9c15cdc2 40063d6314962edf
+  #|asin 3fd7f8c52a0e6b64 3fd89228967e6132
+  #|acos 3fd7f8c52a0e6b64 3ff2fd712ea494cc
+  #|asin 3fd9384e9b85f9a8 3fd9ec491f6e1d0b
+  #|acos 3fd9384e9b85f9a8 3ff2a6e90c68a5d6
+  #|asin 3faaa261888cd400 3faaa575be5bdbf3
+  #|acos 3faaa261888cd400 3ff84ccfa6514e39
+  #|asin 3fe831294a2078d4 3feb6e096a0551ef
+  #|acos 3fe831294a2078d4 3fe6d5ed3e830841
+  #|asin 3fdc0bfd07da36bc 3fdd084820ff7e42
+  #|acos 3fdc0bfd07da36bc 3ff1dfe94c044d88
+  #|asin 3fe98a30c267460e 3fed92c5f5dc4735
+  #|acos 3fe98a30c267460e 3fe4b130b2ac12fc
+  #|asin bfee5eca2bf4e3ac bff4011f6920f930
+  #|acos bfee5eca2bf4e3ac 4006918d5eb29324
+  #|asin bfdfa53af10893b2 bfe08d02e41afc37
+  #|acos bfdfa53af10893b2 4000b43e6328d59a
+  #|asin bfc0e08fe2e0f1cc bfc0ed2e15e1d462
+  #|acos bfc0e08fe2e0f1cc 3ffb3fa1170067a5
+  #|asin bfe6ada87c324eac bfe934716c57fc9c
+  #|acos bfe6ada87c324eac 4002de1a053815b4
+  #|asin bfc03bd202425d84 bfc0470aea593d29
+  #|acos bfc03bd202425d84 3ffb2adcb18f54be
+  #|asin bfe138656e27bc54 bfe22edfeb9176f4
+  #|acos bfe138656e27bc54 40011cb5a506744a
+  #|asin 3faee390f4ae7540 3faee85ef7f98b2a
+  #|acos 3faee390f4ae7540 3ff82ab85c8460bf
+  #|asin 3fbdb2a729ea4b90 3fbdc3cf37a22fc8
+  #|acos 3fbdb2a729ea4b90 3ff745be60ca0a1c
+  #|asin bfed3f9683b75deb bff272f5ab7ff766
+  #|acos bfed3f9683b75deb 4005ca787fe2123f
+  #|asin 3fecb1716df52598 3ff1cb707fbc9e86
+  #|acos 3fecb1716df52598 3fdd5a2b521e3a4a
+  #|asin 3fe607551c5da068 3fe84bf91d0dcc01
+  #|acos 3fe607551c5da068 3fe9f7fd8b7a8e30
+  #|asin 3fed29d98a9721c2 3ff2585cb899573a
+  #|acos 3fed29d98a9721c2 3fdb267a6eab577b
+  #|asin 3fe07a33eb755bf2 3fe14f25097bfa42
+  #|acos 3fe07a33eb755bf2 3ff07a68cf862ff7
+  #|asin bfe8c8ab81e1d8cb bfec59701e488798
+  #|acos bfe8c8ab81e1d8cb 4003a759b1b43872
+  #|asin bfef441ca5125f15 bff5b308a23be9e4
+  #|acos bfef441ca5125f15 40076a81fb400b7e
+  #|asin 3fe4007b3021f844 3fe59b4b419b4810
+  #|acos 3fe4007b3021f844 3feca8ab66ed1220
+  #|asin bfe74b9e5d854428 bfea178750eb916c
+  #|acos bfe74b9e5d854428 400316df7e5cfae7
+  #|asin 3fef7ca5f9c4e160 3ff643808aa1fed2
+  #|acos 3fef7ca5f9c4e160 3fc6f3d64d117237
+  #|asin 3fe264ecec4eb4fe 3fe398a6ac599e81
+  #|acos 3fe264ecec4eb4fe 3feeab4ffc2ebbaf
+  #|asin bfcf841aeb3298e8 bfcfd7eec3654f1c
+  #|acos bfcf841aeb3298e8 3ffd1cf92cb0d6fc
+  #|asin 3fe983f9f5e6f826 3fed8877d3cd6442
+  #|acos 3fe983f9f5e6f826 3fe4bb7ed4baf5ee
+  #|asin 3feb2b09c48a58a2 3ff039bd9c2197fa
+  #|acos 3feb2b09c48a58a2 3fe1d07b70452a3c
+  #|asin 3feade92526beecc 3fefe4c13b0a9f04
+  #|acos 3feade92526beecc 3fe25f356d7dbb2c
+  #|asin bfc7d10431761d84 bfc7f4c1a69ce285
+  #|acos bfc7d10431761d84 3ffc20938917c969
+  #|asin bfeb1b5924932389 bff02aefc4f8a95c
+  #|acos bfeb1b5924932389 4004a6758c9e6b3a
+  #|asin bfda6a4364660f5e bfdb3aaa0f62f284
+  #|acos bfda6a4364660f5e 3ffff0a5d81ce9b9
+  #|asin bfd981f6f4e715a8 bfda3c8339418098
+  #|acos bfd981f6f4e715a8 3fffb11c22948d3e
+  #|asin bfb3a46e2d4b2738 bfb3a96099e9ee8d
+  #|acos bfb3a46e2d4b2738 3ffa5c915de2cc01
+  #|asin bfa51a480e7c9210 bfa51bcfeb0d66ea
+  #|acos bfa51a480e7c9210 3ff9cad9d39c9850
+  #|asin 3f8890b83e0e7680 3f8890ded9652928
+  #|acos 3f8890b83e0e7680 3ff8f0d9969162c6
+  #|asin bfae3584900e3910 bfae3a030c7cba85
+  #|acos bfae3584900e3910 3ffa13cb6ca812ec
+  #|asin 3fa39c9597847c60 3fa39dd017213dc5
+  #|acos 3fa39c9597847c60 3ff8850cd38b232a
+  #|asin 3fe33778bc85ab88 3fe49ce6e466ebe4
+  #|acos 3fe33778bc85ab88 3feda70fc4216e4c
+  #|asin bfece6b34ee4de03 bff208830b6c7fc9
+  #|acos bfece6b34ee4de03 4005953f2fd85670
+  #|asin 3fb8cde50d50cea0 3fb8d7df5697520e
+  #|acos 3fb8cde50d50cea0 3ff7947d5edab7f7
+  #|asin bfbb007cb1521f90 bfbb0d5e6c328c89
+  #|acos bfbb007cb1521f90 3ffad2d13b0755e1
+  #|asin 3fe3a62d12df9dc0 3fe5283f38146756
+  #|acos 3fe3a62d12df9dc0 3fed1bb77073f2da
+  #|asin bfda820822d4eb36 bfdb54c4c2e93a45
+  #|acos bfda820822d4eb36 3ffff72c84fe7baa
+  #|asin bfdbc91970d6fb68 bfdcbdf2cfae7bd4
+  #|acos bfdbc91970d6fb68 400028bc0417e607
+  #|asin 3fe7ff790f71ae12 3feb2287163225ac
+  #|acos 3fe7ff790f71ae12 3fe7216f92563484
+  #|asin bfee599ca32ecf63 bff3f8ee1ed11545
+  #|acos bfee599ca32ecf63 40068d74b98aa12e
+  #|asin 3feaef7fe077663a 3ff00202178e51a8
+  #|acos 3feaef7fe077663a 3fe23ff2796bb6e0
+  #|asin bfdf96db5ef5d122 bfe084bedb65e20c
+  #|acos bfdf96db5ef5d122 4000b22d60fb8f0f
+  #|asin 3fe4fe5bfeef0f42 3fe6e5f8a6847417
+  #|acos 3fe4fe5bfeef0f42 3feb5dfe0203e61a
+  #|asin bfe6add3ff31b1a9 bfe934af191e8136
+  #|acos bfe6add3ff31b1a9 4002de297069b6da
+  #|asin bfe7b7d94ff90502 bfeab70cec25bb54
+  #|acos bfe7b7d94ff90502 40033ec0e52b8561
+  #|asin bfed882e4251eada bff2cec0ec85ca57
+  #|acos bfed882e4251eada 4005f85e2064fbb8
+  #|asin 3fe89d872bc64bd4 3fec1594c9012652
+  #|acos 3fe89d872bc64bd4 3fe62e61df8733df
+  #|asin 3fdb6bd977ab3f64 3fdc569734be37da
+  #|acos 3fdb6bd977ab3f64 3ff20c5587149f22
+  #|asin bfd270840d21f594 bfd2b464964fe9a6
+  #|acos bfd270840d21f594 3ffdcf1479d82782
+  #|asin bfd80caf66444304 bfd8a7a48e25c50f
+  #|acos bfd80caf66444304 3fff4be477cd9e5c
+  #|asin bfd02b75dfeabe64 bfd058d0a3e1e624
+  #|acos bfd02b75dfeabe64 3ffd382f7d3ca6a1
+  #|asin 3fc3972387f331b8 3fc3aaed6bee5199
+  #|acos 3fc3972387f331b8 3ff6ac9da6c662e5
+  #|asin 3fc358cf68ad5028 3fc36bdd7770da7e
+  #|acos 3fc358cf68ad5028 3ff6b47fa55611c8
+  #|asin 3fd615e7376ad340 3fd68c98b88cde4b
+  #|acos 3fd615e7376ad340 3ff37ed52620f586
+  #|asin 3fcd77596f980490 3fcdbb9da9bf42ac
+  #|acos 3fcd77596f980490 3ff56a879f0c44c3
+  #|asin bfbdb2ebd982de20 bfbdc4145ec2429f
+  #|acos bfbdb2ebd982de20 3ffafe3c9a305142
+  #|asin 3fd685b3cbd3fecc 3fd703dfa5a7759d
+  #|acos 3fd685b3cbd3fecc 3ff361036ada4fb1
+  #|asin bfeec34efb463584 bff4ab58ed5f5778
+  #|acos bfeec34efb463584 4006e6aa20d1c248
+  #|asin bfe421291be56bd6 bfe5c53eecda26e0
+  #|acos bfe421291be56bd6 4002024d6558a044
+  #|asin bfe5e3a4055bae26 bfe81ae7b2523324
+  #|acos bfe5e3a4055bae26 400297b796b6a355
+  #|asin bfd41542279de170 bfd46d9b9a26320e
+  #|acos bfd41542279de170 3ffe3d623acdb99c
+  #|asin 3fe73fc02cd31bb0 3fea063cd313cc76
+  #|acos 3fe73fc02cd31bb0 3fe83db9d5748dbb
+  #|asin bfd936eba6e6a114 bfd9eac6ecb2fb5f
+  #|acos bfd936eba6e6a114 3fff9cad0f70ebf0
+  #|asin 3febe3e33b0432bc 3ff0ef2c965ea73c
+  #|acos 3febe3e33b0432bc 3fe0659d7bcb0bb9
+  #|asin bfe1c880b0dfc495 bfe2db03f4974904
+  #|acos bfe1c880b0dfc495 400147bea747e8cd
+  #|asin bfb7922b1a6ce3a8 bfb79aba1b6ec8d7
+  #|acos bfb7922b1a6ce3a8 3ffa9ba6f5fb19a6
+  #|asin bfc8bb91eec7f00c bfc8e3a5597f5903
+  #|acos bfc8bb91eec7f00c 3ffc3e6fff741839
+  #|asin 3fdddc24049b499c 3fdf10c708becdc4
+  #|acos 3fdddc24049b499c 3ff15dc9921479a8
+  #|asin bfdbd75d2b6a3564 bfdccdc971e10ca6
+  #|acos bfdbd75d2b6a3564 40002ab6d85e3821
+  #|asin 3fe6b7d54500c8ac 3fe942e0bf24f797
+  #|acos 3fe6b7d54500c8ac 3fe90115e9636299
+  #|asin bfe1fed1af686410 bfe31c8670022e2c
+  #|acos bfe1fed1af686410 4001581f4622a217
+  #|asin bfe946c59c0e26d1 bfed23ddc96d6713
+  #|acos bfe946c59c0e26d1 4003d9f51c7d7051
+  #|asin bfb685f0cf8ce130 bfb68d67cad58d8d
+  #|acos bfb685f0cf8ce130 3ffa8ad1d0f185f1
+  #|asin bfbdb56802147a58 bfbdc694dacb737e
+  #|acos bfbdb56802147a58 3ffafe64a1f0e450
+  #|asin 3fb74d46c279c4d0 3fb7558b63826412
+  #|acos 3fb74d46c279c4d0 3ff7aca29e0c06d7
+  #|asin bfe3a2be93a668e8 bfe523e66932e6c8
+  #|acos bfe3a2be93a668e8 4001d9f7446ed03e
+  #|asin 3fa41be20f039b60 3fa41d351a5e24cc
+  #|acos 3fa41be20f039b60 3ff88111ab713bf2
+  #|asin 3fca305d25446368 3fca600b1f00387f
+  #|acos 3fca305d25446368 3ff5d5f9f0642608
+  #|asin bfe3e81318d3199a bfe57c12fcc983dc
+  #|acos bfe3e81318d3199a 4001f00269547783
+  #|asin 3fed2ba2c9a0d354 3ff25a887aa4a262
+  #|acos 3fed2ba2c9a0d354 3fdb1dcb667e2ad8
+  #|asin bfd1f2f927b9f732 bfd2317271076559
+  #|acos bfd1f2f927b9f732 3ffdae57f086066e
+  #|asin 3fe3e0ec42144a9a 3fe572f1a61a5450
+  #|acos 3fe3e0ec42144a9a 3fecd105026e05e1
+  #|asin bfcc0e5bdde463d8 bfcc49265e7a344a
+  #|acos bfcc0e5bdde463d8 3ffcab20201373a2
+  #|asin 3fdfce9dc30269b4 3fe0a4d6861a01eb
+  #|acos 3fdfce9dc30269b4 3ff0cf9011372c23
+  #|asin 3fcbf7e915479b28 3fcc3224d1cf76f1
+  #|acos 3fcbf7e915479b28 3ff59bb6ba0a3e3a
+  #|asin 3fe73b64d8c4feac 3fe9ffe6532017cc
+  #|acos 3fe73b64d8c4feac 3fe8441055684264
+  #|asin 3fd9d26b545e9a64 3fda94569c20875b
+  #|acos 3fd9d26b545e9a64 3ff27ce5ad3c0b42
+  #|asin 3fe6daa907ba8f6a 3fe9747b4efa9d91
+  #|acos 3fe6daa907ba8f6a 3fe8cf7b598dbca0
+  #|asin 3fcfbd7c4f8ea0a8 3fd009931db5f3ca
+  #|acos 3fcfbd7c4f8ea0a8 3ff51f968cd6b026
+  #|asin 3fb11e94c2dfb030 3fb121daaa3f01cf
+  #|acos 3fb11e94c2dfb030 3ff80fdda9a03cfb
+  #|asin 3fd8244afaff5c58 3fd8c12026be6d25
+  #|acos 3fd8244afaff5c58 3ff2f1b34a9491cf
+  #|asin 3fccf00edec63f28 3fcd30a8f3d9d745
+  #|acos 3fccf00edec63f28 3ff57be635c8f230
+  #|asin bfe830d02a2fde43 bfeb6d8142f70d90
+  #|acos bfe830d02a2fde43 40036c5dfadfd9f0
+  #|asin 3fedd9372e8032ae 3ff33b6eebd145b5
+  #|acos 3fedd9372e8032ae 3fd79a31a1cb9d8c
+  #|asin 3fe9ce9c2290bc44 3fee0566084d2926
+  #|acos 3fe9ce9c2290bc44 3fe43e90a03b310b
+  #|asin bfb326ed8a4283e0 bfb32b83553ca7df
+  #|acos bfb326ed8a4283e0 3ffa54b38997f796
+  #|asin 3fe6828dddf2dcd2 3fe8f792d6eaf2f8
+  #|acos 3fe6828dddf2dcd2 3fe94c63d19d6739
+  #|asin bfb51364ec14e7a0 bfb51981f7252acd
+  #|acos bfb51364ec14e7a0 3ffa739373b67fc5
+  #|asin 3fe432f4802548c4 3fe5dc299a89394b
+  #|acos 3fe432f4802548c4 3fec67cd0dff20e6
+  #|asin bf8066bb490222c0 bf8066c6c66b5b4b
+  #|acos bf8066bb490222c0 3ff942c8e1d103cf
+  #|asin 3fd8ee94da1d8f5c 3fd99c2726d92e3c
+  #|acos 3fd8ee94da1d8f5c 3ff2baf18a8de189
+  #|asin 3fcd3da2fbc012e0 3fcd8052b0b8a361
+  #|acos 3fcd3da2fbc012e0 3ff571f0fe2d18ac
+  #|asin bfd18cbd5825d6ce bfd1c70a055ca133
+  #|acos bfd18cbd5825d6ce 3ffd93bdd59b5565
+  #|asin 3fe525bd596fc356 3fe71a4bb5791e9d
+  #|acos 3fe525bd596fc356 3feb29aaf30f3b94
+  #|asin bfe59c0bcd40dc00 bfe7b94c7c6112ca
+  #|acos bfe59c0bcd40dc00 40027f50c93a5b3e
+  #|asin 3fb8292c7e336950 3fb8326498c94919
+  #|acos 3fb8292c7e336950 3ff79ed50ab79887
+  #|asin bfe27eb562d02220 bfe3b833e2bc0f2a
+  #|acos bfe27eb562d02220 40017f0aa2d11a56
+  #|asin bfd2d1e2aeaee934 bfd31a2b8db3e85e
+  #|acos bfd2d1e2aeaee934 3ffde88637b12730
+  #|asin bfe95e4b3aac8a34 bfed4a56cf4abba4
+  #|acos bfe95e4b3aac8a34 4003e3935df4c575
+  #|asin bfdf1534375ac484 bfe03a65a2427fc3
+  #|acos bfdf1534375ac484 40009f9712b2b67d
+  #|asin 3fef051b976c7762 3ff529a4bea22859
+  #|acos 3fef051b976c7762 3fcfc2b4ad1025f9
+  #|asin 3fe64f57936ca8d8 3fe8afd4aff8a7a6
+  #|acos 3fe64f57936ca8d8 3fe99421f88fb28a
+  #|asin bfea45e19d7aed00 bfeed2a5741f0f32
+  #|acos bfea45e19d7aed00 400445a70729da58
+  #|asin bfef2e9c6148ef04 bff581e6454c5bf0
+  #|acos bfef2e9c6148ef04 400751f0ccc84484
+  #|asin bfdaf576688f0104 bfdbd3d071bbad57
+  #|acos bfdaf576688f0104 40000b77b8598c37
+  #|asin 3fe00be1e6b06272 3fe0cf0c67e7d5ae
+  #|acos 3fe00be1e6b06272 3ff0ba7520504242
+  #|asin bfed6ea1bdbb8277 bff2ade5c4c8bc08
+  #|acos bfed6ea1bdbb8277 4005e7f08c867490
+  #|asin 3fe97f4727e344d6 3fed80b00a23ecf4
+  #|acos 3fe97f4727e344d6 3fe4c3469e646d3c
+  #|asin bf8e91f6abd49f80 bf8e924113ad0a4b
+  #|acos bf8e91f6abd49f80 3ff95f1fd66b872d
+  #|asin bfa3d4bc2d1c7a10 bfa3d60159a2c8eb
+  #|acos bfa3d4bc2d1c7a10 3ff9c0ab5f114360
+  #|asin bfc3b0a5be5a96e0 bfc3c4bde4204e65
+  #|acos bfc3b0a5be5a96e0 3ffb9a9310c836e5
+  #|asin bfce40f9d5199640 bfce8af6b450b16b
+  #|acos bfce40f9d5199640 3ffcf35a2ace4346
+  #|asin bfdc7c4591a0fd26 bfdd856ee8971d70
+  #|acos bfdc7c4591a0fd26 400041ab8734fa3a
+  #|asin bfe9afd533be33bc bfedd191d61ec8f9
+  #|acos bfe9afd533be33bc 400405621fa9c8ca
+  #|asin bfe7ad6e49e94f76 bfeaa78c194cca72
+  #|acos bfe7ad6e49e94f76 40033ae0b0754929
+  #|asin 3fd86e44502f0f68 3fd911147bac129a
+  #|acos 3fd86e44502f0f68 3ff2ddb635592872
+  #|asin bfdbea2cd9ef19ee bfdce2af59d88af0
+  #|acos bfdbea2cd9ef19ee 40002d53955d27ea
+  #|asin bfe89a91e90eef34 bfec10f410d658bd
+  #|acos bfe89a91e90eef34 4003953aae57acbc
+  #|asin bfe8453b756ed914 bfeb8cc427ff9a87
+  #|acos bfe8453b756ed914 4003742eb421fd2e
+  #|asin bfc3041e7f7e61cc bfc31634ee1b09b2
+  #|acos bfc3041e7f7e61cc 3ffb84c1f2078e4e
+  #|asin 3fed4166678fa97e 3ff27531c1811bc4
+  #|acos 3fed4166678fa97e 3fdab3264b0c4553
+  #|asin bfebd6b5ca231785 bff0e1c631b29a4e
+  #|acos bfebd6b5ca231785 400501e0c2fb63b3
+  #|asin bfe01e113e34b964 bfe0e4152851a958
+  #|acos bfe01e113e34b964 4000ca02f43680e2
+  #|asin 3fe893721f45e256 3fec05d214f116a9
+  #|acos 3fe893721f45e256 3fe63e2493974387
+  #|asin 3fbe2b0e54f4c060 3fbe3d0b47048af0
+  #|acos 3fbe2b0e54f4c060 3ff73e2a9fd3e469
+  #|asin bfe1c5cdd37da47e bfe2d7c510d68a10
+  #|acos bfe1c5cdd37da47e 400146eeee57b910
+  #|asin bfcab68b85a2d3b0 bfcae92f53ba8291
+  #|acos bfcab68b85a2d3b0 3ffc7f213ebb7d6a
+  #|asin 3fe1ff5b093b2584 3fe31d2c8bdad601
+  #|acos 3fe1ff5b093b2584 3fef26ca1cad842f
+  #|asin bfcb4e0bcc3fbb54 bfcb842d027d552c
+  #|acos bfcb4e0bcc3fbb54 3ffc9280f493d7be
+  #|asin 3fd9c5ac5209dba8 3fda86691f8c28cb
+  #|acos 3fd9c5ac5209dba8 3ff280610c6122e6
+  #|asin bfcb6f2fa21dba20 bfcba619b48d6d3d
+  #|acos bfcb6f2fa21dba20 3ffc96be8ad5dac0
+  #|asin 3f5c1302db2d0800 3f5c1303c1aac920
+  #|acos 3f5c1302db2d0800 3ff91af69353c266
+  #|asin bfed4012b981a569 bff2738ec8079a37
+  #|acos bfed4012b981a569 4005cac50e25e3a8
+  #|asin 3fdf0a2a40ebb9c4 3fe034158f621dd9
+  #|acos 3fdf0a2a40ebb9c4 3ff107f08c931e2c
+  #|asin bfd0c665f6e88464 bfd0f927cccf8493
+  #|acos bfd0c665f6e88464 3ffd604547780e3d
+  #|asin 3f9278a26ac05540 3f9278e412e42da0
+  #|acos 3f9278a26ac05540 3ff8d817c3f89c62
+  #|asin bf86909ca95d7d00 bf8690ba956cc75f
+  #|acos bf86909ca95d7d00 3ff94f1cc96f06a7
+  #|asin 3fbfcfb5576aed80 3fbfe4d0499a6e19
+  #|acos 3fbfcfb5576aed80 3ff723ae4faa8637
+  #|asin bfe269bd258c0884 bfe39e88ec869923
+  #|acos bfe269bd258c0884 4001789fe543bcd5
+  #|asin 3fe62c554562c56e 3fe87f2303d12bdb
+  #|acos 3fe62c554562c56e 3fe9c4d3a4b72e55
+  #|asin 3fcd2f843b487538 3fcd71d1f3632a12
+  #|acos 3fcd2f843b487538 3ff573c115d7c7d6
+  #|asin bfd526f6d2373080 bfd58ebb626cb109
+  #|acos bfd526f6d2373080 3ffe85aa2cdf595a
+  #|asin bfe9511a9e0bbcc3 bfed34bc9e7873ca
+  #|acos bfe9511a9e0bbcc3 4003de2cd1c0337e
+  #|asin 3fe041d0aa3078d2 3fe10d860bea50e6
+  #|acos 3fe041d0aa3078d2 3ff09b384e4f04a5
+  #|asin bfd12a88c52cb54a bfd1610260cc3886
+  #|acos bfd12a88c52cb54a 3ffd7a3bec773b3a
+  #|asin 3fec6967fa0b862c 3ff17ba69f5eeed7
+  #|acos 3fec6967fa0b862c 3fde9952d394f906
+  #|asin bfec542943c4dd2a bff164b0090ad0d0
+  #|acos bfec542943c4dd2a 40054355aea77ef4
+  #|asin 3fed4cb757da9ce0 3ff283366d5d0d7d
+  #|acos 3fed4cb757da9ce0 3fda7b139b9c7e6d
+  #|asin 3fe65acefc13c150 3fe8bfd739010a95
+  #|acos 3fe65acefc13c150 3fe9841f6f874f9c
+  #|asin 3fdcc3ad134bd224 3fddd544a13b4f4a
+  #|acos 3fdcc3ad134bd224 3ff1acaa2bf55946
+  #|asin bfbd7c193d225890 bfbd8ce30b88610e
+  #|acos bfbd7c193d225890 3ffafac984fcb329
+  #|asin 3fe74585ac56906c 3fea0ea43aa36312
+  #|acos 3fe74585ac56906c 3fe835526de4f71f
+  #|asin bfd79f86e201171a bfd832059eddb1e0
+  #|acos bfd79f86e201171a 3fff2e7cbbfb9990
+  #|asin bfe907d9ec0c4b73 bfecbe13858a9830
+  #|acos bfe907d9ec0c4b73 4003c0828b84bc98
+  #|asin 3fcd9a5d040cca10 3fcddf99d3da8e26
+  #|acos 3fcd9a5d040cca10 3ff5660819c8db54
+  #|asin bfdebc719981970c bfe007b6c3a74aea
+  #|acos bfdebc719981970c 400092eb5b0be946
+  #|asin 3fee249b0c8f9e2c 3ff3a7b7a2abdb2b
+  #|acos 3fee249b0c8f9e2c 3fd5e90ec66147b5
+  #|asin 3fee3fc1b4fdf7ce 3ff3d0bbc4d6b828
+  #|acos 3fee3fc1b4fdf7ce 3fd544fe3db5d3c2
+  #|asin bf947778405bb0e0 bf9477d1924a8a2e
+  #|acos bf947778405bb0e0 3ff973da9a8d5741
+  #|asin 3fe6e726c9dbbca4 3fe98658f43492f0
+  #|acos 3fe6e726c9dbbca4 3fe8bd9db453c740
+  #|asin 3fc466c75678f9b0 3fc47d260e78d22b
+  #|acos 3fc466c75678f9b0 3ff69256927512d3
+  #|asin bfe946754262200b bfed235ac4b10d74
+  #|acos bfe946754262200b 4003d9d45b4e59e9
+  #|asin bfdf023b49a88e94 bfe02f8c8b818af7
+  #|acos bfdf023b49a88e94 40009ce0cd02794a
+  #|asin 3fdfd3fc3e59a4c8 3fe0a7ee94f900a5
+  #|acos 3fdfd3fc3e59a4c8 3ff0ce0409c7acc6
+  #|asin bfd0b8ced0839214 bfd0eb1306ba6801
+  #|acos bfd0b8ced0839214 3ffd5cc015f2c718
+  #|asin 3fec21174f11f3ba 3ff12e76a59b1c2e
+  #|acos 3fec21174f11f3ba 3fdfce12baa443ab
+  #|asin 3fefe7ac952a52f6 3ff7e63f659abae3
+  #|acos 3fefe7ac952a52f6 3fb3bbbeea972359
+  #|asin bfe059727ca5e4c0 bfe128fcc4bb5b2b
+  #|acos bfe059727ca5e4c0 4000db3cdb50ed57
+  #|asin bfce15eb9aaf7940 bfce5ea8ed890891
+  #|acos bfce15eb9aaf7940 3ffcedd071f54e2a
+  #|asin bfbcb6d9d874b218 bfbcc65a36c07b5e
+  #|acos bfbcb6d9d874b218 3ffaee60f7b034ce
+  #|asin 3fe9ad6514d02de8 3fedcd7ba503635c
+  #|acos 3fe9ad6514d02de8 3fe4767b0384f6d5
+  #|asin 3feb09df6e5f9920 3ff01a8c2f703ebb
+  #|acos 3feb09df6e5f9920 3fe20ede49a7dcba
+  #|asin bfe3e769551fe4f2 bfe57b3a2bbab75d
+  #|acos bfe3e769551fe4f2 4001efcc3510c463
+  #|asin bfeb4ad54147379f bff05801e1a507ef
+  #|acos bfeb4ad54147379f 4004bcfe9af49a84
+  #|asin 3fe760d3b1d60d8c 3fea368665434b1c
+  #|acos 3fe760d3b1d60d8c 3fe80d7043450f14
+  #|asin 3fe3847e055e3290 3fe4fda7fce6bc65
+  #|acos 3fe3847e055e3290 3fed464eaba19dcb
+  #|asin bfed8359e2137715 bff2c87e9a720cee
+  #|acos bfed8359e2137715 4005f53cf75b1d03
+  #|asin 3feba2ddb73e561e 3ff0adc9a931c44c
+  #|acos 3feba2ddb73e561e 3fe0e8635624d199
+  #|asin 3fe894dca3da17c8 3fec0808355ddfbd
+  #|acos 3fe894dca3da17c8 3fe63bee732a7a74
+  #|asin bfc372ad4ac8334c bfc38608b8ab144a
+  #|acos bfc372ad4ac8334c 3ffb92bc6b598fa2
+  #|asin 3fe67c5d7188f952 3fe8eedeceb3bdb3
+  #|acos 3fe67c5d7188f952 3fe95517d9d49c7d
+  #|asin 3fe3dd07aff32e48 3fe56dfa3ed309aa
+  #|acos 3fe3dd07aff32e48 3fecd5fc69b55086
+  #|asin 3fd4de6a03ee3718 3fd541eccd40ba59
+  #|acos 3fd4de6a03ee3718 3ff3d18020f3fe82
+  #|asin bfc047b155f06f84 bfc053030e614969
+  #|acos bfc047b155f06f84 3ffb2c5bb6105645
+  #|asin 3fe59e3545009274 3fe7bc3b0744ae41
+  #|acos 3fe59e3545009274 3fea87bba143abf0
+  #|asin bfebae0023bd520a bff0b8db53f0511d
+  #|acos bfebae0023bd520a 4004ed6b541a3f1a
+  #|asin 3fd5e703e3e83164 3fd65aaaeba93f75
+  #|acos 3fd5e703e3e83164 3ff38b509959dd3b
+  #|asin 3fd23132b3c570c4 3fd2724fa9aa2a4e
+  #|acos 3fd23132b3c570c4 3ff4856769d9a285
+  #|asin 3fe966a424a796e2 3fed580c7370fff4
+  #|acos 3fe966a424a796e2 3fe4ebea35175a3d
+  #|asin 3febcbb06eabfd56 3ff0d6a05656980e
+  #|acos 3febcbb06eabfd56 3fe096b5fbdb2a16
+  #|asin 3fefce66c391e220 3ff75f06a6a987ac
+  #|acos 3fefce66c391e220 3fbc2f4ad9aa56c3
+  #|asin bfe2ddd87f3ade7a bfe42d619d502457
+  #|acos bfe2ddd87f3ade7a 40019c5611761fa2
+  #|asin bfeda77f73f7b637 bff2f7e91c4471b9
+  #|acos bfeda77f73f7b637 40060cf238444f69
+  #|asin bfb7ca4875c97d40 bfb7d315524d8057
+  #|acos bfb7ca4875c97d40 3ffa9f2ca969051e
+  #|asin bfe0f1d1d5254c8a bfe1db68f6937da3
+  #|acos bfe0f1d1d5254c8a 400107d7e7c6f5f5
+  #|asin bfb4d1db9b0bc170 bfb4d7c03258c82b
+  #|acos bfb4d1db9b0bc170 3ffa6f775769b99b
+  #|asin bfeb0a5543009578 bff01afa599b156e
+  #|acos bfeb0a5543009578 40049e7ad6efa143
+  #|asin 3fe96181bc849798 3fed4f9cc7a457a6
+  #|acos 3fe96181bc849798 3fe4f459e0e4028a
+  #|asin 3fd2fa50c1ad3bb4 3fd3447cb8c50536
+  #|acos 3fd2fa50c1ad3bb4 3ff450dc2612ebcb
+  #|asin 3fd53fbe766f9d0c 3fd5a8fe9f6f2bcc
+  #|acos 3fd53fbe766f9d0c 3ff3b7bbac686225
+  #|asin bfe4abbfd0eb7a92 bfe67923648b212a
+  #|acos bfe4abbfd0eb7a92 40022f468344ded7
+  #|asin 3fe318455c1ae706 3fe475f38cefcdd0
+  #|acos 3fe318455c1ae706 3fedce031b988c61
+  #|asin 3fe199f0c2928568 3fe2a322b0caf786
+  #|acos 3fe199f0c2928568 3fefa0d3f7bd62aa
+  #|asin 3fe8b98e3b8a521a 3fec4196535d3fb1
+  #|acos 3fe8b98e3b8a521a 3fe60260552b1a80
+  #|asin bfe5e50873f00c82 bfe81cd0623344c8
+  #|acos bfe5e50873f00c82 40029831c2aee7be
+  #|asin 3fe4ccd1a86f42f4 3fe6a48e825dec58
+  #|acos 3fe4ccd1a86f42f4 3feb9f68262a6dd9
+  #|asin 3fe37e9e66972626 3fe4f63f3d8b0401
+  #|acos 3fe37e9e66972626 3fed4db76afd5630
+  #|asin 3fd89f3bb86ef7b0 3fd946180393f6b0
+  #|acos 3fd89f3bb86ef7b0 3ff2d075535f2f6c
+  #|asin 3feb32b4a6d35c52 3ff04101b132a7f2
+  #|acos 3feb32b4a6d35c52 3fe1c1f346230a4e
+  #|asin 3fdba51a4733b634 3fdc96034ba0bf08
+  #|acos 3fdba51a4733b634 3ff1fc7a815bfd56
+  #|asin 3fd691dde8531cb4 3fd710df10eb2b2e
+  #|acos 3fd691dde8531cb4 3ff35dc39009624d
+  #|asin bfec791a38799a55 bff18cc70736bf28
+  #|acos bfec791a38799a55 400557612dbd7620
+  #|asin 3fe9eb8b198420e2 3fee3688b180e41b
+  #|acos 3fe9eb8b198420e2 3fe40d6df7077615
+  #|asin 3fe8990d20b548ce 3fec0e9422b2e9b7
+  #|acos 3fe8990d20b548ce 3fe6356285d5707a
+  #|asin bfabd435afb6cfe0 bfabd7b8e341cbdc
+  #|acos bfabd435afb6cfe0 3ffa00b91b5e3b77
+  #|asin bfe89cfdf229e0ae bfec14be0a1e571c
+  #|acos bfe89cfdf229e0ae 4003962d2ca9ac53
+  #|asin 3fde1519b7923a80 3fdf513e388a8524
+  #|acos 3fde1519b7923a80 3ff14dabc6218bd0
+  #|asin 3fe080cdb88fbbca 3fe156d8ce497cd2
+  #|acos 3fe080cdb88fbbca 3ff0768eed1f6eaf
+  #|asin 3fc14d244b2b88b0 3fc15abd9a38fdc5
+  #|acos 3fc14d244b2b88b0 3ff6f6a3a0fd0d60
+  #|asin bfee47e62bd4d0b3 bff3dd448f4d6a64
+  #|acos bfee47e62bd4d0b3 40067f9ff1c8cbbe
+  #|asin 3fe9430075536d72 3fed1db8b7336f98
+  #|acos 3fe9430075536d72 3fe5263df154ea99
+  #|asin 3fecf3e1f615b028 3ff217ed152ad8b1
+  #|acos 3fecf3e1f615b028 3fdc2838fc65519d
+  #|asin 3fd871ad05a4c1f8 3fd914c4bcbd80d3
+  #|acos 3fd871ad05a4c1f8 3ff2dcca2514cce4
+  #|asin bfe5f44b9c50d02a bfe831c4548d0bc6
+  #|acos bfe5f44b9c50d02a 40029d6ebf45597e
+  #|asin bfe9bd5fd5049a26 bfede851ab53bdd8
+  #|acos bfe9bd5fd5049a26 40040b1214f70602
+  #|asin bfeeb0ff098fe9e8 bff48a8dc12db269
+  #|acos bfeeb0ff098fe9e8 4006d6448ab8efc0
+  #|asin bfc16152daa272f4 bfc16f1c3cd42593
+  #|acos bfc16152daa272f4 3ffb4fdedbdeb1cb
+  #|asin bfec1b7bef254bd2 bff1289741870d27
+  #|acos bfec1b7bef254bd2 400525494ae59d20
+  #|asin 3fb3894ffff7ed50 3fb38e2e02799391
+  #|acos 3fb3894ffff7ed50 3ff7e918741c93df
+  #|asin bfa308ece9f354d0 bfa30a0c75e94bdc
+  #|acos bfa308ece9f354d0 3ff9ba4bb7f37777
+  #|asin 3fd899dc93710718 3fd9404650940cd9
+  #|acos 3fd899dc93710718 3ff2d1e9c01f29e2
+  #|asin 3fa2191b93f9a640 3fa21a12b5f79b27
+  #|acos 3fa2191b93f9a640 3ff8912abe94703f
+  #|asin 3fe1b28e676a7b70 3fe2c0a54ea7723e
+  #|acos 3fe1b28e676a7b70 3fef835159e0e7f3
+  #|asin bfe920c5f2fa8b78 bfece633af50bed5
+  #|acos bfe920c5f2fa8b78 4003ca8a95f64641
+  #|asin bfdb573b4e15092a bfdc3fc7a01d9312
+  #|acos bfdb573b4e15092a 400018f69e25c8ee
+  #|asin 3fec34a652783cf4 3ff14312580fb9bb
+  #|acos 3fec34a652783cf4 3fdf7ba3f0d1cd74
+  #|asin bfe776f82a9d78e1 bfea5705693d5a29
+  #|acos bfe776f82a9d78e1 400326bf04716d16
+  #|asin 3fee96a0fafb2080 3ff45cd6e44b26d4
+  #|acos 3fee96a0fafb2080 3fd31491bfe41910
+  #|asin 3fea2ecb939d71de 3feeaa5979e6a1e0
+  #|acos 3fea2ecb939d71de 3fe3999d2ea1b850
+  #|asin 3fe38990fd0fa058 3fe5040fa39b11a2
+  #|acos 3fe38990fd0fa058 3fed3fe704ed488f
+  #|asin 3fe14e9f4d2a39f2 3fe249458fe0aec5
+  #|acos 3fe14e9f4d2a39f2 3feffab118a7ab6c
+  #|asin 3fe27d2bade3d2a4 3fe3b6517a054ed6
+  #|acos 3fe27d2bade3d2a4 3fee8da52e830b5a
+  #|asin bfe898fe1a90a0ec bfec0e7ca5a9d705
+  #|acos bfe898fe1a90a0ec 4003949cd38c8c4e
+  #|asin 3fb6773cc676de50 3fb67ea5241ffaba
+  #|acos 3fb6773cc676de50 3ff7ba1102022d6d
+  #|asin 3fe6ba1d1659046e 3fe9461de3f4968d
+  #|acos 3fe6ba1d1659046e 3fe8fdd8c493c3a4
+  #|asin bfc193ccead8e894 bfc1a2107d92789d
+  #|acos bfc193ccead8e894 3ffb563d63f67c2c
+  #|asin bfc9fdadfb7ba6b8 bfca2c45b9a7e8e7
+  #|acos bfc9fdadfb7ba6b8 3ffc67840b792a35
+  #|asin 3fdb78c7405e63b4 3fdc64e7018a9ae3
+  #|acos 3fdb78c7405e63b4 3ff208c193e18660
+  #|asin bfdf034aa24fbe8a bfe03027a428f849
+  #|acos bfdf034aa24fbe8a 40009d07932c549e
+  #|asin bfea191c17a48d66 bfee84c0b656ef18
+  #|acos bfea191c17a48d66 4004322dd7b7d252
+  #|asin bfedeb8bba1b8e1d bff35510c593d4b6
+  #|acos bfedeb8bba1b8e1d 40063b860cec00e7
+  #|asin bfdecb1dd348f132 bfe010149067ed15
+  #|acos bfdecb1dd348f132 40009502ce3c11d2
+  #|asin bfb641400a547ab0 bfb6487361c84b6b
+  #|acos bfb641400a547ab0 3ffa86828a60b1cf
+  #|asin 3fdd175f0e73af50 3fde3318537fedd9
+  #|acos 3fdd175f0e73af50 3ff195353f6431a2
+  #|asin bfd973e012c66b2a bfda2d274994b2fd
+  #|acos bfd973e012c66b2a 3fffad4526a959d8
+  #|asin bfd446b94973c068 bfd4a1bb69ca3398
+  #|acos bfd446b94973c068 3ffe4a6a2eb6b9fe
+  #|asin bfe302b0588477f2 bfe45b16c8602d62
+  #|acos bfe302b0588477f2 4001a7c35c3a21e4
+  #|asin 3fe321e32a20798c 3fe481f1105ce3a2
+  #|acos 3fe321e32a20798c 3fedc205982b768f
+  #|asin bfd529237b14fce6 bfd5910933e5a1b5
+  #|acos bfd529237b14fce6 3ffe863da13d9586
+  #|asin 3fc80e87bdb38920 3fc8335ffe188458
+  #|acos 3fc80e87bdb38920 3ff61b8f54811c8d
+  #|asin 3fef0252d7416ebe 3ff523fd98032cb3
+  #|acos 3fef0252d7416ebe 3fcfefede2080328
+  #|asin bfe88ef740adecce bfebfed446d44444
+  #|acos bfe88ef740adecce 400390b2bbd7279d
+  #|asin bfe94a85be96e6be bfed29fc3100b1f3
+  #|acos bfe94a85be96e6be 4003db7cb6624309
+  #|asin bfe025f597d3ea51 bfe0ed38918bf8d5
+  #|acos bfe025f597d3ea51 4000cc4bce8514c2
+  #|asin bfa47829629f6030 bfa4798f00023a1e
+  #|acos bfa47829629f6030 3ff9c5c7cc443ee9
+  #|asin bfd86119b4148a2e bfd902d65f2b6ddf
+  #|acos bfd86119b4148a2e 3fff62b0ec0f0890
+  #|asin 3fdcb1075a7d7d6c 3fddc06679c28554
+  #|acos 3fdcb1075a7d7d6c 3ff1b1e1b5d38bc3
+  #|asin bfdc299e04b36854 bfdd2942b5fa29df
+  #|acos bfdc299e04b36854 4000362600e15bc8
+  #|asin 3fd1a4124b110478 3fd1df4e5cd62330
+  #|acos 3fd1a4124b110478 3ff4aa27bd0ea44c
+  #|asin bfed95514e779338 bff2dfe55eb9b9c4
+  #|acos bfed95514e779338 400600f0597ef36e
+  #|asin bfe375a13bce7606 bfe4eaeaf90e6a2b
+  #|acos bfe375a13bce7606 4001cbb86865b117
+  #|asin bfe38909206a86e6 bfe50364191b9c59
+  #|acos bfe38909206a86e6 4001d1d6b068fda2
+  #|asin 3fea56393fb28e26 3feeef585052433d
+  #|acos 3fea56393fb28e26 3fe3549e583616f3
+  #|asin 3fd87561f5498040 3fd918c7914e3243
+  #|acos 3fd87561f5498040 3ff2dbc96ff0a088
+  #|asin bfdc2fa6dd49626c bfdd2ffb3e88f3a0
+  #|acos bfdc2fa6dd49626c 400036fd11f33500
+  #|asin 3fc8350e20705460 3fc85a9a78007e7f
+  #|acos 3fc8350e20705460 3ff616a805441d48
+  #|asin 3fb033e0fcdd05f0 3fb036a7346bef83
+  #|acos 3fb033e0fcdd05f0 3ff81e90e0fd6e20
+  #|asin bfe0785c1b50b38e bfe14cfeb1b1d8cc
+  #|acos bfe0785c1b50b38e 4000e43d568e8cbf
+  #|asin bfe125bdf14dce86 bfe218c2f8c67206
+  #|acos bfe125bdf14dce86 4001172e6853b30e
+  #|asin 3fe5f91e32126662 3fe83865ec14c75c
+  #|acos 3fe5f91e32126662 3fea0b90bc7392d4
+  #|asin bfdf860ad2e9f108 bfe07b14f35924aa
+  #|acos bfdf860ad2e9f108 4000afc2e6f85fb6
+  #|asin 3feb04075b41e69c 3ff01517076ce0e6
+  #|acos 3feb04075b41e69c 3fe219c899ae9864
+  #|asin bf99451ba9d0d300 bf9945c3ccac5e99
+  #|acos bf99451ba9d0d300 3ff987126376de93
+  #|asin bfcfcbceafa37f94 bfd010f7837c392e
+  #|acos bfcfcbceafa37f94 3ffd263935233b64
+  #|asin bfd30d20d2fae4a8 bfd358308a31168c
+  #|acos bfd30d20d2fae4a8 3ffdf80776d072bb
+  #|asin 3fec4694c0c21ea2 3ff15623015184e9
+  #|acos 3fec4694c0c21ea2 3fdf2f614bcaa0bc
+  #|asin bfb4b7fef2793778 bfb4bdcda426898b
+  #|acos bfb4b7fef2793778 3ffa6dd82e8695b1
+  #|asin 3feaa89e77661196 3fef82530efb20e6
+  #|acos 3feaa89e77661196 3fe2c1a3998d394b
+  #|asin 3fe1a88a556bd462 3fe2b4a13e6dd432
+  #|acos 3fe1a88a556bd462 3fef8f556a1a85fe
+  #|asin 3fd227cac0982b2c 3fd26880551a2be7
+  #|acos 3fd227cac0982b2c 3ff487db3efda21e
+  #|asin bfed1f7a779e92f8 bff24bce6b523372
+  #|acos bfed1f7a779e92f8 4005b6e4dfcb3045
+  #|asin 3fa12970a0e28de0 3fa12a4358d09689
+  #|acos 3fa12970a0e28de0 3ff898a9397da864
+  #|asin 3fdcdbcd5f5d9724 3fddf04974e0ab70
+  #|acos 3fdcdbcd5f5d9724 3ff1a5e8f70c023c
+  #|asin 3feba2c82835e794 3ff0adb44768a919
+  #|acos 3feba2c82835e794 3fe0e88e19b707ff
+  #|asin 3fef6afeaf372558 3ff6138f47d7db0d
+  #|acos 3fef6afeaf372558 3fc8736063629058
+  #|asin bfe11bd48d61820d bfe20d070c6d73b9
+  #|acos bfe11bd48d61820d 4001143f6d3d737a
+  #|asin 3fb4931f3f242dd0 3fb498cf16d2106b
+  #|acos 3fb4931f3f242dd0 3ff7d86e62d70c12
+  #|asin 3fdb1313db2b3ef0 3fdbf47b92be43bd
+  #|acos 3fdb1313db2b3ef0 3ff224dc6f949c29
+  #|asin 3fd5315845ff84f4 3fd599bb653ceb35
+  #|acos 3fd5315845ff84f4 3ff3bb8c7af4f24b
+  #|asin 3fe992a8f67f7e9e 3feda0d8bd7c9832
+  #|acos 3fe992a8f67f7e9e 3fe4a31deb0bc1ff
+  #|asin 3fe4368ada10581a 3fe5e0c9ec3cfebc
+  #|acos 3fe4368ada10581a 3fec632cbc4b5b75
+  #|asin 3feaba2ff6ca356e 3fefa22db23f4f93
+  #|acos 3feaba2ff6ca356e 3fe2a1c8f6490a9e
+  #|asin 3fe99400b1c9911a 3feda314a7ab0f26
+  #|acos 3fe99400b1c9911a 3fe4a0e200dd4b0a
+  #|asin bfde72de72d169a0 bfdfbba9da1d47de
+  #|acos bfde72de72d169a0 40008872e565bf88
+  #|asin bfe151f9808d4018 bfe24d42072980a5
+  #|acos bfe151f9808d4018 4001244e2bec76b6
+  #|asin 3fa75552a642f880 3fa75764768553eb
+  #|acos 3fa75552a642f880 3ff8674030900279
+  #|asin bfc79d59a82ec650 bfc7c02e138ed5ed
+  #|acos bfc79d59a82ec650 3ffc1a0116b607d6
+  #|asin bfcc89a99c7aa9a8 bfccc794f30e400f
+  #|acos bfcc89a99c7aa9a8 3ffcbaedf2a5f51a
+  #|asin bfdccb17bc725a88 bfdddd92534f3694
+  #|acos bfdccb17bc725a88 40004caff48bfd5f
+  #|asin bfe5bfa37a759444 bfe7e9b020a38cb9
+  #|acos bfe5bfa37a759444 40028b69b24af9ba
+  #|asin bfec99654e9619b6 bff1b075e2228ab2
+  #|acos bfec99654e9619b6 400569389b335be5
+  #|asin 3fd5bd63f7a90960 3fd62e63c9ea5908
+  #|acos 3fd5bd63f7a90960 3ff3966261c996d6
+  #|asin 3fdaa241f2335358 3fdb78310abe7cad
+  #|acos 3fdaa241f2335358 3ff243ef11948ded
+  #|asin bfe943ea00580e92 bfed1f3538a0b3de
+  #|acos bfe943ea00580e92 4003d8caf84a4384
+  #|asin 3fdf2fd2c2b75814 3fe049a17ec01103
+  #|acos 3fdf2fd2c2b75814 3ff0fd2a94e42496
+  #|asin 3fe925e302183690 3fecee773a156698
+  #|acos 3fe925e302183690 3fe5557f6e72f398
+  #|asin 3f7e63a828ae1000 3f7e63ba6e41c1ad
+  #|acos 3f7e63a828ae1000 3ff9039799d5eb57
+  #|asin 3feb09f14b70987c 3ff01a9ce2b00493
+  #|acos 3feb09f14b70987c 3fe20ebce328510b
+  #|asin bfdd815f792c6868 bfdeaa52f6e0b420
+  #|acos bfdd815f792c6868 4000664808fe2d10
+  #|asin 3fd501296def4638 3fd566b22a6e5f4e
+  #|acos 3fd501296def4638 3ff3c84ec9a89545
+  #|asin bfbf66bc224a41a8 bfbf7b07e4639f71
+  #|acos bfbf66bc224a41a8 3ffb19abd28a670f
+  #|asin bfe056ea1e6ab3ad bfe1260a9b752ebe
+  #|acos bfe056ea1e6ab3ad 4000da8050ff623c
+  #|asin bfe7a0292de82fa0 bfea93d8c1f2cd84
+  #|acos bfe7a0292de82fa0 400335f3da9ec9ed
+  #|asin bfd1598fd4f7175c bfd191d8917ed7e8
+  #|acos bfd1598fd4f7175c 3ffd867178a3e312
+  #|asin 3feea5513ec5e6d2 3ff476189c9279b4
+  #|acos 3feea5513ec5e6d2 3fd2af8adec6cd8f
+  #|asin bfd57ca4d76c2d48 bfd5e99a16b9d132
+  #|acos bfd57ca4d76c2d48 3ffe9c61d9f2a165
+  #|asin 3fecaf12c3f0f6fc 3ff1c8c3cb5134bc
+  #|acos 3fecaf12c3f0f6fc 3fdd64de23cbe173
+  #|asin bfe339a153dbe68d bfe49f9a0e04764f
+  #|acos bfe339a153dbe68d 4001b8e42da33420
+  #|asin 3fe8fbcaa44722e4 3fecaabf7947ba96
+  #|acos 3fe8fbcaa44722e4 3fe599372f409f9a
+  #|asin 3fdffe05dce401a8 3fe0c02e034572b8
+  #|acos 3fdffe05dce401a8 3ff0c1e452a173bc
+  #|asin 3fe67b51fa17d944 3fe8ed66ec869052
+  #|acos 3fe67b51fa17d944 3fe9568fbc01c9de
+  #|asin bfec990806917e28 bff1b00ded7fed27
+  #|acos bfec990806917e28 40056904a0e20d20
+  #|asin bfd50dd17a9a5e06 bfd57418b1b0562c
+  #|acos bfd50dd17a9a5e06 3ffe7f0180b042a4
+  #|asin 3fe0dcb1877f733e 3fe1c287841923da
+  #|acos 3fe0dcb1877f733e 3ff040b792379b2b
+  #|asin 3fe15c393d98fad0 3fe25973d68045a4
+  #|acos 3fe15c393d98fad0 3fefea82d208148d
+  #|asin 3fe14827897a0d1a 3fe24195a23978fa
+  #|acos 3fe14827897a0d1a 3ff001308327709b
+  #|asin bfef06df6d55a99a bff52d3e3ca87b14
+  #|acos bfef06df6d55a99a 4007279cc8765416
+  #|asin bfb922f466dea5c8 bfb92d5705a42e92
+  #|acos bfb922f466dea5c8 3ffab4d0c49e7001
+  #|asin bfdb72989912fa0a bfdc5e0ee1b279db
+  #|acos bfdb72989912fa0a 40001cbf865865c8
+  #|asin bfe4796411b6844e bfe63764597d710c
+  #|acos bfe4796411b6844e 40021ed6c08172cf
+  #|asin 3fe8c3e52fbf411c 3fec51e4ecca29d6
+  #|acos 3fe8c3e52fbf411c 3fe5f211bbbe305a
+  #|asin bfc10d54f4c08114 bfc11a5929f21b34
+  #|acos bfc10d54f4c08114 3ffb45467982707f
+  #|asin bfd1c884ac6456b6 bfd2053bfd03aeaf
+  #|acos bfd1c884ac6456b6 3ffda34a538518c4
+  #|asin 3fd8ed608ff1c904 3fd99ad86c7f6637
+  #|acos 3fd8ed608ff1c904 3ff2bb453924538a
+  #|asin bfd796bbc879f458 bfd8288fc25597e4
+  #|acos bfd796bbc879f458 3fff2c1f44d99311
+  #|asin bfbadd537b40c9b8 bfbaea02fa6112ec
+  #|acos bfbadd537b40c9b8 3ffad09b83ea3e47
+  #|asin 3fea637d0fea6830 3fef06bf3771a8d6
+  #|acos 3fea637d0fea6830 3fe33d377116b15a
+  #|asin 3fe23d2f88b0223c 3fe3682fbac75434
+  #|acos 3fe23d2f88b0223c 3feedbc6edc105fc
+  #|asin bfeb55bbc585157c bff06277df5740ea
+  #|acos bfeb55bbc585157c 4004c23999cdb701
+  #|asin 3fecfc63e20a03d8 3ff221f09894a4c6
+  #|acos 3fecfc63e20a03d8 3fdc002aeebe214a
+  #|asin bfe1e9f9d0351578 bfe303584429104b
+  #|acos bfe1e9f9d0351578 400151d3bb2c5a9f
+  #|asin 3faa342db49303a0 3faa371c4837ef51
+  #|acos 3faa342db49303a0 3ff8504272026d9e
+  #|asin bfe63b73c542a548 bfe89421b5ede25e
+  #|acos bfe63b73c542a548 4002b606179d8f24
+  #|asin 3f96db4a2a347a00 3f96dbc693969718
+  #|acos 3f96db4a2a347a00 3ff8c68c39f5d2bc
+  #|asin bfd66d0fc7f87f1a bfd6e98e9695fc04
+  #|acos bfd66d0fc7f87f1a 3ffedc5ef9e9ac19
+  #|asin bfc486840e90be28 bfc49d4ca3616865
+  #|acos bfc486840e90be28 3ffbb5a4e8b05a25
+  #|asin bfd572c203e7ccac bfd5df1b9f15bf5e
+  #|acos bfd572c203e7ccac 3ffe99c23c099cf0
+  #|asin 3fe807471ae82c14 3feb2e55fbf7c3d5
+  #|acos 3fe807471ae82c14 3fe715a0ac90965b
+  #|asin bfcd3488605f5ed4 bfcd76f8dc9d0b78
+  #|acos bfcd3488605f5ed4 3ffcd0da6fd7ce87
+  #|asin 3fd99e83bdb47a18 3fda5ba79894c006
+  #|acos 3fd99e83bdb47a18 3ff28b116e1efd17
+  #|asin bfb36652a4f1f770 bfb36b16a3e7628d
+  #|acos bfb36652a4f1f770 3ffa58acbe82a341
+  #|asin 3fe2e17737435978 3fe431dd2f87cc9e
+  #|acos 3fe2e17737435978 3fee121979008d93
+  #|asin bfd718d30294b0ce bfd7a1561f9d5141
+  #|acos bfd718d30294b0ce 3fff0a50dc2b8168
+  #|asin 3fda04922fb12ecc 3fdacb30a24493d7
+  #|acos 3fda04922fb12ecc 3ff26f2f2bb30823
+  #|asin bfdcb2685ce57cf0 bfddc1f1671b8691
+  #|acos bfdcb2685ce57cf0 4000493bd705875e
+  #|asin bfe9e0d0e9a6d707 bfee2444f7924a9c
+  #|acos bfe9e0d0e9a6d707 40041a0ee806a933
+  #|asin bfe40fa0d38409de bfe5aeb7a209e7c8
+  #|acos bfe40fa0d38409de 4001fcab92a4907e
+  #|asin bfd6b0b1a65ac474 bfd731d3d54befb3
+  #|acos bfd6b0b1a65ac474 3ffeee7049972905
+  #|asin bfc33d36ed0a6064 bfc34ff3579fd7a1
+  #|acos bfc33d36ed0a6064 3ffb8bf9bf38280c
+  #|asin 3fec3720db80195a 3ff145b277a35a8e
+  #|acos 3fec3720db80195a 3fdf712372834a27
+  #|asin bfdab04fa4d5612e bfdb87a67a96ed52
+  #|acos bfdab04fa4d5612e 400001f27974f436
+  #|asin bfe48789cbd016b4 bfe649d154b67f41
+  #|acos bfe48789cbd016b4 40022371ff4fb65c
+  #|asin bfeebb18d9d5a039 bff49c87cd911ed6
+  #|acos bfeebb18d9d5a039 4006df4190eaa5f8
+  #|asin bfe126dc7b0cc41c bfe21a165d7cbb78
+  #|acos bfe126dc7b0cc41c 400117834181456a
+  #|asin 3fbdfc3cf50f8d80 3fbe0de6514e2831
+  #|acos 3fbdfc3cf50f8d80 3ff7411cef2f4a95
+  #|asin bfdb435cdd3bdcc8 bfdc29cfcaab7c67
+  #|acos bfdb435cdd3bdcc8 40001637a3778619
+  #|asin bfe32bf8eb045ff9 bfe48e87bd7892cc
+  #|acos bfe32bf8eb045ff9 4001b49f99803b3f
+  #|asin 3fc83c7f8c760b90 3fc8622ef3692c0e
+  #|acos 3fc83c7f8c760b90 3ff615b575d70796
+  #|asin 3fc8b71d88f89600 3fc8df1b105256d9
+  #|acos 3fc8b71d88f89600 3ff60617f239e23d
+  #|asin 3fe248641a30ef56 3fe375d4e8cfd214
+  #|acos 3fe248641a30ef56 3feece21bfb8881d
+  #|asin bfdb0147b9f0df1c bfdbe0d8c152a26a
+  #|acos bfdb0147b9f0df1c 40000d18c24c6ad9
+  #|asin bfd5cc1fa51a9744 bfd63e0e9a7dbbd7
+  #|acos bfd5cc1fa51a9744 3ffeb17efae39c0e
+  #|asin bfe69627f2f3f0a1 bfe91332d6f0b179
+  #|acos bfe69627f2f3f0a1 4002d5ca5fde42ea
+  #|asin bfd0e08d45f0027a bfd114433b4200b4
+  #|acos bfd0e08d45f0027a 3ffd670c2314ad45
+  #|asin 3fda776d54b41d9c 3fdb491e9210fe6d
+  #|acos 3fda776d54b41d9c 3ff24fb3afbfed7d
+  #|asin bfe0f1ee688c7744 bfe1db8aa63e1a83
+  #|acos bfe0f1ee688c7744 400107e053b19d2d
+  #|asin bfc7602de781a988 bfc781f3a6b51afb
+  #|acos bfc7602de781a988 3ffc1239c91ad078
+  #|asin bfe2c88437c60570 bfe4130155cdca8d
+  #|acos bfe2c88437c60570 400195bdff95892f
+  #|asin bf9355a201ed3140 bf9355ed4ed6bfcf
+  #|acos bf9355a201ed3140 3ff96f53097f8818
+  #|asin 3fec2b9b9b7feab8 3ff139854bd9b0a8
+  #|acos 3fec2b9b9b7feab8 3fdfa1d821a9f1c1
+  #|asin bfc4310eaf50bd94 bfc446bd2d57947f
+  #|acos bfc4310eaf50bd94 3ffbaad2f9ef1fa8
+  #|asin 3fcbf1784913a198 3fcc2b8b3b784d45
+  #|acos 3fcbf1784913a198 3ff59c89ecd52370
+  #|asin bfcf4d7f5a9bb374 bfcf9f9a4c4b8f7b
+  #|acos bfcf4d7f5a9bb374 3ffd15ee9dcd9f08
+  #|asin bfc44b5b9983878c bfc4615fe7473fa3
+  #|acos bfc44b5b9983878c 3ffbae27512d150d
+  #|asin 3fd6d4433d8fa5a0 3fd757e248e4ce5d
+  #|acos 3fd6d4433d8fa5a0 3ff34c02c20af981
+  #|asin bfd3a0b2c4ddcd6c bfd3f2ff5ef6b1ff
+  #|acos bfd3a0b2c4ddcd6c 3ffe1ebb2c01d998
+  #|asin bfed8734c8282077 bff2cd7d224b4da5
+  #|acos bfed8734c8282077 4005f7bc3b47bd5e
+  #|asin 3fe7319a1ef90f48 3fe9f1ac8ba2b020
+  #|acos 3fe7319a1ef90f48 3fe8524a1ce5aa10
+  #|asin 3fe0b3a2a989c2d6 3fe1924ed3475e50
+  #|acos 3fe0b3a2a989c2d6 3ff058d3eaa07df1
+  #|asin 3feac6692a9c0720 3fefb873ee72724a
+  #|acos 3feac6692a9c0720 3fe28b82ba15e7e6
+  #|asin 3fd681087ebcddf0 3fd6fee2bc22e630
+  #|acos 3fd681087ebcddf0 3ff36242a53b738c
+  #|asin 3fd36b315ae393a8 3fd3bad066c1785b
+  #|acos 3fd36b315ae393a8 3ff433473a93cf02
+  #|asin bfe1c8d27f226d6a bfe2db665b2bb101
+  #|acos bfe1c8d27f226d6a 400147d740ed02cc
+  #|asin 3fd8b192a3c7380c 3fd959f7b392e431
+  #|acos 3fd8b192a3c7380c 3ff2cb7d675f740c
+  #|asin bfb7f60f23125a90 bfb7ff0d0edbc659
+  #|acos bfb7f60f23125a90 3ffaa1ec2531e97e
+  #|asin 3fde7709879efc08 3fdfc0672033746b
+  #|acos 3fde7709879efc08 3ff131e18c374ffe
+  #|asin bfe65e3ca5a04228 bfe8c4a22b30bf2b
+  #|acos bfe65e3ca5a04228 4002c22634ee4657
+  #|asin bfed014aefa7c73e bff227bbf42613f0
+  #|acos bfed014aefa7c73e 4005a4dba4352084
+  #|asin 3fd417a4443fb35c 3fd4701e2fb8f8c7
+  #|acos 3fd417a4443fb35c 3ff405f3c855eee6
+  #|asin bfdd44dea9eb3142 bfde6637614b92a7
+  #|acos bfdd44dea9eb3142 40005dc4964b88e1
+  #|asin 3fd06d4e8e4b9c94 3fd09ce80c3574ed
+  #|acos 3fd06d4e8e4b9c94 3ff4fac15136cfdd
+  #|asin bfed58cb12dd3a7d bff2924b84b18c30
+  #|acos bfed58cb12dd3a7d 4005da236c7adca4
+  #|asin 3fd05360fc655c10 3fd08215e45e8c9b
+  #|acos 3fd05360fc655c10 3ff50175db2c89f2
+  #|asin bfef9f023612ff52 bff6ab0f33383781
+  #|acos bfef9f023612ff52 4007e68543be324c
+  #|asin 3fef570985e85c6a 3ff5e0a30452e269
+  #|acos 3fef570985e85c6a 3fca0ac27f8a5579
+  #|asin 3feb238ef68ec1cc 3ff032ac2eef8612
+  #|acos 3feb238ef68ec1cc 3fe1de9e4aa94e0e
+  #|asin bfe9954b53c7f10d bfeda53af8a111ad
+  #|acos bfe9954b53c7f10d 4003fa4c684a5af7
+  #|asin 3fe02cbc594bacfa 3fe0f512803ba41d
+  #|acos 3fe02cbc594bacfa 3ff0a77214265b0a
+  #|asin bfefeb85d4311754 bff8004f5e886f18
+  #|acos bfefeb85d4311754 4008912559664e18
+  #|asin bfd504ad12f6e0b8 bfd56a6a9a03f179
+  #|acos bfd504ad12f6e0b8 3ffe7c95fac52977
+  #|asin bfe05b5290100632 bfe12b2b48079946
+  #|acos bfe05b5290100632 4000dbc87c23fcde
+  #|asin 3fee7037829e9c36 3ff41d111049b868
+  #|acos 3fee7037829e9c36 3fd413a90fe9d2c4
+  #|asin 3fdf70d475624ff4 3fe06ee65e4d20dd
+  #|acos 3fdf70d475624ff4 3ff0ea88251d9caa
+  #|asin 3fcabe241e682ce8 3fcaf0f3c1cf2222
+  #|acos 3fcabe241e682ce8 3ff5c3dcdc0a48d4
+  #|asin bfba957f84c51680 bfbaa1c9fece6bff
+  #|acos bfba957f84c51680 3ffacc17f43113d8
+  #|asin bfec458d7277e050 bff15509e4f3e41c
+  #|acos bfec458d7277e050 40053b829c9c089a
+  #|asin bfe30b379e910093 bfe465b238ae8a85
+  #|acos bfe30b379e910093 4001aa6a384db92d
+  #|asin bfe0d6f059f03c80 bfe1bbc29c32fdea
+  #|acos bfe0d6f059f03c80 4000ffee512ed607
+  #|asin bfee705cffb95344 bff41d4dd019c0e2
+  #|acos bfee705cffb95344 40069fa4922ef6fd
+  #|asin 3fd154df16287130 3fd18cf92993e2d8
+  #|acos 3fd154df16287130 3ff4bebd09df3462
+  #|asin bfd2e361d699f8ea bfd32c7ab6f85d0d
+  #|acos bfd2e361d699f8ea 3ffded1a0202445c
+  #|asin bfc991a156111768 bfc9bdf661e5ee4a
+  #|acos bfc991a156111768 3ffc59ba2080eae2
+  #|asin 3feca956fc499d5c 3ff1c24eed853d79
+  #|acos 3feca956fc499d5c 3fdd7eb19afbbe7e
+  #|asin 3fea2ee6775fb1a2 3feeaa883f973557
+  #|acos 3fea2ee6775fb1a2 3fe3996e68f124da
+  #|asin 3fc0c2a74d41e980 3fc0cf02895994f0
+  #|acos 3fc0c2a74d41e980 3ff7081b0318fa7a
+  #|asin 3fba7e31b55c1aa0 3fba8a5bde478add
+  #|acos 3fba7e31b55c1aa0 3ff77955965fb46a
+  #|asin bfebb8ff670ed3a6 bff0c3d70ed16017
+  #|acos bfebb8ff670ed3a6 4004f2e9318ac698
+  #|asin bfe7a6eafc5c04be bfea9ddf295690c6
+  #|acos bfe7a6eafc5c04be 400338757477babe
+  #|asin bfe58045799e6bc2 bfe793b81da5d0ad
+  #|acos bfe58045799e6bc2 400275ebb18b8ab8
+  #|asin bf993b77218317a0 bf993c1e842534b0
+  #|acos bf993b77218317a0 3ff986ebce54c1eb
+  #|asin bf937dc308486640 bf937e102deb56df
+  #|acos bf937dc308486640 3ff96ff394fbda74
+  #|asin bfa7b19400dc9a50 bfa7b3bec327c51b
+  #|acos bfa7b19400dc9a50 3ff9df994a5d6b41
+  #|asin 3fea16449b6b7032 3fee7fd81096ccaa
+  #|acos 3fea16449b6b7032 3fe3c41e97f18d87
+  #|asin bfe3e9b78355e8e0 bfe57e2c00dc4b6a
+  #|acos bfe3e9b78355e8e0 4001f088aa592967
+  #|asin bfe91bccad072981 bfecde2c9198c511
+  #|acos bfe91bccad072981 4003c888ce8847d0
+  #|asin 3fde684db385d360 3fdfafa765eff40a
+  #|acos 3fde684db385d360 3ff136117ac83016
+  #|asin bfd86b050d70d1f4 bfd90d912817fbc1
+  #|acos bfd86b050d70d1f4 3fff655f9e4a2c08
+  #|asin bfdc9dadc1315308 bfddaac2a180f12a
+  #|acos bfdc9dadc1315308 40004655fe5234b1
+  #|asin 3fd1221b6bec8164 3fd158432359fba6
+  #|acos 3fd1221b6bec8164 3ff4cbea8b6dae2f
+  #|asin 3fe26f65a0ea2470 3fe3a5747fcd0c9c
+  #|acos 3fe26f65a0ea2470 3fee9e8228bb4d95
+  #|asin bfe7d0794d09bac2 bfeadbd31b257d83
+  #|acos bfe7d0794d09bac2 400347f270eb75ed
+  #|asin 3fa84c1ef5ca54a0 3fa84e753df2b6d7
+  #|acos 3fa84c1ef5ca54a0 3ff85f87aa549762
+  #|asin bfebd9ee8c949444 bff0e50b0b93c7b4
+  #|acos bfebd9ee8c949444 400503832febfa66
+  #|asin bfdfe421dd45223c bfe0b13da7805eff
+  #|acos bfdfe421dd45223c 4000bd4d14022e4c
+  #|asin 3fa189db44ba03c0 3fa18abc2bf34e03
+  #|acos 3fa189db44ba03c0 3ff895a572e492a8
+  #|asin bfbc5dd18fc18408 bfbc6cc2f33ef1fd
+  #|acos bfbc5dd18fc18408 3ffae8c783781c38
+  #|asin 3fd615f5f8d74b8c 3fd68ca871355305
+  #|acos 3fd615f5f8d74b8c 3ff37ed137f6d857
+  #|asin 3fdc4fd01fab93fc 3fdd53d2aebc2b88
+  #|acos 3fdc4fd01fab93fc 3ff1cd06a8952236
+  #|asin 3f80126bbb852280 3f8012768b4561db
+  #|acos 3f80126bbb852280 3ff901d6672da255
+  #|asin 3fc17d9b140d9b20 3fc18ba894849fc9
+  #|acos 3fc17d9b140d9b20 3ff6f08641b3991f
+  #|asin 3fe5178b7d006974 3fe70766c5ece4da
+  #|acos 3fe5178b7d006974 3feb3c8fe29b7557
+  #|asin bf836cc6944e9d40 bf836cd9aadd684c
+  #|acos bf836cc6944e9d40 3ff948d50799e7e9
+  #|asin bfc2fb4106fa05b4 bfc30d3e0a120ce6
+  #|acos bfc2fb4106fa05b4 3ffb83a315866eb5
+  #|asin bfe8a7075271147f bfec24774d1b01d1
+  #|acos bfe8a7075271147f 40039a1b7d68d700
+  #|asin bfeff7693740f93a bff866668c9ae8c5
+  #|acos bfeff7693740f93a 4008c430f06f8aee
+  #|asin 3feba334cf7e08be 3ff0ae200c9898ff
+  #|acos 3feba334cf7e08be 3fe0e7b68f572832
+  #|asin bfca9c7cbfff1428 bfcace8af3ce7f26
+  #|acos bfca9c7cbfff1428 3ffc7bccb2bdfcfd
+  #|asin bfe37f88568a4d30 bfe4f7664140ae5a
+  #|acos bfe37f88568a4d30 4001ced73a724222
+  #|asin 3fd6026908f19270 3fd677d52b8a5b9e
+  #|acos 3fd6026908f19270 3ff3840609619631
+  #|asin 3f8c347727b4c200 3f8c34b1975bb9dc
+  #|acos 3f8c347727b4c200 3ff8e991f11575a5
+  #|asin 3fcb432daa6acc18 3fcb790d6fcd06c5
+  #|acos 3fcb432daa6acc18 3ff5b2d9a64a8c40
+  #|asin 3fecb332170bc4d8 3ff1cd6b752db701
+  #|acos 3fecb332170bc4d8 3fdd523f7c59d85d
+  #|asin 3fe833eb49921422 3feb72404d32ac5d
+  #|acos 3fe833eb49921422 3fe6d1b65b55add4
+  #|asin bfd09154f75be6e0 bfd0c23105ddcffb
+  #|acos bfd09154f75be6e0 3ffd528795bba117
+  #|asin 3fec8530759534aa 3ff19a0fbcd9ba97
+  #|acos 3fec8530759534aa 3fde1fae5da9ca06
+  #|asin bfef1f91a5f4a027 bff560fe6443ec54
+  #|acos bfef1f91a5f4a027 4007417cdc440cb6
+  #|asin 3fd10a2657b0ab50 3fd13f671035f6da
+  #|acos 3fd10a2657b0ab50 3ff4d2219036af62
+  #|asin bfeedbd4843ff8da bff4d8c0e750a3cc
+  #|acos bfeedbd4843ff8da 4006fd5e1dca6872
+  #|asin bfd8f011afb9947c bfd99dc4a946348f
+  #|acos bfd8f011afb9947c 3fff896c7e95ba3c
+  #|asin 3fcc2e83bdf0dff8 3fcc6a1c5db12eb8
+  #|acos 3fcc2e83bdf0dff8 3ff594b7c88e0741
+  #|asin 3fd36c550073d310 3fd3bc027b1581e6
+  #|acos 3fd36c550073d310 3ff432fab57ecc9f
+  #|asin 3feebb49c1a9ff98 3ff49cdf830a9782
+  #|acos 3feebb49c1a9ff98 3fd2146f44e6565c
+  #|asin 3fc103d4f29791b0 3fc110c354c5b764
+  #|acos 3fc103d4f29791b0 3ff6ffe2e9ab762c
+  #|asin 3feeaf423f899914 3ff4877d08aef669
+  #|acos 3feeaf423f899914 3fd269f92e54dabf
+  #|asin bfe72bb22bbe7de9 bfe9e91b317b5ee2
+  #|acos bfe72bb22bbe7de9 40030b447680ee45
+  #|asin 3fe7ca237a118fd2 3fead258a372d5fc
+  #|acos 3fe7ca237a118fd2 3fe7719e05158434
+  #|asin 3fe5b86a3d3566b8 3fe7dfd88f1ac9fb
+  #|acos 3fe5b86a3d3566b8 3fea641e196d9036
+  #|asin bfe8db0e56a75938 bfec76911114e3d6
+  #|acos bfe8db0e56a75938 4003aea1ee674f82
+  #|asin bfceac43982d2af8 bfcef96d05238ee0
+  #|acos bfceac43982d2af8 3ffd0128f4e89ef4
+  #|asin 3fe8e2ef4ed6f2bc 3fec831689988d3a
+  #|acos 3fe8e2ef4ed6f2bc 3fe5c0e01eefccf7
+  #|asin 3f98cc84832b2280 3f98cd236b1fc7e1
+  #|acos 3f98cc84832b2280 3ff8bec6c697adf9
+  #|asin bfcd52fc182844a8 bfcd9640ae3cc285
+  #|acos bfcd52fc182844a8 3ffcd4c36a0bc569
+  #|asin bfe0482430bf8c39 bfe114deca5bf780
+  #|acos bfe0482430bf8c39 4000d6355cb9146c
+  #|asin 3fdc8b3048035eb8 3fdd961860d65bea
+  #|acos 3fdc8b3048035eb8 3ff1bc753c0e961e
+  #|asin bfe08519a5d62dff bfe15bdcdef78054
+  #|acos bfe08519a5d62dff 4000e7f4e1dff6a2
+  #|asin bfcfc094ddcf8f64 bfd00b2c2cb8ddcd
+  #|acos bfcfc094ddcf8f64 3ffd24c65f72648c
+  #|asin 3fe80f54d4fde574 3feb3a8a6e3bfe60
+  #|acos 3fe80f54d4fde574 3fe7096c3a4c5bd1
+  #|asin bfc75dcf75532198 bfc77f8ad61dd20b
+  #|acos bfc75dcf75532198 3ffc11ecaf07e75a
+  #|asin bfd88cb77e87960a bfd93209d66955f7
+  #|acos bfd88cb77e87960a 3fff6e7dc9de8296
+  #|asin 3fe3279fd78fb250 3fe48919e361a04a
+  #|acos 3fe3279fd78fb250 3fedbadcc526b9e7
+  #|asin bfddaab466ea9f54 bfded8ef7650544a
+  #|acos bfddaab466ea9f54 40006c1b98ec2115
+  #|asin bfe62467eda95a0c bfe874264aba33f7
+  #|acos bfe62467eda95a0c 4002ae073cd0a38a
+  #|asin 3fe60258e05a7166 3fe8451a4e20f9db
+  #|acos 3fe60258e05a7166 3fe9fedc5a676055
+  #|asin bfea7afc1bfb1e38 bfef3070b47fd2cf
+  #|acos bfea7afc1bfb1e38 40045d19d7420b40
+  #|asin 3fe208c7d15bc3da 3fe32893f7931110
+  #|acos 3fe208c7d15bc3da 3fef1b62b0f54920
+  #|asin 3fcf133ff2f266f8 3fcf638b7d8c5c88
+  #|acos 3fcf133ff2f266f8 3ff53589e492a187
+  #|asin 3fefb9ae5dba6026 3ff708ea9bf1a2e9
+  #|acos 3fefb9ae5dba6026 3fc0c885c2945178
+  #|asin bfdc517a640d10b2 bfdd55adffc29cf0
+  #|acos bfdc517a640d10b2 40003bb36a1a6a2a
+  #|asin bfd7371e8579fda8 bfd7c1d541f622e1
+  #|acos bfd7371e8579fda8 3fff1270a4c1b5d0
+  #|asin bfea30d32ce61310 bfeeade1890937e6
+  #|acos bfea30d32ce61310 40043c760c646486
+  #|asin bfe49e59c91dad8e bfe6679a29540cc1
+  #|acos bfe49e59c91dad8e 40022ae4347719bc
+  #|asin 3fe2f2f06c9d8aa2 3fe44786e7b43e5c
+  #|acos 3fe2f2f06c9d8aa2 3fedfc6fc0d41bd4
+  #|asin bfe667a5054032e0 bfe8d1cc9d844cfd
+  #|acos bfe667a5054032e0 4002c570d18329cb
+  #|asin bfe547a3c455872a bfe747934e7b6359
+  #|acos bfe547a3c455872a 400262e27dc0ef62
+  #|asin bfec69882046aa86 bff17bc98f9cb440
+  #|acos bfec69882046aa86 40054ee271f070ac
+  #|asin bfef8c7a80f6f46b bff6714b0019644c
+  #|acos bfef8c7a80f6f46b 4007c9a32a2ec8b2
+  #|asin 3fe10fecd2fefe70 3fe1fef28c9cb428
+  #|acos 3fe10fecd2fefe70 3ff022820df5d304
+  #|asin bfe4ec734e9907b0 bfe6ce4590462ecf
+  #|acos bfe4ec734e9907b0 4002448f0e33a240
+  #|asin 3fe60ecee235404a 3fe8564927c76b75
+  #|acos 3fe60ecee235404a 3fe9edad80c0eebb
+  #|asin bfe325a8ffe04c24 bfe486a63c3a5f04
+  #|acos bfe325a8ffe04c24 4001b2a73930ae4d
+  #|asin 3fe79d68962aad74 3fea8fc46219a3f6
+  #|acos 3fe79d68962aad74 3fe7b432466eb63b
+  #|asin 3fc0c91760c6e328 3fc0d580f281f2c9
+  #|acos 3fc0c91760c6e328 3ff7074b35f3eebf
+  #|asin bfdff3d01d7f7268 bfe0ba496638c792
+  #|acos bfdff3d01d7f7268 4000bf9003b04870
+  #|asin 3fd26a51cc914dd4 3fd2adec3093d70a
+  #|acos 3fd26a51cc914dd4 3ff47680481f3756
+  #|asin 3fe59e29f96a5fb4 3fe7bc2bb56fcf61
+  #|acos 3fe59e29f96a5fb4 3fea87caf3188ad0
+  #|asin 3fec25a899e33100 3ff133424a637bb8
+  #|acos 3fec25a899e33100 3fdfbae42782c582
+  #|asin bfd80be8ac611f38 bfd8a6ce1d7a8ef3
+  #|acos bfd80be8ac611f38 3fff4baedba2d0d5
+  #|asin bfca5e0e8a0ca0e0 bfca8ebb196c15c6
+  #|acos bfca5e0e8a0ca0e0 3ffc73d2b771afd1
+  #|asin 3fd7914520167aa8 3fd822af485944b7
+  #|acos 3fd7914520167aa8 3ff3194f822ddbea
+  #|asin 3f9bd10cfdb3b380 3f9bd1ed44b268a5
+  #|acos 3f9bd10cfdb3b380 3ff8b2b39f316376
+  #|asin bfdd6c5c98e5f0ce bfde92a7c5e0fe23
+  #|acos bfdd6c5c98e5f0ce 40006352a2de3650
+  #|asin 3fe3418929c2a17a 3fe4a97edd39f6c9
+  #|acos 3fe3418929c2a17a 3fed9a77cb4e6368
+  #|asin 3fe77dd85a2df882 3fea6123e4e876d9
+  #|acos 3fe77dd85a2df882 3fe7e2d2c39fe358
+  #|asin 3fe26f588e0fb660 3fe3a5648133fca4
+  #|acos 3fe26f588e0fb660 3fee9e9227545d8d
+  #|asin 3fd7fe2f18b654bc 3fd897ff70bef7e4
+  #|acos 3fd7fe2f18b654bc 3ff2fbfb78146f1f
+  #|asin 3fd47ee3f70493f4 3fd4dcfc349f2345
+  #|acos 3fd47ee3f70493f4 3ff3eabc471c6447
+  #|asin 3fd5df68d1a0e164 3fd65292e98907df
+  #|acos 3fd5df68d1a0e164 3ff38d5699e1eb20
+  #|asin bf113d255e97a000 bf113d255eccfd5a
+  #|acos bf113d255e97a000 3ff9224048d9a84c
+  #|asin bfb62012d7df0000 bfb6272618eaa8b3
+  #|acos bfb62012d7df0000 3ffa846db5d2d7a4
+  #|asin bfed308b77db3748 bff2608348179748
+  #|acos bfed308b77db3748 4005c13f4e2de230
+  #|asin bfedeb6c7449e532 bff354e4aeefc18b
+  #|acos bfedeb6c7449e532 40063b700199f752
+  #|asin bfec2e7d212fdb90 bff13c8f31e64261
+  #|acos bfec2e7d212fdb90 40052f45431537bd
+  #|asin 3fe394e3f7313d2a 3fe5125e823b88e2
+  #|acos 3fe394e3f7313d2a 3fed3198264cd14e
+  #|asin 3fd1f57386e19698 3fd234075a1d7248
+  #|acos 3fd1f57386e19698 3ff494f97dbcd086
+  #|asin 3fb5e51d1635e710 3fb5ebf83dfe0262
+  #|acos 3fb5e51d1635e710 3ff7c33bd0644cf2
+  #|asin 3fb10ec32d71e730 3fb112000763a6b9
+  #|acos 3fb10ec32d71e730 3ff810db53cdf2ad
+  #|asin bfeeb57e4f95ac4e bff4928632316fa0
+  #|acos bfeeb57e4f95ac4e 4006da40c33ace5c
+  #|asin bfeef20026fada66 bff5037212cd2ada
+  #|acos bfeef20026fada66 400712b6b388abfa
+  #|asin 3fea8177afb34f12 3fef3bffad15136d
+  #|acos 3fea8177afb34f12 3fe307f6fb7346c4
+  #|asin bfede31e6dbde321 bff3493ac5945408
+  #|acos bfede31e6dbde321 4006359b0cec4090
+  #|asin 3fcf5d63e5599de0 3fcfaffe82abbb53
+  #|acos 3fcf5d63e5599de0 3ff52bfb83eeb5ae
+  #|asin 3fe81ce9bac96868 3feb4f2b8fda6674
+  #|acos 3fe81ce9bac96868 3fe6f4cb18adf3bd
+  #|asin 3fb5ed59d0a56e30 3fb5f43cbcae8232
+  #|acos 3fb5ed59d0a56e30 3ff7c2b7887944f5
+  #|asin bfe394c90353d23e bfe5123c6e64ae13
+  #|acos bfe394c90353d23e 4001d58cc5bb4211
+  #|asin 3fe1a6b88181f13c 3fe2b272b8639236
+  #|acos 3fe1a6b88181f13c 3fef9183f024c7fa
+  #|asin 3fee624d30ffaf5c 3ff406b5149ccb80
+  #|acos 3fee624d30ffaf5c 3fd46d18fe9d8660
+  #|asin 3fd4689b2cb56110 3fd4c577ba41cbeb
+  #|acos 3fd4689b2cb56110 3ff3f09d65b3ba1e
+  #|asin bfd305a19c7ea036 bfd35056577b5069
+  #|acos bfd305a19c7ea036 3ffdf610ea230132
+  #|asin 3fd031d4df28e3c4 3fd05f666a10e97c
+  #|acos 3fd031d4df28e3c4 3ff50a21b9bff2b9
+  #|asin bfe4f96d1745dbae bfe6df6fe1f7e7a2
+  #|acos bfe4f96d1745dbae 400248d9a2a01075
+  #|asin 3fcfde395e747030 3fd01a79510277b6
+  #|acos 3fcfde395e747030 3ff51b5d00038f2b
+  #|asin bfd27a9e53843db4 bfd2bef1a6b7b224
+  #|acos bfd27a9e53843db4 3ffdd1b7bdf219a1
+  #|asin bfcd34f915f66f24 bfcd776c9ff63d8c
+  #|acos bfcd34f915f66f24 3ffcd0e8e842f4ca
+  #|asin 3fc33f0da4efe6b0 3fc351cf78c0a7ae
+  #|acos 3fc33f0da4efe6b0 3ff6b7c1652c1822
+  #|asin 3fe0a0958f24d3c6 3fe17bfdeb8fcfa7
+  #|acos 3fe0a0958f24d3c6 3ff063fc5e7c4545
+  #|asin 3fe1b20c23248212 3fe2c008f4ee89f8
+  #|acos 3fe1b20c23248212 3fef83edb399d038
+  #|asin bfe07a2ab139f7d6 bfe14f1a45dceca0
+  #|acos bfe07a2ab139f7d6 4000e4c43b9951b4
+  #|asin bfb5b2dc04006aa0 bfb5b988487ab57c
+  #|acos bfb5b2dc04006aa0 3ffa7d93d8cbd870
+  #|asin 3fef7c43b95df48e 3ff6426d4e361d0b
+  #|acos 3fef7c43b95df48e 3fc6fc703070806b
+  #|asin 3fb0ebba0b5ac910 3fb0eee31442ed3d
+  #|acos 3fb0ebba0b5ac910 3ff8130d22fffe44
+  #|asin 3fe47a2745a83768 3fe638625bd8c306
+  #|acos 3fe47a2745a83768 3fec0b944caf972b
+  #|asin bfd64b6889c5bca8 bfd6c5a3e7d8d1e3
+  #|acos bfd64b6889c5bca8 3ffed3644e3a6191
+  #|asin 3fd3024c4c045c74 3fd34cd8ab8cd43d
+  #|acos 3fd3024c4c045c74 3ff44ec52960f809
+  #|asin 3fe0925dade3aeb4 3fe16b5c6d3990aa
+  #|acos 3fe0925dade3aeb4 3ff06c4d1da764c3
+  #|asin bfef567d89c647ed bff5df48e307c806
+  #|acos bfef567d89c647ed 400780a21ba5fa8f
+  #|asin bfea5f52bd75bc62 bfeeff6353b1eae6
+  #|acos bfea5f52bd75bc62 400450d67f0e9146
+  #|asin 3faaea9f98680380 3faaedcd259bc6e0
+  #|acos 3faaea9f98680380 3ff84a8ceb174ee1
+  #|asin 3fb7a48691b4ca30 3fb7ad29aeaad337
+  #|acos 3fb7a48691b4ca30 3ff7a728b9597fe5
+  #|asin bfd2e907d988fece bfd3326438d5c116
+  #|acos bfd2e907d988fece 3ffdee9462799d5e
+  #|asin bfecfaced8f07ba9 bff22012d681fc16
+  #|acos bfecfaced8f07ba9 4005a10715631497
+  #|asin bfc8c7333360867c bfc8ef7fe93da3a0
+  #|acos bfc8c7333360867c 3ffc3feb516be18c
+  #|asin 3fe9cdc5d5dfef2a 3fee03fba35247e8
+  #|acos 3fe9cdc5d5dfef2a 3fe43ffb05361249
+  #|asin 3fe9c9206e7723ec 3fedfc21d4211772
+  #|acos 3fe9c9206e7723ec 3fe447d4d46742bf
+  #|asin bfe184df2dc21e72 bfe289eee65a57bc
+  #|acos bfe184df2dc21e72 4001337963b8ac7b
+  #|asin bfe5f128c7650367 bfe82d751b76919e
+  #|acos bfe5f128c7650367 40029c5af0ffbaf4
+  #|asin bfe4b73578bf9c2e bfe688296db6b3d4
+  #|acos bfe4b73578bf9c2e 40023308058fc381
+  #|asin bfedba1fcf7533c2 bff310e14a7bf850
+  #|acos bfedba1fcf7533c2 4006196e4f6012b4
+  #|asin 3fed8fba49162f42 3ff2d8949cd71c7d
+  #|acos 3fed8fba49162f42 3fd9259addb4426e
+  #|asin 3fecfd3409b2af72 3ff222e64e32d768
+  #|acos 3fecfd3409b2af72 3fdbfc54184556bf
+  #|asin 3fb25762e1e4a710 3fb25b699e994df7
+  #|acos 3fb25762e1e4a710 3ff7fc44ba5a9839
+  #|asin bfe25a90e1a6dfe4 bfe38bff6efc0cc8
+  #|acos bfe25a90e1a6dfe4 400173fd85e119be
+  #|asin bfe21a52148b84d6 bfe33dd47fe3b55d
+  #|acos bfe21a52148b84d6 40016072ca1b03e4
+  #|asin bfe99017dba9a074 bfed9c93ffafd6fc
+  #|acos bfe99017dba9a074 4003f822aa0e0c4b
+  #|asin 3fc72c066d9b4970 3fc74ce9d6c4cd93
+  #|acos 3fc72c066d9b4970 3ff6385e196b9366
+  #|asin bfed757e800cc280 bff2b6a957bdbb58
+  #|acos bfed757e800cc280 4005ec525600f438
+  #|asin 3fc1dd61c12e00f8 3fc1ec5c7e8ee8c5
+  #|acos 3fc1dd61c12e00f8 3ff6e46fc4725000
+  #|asin 3fce5089d134f000 3fce9afb1b517b5e
+  #|acos 3fce5089d134f000 3ff54e9bf0d9fdac
+  #|asin 3fecfdd59b4e76f0 3ff223a51bdb6526
+  #|acos 3fecfdd59b4e76f0 3fdbf958e1a31fc8
+  #|asin bfcd3f63a3c3d164 bfcd821f891b01ba
+  #|acos bfcd3f63a3c3d164 3ffcd23f45678d50
+  #|asin 3fec2ec621a9cb68 3ff13cdc406f21ee
+  #|acos 3fec2ec621a9cb68 3fdf947c4f542cab
+  #|asin bfe948dae2cfa12c bfed27439c373ff8
+  #|acos bfe948dae2cfa12c 4003dace912fe68a
+  #|asin bfd67d735e5a27c0 bfd6fb0f16d30ddb
+  #|acos bfd67d735e5a27c0 3ffee0bf19f8f08f
+  #|asin bfe9f71cc2b80814 bfee4a4b7be548c8
+  #|acos bfe9f71cc2b80814 40042390891b68be
+  #|asin bfebdb44cab0febd bff0e666a6ef0dfe
+  #|acos bfebdb44cab0febd 40050430fd999d8b
+  #|asin 3fd18dd9be49111c 3fd1c831c2469733
+  #|acos 3fd18dd9be49111c 3ff4afeee3b2874c
+  #|asin 3fe3bc12b70004ae 3fe54406d8be197e
+  #|acos 3fe3bc12b70004ae 3fecffefcfca40b2
+  #|asin 3fc5b64ad088d508 3fc5d14c4c997447
+  #|acos 3fc5b64ad088d508 3ff667d1cab0fe8f
+  #|asin 3fde47102be9c8c4 3fdf89e6a2f186e3
+  #|acos 3fde47102be9c8c4 3ff13f81ab87cb60
+  #|asin 3fdb59515fc67014 3fdc4216539b6576
+  #|acos 3fdb59515fc67014 3ff21175bf5d53bb
+  #|asin bfec409190a66fc5 bff14fb9be5f638e
+  #|acos bfec409190a66fc5 400538da8951c853
+  #|asin 3fcfab4c101ca910 3fd000301c7d0d12
+  #|acos 3fcfab4c101ca910 3ff521ef4d24e9d4
+  #|asin 3fd018f89c6caf44 3fd045b568fcb790
+  #|acos 3fd018f89c6caf44 3ff5108dfa04ff34
+  #|asin 3fe66edb16c0ae32 3fe8dbe7bb9bf580
+  #|acos 3fe66edb16c0ae32 3fe9680eecec64b1
+  #|asin bfd0e1f449f12af2 bfd115b76d0ba0ce
+  #|acos bfd0e1f449f12af2 3ffd67692f87154c
+  #|asin 3fdba1575768857c 3fdc91d7ae44fc72
+  #|acos 3fdba1575768857c 3ff1fd8568b2edfc
+  #|asin bfe24e551fec694b bfe37d12c4930404
+  #|acos bfe24e551fec694b 400170425b46d78d
+  #|asin bfa0bed543fe4380 bfa0bf99025efb75
+  #|acos bfa0bed543fe4380 3ff9a7f81c5724f4
+  #|asin bfe369449e627d66 bfe4db5b78c1c562
+  #|acos bfe369449e627d66 4001c7d4885287e5
+  #|asin 3feb2f898943b2c8 3ff03e0069aff57d
+  #|acos 3feb2f898943b2c8 3fe1c7f5d5286f37
+  #|asin 3fe269cd1e5b1878 3fe39e9c73e663f6
+  #|acos 3fe269cd1e5b1878 3feea55a34a1f63a
+  #|asin bfe51c8aaf136582 bfe70e0c5bec30a5
+  #|acos bfe51c8aaf136582 40025480c11d22b6
+  #|asin bfe1bb99dfa8d388 bfe2cb81b48221e3
+  #|acos bfe1bb99dfa8d388 400143de17429f05
+  #|asin 3fe4fa28b80a0fb0 3fe6e0685484dc89
+  #|acos 3fe4fa28b80a0fb0 3feb638e54037da7
+  #|asin bfe322e282747459 bfe4832fa2440268
+  #|acos bfe322e282747459 4001b1c992b31726
+  #|asin 3fd3fd7643871258 3fd4548d424a5cf2
+  #|acos 3fd3fd7643871258 3ff40cd803b195dc
+  #|asin bfc5d102a243aa08 bfc5ec69309289ff
+  #|acos bfc5d102a243aa08 3ffbdf887a567e58
+  #|asin 3fa7bd4be75e5dc0 3fa7bf79e2e6b247
+  #|acos 3fa7bd4be75e5dc0 3ff863ff852cf786
+  #|asin bfe474b5712535b3 bfe6314d302d0855
+  #|acos bfe474b5712535b3 40021d50f62d58a2
+  #|asin 3fe99a8810de6d32 3fedadf483b04930
+  #|acos 3fe99a8810de6d32 3fe4960224d81101
+  #|asin bfd87e374227b3a8 bfd92256e86ab10f
+  #|acos bfd87e374227b3a8 3fff6a910e5ed95c
+  #|asin 3fd5123b0591b364 3fd578c4df049f2f
+  #|acos 3fd5123b0591b364 3ff3c3ca1c83054c
+  #|asin 3fe850ef5412f1c4 3feb9ebed5b37357
+  #|acos 3fe850ef5412f1c4 3fe6a537d2d4e6da
+  #|asin bfe99bdd56f20be0 bfedb02d8cfd7622
+  #|acos bfe99bdd56f20be0 4003fd090d617415
+  #|asin 3fe56d5eebfc4fe8 3fe77a3c53af08aa
+  #|acos 3fe56d5eebfc4fe8 3feac9ba54d95186
+  #|asin 3fec7313532dda0e 3ff1862f539ec440
+  #|acos 3fec7313532dda0e 3fde6f300295a362
+  #|asin bfe563ed928da7b4 bfe76d87e10d7c97
+  #|acos bfe563ed928da7b4 40026c5fa26575b2
+  #|asin 3fe11bb34204b2ae 3fe20cdfa6912bb8
+  #|acos 3fe11bb34204b2ae 3ff01b8b80fb973c
+  #|asin bfb3a9fa66dcd0f0 bfb3aef107a40dd2
+  #|acos bfb3a9fa66dcd0f0 3ffa5cea64be6df5
+  #|asin 3fe36bbfcffe2e8e 3fe4de7a910e6aba
+  #|acos 3fe36bbfcffe2e8e 3fed657c1779ef76
+  #|asin bfee38b8db802e27 bff3c5fe4e148cbd
+  #|acos bfee38b8db802e27 400673fcd12c5cea
+  #|asin bfd907da3f435516 bfd9b799f55e6b7f
+  #|acos bfd907da3f435516 3fff8fe1d19bc7f8
+  #|asin 3fec0612e5bdb248 3ff1124e8c194c34
+  #|acos 3fec0612e5bdb248 3fe01f599055c1c8
+  #|asin 3fee5d4c37a877fe 3ff3fec1c7d49836
+  #|acos 3fee5d4c37a877fe 3fd48ce631be538b
+  #|asin bfc65ab2236af69c bfc6783168a41d75
+  #|acos bfc65ab2236af69c 3ffbf1018158b0c7
+  #|asin bfa96f3f3ed16b40 bfa971ed97ccf329
+  #|acos bfa96f3f3ed16b40 3ff9ed8ac10294b2
+  #|asin bfe5bce31dc65b00 bfe7e5f01c8977e1
+  #|acos bfe5bce31dc65b00 40028a79b1447484
+  #|asin 3fe11bae69d8b7b8 3fe20cd9eb0ec43c
+  #|acos 3fe11bae69d8b7b8 3ff01b8e5ebccafa
+  #|asin 3fec38db112c80d0 3ff1478759476847
+  #|acos 3fec38db112c80d0 3fdf69cfebf31345
+  #|asin bfb79588584664f8 bfb79e1b065c5438
+  #|acos bfb79588584664f8 3ffa9bdd04a9f25c
+  #|asin 3fe29dc3e842bfe0 3fe3de5292883cb6
+  #|acos 3fe29dc3e842bfe0 3fee65a416001d7a
+  #|asin 3fc87ade4a72c828 3fc8a1b6e599c118
+  #|acos 3fc87ade4a72c828 3ff60dc47790f4f5
+  #|asin bfc0fa5f79abee74 bfc107383986f4d7
+  #|acos bfc0fa5f79abee74 3ffb42e25b750bb3
+  #|asin 3fd751ea72b97fe4 3fd7de9913d1bef4
+  #|acos 3fd751ea72b97fe4 3ff32a550f4fbd5b
+  #|asin bfe6a7b7ab13d927 bfe92c06e9503781
+  #|acos bfe6a7b7ab13d927 4002dbff6476246c
+  #|asin 3fe3c33c09668bf2 3fe54d20ccd3eb89
+  #|acos 3fe3c33c09668bf2 3fecf6d5dbb46ea8
+  #|asin bfe180207989cd4c bfe28443aa95b291
+  #|acos bfe180207989cd4c 4001320e94c78330
+  #|asin 3fe95ff2b729f9dc 3fed4d0dbb1bafc3
+  #|acos 3fe95ff2b729f9dc 3fe4f6e8ed6caa6e
+  #|asin bfde876864f81f4c bfdfd305fd09636a
+  #|acos bfde876864f81f4c 40008b5e69c342f9
+  #|asin 3fdb32ac2b2ecc38 3fdc175e6b7ea34b
+  #|acos 3fdb32ac2b2ecc38 3ff21c23b9648446
+  #|asin bfe390756c537152 bfe50cc46bc8654e
+  #|acos bfe390756c537152 4001d42ec5142fe0
+  #|asin bfe84eabb58b7e70 bfeb9b436bee4899
+  #|acos bfe84eabb58b7e70 400377ce851da8b2
+  #|asin bfabce677e557580 bfabd1e87f15d190
+  #|acos bfabce677e557580 3ffa008a983cdba5
+  #|asin 3faedc621b16d9c0 3faee12cc421dc98
+  #|acos 3faedc621b16d9c0 3ff82af1ee231e34
+  #|asin bfe23177b8bace7b bfe359ef0a5421b8
+  #|acos bfe23177b8bace7b 400167796cb71efa
+  #|asin 3fec5d7e1f45e984 3ff16ebe53ae21e7
+  #|acos 3fec5d7e1f45e984 3fdeccf402582cc6
+  #|asin bfe5ef1628513fce bfe82a9c3f005033
+  #|acos bfe5ef1628513fce 40029ba4b9e22a99
+  #|asin bfe4e6e78a110f08 bfe6c6f1cf127110
+  #|acos bfe4e6e78a110f08 400242ba1de6b2d0
+  #|asin bfe50895828bfa58 bfe6f3875a00195d
+  #|acos bfe50895828bfa58 40024ddf80a21ce4
+  #|asin bf9ad0b65204bc80 bf9ad17f3bf84188
+  #|acos bf9ad0b65204bc80 3ff98d4151340e1e
+  #|asin 3fef483d0d33acd0 3ff5bcc6ba5e291f
+  #|acos 3fef483d0d33acd0 3fcb29a4cf301fca
+  #|asin bfd8a2c3e0cf3264 bfd949eb9c922c0d
+  #|acos bfd8a2c3e0cf3264 3fff74763b68b81c
+  #|asin bfd4860aa0aa83ba bfd4e488ca7342ea
+  #|acos bfd4860aa0aa83ba 3ffe5b1d86e0fdd3
+  #|asin 3fe3b93b56b1bad0 3fe5406afe014192
+  #|acos 3fe3b93b56b1bad0 3fed038baa87189f
+  #|asin 3fc7115352c33850 3fc731c46e98c594
+  #|acos 3fc7115352c33850 3ff63bc2c6711466
+  #|asin bfeb86bca6474d00 bff0920ca4d08c09
+  #|acos bfeb86bca6474d00 4004da03fc8a5c90
+  #|asin 3feea7264b52051e 3ff479487572b488
+  #|acos 3feea7264b52051e 3fd2a2cb7b45e242
+  #|asin bfb0d05d30082588 bfb0d376f7bfccfb
+  #|acos bfb0d05d30082588 3ffa2f32c3c029e8
+  #|asin bfd43fec104642fa bfd49a8fc1adb7cd
+  #|acos bfd43fec104642fa 3ffe489f44af9b0c
+  #|asin 3fd211933bf42ec0 3fd2515665692771
+  #|acos 3fd211933bf42ec0 3ff48da5bae9e33c
+  #|asin bfed51756491fa03 bff2891eb5d40f9b
+  #|acos bfed51756491fa03 4005d58d050c1e5a
+  #|asin 3fa760cf17678d60 3fa762e3f8151d4d
+  #|acos 3fa760cf17678d60 3ff866e43483842e
+  #|asin 3fd4a98c00c969d0 3fd50a08b2041bd0
+  #|acos 3fd4a98c00c969d0 3ff3df7927c32624
+  #|asin 3fe23b4f720d5e8c 3fe365e77fe755f4
+  #|acos 3fe23b4f720d5e8c 3feede0f28a1043c
+  #|asin 3fe1023060e3b748 3fe1eeb88cc78b2e
+  #|acos 3fe1023060e3b748 3ff02a9f0de06781
+  #|asin bfc8efa5f6d0586c bfc918bba0b31f2a
+  #|acos bfc8efa5f6d0586c 3ffc4512c85a90fe
+  #|asin 3fea784c418b5418 3fef2ba816856382
+  #|acos 3fea784c418b5418 3fe3184e9202f6ae
+  #|asin bfa63f22ca641aa0 bfa640edefa59b55
+  #|acos bfa63f22ca641aa0 3ff9d402c3c159f3
+  #|asin bfb27f7716e4fb60 bfb283987d33e8be
+  #|acos bfb27f7716e4fb60 3ffa4a34dc176ba4
+  #|asin bfc23a5a370d7524 bfc24a451843f9f4
+  #|acos bfc23a5a370d7524 3ffb6b43f74cac57
+  #|asin 3fcc2c2409a2f8f0 3fcc67ad61339b65
+  #|acos 3fcc2c2409a2f8f0 3ff59505a81db9ac
+  #|asin 3fab50ca337ef940 3fab541c82c84d2e
+  #|acos 3fab50ca337ef940 3ff8475a702deaaf
+  #|asin 3fe4e11e45425db8 3fe6bf4e579a384e
+  #|acos 3fe4e11e45425db8 3feb84a850ee21e2
+  #|asin 3f91811157d8b140 3f918149379d789c
+  #|acos 3f91811157d8b140 3ff8dbf62f65b736
+  #|asin bfb3e21082cc6578 bfb3e73229a98ad3
+  #|acos bfb3e21082cc6578 3ffa606e76dec5c5
+  #|asin bf835b75196ff040 bf835b87fd1e02b2
+  #|acos bf835b75196ff040 3ff948b2643e691e
+  #|asin 3fed8e49ecc90ddc 3ff2d6b3d95e946d
+  #|acos 3fed8e49ecc90ddc 3fd92d1deb9662ac
+  #|asin 3fe55442a3a7c3ca 3fe7587d4d4aba2a
+  #|acos 3fe55442a3a7c3ca 3feaeb795b3da006
+  #|asin 3fe8da6b9dc42536 3fec758eb947590a
+  #|acos 3fe8da6b9dc42536 3fe5ce67ef410127
+  #|asin bfd1e958187b2392 bfd2276a8ba02920
+  #|acos bfd1e958187b2392 3ffdabd5f72c3760
+  #|asin bfee0e6101872211 bff386faab35af30
+  #|acos bfee0e6101872211 4006547affbcee24
+  #|asin 3fd0ef7501f71408 3fd123b77f64dcd3
+  #|acos 3fd0ef7501f71408 3ff4d90d746af5e4
+  #|asin 3fcfb114d637c2a0 3fd0032c4607f4b4
+  #|acos 3fcfb114d637c2a0 3ff5213042c22feb
+  #|asin bfdf1ffbd77cdd26 bfe04090708940d2
+  #|acos bfdf1ffbd77cdd26 4000a121c64466c0
+  #|asin 3feaa35e277b9bd4 3fef78d6e0fa97c8
+  #|acos 3feaa35e277b9bd4 3fe2cb1fc78dc269
+  #|asin bfc7d03127117244 bfc7f3eadc222daf
+  #|acos bfc7d03127117244 3ffc2078afc872ce
+  #|asin 3fd7d121076fb65c 3fd8676d732ff4df
+  #|acos 3fd7d121076fb65c 3ff3081ff7782fe0
+  #|asin 3fda50560c7b3700 3fdb1e35f38dba10
+  #|acos 3fda50560c7b3700 3ff25a6dd760be94
+  #|asin 3fd99cb11ba20828 3fda59aa65f75bd3
+  #|acos 3fd99cb11ba20828 3ff28b90bac65624
+  #|asin bfda49207ac1342e bfdb164d8ee2c4bc
+  #|acos bfda49207ac1342e 3fffe78eb7fcde47
+  #|asin 3fa9b92adf042000 3fa9bbf0e100a5a4
+  #|acos 3fa9b92adf042000 3ff8541bcd3c27eb
+  #|asin 3fef4e84d8814020 3ff5cbd05c9df6cc
+  #|acos 3fef4e84d8814020 3fcab157bd31b264
+  #|asin bfa9113790811d70 bfa913c8955da4e5
+  #|acos bfa9113790811d70 3ff9ea9998ef1a3f
+  #|asin 3fe9a5efb99efd20 3fedc0ff67b6c70d
+  #|acos 3fe9a5efb99efd20 3fe482f740d19323
+  #|asin bfdb0e4ddeeee2be bfdbef371206761c
+  #|acos bfdb0e4ddeeee2be 40000ee48c62e550
+  #|asin 3fc45bab54cd2f98 3fc471e54d4c22df
+  #|acos 3fc45bab54cd2f98 3ff693beaa9aa8bc
+  #|asin 3fe18364936124f8 3fe2882a81082fc3
+  #|acos 3fe18364936124f8 3fefbbcc27802a6e
+  #|asin bfeab18b7c46d287 bfef927c25b4fa42
+  #|acos bfeab18b7c46d287 4004759cb38f551d
+  #|asin bfe5fcee05796470 bfe83da4a198d3f8
+  #|acos bfe5fcee05796470 4002a066d2884b8a
+  #|asin 3fe57ad9811fd8fa 3fe78c66d86a9ac1
+  #|acos 3fe57ad9811fd8fa 3feab78fd01dbf70
+  #|asin bfe3e9e96defdb78 bfe57e6bc56360c2
+  #|acos bfe3e9e96defdb78 4001f0989b7aeebc
+  #|asin 3fe2bc930706f414 3fe40443a3259a72
+  #|acos 3fe2bc930706f414 3fee3fb30562bfbe
+  #|asin bfeb5693160e568f bff06346f8b4f896
+  #|acos bfeb5693160e568f 4004c2a1267c92d7
+  #|asin 3f9861d5157ef240 3f98626c1c8853c6
+  #|acos 3f9861d5157ef240 3ff8c071a3d20bc9
+  #|asin 3fdef0e847f252e4 3fe025a67ae4b59e
+  #|acos 3fdef0e847f252e4 3ff10f2816d1d24a
+  #|asin bfed7ee066e417b6 bff2c2b746f78e45
+  #|acos bfed7ee066e417b6 4005f2594d9dddae
+  #|asin 3fb9da3063e09f70 3fb9e57d615cfa6f
+  #|acos 3fb9da3063e09f70 3ff783a37e2e5d71
+  #|asin 3fe168263dad053c 3fe267a82e1c0bc5
+  #|acos 3fe168263dad053c 3fefdc4e7a6c4e6c
+  #|asin 3fe093ef8c506566 3fe16d323a27d11f
+  #|acos 3fe093ef8c506566 3ff06b6237304489
+  #|asin bf9a86cedaf8e980 bf9a8791593af63a
+  #|acos bf9a86cedaf8e980 3ff98c1999a918f1
+  #|asin 3f9dcc0339904440 3f9dcd16e82fead3
+  #|acos 3f9dcc0339904440 3ff8aac6f8a36d6d
+  #|asin 3fe3b2e19e37fcfc 3fe5385b48a75044
+  #|acos 3fe3b2e19e37fcfc 3fed0b9b5fe109ec
+  #|asin bfcf4f0cb49ce934 bfcfa1341859a488
+  #|acos bfcf4f0cb49ce934 3ffd1621d74f61a9
+  #|asin 3feea86fb9266fa2 3ff47b86b96df17e
+  #|acos 3feea86fb9266fa2 3fd299d26b58ee67
+  #|asin 3fd0f725c5a2ea60 3fd12bb12bc12b70
+  #|acos 3fd0f725c5a2ea60 3ff4d70f0953e23c
+  #|asin bfc2f3bf18b4df58 bfc305a6a7ac1f63
+  #|acos bfc2f3bf18b4df58 3ffb82b02939b105
+  #|asin bfcfb6f627dc5c3c bfd0063523912ddf
+  #|acos bfcfb6f627dc5c3c 3ffd23889d287890
+  #|asin bfd87d47d061dc2a bfd92153bc6f4142
+  #|acos bfd87d47d061dc2a 3fff6a50435ffd69
+  #|asin bfb8a398663bc428 bfb8ad5fd679e6a6
+  #|acos bfb8a398663bc428 3ffaacd151abcb83
+  #|asin bfe2d995a24f9360 bfe4281b5e3a3734
+  #|acos bfe2d995a24f9360 40019b0481b0a459
+  #|asin 3fe39a9abccc5ed2 3fe519989b48ef93
+  #|acos 3fe39a9abccc5ed2 3fed2a5e0d3f6a9d
+  #|asin 3fc215e175a3b880 3fc2256cf6ad60e4
+  #|acos 3fc215e175a3b880 3ff6dd4db56e80fc
+  #|asin 3fd16706cfc2819c 3fd19fd613dba542
+  #|acos 3fd16706cfc2819c 3ff4ba05cf4d43c8
+  #|asin bfc71234861bb244 bfc732a961b9ba97
+  #|acos bfc71234861bb244 3ffc0850807b646b
+  #|asin bfea19663f65e9c0 bfee8540dddc6cb8
+  #|acos bfea19663f65e9c0 4004324de19931ba
+  #|asin bfeceb35a3ac9e8f bff20dc54ba31ec2
+  #|acos bfeceb35a3ac9e8f 400597e04ff3a5ed
+  #|asin bfcc3472e2a30cc4 bfcc7031c1cb5ac3
+  #|acos bfcc3472e2a30cc4 3ffcb0018c7d9871
+  #|asin 3fd096e1a4e460ec 3fd0c7efe82e4fac
+  #|acos 3fd096e1a4e460ec 3ff4efff5a38992d
+  #|asin bfc26680ceaa4108 bfc276e12fdbbb8d
+  #|acos bfc26680ceaa4108 3ffb70d77a3fa48a
+  #|asin 3fd8730c9f45c79c 3fd916412fc89449
+  #|acos 3fd8730c9f45c79c 3ff2dc6b08520806
+  #|asin 3fee3d194d855678 3ff3ccaa82247727
+  #|acos 3fee3d194d855678 3fd55543487ed7c5
+  #|asin bfc2b289aa81d2dc bfc2c3b9b4e8ab22
+  #|acos bfc2b289aa81d2dc 3ffb7a728ae1427c
+  #|asin bfe0d427a36f1a8e bfe1b87c8f91bb4c
+  #|acos bfe0d427a36f1a8e 4000ff1cce06855f
+  #|asin bfd339096ed6025e bfd38634175e6ae9
+  #|acos bfd339096ed6025e 3ffe03885a1bc7d2
+  #|asin bfe2db6e934a63d2 bfe42a64afcadeb1
+  #|acos bfe2db6e934a63d2 40019b96d614ce38
+  #|asin 3fe698b1da2c71e4 3fe916c87ccc5a2d
+  #|acos 3fe698b1da2c71e4 3fe92d2e2bbc0003
+  #|asin 3fab257cf52f3720 3fab28bf8e3de159
+  #|acos 3fab257cf52f3720 3ff848b557d23e0e
+  #|asin bfee8ba8e3c2d698 bff44a4dd1c2f095
+  #|acos bfee8ba8e3c2d698 4006b62493038ed6
+  #|asin 3fcb7e5ad65ac698 3fcbb5a1811ca180
+  #|acos 3fcb7e5ad65ac698 3ff5ab47242098e8
+  #|asin bfd4ea2ba9d03aca bfd54e5cdf855d88
+  #|acos bfd4ea2ba9d03aca 3ffe75928c25847a
+  #|asin 3fc9ea1e40793e50 3fca184bc649775b
+  #|acos 3fc9ea1e40793e50 3ff5def1db7afe2d
+  #|asin bfdee32cf59a530c bfe01dcf1a96b088
+  #|acos bfdee32cf59a530c 4000987170c7c2ae
+  #|asin bfa7ebfca9d8f9b0 bfa7ee379d39a45b
+  #|acos bfa7ebfca9d8f9b0 3ff9e16d112dfa3b
+  #|asin 3fd35ab041a8fa70 3fd3a97f034ab50c
+  #|acos 3fd35ab041a8fa70 3ff4379b93717fd5
+  #|asin 3fc482ea623e61d0 3fc499a6e3e000de
+  #|acos 3fc482ea623e61d0 3ff68ec677c82cfc
+  #|asin bfc20549c0f136d4 bfc214aa5e650940
+  #|acos bfc20549c0f136d4 3ffb6490a010ce40
+  #|asin 3fc39931656769f8 3fc3ad018f02b9e0
+  #|acos 3fc39931656769f8 3ff6ac5b2263d5dc
+  #|asin bfe2f33afa604da2 bfe447e36ce024bb
+  #|acos bfe2f33afa604da2 4001a2f6855a1fbb
+  #|asin bfe7487c8b5f0aa0 bfea12f6240cbcae
+  #|acos bfe7487c8b5f0aa0 400315bb332545b8
+  #|asin bfe02ca1e534ba8f bfe0f4f3d7bfb65e
+  #|acos bfe02ca1e534ba8f 4000ce3aa0120424
+  #|asin 3fd1319de46f3ef8 3fd1685c951b9704
+  #|acos 3fd1319de46f3ef8 3ff4c7e42efd4758
+  #|asin bfb0686c49d189b8 bfb06b4ddf8a91b8
+  #|acos bfb0686c49d189b8 3ffa28b0323cd634
+  #|asin 3fe496afe328f8a0 3fe65d960ff2e9e2
+  #|acos 3fe496afe328f8a0 3febe6609895704f
+  #|asin bfe365abc25e7156 bfe4d6d56987c3b1
+  #|acos bfe365abc25e7156 4001c6b304840778
+  #|asin bfdb14fcedc27b96 bfdbf69756a08b8c
+  #|acos bfdb14fcedc27b96 40000fd094f627fe
+  #|asin 3fe3fa215bbd671a 3fe593293aae137f
+  #|acos 3fe3fa215bbd671a 3fecb0cd6dda46b1
+  #|asin bfe124adf6840e43 bfe21780dac1d4e0
+  #|acos bfe124adf6840e43 400116dde0d28bc4
+  #|asin 3fe8920cc69e21da 3fec03a435ecf772
+  #|acos 3fe8920cc69e21da 3fe64052729b62be
+  #|asin 3fbb61c260414bc0 3fbb6f31c867b094
+  #|acos 3fbb61c260414bc0 3ff76b0837bdb20f
+  #|asin 3fde7b089f0516ac 3fdfc4f28fb7bac6
+  #|acos 3fde7b089f0516ac 3ff130beb0563e67
+  #|asin 3f951d709e2396c0 3f951dd2b2e35d84
+  #|acos 3f951d709e2396c0 3ff8cd8409789fa2
+  #|asin bfeeaa201e448ae0 bff47e7a14d44bcf
+  #|acos bfeeaa201e448ae0 4006d03ab48c3c74
+  #|asin 3fbd0777a20ca600 3fbd177c8496d9c4
+  #|acos 3fbd0777a20ca600 3ff750838bfabf7c
+  #|asin bfec1dcc2da33da4 bff12b0315539808
+  #|acos bfec1dcc2da33da4 4005267f34cbe290
+  #|asin bfdc3bda859e9cf6 bfdd3d9332a3d1f7
+  #|acos bfdc3bda859e9cf6 400038b0107690cb
+  #|asin 3fe203f61af0c852 3fe322beda219ce9
+  #|acos 3fe203f61af0c852 3fef2137ce66bd48
+  #|asin 3fd7898e6142bfd0 3fd81a637f3b5428
+  #|acos 3fd7898e6142bfd0 3ff31b627475580e
+  #|asin bfcd82664ae8d074 bfcdc6f8b673b51b
+  #|acos bfcd82664ae8d074 3ffcdada6b12a3bc
+  #|asin 3f9757d754ac7bc0 3f97585bdbd6325d
+  #|acos 3f9757d754ac7bc0 3ff8c499e4d4d44f
+  #|asin bfe43fdecc90e314 bfe5ecd402595472
+  #|acos bfe43fdecc90e314 40020c32aab86ba8
+  #|asin bfdec8b52306912e bfe00eb4d893a9dd
+  #|acos bfdec8b52306912e 400094aae0470104
+  #|asin 3fe0ac55b5b36df8 3fe189c0769119b1
+  #|acos 3fe0ac55b5b36df8 3ff05d1b18fba040
+  #|asin 3fede1ad68dcecf8 3ff34736c2f73004
+  #|acos 3fede1ad68dcecf8 3fd76b124533f452
+  #|asin bfe3c02197f68e8d bfe5492ee65235fc
+  #|acos bfe3c02197f68e8d 4001e34963b6a40b
+  #|asin 3fba7fb7e11e5730 3fba8be4255ca38f
+  #|acos 3fba7fb7e11e5730 3ff7793d11ee62df
+  #|asin 3fccfda421fc22d0 3fcd3e9acfcf16af
+  #|acos 3fccfda421fc22d0 3ff57a27fa4a4a42
+  #|asin bfd43f7b09147a28 bfd49a189b9669ce
+  #|acos bfd43f7b09147a28 3ffe48817b29c78c
+  #|asin bfe384ab786f2d22 bfe4fde15742e1b4
+  #|acos bfe384ab786f2d22 4001d075fff2cef9
+  #|asin 3fd3c914abdc71c0 3fd41d71354ef2e6
+  #|acos 3fd3c914abdc71c0 3ff41a9f06f0705f
+  #|asin 3fee424da945c4ba 3ff3d4a44f2afcb6
+  #|acos 3fee424da945c4ba 3fd5355c1464c189
+  #|asin bfe0ade33aa7c178 bfe18b923a674c10
+  #|acos bfe0ade33aa7c178 4000f3e238bbe990
+  #|asin bfba066f7e6fe568 bfba11f7147ba0f8
+  #|acos bfba066f7e6fe568 3ffac31ac58be728
+  #|asin bfe51dbb4db90120 bfe70fa1be2cc52b
+  #|acos bfe51dbb4db90120 400254e619ad47d7
+  #|asin bfedc78ceef58a59 bff3231e3778c4b3
+  #|acos bfedc78ceef58a59 4006228cc5de78e6
+  #|asin bfac82ad0d0d2300 bfac867402684a5d
+  #|acos bfac82ad0d0d2300 3ffa062ef4576f6b
+  #|asin 3fe5a9bbfcd0055e 3fe7cbe094766a74
+  #|acos 3fe5a9bbfcd0055e 3fea78161411efbc
+  #|asin bfd51e472f8c9364 bfd5858795426a26
+  #|acos bfd51e472f8c9364 3ffe835d3994c7a2
+  #|asin 3fe3307613dfab8e 3fe494235f22ae2a
+  #|acos 3fe3307613dfab8e 3fedafd34965ac06
+  #|asin bfdf310e6615355c bfe04a563a619caa
+  #|acos bfdf310e6615355c 4000a39338ba7db6
+  #|asin 3fe3a1238e521b7c 3fe521ddebc1f3d2
+  #|acos 3fe3a1238e521b7c 3fed2218bcc6665f
+  #|asin bfec18347c7562b0 bff12529dcf03d54
+  #|acos bfec18347c7562b0 40052392989a3536
+  #|asin bfdc02151cd00f4e bfdcfd43564e5330
+  #|acos bfdc02151cd00f4e 400030a614ebe0f2
+  #|asin 3fea5b1fc4f2d31a 3feef7faa5910b66
+  #|acos 3fea5b1fc4f2d31a 3fe34bfc02f74ecb
+  #|asin bfda8f5ed3f63894 bfdb636d24880490
+  #|acos bfda8f5ed3f63894 3ffffad69d662e3c
+  #|asin 3fe94d46859309a2 3fed2e7af4bd4497
+  #|acos 3fe94d46859309a2 3fe5157bb3cb159a
+  #|asin bfe58be9d6a2e70c bfe7a373b1cdbd3a
+  #|acos bfe58be9d6a2e70c 400279da969585da
+  #|asin 3fef339598340692 3ff58d08ded84171
+  #|acos 3fef339598340692 3fcca793ab5f5d3e
+  #|asin bfd7973d02763548 bfd8291ac5fa7f79
+  #|acos bfd7973d02763548 3fff2c4205c2ccf6
+  #|asin 3fe430068f1bdde0 3fe5d862df282990
+  #|acos 3fe430068f1bdde0 3fec6b93c96030a0
+  #|asin 3fb6be5b2438cae0 3fb6c60ae6d9dcdf
+  #|acos 3fb6be5b2438cae0 3ff7b59aa5d68f4a
+  #|asin bf6f5ed1b2ab3a00 bf6f5ed6b8fed883
+  #|acos bf6f5ed1b2ab3a00 3ff931aabfa0ac85
+  #|asin bfc800ca72b2ebbc bfc8256307a47417
+  #|acos bfc800ca72b2ebbc 3ffc26a7b538bb9b
+  #|asin 3fed56eb0085f9c8 3ff28ff1d7bd946e
+  #|acos 3fed56eb0085f9c8 3fda4825f21a62a7
+  #|asin 3fe86399ae4a7b82 3febbb848fc50ae8
+  #|acos 3fe86399ae4a7b82 3fe6887218c34f48
+  #|asin 3fee589cb03c697e 3ff3f75a98b61b44
+  #|acos 3fee589cb03c697e 3fd4aa82ee38474f
+  #|asin 3fd676661f9452b8 3fd6f38708a04496
+  #|acos 3fd676661f9452b8 3ff36519921c1bf3
+  #|asin 3fc7faf6915320e8 3fc81f743b55ab2c
+  #|acos 3fc7faf6915320e8 3ff61e0cccd977b3
+  #|asin bfe28832c196ddbc bfe3c3d655e6a28d
+  #|acos bfe28832c196ddbc 400181f33f9bbf2f
+  #|asin 3fbfce0235258ca0 3fbfe319c1636d14
+  #|acos 3fbfce0235258ca0 3ff723c9b82df647
+  #|asin 3fbf9a3f068fa390 3fbfaeefc5e2c1dd
+  #|acos 3fbf9a3f068fa390 3ff7270c57e600fa
+  #|asin bf87b834e270e180 bf87b857a3ab0440
+  #|acos bf87b834e270e180 3ff9516c038b8321
+  #|asin 3fe12368b95aaab0 3fe215ffb3827357
+  #|acos 3fe12368b95aaab0 3ff016fb7a82f36d
+  #|asin bf919f3a5a2458a0 bf919f735cb3f01c
+  #|acos bf919f3a5a2458a0 3ff9687921b6fcd9
+  #|asin 3fe51a7acc1406ca 3fe70b4e0475bf8c
+  #|acos 3fe51a7acc1406ca 3feb38a8a4129aa5
+  #|asin 3fe8bbf87e73e900 3fec45647ff6d77a
+  #|acos 3fe8bbf87e73e900 3fe5fe92289182b6
+  #|asin bfe6017cdf5fb0e2 bfe843eb410965e2
+  #|acos bfe6017cdf5fb0e2 4002a1f87a647005
+  #|asin 3fdd6f90fc80a6a4 3fde9643a18213a0
+  #|acos 3fdd6f90fc80a6a4 3ff17c6a6be3a830
+  #|asin 3fc3f8aa0eeec748 3fc40da3886660b0
+  #|acos 3fc3f8aa0eeec748 3ff6a046e3376102
+  #|asin 3fdca1d74244cdd0 3fddaf69ecf98456
+  #|acos 3fdca1d74244cdd0 3ff1b620d905cc03
+  #|asin 3fe82479cec9bb36 3feb5aaeed3d28f8
+  #|acos 3fe82479cec9bb36 3fe6e947bb4b3139
+  #|asin 3fde768a351d4cbc 3fdfbfd6599ea61f
+  #|acos 3fde768a351d4cbc 3ff13205bddc8390
+  #|asin bfc444bd1e1d69c0 bfc45aabbdd1869b
+  #|acos bfc444bd1e1d69c0 3ffbad50cbfe5dec
+  #|asin 3fdc017bc4cfda2c 3fdcfc98cc0b5274
+  #|acos 3fdc017bc4cfda2c 3ff1e2d52141587b
+  #|asin 3fc69c801fc12c68 3fc6bb096f33c2c6
+  #|acos 3fc69c801fc12c68 3ff64a9a265db4c0
+  #|asin bfb3e84bdb3c5988 bfb3ed72590e2428
+  #|acos bfb3e84bdb3c5988 3ffa60d279d50f5b
+  #|asin 3fcf21bcb41da018 3fcf727ad75a9866
+  #|acos 3fcf21bcb41da018 3ff533abf958da0c
+  #|asin 3fe9c9cf6af95676 3fedfd495971cbf0
+  #|acos 3fe9c9cf6af95676 3fe446ad4f168e41
+  #|asin 3fdfd73704308680 3fe0a9cb19a33ce4
+  #|acos 3fdfd73704308680 3ff0cd15c7728ea6
+  #|asin bfea5b58c0ce0acf bfeef85f2064a3f4
+  #|acos bfea5b58c0ce0acf 40044f15723b3f89
+  #|asin 3fdab2c1623a4614 3fdb8a56f64f182d
+  #|acos 3fdab2c1623a4614 3ff23f6596b0670d
+  #|asin bfde4d0949f79e0a bfdf90ae75bc1541
+  #|acos bfde4d0949f79e0a 4000831378d99934
+  #|asin 3fe7042e3e6337a2 3fe9b005a35d4954
+  #|acos 3fe7042e3e6337a2 3fe893f1052b10dd
+  #|asin 3fe77ecde977cc4a 3fea628d8fd2b018
+  #|acos 3fe77ecde977cc4a 3fe7e16918b5aa18
+  #|asin 3feb4c876da98e2e 3ff059a1cfed76a2
+  #|acos 3feb4c876da98e2e 3fe190b308ad6ced
+  #|asin bfb80138b3138838 bfb80a433e590df0
+  #|acos bfb80138b3138838 3ffaa29f8829bdf7
+  #|asin 3fcae484561808a0 3fcb1832f7000f0c
+  #|acos 3fcae484561808a0 3ff5bef4f5642b37
+  #|asin bfa935e4b2ce2140 bfa938810e2f5ded
+  #|acos bfa935e4b2ce2140 3ff9ebbf5cb5a808
+  #|asin bfea5e4af5d64a07 bfeefd91aeb8246c
+  #|acos bfea5e4af5d64a07 4004506215d01fa7
+  #|asin bfe4a081291150e8 bfe66a6b41507d3e
+  #|acos bfe4a081291150e8 40022b987a7635dc
+  #|asin bfef5b57656627b1 bff5eb5b1f3159d1
+  #|acos bfef5b57656627b1 400786ab39bac375
+  #|asin 3fd5861b87ba6830 3fd5f3a657cce990
+  #|acos 3fd5861b87ba6830 3ff3a511be50f2b4
+  #|asin 3fd775e6325627bc 3fd80541708d1cd7
+  #|acos 3fd775e6325627bc 3ff320aaf820e5e2
+  #|asin 3fb55eba54f42fa0 3fb56519fdcf2dec
+  #|acos 3fb55eba54f42fa0 3ff7cba9b4673a3a
+  #|asin bfed75c25d314353 bff2b7003d42cb85
+  #|acos bfed75c25d314353 4005ec7dc8c37c4f
+  #|asin bfea22fc49ec7bb6 bfee95d829818768
+  #|acos bfea22fc49ec7bb6 40043673b4827866
+  #|asin 3fcb98a1f27e8b50 3fcbd08a00f2cf3b
+  #|acos 3fcb98a1f27e8b50 3ff5a7ea1425d331
+  #|asin 3fc9b9ff990db638 3fc9e72a90951605
+  #|acos 3fc9b9ff990db638 3ff5e51602318a58
+  #|asin bfe65af152cd29dc bfe8c00736cdea62
+  #|acos bfe65af152cd29dc 4002c0ff77d59124
+  #|asin bfca26501b9cc658 bfca55c68fc8eb68
+  #|acos bfca26501b9cc658 3ffc6cb4263d4a85
+  #|asin 3fe7a63631caccf0 3fea9cd2c5926e27
+  #|acos 3fe7a63631caccf0 3fe7a723e2f5ec09
+  #|asin 3fef986ae9febb74 3ff695ee45b1d615
+  #|acos 3fef986ae9febb74 3fc460687492b819
+  #|asin bfe74748f25e1efe bfea1135ccf985ed
+  #|acos bfe74748f25e1efe 4003154b1d607807
+  #|asin bfef7cfe90451cc0 bff644790c677d81
+  #|acos bfef7cfe90451cc0 4007b33a3055d54d
+  #|asin bfc67946e3fe3db4 bfc69741059bbcce
+  #|acos bfc67946e3fe3db4 3ffbf4e374f7a4b2
+  #|asin bfec35374c5b066d bff143abd65219ee
+  #|acos bfec35374c5b066d 400532d3954b2383
+  #|asin 3fe0aaee5447e4ce 3fe1881b705e35dd
+  #|acos 3fe0aaee5447e4ce 3ff05ded9c15122a
+  #|asin bfdc155863a803ce bfdd12b16bc5d117
+  #|acos bfdc155863a803ce 40003353d79ad0af
+  #|asin 3fda04fa8eaef8a8 3fdacba2df104e79
+  #|acos 3fda04fa8eaef8a8 3ff26f129c80197a
+  #|asin 3fee491ee7184a9a 3ff3df28748a2a77
+  #|acos 3fee491ee7184a9a 3fd50b4b7ee80a85
+  #|asin 3fe2279e6a9b460a 3fe34df7c0a14be0
+  #|acos 3fe2279e6a9b460a 3feef5fee7e70e50
+  #|asin 3fe4e8407a97f7b0 3fe6c8b9664865b0
+  #|acos 3fe4e8407a97f7b0 3feb7b3d423ff480
+  #|asin 3fb3e101a041c750 3fb3e622750d5cf1
+  #|acos 3fb3e101a041c750 3ff7e3992cf35749
+  #|asin bfd8b48f04a262b4 bfd95d3445391d37
+  #|acos bfd8b48f04a262b4 3fff794865927466
+  #|asin bfd9e1853833a8ee bfdaa4d8983060a0
+  #|acos bfd9e1853833a8ee 3fffcb317a504540
+  #|asin 3fe0e2e2254db8f4 3fe1c9d07fc38beb
+  #|acos 3fe0e2e2254db8f4 3ff03d1314626723
+  #|asin bfb34011d9bb5f68 bfb344b9d312d482
+  #|acos bfb34011d9bb5f68 3ffa5646f1755a60
+  #|asin bfe9f8e59de6147d bfee4d5958431c0b
+  #|acos bfe9f8e59de6147d 400424540032dd8f
+  #|asin bfd195455a1a0194 bfd1cfe941e8976a
+  #|acos bfd195455a1a0194 3ffd95f5a4be52f3
+  #|asin 3fee50bd05fbd744 3ff3eb00cf4216e6
+  #|acos 3fee50bd05fbd744 3fd4dbea140858c7
+  #|asin 3fc9c2dc8821b320 3fc9f036d467b470
+  #|acos 3fc9c2dc8821b320 3ff5e3f479b7368a
+  #|asin bfe53fec081a9cd2 bfe73d3f5b7c3377
+  #|acos bfe53fec081a9cd2 4002604d8101236a
+  #|asin bf9adac8a49682a0 bf9adb92714d7101
+  #|acos bf9adac8a49682a0 3ff98d699e0962dc
+  #|asin bfe83d6eec8466cd bfeb80cf50b2c1f5
+  #|acos bfe83d6eec8466cd 400371317e4ec70a
+  #|asin 3fec8f4d4c05e32e 3ff1a53dbb06b42c
+  #|acos 3fec8f4d4c05e32e 3fddf2f664f5e3af
+  #|asin 3fc719452cc26328 3fc739d82f4ecc20
+  #|acos 3fc719452cc26328 3ff63ac04e5a5394
+  #|asin 3fb0047d6a9f9120 3fb0072b8a3cd010
+  #|acos 3fb0047d6a9f9120 3ff821889ba06017
+  #|asin 3fdd911147ef2f38 3fdebc03e8a078d7
+  #|acos 3fdd911147ef2f38 3ff172fa5a1c0ee2
+  #|asin 3fdfc47f153254b4 3fe09f0216105a92
+  #|acos 3fdfc47f153254b4 3ff0d27a493bffd0
+  #|asin bfd93d3dd91568bc bfd9f1a7ace31f6a
+  #|acos bfd93d3dd91568bc 3fff9e653f7cf4f3
+  #|asin 3fede697d0662294 3ff34e192965daa3
+  #|acos 3fede697d0662294 3fd74f88ab7949d5
+  #|asin 3fb4a87330b2cb60 3fb4ae34d317aeaa
+  #|acos 3fb4a87330b2cb60 3ff7d7180712b22e
+  #|asin 3fd4c0f14269e2f0 3fd522c2732622e8
+  #|acos 3fd4c0f14269e2f0 3ff3d94ab77aa45e
+  #|asin 3fe6f379734a7080 3fe99802ff925c19
+  #|acos 3fe6f379734a7080 3fe8abf3a8f5fe18
+  #|asin 3fef72d379414f32 3ff628757fb40b53
+  #|acos 3fef72d379414f32 3fc7cc2ea4810e29
+  #|asin 3fd2926300c50da8 3fd2d7c676416370
+  #|acos 3fd2926300c50da8 3ff46c09b6b3d43c
+  #|asin bf90266a986483c0 bf9026967a8a1628
+  #|acos bf90266a986483c0 3ff96295ae2e5571
+  #|asin bfc11b0b22b0312c bfc1282f03543bc4
+  #|acos bfc11b0b22b0312c 3ffb470134aeb491
+  #|asin bf8303e78b541200 bf8303f973318d0d
+  #|acos bf8303e78b541200 3ff94803472a9032
+  #|asin 3fd770a59a7ae028 3fd7ff9c5841e398
+  #|acos 3fd770a59a7ae028 3ff322143e33b432
+  #|asin 3fe0acebefe95a8a 3fe18a707955cbfa
+  #|acos 3fe0acebefe95a8a 3ff05cc31799471c
+  #|asin 3fe0491f3ea36e3c 3fe116026d609f48
+  #|acos 3fe0491f3ea36e3c 3ff096fa1d93dd74
+  #|asin bfd8be23c585705a bfd96797767b2ee2
+  #|acos bfd8be23c585705a 3fff7be131e2f8d1
+  #|asin 3fe1e1fb8adc7092 3fe2f9b3c1305870
+  #|acos 3fe1e1fb8adc7092 3fef4a42e75801c1
+  #|asin bfe4b232ff021a91 bfe681975c8ce77a
+  #|acos bfe4b232ff021a91 400231638145506b
+  #|asin 3fea1a3f7ddb00ec 3fee86b85e702026
+  #|acos 3fea1a3f7ddb00ec 3fe3bd3e4a183a0b
+  #|asin bfa4377650519d80 bfa438ced6cd7754
+  #|acos bfa4377650519d80 3ff9c3c1cafa98d3
+  #|asin 3fc531555de52198 3fc54a6e7a9e0d0c
+  #|acos 3fc531555de52198 3ff678ad84f06b77
+  #|asin bfd1d35306ce9836 bfd2107c07f46b8a
+  #|acos bfd1d35306ce9836 3ffda61a564147fb
+  #|asin bfa497dbb8217350 bfa49947ddb03974
+  #|acos bfa497dbb8217350 3ff9c6c59331aee4
+  #|asin bfeabbf791fea43a bfefa56a77014a87
+  #|acos bfeabbf791fea43a 40047a5847e2692e
+  #|asin 3fec2d5791ff490c 3ff13b596f99e588
+  #|acos 3fec2d5791ff490c 3fdf9a8792a91e44
+  #|asin 3fe0aeb1a4b61872 3fe18c841ab2c9cf
+  #|acos 3fe0aeb1a4b61872 3ff05bb946eac831
+  #|asin 3fe224c1ffa9be44 3fe34a7e78a52edc
+  #|acos 3fe224c1ffa9be44 3feef9782fe32b54
+  #|asin bfa54209fcf7ea40 bfa5439a91d7a0a8
+  #|acos bfa54209fcf7ea40 3ff9cc1828d2ea1e
+  #|asin bfee1ec52b03109a bff39f0d342d4e9d
+  #|acos bfee1ec52b03109a 400660844438bddb
+  #|asin bfd3f0da158c732c bfd4474783ed6fcd
+  #|acos bfd3f0da158c732c 3ffe33cd353f890c
+  #|asin 3feb2261489a8f80 3ff0318f8fda6c23
+  #|acos 3feb2261489a8f80 3fe1e0d788d381eb
+  #|asin 3fbaf56037640230 3fbb023204277d88
+  #|acos 3fbaf56037640230 3ff771d83401b540
+  #|asin bfeb06dc9296117a bff017bbed9941b8
+  #|acos bfeb06dc9296117a 40049cdba0eeb768
+  #|asin 3fd4ce95409afa68 3fd5312e7a793ab4
+  #|acos 3fd4ce95409afa68 3ff3d5afb5a5de6b
+  #|asin 3fe393ac006c6b5a 3fe510d41a821900
+  #|acos 3fe393ac006c6b5a 3fed33228e064131
+  #|asin bfc4bb6792755b24 bfc4d2e37d13b767
+  #|acos bfc4bb6792755b24 3ffbbc57c3e6a405
+  #|asin 3fa26b5909ad8040 3fa26c5d922ec73f
+  #|acos 3fa26b5909ad8040 3ff88e9867b2b6de
+  #|asin 3fc93a207b3f8500 3fc964af1524708d
+  #|acos 3fc93a207b3f8500 3ff5f565719f9f07
+  #|asin 3fde7b60eb6ebebc 3fdfc556fb064300
+  #|acos 3fde7b60eb6ebebc 3ff130a595829c58
+  #|asin 3fd36383cfd9f878 3fd3b2c1c66f98ec
+  #|acos 3fd36383cfd9f878 3ff4354ae2a846dd
+  #|asin bfecc6aca6e163db bff1e38fd2bee28f
+  #|acos bfecc6aca6e163db 400582c5938187d4
+  #|asin bfe5ba7c42bd9ff8 bfe7e2aa6be275bd
+  #|acos bfe5ba7c42bd9ff8 400289a8451ab3fb
+  #|asin 3fa93f75a2964a20 3fa94214f87a8c1a
+  #|acos 3fa93f75a2964a20 3ff857eaac8058b7
+  #|asin 3fdcfa87ac13dfb4 3fde12bb44fec2f4
+  #|acos 3fdcfa87ac13dfb4 3ff19d4c83047c5b
+  #|asin 3fe03776084f9d98 3fe10182078d0221
+  #|acos 3fe03776084f9d98 3ff0a13a507dac08
+  #|asin 3fb96c0969d8b5a0 3fb976c7ec4f2c15
+  #|acos 3fb96c0969d8b5a0 3ff78a8ed57f3a57
+  #|asin 3fbffc07d6f5a250 3fc008bdf3d4b532
+  #|acos 3fbffc07d6f5a250 3ff720e395c99672
+  #|asin 3fd27ca9792f940c 3fd2c11414dc4ab2
+  #|acos 3fd27ca9792f940c 3ff471b64f0d1a6c
+  #|asin 3fe17e555863edce 3fe2821f4e1d9911
+  #|acos 3fe17e555863edce 3fefc1d75a6ac11f
+  #|asin 3fda1c2c23cfa790 3fdae50807ce8917
+  #|acos 3fda1c2c23cfa790 3ff268b952508ad2
+  #|asin 3fe0bb39546345f8 3fe19b35106737e1
+  #|acos 3fe0bb39546345f8 3ff05460cc109128
+  #|asin 3fe05928fa3fbaec 3fe128a741b14ee0
+  #|acos 3fe05928fa3fbaec 3ff08da7b36b85a8
+  #|asin 3feb08fe3f52a22a 3ff019b9b3d3cb67
+  #|acos 3feb08fe3f52a22a 3fe2108340e0c362
+  #|asin bfe4eddcfd808924 bfe6d023a3ee3cce
+  #|acos bfe4eddcfd808924 40024506931da5c0
+  #|asin bfc48978be2dd4e4 bfc4a04b400fbc71
+  #|acos bfc48978be2dd4e4 3ffbb604bc4624a6
+  #|asin bfe60ca7a8e937b6 bfe853506ba08850
+  #|acos bfe60ca7a8e937b6 4002a5d1c50a38a0
+  #|asin 3fed83e567061906 3ff2c933200a53d1
+  #|acos 3fed83e567061906 3fd96320d0e7651c
+  #|asin bfc4502e113488f0 bfc466423365fb10
+  #|acos bfc4502e113488f0 3ffbaec39ab0ec7a
+  #|asin 3fe6503d5d719060 3fe8b1153f354b4a
+  #|acos 3fe6503d5d719060 3fe992e169530ee7
+  #|asin bfd48ded0b4afdd0 bfd4ecdbeec37818
+  #|acos bfd48ded0b4afdd0 3ffe5d324ff50b1e
+  #|asin 3fe97c8d23c650c4 3fed7c2d4d17d71a
+  #|acos 3fe97c8d23c650c4 3fe4c7c95b708317
+  #|asin 3fd4aac9a566ea94 3fd50b58509eea44
+  #|acos 3fd4aac9a566ea94 3ff3df25401c7287
+  #|asin 3f9bfe90077d55c0 3f9bff74a2a1d08f
+  #|acos 3f9bfe90077d55c0 3ff8b1fd81b9a5d6
+  #|asin 3fe5c2304e13fbe0 3fe7ed2a44416c2b
+  #|acos 3fe5c2304e13fbe0 3fea56cc6446ee05
+  #|asin bfea0575201a8cfd bfee62e3d9de37c1
+  #|acos bfea0575201a8cfd 400429b6a099a47c
+  #|asin bf718d11c9cab380 bf718d154ede61f5
+  #|acos bf718d11c9cab380 3ff9338869930b7a
+  #|asin bfe16b5711ac63ac bfe26b75c617df03
+  #|acos bfe16b5711ac63ac 40012bdb1ba80e4d
+  #|asin 3fe4ec557d5e00d4 3fe6ce1e27a9da14
+  #|acos 3fe4ec557d5e00d4 3feb75d880de801d
+  #|asin 3fdfeaa415cbed14 3fe0b4feafd0f8cc
+  #|acos 3fdfeaa415cbed14 3ff0c77bfc5bb0b2
+  #|asin 3fdadd1d3c8cd7a4 3fdbb8fa671d932d
+  #|acos 3fdadd1d3c8cd7a4 3ff233bcba7cc84d
+  #|asin bfe045545c1a9c3f bfe1119abbb045c8
+  #|acos bfe045545c1a9c3f 4000d564590e27fe
+  #|asin bfdecd171ad06774 bfe01134c4163024
+  #|acos bfdecd171ad06774 4000954adb27a295
+  #|asin 3fc23fb134b0c000 3fc24faa2d601553
+  #|acos 3fc23fb134b0c000 3ff6d8060e982a6e
+  #|asin bfbfd97461c50500 bfbfeea2d746af49
+  #|acos bfbfd97461c50500 3ffb20e581b8980d
+  #|asin 3fe996ff04dc14d4 3feda81071d735e1
+  #|acos 3fe996ff04dc14d4 3fe49be636b12450
+  #|asin 3fb6ce3f25865620 3fb6d5ff19e2b4b4
+  #|acos 3fb6ce3f25865620 3ff7b49b62a601cd
+  #|asin 3fe903ea16ec0256 3fecb7c2a39dd0df
+  #|acos 3fe903ea16ec0256 3fe58c3404ea8951
+  #|asin bfe0e4fcf89eab34 bfe1cc4ae4ceee95
+  #|acos bfe0e4fcf89eab34 400104106355d232
+  #|asin bfe773139eeda106 bfea514c505c76f3
+  #|acos bfe773139eeda106 40032550be393449
+  #|asin 3fb6da48f40fd430 3fb6e2153c43f309
+  #|acos 3fb6da48f40fd430 3ff7b3da007fede8
+  #|asin bfefc9a87df1fd94 bff749eeadc27763
+  #|acos bfefc9a87df1fd94 400835f50103523e
+  #|asin 3fe6d7056eef1384 3fe96f48ca8c82d2
+  #|acos 3fe6d7056eef1384 3fe8d4adddfbd75e
+  #|asin 3fe68d9f430d8d62 3fe907290a7e8397
+  #|acos 3fe68d9f430d8d62 3fe93ccd9e09d69a
+  #|asin 3fe374f9d7d8264c 3fe4ea181f7250f4
+  #|acos 3fe374f9d7d8264c 3fed59de8916093d
+  #|asin bfe3404a12b44026 bfe4a7ef5f90d7dd
+  #|acos bfe3404a12b44026 4001baf982064c84
+  #|asin bfc00c95f2aac640 bfc0176d8b712cbd
+  #|acos bfc00c95f2aac640 3ffb24e905b252b0
+  #|asin 3fdbfff07f62154c 3fdcfae136f9ec28
+  #|acos 3fdbfff07f62154c 3ff1e3430685b20e
+  #|asin bfdec785e1584742 bfe00e07e687f775
+  #|acos bfdec785e1584742 4000947fa3c4146a
+  #|asin 3fb7a24be8b08b60 3fb7aaec92d9be32
+  #|acos 3fb7a24be8b08b60 3ff7a74c8b169135
+  #|asin bfd9867f9ce2b7ae bfda4174d1a32c62
+  #|acos bfd9867f9ce2b7ae 3fffb25888acf831
+  #|asin bfc6c0bc075243ac bfc6dfda7fc152a3
+  #|acos bfc6c0bc075243ac 3ffbfdf6a43c576d
+  #|asin bfda2bbaf3453112 bfdaf613666cb844
+  #|acos bfda2bbaf3453112 3fffdf802ddf5b29
+  #|asin bfa596bfae37a860 bfa598634567b1e8
+  #|acos bfa596bfae37a860 3ff9cebe6e6f6aa8
+  #|asin bfe273b2418132d8 bfe3aab7558b1b0f
+  #|acos bfe273b2418132d8 40017bab7f84dd50
+  #|asin bfa89c62f4b817b0 bfa89ed0b723151c
+  #|acos bfa89c62f4b817b0 3ff9e6f1d9fd45c1
+  #|asin 3fd6550b8d61aad4 3fd6cfec13d1fdce
+  #|acos 3fd6550b8d61aad4 3ff36e004f4fada5
+  #|asin bfbc67ec45cf1978 bfbc76edb626ba3a
+  #|acos bfbc67ec45cf1978 3ffae96a2fa698bc
+  #|asin 3fe8d3028a7d75f0 3fec69cdc175c6e6
+  #|acos 3fe8d3028a7d75f0 3fe5da28e712934b
+  #|asin 3fef0587fe47ebec 3ff52a8188351aee
+  #|acos 3fef0587fe47ebec 3fcfbbce60789158
+  #|asin bfd6f5b302733c1a bfd77bb09faf4ccf
+  #|acos bfd6f5b302733c1a 3fff00e77c30004c
+  #|asin bf2c7ef7e592c000 bf2c7ef7e956e346
+  #|acos bf2c7ef7e592c000 3ff922df4c0377cf
+  #|asin bfbc6dc7e329bfa8 bfbc7cd2a6d8d441
+  #|acos bfbc6dc7e329bfa8 3ffae9c87eb1ba5c
+  #|asin 3fe99fc777c86194 3fedb6b5ae7a00d1
+  #|acos 3fe99fc777c86194 3fe48d40fa0e595f
+  #|asin bfc5c729700ef4ec bfc5e26a9f727574
+  #|acos bfc5c729700ef4ec 3ffbde48a8327bc7
+  #|asin bfdaf18eec2dbfd4 bfdbcf827c435a96
+  #|acos bfdaf18eec2dbfd4 40000aedf9aa81df
+  #|asin 3fee28d4b7d68b1e 3ff3ae062eac95ec
+  #|acos 3fee28d4b7d68b1e 3fd5cfd4965e5cb1
+  #|asin bfc73e54455fc074 bfc75f86a77b97e9
+  #|acos bfc73e54455fc074 3ffc0dec2933a015
+  #|asin bfe92c0c2e02343b bfecf86faaf175a1
+  #|acos bfe92c0c2e02343b 4003cf1994de73f4
+  #|asin 3fe294f27c9a9c62 3fe3d37c769dc1b5
+  #|acos 3fe294f27c9a9c62 3fee707a31ea987c
+  #|asin 3fde96268e116574 3fdfe3cd6465442d
+  #|acos 3fde96268e116574 3ff12907fb2adc0d
+  #|asin bfe4ff4e96035484 bfe6e73a1a815795
+  #|acos bfe4ff4e96035484 40024acc30c26c71
+  #|asin 3feb72a29ec7bb14 3ff07e6b6d02eb85
+  #|acos 3feb72a29ec7bb14 3fe1471fce828327
+  #|asin bfe53f093ff52a83 bfe73c1010a85356
+  #|acos bfe53f093ff52a83 40026001ae4c2b62
+  #|asin bfdf563299c430e0 bfe05f9eaae0a25d
+  #|acos bfdf563299c430e0 4000a8e554da3f24
+  #|asin 3fe1a74692377698 3fe2b31d0b7ecd1a
+  #|acos 3fe1a74692377698 3fef90d99d098d16
+  #|asin bfd7b69eb435ae4e bfd84ae08b06dea8
+  #|acos bfd7b69eb435ae4e 3fff34b37705e4c2
+  #|asin bfd09b4afa2bd11a bfd0cc813fbf3def
+  #|acos bfd09b4afa2bd11a 3ffd551ba433fc94
+  #|asin 3fe58708e12abc38 3fe79cdb07e779ba
+  #|acos 3fe58708e12abc38 3feaa71ba0a0e077
+  #|asin 3fe64ab4e818427c 3fe8a95e05c36eb3
+  #|acos 3fe64ab4e818427c 3fe99a98a2c4eb7d
+  #|asin 3fe02f7a7df87cd6 3fe0f84057c39d1e
+  #|acos 3fe02f7a7df87cd6 3ff0a5db28625e89
+  #|asin bfd362478946aa28 bfd3b175e86e1839
+  #|acos bfd362478946aa28 3ffe0e58ce5fb326
+  #|asin bfec47b0f13573c2 bff15752923c33b9
+  #|acos bfec47b0f13573c2 40053ca6f3403069
+  #|asin 3fdf9b50860b3104 3fe0874efa289738
+  #|acos 3fdf9b50860b3104 3ff0de53d72fe17c
+  #|asin bfd47306b5c43154 bfd4d07683b0c721
+  #|acos bfd47306b5c43154 3ffe5618f5305ee0
+  #|asin bfcc446c29f553fc bfcc80925111df0b
+  #|acos bfcc446c29f553fc 3ffcb20d9e6668fa
+  #|asin bfeedf58aa20ec98 bff4df6a5dd1dd8e
+  #|acos bfeedf58aa20ec98 400700b2d90b0553
+  #|asin bfe3192777610199 bfe4770d5548a982
+  #|acos bfe3192777610199 4001aec0ff7440ed
+  #|asin bfe718c3a6005d0e bfe9cdb49d9b096b
+  #|acos bfe718c3a6005d0e 4003046ad188d8e7
+  #|asin 3fb4384c8ac17df0 3fb43db23a08f34a
+  #|acos 3fb4384c8ac17df0 3ff7de2030a39de4
+  #|asin 3fefcd561cfbaae0 3ff75a347b702555
+  #|acos 3fefcd561cfbaae0 3fbc7c6d8d407c39
+  #|asin 3fc055d29aa6cb60 3fc061420b44b7b8
+  #|acos 3fc055d29aa6cb60 3ff715d312db9621
+  #|asin bfeb61b44293b4dc bff06e01cb5f692b
+  #|acos bfeb61b44293b4dc 4004c7fe8fd1cb22
+  #|asin 3fc4bd79500cc290 3fc4d4fc52043ec7
+  #|acos 3fc4bd79500cc290 3ff6875bca03a53f
+  #|asin 3fea5b307ce2276e 3feef81820352a7e
+  #|acos 3fea5b307ce2276e 3fe34bde88532fb3
+  #|asin 3fdc99ce435d5b50 3fdda66e3d07bd44
+  #|acos 3fdc99ce435d5b50 3ff1b85fc5023dc7
+  #|asin 3febe969068a0864 3ff0f4d0322569e7
+  #|acos 3febe969068a0864 3fe05a56443d8662
+  #|asin bfd533e0f6e84f4a bfd59c6ae44df76a
+  #|acos bfd533e0f6e84f4a 3ffe89160d57aaf3
+  #|asin 3fdddefccb8acbe0 3fdf13ff0799b2de
+  #|acos 3fdddefccb8acbe0 3ff15cfb925dc061
+  #|asin bfe567cfbd6db9e4 bfe772c0f14695fd
+  #|acos bfe567cfbd6db9e4 40026dade673bc0c
+  #|asin bfec2128c0c328b7 bff12e88f12a05f4
+  #|acos bfec2128c0c328b7 4005284222b71986
+  #|asin 3fdebe7f9d9d6a14 3fe008e2a05e5836
+  #|acos 3fdebe7f9d9d6a14 3ff11d8a041500fd
+  #|asin 3fc7e7d60da74010 3fc80bfbbd22d878
+  #|acos 3fc7e7d60da74010 3ff6207bdc9fd209
+  #|asin bfd97961ba83c2ca bfda3327ca6570e5
+  #|acos bfd97961ba83c2ca 3fffaec546dd8952
+  #|asin bfe5685c1a32d150 bfe7737dc75941df
+  #|acos bfe5685c1a32d150 40026ddd1bf86704
+  #|asin bfcb5368465752f0 bfcb89a9d8f8a4d4
+  #|acos bfcb5368465752f0 3ffc93308f6341b3
+  #|asin bfe8efa9b8598263 bfec975dd209a810
+  #|acos bfe8efa9b8598263 4003b6d51ea48090
+  #|asin 3f9411b1e7fe2c40 3f9412061f0148d9
+  #|acos 3f9411b1e7fe2c40 3ff8d1b33bc827f5
+  #|asin 3fea608da4ebf784 3fef018f6ac98131
+  #|acos 3fea608da4ebf784 3fe342673dbed900
+  #|asin bfd81a0994bffb20 bfd8b60db8ab1b43
+  #|acos bfd81a0994bffb20 3fff4f7ec26ef3e9
+  #|asin bfe7b5badf1751b4 bfeab3e50a2f1939
+  #|acos bfe7b5badf1751b4 40033df6ecaddcda
+  #|asin bfd3774f7eed271a bfd3c7886c17b7a9
+  #|acos bfd3774f7eed271a 3ffe13dd6f4a1b03
+  #|asin bfdc999569de3b68 bfdda62eb0c06fe4
+  #|acos bfdc999569de3b68 400045c3803a2489
+  #|asin 3fc26c59b43c0550 3fc27cc9d068d9ad
+  #|acos 3fc26c59b43c0550 3ff6d2621a3711e3
+  #|asin bfd499fb458dcbb4 bfd4f9973b455710
+  #|acos bfd499fb458dcbb4 3ffe6061231582dc
+  #|asin bfa9dbe1d45b53d0 bfa9deb3224cd43d
+  #|acos bfa9dbe1d45b53d0 3ff9f0f0ed5693ba
+  #|asin bfb231ea712dd360 bfb235d8a96f617e
+  #|acos bfb231ea712dd360 3ffa4558dedb2330
+  #|asin bfd9feaeb84b186c bfdac4bed15549a9
+  #|acos bfd9feaeb84b186c 3fffd32b08997f82
+  #|asin 3fe47b5ae0cee488 3fe639f2af76fa20
+  #|acos 3fe47b5ae0cee488 3fec0a03f9116010
+  #|asin 3fe52b0d88643734 3fe72160bd70a04a
+  #|acos 3fe52b0d88643734 3feb2295eb17b9e7
+  #|asin 3fd417e5b6ea87d0 3fd470631ea16c01
+  #|acos 3fd417e5b6ea87d0 3ff405e28c9bd218
+  #|asin bfcdc27924469a70 bfce08d5ac6de31b
+  #|acos bfcdc27924469a70 3ffce31609d1e97c
+  #|asin 3fa39a43243cc360 3fa39b7d3423ce68
+  #|acos 3fa39a43243cc360 3ff8851f6aa30ea5
+  #|asin 3fd83a1388b97dd0 3fd8d8a74b3de24a
+  #|acos 3fd83a1388b97dd0 3ff2ebd18174b486
+  #|asin 3fe47e776173ef12 3fe63dff921e4fac
+  #|acos 3fe47e776173ef12 3fec05f7166a0a84
+  #|asin bfe22a2f22a85fca bfe3511557ded4b3
+  #|acos bfe22a2f22a85fca 400165430019cbb9
+  #|asin 3fcfd7f86b7f9a90 3fd0173ed6678101
+  #|acos 3fcfd7f86b7f9a90 3ff51c2b9eaa4cd8
+  #|asin bfe7a0405d8d3eb8 bfea93fb22773429
+  #|acos bfe7a0405d8d3eb8 400335fc72bfe396
+  #|asin bfeb292b44da4ece bff037f8f98dbc83
+  #|acos bfeb292b44da4ece 4004acfa26e8f4ce
+  #|asin bfeea2696083b0c8 bff4710f1108c6c6
+  #|acos bfeea2696083b0c8 4006c98532a679ef
+  #|asin bfe477adf628b42a bfe6352a5a1f98ec
+  #|acos bfe477adf628b42a 40021e4840a9fcc7
+  #|asin 3fc773b1c5f95ac8 3fc795cd4233be93
+  #|acos 3fc773b1c5f95ac8 3ff62f41abfdb546
+  #|asin 3fb8501c8aa46380 3fb859819f3eec1e
+  #|acos 3fb8501c8aa46380 3ff79c633a503e56
+  #|asin 3fe982ca29b56e4c 3fed8680845f5b8c
+  #|acos 3fe982ca29b56e4c 3fe4bd762428fea5
+  #|asin bfee4c7ebd973844 bff3e4648081a394
+  #|acos bfee4c7ebd973844 4006832fea62e856
+  #|asin 3fcb3af14e788668 3fcb709fa01d068a
+  #|acos 3fcb3af14e788668 3ff5b3e760408c47
+  #|asin bfb5172833ec1550 bfb51d48878b7876
+  #|acos bfb5172833ec1550 3ffa73cfdcbce4a0
+  #|asin bfb59d7c6525b6a8 bfb5a414fa396778
+  #|acos bfb59d7c6525b6a8 3ffa7c3ca3e7c390
+  #|asin 3fd2b8076cbd979c 3fd2ff1fdad2b8b3
+  #|acos 3fd2b8076cbd979c 3ff462335d8f7eec
+  #|asin bfedce83f844dd92 bff32ca9336f6807
+  #|acos bfedce83f844dd92 4006275243d9ca90
+  #|asin 3fdaed55430c9460 3fdbcada13fcd0d5
+  #|acos 3fdaed55430c9460 3ff22f44cf44f8e3
+  #|asin bfdaf47bf5498a16 bfdbd2bc4dc41e5d
+  #|acos bfdaf47bf5498a16 40000b5533da9a58
+  #|asin 3feb83f3393ceca0 3ff08f518be81254
+  #|acos 3feb83f3393ceca0 3fe1255390b83589
+  #|asin bfb8b9c910614168 bfb8c3ab177330a1
+  #|acos bfb8b9c910614168 3ffaae3605bb6022
+  #|asin 3fe046df69b2ba74 3fe113658c777a96
+  #|acos 3fe046df69b2ba74 3ff098488e086fcd
+  #|asin bfeee0e6e7c44001 bff4e2602558ceba
+  #|acos bfeee0e6e7c44001 4007022dbcce7de9
+  #|asin 3fe2f674ba38f9e4 3fe44be45eb00132
+  #|acos 3fe2f674ba38f9e4 3fedf81249d858ff
+  #|asin 3fe54373669dcbb6 3fe741f7e3323dce
+  #|acos 3fe54373669dcbb6 3feb01fec5561c62
+  #|asin 3fe76b802ba3784c 3fea462c22d27753
+  #|acos 3fe76b802ba3784c 3fe7fdca85b5e2de
+  #|asin bf834922754f2680 bf834935238bc6c2
+  #|acos bf834922754f2680 3ff9488dbe8b44a6
+  #|asin 3fc9620148783eb0 3fc98d5d6d34ebea
+  #|acos 3fc9620148783eb0 3ff5f04fa69d8f9b
+  #|asin 3fc1d839859d98b0 3fc1e7273a1d32b7
+  #|acos 3fc1d839859d98b0 3ff6e5166d0086c1
+  #|asin bfe7f4ab7201ef76 bfeb12370ab75820
+  #|acos bfe7f4ab7201ef76 4003558b6ccfec94
+  #|asin bfecec9db41d40f3 bff20f69f89d05ea
+  #|acos bfecec9db41d40f3 400598b2a6709981
+  #|asin 3fefb3e2bb548b66 3ff6f330a0f38c9b
+  #|acos 3fefb3e2bb548b66 3fc176559a8503ec
+  #|asin bfc4dd63299ac918 bfc4f5543fc60569
+  #|acos bfc4dd63299ac918 3ffbc0a5dc3cedc5
+  #|asin bfe8342a4c64d882 bfeb72a09fe28162
+  #|acos bfe8342a4c64d882 40036da5d21ab6e4
+  #|asin bfea2f52fd5e9bbe bfeeab4507c75a05
+  #|acos bfea2f52fd5e9bbe 40043bceec13ed0d
+  #|asin bfcc08705d343c94 bfcc431520877210
+  #|acos bfcc08705d343c94 3ffcaa5df8551b5a
+  #|asin 3fe06b2782a1e39c 3fe13d99f3f06610
+  #|acos 3fe06b2782a1e39c 3ff0832e5a4bfa10
+  #|asin 3fc08626530d9498 3fc091fcf4f62b8b
+  #|acos 3fc08626530d9498 3ff70fbbb5a567a7
+  #|asin 3fef1b718e5b2a34 3ff558292114b51c
+  #|acos 3fef1b718e5b2a34 3fce4e91997bbfdf
+  #|asin 3fee5a9defdfe4c0 3ff3fa843e0dc07c
+  #|acos 3fee5a9defdfe4c0 3fd49ddc58d9b271
+  #|asin 3fe2a4c9aa67856e 3fe3e6f5b037cba5
+  #|acos 3fe2a4c9aa67856e 3fee5d00f8508e8b
+  #|asin bfeb14a5f52faee8 bff024a4109511c3
+  #|acos bfeb14a5f52faee8 4004a34fb26c9f6e
+  #|asin 3fe1772530dd4b16 3fe2798a749d6d96
+  #|acos 3fe1772530dd4b16 3fefca6c33eaec9a
+  #|asin 3fc51abb79b6c2c8 3fc53383f593015c
+  #|acos 3fc51abb79b6c2c8 3ff67b8ad591cced
+  #|asin 3fda970484f46398 3fdb6bd52074dfcd
+  #|acos 3fda970484f46398 3ff247060c26f525
+  #|asin bfc19a2abd713dbc bfc1a87dec7319ef
+  #|acos bfc19a2abd713dbc 3ffb570b11d29056
+  #|asin bfe89ead6277d25c bfec17614b458308
+  #|acos bfe89ead6277d25c 400396d5fcf3774e
+  #|asin 3fe5445bfaac81cc 3fe7432f21bb4d17
+  #|acos 3fe5445bfaac81cc 3feb00c786cd0d19
+  #|asin 3fb689fd5737ca90 3fb691785c3caf1f
+  #|acos 3fb689fd5737ca90 3ff7b8e3ce806226
+  #|asin 3fe3f61bdcbcbcda 3fe58e03b788d728
+  #|acos 3fe3f61bdcbcbcda 3fecb5f2f0ff8308
+  #|asin bfe155b094e09a68 bfe251ad4ea8c7f2
+  #|acos bfe155b094e09a68 40012568fdcc4889
+  #|asin 3fd35899cb090da0 3fd3a74e4eb1933a
+  #|acos 3fd35899cb090da0 3ff43827c097c84a
+  #|asin bfdd17e6bbda280c bfde33b0a6962855
+  #|acos bfdd17e6bbda280c 40005773bef4db97
+  #|asin bf6e73aea86f7f00 bf6e73b3410ca36b
+  #|acos bf6e73aea86f7f00 3ff931352de4b36a
+  #|asin 3fe5f91e09450a20 3fe83865b3f49a1d
+  #|acos 3fe5f91e09450a20 3fea0b90f493c014
+  #|asin bfbb82a9c7a66f80 bfbb904a04ccf007
+  #|acos bfbb82a9c7a66f80 3ffadafff490fc19
+  #|asin bfd16dfbcc02892a bfd1a710e8fd4bd1
+  #|acos bfd16dfbcc02892a 3ffd8bbf8e83800c
+  #|asin bfb6a872b83456e8 bfb6b00c4c76c256
+  #|acos bfb6a872b83456e8 3ffa8cfc190b993e
+  #|asin bfe390224ac35d7c bfe50c5b5f070759
+  #|acos bfe390224ac35d7c 4001d41481e3d862
+  #|asin 3fdd69b0050dcb80 3fde8fa4ef9e31da
+  #|acos 3fdd69b0050dcb80 3ff17e12185ca0a2
+  #|asin 3fec6cec22123b68 3ff17f79b8ede8e2
+  #|acos 3fec6cec22123b68 3fde8a066d5910dc
+  #|asin bfe1d0a3c33b2692 bfe2e4ce8f17c6dc
+  #|acos bfe1d0a3c33b2692 40014a314de80843
+  #|asin bfe4103b56044dbc bfe5af7df5df7f8c
+  #|acos bfe4103b56044dbc 4001fcdd2799f66f
+  #|asin bfd55e8bfb08752c bfd5c9a94bbe1016
+  #|acos bfd55e8bfb08752c 3ffe9465a733b11e
+  #|asin 3fe284d9c14aec48 3fe3bfbb4b719afe
+  #|acos 3fe284d9c14aec48 3fee843b5d16bf32
+  #|asin bfee0696080b4470 bff37bab5660625e
+  #|acos bfee0696080b4470 40064ed3555247bb
+  #|asin 3fec923fe3d6e6d2 3ff1a882db06fb28
+  #|acos 3fec923fe3d6e6d2 3fdde5e1e4f4c7c1
+  #|asin bfb13d3711c85ad8 bfb1408eb0fa0cae
+  #|acos bfb13d3711c85ad8 3ffa36043f53cde3
+  #|asin bfea29c1ca57c003 bfeea197bf57fbc4
+  #|acos bfea29c1ca57c003 4004396399f8157d
+  #|asin bfd3dfeb49ad1f9e bfd4357672838f4f
+  #|acos bfd3dfeb49ad1f9e 3ffe2f58f0e510ec
+  #|asin 3fc413cf4c706588 3fc4291f672fe130
+  #|acos 3fc413cf4c706588 3ff69cd7675e30f2
+  #|asin 3fda6786fc40b364 3fdb37a92215751d
+  #|acos 3fda6786fc40b364 3ff254110bbecfd1
+  #|asin bfc6fdbc7218dcb0 bfc71dda5cd96291
+  #|acos bfc6fdbc7218dcb0 3ffc05b69fdf596a
+  #|asin 3faec9190a7b6300 3faecddabaf7eaa7
+  #|acos 3faec9190a7b6300 3ff82b8c7e6c6dc3
+  #|asin 3fdae93137fc21dc 3fdbc649a76e72a4
+  #|acos 3fdae93137fc21dc 3ff23068ea689070
+  #|asin bfec8d4800393a44 bff1a3009e99b0ec
+  #|acos bfec8d4800393a44 4005627df96eef02
+  #|asin 3fdc8cf76e2e1c74 3fdd9814eb89e1d0
+  #|acos 3fdc8cf76e2e1c74 3ff1bbf61961b4a4
+  #|asin bfd5b26280a0a156 bfd622b097361c53
+  #|acos bfd5b26280a0a156 3ffeaaa77a11b42d
+  #|asin 3fe1e1ffcba2a2aa 3fe2f9b8e21b8b9c
+  #|acos 3fe1e1ffcba2a2aa 3fef4a3dc66cce94
+  #|asin 3fbd914a7cb2ee50 3fbda238bdfd7da7
+  #|acos 3fbd914a7cb2ee50 3ff747d7c864553e
+  #|asin bfe737c640f2d9fe bfe9faa36400e630
+  #|acos bfe737c640f2d9fe 40030fa683225018
+  #|asin 3fe127c8a63af6ca 3fe21b2e1fca5a9d
+  #|acos 3fe127c8a63af6ca 3ff01464445effca
+  #|asin 3fe3c9f83f7b40fc 3fe555b1f1289935
+  #|acos 3fe3c9f83f7b40fc 3fecee44b75fc0fb
+  #|asin bfe781c675ff6ff6 bfea66ee262dd220
+  #|acos bfe781c675ff6ff6 40032ab933ad8b14
+  #|asin bfebb8f8aeec6c44 bff0c3d054dbcbc3
+  #|acos bfebb8f8aeec6c44 4004f2e5d48ffc6e
+  #|asin 3fcf875dcda758e8 3fcfdb4c2d96e316
+  #|acos 3fcf875dcda758e8 3ff52691ce9150b6
+  #|asin 3fd7543c6527dfa4 3fd7e116e3e2e0a3
+  #|acos 3fd7543c6527dfa4 3ff329b59b4b74f0
+  #|asin 3fb79bd9108026e0 3fb7a472a8070b8f
+  #|acos 3fb79bd9108026e0 3ff7a7b429c3bc5f
+  #|asin bfda3ee8efcce6a0 bfdb0b1956de8746
+  #|acos bfda3ee8efcce6a0 3fffe4c1a9fbceea
+  #|asin bfde3257c4ff660c bfdf72642bebe7d5
+  #|acos bfde3257c4ff660c 40007f4a2f9f9387
+  #|asin bfcbc6a62b87a714 bfcbffabdb5e2d20
+  #|acos bfcbc6a62b87a714 3ffca1f0cfaff2bc
+  #|asin bf8ae2493b42bb00 bf8ae27bd5c2f1ac
+  #|acos bf8ae2493b42bb00 3ff957c04befb2fc
+  #|asin 3fdb9c08bd4109fc 3fdc8bf59c314b32
+  #|acos 3fdb9c08bd4109fc 3ff1fefded37da4c
+  #|asin 3fe42d48baf6e5cc 3fe5d4da7d3003fe
+  #|acos 3fe42d48baf6e5cc 3fec6f1c2b585632
+  #|asin 3fe85922344a45f6 3febab5e7858236e
+  #|acos 3fe85922344a45f6 3fe69898303036c2
+  #|asin bfdc62be7963b658 bfdd68f04209ef0f
+  #|acos bfdc62be7963b658 40003e1bb263546e
+  #|asin 3fea03d2c08147e4 3fee601535140d52
+  #|acos 3fea03d2c08147e4 3fe3e3e173744cde
+  #|asin 3fc734f5e69f9d70 3fc755ffcd119c89
+  #|acos 3fc734f5e69f9d70 3ff6373b5aa1f987
+  #|asin bfa5fa39aeabaef0 bfa5fbf45a504002
+  #|acos bfa5fa39aeabaef0 3ff9d1daf716af18
+  #|asin bfec149cf1990025 bff1216a4c3c0e92
+  #|acos bfec149cf1990025 400521b2d0401dd5
+  #|asin bfcb7af35847abb4 bfcbb22531f1827e
+  #|acos bfcb7af35847abb4 3ffc983ffa825d68
+  #|asin 3fd80e0a9cc2fec0 3fd8a91b3bf3105f
+  #|acos 3fd80e0a9cc2fec0 3ff2f7b485476900
+  #|asin bfc9cf1ad59f0d20 bfc9fcb6bb4c6a9a
+  #|acos bfc9cf1ad59f0d20 3ffc61922badba6c
+  #|asin bfd0c567902c10ea bfd0f8202f366070
+  #|acos bfd0c567902c10ea 3ffd60036011c534
+  #|asin 3fe630ac1950e47a 3fe885283023132e
+  #|acos 3fe630ac1950e47a 3fe9bece78654703
+  #|asin 3fd93f5896eccc1c 3fd9f3f1f297befd
+  #|acos 3fd93f5896eccc1c 3ff2a4fed79e3d59
+  #|asin 3fe57e132da4b7da 3fe790c107e84690
+  #|acos 3fe57e132da4b7da 3feab335a0a013a1
+  #|asin bfd6ec16b91f76ca bfd7716535417edd
+  #|acos bfd6ec16b91f76ca 3ffefe54a1948cd0
+  #|asin 3fe8ffa9f2dc79e2 3fecb0f2ab4cb1f7
+  #|acos 3fe8ffa9f2dc79e2 3fe59303fd3ba83a
+  #|asin 3fe4a0ec22da4898 3fe66af72eed2db1
+  #|acos 3fe4a0ec22da4898 3febd8ff799b2c80
+  #|asin bfe981aca0964a72 bfed84a79b7c3179
+  #|acos bfe981aca0964a72 4003f227910122ea
+  #|asin bfe0606cd96f65b6 bfe1311b717eb3ad
+  #|acos bfe0606cd96f65b6 4000dd448681c378
+  #|asin bfd1dbf088c2e71c bfd2197497051754
+  #|acos bfd1dbf088c2e71c 3ffda8587a0572ed
+  #|asin 3fb42d469d42fea0 3fb432a37966c99c
+  #|acos 3fb42d469d42fea0 3ff7ded11cadc07e
+  #|asin bfd85c2443878ff2 bfd8fd7982e2cd86
+  #|acos bfd85c2443878ff2 3fff6159b4fce07a
+  #|asin 3fd05cb7b058afa4 3fd08bbe956ebb92
+  #|acos 3fd05cb7b058afa4 3ff4ff0baee87e34
+  #|asin 3fe8983392cb3a9a 3fec0d400b1711a5
+  #|acos 3fe8983392cb3a9a 3fe636b69d71488c
+  #|asin 3fdda6a42a0fa480 3fded4599014d4c4
+  #|acos 3fdda6a42a0fa480 3ff16ce4f03ef7e7
+  #|asin 3fe6d547eb26e208 3fe96cccce4f2fbf
+  #|acos 3fe6d547eb26e208 3fe8d729da392a71
+  #|asin bfd90d13efbd9492 bfd9bd47874bda28
+  #|acos bfd90d13efbd9492 3fff914d361723a2
+  #|asin 3fe411794e624880 3fe5b11626e17532
+  #|acos 3fe411794e624880 3fec92e081a6e4fe
+  #|asin 3fc92a60c3f59c20 3fc9549ee8d1c0a8
+  #|acos 3fc92a60c3f59c20 3ff5f7677729f503
+  #|asin bfe17c985e0c1b84 bfe2800bef682340
+  #|acos bfe17c985e0c1b84 40013100a5fc1f5c
+  #|asin bfe3cd8188b1a3bd bfe55a3228e5db0b
+  #|acos bfe3cd8188b1a3bd 4001e78a345b8d4f
+  #|asin 3fe0dbb81b4b1286 3fe1c1620e7d9542
+  #|acos 3fe0dbb81b4b1286 3ff0414a4d056277
+  #|asin bfdc8191965bae88 bfdd8b595299a4e1
+  #|acos bfdc8191965bae88 40004268d4754b28
+  #|asin 3febe51efb5fc418 3ff0f06eb0c5c2e9
+  #|acos 3febe51efb5fc418 3fe0631946fcd45f
+  #|asin 3fea7399bfc3f596 3fef234dbbd4faf4
+  #|acos 3fea7399bfc3f596 3fe320a8ecb35f3c
+  #|asin bfed61aa71c9477a bff29d751318f414
+  #|acos bfed61aa71c9477a 4005dfb833ae9096
+  #|asin 3fcb913c3c5bf078 3fcbc8f6bbfacbba
+  #|acos 3fcb913c3c5bf078 3ff5a8dc7cc4d3a1
+  #|asin 3fc77a5801a5d6e8 3fc79c90d60d1bdd
+  #|acos 3fc77a5801a5d6e8 3ff62e693982899d
+  #|asin bfc2a47862e609ec bfc2b5817f10d390
+  #|acos bfc2a47862e609ec 3ffb78ab8426478a
+  #|asin 3f9f69f10f5556c0 3f9f6b341d401206
+  #|acos 3f9f69f10f5556c0 3ff8a44e83cf2cd0
+  #|asin bfecd57ae17beb10 bff1f48ec5937909
+  #|acos bfecd57ae17beb10 40058b450cebd311
+  #|asin 3fd4018a8b785a14 3fd458d895f1f36e
+  #|acos 3fd4018a8b785a14 3ff40bc52ec7b03d
+  #|asin 3feb69c9b345e5e0 3ff075d46023fe82
+  #|acos 3feb69c9b345e5e0 3fe1584de8405d2d
+  #|asin bfd63157a08641da bfd6a9d756955981
+  #|acos bfd63157a08641da 3ffecc7129e98378
+  #|asin bfc421b6b81ab080 bfc437338ef749ff
+  #|acos bfc421b6b81ab080 3ffba8e1c6231658
+  #|asin 3fd0b46877bd3368 3fd0e684308b3ce4
+  #|acos 3fd0b46877bd3368 3ff4e85a48215ddf
+  #|asin 3fe4a611d6f3506c 3fe671b36f2b7776
+  #|acos 3fe4a611d6f3506c 3febd243395ce2bb
+  #|asin 3fd0402b0e32e5f8 3fd06e38828f922a
+  #|acos 3fd0402b0e32e5f8 3ff5066d33a0488e
+  #|asin bfed7426d5f0bbeb bff2b4f18e6cebc4
+  #|acos bfed7426d5f0bbeb 4005eb7671588c6e
+  #|asin 3fbbd82ff22991d0 3fbbe65147339563
+  #|acos 3fbbd82ff22991d0 3ff763963fd0f3c2
+  #|asin bfd688d3077a8d7a bfd7073587cf3d1c
+  #|acos bfd688d3077a8d7a 3ffee3c8b637fc5f
+  #|asin bfebb58fa4a35ef5 bff0c067002b1a25
+  #|acos bfebb58fa4a35ef5 4004f1312a37a39e
+  #|asin bfb30a2ed17cc920 bfb30eb00d7b9ec0
+  #|acos bfb30a2ed17cc920 3ffa52e6551be704
+  #|asin bfeb97ee207f8faa bff0a2f73e08f1e5
+  #|acos bfeb97ee207f8faa 4004e27949268f7f
+  #|asin 3fef9e75745f61fe 3ff6a945217d4f60
+  #|acos 3fef9e75745f61fe 3fc3c5b19636edc4
+  #|asin 3fe3e6b0aa6b7dfa 3fe57a4e57785074
+  #|acos 3fe3e6b0aa6b7dfa 3fecc9a8511009bc
+  #|asin 3fd4a5b2eba2e274 3fd505f7ebf82161
+  #|acos 3fd4a5b2eba2e274 3ff3e07d594624c0
+  #|asin bfe08181e549e645 bfe157ab1c6f3417
+  #|acos bfe08181e549e645 4000e6e8713de392
+  #|asin 3fd86a0cfe33c2f0 3fd90c84ccfe9e27
+  #|acos 3fd86a0cfe33c2f0 3ff2deda2104858e
+  #|asin 3fe468d12401f1ae 3fe621d984422e84
+  #|acos 3fe468d12401f1ae 3fec221d24462bac
+  #|asin 3fe0b04b6066e18e 3fe18e6447a842d8
+  #|acos 3fe0b04b6066e18e 3ff05ac930700bac
+  #|asin 3fc47a784538e118 3fc491188453178e
+  #|acos 3fc47a784538e118 3ff68fd843b9ca26
+  #|asin 3fd87c093082ed60 3fd91ffadef8c076
+  #|acos 3fd87c093082ed60 3ff2d9fc9c85fcfb
+  #|asin bfe900f00279ef38 bfecb2fd0efc4520
+  #|acos bfe900f00279ef38 4003bdbcede127d4
+  #|asin 3fe6d073bb39efba 3fe965e923e8da7c
+  #|acos 3fe6d073bb39efba 3fe8de0d849f7fb5
+  #|asin 3fe301481e33988e 3fe4595700165ff2
+  #|acos 3fe301481e33988e 3fedea9fa871fa3f
+  #|asin bfec935afc0b19d8 bff1a9bd41433d31
+  #|acos bfec935afc0b19d8 400565dc4ac3b525
+  #|asin bfde282621df2f9a bfdf66d4edce5ac9
+  #|acos bfde282621df2f9a 40007dd847dbe1e5
+  #|asin bfc7b54b4bf2ba90 bfc7d88b353d7002
+  #|acos bfc7b54b4bf2ba90 3ffc1d0cbaebdb18
+  #|asin bfdb38134eba0646 bfdc1d568763e1d4
+  #|acos bfdb38134eba0646 400014a87b0e92c7
+  #|asin bfb7cc86826314f8 bfb7d555ddd76dbe
+  #|acos bfb7cc86826314f8 3ffa9f50b221a3f4
+  #|asin bfe03b0e9704741c bfe105ae0557bfa4
+  #|acos bfe03b0e9704741c 4000d2692b780676
+  #|asin bfefe3d36b9d1d77 bff7ce2d3b6980b7
+  #|acos bfefe3d36b9d1d77 4008781447d6d6e8
+  #|asin bfd02366b25143b4 bfd0507c6c6a4223
+  #|acos bfd02366b25143b4 3ffd361a6f5ebda1
+  #|asin bfe6fe279dcfa6f4 bfe9a75a6acf90eb
+  #|acos bfe6fe279dcfa6f4 4002fad444d5fac7
+  #|asin 3fd9335b731693fc 3fd9e6e6806543a7
+  #|acos 3fd9335b731693fc 3ff2a841b42adc2e
+  #|asin 3fee0d963b7ad09c 3ff385d362188ef5
+  #|acos 3fee0d963b7ad09c 3fd6709fc8ae788e
+  #|asin 3fd85c3435e55b70 3fd8fd8ac18c3223
+  #|acos 3fd85c3435e55b70 3ff2e298a3e12090
+  #|asin 3fe8a46aa972957a 3fec205edc562738
+  #|acos 3fe8a46aa972957a 3fe62397cc3232f8
+  #|asin bfd8858a345e8f40 bfd92a448e8c0e6f
+  #|acos bfd8858a345e8f40 3fff6c8c77e730b4
+  #|asin 3fdb8cb01818c470 3fdc7af3fc9fba4b
+  #|acos 3fdb8cb01818c470 3ff2033e551c3e86
+  #|asin bfe85e8b5f8667f6 bfebb3b669f70c5a
+  #|acos bfe85e8b5f8667f6 40037deb449fd9a3
+  #|asin bfe59fab76e0de50 bfe7be369a6f3453
+  #|acos bfe59fab76e0de50 4002808b50bde3a1
+  #|asin bfe824ce63dd905e bfeb5b2fcc50ca97
+  #|acos bfe824ce63dd905e 400367c99d364932
+  #|asin bf5d1b5836818e00 bf5d1b593760480c
+  #|acos bf5d1b5836818e00 3ff929422a92052a
+  #|asin 3fc60d393449f5f8 3fc6298730a82a3e
+  #|acos 3fc60d393449f5f8 3ff65cca6e2f27d1
+  #|asin 3fd09a321e458a74 3fd0cb5e6e8d7fc9
+  #|acos 3fd09a321e458a74 3ff4ef23b8a0cd26
+  #|asin bfdb1a2126d39ce4 bfdbfc4426438191
+  #|acos bfdb1a2126d39ce4 400010862eea86be
+  #|asin 3fa6f402907297e0 3fa6f5fae35ab645
+  #|acos 3fa6f402907297e0 3ff86a4b7d295766
+  #|asin bfa4de2514fbd8a0 bfa4df9ffef9b3ea
+  #|acos bfa4de2514fbd8a0 3ff9c8f8543bfab8
+  #|asin bfe7c5501c98af46 bfeacb2275262230
+  #|acos bfe7c5501c98af46 400343c6476b9f18
+  #|asin 3fd5a9186ca3cc40 3fd618d118d1470e
+  #|acos 3fd5a9186ca3cc40 3ff39bc70e0fdb55
+  #|asin 3fdb6b84c26113f0 3fdc563975162827
+  #|acos 3fdb6b84c26113f0 3ff20c6cf6fea30e
+  #|asin bfe0a0df6bbcbc12 bfe17c545e795e64
+  #|acos bfe0a0df6bbcbc12 4000f012c1c06e25
+  #|asin bfe27cceb5542e1e bfe3b5df921e1395
+  #|acos bfe27cceb5542e1e 40017e758ea99b71
+  #|asin 3f83337aff67b080 3f83338d6efdd28b
+  #|acos 3f83337aff67b080 3ff8fb9439663173
+  #|asin bfe1938c9cc64ec7 bfe29b7c280fdedc
+  #|acos bfe1938c9cc64ec7 400137dcb4260e43
+  #|asin 3feaa5450881b388 3fef7c45d24949da
+  #|acos 3feaa5450881b388 3fe2c7b0d63f1057
+  #|asin bfd3d9ab98d7a91a bfd42ee3a9fc36d5
+  #|acos bfd3d9ab98d7a91a 3ffe2db43ec33ace
+  #|asin bfd8a2b097be96ee bfd949d6b751a5ec
+  #|acos bfd8a2b097be96ee 3fff747102189693
+  #|asin 3fe5406c7fbdf726 3fe73deb2f024c56
+  #|acos 3fe5406c7fbdf726 3feb060b79860ddb
+  #|asin bfed360062a45c57 bff2672ec52c2505
+  #|acos bfed360062a45c57 4005c4950cb8290f
+  #|asin 3fc0c24875ceb948 3fc0cea2df101e25
+  #|acos 3fc0c24875ceb948 3ff70826f8622954
+  #|asin bfe5f72696f738dc bfe835b14aca834a
+  #|acos bfe5f72696f738dc 40029e69fcd4b75f
+  #|asin 3fe2dad7fff59986 3fe429aa51c84d37
+  #|acos 3fe2dad7fff59986 3fee1a4c56c00cfa
+  #|asin 3fea38ad62367dc2 3feebb905ffc5069
+  #|acos 3fea38ad62367dc2 3fe38866488c09c8
+  #|asin bfbe88aac5d6c7b0 bfbe9b51f0eee42b
+  #|acos bfbe88aac5d6c7b0 3ffb0bb073531b5b
+  #|asin bfe06cc7160b98ab bfe13f7e25f2db9e
+  #|acos bfe06cc7160b98ab 4000e0dd339ecd74
+  #|asin 3fc3dd7f61db6530 3fc3f223179453ab
+  #|acos 3fc3dd7f61db6530 3ff6a3b6f151a2a3
+  #|asin bfee4765d354ebf0 bff3dc7e28337997
+  #|acos bfee4765d354ebf0 40067f3cbe3bd358
+  #|asin bfd8461196a31810 bfd8e59cb7c8992b
+  #|acos bfd8461196a31810 3fff5b6282365363
+  #|asin 3fe3fdd648298328 3fe597e836b44ca5
+  #|acos 3fe3fdd648298328 3fecac0e71d40d8c
+  #|asin bfefc8ef6f61f173 bff746ccac6d5572
+  #|acos bfefc8ef6f61f173 400834640058c145
+  #|asin bfd6caef5f75c8ca bfd74de6927026eb
+  #|acos bfd6caef5f75c8ca 3ffef574f8e036d3
+  #|asin bfe518f2821472aa bfe7094438167882
+  #|acos bfe518f2821472aa 4002534eb827b4ad
+  #|asin bfb845cec2b56ef0 bfb84f27e244904f
+  #|acos bfb845cec2b56ef0 3ffaa6edd268761d
+  #|asin bfe5f6e561806ec9 bfe835579f9ee331
+  #|acos bfe5f6e561806ec9 40029e539209cf58
+  #|asin 3fed7c979fa8d1a6 3ff2bfc5fa47c50b
+  #|acos 3fed7c979fa8d1a6 3fd988d567f1a036
+  #|asin bfc3ec0909db0de4 bfc400da871d87e9
+  #|acos bfc3ec0909db0de4 3ffba216a527de15
+  #|asin 3fd62147e463acf4 3fd698b873fb6da3
+  #|acos 3fd62147e463acf4 3ff37bcd374551b0
+  #|asin 3fd8df603a40bc94 3fd98ba588845a48
+  #|acos 3fd8df603a40bc94 3ff2bf11f2231686
+  #|asin bfdd616ec745a430 bfde8659e15395e5
+  #|acos bfdd616ec745a430 400061c8e64c8949
+  #|asin 3fe8d5ed219b6ea0 3fec6e6d4b8bae04
+  #|acos 3fe8d5ed219b6ea0 3fe5d5895cfcac2d
+  #|asin bfea5db9a945e74a bfeefc9140e92872
+  #|acos bfea5db9a945e74a 40045021fa5c60a8
+  #|asin 3fef6e9a97d76e10 3ff61d1f2bed0ed4
+  #|acos 3fef6e9a97d76e10 3fc826e142b8f220
+  #|asin bfbe3703cdfe2910 bfbe49164403943c
+  #|acos bfbe3703cdfe2910 3ffb068cb884665c
+  #|asin 3fdfa7f002219a38 3fe08e9197de29d4
+  #|acos 3fdfa7f002219a38 3ff0dab28855182e
+  #|asin 3fdf77ee7454f9c8 3fe072fa2046dda2
+  #|acos 3fdf77ee7454f9c8 3ff0e87e4420be47
+  #|asin bfd69aa3ac0d8d80 bfd71a3f46c7ad03
+  #|acos bfd69aa3ac0d8d80 3ffee88b25f61859
+  #|asin bfeee1c85b896691 bff4e40e08c65729
+  #|acos bfeee1c85b896691 40070304ae854221
+  #|asin bfe7d26fedf65b02 bfeadec3bdc213a6
+  #|acos bfe7d26fedf65b02 400348ae99929b76
+  #|asin 3fd37a02326f0a30 3fd3ca5d7ebe9b5b
+  #|acos 3fd37a02326f0a30 3ff42f63f4948642
+  #|asin bfd352abea9c0170 bfd3a11608621438
+  #|acos bfd352abea9c0170 3ffe0a40d65cb226
+  #|asin 3fd0c5f0c01e9560 3fd0f8ae570bbe21
+  #|acos 3fd0c5f0c01e9560 3ff4e3cfbe813d90
+  #|asin 3fe5a8ef80ad847e 3fe7cacac4ae0a33
+  #|acos 3fe5a8ef80ad847e 3fea792be3da4ffd
+  #|asin 3fe9427a6aaf56c2 3fed1cde5d849f41
+  #|acos 3fe9427a6aaf56c2 3fe527184b03baef
+  #|asin bfdbb1280fa57544 bfdca36166f6d212
+  #|acos bfdbb1280fa57544 40002569d700f0ce
+  #|asin bfe93f385efa2b7d bfed179061ce1d71
+  #|acos bfe93f385efa2b7d 4003d6e1c2959de8
+  #|asin 3f9dd23ae9b2afc0 3f9dd34f4514ab1a
+  #|acos 3f9dd23ae9b2afc0 3ff8aaae172fda6c
+  #|asin bfc8403a79686fd8 bfc865fb7ad11153
+  #|acos bfc8403a79686fd8 3ffc2ebac39e4f43
+  #|asin 3febf95a0871150c 3ff1052b4bfa21cf
+  #|acos 3febf95a0871150c 3fe039a010941693
+  #|asin 3fab929697cf9480 3fab960127446310
+  #|acos 3fab929697cf9480 3ff8454b4b0a0a00
+  #|asin bfe888cd1ba8429a bfebf538687dd260
+  #|acos bfe888cd1ba8429a 40038e4bc4418b24
+  #|asin 3fb547967f8d4680 3fb54de17f6c35ef
+  #|acos 3fb547967f8d4680 3ff7cd1d3c4d69b9
+  #|asin bfe3b9bce135d387 bfe5410f8061c0b2
+  #|acos bfe3b9bce135d387 4001e1418a3a86b9
+  #|asin 3feaad22a9fe7d12 3fef8a7ed896db50
+  #|acos 3feaad22a9fe7d12 3fe2b977cff17ee0
+  #|asin bfe7beb8b04e151a bfeac14b9ccb2e2f
+  #|acos bfe7beb8b04e151a 400341509154e218
+  #|asin 3fcbc10302bd9ae0 3fcbf9e57fbec872
+  #|acos 3fcbc10302bd9ae0 3ff5a2bea44c540a
+  #|asin 3fd12ac45ce5fb94 3fd161403cd3887c
+  #|acos 3fd12ac45ce5fb94 3ff4c9ab450f4af9
+  #|asin bf6dbd56ce648800 bf6dbd5b165bbf40
+  #|acos bf6dbd56ce648800 3ff930da01cf5af8
+  #|asin bfdddb14b6b0e116 bfdf0f944de7f30a
+  #|acos bfdddb14b6b0e116 400072f033df14ee
+  #|asin bfb4e1247d14dc38 bfb4e7161f2e4c74
+  #|acos bfb4e1247d14dc38 3ffa706cb63711e0
+  #|asin 3fead50fb23f2f5a 3fefd345c3086bc0
+  #|acos 3fead50fb23f2f5a 3fe270b0e57fee70
+  #|asin 3fe12aa7572451a4 3fe21e949224a1a3
+  #|acos 3fe12aa7572451a4 3ff012b10b31dc47
+  #|asin bfb44ec41b6f1668 bfb4543be53cf129
+  #|acos bfb44ec41b6f1668 3ffa673f1297fc2b
+  #|asin bfe1973cb32c315e bfe29fe61ebca914
+  #|acos bfe1973cb32c315e 400138f731d140d2
+  #|asin 3fc81cef6c6429f8 3fc8420abe424c0e
+  #|acos 3fc81cef6c6429f8 3ff619b9fc7be397
+  #|asin 3fc0b49efb295510 3fc0c0db1f19c78e
+  #|acos 3fc0b49efb295510 3ff709dff060f427
+  #|asin 3feea77c0361c3d0 3ff479ddc8ca6a66
+  #|acos 3feea77c0361c3d0 3fd2a0762de70ac8
+  #|asin bfb57f3d9bfbfa28 bfb585ba987c8af1
+  #|acos bfb57f3d9bfbfa28 3ffa7a56fdcbf5c7
+  #|asin 3fea68205f872054 3fef0ef3c4433b37
+  #|acos 3fea68205f872054 3fe33502e4451ef9
+  #|asin bfccc3a1dd2f2e44 bfcd030f8cf7c13c
+  #|acos bfccc3a1dd2f2e44 3ffcc25d45e32540
+  #|asin 3fd30f012e55d7f0 3fd35a27b759e84c
+  #|acos 3fd30f012e55d7f0 3ff44b71666db305
+  #|asin 3fe076b74bdf5e60 3fe14b13ea85b5ac
+  #|acos 3fe076b74bdf5e60 3ff07c715f015242
+  #|asin bfea8065b2970a96 bfef3a16bcfaafef
+  #|acos bfea8065b2970a96 40045f835960c288
+  #|asin 3fc627986c4bed60 3fc6444d5fb77bd8
+  #|acos 3fc627986c4bed60 3ff65971a84d3d9d
+  #|asin 3fc2dafbf9fad478 3fc2ec9d405f6c80
+  #|acos 3fc2dafbf9fad478 3ff6c467ac383f88
+  #|asin 3feb089c3c1fbfba 3ff0195e1c055a08
+  #|acos 3feb089c3c1fbfba 3fe2113a707da622
+  #|asin 3fe903972274cdbc 3fecb73d9f6bdcea
+  #|acos 3fe903972274cdbc 3fe58cb9091c7d47
+  #|asin 3fdc3fb2d30dda00 3fdd41dc114786ba
+  #|acos 3fdc3fb2d30dda00 3ff1d1844ff24b6a
+  #|asin 3fc7214e58c2b4e8 3fc74203bde366c8
+  #|acos 3fc7214e58c2b4e8 3ff639badc87c03f
+  #|asin 3fe2b902ada22cf4 3fe3ffde69c1a18e
+  #|acos 3fe2b902ada22cf4 3fee44183ec6b8a2
+  #|asin bfb1d5dafbcfc068 bfb1d98ea0e69342
+  #|acos bfb1d5dafbcfc068 3ffa3f943e52964c
+  #|asin 3fd64d3c18115234 3fd6c796b72a0c03
+  #|acos 3fd64d3c18115234 3ff37015a679aa18
+  #|asin 3fd8293b026bd73c 3fd8c675194676a0
+  #|acos 3fd8293b026bd73c 3ff2f05e0df28f70
+  #|asin bfd0a28f1bede9fe bfd0d407788afc5c
+  #|acos bfd0a28f1bede9fe 3ffd56fd3266ec2f
+  #|asin bfd369c169f63ca2 bfd3b94e431da646
+  #|acos bfd369c169f63ca2 3ffe104ee50b96aa
+  #|asin 3fd8bc42efc2684c 3fd9658e1a22e3dd
+  #|acos 3fd8bc42efc2684c 3ff2c897cdbb7421
+  #|asin bfea36e71603f6ff bfeeb87804d1867b
+  #|acos bfea36e71603f6ff 40043f1bab56782b
+  #|asin 3fee166bef6d4b68 3ff392bdf0f00358
+  #|acos 3fee166bef6d4b68 3fd63cf58d50a702
+  #|asin bfe62e2abc3bcd5c bfe881ae389fe4b8
+  #|acos bfe62e2abc3bcd5c 4002b169384a0fba
+  #|asin bfd32eca7ff2d670 bfd37b76787d8491
+  #|acos bfd32eca7ff2d670 3ffe00d8f2638e3c
+  #|asin 3fdb04035a5ef0c4 3fdbe3dc7a1d7763
+  #|acos 3fdb04035a5ef0c4 3ff2290435bccf40
+  #|asin 3fe28df75b527352 3fe3caea2461a8e8
+  #|acos 3fe28df75b527352 3fee790c8426b149
+  #|asin 3fea3d2b34b87ed8 3feec367bc1737ee
+  #|acos 3fea3d2b34b87ed8 3fe3808eec712243
+  #|asin bfe5924076b0c008 bfe7ac076d883692
+  #|acos bfe5924076b0c008 40027bff85842431
+  #|asin 3fe5331547520c16 3fe72c17890e8d8d
+  #|acos 3fe5331547520c16 3feb17df1f79cca4
+  #|asin bfe34b2b7176ed83 bfe4b59081fc9462
+  #|acos bfe34b2b7176ed83 4001be61caa13ba5
+  #|asin 3fe1b6a80302b3a8 3fe2c5915d4bd3c6
+  #|acos 3fe1b6a80302b3a8 3fef7e654b3c866b
+  #|asin bfe8898f67ac5512 bfebf6671311cfff
+  #|acos bfe8898f67ac5512 40038e976ee68a8c
+  #|asin bfe5316ffc65c162 bfe729e52f3b2a6f
+  #|acos bfe5316ffc65c162 40025b76f5f0e128
+  #|asin bfed3abd9bd4c6f8 bff26cfec8e23557
+  #|acos bfed3abd9bd4c6f8 4005c77d0e933138
+  #|asin 3fe2cf72d0b7005e 3fe41b9219c2145f
+  #|acos 3fe2cf72d0b7005e 3fee28648ec645d1
+  #|asin 3fe99b950adb98fa 3fedafb4fc64138c
+  #|acos 3fe99b950adb98fa 3fe49441ac2446a4
+  #|asin 3fa61b569b02e420 3fa61d19247901db
+  #|acos 3fa61b569b02e420 3ff871128b206509
+  #|asin bfe75239ae3e907a bfea212bc7e21d64
+  #|acos bfe75239ae3e907a 400319489c1a9de5
+  #|asin bfe86afba25a7c02 bfebc6ee4c489ca8
+  #|acos bfe86afba25a7c02 400382b93d343db6
+  #|asin 3fd32930ab294034 3fd375979ffed857
+  #|acos 3fd32930ab294034 3ff444956c447702
+  #|asin 3fea427f5c8252fa 3feeccb8da61c1ce
+  #|acos 3fea427f5c8252fa 3fe3773dce269863
+  #|asin bfe65b53fb5b3ed2 bfe8c0911a8f5c98
+  #|acos bfe65b53fb5b3ed2 4002c121f0c5edb2
+  #|asin bfd3ff1e5bb5cdd6 bfd4564bb25a40bb
+  #|acos bfd3ff1e5bb5cdd6 3ffe378e40dabd47
+  #|asin 3fd49ff7fce0df10 3fd4ffea385a63a1
+  #|acos 3fd49ff7fce0df10 3ff3e200c62d9430
+  #|asin bfdaa66e492044de bfdb7cc8071e2cf0
+  #|acos bfdaa66e492044de 40000096ab05dc2a
+  #|asin 3fd4b63693d90154 3fd5176b359d305d
+  #|acos 3fd4b63693d90154 3ff3dc2086dce101
+  #|asin bfefcb5047bea2c6 bff7512f93b861b4
+  #|acos bfefcb5047bea2c6 4008399573fe4766
+  #|asin 3fda0215237d74ec 3fdac877650b092c
+  #|acos 3fda0215237d74ec 3ff26fdd7b016acd
+  #|asin bfe152e5a65d0f0d bfe24e5ae1b28bc6
+  #|acos bfe152e5a65d0f0d 40012494628eb97e
+  #|asin 3fabaf0617bf7080 3fabb27b464e45ea
+  #|acos 3fabaf0617bf7080 3ff844677a11bae9
+  #|asin 3fe6c2a6ffc7c0d6 3fe9524149782bbc
+  #|acos 3fe6c2a6ffc7c0d6 3fe8f1b55f102e75
+  #|asin bfeb026e7ffa98ee bff01399b729c077
+  #|acos bfeb026e7ffa98ee 40049aca85b6f6c8
+  #|asin 3f92a0ccf8a623c0 3f92a11050cc6b83
+  #|acos 3f92a0ccf8a623c0 3ff8d7771300fb6a
+  #|asin 3feaefc169aeaa4e 3ff0023ec9e3eadc
+  #|acos 3feaefc169aeaa4e 3fe23f7914c08479
+  #|asin 3fe3fc0375c58fc0 3fe595926ee20b1c
+  #|acos 3fe3fc0375c58fc0 3fecae6439a64f14
+  #|asin bfee43e6588713ea bff3d718ed15f677
+  #|acos bfee43e6588713ea 40067c8a20ad11c8
+  #|asin 3fe592d17817aeb6 3fe7accbc04778c2
+  #|acos 3fe592d17817aeb6 3fea972ae840e16f
+  #|asin 3fb83797ae89f7e0 3fb840e05fd4a90b
+  #|acos 3fb83797ae89f7e0 3ff79ded4e46e288
+  #|asin 3fb7e3bc6dc384e0 3fb7eca5baa7ef58
+  #|acos 3fb7e3bc6dc384e0 3ff7a330f899ae23
+  #|asin bfe0997a7a18c952 bfe173ad8569bc70
+  #|acos bfe0997a7a18c952 4000ede90b7c85a8
+  #|asin bfc4bfe298c7cc30 bfc4d76ddfeab3bc
+  #|acos bfc4bfe298c7cc30 3ffbbce910418390
+  #|asin 3fdb5492a7429bf4 3fdc3cd6daf59a2e
+  #|acos 3fdb5492a7429bf4 3ff212c59d86c68d
+  #|asin 3fea14110c3f7c70 3fee7c0b4f0fb127
+  #|acos 3fea14110c3f7c70 3fe3c7eb5978a90a
+  #|asin bfdb666a061dc4d8 bfdc509362dec0bb
+  #|acos bfdb666a061dc4d8 40001b10167deea4
+  #|asin 3feb1885a9c66c8c 3ff028477538af87
+  #|acos 3feb1885a9c66c8c 3fe1f367be16fb22
+  #|asin bfef22b4b090521a bff567c394b7a7ae
+  #|acos bfef22b4b090521a 400744df747dea63
+  #|asin bfa09b7b2a641150 bfa09c3a1ad9e8e2
+  #|acos bfa09b7b2a641150 3ff9a6dd251afc5f
+  #|asin bfe1b5c1a4d0a57f bfe2c47cc393043b
+  #|acos bfe1b5c1a4d0a57f 4001421cdb06d79b
+  #|asin bfc61c4795c60bd4 bfc638d03c29d9e7
+  #|acos bfc61c4795c60bd4 3ffbe9155bc96855
+  #|asin bfee8cf894aff76e bff44c81703763b0
+  #|acos bfee8cf894aff76e 4006b73e623dc864
+  #|asin bfebb555c41328d9 bff0c02d261104b6
+  #|acos bfebb555c41328d9 4004f1143d2a98e8
+  #|asin bfe279f9f52f75cc bfe3b267c5e3ffac
+  #|acos bfe279f9f52f75cc 40017d979b9b1677
+  #|asin 3fd622fb3a333184 3fd69a886aaa3116
+  #|acos 3fd622fb3a333184 3ff37b593999a0d3
+  #|asin 3fa5569408e3b1c0 3fa558292bdfe484
+  #|acos 3fa5569408e3b1c0 3ff8773a0ae52df4
+  #|asin 3f9ecd5e8bdbc2c0 3f9ece8f17738296
+  #|acos 3f9ecd5e8bdbc2c0 3ff8a6c117e65f0e
+  #|asin bfd31d36e02b998c bfd3690ad53e4310
+  #|acos bfd31d36e02b998c 3ffdfc3e0993bddc
+  #|asin 3fefd869a279747c 3ff78f241db3739d
+  #|acos 3fefd869a279747c 3fb92d73690b97ad
+  #|asin bfe1cd06056138dd bfe2e07458e4e464
+  #|acos bfe1cd06056138dd 4001491ac05b4fa5
+  #|asin 3fe210fe0eb72c7a 3fe33285e65846ec
+  #|acos 3fe210fe0eb72c7a 3fef1170c2301345
+  #|asin bfd61d3e3d4f01b6 bfd6946ae6bdb329
+  #|acos bfd61d3e3d4f01b6 3ffec7160df399e2
+  #|asin 3fe26b283a01e19e 3fe3a044e46b6317
+  #|acos 3fe26b283a01e19e 3feea3b1c41cf71a
+  #|asin 3fd50a1a5a775b88 3fd570298d3dc267
+  #|acos 3fd50a1a5a775b88 3ff3c5f0f0f4bc7e
+  #|asin 3fd7a95720d85930 3fd83c9517ef72f3
+  #|acos 3fd7a95720d85930 3ff312d60e48505c
+  #|asin 3fea3eb75869fdaa 3feec61bf3dfc5cc
+  #|acos 3fea3eb75869fdaa 3fe37ddab4a89465
+  #|asin bfc662f4e80aaca4 bfc680953ba1ca63
+  #|acos bfc662f4e80aaca4 3ffbf20dfbb86665
+  #|asin 3fd76886b0337f28 3fd7f6e26d31a83f
+  #|acos 3fd76886b0337f28 3ff32442b8f7c308
+  #|asin bfe205fd3e1cd7b6 bfe325330e4bbe88
+  #|acos bfe205fd3e1cd7b6 40015a4a6db5062e
+  #|asin 3fa76a3b96847920 3fa76c52fd07e903
+  #|acos 3fa76a3b96847920 3ff86698bc5bedd0
+  #|asin bf9ccad94ba6fb40 bf9ccbd204bd0241
+  #|acos bf9ccad94ba6fb40 3ff9952a9c572121
+  #|asin 3fdeef2c4c1490dc 3fe024a8e4022f06
+  #|acos 3fdeef2c4c1490dc 3ff10fa6e2431595
+  #|asin 3fad79f5b6e09fe0 3fad7e226d4442e9
+  #|acos 3fad79f5b6e09fe0 3ff8360a40da0b01
+  #|asin bfcf2bc2ff31914c bfcf7cd0af8daa3a
+  #|acos bfcf2bc2ff31914c 3ffd11956a35e260
+  #|asin 3fd4ba73ad720e98 3fd51be613b38152
+  #|acos 3fd4ba73ad720e98 3ff3db01cf574cc4
+  #|asin bfeb113b26db0882 bff0216f8d1ed0e5
+  #|acos bfeb113b26db0882 4004a1b570b17efe
+  #|asin bfd29185b1db45da bfd2d6df3465ed78
+  #|acos bfd29185b1db45da 3ffdd7b3215da876
+  #|asin 3fd175f8dd3138a0 3fd1af5e7768ae63
+  #|acos 3fd175f8dd3138a0 3ff4b623b66a0180
+  #|asin bfa5fea556cd7b20 bfa600610deb5d15
+  #|acos bfa5fea556cd7b20 3ff9d1fe5cb38801
+  #|asin bfe0cde2db13dd35 bfe1b11e52443877
+  #|acos bfe0cde2db13dd35 4000fd453eb324aa
+  #|asin bfd88c4152ed7d74 bfd93189e1353301
+  #|acos bfd88c4152ed7d74 3fff6e5dcc9179d8
+  #|asin bfd0e4daf2f68ace bfd118b9606b2ed2
+  #|acos bfd0e4daf2f68ace 3ffd6829ac5ef8cd
+  #|asin 3fb5c24e00b4fd90 3fb5c90897303656
+  #|acos 3fb5c24e00b4fd90 3ff7c56acad129b3
+  #|asin 3fd6356c491a8c84 3fd6ae312823e1ae
+  #|acos 3fd6356c491a8c84 3ff3766f0a3b34ad
+  #|asin bfcf0e592a0cd32c bfcf5e7e08753b9f
+  #|acos bfcf0e592a0cd32c 3ffd0dcb1552d48c
+  #|asin bfe3c55244f82fdb bfe54fc82267d98f
+  #|acos bfe3c55244f82fdb 4001e4efb2bc0cf0
+  #|asin bfedece7f9d1218b bff356fc10b9af72
+  #|acos bfedece7f9d1218b 40063c7bb27eee45
+  #|asin bfda8c68bfddaaee bfdb602bf69ebbf8
+  #|acos bfda8c68bfddaaee 3ffffa0651ebdc16
+  #|asin 3fdc6af0d13d8c18 3fdd7215ccd93235
+  #|acos 3fdc6af0d13d8c18 3ff1c575e10de08b
+  #|asin 3fbfeca617c84ef0 3fc000fd8f3577f9
+  #|acos 3fbfeca617c84ef0 3ff721dba25d7e19
+  #|asin bfe5fe9e7efe2dce bfe83ff7f6e163f0
+  #|acos bfe5fe9e7efe2dce 4002a0fba7da6f88
+  #|asin bfe3d144d6fa15e4 bfe55efcc5676c56
+  #|acos bfe3d144d6fa15e4 4001e8bcdb7bf1a2
+  #|asin bfafdf9ad6f90180 bfafe4e265d7b135
+  #|acos bfafdf9ad6f90180 3ffa21226772eaa2
+  #|asin bfeb91b92e974a78 bff09cd8628ce25d
+  #|acos bfeb91b92e974a78 4004df69db6887bb
+  #|asin 3fe65576a4b1c6fa 3fe8b85fb7ee3c0a
+  #|acos 3fe65576a4b1c6fa 3fe98b96f09a1e26
+  #|asin 3fd74a6e1aadb820 3fd7d68f760ddda1
+  #|acos 3fd74a6e1aadb820 3ff32c5776c0b5b0
+  #|asin 3fa438c14b6edb20 3fa43a1a141042db
+  #|acos 3fa438c14b6edb20 3ff8802a83a3ab01
+  #|asin bfc9d4f24e1e5490 bfca02ad971958ae
+  #|acos bfc9d4f24e1e5490 3ffc62510727582e
+  #|asin bfeca3ae7db2df35 bff1bbf4e83707b8
+  #|acos bfeca3ae7db2df35 40056ef81e3d9a68
+  #|asin 3fec85c5390ebdb0 3ff19ab3c8196bba
+  #|acos 3fec85c5390ebdb0 3fde1d1e30ab0577
+  #|asin 3fe8255fcb45e5b2 3feb5c0d5c1df291
+  #|acos 3fe8255fcb45e5b2 3fe6e7e94c6a67a0
+  #|asin bfe7f8ab534515ea bfeb183ffddbdc91
+  #|acos bfe7f8ab534515ea 4003570da9990db0
+  #|asin 3fe48286c456b2ec 3fe6434948f7cbf1
+  #|acos 3fe48286c456b2ec 3fec00ad5f908e40
+  #|asin 3fdced768c078118 3fde04145e2d109b
+  #|acos 3fdced768c078118 3ff1a0f63cb8e8f2
+  #|asin bfed505b9e98513f bff287bf4660af7f
+  #|acos bfed505b9e98513f 4005d4dd4d526e4c
+  #|asin bfe75d8db2a9e5ba bfea31bb8da872a3
+  #|acos bfe75d8db2a9e5ba 40031d6c8d8c3335
+  #|asin bfefab8b5ea251e2 bff6d5512af70f80
+  #|acos bfefab8b5ea251e2 4007fba63f9d9e4c
+  #|asin bfef3d4b5d95f283 bff5a32abdd98153
+  #|acos bfef3d4b5d95f283 40076293090ed736
+  #|asin 3fe92be5787204c2 3fecf830f984ac41
+  #|acos 3fe92be5787204c2 3fe54bc5af03adf0
+  #|asin 3fe94db8f69ead16 3fed2f35e4d58d78
+  #|acos 3fe94db8f69ead16 3fe514c0c3b2ccb9
+  #|asin 3fe7238a76e70626 3fe9dd4a8e703ee0
+  #|acos 3fe7238a76e70626 3fe866ac1a181b50
+  #|asin bfefeca8dcfd2a26 bff808781678875d
+  #|acos bfefeca8dcfd2a26 40089539b55e5a3b
+  #|asin 3fd917260853f280 3fd9c8399032e8b4
+  #|acos 3fd917260853f280 3ff2afecf03772eb
+  #|asin bfe2f87f4bb7299e bfe44e6d30046730
+  #|acos bfe2f87f4bb7299e 4001a498f6233058
+  #|asin bfd90ad18abe7a66 bfd9bad300ba1368
+  #|acos bfd90ad18abe7a66 3fff90b01472b1f2
+  #|asin 3fb4b21353b87b60 3fb4b7dd09d77b5c
+  #|acos 3fb4b21353b87b60 3ff7d67d83a6b562
+  #|asin bfd9657ffdb48dde bfda1d7d3391cb4e
+  #|acos bfd9657ffdb48dde 3fffa95aa1289fec
+  #|asin bfe3c02c6d702f7e bfe5493cab522236
+  #|acos bfe3c02c6d702f7e 4001e34cd4f69f1a
+  #|asin bfba2737d38d83f8 bfba32eb55ead25a
+  #|acos bfba2737d38d83f8 3ffac52a09a2da3e
+  #|asin 3fdc09da5ec95748 3fdd05e7fb204cbb
+  #|acos 3fdc09da5ec95748 3ff1e081557c19ea
+  #|asin 3fc0d1888d47bd50 3fc0de04fc083eff
+  #|acos 3fc0d1888d47bd50 3ff7063ab4c32538
+  #|asin 3fd35625986db4f0 3fd3a4bb4bb15255
+  #|acos 3fd35625986db4f0 3ff438cc8157d883
+  #|asin bfcf3a4c59e20474 bfcf8bcdc4cdbf45
+  #|acos bfcf3a4c59e20474 3ffd13750cdde501
+  #|asin 3fbe914004859d80 3fbea3f700568393
+  #|acos 3fbe914004859d80 3ff737bbe43ec4df
+  #|asin 3fe4bc215d7679ca 3fe68e9efe727daf
+  #|acos 3fe4bc215d7679ca 3febb557aa15dc82
+  #|asin 3feb7ced9fe58354 3ff08873857a31ba
+  #|acos 3feb7ced9fe58354 3fe1330f9d93f6bd
+  #|asin bfe372f6579b3bae bfe4e78ee26b1e25
+  #|acos bfe372f6579b3bae 4001cae162bcde15
+  #|asin bfd081a6c629e11e bfd0b1f5b7999352
+  #|acos bfd081a6c629e11e 3ffd4e78c22a91ed
+  #|asin bfc4104e569aa700 bfc425933566e071
+  #|acos bfc4104e569aa700 3ffba6adbaf10926
+  #|asin 3fd2d9ad716800e8 3fd32252bf99a1c6
+  #|acos 3fd2d9ad716800e8 3ff45966a45dc4a7
+  #|asin bfdf3ee8fe3ede22 bfe0524596f8951e
+  #|acos bfdf3ee8fe3ede22 4000a58f0fe03bd4
+  #|asin bfe39edde4e11dfc bfe51efd837b9742
+  #|acos bfe39edde4e11dfc 4001d8bd0b00fc5c
+  #|asin 3fdad9cbf94ea248 3fdbb552c542bdeb
+  #|acos 3fdad9cbf94ea248 3ff234a6a2f37d9e
+  #|asin bfdfcfac1385a2b6 bfe0a572481556ad
+  #|acos bfdfcfac1385a2b6 4000ba5a3c276c37
+  #|asin bfbc940ad421d478 bfbca352e0b51994
+  #|acos bfbc940ad421d478 3ffaec30824f7eb2
+  #|asin 3fe510a6e827de72 3fe6fe3d82c00d1c
+  #|acos 3fe510a6e827de72 3feb45b925c84d14
+  #|asin 3fee36232c23a3e2 3ff3c21142da7b3c
+  #|acos 3fee36232c23a3e2 3fd57fa845a6c76f
+  #|asin bfd18e42551c81a6 bfd1c89e84feca8d
+  #|acos bfd18e42551c81a6 3ffd9422f583dfbc
+  #|asin bfc4745d457b5454 bfc48ae9257fa839
+  #|acos bfc4745d457b5454 3ffbb35878f42220
+  #|asin bfef70364286ee02 bff6216b91fa1202
+  #|acos bfef70364286ee02 4007a1b3731f1f8d
+  #|asin bfe1e8fa67c5ef82 bfe302240c74190e
+  #|acos bfe1e8fa67c5ef82 40015186ad3f1cd0
+  #|asin bfe3c95bc78b01d0 bfe554ead83a103c
+  #|acos bfe3c95bc78b01d0 4001e63860309a9b
+  #|asin bfdf6964ac1efac8 bfe06aa1ab93753d
+  #|acos bfdf6964ac1efac8 4000aba61506f3dc
+  #|asin bfc9eacf96471154 bfca1900dc36ad25
+  #|acos bfc9eacf96471154 3ffc651b6fcb02bd
+  #|asin bfe98214c598ac25 bfed855413cbe6c6
+  #|acos bfe98214c598ac25 4003f252af15103e
+  #|asin 3fd48e8a0fe43e68 3fd4ed81bc37a130
+  #|acos 3fd48e8a0fe43e68 3ff3e69ae53644cc
+  #|asin bfd96af83360dab8 bfda2372c6c2069f
+  #|acos bfd96af83360dab8 3fffaad805f4aec0
+  #|asin bfc810d114d072d4 bfc835b3f4fdd7ab
+  #|acos bfc810d114d072d4 3ffc28b1d2e3e80e
+  #|asin bfcd63cf57b183b0 bfcda789e3911c10
+  #|acos bfcd63cf57b183b0 3ffcd6ec90b6509a
+  #|asin 3fe751947bd965b2 3fea203a8a6f3f65
+  #|acos 3fe751947bd965b2 3fe823bc1e191acc
+  #|asin 3fded91fb868924c 3fe018125caf678f
+  #|acos 3fded91fb868924c 3ff115f225ec7951
+  #|asin 3fed91ad3e7ca4c6 3ff2db20acc1dc1a
+  #|acos 3fed91ad3e7ca4c6 3fd91b6a9e0943f8
+  #|asin 3fd37e71fd4673a4 3fd3cf05e53c13e6
+  #|acos 3fd37e71fd4673a4 3ff42e39daf5281f
+  #|asin bfe7d1f1f30d99ae bfeade071210904c
+  #|acos bfe7d1f1f30d99ae 4003487f6ea63a9f
+  #|asin 3fe39d0130c0d274 3fe51ca22324b478
+  #|acos 3fe39d0130c0d274 3fed27548563a5b9
+  #|asin 3fe91aa7d45fd568 3fecdc54435adfa8
+  #|acos 3fe91aa7d45fd568 3fe567a2652d7a88
+  #|asin 3fe49ae0e97488d6 3fe663101f71d6a3
+  #|acos 3fe49ae0e97488d6 3febe0e68916838e
+  #|asin bfcdcebb382211c4 bfce157050a63656
+  #|acos bfcdcebb382211c4 3ffce4a95e58f3e3
+  #|asin 3fe01019f8ded40c 3fe0d3ecfd4dec4e
+  #|acos 3fe01019f8ded40c 3ff0b804d59d36f1
+  #|asin 3fc09bace6d243e8 3fc0a7b24611cdfd
+  #|acos 3fc09bace6d243e8 3ff70d050b81f359
+  #|asin 3fd663bcedb7163c 3fd6df9a72e464a1
+  #|acos 3fd663bcedb7163c 3ff36a14b78b13f0
+  #|asin 3fd2ad1750d9f4f0 3fd2f3b003442fe5
+  #|acos 3fd2ad1750d9f4f0 3ff4650f5373211f
+  #|asin bfb011abaf079ed8 bfb0146073eea54e
+  #|acos bfb011abaf079ed8 3ffa23415b83176d
+  #|asin 3fa0210f9841f200 3fa021be816f6479
+  #|acos 3fa0210f9841f200 3ff8a0ed6038b1f4
+  #|asin 3fe9435c7a25c926 3fed1e4ea10051e4
+  #|acos 3fe9435c7a25c926 3fe525a80788084d
+  #|asin 3fec52f87c51e54a 3ff1636876884b24
+  #|acos 3fec52f87c51e54a 3fdefa4b76ef87d3
+  #|asin 3fdaf724666c1220 3fdbd5aa8fff9f25
+  #|acos 3fdaf724666c1220 3ff22c90b044454f
+  #|asin bfe1417f77810b3e bfe239ad876894d6
+  #|acos bfe1417f77810b3e 40011f690bfc3bc2
+  #|asin bfeb1ce326cea891 bff02c629090ac0f
+  #|acos bfeb1ce326cea891 4004a72ef26a6c94
+  #|asin bfef737945320453 bff62a3679534543
+  #|acos bfef737945320453 4007a618e6cbb92e
+  #|asin bfd8c1aa82f8efb2 bfd96b6a5c675578
+  #|acos bfd8c1aa82f8efb2 3fff7cd5eb5e0276
+  #|asin 3fd37a137a40022c 3fd3ca6fa2d62646
+  #|acos 3fd37a137a40022c 3ff42f5f6b8ea387
+  #|asin bfda9de0aeccfa04 bfdb736002e697e3
+  #|acos bfda9de0aeccfa04 3ffffed354fdd311
+  #|asin 3fc20c050accc840 3fc21b770501f72c
+  #|acos 3fc20c050accc840 3ff6de8c73a3ee33
+  #|asin 3fce8aae17e7f250 3fced6d6a78783a5
+  #|acos 3fce8aae17e7f250 3ff547207f533ca4
+  #|asin 3fc7027c68708cf0 3fc722ae71cc07e3
+  #|acos 3fc7027c68708cf0 3ff63da5860aac1c
+  #|asin 3fd73e3c68db59a0 3fd7c9787ae6cae7
+  #|acos 3fd73e3c68db59a0 3ff32f9d358a7a5e
+  #|asin bfc7f89244330ac4 bfc81d04e5e6dca1
+  #|acos bfc7f89244330ac4 3ffc259bf10108ac
+  #|asin bfd943e5c466cfd2 bfd9f8e60b409724
+  #|acos bfd943e5c466cfd2 3fffa034d71452e1
+  #|asin 3fcb89bac20d9a70 3fcbc14721b482a7
+  #|acos 3fcb89bac20d9a70 3ff5a9d2700d9cc3
+  #|asin 3fe403d5dab470f6 3fe59f9786e43b60
+  #|acos 3fe403d5dab470f6 3feca45f21a41ed1
+  #|asin 3fe9f22d7fca354a 3fee41dba63fff2b
+  #|acos 3fe9f22d7fca354a 3fe4021b02485b06
+  #|asin bfefd222de3cf75f bff7705a6fe0c5e6
+  #|acos bfefd222de3cf75f 4008492ae212797f
+  #|asin 3fc5ac1ba29f1260 3fc5c6f6dab44a6c
+  #|acos 3fc5ac1ba29f1260 3ff6691c78eda3cb
+  #|asin bfe57428dfa50942 bfe783617c0e530b
+  #|acos bfe57428dfa50942 400271d60925ab4f
+  #|asin bfc5e8b5647e10f4 bfc604766d733fe9
+  #|acos bfc5e8b5647e10f4 3ffbe28a21f29515
+  #|asin 3fe0e86097a177ac 3fe1d048a6f0cf6e
+  #|acos 3fe0e86097a177ac 3ff039d700cbc561
+  #|asin bfd53a328e78abdc bfd5a31d6c11293b
+  #|acos bfd53a328e78abdc 3ffe8ac2af487767
+  #|asin bfe996ab423c516f bfeda784f2ed3f5e
+  #|acos bfe996ab423c516f 4003fadee6dd6664
+  #|asin 3feab329ba3d5b18 3fef956b773a1d7a
+  #|acos 3feab329ba3d5b18 3fe2ae8b314e3cb7
+  #|asin 3fe134211ca5cf2a 3fe229d0352cbec3
+  #|acos 3fe134211ca5cf2a 3ff00d1339adcdb7
+  #|asin bfd96d4ce40960da bfda25fcf6887aa9
+  #|acos bfd96d4ce40960da 3fffab7a91e64bc2
+  #|asin bfd32e9df6f53dfe bfd37b47ca15d51c
+  #|acos bfd32e9df6f53dfe 3ffe00cd46c9a25f
+  #|asin 3fee3757572bf4a8 3ff3c3e4ffb15f08
+  #|acos 3fee3757572bf4a8 3fd57859524b3841
+  #|asin bfe37b455ca14e01 bfe4f206b704a995
+  #|acos bfe37b455ca14e01 4001cd7f57e340f2
+  #|asin bfda1d1a870043a6 bfdae60d238c5b53
+  #|acos bfda1d1a870043a6 3fffdb7e9d2743ed
+  #|asin 3fe57064097227a8 3fe77e4d7b80ba98
+  #|acos 3fe57064097227a8 3feac5a92d079f98
+  #|asin bfb1db8b3ef85fd8 bfb1df42714382cf
+  #|acos bfb1db8b3ef85fd8 3ffa3fef7b586545
+  #|asin bfc217b6f400e5a4 bfc22747378454d7
+  #|acos bfc217b6f400e5a4 3ffb66e43b34b7b3
+  #|asin 3fef33ae4fc3851c 3ff58d408bd722b0
+  #|acos 3fef33ae4fc3851c 3fcca5d64368533e
+  #|asin 3fe5410bd3f8f184 3fe73ec04e18c7f0
+  #|acos 3fe5410bd3f8f184 3feb05365a6f9241
+  #|asin 3fece9014eef21f6 3ff20b32aef460f3
+  #|acos 3fece9014eef21f6 3fdc5b22953f3095
+  #|asin bfcb69299b15b3c8 bfcb9fef05dda8b6
+  #|acos bfcb69299b15b3c8 3ffc95f934ffe22f
+  #|asin bfe5ca8b99f1aef6 bfe7f891b072daf9
+  #|acos bfe5ca8b99f1aef6 40028f22163ecd4a
+  #|asin 3fe5f9e36630dc3a 3fe83975340db0bb
+  #|acos 3fe5f9e36630dc3a 3fea0a81747aa975
+  #|asin bfea682a085af109 bfef0f04de54b0d9
+  #|acos bfea682a085af109 400454bee1b742c2
+  #|asin 3fe9bfd8eb9b95fa 3fedec7b9a5d145b
+  #|acos 3fe9bfd8eb9b95fa 3fe4577b0e2b45d6
+  #|asin bfe7d3a3c876d401 bfeae090de8b61b0
+  #|acos bfe7d3a3c876d401 40034921e1c4eef8
+  #|asin 3fcded7795204838 3fce350c0cd56f5d
+  #|acos 3fcded7795204838 3ff55b59d2a97f2d
+  #|asin 3fc55dc2cadbfcd0 3fc5777c6876a345
+  #|acos 3fc55dc2cadbfcd0 3ff6730bc73558b0
+  #|asin 3fdb08984e909744 3fdbe8ea732b99c6
+  #|acos 3fdb08984e909744 3ff227c0b77946a7
+  #|asin bfb544e3fb4a0428 bfb54b2c959357c3
+  #|acos bfb544e3fb4a0428 3ffa76ae1d9d6294
+  #|asin 3fe098df0b5f61d8 3fe172f7b83d4268
+  #|acos 3fe098df0b5f61d8 3ff0687f78258be4
+  #|asin 3fefdc9a68585814 3ff7a5132e80135e
+  #|acos 3fefdc9a68585814 3fb7ce825c419ba4
+  #|asin 3fe3ce9237dee0f0 3fe55b8d52285302
+  #|acos 3fe3ce9237dee0f0 3fece8695660072f
+  #|asin bfb4c375483f9190 bfb4c94da7a068d2
+  #|acos bfb4c375483f9190 3ffa6e902ebe33a5
+  #|asin bfc6b9b9228b1a0c bfc6d8ba980b2189
+  #|acos bfc6b9b9228b1a0c 3ffbfd12a745914a
+  #|asin bfbaed1963627c48 bfbaf9df5afc9509
+  #|acos bfbaed1963627c48 3ffad19949f3f669
+  #|asin bfe8b94ddbc03c05 bfec4130eccdf41e
+  #|acos bfe8b94ddbc03c05 4003a149e5559394
+  #|asin bfe9b8158998ba6b bfeddf6be54e6f22
+  #|acos bfe9b8158998ba6b 400408d8a375b254
+  #|asin 3fd99e4805c4dd84 3fda5b666dbf78cb
+  #|acos 3fd99e4805c4dd84 3ff28b21b8d44ee6
+  #|asin bfe01486bfb106cc bfe0d90af72c2c8a
+  #|acos bfe01486bfb106cc 4000c74067ed21ae
+  #|asin 3fd38c617cf796f0 3fd3dda7e7854861
+  #|acos 3fd38c617cf796f0 3ff42a915a62db00
+  #|asin 3fc4e39e5faea558 3fc4fba51c7947f2
+  #|acos 3fc4e39e5faea558 3ff68286b0b5041a
+  #|asin 3fb740c518b14340 3fb748fc6850be2a
+  #|acos 3fb740c518b14340 3ff7ad6b8dbf2136
+  #|asin 3fe20f01526c516e 3fe3301d9923f6dd
+  #|acos 3fe20f01526c516e 3fef13d90f646354
+  #|asin bfd2260499fa5e6e bfd266a6bbc22e09
+  #|acos bfd2260499fa5e6e 3ffdbba50334b89a
+  #|asin bfacc9661534e030 bfaccd4973571d73
+  #|acos bfacc9661534e030 3ffa08659fdee604
+  #|asin bfece390afa8f66f bff204dd1e19eea3
+  #|acos bfece390afa8f66f 4005936c392f0dde
+  #|asin 3fec1029cab062fe 3ff11cc7c9c368f7
+  #|acos 3fec1029cab062fe 3fe00a6715018842
+  #|asin bfeaa8e3bd518c4a bfef82d04c723957
+  #|acos bfeaa8e3bd518c4a 400471b1bd3ea4e2
+  #|asin bfeebdb04d3dc396 bff4a12fd1e51990
+  #|acos bfeebdb04d3dc396 4006e1959314a354
+  #|asin 3fe2a62bff0a0f34 3fe3e8a9afe59e72
+  #|acos 3fe2a62bff0a0f34 3fee5b4cf8a2bbbf
+  #|asin bfeeb35dd703110f bff48ebf8740c68b
+  #|acos bfeeb35dd703110f 4006d85d6dc279d2
+  #|asin bfe8d6ab469e60d8 bfec6f9adade87be
+  #|acos bfe8d6ab469e60d8 4003ace460d9b87c
+  #|asin bfceec2999186578 bfcf3b4220a040f5
+  #|acos bfceec2999186578 3ffd096398583537
+  #|asin bfe7f43e9fc6b08e bfeb1192ea4d5248
+  #|acos bfe7f43e9fc6b08e 4003556264b56b1e
+  #|asin 3fec6ea2ea7f6346 3ff18157a0c4cb97
+  #|acos 3fec6ea2ea7f6346 3fde828ecdfd8606
+  #|asin bfd7afb73742bfec bfd84371c8b83fa0
+  #|acos bfd7afb73742bfec 3fff32d7c6723d00
+  #|asin bfe484860f9d13a0 bfe645e378873892
+  #|acos bfe484860f9d13a0 400222768843e4b1
+  #|asin bfa22a7ca0931bc0 bfa22b768d74c6af
+  #|acos bfa22a7ca0931bc0 3ff9b35708afd34e
+  #|asin bfceaa11d37e14c4 bfcef72a65ceb844
+  #|acos bfceaa11d37e14c4 3ffd00e0a0fe0421
+  #|asin 3fcf6fab87fac840 3fcfc2d9a5fceb71
+  #|acos 3fcf6fab87fac840 3ff529a01f848faa
+  #|asin 3fe85e34d1c9f546 3febb330df5c8a85
+  #|acos 3fe85e34d1c9f546 3fe690c5c92bcfac
+  #|asin 3fe482d27b86a3ee 3fe643abed419bbc
+  #|acos 3fe482d27b86a3ee 3fec004abb46be75
+  #|asin bfb0846d5c47ea08 bfb0875dd0a2c1de
+  #|acos bfb0846d5c47ea08 3ffa2a71314e5936
+  #|asin 3fce052292c8cdd0 3fce4d645387c99c
+  #|acos 3fce052292c8cdd0 3ff5584ec9d333e5
+  #|asin bfc47e7db41e602c bfc4952b64c9ff60
+  #|acos bfc47e7db41e602c 3ffbb4a0c0dd6d04
+  #|asin 3fdb909ef41d6104 3fdc7f4f8e911617
+  #|acos 3fdb909ef41d6104 3ff20227709fe793
+  #|asin 3fe74401b338598e 3fea0c6f11ecfedd
+  #|acos 3fe74401b338598e 3fe83787969b5b54
+  #|asin 3fe9a54a38d7bc0e 3fedbfeaa99f0f8b
+  #|acos 3fe9a54a38d7bc0e 3fe4840bfee94aa6
+  #|asin 3fef40d2cc344c90 3ff5ab586b890bdc
+  #|acos 3fef40d2cc344c90 3fcbb51745d909e6
+  #|asin 3fd2de9b8477613c 3fd3277b788c381f
+  #|acos 3fd2de9b8477613c 3ff4581c76211f10
+  #|asin bfddffadd73e497c bfdf38fbac35c946
+  #|acos bfddffadd73e497c 4000781d1fa8cfb5
+  #|asin bfe1e23a3044d440 bfe2f9ff4c6a7d3a
+  #|acos bfe1e23a3044d440 40014f7d7d3cb5da
+  #|asin 3feaf221d14d2d8a 3ff00472875620d2
+  #|acos 3feaf221d14d2d8a 3fe23b1199dc188d
+  #|asin 3fe692d1f59a5524 3fe90e7da2690071
+  #|acos 3fe692d1f59a5524 3fe93579061f59c0
+  #|asin bfe8b7572df112da bfec3e195294bb86
+  #|acos bfe8b7572df112da 4003a083fec7456e
+  #|asin bfbad3b629c90d78 bfbae058037f95d9
+  #|acos bfbad3b629c90d78 3ffad000d47c2676
+  #|asin bfd90d94de906172 bfd9bdd3a450c40b
+  #|acos bfd90d94de906172 3fff91703d585e1b
+  #|asin 3fa320dec58cefc0 3fa3220294763da2
+  #|acos 3fa320dec58cefc0 3ff888eb3fa07b2b
+  #|asin 3fec2d641943966e 3ff13b66a6f79c32
+  #|acos 3fec2d641943966e 3fdf9a52b532439b
+  #|asin bfece2cdd2b05f92 bff203faa399af13
+  #|acos bfece2cdd2b05f92 400592fafbeeee16
+  #|asin 3fde1fdf22ea8bf4 3fdf5d72e0b1c523
+  #|acos 3fde1fdf22ea8bf4 3ff14a9e9c17bbd0
+  #|asin bfb95f1825f0e810 bfb969c63b6fce10
+  #|acos bfb95f1825f0e810 3ffab897b7fb29f9
+  #|asin 3fcb7ff3e1f395c0 3fcbb74453d3161e
+  #|acos 3fcb7ff3e1f395c0 3ff5ab12c9c9ca54
+  #|asin 3fe295ed896b9da8 3fe3d4b0d86d1c9f
+  #|acos 3fe295ed896b9da8 3fee6f45d01b3d91
+  #|asin 3fe93fb286a24692 3fed185733de3d18
+  #|acos 3fe93fb286a24692 3fe52b9f74aa1d18
+  #|asin bfdcb49f4e93e8da bfddc46bb5024626
+  #|acos bfdcb49f4e93e8da 4000498b20c25f51
+  #|asin 3fc63bc5e4969640 3fc658ca49d97284
+  #|acos 3fc63bc5e4969640 3ff656e20b08fec8
+  #|asin 3fd9ad97b9b57188 3fda6c1cb613e223
+  #|acos 3fd9ad97b9b57188 3ff286f426bf3490
+  #|asin bfdf2011464ef560 bfe0409cb441a704
+  #|acos bfdf2011464ef560 4000a124d732804d
+  #|asin bfa157eaa0973c40 bfa158c41b40748f
+  #|acos bfa157eaa0973c40 3ff9acc1751e30bd
+  #|asin bfcbcc37dd421a90 bfcc05606170943e
+  #|acos bfcbcc37dd421a90 3ffca2a760723fa0
+  #|asin 3fe3395be5230f96 3fe49f43339505e4
+  #|acos 3fe3395be5230f96 3feda4b374f3544d
+  #|asin bfee5b69cc0596d2 bff3fbc659a40da9
+  #|acos bfee5b69cc0596d2 40068ee0d6f41d61
+  #|asin 3fe433a542d8d5e4 3fe5dd0d83aac87e
+  #|acos 3fe433a542d8d5e4 3fec66e924dd91b3
+  #|asin bfed56ab3b5a4ecb bff28fa1fa9d2db9
+  #|acos bfed56ab3b5a4ecb 4005d8cea770ad69
+  #|asin 3fbe9021ffeb8420 3fbea2d6ec3350f0
+  #|acos 3fbe9021ffeb8420 3ff737cde580f809
+  #|asin bfa5af4d5d7930b0 bfa5b0f6936f2494
+  #|acos bfa5af4d5d7930b0 3ff9cf8308dfa63d
+  #|asin bfc12393a1323238 bfc130cb5167c0e1
+  #|acos bfc12393a1323238 3ffb4814be712534
+  #|asin bfe04520da8defcb bfe1115eeb14a7fe
+  #|acos bfe04520da8defcb 4000d55564e7408c
+  #|asin bfe5c662ae1e3b8e bfe7f2e3f4fa717e
+  #|acos bfe5c662ae1e3b8e 40028db6a760b2ec
+  #|asin bf8802b1bbe02b80 bf8802d5c8937733
+  #|acos bf8802b1bbe02b80 3ff95200ffd55407
+  #|asin 3feb093e98ab73c8 3ff019f5d7fb76d9
+  #|acos 3feb093e98ab73c8 3fe2100af8916c7f
+  #|asin 3fed817bdbb8a14a 3ff2c614a7f12e2c
+  #|acos 3fed817bdbb8a14a 3fd96f9ab14bfbb3
+  #|asin 3f9eb509e77dbc80 3f9eb637a36f50a6
+  #|acos 3f9eb509e77dbc80 3ff8a72275b66fd6
+  #|asin 3fd83281748c6848 3fd8d0799b615c18
+  #|acos 3fd83281748c6848 3ff2eddced6bd612
+  #|asin bfc5056ad1f86c4c bfc51de7e45e36d0
+  #|acos bfc5056ad1f86c4c 3ffbc5b850cff3f2
+  #|asin bfed3fd2a4e10363 bff2733fc8bf605a
+  #|acos bfed3fd2a4e10363 4005ca9d8e81c6b9
+  #|asin bfe5eefdfa322076 bfe82a7b09b57ff3
+  #|acos bfe5eefdfa322076 40029b9c6c8f7689
+  #|asin 3fdf0355bfba3150 3fe0302dfe94560c
+  #|acos 3fdf0355bfba3150 3ff109e454fa0212
+  #|asin 3fd7acd085a65a1c 3fd840525a3760d4
+  #|acos 3fd7acd085a65a1c 3ff311e6bdb654e3
+  #|asin 3fe295d6ece0d472 3fe3d495119f4817
+  #|acos 3fe295d6ece0d472 3fee6f6196e9121a
+  #|asin 3fea90d7fd82a298 3fef5782ca91d5a4
+  #|acos 3fea90d7fd82a298 3fe2ec73ddf6848c
+  #|asin 3fe092890d741926 3fe16b8f20f1822d
+  #|acos 3fe092890d741926 3ff06c33c3cb6c02
+  #|asin 3fd6063f777d43cc 3fd67beb7685e088
+  #|acos 3fd6063f777d43cc 3ff3830076a2b4f6
+  #|asin 3fd34486206743e0 3fd3923f7ecd1977
+  #|acos 3fd34486206743e0 3ff43d6b7490e6ba
+  #|asin bfe077b05bbc3f22 bfe14c36618a2e1e
+  #|acos bfe077b05bbc3f22 4000e40b4284a214
+  #|asin 3fd966b8be566b7c 3fda1ed1ef518555
+  #|acos 3fd966b8be566b7c 3ff29a46d86fcbc3
+  #|asin bfd9c8cfd4e7e0e6 bfda89d6fec6dcb2
+  #|acos bfd9c8cfd4e7e0e6 3fffc47113f5e445
+  #|asin bfe80b76142470a0 bfeb34ac54adde79
+  #|acos bfe80b76142470a0 40035e28bf4d8e2a
+  #|asin 3fe31fd63499e1ec 3fe47f623c3bd4dd
+  #|acos 3fe31fd63499e1ec 3fedc4946c4c8553
+  #|asin 3fe54a15b431af02 3fe74ad98f999847
+  #|acos 3fe54a15b431af02 3feaf91d18eec1ea
+  #|asin 3fedad5d3c723ce4 3ff2ffbbe3013081
+  #|acos 3fedad5d3c723ce4 3fd888fdc50bf25c
+  #|asin bfdb8e6765aac886 bfdc7cdab4379ded
+  #|acos bfdb8e6765aac886 4000209900a90a4a
+  #|asin bfe2af934def0306 bfe3f43d91b96a2f
+  #|acos bfe2af934def0306 40018e0d0e907118
+  #|asin 3feca0f6a6db8d1c 3ff1b8e9952bfa33
+  #|acos 3feca0f6a6db8d1c 3fdda446fc60cb94
+  #|asin bfe0b98e42ec1b36 bfe1994018592e82
+  #|acos bfe0b98e42ec1b36 4000f74db038622c
+  #|asin 3fd63e059950f3bc 3fd6b75c9031ec3f
+  #|acos 3fd63e059950f3bc 3ff374243037b208
+  #|asin bfcf67373c9cc4cc bfcfba210c3bc9ac
+  #|acos bfcf67373c9cc4cc 3ffd193f75cba64e
+  #|asin 3fe18b539ce53cce 3fe291a627988414
+  #|acos 3fe18b539ce53cce 3fefb25080efd61c
+  #|asin 3fb1ce9f846767f0 3fb1d24ea8d344fe
+  #|acos 3fb1ce9f846767f0 3ff804d669b6f8c8
+  #|asin bfe943613779d184 bfed1e5659cd1157
+  #|acos bfe943613779d184 4003d89340955ae2
+  #|asin 3fe4decae39bbf9e 3fe6bc3ccdc81271
+  #|acos 3fe4decae39bbf9e 3feb87b9dac047bf
+  #|asin bfd302783a6389d0 bfd34d06ad72003b
+  #|acos bfd302783a6389d0 3ffdf53cffa0ad27
+  #|asin bfd2c4ca73b75ecc bfd30c78b47e1bc8
+  #|acos bfd2c4ca73b75ecc 3ffde5198163b40a
+  #|asin bfb91c5351c03ae8 bfb926adb51e944f
+  #|acos bfb91c5351c03ae8 3ffab4662f96165d
+  #|asin bfe852b2b3df922e bfeba17552b40417
+  #|acos bfe852b2b3df922e 4003795afecf1792
+  #|asin 3fb3a0bddac41b00 3fb3a5ad7d280bc1
+  #|acos 3fb3a0bddac41b00 3ff7e7a07c71ac5c
+  #|asin 3fe7f7b4aef4c242 3feb16cbb64258c9
+  #|acos 3fe7f7b4aef4c242 3fe72d2af2460168
+  #|asin 3fbf32c16b5ce220 3fbf46a896d2be5e
+  #|acos 3fbf32c16b5ce220 3ff72d90cad70132
+  #|asin bfb86807fd908e10 bfb87188fba1e917
+  #|acos bfb86807fd908e10 3ffaa913e3fe4baa
+  #|asin bfe6c3e6ad290a48 bfe954081dd989ea
+  #|acos bfe6c3e6ad290a48 4002e5ffb1987907
+  #|asin bfe988fc2bff2ae9 bfed90c5dd5a9ee8
+  #|acos bfe988fc2bff2ae9 4003f52f2178be46
+  #|asin bfee98bb5b68232c bff4606ca2bd0156
+  #|acos bfee98bb5b68232c 4006c133fb809737
+  #|asin 3fe8b641fb6b3572 3fec3c64f4e4498d
+  #|acos 3fe8b641fb6b3572 3fe60791b3a410a3
+  #|asin bfb582172eee49b8 bfb58896c1c82af1
+  #|acos bfb582172eee49b8 3ffa7a84c060afc7
+  #|asin bfe42440e26f103e bfe5c939a940f019
+  #|acos bfe42440e26f103e 4002034c14725292
+  #|asin bfd9edaa93133b82 bfdab220f118021e
+  #|acos bfd9edaa93133b82 3fffce83908a2da0
+  #|asin 3feaac1ed7fbc8c2 3fef88a8818ef272
+  #|acos 3feaac1ed7fbc8c2 3fe2bb4e26f967bf
+  #|asin bfcade284ac3eed0 bfcb11b1c9f1fcd1
+  #|acos bfcade284ac3eed0 3ffc84318d826cb2
+  #|asin 3feb88297a7d3c36 3ff09372730c63dc
+  #|acos 3feb88297a7d3c36 3fe11d11c26f9278
+  #|asin 3fee6d8a2e9351c8 3ff418bc6a6d9b0a
+  #|acos 3fee6d8a2e9351c8 3fd424fba75a4838
+  #|asin bfd2c6645ea6c8a2 bfd30e257b420581
+  #|acos bfd2c6645ea6c8a2 3ffde584b314ae78
+  #|asin 3fe1811a3758e68a 3fe2856dfbfc54a7
+  #|acos 3fe1811a3758e68a 3fefbe88ac8c0589
+  #|asin 3fd71072675b9034 3fd7985ac9d94e87
+  #|acos 3fd71072675b9034 3ff33be4a1cdd976
+  #|asin 3fe6f6fda833aea8 3fe99d0f3d1f2d43
+  #|acos 3fe6f6fda833aea8 3fe8a6e76b692cee
+  #|asin 3fe9e57e786a47fe 3fee2c3a31508eb4
+  #|acos 3fe9e57e786a47fe 3fe417bc7737cb7d
+  #|asin bfd3fb66c79bfb06 bfd4526201a11c86
+  #|acos bfd3fb66c79bfb06 3ffe3693d4ac743a
+  #|asin 3fee76e3faf28a32 3ff427ecb30f6eee
+  #|acos 3fee76e3faf28a32 3fd3e83a84d2f8a9
+  #|asin 3fe9e881f87c216e 3fee315c135972b8
+  #|acos 3fe9e881f87c216e 3fe4129a952ee779
+  #|asin 3fbd3031e6a2fe40 3fbd407ad8f6a415
+  #|acos 3fbd3031e6a2fe40 3ff74df3a6b4c2d7
+  #|asin 3feba2a1469fb99e 3ff0ad8db7e8c506
+  #|acos 3feba2a1469fb99e 3fe0e8db38b6d025
+  #|asin bfe2bedde946ef78 bfe40717afdd12e2
+  #|acos bfe2bedde946ef78 400192c396195b45
+  #|asin 3fbe4776eb5dd2d0 3fbe59a715dc981d
+  #|acos 3fbe4776eb5dd2d0 3ff73c60e2e66396
+  #|asin 3fb8859dbaa33520 3fb88f418b09284a
+  #|acos 3fb8859dbaa33520 3ff799073b939a94
+  #|asin bfc088d5dacfc578 bfc094b24aded910
+  #|acos bfc088d5dacfc578 3ffb34919da0083a
+  #|asin bfed70593640a44d bff2b015f6dccc4b
+  #|acos bfed70593640a44d 4005e908a5907cb2
+  #|asin 3fdb37af68581530 3fdc1ce826405dbb
+  #|acos 3fdb37af68581530 3ff21ac14ab415aa
+  #|asin 3fc36beac5cb1fc0 3fc37f31e723dc2b
+  #|acos 3fc36beac5cb1fc0 3ff6b215175fb193
+  #|asin bfe8cc1e4b8b266c bfec5ee43992ff9b
+  #|acos bfe8cc1e4b8b266c 4003a8b6b886d673
+  #|asin 3fe9141cf6ddadd4 3fecd1c99a710108
+  #|acos 3fe9141cf6ddadd4 3fe5722d0e175929
+  #|asin bfe7111642b13d61 bfe9c29efe66cfc6
+  #|acos bfe7111642b13d61 400301a569bbca7e
+  #|asin bfe0a048284ff7cf bfe17ba35491cdcd
+  #|acos bfe0a048284ff7cf 4000efe67f468a00
+  #|asin 3fe7c1f2da73aafc 3feac61c6c724a2e
+  #|acos 3fe7c1f2da73aafc 3fe77dda3c161002
+  #|asin bfe8786e19cd460e bfebdbc48068ee9b
+  #|acos bfe8786e19cd460e 400387eeca3c5233
+  #|asin bfde97d214924144 bfdfe5b41cfe0215
+  #|acos bfde97d214924144 40008db42dc1d6cf
+  #|asin bfe01665b690832c bfe0db34ff383320
+  #|acos bfe01665b690832c 4000c7cae9f02354
+  #|asin 3fec523023f7e26e 3ff162913da9ed97
+  #|acos 3fec523023f7e26e 3fdefda85a68fe05
+  #|asin bfdf0b259c1ed154 bfe034a5463b66a5
+  #|acos bfdf0b259c1ed154 40009e26fbb0f035
+  #|asin bfdc87a9e29bdc5c bfdd922836ec0eb0
+  #|acos bfdc87a9e29bdc5c 40004342b0ff9862
+  #|asin 3fd6cbd8394f8f38 3fd74edfc39f95f6
+  #|acos 3fd6cbd8394f8f38 3ff34e43635c479b
+  #|asin bfe27020fe090998 bfe3a659bb92f797
+  #|acos bfe27020fe090998 40017a941906d472
+  #|asin 3fea80408b628f06 3fef39d47360f9c2
+  #|acos 3fea80408b628f06 3fe30a223527606e
+  #|asin 3fe840d0adb68854 3feb85fdf237667e
+  #|acos 3fe840d0adb68854 3fe6bdf8b650f3b2
+  #|asin bfee975378106004 bff45e06dcca76ae
+  #|acos bfee975378106004 4006c001188751e3
+  #|asin bfcf274adb9b1fe8 bfcf78350de4e276
+  #|acos bfcf274adb9b1fe8 3ffd1101f600c967
+  #|asin 3fef51cc6d8d410e 3ff5d3c56824bc72
+  #|acos 3fef51cc6d8d410e 3fca71af60fb8534
+  #|asin 3fdaf87336efb788 3fdbd71bc0e8e10f
+  #|acos 3fdaf87336efb788 3ff22c346409f4d4
+  #|asin 3fe6ef30b1c3b084 3fe991ddb827f869
+  #|acos 3fe6ef30b1c3b084 3fe8b218f06061c8
+  #|asin bfef764803bd93b0 bff631dcca74d6bb
+  #|acos bfef764803bd93b0 4007a9ec0f5c81ea
+  #|asin bfe037840ffa3539 bfe101924dd58975
+  #|acos bfe037840ffa3539 4000d1623d9778ea
+  #|asin 3fdfeacc8f67b5a4 3fe0b51608ed5f39
+  #|acos 3fdfeacc8f67b5a4 3ff0c7704fcd7d7c
+  #|asin bfde28c5e28cd514 bfdf678a0d155660
+  #|acos bfde28c5e28cd514 40007deeebc4c158
+  #|asin 3feb00fd4bdb020c 3ff012419231dd03
+  #|acos 3feb00fd4bdb020c 3fe21f738424a02b
+  #|asin 3fe47e89b6c741b8 3fe63e17712b14c2
+  #|acos 3fe47e89b6c741b8 3fec05df375d456f
+  #|asin 3fb8edafd8e2d2e0 3fb8f7d0cd6a4def
+  #|acos 3fb8edafd8e2d2e0 3ff7927e476d8839
+  #|asin 3fea6020b4a023c8 3fef00cf048af7a9
+  #|acos 3fea6020b4a023c8 3fe34327a3fd6287
+  #|asin bfef47654f24dfe2 bff5bac72521a09c
+  #|acos bfef47654f24dfe2 40076e613cb2e6da
+  #|asin 3fe470b1333109d0 3fe62c146df68634
+  #|acos 3fe470b1333109d0 3fec17e23a91d3fc
+  #|asin bfd82e6038e4280a bfd8cc03ab31829d
+  #|acos bfd82e6038e4280a 3fff54fc3f108dc0
+  #|asin 3fea2d6de0641d20 3feea7f956c33fd8
+  #|acos 3fea2d6de0641d20 3fe39bfd51c51a58
+  #|asin bfe36fec2e6f4546 bfe4e3bb22904597
+  #|acos bfe36fec2e6f4546 4001c9ec72c627f2
+  #|asin bfbe206c76a58e68 bfbe3256563129a0
+  #|acos bfbe206c76a58e68 3ffb0520b9a73fb2
+  #|asin 3fe18dd19cd63f7c 3fe294a11ef1deb8
+  #|acos 3fe18dd19cd63f7c 3fefaf5589967b78
+  #|asin 3fe95b8f5e1d4eea 3fed45db06915f1e
+  #|acos 3fe95b8f5e1d4eea 3fe4fe1ba1f6fb13
+  #|asin bfd7cffb6d825c66 bfd866312264d601
+  #|acos bfd7cffb6d825c66 3fff3b879cdd6298
+  #|asin bfe212add7111b24 bfe33491132cfdd4
+  #|acos bfe212add7111b24 40015e21eeed5601
+  #|asin 3fe4e043e098bac8 3fe6be2e2aed5ff4
+  #|acos 3fe4e043e098bac8 3feb85c87d9afa3c
+  #|asin bfe032c537400aca bfe0fc115faabff8
+  #|acos bfe032c537400aca 4000d002020cc68a
+  #|asin bfef79f3bd7270d7 bff63bfb4e791ae3
+  #|acos bfef79f3bd7270d7 4007aefb515ea3fe
+  #|asin bfb18364d11e9fb8 bfb186e5f7e21f07
+  #|acos bfb18364d11e9fb8 3ffa3a69b3c24f09
+  #|asin bfc29eb333ea6cf8 bfc2afac6954a367
+  #|acos bfc29eb333ea6cf8 3ffb77f0e16ec185
+  #|asin 3fe843eff978422a 3feb8ac79b185e23
+  #|acos 3fe843eff978422a 3fe6b92f0d6ffc0d
+  #|asin 3fe3bc8188552596 3fe54493a056fe73
+  #|acos 3fe3bc8188552596 3fecff6308315bbd
+  #|asin 3fe5542c99245fb8 3fe7585fbc4d9e79
+  #|acos 3fe5542c99245fb8 3feaeb96ec3abbb8
+  #|asin bfd6e04728908f8c bfd764bf49c49735
+  #|acos bfd6e04728908f8c 3ffefb2b26b552e6
+  #|asin bfeb253bd5bb6c57 bff0344104a163b9
+  #|acos bfeb253bd5bb6c57 4004ab1e2c72c868
+  #|asin 3fe47af88031a164 3fe63972a5c584bf
+  #|acos 3fe47af88031a164 3fec0a8402c2d572
+  #|asin 3fd90c79ff44b5d8 3fd9bca03e2cd9dc
+  #|acos 3fd90c79ff44b5d8 3ff2b2d344b8f6a1
+  #|asin bfcd11a684ccf490 bfcd53263f1a53ee
+  #|acos bfcd11a684ccf490 3ffccc601c277796
+  #|asin bfec5194c77f6797 bff161ea669b42c6
+  #|acos bfec5194c77f6797 400541f2dd6fb7ef
+  #|asin 3fc6e5aacfd43f98 3fc7056349aed63b
+  #|acos 3fc6e5aacfd43f98 3ff6414eeb0e5251
+  #|asin 3fed4d6f86012d94 3ff2841b8826744f
+  #|acos 3fed4d6f86012d94 3fda777f3076e326
+  #|asin bfe23c17db956d50 bfe366db5f337a95
+  #|acos bfe23c17db956d50 40016ab481eef532
+  #|asin bfcfc81e8c5b1414 bfd00f102d2e9047
+  #|acos bfcfc81e8c5b1414 3ffd25bf5f8fd12a
+  #|asin 3feb0cb8637adb5c 3ff01d3602fcc7e1
+  #|acos 3feb0cb8637adb5c 3fe2098aa28eca6e
+  #|asin 3fcf07397f673be0 3fcf57263fed9c66
+  #|acos 3fcf07397f673be0 3ff537168c46798c
+  #|asin 3feec2bb6e1c636c 3ff4aa4d1f151b46
+  #|acos 3feec2bb6e1c636c 3fd1deb8d4bc4749
+  #|asin 3fc2abb49fdfeb38 3fc2bcd1ba81a164
+  #|acos 3fc2abb49fdfeb38 3ff6ca611cf3f8ec
+  #|asin bfe081e990f713ef bfe158241fcdccc4
+  #|acos bfe081e990f713ef 4000e706b21589bd
+  #|asin bfe78f9c6ff885f0 bfea7b5970856ad2
+  #|acos bfe78f9c6ff885f0 40032fd406437141
+  #|asin bfe0ea092f96aba8 bfe1d23cca2d6592
+  #|acos bfe0ea092f96aba8 4001058cdcad6ff1
+  #|asin bfe04c8857f4c5f4 bfe119f8d9179f49
+  #|acos bfe04c8857f4c5f4 4000d77be067fe5e
+  #|asin bfde73e678b7c71e bfdfbcd60774a1df
+  #|acos bfde73e678b7c71e 400088986b10aac8
+  #|asin bfbb3d16370ff480 bfbb4a4fbd3e269f
+  #|acos bfbb3d16370ff480 3ffad6a050180f82
+  #|asin 3fb3fd3930c5e590 3fb4027005749a08
+  #|acos 3fb3fd3930c5e590 3ff7e1d453ece378
+  #|asin bfe5f12f72a4e1dd bfe82d7e44edb441
+  #|acos bfe5f12f72a4e1dd 40029c5d3b5d839c
+  #|asin 3fd2c77465403110 3fd30f42078eb716
+  #|acos 3fd2c77465403110 3ff45e2ad2607f53
+  #|asin 3fd46d9506d5e9a8 3fd4cab7d18d9e00
+  #|acos 3fd46d9506d5e9a8 3ff3ef4d5fe0c598
+  #|asin 3fd75fd75ad81798 3fd7ed8dd6ee35f7
+  #|acos 3fd75fd75ad81798 3ff32697de889f9a
+  #|asin 3fe5b8ad38dd8b5e 3fe7e033c617da45
+  #|acos 3fe5b8ad38dd8b5e 3fea63c2e2707fec
+  #|asin 3fd1ae6d9d09d9a8 3fd1ea14ca9305eb
+  #|acos 3fd1ae6d9d09d9a8 3ff4a776219f6b9e
+  #|asin 3fdabd3f8cd8bdcc 3fdb95e310018774
+  #|acos 3fdabd3f8cd8bdcc 3ff23c829043cb3b
+  #|asin bfe9312215522a98 bfed00ad9c23b9f9
+  #|acos bfe9312215522a98 4003d129112b050a
+  #|asin bfdc02ad61ef860c bfdcfdecafb8218d
+  #|acos bfdc02ad61ef860c 400030bb40191abe
+  #|asin 3fc299f403244590 3fc2aae02b4aafb3
+  #|acos 3fc299f403244590 3ff6cc9f4edad722
+  #|asin bf8bd9a81b9f9a80 bf8bd9e05de3cadc
+  #|acos bf8bd9a81b9f9a80 3ff959af14fff4ae
+  #|asin bfe82db2d2cb3efc bfeb68bfa597c895
+  #|acos bfe82db2d2cb3efc 40036b2d938808b2
+  #|asin bfdd520a65c8fdcc bfde7507b7ecd62c
+  #|acos bfdd520a65c8fdcc 40005f9ea11fb152
+  #|asin bfe04ca9ed6828a4 bfe11a1fdfa1a0a8
+  #|acos bfe04ca9ed6828a4 4000d785a20a7eb6
+  #|asin bfba31926cd75940 bfba3d53e5b68642
+  #|acos bfba31926cd75940 3ffac5d0929f957c
+  #|asin bfd0cafc6da636a0 bfd0fde8dc5dc78f
+  #|acos bfd0cafc6da636a0 3ffd61758b5b9efc
+  #|asin 3fbc758b1d721fb0 3fbc84a242b7d75f
+  #|acos 3fbc758b1d721fb0 3ff759b13018afa2
+  #|asin 3feddc2d0f0e9ca0 3ff33f8b7bc768d7
+  #|acos 3feddc2d0f0e9ca0 3fd789bf61f31104
+  #|asin 3fedd84f15ec7220 3ff33a2d20325235
+  #|acos 3fedd84f15ec7220 3fd79f38d0476b8d
+  #|asin bfe7fdbe7f938824 bfeb1fea30ca3044
+  #|acos bfe7fdbe7f938824 400358f83654a29d
+  #|asin bfe1793b863400d8 bfe27c08359ab483
+  #|acos bfe1793b863400d8 40012fffb788c3ad
+  #|asin 3feae3ccd7800188 3fefee6413619dec
+  #|acos 3feae3ccd7800188 3fe255929526bc45
+  #|asin bfeb32c671a36f09 bff0411293b13140
+  #|acos bfeb32c671a36f09 4004b186f3faaf2c
+  #|asin bfe4b5baacfa407e bfe686387d23a93e
+  #|acos bfe4b5baacfa407e 4002328bc96b00dc
+  #|asin bfe0f3c8c586e3d1 bfe1ddb9e5429c1d
+  #|acos bfe0f3c8c586e3d1 4001086c2372bd94
+  #|asin 3fc81c949324bdc0 3fc841ae3d09df86
+  #|acos 3fc81c949324bdc0 3ff619c58ca2f128
+  #|asin 3fedfd7ac8623e9a 3ff36e8f36893e05
+  #|acos 3fedfd7ac8623e9a 3fd6cdb076ebbc4d
+  #|asin 3fbfdb0882f0ec90 3fbff03a22b18ccf
+  #|acos 3fbfdb0882f0ec90 3ff722f7b219144b
+  #|asin 3fe33e3e424f538c 3fe4a55fb2d7a156
+  #|acos 3fe33e3e424f538c 3fed9e96f5b0b8da
+  #|asin bfec5d067ac9abe6 bff16e3d1c05d0f8
+  #|acos bfec5d067ac9abe6 4005481c3824ff08
+  #|asin 3fdfc5607e3ab3d4 3fe09f83ea960262
+  #|acos 3fdfc5607e3ab3d4 3ff0d2395ef92be8
+  #|asin 3fef7f65ade045e2 3ff64b3fa0c2358f
+  #|acos 3fef7f65ade045e2 3fc6b5dd9c0fbc4d
+  #|asin bfd2e4be91ca81de bfd32de7b55356f2
+  #|acos bfd2e4be91ca81de 3ffded75419902d5
+  #|asin bfee260a9decd304 bff3a9db7fe3b15f
+  #|acos bfee260a9decd304 400665eb6a13ef3c
+  #|asin bfe46521558ce0eb bfe61d106b116f18
+  #|acos bfe46521558ce0eb 40021841c4e67252
+  #|asin bfe464a1aaff34a2 bfe61c6abf72d5b4
+  #|acos bfe464a1aaff34a2 4002181859fecbf9
+  #|asin bfd6a401272b92de bfd7244235a200b7
+  #|acos bfd6a401272b92de 3ffeeb0be1acad46
+  #|asin bfe1fed3476dfeaa bfe31c885d727169
+  #|acos bfe1fed3476dfeaa 4001581fc17eb2e6
+  #|asin bfb579fd37aad648 bfb58075717584c3
+  #|acos bfb579fd37aad648 3ffa7a02ab5b8564
+  #|asin 3fb0658358ae9550 3fb0686365c320dd
+  #|acos 3fb0658358ae9550 3ff81b751de7fb0a
+  #|asin bfe13fd5557ba652 bfe237b38fb21dd6
+  #|acos bfe13fd5557ba652 40011eea8e0e9e02
+  #|asin 3fb06b42e8d9cdc0 3fb06e25fe15f3bd
+  #|acos 3fb06b42e8d9cdc0 3ff81b18f462cddc
+  #|asin bfeb23e673bcfa53 bff032febf9e188e
+  #|acos bfeb23e673bcfa53 4004aa7d09f122d3
+  #|asin bfe2a32b65ffb866 bfe3e4f805566b8c
+  #|acos bfe2a32b65ffb866 40018a3bab77b16f
+  #|asin bfd96e1dbdefc7e8 bfda26e08c95a2d6
+  #|acos bfd96e1dbdefc7e8 3fffabb3776995ce
+  #|asin bfc06610a2bfb114 bfc071a27d76965c
+  #|acos bfc06610a2bfb114 3ffb302fa3f2ffe4
+  #|asin bfea530ee58eabf6 bfeee9c659fd8dee
+  #|acos bfea530ee58eabf6 40044b6f40a17a08
+  #|asin bfe1b71a8ff92a70 bfe2c61ae9cb49c2
+  #|acos bfe1b71a8ff92a70 400142846494e8fd
+  #|asin 3fd9f9b05cf7b11c 3fdabf47f8d48e89
+  #|acos 3fd9f9b05cf7b11c 3ff27229560f0976
+  #|asin 3fe43324c4c43718 3fe5dc67d6580eee
+  #|acos 3fe43324c4c43718 3fec678ed2304b43
+  #|asin 3fb81b2bd6e7a460 3fb82453e8630058
+  #|acos 3fb81b2bd6e7a460 3ff79fb615bdfd13
+  #|asin 3fd1a8f9d988211c 3fd1e468938ef8d7
+  #|acos 3fd1a8f9d988211c 3ff4a8e12f606ee2
+  #|asin bf78b4818ab3ad00 bf78b48b5bd63364
+  #|acos bf78b4818ab3ad00 3ff93aafdfa0034c
+  #|asin 3fe3897777579306 3fe503ef69d5daf6
+  #|acos 3fe3897777579306 3fed40073eb27f3a
+  #|asin bfadf393765a3120 bfadf7f4bd2cce54
+  #|acos bfadf393765a3120 3ffa11bafa2d938b
+  #|asin 3fd25ca5da8fb454 3fd29fa62b44fc61
+  #|acos 3fd25ca5da8fb454 3ff47a11c972ee00
+  #|asin bfc519f9ddcaaa48 bfc532bfaa0073ff
+  #|acos bfc519f9ddcaaa48 3ffbc85349843b98
+  #|asin 3fe0d4669513d30a 3fe1b8c690cb7ba2
+  #|acos 3fe0d4669513d30a 3ff045980bde6f48
+  #|asin bfdf09f2517ffbfc bfe033f5945e97f9
+  #|acos bfdf09f2517ffbfc 40009dfb0f39bc8a
+  #|asin 3fed5c2760321538 3ff29683bad1c88c
+  #|acos 3fed5c2760321538 3fda2dde65c9922f
+  #|asin 3febac695139cd0c 3ff0b7461732ee85
+  #|acos 3febac695139cd0c 3fe0d56a7a227d27
+  #|asin bfd68767e0c3c7bc bfd705b18a1712c0
+  #|acos bfd68767e0c3c7bc 3ffee367b6c9f1c8
+  #|asin bfca4965cea2188c bfca799ed1d55719
+  #|acos bfca4965cea2188c 3ffc712f2e7ed7fb
+  #|asin 3fc564f5442a1ad0 3fc57ec922a35386
+  #|acos 3fc564f5442a1ad0 3ff672222fefc2a8
+  #|asin 3fe3c1cafe145152 3fe54b4b9f21cb9d
+  #|acos 3fe3c1cafe145152 3fecf8ab09668e94
+  #|asin 3fe0d28a2c1cfb92 3fe1b6967a6be191
+  #|acos 3fe0d28a2c1cfb92 3ff046b0170e3c50
+  #|asin 3fe22a00dd235374 3fe350dd23a1e353
+  #|acos 3fe22a00dd235374 3feef31984e676dd
+  #|asin 3fe31a7e6482854a 3fe478b8c136c816
+  #|acos 3fe31a7e6482854a 3fedcb3de751921a
+  #|asin 3fe7321b1662e21c 3fe9f267bef267d6
+  #|acos 3fe7321b1662e21c 3fe8518ee995f25a
+  #|asin 3feafa6ef65cd370 3ff00c27629e1170
+  #|acos 3feafa6ef65cd370 3fe22ba7e34c3752
+  #|asin bfc88cce7bb5622c bfc8b3fdb402eac8
+  #|acos bfc88cce7bb5622c 3ffc387b0ac48a71
+  #|asin 3fead3338343c00a 3fefcfdc21c6d9f4
+  #|acos 3fead3338343c00a 3fe2741a86c1803d
+  #|asin 3fabe942babd5220 3fabeccdeeba24ce
+  #|acos 3fabe942babd5220 3ff84294e4ce5bf2
+  #|asin 3fd21de6da330c2c 3fd25e3035cc8ee1
+  #|acos 3fd21de6da330c2c 3ff48a6f46d10960
+  #|asin 3f75633b13dc1700 3f756341726ff3b0
+  #|acos 3f75633b13dc1700 3ff90c9812d1bd25
+  #|asin 3fd34ce5a24e61a0 3fd39b077a1d40dc
+  #|acos 3fd34ce5a24e61a0 3ff43b3975bcdce1
+  #|asin bfec26c14ad659e5 bff1346962868f10
+  #|acos bfec26c14ad659e5 40052b325b655e14
+  #|asin bfe220d7646b53c8 bfe345bd8e206a7e
+  #|acos bfe220d7646b53c8 4001626d0daa312c
+  #|asin bfe225f515ab8f2b bfe34bf34b7c6ef8
+  #|acos bfe225f515ab8f2b 400163fa7d01324a
+  #|asin bfe1d52cb7731d66 bfe2ea446e382714
+  #|acos bfe1d52cb7731d66 40014b8ec5b02051
+  #|asin 3fef5a23b5d8cc70 3ff5e859532bf75a
+  #|acos 3fef5a23b5d8cc70 3fc9cd1008c1adee
+  #|asin bfe562e59dd5561c bfe76c2502f0d6cf
+  #|acos bfe562e59dd5561c 40026c06eade4c40
+  #|asin bfebe9dcfb34984e bff0f546c10d41d8
+  #|acos bfebe9dcfb34984e 40050ba10aa8b778
+  #|asin 3fdc6502bf6c1db0 3fdd6b77b885b15d
+  #|acos 3fdc6502bf6c1db0 3ff1c71d6622c0c1
+  #|asin bfb9fc0e26926448 bfba0787eb61b690
+  #|acos bfb9fc0e26926448 3ffac273d2fa4881
+  #|asin 3fe4a657336b3abe 3fe6720e3a7b9b0e
+  #|acos 3fe4a657336b3abe 3febd1e86e0cbf23
+  #|asin 3fee18a4f38966b2 3ff396025f00f4c8
+  #|acos 3fee18a4f38966b2 3fd62fe3d50ce143
+  #|asin bfe949ce4a3236b4 bfed28d0c7763540
+  #|acos bfe949ce4a3236b4 4003db31dbffa3dc
+  #|asin 3fe9b60dafe36c9a 3feddc0273bdefbd
+  #|acos 3fe9b60dafe36c9a 3fe467f434ca6a74
+  #|asin bfce6edf0026afc8 bfceba349ade241c
+  #|acos bfce6edf0026afc8 3ffcf941e79ff19c
+  #|asin bf927e3f7c77a980 bf927e81608b964a
+  #|acos bf927e3f7c77a980 3ff96bf559c65b71
+  #|asin 3fb4b5a69ff46d50 3fb4bb73580dda0f
+  #|acos 3fb4b5a69ff46d50 3ff7d6441ec34f77
+  #|asin 3fd6994c961ead8c 3fd718d090045842
+  #|acos 3fd6994c961ead8c 3ff35bc730431708
+  #|asin 3fe38a44f52cc662 3fe504f2e31fcb7a
+  #|acos 3fe38a44f52cc662 3fed3f03c5688eb7
+  #|asin 3fd5ef6b3b8f3c58 3fd6639cbda85a76
+  #|acos 3fd5ef6b3b8f3c58 3ff3891424da167b
+  #|asin bfb694c6ab4a5128 bfb69c4c795293f4
+  #|acos bfb694c6ab4a5128 3ffa8bc01bd95658
+  #|asin 3feff762f64e0464 3ff866224bd62567
+  #|acos 3feff762f64e0464 3fa77b210dc0f62a
+  #|asin bfdb1a71d778bfe8 bfdbfc9d3877332a
+  #|acos bfdb1a71d778bfe8 400010915130fcf2
+  #|asin 3fa237b9f5dc98c0 3fa238b606f48414
+  #|acos 3fa237b9f5dc98c0 3ff89035a40c88f8
+  #|asin bfeebd291d7801df bff4a03c8d22b9a6
+  #|acos bfeebd291d7801df 4006e11bf0b3735f
+  #|asin 3fe90229a2726786 3fecb4f3ad72ec62
+  #|acos 3fe90229a2726786 3fe58f02fb156dce
+  #|asin bfc3f8a496c5fd84 bfc40d9dfee1542c
+  #|acos bfc3f8a496c5fd84 3ffba3af1420579e
+  #|asin 3fdab0e7ec1a9968 3fdb884e0585e119
+  #|acos 3fdab0e7ec1a9968 3ff23fe7d2e2b4d2
+  #|asin bfeaa1002943e434 bfef7491ad4ee598
+  #|acos bfeaa1002943e434 40046e221575cff2
+  #|asin bfeacbc0ecbdfa16 bfefc237cce915e6
+  #|acos bfeacbc0ecbdfa16 4004818b9d5c5c06
+  #|asin bfeb1bcf93d28af8 bff02b5f344db54f
+  #|acos bfeb1bcf93d28af8 4004a6ad4448f133
+  #|asin 3feaf2b09107cc1e 3ff004f6ddd4ca36
+  #|acos 3feaf2b09107cc1e 3fe23a08ecdec5c6
+  #|asin 3fe7f22c6c12b752 3feb0e7375c24ae4
+  #|acos 3fe7f22c6c12b752 3fe7358332c60f4d
+  #|asin 3feab1c67ec0116e 3fef92e7263ad9e7
+  #|acos 3feab1c67ec0116e 3fe2b10f824d804a
+  #|asin bfd9e3a3ab3b1dba bfdaa729b8c0095b
+  #|acos bfd9e3a3ab3b1dba 3fffcbc5c2742f6f
+  #|asin 3fc00b6034fb3e98 3fc016355733ed39
+  #|acos 3fc00b6034fb3e98 3ff71f34a95daf71
+  #|asin 3fed067f34dbc5e2 3ff22de784965548
+  #|acos 3fed067f34dbc5e2 3fdbd04f3eb75f43
+  #|asin 3fe4c03b7263e60c 3fe69402096efe49
+  #|acos 3fe4c03b7263e60c 3febaff49f195be8
+  #|asin 3fd09547866ad364 3fd0c64747bfbb8a
+  #|acos 3fd09547866ad364 3ff4f06982543e36
+  #|asin bfcf4cefeceedc64 bfcf9f0660e5cc4e
+  #|acos bfcf4cefeceedc64 3ffd15dc2060e6a2
+  #|asin 3fe1af032bfcbf9c 3fe2bc6493c56682
+  #|acos 3fe1af032bfcbf9c 3fef879214c2f3af
+  #|asin bfe1f1979fa3ab18 bfe30c8a3d9e439a
+  #|acos bfe1f1979fa3ab18 400154203989a773
+  #|asin 3fe33292d0d0f0ec 3fe496c72a02bf6d
+  #|acos 3fe33292d0d0f0ec 3fedad2f7e859ac4
+  #|asin 3fee93ce1348af66 3ff4580aafe3ad57
+  #|acos 3fee93ce1348af66 3fd327c29181ff05
+  #|asin bf6c4008f00c1f00 bf6c400c9b73b968
+  #|acos bf6c4008f00c1f00 3ff9301b5a91e6f5
+  #|asin bfdb71f4efab1f72 bfdc5d59b6fbe79f
+  #|acos bfdb71f4efab1f72 40001ca8e1019380
+  #|asin bfe126969a82de52 bfe219c3985f7ffe
+  #|acos bfe126969a82de52 4001176e9039f68c
+  #|asin 3fe7d9d3140a8f74 3feae9d63f45983d
+  #|acos 3fe7d9d3140a8f74 3fe75a206942c1f4
+  #|asin bf9bee023d1e3220 bf9beee543900b94
+  #|acos bf9bee023d1e3220 3ff991b6e9526d47
+  #|asin bfe65034bdd4975b bfe8b10937550824
+  #|acos bfe65034bdd4975b 4002bd3ff7f75895
+  #|asin 3fd94231ab2b83e8 3fd9f70b67f43f9d
+  #|acos 3fd94231ab2b83e8 3ff2a4387a471d31
+  #|asin 3fd764c1fb49d49c 3fd7f2d5f358318c
+  #|acos 3fd764c1fb49d49c 3ff32545d76e20b5
+  #|asin bfeba71651ca462b bff0b1fa5d3ff4cd
+  #|acos bfeba71651ca462b 4004e9fad8c210f3
+  #|asin bfb852593fa50d40 bfb85bc0ee33f961
+  #|acos bfb852593fa50d40 3ffaa7b763276cae
+  #|asin 3fe342ff3721140e 3fe4ab533d2c722f
+  #|acos 3fe342ff3721140e 3fed98a36b5be801
+  #|asin 3fd8394b70cc2794 3fd8d7cf1d7ce5ad
+  #|acos 3fd8394b70cc2794 3ff2ec078ce4f3ad
+  #|asin bfda7e4a39617570 bfdb50a8649ff1c3
+  #|acos bfda7e4a39617570 3ffff6256d6c2989
+  #|asin bfc844ee8ee9e5fc bfc86ac5ca8ae3d3
+  #|acos bfc844ee8ee9e5fc 3ffc2f540d958993
+  #|asin bfc14d5e311a2288 bfc15af80971c144
+  #|acos bfc14d5e311a2288 3ffb4d5a55726541
+  #|asin bfd3056f2315eab4 bfd350217a895593
+  #|acos bfd3056f2315eab4 3ffdf603b2e6827d
+  #|asin 3fc204369b7aa518 3fc21394747be20d
+  #|acos 3fc204369b7aa518 3ff6df88c5b4b0d7
+  #|asin 3fe03b9684d79974 3fe1064bbf3b82d2
+  #|acos 3fe03b9684d79974 3ff09ed574a66bb0
+  #|asin 3fdcb52412cd1d74 3fddc50041401ce3
+  #|acos 3fdcb52412cd1d74 3ff1b0bb43f425e0
+  #|asin bfd01bfe8b43b808 bfd048d5120cf8ca
+  #|acos bfd01bfe8b43b808 3ffd343098c76b4b
+  #|asin 3fe95003df4fecf0 3fed32f4ef801f12
+  #|acos 3fe95003df4fecf0 3fe51101b9083b1f
+  #|asin 3fd03053d3837400 3fd05dd86bcc5941
+  #|acos 3fd03053d3837400 3ff50a85395116c8
+  #|asin 3fcb4977b0f36b08 3fcb7f7d4eaa5501
+  #|acos 3fcb4977b0f36b08 3ff5b20baa6ee278
+  #|asin 3fd7c2bf989f2998 3fd857efe5571452
+  #|acos 3fd7c2bf989f2998 3ff30bff5aee6804
+  #|asin bfee2fd074d00003 bff3b8821e7ba56a
+  #|acos bfee2fd074d00003 40066d3eb95fe941
+  #|asin 3fef652b6bae67d4 3ff6045d574af976
+  #|acos 3fef652b6bae67d4 3fc8ecefe7c99d0e
+  #|asin 3fe42a25e2d276ce 3fe5d0d053363455
+  #|acos 3fe42a25e2d276ce 3fec7326555225dc
+  #|asin bfeac1b3c3f2e778 bfefafdc92c97818
+  #|acos bfeac1b3c3f2e778 40047cf4ced47492
+  #|asin bfc502d37b8dfd00 bfc51b476db2d55c
+  #|acos bfc502d37b8dfd00 3ffbc56441fa87c4
+  #|asin 3faffdd348a359a0 3fb00194f759d579
+  #|acos 3faffdd348a359a0 3ff821e204ce8fc1
+  #|asin bf94b767f81025c0 bf94b7c49971e90a
+  #|acos bf94b767f81025c0 3ff974da66a9f4bc
+  #|asin bfdb24672e7c3322 bfdc079bcf5d7c58
+  #|acos bfdb24672e7c3322 400011f1240dc617
+  #|asin 3feb3668ae8a79fa 3ff04485fad8aa00
+  #|acos 3feb3668ae8a79fa 3fe1baeab2d70631
+  #|asin 3fda7b08ddc44424 3fdb4d14f5545612
+  #|acos 3fda7b08ddc44424 3ff24eb616ef1794
+  #|asin bfd3ee4832ff4aae bfd444932f5913af
+  #|acos bfd3ee4832ff4aae 3ffe3320201a7204
+  #|asin 3fe03499c0cd0e5c 3fe0fe30b2d822dc
+  #|acos 3fe03499c0cd0e5c 3ff0a2e2fad81baa
+  #|asin 3fe4b07f658d4726 3fe67f5c4c8e5e5c
+  #|acos 3fe4b07f658d4726 3febc49a5bf9fbd5
+  #|asin bfe600bde8fb8da4 bfe842e43d8ef70a
+  #|acos bfe600bde8fb8da4 4002a1b6b985d44e
+  #|asin bfea65978f7ae06d bfef0a77876698d0
+  #|acos bfea65978f7ae06d 4004539b8bfbbcc0
+  #|asin bfdd37975089444c bfde5749c406c33e
+  #|acos bfdd37975089444c 40005be6e2a2eef4
+  #|asin bfc9f95f95c61e7c bfca27dfe3a7d14d
+  #|acos bfc9f95f95c61e7c 3ffc66f750b92742
+  #|asin bfe5110ef8c39204 bfe6fec7c1d61f00
+  #|acos bfe5110ef8c39204 400250af9a979e4c
+  #|asin bf8ffeb6365d8600 bf8fff0b83cafa11
+  #|acos bf8ffeb6365d8600 3ff961f96b4bc30c
+  #|asin 3fece767752dc408 3ff20954e803a296
+  #|acos 3fece767752dc408 3fdc6299b1022a08
+  #|asin bfd8dcb5318ba8f2 bfd988c04126a744
+  #|acos bfd8dcb5318ba8f2 3fff842b648dd6e9
+  #|asin 3feac33d82891da6 3fefb2aa9b6c6bb0
+  #|acos 3feac33d82891da6 3fe2914c0d1bee80
+  #|asin 3fd45b2752ece198 3fd4b746b6118fd5
+  #|acos 3fd45b2752ece198 3ff3f429a6bfc923
+  #|asin bfe48e815b5726e3 bfe652e78640300e
+  #|acos bfe48e815b5726e3 400225b78bb22290
+  #|asin bfdca6a7e5cf0af6 bfddb4cc4c3c1b9b
+  #|acos bfdca6a7e5cf0af6 4000479733a99a00
+  #|asin bfc81cd630c2aff4 bfc841f10cddb539
+  #|acos bfc81cd630c2aff4 3ffc2a3975dfe3bf
+  #|asin bfed9db7f1bb213c bff2eaf33c7fd1c4
+  #|acos bfed9db7f1bb213c 400606774861ff6e
+  #|asin 3fe37a53b611af56 3fe4f0d620930296
+  #|acos 3fe37a53b611af56 3fed532087f5579a
+  #|asin bfcbbbeea8b677b0 bfcbf4b17b3cdbac
+  #|acos bfcbbbeea8b677b0 3ffca09183abc88e
+  #|asin bfd57154278de684 bfd5dd974fc3d82b
+  #|acos bfd57154278de684 3ffe996128352323
+  #|asin bfe07066d6380a9a bfe143b75463d1b6
+  #|acos bfe07066d6380a9a 4000e1eb7f3b0afa
+  #|asin 3febe187d45f06b6 3ff0ecc5897629e0
+  #|acos 3febe187d45f06b6 3fe06a6b959c0670
+  #|asin bfce7b7ab3b93a2c bfcec72fc1b7b1bf
+  #|acos bfce7b7ab3b93a2c 3ffcfae14c7b2350
+  #|asin bfe4f94dfa418f06 bfe6df46afbac9db
+  #|acos bfe4f94dfa418f06 400248cf5610c903
+  #|asin 3fef4c60ef76c30e 3ff5c6a9037989a0
+  #|acos 3fef4c60ef76c30e 3fcada9286551bc3
+  #|asin 3fcd162bcb58ff30 3fcd57ca975b7938
+  #|acos 3fcd162bcb58ff30 3ff577020158bdf1
+  #|asin 3fb4bcb0ddedade0 3fb4c283852f8b10
+  #|acos 3fb4bcb0ddedade0 3ff7d5d31bf13467
+  #|asin bfc57baaf966bdbc bfc595d2255a67dc
+  #|acos bfc57baaf966bdbc 3ffbd4b598ef7a14
+  #|asin 3fe65ef5c55e5a30 3fe8c5a50e63a05c
+  #|acos 3fe65ef5c55e5a30 3fe97e519a24b9d4
+  #|asin 3fb446a956031430 3fb44c1a935859bb
+  #|acos 3fb446a956031430 3ff7dd39ab0ea77d
+  #|asin 3fbc4a7897850930 3fbc594b5fa0e1fb
+  #|acos 3fbc4a7897850930 3ff75c669e4a1ef9
+  #|asin bfea670316d4a91a bfef0cfac5879e47
+  #|acos bfea670316d4a91a 4004543c5b83fe1e
+  #|asin bfdc430f5a5e1ce6 bfdd459b1fb16884
+  #|acos bfdc430f5a5e1ce6 400039b10e18439d
+  #|asin bfc5f354a07defe4 bfc60f3e7891e895
+  #|acos bfc5f354a07defe4 3ffbe3e323566a2b
+  #|asin bfe380e2a62e4908 bfe4f91b0a6a75cc
+  #|acos bfe380e2a62e4908 4001cf446cbcb3ff
+  #|asin bfe8285a8738ecd4 bfeb609807bfb6a0
+  #|acos bfe8285a8738ecd4 40036923ac120434
+  #|asin bfe600dd636a3b00 bfe8430f97eda706
+  #|acos bfe600dd636a3b00 4002a1c1901d804e
+  #|asin bfe27a8cf38a84fc bfe3b31bd072e1f9
+  #|acos bfe27a8cf38a84fc 40017dc49e3ecf0a
+  #|asin bfe9f1ea6fbb6282 bfee4169139454e3
+  #|acos bfe9f1ea6fbb6282 40042157ef072bc5
+  #|asin 3fe4f7a003e8a320 3fe6dd0d754d7a6c
+  #|acos 3fe4f7a003e8a320 3feb66e9333adfc4
+  #|asin 3fe49a50c76434d8 3fe66253bf1850aa
+  #|acos 3fe49a50c76434d8 3febe1a2e9700986
+  #|asin 3f982d74994c1600 3f982e07db058515
+  #|acos 3f982d74994c1600 3ff8c14334d81704
+  #|asin bfd0c9f314726e22 bfd0fcd5e14608f9
+  #|acos bfd0c9f314726e22 3ffd6130cc95af56
+  #|asin bfecf98c607282eb bff21e96cd0e836e
+  #|acos bfecf98c607282eb 4005a04910a95843
+  #|asin bfe034e263dc9d80 bfe0fe84efee3602
+  #|acos bfe034e263dc9d80 4000d09ee61da40c
+  #|asin bfab98e55dd1fd50 bfab9c52468cdbc0
+  #|acos bfab98e55dd1fd50 3ff9fedde67893f6
+  #|asin 3fe13480ff75988c 3fe22a41ed77cb30
+  #|acos 3fe13480ff75988c 3ff00cda5d884780
+  #|asin bfbc89899bd43f58 bfbc98c0c4717da3
+  #|acos bfbc89899bd43f58 3ffaeb87608b44f2
+  #|asin bfe45e009b3f2d78 bfe613d18686f23e
+  #|acos bfe45e009b3f2d78 400215f20bc3d31c
+  #|asin 3fb0b4ca1b5ff3a0 3fb0b7d4b5be6643
+  #|acos 3fb0b4ca1b5ff3a0 3ff8167e08e846b4
+  #|asin 3fe63c28c1383f4a 3fe8951d5b3a142d
+  #|acos 3fe63c28c1383f4a 3fe9aed94d4e4604
+  #|asin bfac383f91ce7dd0 bfac3be9387674f7
+  #|acos bfac383f91ce7dd0 3ffa03da9e07e0c0
+  #|asin 3fa0eb35ca20af40 3fa0ebffad68840d
+  #|acos 3fa0eb35ca20af40 3ff89a9b56d8e8f8
+  #|asin bfed96427208172a bff2e121be7f5c47
+  #|acos bfed96427208172a 4006018e8961c4b0
+  #|asin bfe4f80a88a7e9c0 bfe6dd9a7745c35a
+  #|acos bfe4f80a88a7e9c0 4002486447f38763
+  #|asin 3fe0c54fa1f02dd2 3fe1a70bc7b2639a
+  #|acos 3fe0c54fa1f02dd2 3ff04e75706afb4b
+  #|asin bfcb4af77c9f3d34 bfcb8106227ecf08
+  #|acos bfcb4af77c9f3d34 3ffc921c189406f9
+  #|asin bfe18ed23636b8a6 bfe295d408312958
+  #|acos bfe18ed23636b8a6 40013672ac2e60e2
+  #|asin bfe92cefe5996c62 bfecf9e086401980
+  #|acos bfe92cefe5996c62 4003cf75cbb21cec
+  #|asin bfeff42244578897 bff8457e1b1519df
+  #|acos bfeff42244578897 4008b3bcb7aca37c
+  #|asin bfee546ec6a84118 bff3f0c8cb7e614d
+  #|acos bfee546ec6a84118 400689620fe14732
+  #|asin 3fe256db8aedda36 3fe38778bff1a8ae
+  #|acos 3fe256db8aedda36 3feebc7de896b182
+  #|asin bfe0d8910260716f bfe1bdaca3086f6f
+  #|acos bfe0d8910260716f 40010068d2e43268
+  #|asin bfc97e4a65858484 bfc9aa39eaa40eea
+  #|acos bfc97e4a65858484 3ffc57429198aef6
+  #|asin 3fd621d6fc2a4884 3fd69950f4318c9c
+  #|acos 3fd621d6fc2a4884 3ff37ba71737c9f1
+  #|asin 3fc473a7acc18db8 3fc48a312fa9c3dc
+  #|acos 3fc473a7acc18db8 3ff690b52e4ef49d
+  #|asin 3fe44efd9128f286 3fe6005fd4ac056e
+  #|acos 3fe44efd9128f286 3fec4396d3dc54c2
+  #|asin bfc09f6c390cb390 bfc0ab79c7e5cb28
+  #|acos bfc09f6c390cb390 3ffb376a8d40e67d
+  #|asin 3fec2f8a08ec1ab4 3ff13dab16b0d471
+  #|acos 3fec2f8a08ec1ab4 3fdf9140f64d629d
+  #|asin 3fde347239d316d8 3fdf74c6e7007c96
+  #|acos 3fde347239d316d8 3ff144c99a840df3
+  #|asin 3fddb92391296ee8 3fdee93ad0b4e682
+  #|acos 3fddb92391296ee8 3ff167aca016f378
+  #|asin 3fbd6f8e25944f30 3fbd80427a1662e1
+  #|acos 3fbd6f8e25944f30 3ff749f72ca2c6ea
+  #|asin 3fbfe532dbe75670 3fbffa78e4c056ef
+  #|acos 3fbfe532dbe75670 3ff72253c5f827a9
+  #|asin bfe285d9e9ed375c bfe3c0f569b75754
+  #|acos bfe285d9e9ed375c 4001813b048fec61
+  #|asin 3fecc4ff089474f0 3ff1e1a4fd278844
+  #|acos 3fecc4ff089474f0 3fdd01595c729350
+  #|asin bfefc768d1cea60e bff74040dbab238e
+  #|acos bfefc768d1cea60e 4008311e17f7a853
+  #|asin bfe644fd4772091c bfe8a166eadeb898
+  #|acos bfe644fd4772091c 4002b95764d9c4b2
+  #|asin 3fbdb811a2029410 3fbdc9431e277c81
+  #|acos 3fbdb811a2029410 3ff745672261b550
+  #|asin 3fefec33ab919ed8 3ff80527d2aea273
+  #|acos 3fefec33ab919ed8 3fb1cd381958aa50
+  #|asin bfd11af44a043e54 bfd150d6c1fec4d5
+  #|acos bfd11af44a043e54 3ffd763104c3de4e
+  #|asin 3fd71565b44ccf2c 3fd79da9768d6271
+  #|acos 3fd71565b44ccf2c 3ff33a90f6a0d47c
+  #|asin 3fb6415e932ba0c0 3fb6489208544db5
+  #|acos 3fb6415e932ba0c0 3ff7bd7233bee83d
+  #|asin bfec45f98e29e0cb bff1557d4bb33e08
+  #|acos bfec45f98e29e0cb 40053bbc4ffbb590
+  #|asin 3fafce1df0ba41e0 3fafd35cd11ff2e9
+  #|acos 3fafce1df0ba41e0 3ff823606dbb2d81
+  #|asin 3fe21a2da4f32872 3fe33da8505768ec
+  #|acos 3fe21a2da4f32872 3fef064e5830f145
+  #|asin 3fd8b9bbb25d5f48 3fd962d05ac12fa7
+  #|acos 3fd8b9bbb25d5f48 3ff2c9473d93e12e
+  #|asin 3fa07f31d9cca7c0 3fa07fed00c947a2
+  #|acos 3fa07f31d9cca7c0 3ff89dfbec3de2db
+  #|asin 3fc7b6e2542624c0 3fc7da2968a6aec9
+  #|acos 3fc7b6e2542624c0 3ff626b6272f573f
+  #|asin bfd1db2540ca5bac bfd218a0e6be1f4f
+  #|acos bfd1db2540ca5bac 3ffda8238df3b4ec
+  #|asin 3fed386c6886ab96 3ff26a26a2a91d79
+  #|acos 3fed386c6886ab96 3fdadf52c66c3e7e
+  #|asin 3fe5a66183a1eee2 3fe7c7527dd6279d
+  #|acos 3fe5a66183a1eee2 3fea7ca42ab23294
+  #|asin 3fad0f5febea3140 3fad135ff1112642
+  #|acos 3fad0f5febea3140 3ff8396054bba3e6
+  #|asin 3fd339e986b6b7f8 3fd3871f08d8153f
+  #|acos 3fd339e986b6b7f8 3ff44033920e27c8
+  #|asin 3fc5aecb2a614338 3fc5c9b07629a834
+  #|acos 3fc5aecb2a614338 3ff668c5457ef812
+  #|asin bfed2d503ad4e304 bff25c9309c4a31a
+  #|acos bfed2d503ad4e304 4005bf472f046819
+  #|asin 3fe01426ada29cb0 3fe0d89bd929d487
+  #|acos 3fe01426ada29cb0 3ff0b5ad67af42d5
+  #|asin 3fea88d9a08aad56 3fef4930e9c15bb0
+  #|acos 3fea88d9a08aad56 3fe2fac5bec6fe81
+  #|asin 3fc31d9ab89820f8 3fc32ffac184d38f
+  #|acos 3fc31d9ab89820f8 3ff6bbfbfc1392a6
+  #|asin bfe7648ec5700c96 bfea3bfd94e83c35
+  #|acos bfe7648ec5700c96 40031ffd0f5c259a
+  #|asin bfee6ed4697d6a58 bff41ad22cd35bae
+  #|acos bfee6ed4697d6a58 40069e66c08bc463
+  #|asin 3fd8f223d23f81d0 3fd9a0044f446e93
+  #|acos 3fd8f223d23f81d0 3ff2b9fa40731174
+  #|asin 3fea26aa2fd41a18 3fee9c399324769f
+  #|acos 3fea26aa2fd41a18 3fe3a7bd1563e392
+  #|asin bfe49dea2ab2de9c bfe6670835eb1bb6
+  #|acos bfe49dea2ab2de9c 40022abfb79cdd7a
+  #|asin bfe4ae1e7145c27d bfe67c3e314f091a
+  #|acos bfe4ae1e7145c27d 4002300d3675d8d2
+  #|asin 3fd6eb38fcb02324 3fd77077b82dff0f
+  #|acos 3fd6eb38fcb02324 3ff345dd6638ad54
+  #|asin bfe803bcc209ad2b bfeb28fa2221d160
+  #|acos bfe803bcc209ad2b 40035b3c32aa8ae4
+  #|asin 3faf3c4494fa00c0 3faf413c8013ef9a
+  #|acos 3faf3c4494fa00c0 3ff827f170438d9b
+  #|asin 3fcfe7f6543b16d0 3fd01f805f8fc085
+  #|acos 3fcfe7f6543b16d0 3ff51a1b3c603cf7
+  #|asin bfefa9bba7e2e58c bff6cf06db20f3f7
+  #|acos bfefa9bba7e2e58c 4007f88117b29088
+  #|asin 3fe406229bd7f80a 3fe5a28a3528ac2c
+  #|acos 3fe406229bd7f80a 3feca16c735fae05
+  #|asin 3fd087b17957e3ec 3fd0b836a8adcdb9
+  #|acos 3fd087b17957e3ec 3ff4f3edaa18b9aa
+  #|asin 3fec141dcb1d4f56 3ff120e5bd5eda14
+  #|acos 3fec141dcb1d4f56 3fe0022b2dcaa60a
+  #|asin 3fe84917aed0ed78 3feb92b11ab8880e
+  #|acos 3fe84917aed0ed78 3fe6b1458dcfd223
+  #|asin bfc2ae9739837b2c bfc2bfbc51960be4
+  #|acos bfc2ae9739837b2c 3ffb79f2de76ee95
+  #|asin 3fdbb029b7f14c34 3fdca24749ae4bca
+  #|acos 3fdbb029b7f14c34 3ff1f96981d89a26
+  #|asin bfed66afffa72af4 bff2a3ce6ca0ea6a
+  #|acos bfed66afffa72af4 4005e2e4e0728bc1
+  #|asin bfe61ce4c4c8f9cb bfe869c012fff252
+  #|acos bfe61ce4c4c8f9cb 4002ab6daee21321
+  #|asin bfeb6445df55cd04 bff0707d7967bf4e
+  #|acos bfeb6445df55cd04 4004c93c66d5f633
+  #|asin bfeb602543aa5b96 bff06c806a923480
+  #|acos bfeb602543aa5b96 4004c73ddf6b30cc
+  #|asin 3fe51fe42bed2d3a 3fe71281ab00407f
+  #|acos 3fe51fe42bed2d3a 3feb3174fd8819b2
+  #|asin bfc19a8b57dd264c bfc1a8df74198127
+  #|acos bfc19a8b57dd264c 3ffb571742c75d3d
+  #|asin 3fe8b8dbc5f937ca 3fec407d3c5525de
+  #|acos 3fe8b8dbc5f937ca 3fe603796c333453
+  #|asin bfe9bdfb8a9bf2b7 bfede957c5102174
+  #|acos bfe9bdfb8a9bf2b7 40040b539b661ee9
+  #|asin 3fbbbd42c2244620 3fbbcb3b1b76712f
+  #|acos 3fbbbd42c2244620 3ff76547a28cc605
+  #|asin bfb00fa3970b65e8 bfb01257550111d4
+  #|acos bfb00fa3970b65e8 3ffa2320c9943e36
+  #|asin 3fee8635de4e81ae 3ff44131ec680087
+  #|acos 3fee8635de4e81ae 3fd383259f70b245
+  #|asin bfee6d28f53d7b2a bff4181f6dda426d
+  #|acos bfee6d28f53d7b2a 40069d0d610f37c3
+  #|asin bfefc9834256d3e3 bff7494ce487eb07
+  #|acos bfefc9834256d3e3 400835a41c660c0f
+  #|asin 3fedccc72b05ea82 3ff32a4667afb9bb
+  #|acos 3fedccc72b05ea82 3fd7ded3b251cd74
+  #|asin 3fd22d9b85408e30 3fd26e90f71d6224
+  #|acos 3fd22d9b85408e30 3ff48657167cd48f
+  #|asin 3fd5d95eb91149ac 3fd64c25dfae4b5e
+  #|acos 3fd5d95eb91149ac 3ff38ef1dc589a41
+  #|asin bfdbb3e90805fa5e bfdca66f65662a2e
+  #|acos bfdbb3e90805fa5e 400025cb96cedbd2
+  #|asin bfec4c84fec64e43 bff15c7cd66755a6
+  #|acos bfec4c84fec64e43 40053f3c1555c15f
+  #|asin 3fea708efbf99416 3fef1de69ace2248
+  #|acos 3fea708efbf99416 3fe326100dba37e9
+  #|asin bfcb714010b33984 bfcba836b6a088d9
+  #|acos bfcb714010b33984 3ffc97022b183e33
+  #|asin 3fde94ae061e1b58 3fdfe220c06a71f2
+  #|acos 3fde94ae061e1b58 3ff129732429909c
+  #|asin 3fc5b38d1b875280 3fc5ce8447732040
+  #|acos 3fc5b38d1b875280 3ff6682acb55c910
+  #|asin 3fec092ea96839f0 3ff11587486deb53
+  #|acos 3fec092ea96839f0 3fe018e817ac838a
+  #|asin 3fe442d259321046 3fe5f0a3f4b0ad7a
+  #|acos 3fe442d259321046 3fec5352b3d7acb7
+  #|asin bfb282f946431310 bfb2871d07a45a07
+  #|acos bfb282f946431310 3ffa4a6d24be72b9
+  #|asin 3fe434ba65438822 3fe5de72e29b9085
+  #|acos 3fe434ba65438822 3fec6583c5ecc9ac
+  #|asin 3fe703673fc7e43e 3fe9aee73a786eb8
+  #|acos 3fe703673fc7e43e 3fe8950f6e0feb79
+  #|asin bfd6339cfb952910 bfd6ac432b0f76ed
+  #|acos bfd6339cfb952910 3ffecd0c1f080ad4
+  #|asin bfec4df1498bde49 bff15e032439a9ae
+  #|acos bfec4df1498bde49 40053fff3c3eeb63
+  #|asin 3fde1fead25c63dc 3fdf5d801f387f42
+  #|acos 3fde1fead25c63dc 3ff14a9b4c760d48
+  #|asin 3fea9ba4ccc9d26a 3fef6aeaea0c3e2c
+  #|acos 3fea9ba4ccc9d26a 3fe2d90bbe7c1c04
+  #|asin bfb5d7fbc584d1d8 bfb5deca982609a8
+  #|acos bfb5d7fbc584d1d8 3ffa7fe7fdc68db3
+  #|asin 3fdef9c1b114df1c 3fe02ab4ac91ea85
+  #|acos 3fdef9c1b114df1c 3ff10ca0fdfb37d6
+  #|asin 3fe5bce11615730e 3fe7e5ed585ecfc2
+  #|acos 3fe5bce11615730e 3fea5e0950298a6e
+  #|asin 3fb95ec12cd4ab00 3fb9696ed42c5d83
+  #|acos 3fb95ec12cd4ab00 3ff78b6467016740
+  #|asin bfd95f20c47b0054 bfda168c3b4d210e
+  #|acos bfd95f20c47b0054 3fffa79e6317755c
+  #|asin 3fe0fe1eaa13b6ae 3fe1e9eaf54d10bc
+  #|acos 3fe0fe1eaa13b6ae 3ff02d05d99da4ba
+  #|asin 3fd63ff2f990eb68 3fd6b96abfe432e3
+  #|acos 3fd63ff2f990eb68 3ff373a0a44b2060
+  #|asin bfe9bc70cd8bac48 bfede6bf67c5c0a2
+  #|acos bfe9bc70cd8bac48 40040aad841386b5
+  #|asin 3fe21dc8856f7a38 3fe34207ae506818
+  #|acos 3fe21dc8856f7a38 3fef01eefa37f219
+  #|asin bfc2fe3f1bc59e4c bfc31044b0d7d034
+  #|acos bfc2fe3f1bc59e4c 3ffb8403ea5f271f
+  #|asin 3fee02678e957862 3ff375a2a722556f
+  #|acos 3fee02678e957862 3fd6b162b4875ea4
+  #|asin bfeb8493e0c551ff bff08feee7e232dc
+  #|acos bfeb8493e0c551ff 4004d8f51e132ffa
+  #|asin bfe0642b7db79ce3 bfe1357775820f8c
+  #|acos bfe0642b7db79ce3 4000de5b87829a6f
+  #|asin bfde3ee41c870d10 bfdf80a06580ca2e
+  #|acos bfde3ee41c870d10 40008111b6d22fd2
+  #|asin bf8216bd9e58f480 bf8216cd08553b74
+  #|acos bf8216bd9e58f480 3ff94628ee54d78f
+  #|asin bfe8bf4e60f591e5 bfec4aa6d86cc616
+  #|acos bfe8bf4e60f591e5 4003a3a7603d4812
+  #|asin 3fb4247e6f0ee170 3fb429d44a4cf738
+  #|acos 3fb4247e6f0ee170 3ff7df5e0f9f5da5
+  #|asin bfeaa0abc7ba32bf bfef73f985d6f170
+  #|acos bfeaa0abc7ba32bf 40046dfc0b97d2e8
+  #|asin 3fd168c6f4c72564 3fd1a1a7c6a0dd24
+  #|acos 3fd168c6f4c72564 3ff4b991629bf5cf
+  #|asin 3fefd1651d15aa50 3ff76cdc269bbc92
+  #|acos 3fefd1651d15aa50 3fbb51f2da87086a
+  #|asin bfc63ee5d4a0a1e0 bfc65bf694af98d1
+  #|acos bfc63ee5d4a0a1e0 3ffbed7a26da2032
+  #|asin bfe9ed0aa3b065ae bfee3916dd14bad1
+  #|acos bfe9ed0aa3b065ae 40041f4361674540
+  #|asin 3feb8c7eacbbd9f8 3ff097b38f8d997e
+  #|acos 3feb8c7eacbbd9f8 3fe1148f896d2735
+  #|asin 3fe1bc4343cbe600 3fe2cc4d34788003
+  #|acos 3fe1bc4343cbe600 3fef77a9740fda2e
+  #|asin bfb08ef7ac74cb78 bfb091edc6bb23e0
+  #|acos bfb08ef7ac74cb78 3ffa2b1a30afdf56
+  #|asin bfc0bc47af19d60c bfc0c894c52cae88
+  #|acos bfc0bc47af19d60c 3ffb3b0dece9c2e9
+  #|asin 3fe51fa38ddc2c04 3fe7122ba4c85dd6
+  #|acos 3fe51fa38ddc2c04 3feb31cb03bffc5b
+  #|asin 3fda0009a7ebe314 3fdac63a7d42455f
+  #|acos 3fda0009a7ebe314 3ff2706cb4f39bc0
+  #|asin 3fd73ee497c195e8 3fd7ca2cfd5778bc
+  #|acos 3fd73ee497c195e8 3ff32f7014ee4ee9
+  #|asin 3fbdab904e204e00 3fbdbcac08a8ed64
+  #|acos 3fbdab904e204e00 3ff7463093b99e42
+
+///|
+let cases_part2 : String =
+  #|asin bfe3b1d809f5eb98 bfe5370a4e2d08c6
+  #|acos bfe3b1d809f5eb98 4001dec03dad58be
+  #|asin bfe1c8f03bf6c624 bfe2db8a20864715
+  #|acos bfe1c8f03bf6c624 400147e03243a851
+  #|asin 3fe0d177c17b2b3a 3fe1b553e79a3890
+  #|acos 3fe0d177c17b2b3a 3ff04751607710d0
+  #|asin 3fee0973525366e6 3ff37fd10a8794ac
+  #|acos 3fee0973525366e6 3fd688a926f261b2
+  #|asin 3f9a48bf19b0e200 3f9a497c4f0367c7
+  #|acos 3f9a48bf19b0e200 3ff8b8d563081f79
+  #|asin bfe8bc84662f4f5c bfec464105391cde
+  #|acos bfe8bc84662f4f5c 4003a28deb705dc4
+  #|asin bfa0ed35178cd160 bfa0edff4262d86e
+  #|acos bfa0ed35178cd160 3ff9a96b4e5743dc
+  #|asin 3f7e2c2fec62d300 3f7e2c41ce9e4edf
+  #|acos 3f7e2c2fec62d300 3ff903cf12758ec9
+  #|asin bfc1864807865c48 bfc1946a9a355b76
+  #|acos bfc1864807865c48 3ffb5488a78ad887
+  #|asin 3fccb6c24c782310 3fccf5d9a3f523b1
+  #|acos 3fccb6c24c782310 3ff583401fc588a2
+  #|asin 3fea3747ce807460 3feeb920ad421dd8
+  #|acos 3fea3747ce807460 3fe38ad5fb463c59
+  #|asin bfe764cff02a0f39 bfea3c5d16698fca
+  #|acos bfe764cff02a0f39 40032014efbc7a7f
+  #|asin 3fedf5baf2c21832 3ff3637dcd445d95
+  #|acos 3fedf5baf2c21832 3fd6f9f61bff3e0e
+  #|asin 3fbc31cf8f779010 3fbc407b91b3d2a9
+  #|acos 3fbc31cf8f779010 3ff75df39b28efee
+  #|asin 3fef448fd42b662a 3ff5b417400bffd4
+  #|acos 3fef448fd42b662a 3fcb6f20a1c16a1f
+  #|asin bfe9a623684488cf bfedc155d5a38727
+  #|acos bfe9a623684488cf 400401531f8af856
+  #|asin bfec19abe059e281 bff126b20e1ecb0c
+  #|acos bfec19abe059e281 40052456b1317c12
+  #|asin 3fe2125922d9d06c 3fe3342a6f680217
+  #|acos 3fe2125922d9d06c 3fef0fcc3920581a
+  #|asin 3fed279185b4c24e 3ff25597d31c0bec
+  #|acos 3fed279185b4c24e 3fdb318e04a084b1
+  #|asin 3feb2a238cffe53e 3ff038e3cc2253ff
+  #|acos 3feb2a238cffe53e 3fe1d22f1043b233
+  #|asin 3fdb1a3a95ff3a98 3fdbfc6039b5a236
+  #|acos 3fdb1a3a95ff3a98 3ff222e345d6c48b
+  #|asin bfd99fca6b28fcc2 bfda5d0c16887733
+  #|acos bfd99fca6b28fcc2 3fffb93e59e64ae5
+  #|asin bfe24f4da76bcb9c bfe37e41ca37d75f
+  #|acos bfe24f4da76bcb9c 4001708e1cb00c64
+  #|asin 3fe8e3d63ac4e30e 3fec8485eaa0c457
+  #|acos 3fe8e3d63ac4e30e 3fe5bf70bde795da
+  #|asin bfe0e337002c9e73 bfe1ca3465816767
+  #|acos bfe0e337002c9e73 4001038ac3827066
+  #|asin bfea89455fe52ddd bfef49f1b22870e0
+  #|acos bfea89455fe52ddd 4004637a16ac32c4
+  #|asin bfa6ff3cd63d5870 bfa701380f1646a1
+  #|acos bfa6ff3cd63d5870 3ff9da0514bcdf4d
+  #|asin 3fdd4bb73858c820 3fde6dea5666260f
+  #|acos 3fdd4bb73858c820 3ff18680beaaa394
+  #|asin 3faed1ec0f3c01e0 3faed6b1d924b96b
+  #|acos 3faed1ec0f3c01e0 3ff82b45c57b074d
+  #|asin 3fcf7f81a50cb468 3fcfd3301df77047
+  #|acos 3fcf7f81a50cb468 3ff5279550853f0f
+  #|asin bfcb515358b4b650 bfcb878858f8f3e6
+  #|acos bfcb515358b4b650 3ffc92ec5f634b95
+  #|asin 3f78493c9847ee00 3f784945ebb22faa
+  #|acos 3f78493c9847ee00 3ff909b20e587ae9
+  #|asin bfd86547baa666a8 bfd9075bb742b699
+  #|acos bfd86547baa666a8 3fff63d24214dabe
+  #|asin bf9eaeec63817180 bf9eb0196b4565e9
+  #|acos bf9eaeec63817180 3ff99cbbb9f142b0
+  #|asin bfccb60cb809df70 bfccf51f4ff4c1aa
+  #|acos bfccb60cb809df70 3ffcc09f3e42c54e
+  #|asin 3fea85039f8487d6 3fef42551caff182
+  #|acos 3fea85039f8487d6 3fe301a18bd868ae
+  #|asin 3fe0f2c24ac39800 3fe1dc846fa95bbe
+  #|acos 3fe0f2c24ac39800 3ff033b91c6f7f39
+  #|asin 3fee20fd8352b4e8 3ff3a257a8422584
+  #|acos 3fee20fd8352b4e8 3fd5fe8eb0081e4f
+  #|asin bfde4ebfda8f1f3e bfdf92a061918275
+  #|acos bfde4ebfda8f1f3e 40008351b65446db
+  #|asin 3fe00640fa3442a4 3fe0c88b56fadb44
+  #|acos 3fe00640fa3442a4 3ff0bdb5a8c6bf76
+  #|asin 3fe0ee6d0a8f9096 3fe1d768f60ab0a6
+  #|acos 3fe0ee6d0a8f9096 3ff03646d93ed4c5
+  #|asin 3fd9dcc055494f98 3fda9fa1c891cc85
+  #|acos 3fd9dcc055494f98 3ff27a12e21fb9f7
+  #|asin bf5b9482cd8f7e00 bf5b9483a8180aba
+  #|acos bf5b9482cd8f7e00 3ff928e0752e331b
+  #|asin 3fca0874394809f0 3fca3746bf936fab
+  #|acos 3fca0874394809f0 3ff5db127c51bf23
+  #|asin 3fd105f954f742cc 3fd13b12101baa4c
+  #|acos 3fd105f954f742cc 3ff4d336d03d4285
+  #|asin bfd0cdace1a18b18 bfd100b25403a52e
+  #|acos bfd0cdace1a18b18 3ffd6227e9451664
+  #|asin 3fcc2ea43d4ae210 3fcc6a3dae538516
+  #|acos 3fcc2ea43d4ae210 3ff594b39e79bc76
+  #|asin bfdc0558fa863d54 bfdd00e4ffa09c1b
+  #|acos bfdc0558fa863d54 4000311a4a162a10
+  #|asin 3fe055560b3435cc 3fe12434ae715c04
+  #|acos 3fe055560b3435cc 3ff08fe0fd0b7f16
+  #|asin bfe216088090b318 bfe338a1bfefb66c
+  #|acos bfe216088090b318 40015f261a1e0427
+  #|asin bfb73397cd64e208 bfb73bc12466821d
+  #|acos bfb73397cd64e208 3ffa95b7668a953a
+  #|asin bfaff20f1a3714b0 bfaff75fdcbd702e
+  #|acos bfaff20f1a3714b0 3ffa21b6532a189a
+  #|asin bfe9acdbda20e205 bfedcc95b4c5739a
+  #|acos bfe9acdbda20e205 4004042317537373
+  #|asin 3fbb466d1a41e8d0 3fbb53b44b823a8d
+  #|acos 3fbb466d1a41e8d0 3ff76cc00f8c096f
+  #|asin bf9beeab38073bc0 bf9bef8e4e93051a
+  #|acos bf9beeab38073bc0 3ff991b98d7e792d
+  #|asin bfedba3233d0d0d1 bff310fa22aa42e9
+  #|acos bfedba3233d0d0d1 4006197abb773801
+  #|asin bf9a1da7356013a0 bf9a1e60cdd5ac1b
+  #|acos bf9a1da7356013a0 3ff98a74d77b83c9
+  #|asin bfb2995d94515488 bfb29d9073b91129
+  #|acos bfb2995d94515488 3ffa4bd45b7fbe2b
+  #|asin bfebc2076fe82aaa bff0cce601f9c9de
+  #|acos bfebc2076fe82aaa 4004f770ab1efb7b
+  #|asin bfd7ad7fa484a474 bfd8410ed886771c
+  #|acos bfd7ad7fa484a474 3fff323f0a65cadf
+  #|asin bfdae9f4008e0a9a bfdbc720575a4e83
+  #|acos bfdae9f4008e0a9a 400009e1b50d605c
+  #|asin 3fd7adc19e7a16a0 3fd84155dc7bdbe2
+  #|acos 3fd7adc19e7a16a0 3ff311a5dd253620
+  #|asin 3fd868c116dd61a4 3fd90b1dc06eb1f3
+  #|acos 3fd868c116dd61a4 3ff2df33e428809c
+  #|asin 3feb56a5d0502f1e 3ff06358fcd94e6e
+  #|acos 3feb56a5d0502f1e 3fe17d44aed5bd54
+  #|asin bfb5547c6c0f3928 bfb55ad2ea6e6d33
+  #|acos bfb5547c6c0f3928 3ffa77a882eb13ec
+  #|asin 3fdb7528ec318de4 3fdc60e5718a86cd
+  #|acos 3fdb7528ec318de4 3ff209c1f7e18b65
+  #|asin 3fc170cd90b910b8 3fc17ebc1f71d71c
+  #|acos 3fc170cd90b910b8 3ff6f223d055f235
+  #|asin bfcdec72e1a137b8 bfce33ffeb02aa75
+  #|acos bfcdec72e1a137b8 3ffce87b51a48267
+  #|asin bfd2c17f5d057026 bfd30906df16d92c
+  #|acos bfd2c17f5d057026 3ffde43d0c09e363
+  #|asin 3fa2d7fdf8830940 3fa2d914f02b5cb8
+  #|acos 3fa2d7fdf8830940 3ff88b32acc2d233
+  #|asin 3fe7aa38cbe9b60a 3feaa2c74ad15432
+  #|acos 3fe7aa38cbe9b60a 3fe7a12f5db705ff
+  #|asin bfcc7646a47141e0 bfccb3b230318b69
+  #|acos bfcc7646a47141e0 3ffcb8719a4a5e85
+  #|asin 3fdfd9cedb744f08 3fe0ab49c188094f
+  #|acos 3fdfd9cedb744f08 3ff0cc5673802870
+  #|asin 3feffe807075577c 3ff8d3a448d76f3d
+  #|acos 3feffe807075577c 3f9395c2db2f76cd
+  #|asin 3fe75bfd5b14bdba 3fea2f71b74d95ed
+  #|acos 3fe75bfd5b14bdba 3fe81484f13ac443
+  #|asin bfd997e130c6caee bfda546a3d4a6958
+  #|acos bfd997e130c6caee 3fffb715e396c76e
+  #|asin bfea24fe7901bccf bfee99539f298b52
+  #|acos bfea24fe7901bccf 4004375291ec7960
+  #|asin 3fd2812c4caaec5c 3fd2c5ca61513a07
+  #|acos 3fd2812c4caaec5c 3ff47088bbefde96
+  #|asin 3fdeb7501eaa9c1c 3fe004ca19cc4403
+  #|acos 3fdeb7501eaa9c1c 3ff11f96475e0b17
+  #|asin bfdb417c0dea192e bfdc27bc5dfa81f8
+  #|acos bfdb417c0dea192e 400015f535e166cb
+  #|asin bfd800a1f192fdf6 bfd89aa39f44cafc
+  #|acos bfd800a1f192fdf6 3fff48a43c155fd7
+  #|asin bfd6a825f7cd8e36 bfd728b06bd104f7
+  #|acos bfd6a825f7cd8e36 3ffeec276f386e56
+  #|asin bfe6e63a93f0c286 bfe98506c2b3c949
+  #|acos bfe6e63a93f0c286 4002f23f5acf08de
+  #|asin bfedf06834d21eaf bff35bef3ae48d5e
+  #|acos bfedf06834d21eaf 40063ef547945d3b
+  #|asin 3fed38b8589f2402 3ff26a83c90d5863
+  #|acos 3fed38b8589f2402 3fdaddde2cdb52d4
+  #|asin 3fe97854780c54d0 3fed75332e5f75f4
+  #|acos 3fe97854780c54d0 3fe4cec37a28e43d
+  #|asin 3fe3a3298e824156 3fe5246de65943c2
+  #|acos 3fe3a3298e824156 3fed1f88c22f166e
+  #|asin bfee0bf6d1f1588d bff3837727b53b5e
+  #|acos bfee0bf6d1f1588d 400652b93dfcb43b
+  #|asin 3fd01663a399636c 3fd0430a7f46439a
+  #|acos 3fd01663a399636c 3ff51138b4729c32
+  #|asin bfd665b1e1248d00 bfd6e1b133d67430
+  #|acos bfd665b1e1248d00 3ffeda67a139ca24
+  #|asin bfe0b676629d64f4 bfe1959f6297c4d0
+  #|acos bfe0b676629d64f4 4000f66582c807c0
+  #|asin 3fc58e34c761bc78 3fc5a8a07984d5e3
+  #|acos 3fc58e34c761bc78 3ff66ce74513925c
+  #|asin bfeac2b814a9338a bfefb1b73e421148
+  #|acos bfeac2b814a9338a 40047d6b79b29ade
+  #|asin 3fbc6e0dd92d3450 3fbc7d190c54bf67
+  #|acos 3fbc6e0dd92d3450 3ff75a29c37ee122
+  #|asin 3fd5b2dfcfbcebac 3fd62335c9c2c2f0
+  #|acos 3fd5b2dfcfbcebac 3ff3992de1d37c5c
+  #|asin 3feed9c65a8f6bca 3ff4d4e0acc39a4c
+  #|acos 3feed9c65a8f6bca 3fd1346a9e024b32
+  #|asin bfb57b7fb2888460 bfb581f94a6f5da3
+  #|acos bfb57b7fb2888460 3ffa7a1ae8eb22f2
+  #|asin bfe493d9fccfb489 bfe659e20446e8ae
+  #|acos bfe493d9fccfb489 400227762b33d0b8
+  #|asin bfe1dc673d43ee83 bfe2f2f9e2dcbf3c
+  #|acos bfe1dc673d43ee83 40014dbc22d9465b
+  #|asin bfd8f1aea8581bb8 bfd99f851590fffa
+  #|acos bfd8f1aea8581bb8 3fff89dc99a86d17
+  #|asin 3fbeae5e001e52e0 3fbec14ae5eeec90
+  #|acos 3fbeae5e001e52e0 3ff735e6a5e53e4f
+  #|asin 3fa08e6ccf031d80 3fa08f29fe629454
+  #|acos 3fa08e6ccf031d80 3ff89d8204511876
+  #|asin 3fe504ff63af33ea 3fe6eec565a6611d
+  #|acos 3fe504ff63af33ea 3feb553142e1f913
+  #|asin 3fc3732c4ffaad10 3fc386893bdbb4f2
+  #|acos 3fc3732c4ffaad10 3ff6b12a2cc8b67a
+  #|asin bfdf5a8899187cac bfe0621b3dd37cf0
+  #|acos bfdf5a8899187cac 4000a9847996f5c8
+  #|asin bfbcae7687987118 bfbcbde946f76f1f
+  #|acos bfbcae7687987118 3ffaedd9e8b3a40a
+  #|asin bfce295ef6e7bb58 bfce72ac2f7e6bd7
+  #|acos bfce295ef6e7bb58 3ffcf050da33fa93
+  #|asin bfd4b0ff78cb8bf2 bfd511e840905259
+  #|acos bfd4b0ff78cb8bf2 3ffe6675646841ae
+  #|asin bfed693c85f65d04 bff2a709abaed152
+  #|acos bfed693c85f65d04 4005e4827ff97f35
+  #|asin bfc6d5ff3634c570 bfc6f57619bf2ca3
+  #|acos bfc6d5ff3634c570 3ffc00aa177c12ad
+  #|asin 3fe0366eb3941ad0 3fe10050953d3a1d
+  #|acos 3fe0366eb3941ad0 3ff0a1d309a5900a
+  #|asin 3fe4d63b204e55c6 3fe6b0f332eb58db
+  #|acos 3fe4d63b204e55c6 3feb9303759d0155
+  #|asin bfe0b5aa61f5d99a bfe194b02c1fee69
+  #|acos bfe0b5aa61f5d99a 4000f629b52a1226
+  #|asin bfe0553f30628176 bfe1241a1a9ce950
+  #|acos bfe0553f30628176 4000da0430c950e0
+  #|asin 3fe81a4f8b4ce02a 3feb4b36800e2fdf
+  #|acos 3fe81a4f8b4ce02a 3fe6f8c0287a2a52
+  #|asin bfebcfe48080e976 bff0dadf3123f1db
+  #|acos bfebcfe48080e976 4004fe6d42b40f7a
+  #|asin bfea29b45f7154f7 bfeea18071da41b6
+  #|acos bfea29b45f7154f7 4004395dc698a6fa
+  #|asin 3fe1af3d76d9df58 3fe2bcaa852b2fe2
+  #|acos 3fe1af3d76d9df58 3fef874c235d2a4f
+  #|asin bfe0ad1549ee9e88 bfe18aa0eca1feca
+  #|acos bfe0ad1549ee9e88 4000f3a5e54a963e
+  #|asin bfcd7dd61856b548 bfcdc24832264587
+  #|acos bfcd7dd61856b548 3ffcda445a88f5c9
+  #|asin bfd37668619ad490 bfd3c695d0ca2fb4
+  #|acos bfd37668619ad490 3ffe13a0c876b905
+  #|asin bfdc839225e72fd4 bfdd8d95d37b3265
+  #|acos bfdc839225e72fd4 400042b064917cd9
+  #|asin 3fd33d920c14dcf4 3fd38af4f1b6debc
+  #|acos 3fd33d920c14dcf4 3ff43f3e17d67569
+  #|asin bfe56d358c98a832 bfe77a049f9a637e
+  #|acos bfe56d358c98a832 40026f7ed208af6c
+  #|asin 3fd50a2a4889a40c 3fd5703a6b508227
+  #|acos 3fd50a2a4889a40c 3ff3c5ecb9700c8e
+  #|asin 3f7b6b2075fdbc00 3f7b6b2de177805c
+  #|acos 3f7b6b2075fdbc00 3ff906902662b598
+  #|asin bfd375632b1ca958 bfd3c5839e8ef07a
+  #|acos bfd375632b1ca958 3ffe135c3be7e937
+  #|asin bfee6bf44c947361 bff4162d849d2af1
+  #|acos bfee6bf44c947361 40069c146c70ac05
+  #|asin bfe9913998ac6d79 bfed9e75bad57149
+  #|acos bfe9913998ac6d79 4003f89b18d772de
+  #|asin 3fce81050c4196b8 3fcecce425f2f989
+  #|acos 3fce81050c4196b8 3ff5485ecf85cde7
+  #|asin bfe5eac78f1193de bfe824b27ab5ec8c
+  #|acos bfe5eac78f1193de 40029a2a48cf91af
+  #|asin bfd91713d89559e2 bfd9c825cb54fae8
+  #|acos bfd91713d89559e2 3fff9404c7196bd2
+  #|asin 3fee0964d7c4dfb2 3ff37fbc0cb20d8a
+  #|acos 3fee0964d7c4dfb2 3fd688fd1e487e38
+  #|asin bfe491d249c2017e bfe6573b7ee052db
+  #|acos bfe491d249c2017e 400226cc89da2b43
+  #|asin bfb54ce4bf830388 bfb553347816ffc7
+  #|acos bfb54ce4bf830388 3ffa772e9bc59d15
+  #|asin bfe23c4836c0cb42 bfe36716379611a6
+  #|acos bfe23c4836c0cb42 40016ac338079af6
+  #|asin bfe542ae47f8e4bf bfe740f02098b1ca
+  #|acos bfe542ae47f8e4bf 40026139b24842fe
+  #|asin bfba3711dda52838 bfba42dac51262e3
+  #|acos bfba3711dda52838 3ffac62900955346
+  #|asin bfefed254cc2d9cd bff80c07d5664210
+  #|acos bfefed254cc2d9cd 4008970194d53794
+  #|asin bfdce9614d204e50 bfddff80adb10ad4
+  #|acos bfdce9614d204e50 400050edbfd837e7
+  #|asin bfe4eaf1c665c1a4 bfe6cc48111d414f
+  #|acos bfe4eaf1c665c1a4 4002440fae6966e0
+  #|asin bfe276b75de429da bfe3ae69c0cdad1d
+  #|acos bfe276b75de429da 40017c981a5581d4
+  #|asin bfb28b1004e44b60 bfb28f39380f2048
+  #|acos bfb28b1004e44b60 3ffa4aeee7c51f1d
+  #|asin bfee1c7f86f076d1 bff39bb0fda1062f
+  #|acos bfee1c7f86f076d1 40065ed628f299a4
+  #|asin bfd175637acdc18a bfd1aec3313da984
+  #|acos bfd175637acdc18a 3ffd8dac20939779
+  #|asin bfd0613f0fc3ae18 bfd0906ddb0e1c6a
+  #|acos bfd0613f0fc3ae18 3ffd4616cb07b433
+  #|asin 3fccdd96bfb07fc8 3fcd1db37d93b7cc
+  #|acos 3fccdd96bfb07fc8 3ff57e44e491b61f
+  #|asin bfe8bb1a59dd6d35 bfec440669c0cf41
+  #|acos bfe8bb1a59dd6d35 4003a1ff44924a5c
+  #|asin bfef573d77205636 bff5e123976f1fc2
+  #|acos bfef573d77205636 4007818f75d9a66d
+  #|asin bfb1284658a975e8 bfb12b91d479ac97
+  #|acos bfb1284658a975e8 3ffa34b4718bc7e2
+  #|asin bfcbcdefcbe3ce34 bfcc07231258bc2c
+  #|acos bfcbcdefcbe3ce34 3ffca2dfb68f449e
+  #|asin 3fd08e71242ffdc0 3fd0bf331b8ff764
+  #|acos 3fd08e71242ffdc0 3ff4f22e8d602f3f
+  #|asin 3fec286b1b41064a 3ff1362957a382d4
+  #|acos 3fec286b1b41064a 3fdfaf47f282a914
+  #|asin bfeadf48aa45f9c3 bfefe61104c34b9e
+  #|acos bfeadf48aa45f9c3 40048a81eb52e974
+  #|asin 3fec322374fcdb98 3ff1406a375980be
+  #|acos 3fec322374fcdb98 3fdf864473aab167
+  #|asin bfe2792940ddc8c5 bfe3b1682a6a8e0d
+  #|acos bfe2792940ddc8c5 40017d57b4bcba0f
+  #|asin bfe97b05ca4b633a bfed79a6408293d2
+  #|acos bfe97b05ca4b633a 4003ef673a42bb80
+  #|asin bfe7cec631359e5c bfead947d165eb37
+  #|acos bfe7cec631359e5c 4003474f9e7b915a
+  #|asin 3fe2897c149355a8 3fe3c56a52e7eaf0
+  #|acos 3fe2897c149355a8 3fee7e8c55a06f41
+  #|asin bfc0f6db6d900c90 bfc103ac29126030
+  #|acos bfc0f6db6d900c90 3ffb4270d966791e
+  #|asin bfed92fb87b5ac7a bff2dcd6158543ea
+  #|acos bfed92fb87b5ac7a 4005ff68b4e4b881
+  #|asin bfd61987b15925da bfd690760237e957
+  #|acos bfd61987b15925da 3ffec618d4d2276e
+  #|asin 3fd0541383248248 3fd082ce871444ee
+  #|acos 3fd0541383248248 3ff50147b27f1bdd
+  #|asin 3fb573765fe097e0 3fb579e8b248de04
+  #|acos 3fb573765fe097e0 3ff7ca5cc91f9f38
+  #|asin 3fe7d0eecdea3d1a 3feadc83074c27e8
+  #|acos 3fe7d0eecdea3d1a 3fe76773a13c3249
+  #|asin bfcca55e8c614e94 bfcce401c03dfc49
+  #|acos bfcca55e8c614e94 3ffcbe7b8c4beca1
+  #|asin 3fc76bd416872790 3fc78dccf21e5dc7
+  #|acos 3fc76bd416872790 3ff63041b6006160
+  #|asin 3fdf4d5563d242e4 3fe05a89a1ca8544
+  #|acos 3fdf4d5563d242e4 3ff0f4b6835eea76
+  #|asin 3fed8d17f464c2c6 3ff2d524ead2a496
+  #|acos 3fed8d17f464c2c6 3fd93359a5c6220b
+  #|asin 3fec33f442e8894a 3ff14255e13b52c2
+  #|acos 3fec33f442e8894a 3fdf7e95cc236958
+  #|asin 3fe75f85f32045c8 3fea349db1ece0d7
+  #|acos 3fe75f85f32045c8 3fe80f58f69b795a
+  #|asin bfcefb2bfbadac64 bfcf4aba077d177d
+  #|acos bfcefb2bfbadac64 3ffd0b529533d008
+  #|asin bfe336226a0292ee bfe49b3ad00c6c5f
+  #|acos bfe336226a0292ee 4001b7cc5e2531a4
+  #|asin 3fe94d2f089ec500 3fed2e549763a024
+  #|acos 3fe94d2f089ec500 3fe515a21124ba0d
+  #|asin bfc2df2e3024d728 bfc2f0db525915e6
+  #|acos bfc2df2e3024d728 3ffb8016be8f4fd5
+  #|asin bfdf322eb4f2a4ca bfe04afb51cb00a1
+  #|acos bfdf322eb4f2a4ca 4000a3bc7e94d6b4
+  #|asin bfe06d99a4f54e67 bfe140737fcbea93
+  #|acos bfe06d99a4f54e67 4000e11a8a151131
+  #|asin 3fe4c8cc59c01a2c 3fe69f4469165a36
+  #|acos 3fe4c8cc59c01a2c 3feba4b23f71fffb
+  #|asin 3fd12881fa0ca2e4 3fd15ee7dc7bbb71
+  #|acos 3fd12881fa0ca2e4 3ff4ca415d253e3c
+  #|asin 3fe5f7fe41b23866 3fe836d9e1a087ed
+  #|acos 3fe5f7fe41b23866 3fea0d1cc6e7d244
+  #|asin bfe876ef73431eec bfebd972c75e91d2
+  #|acos bfe876ef73431eec 4003875a5bf9bb00
+  #|asin bfed2edd093ff816 bff25e7666397a18
+  #|acos bfed2edd093ff816 4005c038dd3ed398
+  #|asin 3fac8307fbc61e20 3fac86cf154e87d2
+  #|acos 3fac8307fbc61e20 3ff83dc4db99b8da
+  #|asin 3fb843c722fb8940 3fb84d1de8bdcd47
+  #|acos 3fb843c722fb8940 3ff79d2975b85044
+  #|asin 3fdb76311d0b0920 3fdc6209ec80e137
+  #|acos 3fdb76311d0b0920 3ff20978d923f4ca
+  #|asin bfc2fec08fbd4764 bfc310c797d25e8a
+  #|acos bfc2fec08fbd4764 3ffb8414473e78ea
+  #|asin bfb53a9f762d79a0 bfb540def6611ec5
+  #|acos bfb53a9f762d79a0 3ffa760943aa3f05
+  #|asin bfe0f08add9a3691 bfe1d9e78be909eb
+  #|acos bfe0f08add9a3691 400107778d1c5907
+  #|asin 3fc692d0151a7858 3fc6b131d5d1a46f
+  #|acos 3fc692d0151a7858 3ff64bd51989f88a
+  #|asin bfeff93311fbf6a2 bff87b12892d7127
+  #|acos bfeff93311fbf6a2 4008ce86eeb8cf1f
+  #|asin bfe37393b99edcfa bfe4e85514c6b512
+  #|acos bfe37393b99edcfa 4001cb12ef53c3d1
+  #|asin 3fe048c9643797c0 3fe1159eb17ceaf8
+  #|acos 3fe048c9643797c0 3ff0972bfb85b79c
+  #|asin bfec3e51b76a3904 bff14d54f2785de3
+  #|acos bfec3e51b76a3904 400537a8235e457e
+  #|asin bfe7b8a024b41b66 bfeab83523053413
+  #|acos bfe7b8a024b41b66 40033f0af2e36391
+  #|asin 3fef2504e78a1eb8 3ff56cc9859ee3ad
+  #|acos 3fef2504e78a1eb8 3fcda98e752a4b59
+  #|asin 3fdd65d180558050 3fde8b49bcf5ad52
+  #|acos 3fdd65d180558050 3ff17f28e506c1c4
+  #|asin 3fe30d249f40d610 3fe46817c0825baa
+  #|acos 3fe30d249f40d610 3feddbdee805fe86
+  #|asin bfe1d86d12707cf6 bfe2ee2f07edb3aa
+  #|acos bfe1d86d12707cf6 40014c896c1d8376
+  #|asin bfd0732d2a4d15c2 bfd0a2fad1640dae
+  #|acos bfd0732d2a4d15c2 3ffd4aba089d3084
+  #|asin 3fd02bc366f5f0ac 3fd05920c476d646
+  #|acos 3fd02bc366f5f0ac 3ff50bb323267787
+  #|asin bfe258647fa70494 bfe389584e025292
+  #|acos bfe258647fa70494 40017353bda2ab30
+  #|asin 3fcdc62da88b8e58 3fce0ca4eda4500e
+  #|acos 3fcdc62da88b8e58 3ff56066b68fa316
+  #|asin 3fe244fd8ca27b08 3fe371b05f360c8a
+  #|acos 3fe244fd8ca27b08 3feed24649524da6
+  #|asin bfe68adade80a96e bfe90342b8eccef9
+  #|acos bfe68adade80a96e 4002d1ce585d4a4a
+  #|asin 3fcbde365e201e08 3fcc17cfce9cf85b
+  #|acos 3fcbde365e201e08 3ff59f015a708e0d
+  #|asin 3feee7d2fb639bfa 3ff4efa4cc93ccfa
+  #|acos 3feee7d2fb639bfa 3fd0c95a1ec1807c
+  #|asin 3fecad68dcf9daf8 3ff1c6e3a4df06ed
+  #|acos 3fecad68dcf9daf8 3fdd6c5ebd9498ad
+  #|asin 3fd622d924f95654 3fd69a64177a5802
+  #|acos 3fd622d924f95654 3ff37b624e659718
+  #|asin bfc563893bf6f8e4 bfc57d57e91ca47e
+  #|acos bfc563893bf6f8e4 3ffbd1a65167c1a8
+  #|asin bfeb57db61f9b847 bff06482df01813d
+  #|acos bfeb57db61f9b847 4004c33f19a2d72b
+  #|asin bfae7afade387020 bfae7f98aaf0d12a
+  #|acos bfae7afade387020 3ffa15f8199bb3a2
+  #|asin bf927f46f4a224e0 bf927f88e3b72c6c
+  #|acos bf927f46f4a224e0 3ff96bf977d309ca
+  #|asin bfd06e7629789a04 bfd09e19e73cdd52
+  #|acos bfd06e7629789a04 3ffd4981ce13646d
+  #|asin bfcbd8543a0772ac bfcc11c8ae00714d
+  #|acos bfcbd8543a0772ac 3ffca4346a043b42
+  #|asin 3fa133b03fddb3c0 3fa13484724ef37e
+  #|acos 3fa133b03fddb3c0 3ff8985730b1b57c
+  #|asin 3fef7f28c61236d6 3ff64a932a81e9db
+  #|acos 3fef7f28c61236d6 3fc6bb414e1219ec
+  #|asin bfc3bd3720857bcc bfc3d1762104ab08
+  #|acos bfc3bd3720857bcc 3ffb9c2a1864c279
+  #|asin bfc29037b0930ff8 bfc2a1092907d090
+  #|acos bfc29037b0930ff8 3ffb761c7965272a
+  #|asin 3fecf6131e0099c8 3ff21a805031ef34
+  #|acos 3fecf6131e0099c8 3fdc1dec1048f793
+  #|asin 3fbdfbc4cc815460 3fbe0d6d538eb770
+  #|acos 3fbdfbc4cc815460 3ff741247f0b41a1
+  #|asin bfd3b43963b56688 bfd407841f7d252c
+  #|acos bfd3b43963b56688 3ffe23dc5c237663
+  #|asin bfef30accecb8dab bff58681440f729e
+  #|acos bfef30accecb8dab 4007543e4c29cfdb
+  #|asin bfe116c63719494c bfe2070bc7613e53
+  #|acos bfe116c63719494c 400112c09bfa6621
+  #|asin 3fe7c9d6acc83e34 3fead1e5cf545ee8
+  #|acos 3fe7c9d6acc83e34 3fe77210d933fb49
+  #|asin bf9a91bc38a265e0 bf9a927fa7aee688
+  #|acos bf9a91bc38a265e0 3ff98c4552e2e8b2
+  #|asin 3fe3e3100e211396 3fe575acc6d859e5
+  #|acos 3fe3e3100e211396 3fecce49e1b0004c
+  #|asin bfeede119e2f287e bff4dcfd8e09ea1b
+  #|acos bfeede119e2f287e 4006ff7c71270b9a
+  #|asin 3fcabd34f5a60800 3fcaefff33975337
+  #|acos 3fcabd34f5a60800 3ff5c3fb6dd142b1
+  #|asin bfd7bb054b42f81e bfd84f9d88b251cc
+  #|acos bfd7bb054b42f81e 3fff35e2b670c18b
+  #|asin bfe5426cb8505c34 bfe74098688b12ab
+  #|acos bfe5426cb8505c34 40026123c444db37
+  #|asin bfe6d7aba63f9304 bfe970361ead7d67
+  #|acos bfe6d7aba63f9304 4002ed0b31cd75e6
+  #|asin bf9ba19b7ea399a0 bf9ba2775172ab95
+  #|acos bf9ba19b7ea399a0 3ff990853189f7c7
+  #|asin 3fa9650644a4df60 3fa967b162c06831
+  #|acos 3fa9650644a4df60 3ff856bdc92e29d7
+  #|asin bfddc928704e3daa bfdefb52b4c552bb
+  #|acos bfddc928704e3daa 4000706800bac0e4
+  #|asin bfd8116108b506d8 bfd8acb54d574059
+  #|acos bfd8116108b506d8 3fff4d28a799fd2e
+  #|asin bfcc713782263bd0 bfccae81d259f03d
+  #|acos bfcc713782263bd0 3ffcb7cb8e8f6b20
+  #|asin bfc904c180b0e4e4 bfc92e41141c9625
+  #|acos bfc904c180b0e4e4 3ffc47c376c7bfdd
+  #|asin bfd757bec5ea598e bfd7e4dbb0917584
+  #|acos bfd757bec5ea598e 3fff1b3240688a79
+  #|asin 3fcdebee1f8dc498 3fce33776067f095
+  #|acos 3fcdebee1f8dc498 3ff55b8c68372f06
+  #|asin bfd46a929bca9016 bfd4c78ae72b47b3
+  #|acos bfd46a929bca9016 3ffe53de0e0eff05
+  #|asin bfd860252457a764 bfd901cddf1d8f53
+  #|acos bfd860252457a764 3fff626ecc0b90ed
+  #|asin 3fd451e5845b4710 3fd4ad8358f741c5
+  #|acos 3fd451e5845b4710 3ff3f69a7e065ca7
+  #|asin bfd0b4dffd15fb72 bfd0e70000bcb748
+  #|acos bfd0b4dffd15fb72 3ffd5bbb54735aea
+  #|asin bfe54a85e16b40de bfe74b6fd1c3eede
+  #|acos bfe54a85e16b40de 400263d99e931244
+  #|asin 3fdbadd552723a20 3fdc9fb1ce6465a2
+  #|acos 3fdbadd552723a20 3ff1fa0ee0ab13b0
+  #|asin bfedb8cf7095da72 bff30f1b2c278cdc
+  #|acos bfedb8cf7095da72 4006188b4035dcfa
+  #|asin bfb6a67ee48a2770 bfb6ae1680d3b84d
+  #|acos bfb6a67ee48a2770 3ffa8cdcbc51689d
+  #|asin 3fe2da056ff9030c 3fe428a5ba086f7a
+  #|acos 3fe2da056ff9030c 3fee1b50ee7feab7
+  #|asin bfef7a6fe992d1a3 bff63d543a20df2c
+  #|acos bfef7a6fe992d1a3 4007afa7c7328622
+  #|asin bfe83f2f0d3d879a bfeb837de0c3c362
+  #|acos bfe83f2f0d3d879a 400371dd22530765
+  #|asin 3fe3d76588dbd494 3fe566cb753b7755
+  #|acos 3fe3d76588dbd494 3fecdd2b334ce2dc
+  #|asin 3fe0d55e988139e2 3fe1b9ea2d534440
+  #|acos 3fe0d55e988139e2 3ff045063d9a8af8
+  #|asin 3fd149a6bc23c548 3fd181519d7fcc46
+  #|acos 3fd149a6bc23c548 3ff4c1a6ece43a07
+  #|asin bfe9b09c68096c50 bfedd2dfe7487429
+  #|acos bfe9b09c68096c50 400405b5a3f43396
+  #|asin bfe6c00febefbfaa bfe94e92317c5dae
+  #|acos bfe6c00febefbfaa 4002e4a236812df8
+  #|asin bfef3a11ef57fec7 bff59bc2286ae89b
+  #|acos bfef3a11ef57fec7 40075edebe578ada
+  #|asin bfe4ec17df06b35a bfe6cdccb7b63252
+  #|acos bfe4ec17df06b35a 40024470d80fa320
+  #|asin bfee0edd7d1c79e5 bff387b00eb3974e
+  #|acos bfee0edd7d1c79e5 400654d5b17be233
+  #|asin 3fec3f608f380fbc 3ff14e7515953941
+  #|acos 3fec3f608f380fbc 3fdf4e18fabbcf5d
+  #|asin bfe59a06ae8d1252 bfe7b68f74afddb0
+  #|acos bfe59a06ae8d1252 40027ea1874e0df8
+  #|asin 3fe5d392bbf04616 3fe804e7dd299000
+  #|acos 3fe5d392bbf04616 3fea3f0ecb5eca31
+  #|asin bfd874be1a7d4374 bfd91816415e5feb
+  #|acos bfd874be1a7d4374 3fff6800e49bc513
+  #|asin 3fdbf20867eb5358 3fdceb6b08ffdf50
+  #|acos 3fdbf20867eb5358 3ff1e72092043544
+  #|asin bfed58f90a003088 bff292852b27cc82
+  #|acos bfed58f90a003088 4005da403fb5fccd
+  #|asin bfd1f7b7792983ec bfd236639644cf9f
+  #|acos bfd1f7b7792983ec 3ffdaf9439d56100
+  #|asin 3fedde6edecdaf6c 3ff342afcfa8417e
+  #|acos 3fedde6edecdaf6c 3fd77d2e126fae69
+  #|asin 3fd06c17d9a629e0 3fd09ba693516576
+  #|acos 3fd06c17d9a629e0 3ff4fb11af6fd3bb
+  #|asin bfd3953c109a31e6 bfd3e6f474076d56
+  #|acos bfd3953c109a31e6 3ffe1bb87146086e
+  #|asin bfe1e727d7f46a36 bfe2fff118c466f4
+  #|acos bfe1e727d7f46a36 400150f9f0533049
+  #|asin bfe41f676997f4e6 bfe5c2fc80ae494c
+  #|acos bfe41f676997f4e6 400201bcca4da8df
+  #|asin bfcf5e1f4c2269bc bfcfb0bfce2b489c
+  #|acos bfcf5e1f4c2269bc 3ffd18134e09962c
+  #|asin 3fd923e3d56bdb10 3fd9d613d5b9883b
+  #|acos 3fd923e3d56bdb10 3ff2ac765ed5cb0a
+  #|asin 3fc777c7e21166c8 3fc799f564e49388
+  #|acos 3fc777c7e21166c8 3ff62ebca7a79aa7
+  #|asin 3f97b3c14f159940 3f97b44c0c33632a
+  #|acos 3f97b3c14f159940 3ff8c32a24135f8c
+  #|asin 3fe4ed07a04181e0 3fe6cf099a0f9a7e
+  #|acos 3fe4ed07a04181e0 3feb74ed0e78bfb3
+  #|asin bfddc15c7a7e1144 bfdef283f46e4cb7
+  #|acos bfddc15c7a7e1144 40006f4e28afe023
+  #|asin bfdfff78271cf928 bfe0c103c9f3078e
+  #|acos bfdfff78271cf928 4000c13e9c9ed870
+  #|asin bfacd50f9f38b130 bfacd8f7ba2d3adc
+  #|acos bfacd50f9f38b130 3ffa08c3121596ef
+  #|asin bfe8e461c1dd467c bfec8563eeed0ba9
+  #|acos bfe8e461c1dd467c 4003b256a5dd5976
+  #|asin bfdec8c45869d9c8 bfe00ebd8501a64e
+  #|acos bfdec8c45869d9c8 400094ad0b628020
+  #|asin bfd8348ee02f91b4 bfd8d2b12bd1dd28
+  #|acos bfd8348ee02f91b4 3fff56a79f38a462
+  #|asin bfdb029a97b092ea bfdbe24e8859da68
+  #|acos bfdb029a97b092ea 40000d477b2d51d9
+  #|asin 3fb89c3556b3ff50 3fb8a5f3f7a99f8f
+  #|acos 3fb89c3556b3ff50 3ff7979c14c9931f
+  #|asin bfe9026146b4b140 bfecb54cdd80ebda
+  #|acos bfe9026146b4b140 4003be50e1825183
+  #|asin bfd02e295d49ad4a bfd05b9b54fd4bc8
+  #|acos bfd02e295d49ad4a 3ffd38e22983800a
+  #|asin bf96ee300af73e00 bf96eeada9fc7329
+  #|acos bf96ee300af73e00 3ff97db60aec1ee5
+  #|asin bfdf6c96043054b2 bfe06c76c10df1b0
+  #|acos bfdf6c96043054b2 4000ac1b5a6592f8
+  #|asin 3fb08aa60e1d0810 3fb08d99d70ea989
+  #|acos 3fb08aa60e1d0810 3ff81921b6d34280
+  #|asin bfb1bac7b6371410 bfb1be6a92e7c4f4
+  #|acos bfb1bac7b6371410 3ffa3de1fd72a968
+  #|asin bfd95068ec6fda2c bfda0684fb0e68f1
+  #|acos bfd95068ec6fda2c 3fffa39c9307c754
+  #|asin bfe1f43cf1e909d3 bfe30fbc60e9e169
+  #|acos bfe1f43cf1e909d3 400154ecc25c8ee6
+  #|asin 3fcdb91d2bb4a0c8 3fcdff36484b4543
+  #|acos 3fcdb91d2bb4a0c8 3ff562148b3ac470
+  #|asin 3fad74b98ce469a0 3fad78e409b3148a
+  #|acos 3fad74b98ce469a0 3ff8363433f69474
+  #|asin 3fef46c00746263a 3ff5b940002efdbd
+  #|acos 3fef46c00746263a 3fcb45daa0a97add
+  #|asin 3fcda8b10d554f78 3fcdee5448068bf8
+  #|acos 3fcda8b10d554f78 3ff56430cb435b99
+  #|asin bfc250e2fe5df9b4 bfc261099055fb07
+  #|acos bfc250e2fe5df9b4 3ffb6e1c864eec79
+  #|asin 3fedac7b4275595e 3ff2fe8deb4a7944
+  #|acos 3fedac7b4275595e 3fd88db5a3e6cf53
+  #|asin 3fecf2070faae46a 3ff215bfdec63e1d
+  #|acos 3fecf2070faae46a 3fdc30edd5f7bbec
+  #|asin 3fdd67da5997bf20 3fde8d9420df88c6
+  #|acos 3fdd67da5997bf20 3ff17e964c0c4ae7
+  #|asin bfe81afdfb261148 bfeb4c3fb5e539b4
+  #|acos bfe81afdfb261148 4003640d979b64f9
+  #|asin 3f6cb352e105ca00 3f6cb356ba12e377
+  #|acos 3f6cb352e105ca00 3ff913a1a8e723a7
+  #|asin 3fe8c7f8acc09c4a 3fec5855700f8858
+  #|acos 3fe8c7f8acc09c4a 3fe5eba13878d1d8
+  #|asin bfdb742483dbf174 bfdc5fc5293aa730
+  #|acos bfdb742483dbf174 40001cf64f496b72
+  #|asin bfd97bea8dc8a4ec bfda35eb1521c831
+  #|acos bfd97bea8dc8a4ec 3fffaf76198c9f24
+  #|asin 3fe8d10320139fac 3fec66a380b7ded2
+  #|acos 3fe8d10320139fac 3fe5dd5327d07b5f
+  #|asin bfd8ecb1755f01a8 bfd99a1a4efd9740
+  #|acos bfd8ecb1755f01a8 3fff8881e80392e8
+  #|asin bfc250e3cc868880 bfc2610a60a34ccf
+  #|acos bfc250e3cc868880 3ffb6e1ca05896b2
+  #|asin bfe6b347c3c64af4 bfe93c6a78fa88ef
+  #|acos bfe6b347c3c64af4 4002e0184860b8c8
+  #|asin 3fcc82e395d7a868 3fccc0a2318f19d3
+  #|acos 3fcc82e395d7a868 3ff589e70e1249de
+  #|asin bfca396fd1201864 bfca69500f3c8b72
+  #|acos bfca396fd1201864 3ffc6f25562bbe86
+  #|asin 3fe898c9fd52a8a2 3fec0e2b2cadcc50
+  #|acos 3fe898c9fd52a8a2 3fe635cb7bda8de1
+  #|asin bfdfca419d931baa bfe0a25375c83b80
+  #|acos bfdfca419d931baa 4000b9928794256c
+  #|asin 3fee4b41ed938ac2 3ff3e278749876ad
+  #|acos 3fee4b41ed938ac2 3fd4fe0b7eaed9ae
+  #|asin bfee0f895ac18322 bff388aaa18b9190
+  #|acos bfee0f895ac18322 40065552fae7df54
+  #|asin bfd5371721c74072 bfd59fd24c88bf46
+  #|acos bfd5371721c74072 3ffe89efe7665cea
+  #|asin 3fe2694cab03411c 3fe39dff66769a5b
+  #|acos 3fe2694cab03411c 3feea5f74211bfd6
+  #|asin 3fe45bc82e88db08 3fe610f0a904f70d
+  #|acos 3fe45bc82e88db08 3fec3305ff836323
+  #|asin 3fef62c1a21a04f8 3ff5fe271fb4e7ea
+  #|acos 3fef62c1a21a04f8 3fc91ea1a47a296f
+  #|asin bfeea26813a78a3d bff4710cd12d4748
+  #|acos bfeea26813a78a3d 4006c98412b8ba30
+  #|asin bf971a44884f0040 bf971ac5015a99e5
+  #|acos bf971a44884f0040 3ff97e6668499780
+  #|asin 3fee97f43c967978 3ff45f18e65e69c5
+  #|acos 3fee97f43c967978 3fd30b89b7970d4c
+  #|asin 3febc7aa87842af4 3ff0d291f557eadf
+  #|acos 3febc7aa87842af4 3fe09ed2bdd88472
+  #|asin 3fd61810560babfc 3fd68ee60eacd1d8
+  #|acos 3fd61810560babfc 3ff37e41d098f8a2
+  #|asin 3fc9ef262bee4540 3fca1d6ef377462a
+  #|acos 3fc9ef262bee4540 3ff5de4d75d54453
+  #|asin 3fc3ca27b4554f68 3fc3de8eea9fcba8
+  #|acos 3fc3ca27b4554f68 3ff6a62976f033a3
+  #|asin bfe5712bd63609d7 bfe77f5aa10f5fc1
+  #|acos bfe5712bd63609d7 400270d45265ee7c
+  #|asin 3fdb73b7b6ff1644 3fdc5f4cb79d4ea5
+  #|acos 3fdb73b7b6ff1644 3ff20a28265cd96f
+  #|asin 3fe58c97ee701b2e 3fe7a45f2d2f75be
+  #|acos 3fe58c97ee701b2e 3fea9f977b58e472
+  #|asin bfed9a2a13fe125f bff2e643bd7e1402
+  #|acos bfed9a2a13fe125f 4006041f88e1208d
+  #|asin 3fb4b195aa6a7290 3fb4b75ef6e87226
+  #|acos 3fb4b195aa6a7290 3ff7d68564d5a5f6
+  #|asin 3fdf8039891cb1cc 3fe077bd6997849d
+  #|acos 3fdf8039891cb1cc 3ff0e61c9f786aca
+  #|asin 3fcf61bde2e1ada8 3fcfb47b8cd82484
+  #|acos 3fcf61bde2e1ada8 3ff52b6be2a92888
+  #|asin 3feca45a02390ab8 3ff1bcb52e7e4afe
+  #|acos 3feca45a02390ab8 3fdd951897178868
+  #|asin 3fd94b02c2004ca8 3fda00a435dd99b9
+  #|acos 3fd94b02c2004ca8 3ff2a1d246ccc6aa
+  #|asin 3fe8e3bd17d59a28 3fec845dec236376
+  #|acos 3fe8e3bd17d59a28 3fe5bf98bc64f6ba
+  #|asin 3fe045da8d664db4 3fe1123693faba81
+  #|acos 3fe045da8d664db4 3ff098e00a46cfd8
+  #|asin 3fc1f596e7e4b790 3fc204cf3ade4290
+  #|acos 3fc1f596e7e4b790 3ff6e1616ce864c6
+  #|asin 3fd9b6cea4d80174 3fda762c59194b1e
+  #|acos 3fd9b6cea4d80174 3ff284703dfdda51
+  #|asin bfe6865bbe0fa110 bfe8fced79d938a9
+  #|acos bfe6865bbe0fa110 4002d039089864b6
+  #|asin bfc9b80b19970fc0 bfc9e52ba4d7e7b0
+  #|acos bfc9b80b19970fc0 3ffc5ea0c8df2a0e
+  #|asin bfef2cc124f7e7c7 bff57dc6d81fb440
+  #|acos bfef2cc124f7e7c7 40074fe11631f0ac
+  #|asin bfe5cb0ef33e2834 bfe7f9450f39b4eb
+  #|acos bfe5cb0ef33e2834 40028f4eedf083c7
+  #|asin 3fd2f008988eaba8 3fd339b8e21a6552
+  #|acos 3fd2f008988eaba8 3ff4538d1bbd93c4
+  #|asin bfe38a887d7dec75 bfe505482a6f174c
+  #|acos bfe38a887d7dec75 4001d24fb4bddc5f
+  #|asin bfed4026b3bd1b95 bff273a769735b8f
+  #|acos bfed4026b3bd1b95 4005cad15edbc454
+  #|asin bfedff176b1a8a56 bff370df25ba4347
+  #|acos bfedff176b1a8a56 4006496d3cff3830
+  #|asin bfb274bfc79defb0 bfb278da0185bee9
+  #|acos bfb274bfc79defb0 3ffa4988f45c8907
+  #|asin bfde51dea0191c1e bfdf962b57940d01
+  #|acos bfde51dea0191c1e 400083c31514982c
+  #|asin bfe5f42aba2e09ac bfe8319721e5136d
+  #|acos bfe5f42aba2e09ac 40029d63729b5b67
+  #|asin 3fe7757632bee57e 3fea54cdd6ce0273
+  #|acos 3fe7757632bee57e 3fe7ef28d1ba57be
+  #|asin bfe47ff65aabaf78 bfe63ff246f1413c
+  #|acos bfe47ff65aabaf78 400220fa3bde66db
+  #|asin 3fd4323927db56f4 3fd48c1f77d4ff26
+  #|acos 3fd4323927db56f4 3ff3fef3764eed4f
+  #|asin 3fe0b3575fdf5db0 3fe191f690232084
+  #|acos 3fe0b3575fdf5db0 3ff059000c329cd6
+  #|asin bfd5fa8709b0e2ba bfd66f704bf4a777
+  #|acos bfd5fa8709b0e2ba 3ffebdd7674156f6
+  #|asin 3fd169689ac99b00 3fd1a24fc27ad8ef
+  #|acos 3fd169689ac99b00 3ff4b96763a576dc
+  #|asin bfb784deb441f748 bfb78d5f379b3ae0
+  #|acos bfb784deb441f748 3ffa9ad147bde0c6
+  #|asin bfd3e2d4d9ba021a bfd43886cfe1c873
+  #|acos bfd3e2d4d9ba021a 3ffe301d083c9f35
+  #|asin 3fe95c9d422ddcd0 3fed47958de41f8f
+  #|acos 3fe95c9d422ddcd0 3fe4fc611aa43aa2
+  #|asin bfc42df7bd60ec6c bfc4439c35a89bd8
+  #|acos bfc42df7bd60ec6c 3ffbaa6edaf94093
+  #|asin 3f5bbbf08b8d905c 3f5bbbf169c49b85
+  #|acos 3f5bbbf08b8d905c 3ff91b0c57e9bbf1
+  #|asin bf53ee643c1a2f38 bf53ee648e942ea6
+  #|acos bf53ee643c1a2f38 3ff926f6ed67d224
+  #|asin 3f314f0ac4a466b8 3f314f0ac804aa56
+  #|acos 3f314f0ac4a466b8 3ff920e66397acce
+  #|asin bf71f6f6dca9602c bf71f6faa2f69a4f
+  #|acos bf71f6f6dca9602c 3ff933f24ee723b3
+  #|asin bf331d7deedc23d7 bf331d7df3683a27
+  #|acos bf331d7deedc23d7 3ff9232d2c23639c
+  #|asin bf8262badc5aaddb bf8262cb0bceaf98
+  #|acos bf8262badc5aaddb 3ff946c0ea5bca77
+  #|asin bf773fb3a81d03e9 bf773fbbd68230b3
+  #|acos bf773fb3a81d03e9 3ff9393b101aaf49
+  #|asin bf140e1fbf2118a4 bf140e1fbf751f03
+  #|acos bf140e1fbf2118a4 3ff9224b8cc32aed
+  #|asin bf814077fb2689d1 bf8140855a5178cb
+  #|acos bf814077fb2689d1 3ff9447c5ef8d00a
+  #|asin 3f7c6fa959368dca 3f7c6fb8519f36fe
+  #|acos 3f7c6fa959368dca 3ff9058b9bf28de1
+  #|asin 3f842ede9023b967 3f842ef3f9862f08
+  #|acos 3f842ede9023b967 3ff8f99d6c5120ba
+  #|asin 3efcbcde43af8ccd 3efcbcde43bf005c
+  #|acos 3efcbcde43af8ccd 3ff921de9765e959
+  #|asin 3f8162d753242d95 3f8162e502dc1b59
+  #|acos 3f8162d753242d95 3ff8ff358a3e74e2
+  #|asin 3f82e3862fb0e471 3f82e397bcb02a26
+  #|acos 3f82e3862fb0e471 3ff8fc3424caccc4
+  #|asin bf823d5a59a34425 bf823d6a27289e5f
+  #|acos bf823d5a59a34425 3ff9467628927e55
+  #|asin 3f6b0efb0bb6d043 3f6b0efe452fec5e
+  #|acos 3f6b0efb0bb6d043 3ff91473d5219522
+  #|asin bf4d5a58f4029252 bf4d5a5935dec685
+  #|acos bf4d5a58f4029252 3ff925a69f6ae8f1
+  #|asin bf4501b3dd207d8f bf4501b3f5445c04
+  #|acos bf4501b3dd207d8f 3ff9249b8ac2d5a4
+  #|asin bf8290607ca5780d bf82907125d3f8c5
+  #|acos bf8290607ca5780d 3ff9471c368fd50a
+  #|asin 3f7b8729659732a4 3f7b8736fa6565f2
+  #|acos 3f7b8729659732a4 3ff906741d49c7b2
+  #|asin bf830f6e60423548 bf830f8068c39e2f
+  #|acos bf830f6e60423548 3ff9481a5515b455
+  #|asin bf2f6413fa156eb9 bf2f6413ff1e4783
+  #|acos bf2f6413fa156eb9 3ff922f674e4260b
+  #|asin 3f7b68cedb2d65ec 3f7b68dc433fd4ba
+  #|acos 3f7b68cedb2d65ec 3ff906927800ed44
+  #|asin 3f7c57275a00cbe1 3f7c57362bd5b877
+  #|acos 3f7c57275a00cbe1 3ff905a41e185760
+  #|asin bf7d506b3cb7311c bf7d507ba32d1290
+  #|acos bf7d506b3cb7311c 3ff93f4bcfe75a2b
+  #|asin bf83eb2550ce003f bf83eb39e5753844
+  #|acos bf83eb2550ce003f 3ff949d1c80f1789
+  #|asin 3f75a228bd787476 3f75a22f54eb579f
+  #|acos 3f75a228bd787476 3ff90c5924ef41c1
+  #|asin 3f74246e85321e69 3f742473d7358f55
+  #|acos 3f74246e85321e69 3ff90dd6e06cf789
+  #|asin bf76d56d8e96bd3e bf76d5754ec81704
+  #|acos bf76d56d8e96bd3e 3ff938d0c992f52f
+  #|asin 3f5f0ac2d3d35852 3f5f0ac40b69bf1e
+  #|acos 3f5f0ac2d3d35852 3ff91a38a34152a8
+  #|asin bf52ee4cee56a0e1 bf52ee4d35025bfc
+  #|acos bf52ee4cee56a0e1 3ff926b6e7916daf
+  #|asin bf76d750904a8e08 bf76d7585267ede7
+  #|acos bf76d750904a8e08 3ff938d2ac969506
+  #|asin 3f764c605dde8548 3f764c6795be60c5
+  #|acos 3f764c605dde8548 3ff90baeecae6eb8
+  #|asin 3f71af28e55f1bf1 3f71af2c7f1d602a
+  #|acos 3f71af28e55f1bf1 3ff9104c27c50fb8
+  #|asin bf65fac2b0bf6aa9 bf65fac46b2dc17f
+  #|acos bf65fac2b0bf6aa9 3ff92cf8b679c3f9
+  #|asin bf67747f652dc2b3 bf6774817ed46dff
+  #|acos bf67747f652dc2b3 3ff92db59503974f
+  #|asin 3f6725aed1f40c6c 3f6725b0d6b59e9f
+  #|acos 3f6725aed1f40c6c 3ff916687bd8d249
+  #|asin bf62f94c5cd239fe bf62f94d796f122b
+  #|acos bf62f94c5cd239fe 3ff92b77fb00e4a1
+  #|asin bf690c3ff26189fe bf690c42812bc244
+  #|acos bf690c3ff26189fe 3ff92e817584c2f9
+  #|asin 3f65c8c074bcc59f 3f65c8c22379f443
+  #|acos 3f65c8c074bcc59f 3ff91716f332701e
+  #|asin bf7db6b81189db5f bf7db6c9260d93a9
+  #|acos bf7db6b81189db5f 3ff93fb21d6a3aac
+  #|asin 3f6e7cdc39a44567 3f6e7ce0d66a8ab0
+  #|acos 3f6e7cdc39a44567 3ff912bce3d8f7d3
+  #|asin 3f341702677a77d7 3f3417026cc1dbc7
+  #|acos 3f341702677a77d7 3ff920b9e41d60fb
+  #|asin 3f6254e455e49176 3f6254e556929179
+  #|acos 3f6254e455e49176 3ff918d0e198e3d0
+  #|asin bf827b318fd940c6 bf827b42003f6c8e
+  #|acos bf827b318fd940c6 3ff946f1d844abf1
+  #|asin 3f6627600a073ec3 3f662761cf112f0e
+  #|acos 3f6627600a073ec3 3ff916e7a35ca481
+  #|asin bf8194ffe65abce5 bf81950e0dded0bd
+  #|acos bf8194ffe65abce5 3ff94525705feaba
+  #|asin bf687a0a01485c45 bf687a0c644b7df1
+  #|acos bf687a0a01485c45 3ff92e385a7652d7
+  #|asin 3f7905eaa88cc6fe 3f7905f4dbfd5476
+  #|acos 3f7905eaa88cc6fe 3ff908f55f682fc4
+  #|asin bf6e53d01ac4a25f bf6e53d4a502b1fd
+  #|acos bf6e53d01ac4a25f 3ff931253e96ae71
+  #|asin bf721d62b25b0f67 bf721d6691142bd8
+  #|acos bf721d62b25b0f67 3ff93418bad54144
+  #|asin 3f7462a6c2bfa0f3 3f7462ac46a9dfdf
+  #|acos 3f7462a6c2bfa0f3 3ff90d98a7fd8338
+  #|asin 3f8386d60d79f2c8 3f8386e97143f120
+  #|acos 3f8386d60d79f2c8 3ff8faed8161a536
+  #|asin bf824af0ef76a6cf bf824b00e0681538
+  #|acos bf824af0ef76a6cf 3ff946915604fd43
+  #|asin bf679df06a543dd5 bf679df28f30789a
+  #|acos bf679df06a543dd5 3ff92dca4d8bc555
+  #|asin bf70aa8a3411072d bf70aa8d379bc077
+  #|acos bf70aa8a3411072d 3ff932a5e17bc8d9
+  #|asin 3f777a059b6e7578 3f777a0e08003989
+  #|acos 3f777a059b6e7578 3ff90a81463c2cdf
+  #|asin 3f7027aec4c7ebb6 3f7027b1837c998e
+  #|acos 3f7027aec4c7ebb6 3ff911d3a2c0b07f
+  #|asin bf7e3b3e8ea38bdf bf7e3b508bb298a4
+  #|acos bf7e3b3e8ea38bdf 3ff94036a4cfdfb1
+  #|asin bf780e6d9d7e0cf3 bf780e76adcc5a86
+  #|acos bf780e6d9d7e0cf3 3ff93a09caf1f973
+  #|asin bf51cbcae37123f1 bf51cbcb1e26839a
+  #|acos bf51cbcae37123f1 3ff9266e470bb6b9
+  #|asin bf71fd1351e474bb bf71fd171c0d2359
+  #|acos bf71fd1351e474bb 3ff933f86b603a3c
+  #|asin bf43ccc3384820e1 bf43ccc34c7ef153
+  #|acos bf43ccc3384820e1 3ff92474ecadbcf6
+  #|asin bf58c39f332f0b1a bf58c39fd16194e8
+  #|acos bf58c39f332f0b1a 3ff9282c3c38857e
+  #|asin 3f55203b572e369a 3f55203bb9651856
+  #|acos 3f55203b572e369a 3ff91cb34555d3d2
+  #|asin bf8133e3d7bfd60a bf8133f119c03610
+  #|acos bf8133e3d7bfd60a 3ff944633677ad84
+  #|asin 3f524c71207ef25c 3f524c716051d72f
+  #|acos 3f524c71207ef25c 3ff91d6837ec18a2
+  #|asin 3f6c21d7f7883b48 3f6c21db97388487
+  #|acos 3f6c21d7f7883b48 3ff913ea667890d6
+  #|asin 3f4c2e8b59317400 3f4c2e8b937b105e
+  #|acos 3f4c2e8b59317400 3ff91e7582d1bdb6
+  #|asin bf631f62be5b71e1 bf631f63e1b7bbba
+  #|acos bf631f62be5b71e1 3ff92b8b063508f6
+  #|asin bf7eabab521bcfbc bf7eabbe1ac9aa0d
+  #|acos bf7eabab521bcfbc 3ff940a7125ef6c2
+  #|asin 3f68b3be49877b38 3f68b3c0bd93f472
+  #|acos 3f68b3be49877b38 3ff915a173e5631e
+  #|asin 3f6c52a17c19f729 3f6c52a52ec5765b
+  #|acos 3f6c52a17c19f729 3ff913d201acca5d
+  #|asin 3f5d9e90cb732ce1 3f5d9e91da218dcd
+  #|acos 3f5d9e90cb732ce1 3ff91a93afcda4b5
+  #|asin 3f8140140fb32c41 3f8140216df5c7f8
+  #|acos 3f8140140fb32c41 3ff8ff7b11684188
+  #|asin 3f7b73147e296ec3 3f7b7321f5543476
+  #|acos 3f7b73147e296ec3 3ff90688324ed8e4
+  #|asin bf61a2cdffb621fb bf61a2cee443aa81
+  #|acos bf61a2cdffb621fb 3ff92accbbb64eee
+  #|asin bf738587f4df63cc bf73858ccccf658c
+  #|acos bf738587f4df63cc 3ff93580e110fc7e
+  #|asin 3f6054a36e721057 3f6054a423e99815
+  #|acos 3f6054a36e721057 3ff919d10232384c
+  #|asin 3f80a7daf62e6fe3 3f80a7e6fe9888ab
+  #|acos 3f80a7daf62e6fe3 3ff900ab8646fc07
+  #|asin 3f5cc4d3a2c44067 3f5cc4d49acae320
+  #|acos 3f5cc4d3a2c44067 3ff91aca1f1d7a5f
+  #|asin 3f8111404e4348f2 3f81114d40cde7b3
+  #|acos 3f8111404e4348f2 3ff8ffd8b9c29149
+  #|asin bf80640dd36ba8ad bf8064194b352e1a
+  #|acos bf80640dd36ba8ad 3ff942c386da9774
+  #|asin bf7997b1c0a0b39a bf7997bcaa70e2c7
+  #|acos bf7997b1c0a0b39a 3ff93b9310ee9dfb
+  #|asin bf846c6fff68e716 bf846c862f1790d5
+  #|acos bf846c6fff68e716 3ff94ad460a25c3a
+  #|asin 3f602aa1f8b82eae 3f602aa2a8c56c5d
+  #|acos 3f602aa1f8b82eae 3ff919e602efca62
+  #|asin 3f6d23e40ada77a9 3f6d23e811e097c1
+  #|acos 3f6d23e40ada77a9 3ff91369603b3ccc
+  #|asin bf68d42f71a6c305 bf68d431ef6a7679
+  #|acos bf68d42f71a6c305 3ff92e656d3be254
+  #|asin bf814efbfc9aaf06 bf814f097da2f7d9
+  #|acos bf814efbfc9aaf06 3ff94499673f7308
+  #|asin bf81bdf5c1a27975 bf81be044cfb1cb4
+  #|acos bf81bdf5c1a27975 3ff945775cde2352
+  #|asin bf7d976b3e4ce36e bf7d977c1d0f4ff4
+  #|acos bf7d976b3e4ce36e 3ff93f92d0613c68
+  #|asin bf7f5f075dc0f4d5 bf7f5f1b7790ac05
+  #|acos bf7f5f075dc0f4d5 3ff9415a6fbbbdc4
+  #|asin 3f74515bc5840233 3f7451613b70eee1
+  #|acos 3f74515bc5840233 3ff90da9f308bc29
+  #|asin bf7984e9ff910a20 bf7984f4d16c4f92
+  #|acos bf7984e9ff910a20 3ff93b8049159968
+  #|asin 3f82b89d6f33db03 3f82b8ae85a55b62
+  #|acos 3f82b89d6f33db03 3ff8fc89f738e262
+  #|asin 3f63c468579e3d2e 3f63c4699972b695
+  #|acos 3f63c468579e3d2e 3ff918191f7773bd
+  #|asin 3f5b51c7635cc615 3f5b51c837c1fee1
+  #|acos 3f5b51c7635cc615 3ff91b26e2363c99
+  #|asin 3f7234190bd5055a 3f72341cf92ef029
+  #|acos 3f7234190bd5055a 3ff90fc7374afe28
+  #|asin 3f6a1d15c9f9328a 3f6a1d18aff3d8b6
+  #|acos 3f6a1d15c9f9328a 3ff914ecc7ec332c
+  #|asin bf5480f839c19f57 bf5480f8938c0aa8
+  #|acos bf5480f839c19f57 3ff9271b9269101b
+  #|asin 3f75812af756805c 3f75813170cf1243
+  #|acos 3f75812af756805c 3ff90c7a22d35e06
+  #|asin bf79fcf1ce037289 bf79fcfd3b5e1431
+  #|acos bf79fcf1ce037289 3ff93bf8517f8b2c
+  #|asin bf7bcb57344be44d bf7bcb652efe59d1
+  #|acos bf7bcb57344be44d 3ff93dc6b9732b72
+  #|asin bf7ee9d9281831f1 bf7ee9ec63ecf272
+  #|acos bf7ee9d9281831f1 3ff940e540a81a0b
+  #|asin 3f792681220dbe9c 3f79268b7d8d1917
+  #|acos 3f792681220dbe9c 3ff908d4c8c69fff
+  #|asin bf66e01fae8cb6be bf66e021a15211bc
+  #|acos bf66e01fae8cb6be 3ff92d6b6514d621
+  #|asin bf83706793a3c49e bf83707ab4e74e41
+  #|acos bf83706793a3c49e 3ff948dc49adfbb5
+  #|asin 3f6e1a676f6c7195 3f6e1a6be012e419
+  #|acos 3f6e1a676f6c7195 3ff912ee1e5423a6
+  #|asin bf819d86f63e6e17 bf819d95326505c7
+  #|acos bf819d86f63e6e17 3ff945367ea8f724
+  #|asin 3f7bcf393e03bbb1 3f7bcf473e92e6b0
+  #|acos 3f7bcf393e03bbb1 3ff9062c0d059a32
+  #|asin bf72b64eab18e277 bf72b652ef19272d
+  #|acos bf72b64eab18e277 3ff934b1a733463f
+  #|asin bf782433137c3595 bf78243c3c7c99a2
+  #|acos bf782433137c3595 3ff93a1f9080a9b2
+  #|asin 3f7fa2b10f7b6d67 3f7fa2c5ac753b7c
+  #|acos 3f7fa2b10f7b6d67 3ff902588e97b7dd
+  #|asin bf5214bad9c1b38f bf5214bb17548bb8
+  #|acos bf5214bad9c1b38f 3ff92680830a023b
+  #|asin 3f7f38a178226ca9 3f7f38b5487cbffe
+  #|acos 3f7f38a178226ca9 3ff902c29efbb058
+  #|asin 3f64909743a6c26c 3f649098ae07fca1
+  #|acos 3f64909743a6c26c 3ff917b307ed291a
+  #|asin 3f60248d2f7dc68f 3f60248ddec4a335
+  #|acos 3f60248d2f7dc68f 3ff919e90d54cac7
+  #|asin bf78a6fa638f0f57 bf78a7042499f612
+  #|acos bf78a6fa638f0f57 3ff93aa25868c70e
+  #|asin bf62c63a1b3e0e83 bf62c63b2ef8b9a5
+  #|acos bf62c63a1b3e0e83 3ff92b5e71dba975
+  #|asin bf6b45c0cdcd7933 bf6b45c41b032b06
+  #|acos bf6b45c0cdcd7933 3ff92f9e3651aeae
+  #|asin bf8003e96318a901 bf8003f415ab4e8d
+  #|acos bf8003e96318a901 3ff942033c6f83b5
+  #|asin bf7699b86dc86a6e bf7699bff1cac2e1
+  #|acos bf7699b86dc86a6e 3ff938951435f7db
+  #|asin 3f74b56e89891ec0 3f74b57451b6327c
+  #|acos 3f74b56e89891ec0 3ff90d45dff276e6
+  #|asin bf765052bddacc0f bf765059f9908e40
+  #|acos bf765052bddacc0f 3ff9384bae3dbda7
+  #|asin bf8125b49d47d931 bf8125c1be977c7d
+  #|acos bf8125b49d47d931 3ff94446d7c15c11
+  #|asin 3f6a88b695734738 3f6a88b99fd8b9bf
+  #|acos 3f6a88b695734738 3ff914b6f77440bb
+  #|asin bf753c6f4903b44f bf753c75852cdd6f
+  #|acos bf753c6f4903b44f 3ff93737c9c959f6
+  #|asin 3f6dbc20a948c2be 3f6dbc24f0ba0edf
+  #|acos 3f6dbc20a948c2be 3ff9131d41cbd011
+  #|asin bf691b44c2302d43 bf691b4755970152
+  #|acos bf691b44c2302d43 3ff92e88f7eef899
+  #|asin bf8145a8e25a8d08 bf8145b64d9b3fb1
+  #|acos bf8145a8e25a8d08 3ff94486c0df6398
+  #|asin 3f846150af1d61fb 3f846166baa055f8
+  #|acos 3f846150af1d61fb 3ff8f93886ceec6c
+  #|asin 3f78361d1ba224e1 3f7836265916140e
+  #|acos 3f78361d1ba224e1 3ff909c52deb1704
+  #|asin bf5abebc3bc22967 bf5abebd030967e2
+  #|acos bf5abebc3bc22967 3ff928ab0384ef72
+  #|asin bf4634e616bbfa52 bf4634e633408ddb
+  #|acos bf4634e616bbfa52 3ff924c1f10a952a
+  #|asin bf8305d313e7abfc bf8305e501324b6e
+  #|acos bf8305d313e7abfc 3ff948071e4691af
+  #|asin bef0d906611655c3 bef0d906611972cb
+  #|acos bef0d906611655c3 3ff9220c2d4a8e32
+  #|asin 3f83f2a26a1fcde0 3f83f2b71606683c
+  #|acos 3f83f2a26a1fcde0 3ff8fa15e6182048
+  #|asin bf625d9c371b3127 bf625d9d3938181b
+  #|acos bf625d9c371b3127 3ff92b2a22e0c924
+  #|asin 3f64d1f524d85800 3f64d1f69ce4360e
+  #|acos 3f64d1f524d85800 3ff9179258f5bafd
+  #|asin 3f5c60bce9d251cd 3f5c60bdd7df4732
+  #|acos 3f5c60bce9d251cd 3ff91ae324ce3546
+  #|asin bf61c9ffc3062f36 bf61ca00ad94cdc7
+  #|acos bf61c9ffc3062f36 3ff92ae0549af77f
+  #|asin 3f76d7ad5dfd124d 3f76d7b5207904b6
+  #|acos 3f76d7ad5dfd124d 3ff90b239f23b414
+  #|asin 3f423221b4a11f33 3f423221c451675b
+  #|acos 3f423221b4a11f33 3ff91fb5100ba2eb
+  #|asin 3f4730b228fddfae 3f4730b249782110
+  #|acos 3f4730b228fddfae 3ff91f153dfafe14
+  #|asin bf4faf92ebeba429 bf4faf933ec3def3
+  #|acos bf4faf92ebeba429 3ff925f146ac0594
+  #|asin bf8045f7c148b8de bf804602fa5f37a4
+  #|acos bf8045f7c148b8de 3ff942875a38eb88
+  #|asin 3f736e8cc7b8f578 3f736e918ea20477
+  #|acos 3f736e8cc7b8f578 3ff90e8cc2b58b14
+  #|asin 3f7b75e277656dc8 3f7b75eff2b140c6
+  #|acos 3f7b75e277656dc8 3ff9068564517bd8
+  #|asin 3f730409b9611a92 3f73040e336813d5
+  #|acos 3f730409b9611a92 3ff90ef74610c504
+  #|asin 3f4cce19dc8b39c3 3f4cce1a1ac8e94a
+  #|acos 3f4cce19dc8b39c3 3ff91e619100d3fb
+  #|asin bf79aaa770f737ec bf79aab2731aae2f
+  #|acos bf79aaa770f737ec 3ff93ba606b747c6
+  #|asin bf4cc5e82812d015 bf4cc5e8661b70c7
+  #|acos bf4cc5e82812d015 3ff925941150f086
+  #|asin 3f7321b6754e5cfb 3f7321bb046b626e
+  #|acos 3f7321b6754e5cfb 3ff90ed9993fc1b6
+  #|asin bf71db8435a93373 bf71db87eac39d42
+  #|acos bf71db8435a93373 3ff933d6dc2ef0b6
+  #|asin bf786e238f817afa bf786e2d0daf76c6
+  #|acos bf786e238f817afa 3ff93a698151dc8f
+  #|asin bf71bb2624de2ee7 bf71bb29c5f42756
+  #|acos bf71bb2624de2ee7 3ff933b67e0a2140
+  #|asin bf7c9269f1953b21 bf7c927921243bff
+  #|acos bf7c9269f1953b21 3ff93e8dcd655154
+  #|asin 3f625377722266d7 3f62537872948be6
+  #|acos 3f625377722266d7 3ff918d1980ae2d2
+  #|asin bf81b954aae411b8 bf81b9632add1f77
+  #|acos bf81b954aae411b8 3ff9456e1a99e757
+  #|asin bf793755ce7d7f80 bf7937603ed604c0
+  #|acos bf793755ce7d7f80 3ff93b32b483031d
+  #|asin 3f5617fdd3f77015 3f5617fe444e8c34
+  #|acos 3f5617fdd3f77015 3ff91c7554b31975
+  #|asin 3f722b8d64d6f312 3f722b914cab9628
+  #|acos 3f722b8d64d6f312 3ff90fcfc2f78182
+  #|asin 3f577d770f839a5c 3f577d77968792a8
+  #|acos 3f577d770f839a5c 3ff91c1bf65e8b34
+  #|asin bf7217ec1f033116 bf7217effa3cfc3e
+  #|acos bf7217ec1f033116 3ff93413443e6a15
+  #|asin 3f81e0ffe254a417 3f81e10ec484a432
+  #|acos 3f81e0ffe254a417 3ff8fe3936bb23d0
+  #|asin bf82b41f1831eaf5 bf82b430225862e3
+  #|acos bf82b41f1831eaf5 3ff94763b488ddde
+  #|asin bf815fe483888205 bf815ff22c4b0249
+  #|acos bf815fe483888205 3ff944bb389cc31d
+  #|asin 3f6296f6531b37dc 3f6296f75ec7d52f
+  #|acos 3f6296f6531b37dc 3ff918afd894c92e
+  #|asin 3f8430da60e55cd6 3f8430efd098abb3
+  #|acos 3f8430da60e55cd6 3ff8f99974a2fbc1
+  #|asin bf816b2b1b8c97fc bf816b38def87fb9
+  #|acos bf816b2b1b8c97fc 3ff944d1c6021e18
+  #|asin bf7ac570e85e44c8 bf7ac57d6641973e
+  #|acos bf7ac570e85e44c8 3ff93cc0d1aa6eb0
+  #|asin 3f629f7939d80752 3f629f7a46f4f7aa
+  #|acos 3f629f7939d80752 3ff918ab9720b29c
+  #|asin bf657b818bd6b29a bf657b8328ece751
+  #|acos bf657b818bd6b29a 3ff92cb915d8a38c
+  #|asin 3f826ab831a79e6a 3f826ac8763e9b54
+  #|acos 3f826ab831a79e6a 3ff8fd25c357afe2
+  #|asin bf7c16f00c3032c9 bf7c16fe7a2b4155
+  #|acos bf7c16f00c3032c9 3ff93e1252be585a
+  #|asin 3f5fa62f887596ae 3f5fa630d2b0668b
+  #|acos 3f5fa62f887596ae 3ff91a11c80f80ff
+  #|asin 3f7fc22a512b0271 3f7fc23f2be851f5
+  #|acos 3f7fc22a512b0271 3ff90239151844c6
+  #|asin 3f69aeeb3821e024 3f69aeedfa07c561
+  #|acos 3f69aeeb3821e024 3ff91523dd472936
+  #|asin bf6e2d55935eb143 bf6e2d5a0c6ac0ea
+  #|acos bf6e2d55935eb143 3ff93112014a6279
+  #|asin bf84414bdb6ca713 bf8441617faa7d98
+  #|acos bf84414bdb6ca713 3ff94a7e17438213
+  #|asin bf74bcf3f478c3da bf74bcf9c2f4e42e
+  #|acos bf74bcf3f478c3da 3ff936b84e0721fc
+  #|asin bf66c199f74bbb05 bf66c19be24ef799
+  #|acos bf66c199f74bbb05 3ff92d5c22355494
+  #|asin 3f7b70c75e46adbe 3f7b70d4d20ebad0
+  #|acos 3f7b70c75e46adbe 3ff9068a7f721e5d
+  #|asin 3f8024e4f5bab06a 3f8024efeaee0456
+  #|acos 3f8024e4f5bab06a 3ff901b1746e5110
+  #|asin bf287891b2329ae1 bf287891b4952f54
+  #|acos bf287891b2329ae1 3ff922bf18d1d1c2
+  #|asin bf70803bec33612d bf70803ed904a4ff
+  #|acos bf70803bec33612d 3ff9327b931d31bd
+  #|asin bf72d486dd8a6ae5 bf72d48b3656cf13
+  #|acos bf72d486dd8a6ae5 3ff934cfdf7a83e7
+  #|asin 3f8198c8590b7ece 3f8198d689b48786
+  #|acos 3f8198c8590b7ece 3ff8fec9a730c409
+  #|asin bf613d3b89724f1f bf613d3c5eeb0c01
+  #|acos bf613d3b89724f1f 3ff92a99f273a29e
+  #|asin 3f55edb15b451f5c 3f55edb1c91bd084
+  #|acos 3f55edb15b451f5c 3ff91c7fe7d1e624
+  #|asin 3f6818b0eb4dfd4d 3f6818b332477ba2
+  #|acos 3f6818b0eb4dfd4d 3ff915eefaab095a
+  #|asin 3f7af1cfa9a42f1c 3f7af1dc660b3910
+  #|acos 3f7af1cfa9a42f1c 3ff9070977de21df
+  #|asin bf712d442e281504 bf712d477ad061b3
+  #|acos bf712d442e281504 3ff933289bbefd7a
+  #|asin 3f2bfbfaf099751f 3f2bfbfaf42a9614
+  #|acos 3f2bfbfaf099751f 3ff9211b746c8bc4
+  #|asin bf35bc431aeebb85 bf35bc43219e2203
+  #|acos bf35bc431aeebb85 3ff92357187646fa
+  #|asin bf52a7943a055b38 bf52a7947da48e9f
+  #|acos bf52a7943a055b38 3ff926a53963963c
+  #|asin 3f57e82b4f637333 3f57e82bddb83119
+  #|acos 3f57e82b4f637333 3ff91c01494cbf0c
+  #|asin bf6922df3a1b0aac bf6922e1cfd9abc3
+  #|acos bf6922df3a1b0aac 3ff92e8cc52c19ee
+  #|asin bf65081777c486fe bf650818fb638bf6
+  #|acos bf65081777c486fe 3ff92c7f60c1dede
+  #|asin 3f0ece1d3d7cb70a 3f0ece1d3dc8d786
+  #|acos 3f0ece1d3d7cb70a 3ff921bdb809b187
+  #|asin bf84340de76536f7 bf843423614c73df
+  #|acos bf84340de76536f7 3ff94a639b06c600
+  #|asin bf72f05fd5a82d91 bf72f06441da4146
+  #|acos bf72f05fd5a82d91 3ff934ebb886075a
+  #|asin 3f63605f865789a9 3f636060b575f910
+  #|acos 3f63605f865789a9 3ff9184b23e9721c
+  #|asin 3f74491e0e893292 3f7449237dd3c5b3
+  #|acos 3f74491e0e893292 3ff90db230c65953
+  #|asin 3f65f6ed9cce4fc3 3f65f6ef565561cb
+  #|acos 3f65f6ed9cce4fc3 3ff916ffdc990267
+  #|asin bf82c849ad689e34 bf82c85aeee8d97b
+  #|acos bf82c849ad689e34 3ff9478c0a21fecb
+  #|asin 3f816e5155af8e23 3f816e5f2093fa73
+  #|acos 3f816e5155af8e23 3ff8ff1e96030523
+  #|asin bf43a02592090d48 bf43a025a5b86adf
+  #|acos bf43a02592090d48 3ff9246f58f8e426
+  #|asin bf6d3851537b867e bf6d385562ffcdaf
+  #|acos bf6d3851537b867e 3ff930977ef5acff
+  #|asin bf829957edf1cc0c bf829968af507d50
+  #|acos bf829957edf1cc0c 3ff9472e25a2ce13
+  #|asin bf78adbceee769d8 bf78adc6b7fab185
+  #|acos bf78adbceee769d8 3ff93aa91afc27ca
+  #|asin bf7c2ebef5e30a53 bf7c2ecd88ae3962
+  #|acos bf7c2ebef5e30a53 3ff93e2a21ccdb52
+  #|asin bf7f81b07d4ae583 bf7f81c4da04c327
+  #|acos bf7f81b07d4ae583 3ff9417d191e31db
+  #|asin 3f82d3b23021651a 3f82d3c391266531
+  #|acos 3f82d3b23021651a 3ff8fc53cd21e04e
+  #|asin 3f840f76ba590220 3f840f8bc0624154
+  #|acos 3f840f76ba590220 3ff8f9dc3cc36896
+  #|asin 3f6a21be22e44f57 3f6a21c10a6c40ed
+  #|acos 3f6a21be22e44f57 3ff914ea73bef6f8
+  #|asin bf8124bcb8e7ea6a bf8124c9d7fe370c
+  #|acos bf8124bcb8e7ea6a 3ff94444e7f42986
+  #|asin bf7319f68f2517ed bf7319fb18ba12b5
+  #|acos bf7319f68f2517ed 3ff935154f5ce72b
+  #|asin 3f5c783aa97fd390 3f5c783b99dddfbd
+  #|acos 3f5c783aa97fd390 3ff91add455db5a0
+  #|asin 3f83e9eb749e60cc 3f83ea000578ec31
+  #|acos 3f83e9eb749e60cc 3ff8fa2754393b40
+  #|asin 3f82d54f8ea056bc 3f82d560f41e7bef
+  #|acos 3f82d54f8ea056bc 3ff8fc50925bf020
+  #|asin bf757d94f879167e bf757d9b6eb50879
+  #|acos bf757d94f879167e 3ff93778efb2e221
+  #|asin 3f805680798b781c 3f80568bd4fa4e81
+  #|acos 3f805680798b781c 3ff9014e3c9a387b
+  #|asin bf7424b22d40a88c bf7424b77f79b6f7
+  #|acos bf7424b22d40a88c 3ff936200bc3a6cf
+  #|asin bf82f2ad01919083 bf82f2beb8ef36ef
+  #|acos bf82f2ad01919083 3ff947e0d1b60b86
+  #|asin 3f7458017dc3701a 3f745806f90e329a
+  #|acos 3f7458017dc3701a 3ff90da34d4b1ee6
+  #|asin bf747182f12d0167 bf747188812fc218
+  #|acos bf747182f12d0167 3ff9366cdcc55cda
+  #|asin 3f81b4bab5561f3f 3f81b4c92a06fd7e
+  #|acos 3f81b4bab5561f3f 3ff8fe91c1f01f1d
+  #|asin 3f6fc775228ca6a4 3f6fc77a5bd0b583
+  #|acos 3f6fc775228ca6a4 3ff91217971644be
+  #|asin bf621a3125a1b24d bf621a321ccca6d1
+  #|acos bf621a3125a1b24d 3ff92b086d52936c
+  #|asin 3f72f8c5d76e1888 3f72f8ca4985019c
+  #|acos 3f72f8c5d76e1888 3ff90f0289faa817
+  #|asin 3f49c3459f08935c 3f49c345cb901c04
+  #|acos 3f49c3459f08935c 3ff91ec2eb8abb15
+  #|asin 3f6f83c8c5bfda15 3f6f83cdddeba9c1
+  #|acos 3f6f83c8c5bfda15 3ff912396d553743
+  #|asin 3f76bb9bee0b14a7 3f76bba3940f44fb
+  #|acos 3f76bb9bee0b14a7 3ff90b3fb0b01dd3
+  #|asin bf82b985252ad226 bf82b9963e16f019
+  #|acos bf82b985252ad226 3ff9476e80c05af8
+  #|asin 3f7e132dc72f6e69 3f7e133f7d17a140
+  #|acos 3f7e132dc72f6e69 3ff903e814c71577
+  #|asin bf60017ea5bbfe95 bf60017f509695ab
+  #|acos bf60017ea5bbfe95 3ff929fc13ec7863
+  #|asin bf65b1231e26d373 bf65b124c771220d
+  #|acos bf65b1231e26d373 3ff92cd3e6a7e5a9
+  #|asin 3f641067db55d115 3f6410692be24c61
+  #|acos 3f641067db55d115 3ff917f31fae3bf2
+  #|asin bf77e811304bd685 bf77e81a1582ed12
+  #|acos bf77e811304bd685 3ff939e36e59b005
+  #|asin bf7289bcfc5d74cf bf7289c1222b2d92
+  #|acos bf7289bcfc5d74cf 3ff9348515665846
+  #|asin 3f247e72776f7b85 3f247e7278d620a3
+  #|acos 3f247e72776f7b85 3ff9215760b06667
+  #|asin bf757bd031f54031 bf757bd6a698e5d4
+  #|acos bf757bd031f54031 3ff937772aeac5fe
+  #|asin bf7b2d9e25b063be bf7b2dab37a303e7
+  #|acos bf7b2d9e25b063be 3ff93d28ff7bd01c
+  #|asin 3f77fd7d9ec99d31 3f77fd869c005377
+  #|acos 3f77fd7d9ec99d31 3ff909fdcda82cc5
+  #|asin 3f6ce249c1075d0a 3f6ce24dad1727c0
+  #|acos 3f6ce249c1075d0a 3ff9138a2d6da184
+  #|asin 3f80db8bb93c8cb8 3f80db98330c48c0
+  #|acos 3f80db8bb93c8cb8 3ff9004423de1487
+  #|asin bf784141bd42ddfb bf78414b077ec09b
+  #|acos bf784141bd42ddfb 3ff93a3c9f4babd9
+  #|asin 3f5a7c2efa8fbc90 3f5a7c2fbc15c12b
+  #|acos 3f5a7c2efa8fbc90 3ff91b5c485527a8
+  #|asin 3f5fab619eb7241f 3f5fab62e994b16b
+  #|acos 3f5fab619eb7241f 3ff91a107b89c7ec
+  #|asin bf594aad83beb43e bf594aae2c450d82
+  #|acos bf594aad83beb43e 3ff9284dffcf3e5c
+  #|asin 3f4f9f4d0f9ea43e 3f4f9f4d61f77ccd
+  #|acos 3f4f9f4d0f9ea43e 3ff91e076a97ee29
+  #|asin bf8254e0e75078a0 bf8254f0f24affe3
+  #|acos bf8254e0e75078a0 3ff946a53628c318
+  #|asin 3f7e2357adaa5869 3f7e23698030397f
+  #|acos 3f7e2357adaa5869 3ff903d7eac3fcdf
+  #|asin bf5dc5b70ed1fb6c bf5dc5b821b73b73
+  #|acos bf5dc5b70ed1fb6c 3ff9296cc24c9ae7
+  #|asin 3f638b13c8bc9e1f 3f638b14ffc08201
+  #|acos 3f638b13c8bc9e1f 3ff91835c9c44cd7
+  #|asin 3f7be2c718acc2e7 3f7be2d536da3a95
+  #|acos 3f7be2c718acc2e7 3ff906187f0d52de
+  #|asin bf82fb774effe878 bf82fb891f113e29
+  #|acos bf82fb774effe878 3ff947f266824f95
+  #|asin bf751e2873fc31e9 bf751e2e95a037f5
+  #|acos bf751e2873fc31e9 3ff9371982d9cd50
+  #|asin 3f80086ca66b49a6 3f800877620b87e9
+  #|acos 3f80086ca66b49a6 3ff901ea65801608
+  #|asin bf79f14deb3b1108 bf79f1594941af13
+  #|acos bf79f14deb3b1108 3ff93becad8d6ec7
+  #|asin 3f7ca9b17ecc6678 3f7ca9c0d398323b
+  #|acos 3f7ca9b17ecc6678 3ff90551937094e6
+  #|asin bf7c6879be84e77b bf7c6888ab96fce3
+  #|acos bf7c6879be84e77b 3ff93e63dcefc415
+  #|asin bf83ca2dd4c4f6af bf83ca4203e41f9b
+  #|acos bf83ca2dd4c4f6af 3ff9498fd84bf557
+  #|asin 3f5b8d43844656b8 3f5b8d445e22cb1d
+  #|acos 3f5b8d43844656b8 3ff91b18032ca465
+  #|asin bf747ed879860e03 bf747ede147258a1
+  #|acos bf747ed879860e03 3ff9367a32589f71
+  #|asin bf7aea701826c105 bf7aea7cca1c041a
+  #|acos bf7aea701826c105 3ff93ce5d10e491c
+  #|asin 3f79b398a4893950 3f79b3a3b2323b1f
+  #|acos 3f79b398a4893950 3ff90847b091fadd
+  #|asin 3f540fd4db2cf667 3f540fd52f48d0f7
+  #|acos 3f540fd4db2cf667 3ff91cf75ef85ae4
+  #|asin bf718315fab98f6d bf71831979cef58b
+  #|acos bf718315fab98f6d 3ff9337e6dbdfc0e
+  #|asin 3f7aabc30c017657 3f7aabcf6614ce6d
+  #|acos 3f7aabc30c017657 3ff9074f84de184a
+  #|asin 3f58d9f9b4fa8352 3f58d9fa54daf546
+  #|acos 3f58d9f9b4fa8352 3ff91bc4d5aef65b
+  #|asin bf681618dfd02515 bf68161b260d7315
+  #|acos bf681618dfd02515 3ff92e0661d733d2
+  #|asin 3f8461319d85c8c3 3f846147a8a3eaa6
+  #|acos 3f8461319d85c8c3 3ff8f938c4f2e543
+  #|asin bf51c7a9eb213b52 bf51c7aa25adc7c0
+  #|acos bf51c7a9eb213b52 3ff9266d3ecd988a
+  #|asin bf6101b45eca0f1c bf6101b52bbd188b
+  #|acos bf6101b45eca0f1c 3ff92a7c2eda0ba5
+  #|asin bf81b23ba850b565 bf81b24a16e52b01
+  #|acos bf81b23ba850b565 3ff9455fe871f76e
+  #|asin 3f68fe272a3c2357 3f68fe29b4b73efd
+  #|acos 3f68fe272a3c2357 3ff9157c3f69d179
+  #|asin bf723f857a8ba258 bf723f896f4eec4a
+  #|acos bf723f857a8ba258 3ff9343addb37c05
+  #|asin bf8097822858e07f bf80978e0d779cbc
+  #|acos bf8097822858e07f 3ff9432a705f1c52
+  #|asin 3f56480b1bb0b75c 3f56480b8eeb0fd5
+  #|acos 3f56480b1bb0b75c 3ff91c6951607254
+  #|asin bf836c7dc31e4cf1 bf836c90d8d66faf
+  #|acos bf836c7dc31e4cf1 3ff948d475f5d9f8
+  #|asin bf80bbb87d782b25 bf80bbc4b12402f3
+  #|acos bf80bbb87d782b25 3ff94372dda6751e
+  #|asin bf7a98ab54c97541 bf7a98b79468e2dc
+  #|acos bf7a98ab54c97541 3ff93c940bd895fb
+  #|asin 3f7392ecd3d9f14f 3f7392f1b5c9066e
+  #|acos 3f7392ecd3d9f14f 3ff90e68628e6412
+  #|asin bf65cb2b61dc01c5 bf65cb2d1128aa84
+  #|acos bf65cb2b61dc01c5 3ff92ce0eaccc16e
+  #|asin bf2a9e5ca1e3d733 bf2a9e5ca4f5b304
+  #|acos bf2a9e5ca1e3d733 3ff922d0472954c6
+  #|asin 3f56ac3f03d11a0a 3f56ac3f7d3981dc
+  #|acos 3f56ac3f03d11a0a 3ff91c504464deb8
+  #|asin 3f3d2dc090aa56b8 3f3d2dc0a0d6c9c2
+  #|acos 3f3d2dc090aa56b8 3ff92028783a1fac
+  #|asin 3f64e7fe5e61ea9a 3f64e7ffdb1cc05b
+  #|acos 3f64e7fe5e61ea9a 3ff9178754569eb8
+  #|asin bf74c9bc44e0a515 bf74c9c21e201e7e
+  #|acos bf74c9bc44e0a515 3ff936c516624d37
+  #|asin bf42003ed5cd7aec bf42003ee4fe1a1e
+  #|acos bf42003ed5cd7aec 3ff9243b5c20ccdc
+  #|asin bf7b9bfd63aa6ed5 bf7b9c0b1763e797
+  #|acos bf7b9bfd63aa6ed5 3ff93d975f5b9100
+  #|asin 3f4f250f120db052 3f4f250f60b9e55c
+  #|acos 3f4f250f120db052 3ff91e16b25815dc
+  #|asin 3f75b051ce23da97 3f75b0587290dd88
+  #|acos 3f75b051ce23da97 3ff90c4afbd19c3b
+  #|asin bf74c17a31e4bc04 bf74c180042e9ad1
+  #|acos bf74c17a31e4bc04 3ff936bcd4485bb3
+  #|asin bf32847c58d38148 bf32847c5cf5c6f9
+  #|acos bf32847c58d38148 3ff923239c09fc75
+  #|asin bf5b9722e3e33985 bf5b9723beaa3438
+  #|acos bf5b9722e3e33985 3ff928e11d33d7a5
+  #|asin bf731bff97a5f776 bf731c0422ae688b
+  #|acos bf731bff97a5f776 3ff935175866db81
+  #|asin bf76a97a942f78a4 bf76a98227f56d91
+  #|acos bf76a97a942f78a4 3ff938a4d66c2286
+  #|asin 3feffbfb2ac27e6c 3ff8a1acbfef27b0
+  #|acos 3feffbfb2ac27e6c 3fa009d28aa0acff
+  #|asin 3feffb03f1951823 3ff8931637a08103
+  #|acos 3feffb03f1951823 3fa1dca3947582a2
+  #|asin 3feff8de3bcfeec3 3ff8770dabd09bfc
+  #|acos 3feff8de3bcfeec3 3fa55db50e722379
+  #|asin 3feff8978da42ade 3ff873c6997d460d
+  #|acos 3feff8978da42ade 3fa5c69758dce169
+  #|asin 3feffd38157c725a 3ff8b740704dd608
+  #|acos 3feffd38157c725a 3f9aaeb8fd95c3fb
+  #|asin 3feffa200d1ccd9c 3ff886d9703aff88
+  #|acos 3feffa200d1ccd9c 3fa3643c8125b1fd
+  #|asin 3feffbf4ead8ee9c 3ff8a149210f9478
+  #|acos 3feffbf4ead8ee9c 3fa01646669313fb
+  #|asin 3fefff025b6a6c05 3ff8e246c4245d72
+  #|acos 3fefff025b6a6c05 3f8fda480fe7d31d
+  #|asin 3feff87cdbcb116a 3ff8728dc5e535cb
+  #|acos 3feff87cdbcb116a 3fa5edb1cbdee9b0
+  #|asin 3feff7fe44e1fd3d 3ff86cdf05f31bb5
+  #|acos 3feff7fe44e1fd3d 3fa6a389ca222c72
+  #|asin 3feffa6d6d51cd9c 3ff88ae4a7c9ce73
+  #|acos 3feffa6d6d51cd9c 3fa2e2d58f4bd4a4
+  #|asin 3feffd1be99f34d7 3ff8b5290d93844b
+  #|acos 3feffd1be99f34d7 3f9b3491ac2a3366
+  #|asin 3feffa6b91ce32e3 3ff88acb7ad8d846
+  #|acos 3feffa6b91ce32e3 3fa2e5fb2d6a9a3c
+  #|asin 3feffbacdd8c1b2e 3ff89ce1a185bf6f
+  #|acos 3feffbacdd8c1b2e 3fa0a33657cdb52d
+  #|asin 3feffd77ae8c67b7 3ff8bc217971b4d1
+  #|acos 3feffd77ae8c67b7 3f997676b49e11ca
+  #|asin 3feffdc4b8f1b675 3ff8c25fb9ea2b02
+  #|acos 3feffdc4b8f1b675 3f97e6e696808588
+  #|asin 3feffd8f4ebd9dc8 3ff8be00fe6c425a
+  #|acos 3feffd8f4ebd9dc8 3f98fe9575faaf78
+  #|asin 3feffc795dddcf0d 3ff8a9cd50f1ca2f
+  #|acos 3feffc795dddcf0d 3f9e0b80d498ba5d
+  #|asin 3feffecb8c127f96 3ff8dbbac67b84c7
+  #|acos 3feffecb8c127f96 3f919023722a1457
+  #|asin 3feffc9db2a371dc 3ff8ac3ee326347f
+  #|acos 3feffc9db2a371dc 3f9d6f1c477e2667
+  #|asin 3feffa668de30164 3ff88a8795fbf7ee
+  #|acos 3feffa668de30164 3fa2ee77c906a551
+  #|asin 3feffa1ae42ed7e3 3ff886955c921baa
+  #|acos 3feffa1ae42ed7e3 3fa36cbef6422dc4
+  #|asin 3feff835afca5c72 3ff86f562efdec61
+  #|acos 3feff835afca5c72 3fa654a4a8c816e6
+  #|asin 3feff8bf0054a8ed 3ff87598ef487e8b
+  #|acos 3feff8bf0054a8ed 3fa58c4c9f75d1a7
+  #|asin 3feff85a1bed7a4c 3ff870f9c9eea5c8
+  #|acos 3feff85a1bed7a4c 3fa620314ab0ea13
+  #|asin 3feffb698834ec65 3ff898e4b00a8ed4
+  #|acos 3feffb698834ec65 3fa122d48733c890
+  #|asin 3feffed2eac9990d 3ff8dc92ef766fda
+  #|acos 3feffed2eac9990d 3f915a19336f4f8b
+  #|asin 3feffd84e8319fc1 3ff8bd2ccd1cabdf
+  #|acos 3feffd84e8319fc1 3f9933a1c9e04e3d
+  #|asin 3feffb1dbbbed37a 3ff89489cd51d1eb
+  #|acos 3feffb1dbbbed37a 3fa1ae30de4b65ae
+  #|asin 3feff9d563256943 3ff8830b747514b8
+  #|acos 3feff9d563256943 3fa3ddfbf9e30c11
+  #|asin 3feffa4c65c907c6 3ff88927671b8724
+  #|acos 3feffa4c65c907c6 3fa31a7da514be90
+  #|asin 3feff856a0215bdc 3ff870d17d019822
+  #|acos 3feff856a0215bdc 3fa6253ae8529ec2
+  #|asin 3feffe3a94f0e91f 3ff8ccce454c78e2
+  #|acos 3feffe3a94f0e91f 3f954b43bded0d78
+  #|asin 3feffb0c7c0419af 3ff89390db0131b2
+  #|acos 3feffb0c7c0419af 3fa1cd4f285f6cce
+  #|asin 3feff9071553cf82 3ff878fa06f436b6
+  #|acos 3feff9071553cf82 3fa52029a9fecc54
+  #|asin 3feffddb5577f695 3ff8c44904066cc1
+  #|acos 3feffddb5577f695 3f976c940f7015c3
+  #|asin 3feff847909a8b88 3ff87023aaa40ef0
+  #|acos 3feff847909a8b88 3fa63af53403c506
+  #|asin 3feffd9efb5d4444 3ff8bf442574d191
+  #|acos 3feffd9efb5d4444 3f98adcbb3d6e1d3
+  #|asin 3feff8d663577729 3ff876afbddfc05a
+  #|acos 3feff8d663577729 3fa56972cc8d97c5
+  #|asin 3fefff5931ef77ff 3ff8ee51f9c52eef
+  #|acos 3fefff5931ef77ff 3f89d4ad3f7f14cf
+  #|asin 3feffb865896d1a1 3ff89a95e69006a3
+  #|acos 3feffb865896d1a1 3fa0ecadb684ceae
+  #|asin 3fefff2220989649 3ff8e66650791e0f
+  #|acos 3fefff2220989649 3f8dca81e587846b
+  #|asin 3feffcb8700cb450 3ff8ae13bb9a058c
+  #|acos 3feffcb8700cb450 3f9cf9e62a89e2f3
+  #|asin 3feffc4312394f3e 3ff8a63d6fa7b087
+  #|acos 3feffc4312394f3e 3f9eef79271f2436
+  #|asin 3feffeab16753877 3ff8d82021ba8fb5
+  #|acos 3feffeab16753877 3f9276cca26758eb
+  #|asin 3feffbf7e8f9e405 3ff8a178cba65793
+  #|acos 3feffbf7e8f9e405 3fa0105113bab0b3
+  #|asin 3feffba29ff74176 3ff89c44654be78d
+  #|acos 3feffba29ff74176 3fa0b6dddf08b175
+  #|asin 3feff9e0caf229ee 3ff8839eb97ddfad
+  #|acos 3feff9e0caf229ee 3fa3cb9358c9ad5e
+  #|asin 3feff8665c57d2f3 3ff87187cf360ca9
+  #|acos 3feff8665c57d2f3 3fa60e70a1c40de5
+  #|asin 3feffb908cd85acf 3ff89b309f0e2707
+  #|acos 3feffb908cd85acf 3fa0d956a6c0c228
+  #|asin 3feffeccf06c2722 3ff8dbe3671ae0c2
+  #|acos 3feffeccf06c2722 3f9185fb4a5315b1
+  #|asin 3feff8ff7721edeb 3ff8789dc8fc6edc
+  #|acos 3feff8ff7721edeb 3fa52bb168f7c78c
+  #|asin 3feffa954d8bd3df 3ff88d051fe823ed
+  #|acos 3feffa954d8bd3df 3fa29ec68b812568
+  #|asin 3feff9dbe5c8292d 3ff8835f73a5a833
+  #|acos 3feff9dbe5c8292d 3fa3d37c13d09caf
+  #|asin 3feffbb8168aee4f 3ff89d8ec855b0dd
+  #|acos 3feffbb8168aee4f 3fa08d917dcf8770
+  #|asin 3feffe100672cbdd 3ff8c8e5e55d75a5
+  #|acos 3feffe100672cbdd 3f96455bb9addcd3
+  #|asin 3feff87d7441ab40 3ff87294ba7b15e5
+  #|acos 3feff87d7441ab40 3fa5ecd33922e661
+  #|asin 3feffc7f758bd539 3ff8aa35547b48f0
+  #|acos 3feffc7f758bd539 3f9df17ff2390a06
+  #|asin 3feff9fe97d9fb7d 3ff885220fb8d32d
+  #|acos 3feff9fe97d9fb7d 3fa39b28916b3d70
+  #|asin 3feffe85aab6de71 3ff8d42d6c48a48b
+  #|acos 3feffe85aab6de71 3f937379fee22371
+  #|asin 3feffb97add63c3a 3ff89b9d20467bac
+  #|acos 3feffb97add63c3a 3fa0cbc67fb62d89
+  #|asin 3feffe0dedcece1e 3ff8c8b5c03e23b1
+  #|acos 3feffe0dedcece1e 3f965165018259e6
+  #|asin 3feffe32b51032bf 3ff8cc11bc0202b2
+  #|acos 3feffe32b51032bf 3f957a66108a9978
+  #|asin 3feffa8955b9b39d 3ff88c60e62cda8a
+  #|acos 3feffa8955b9b39d 3fa2b34dc2ea51cc
+  #|asin 3feffe075a4ddc6d 3ff8c81f5e4559e2
+  #|acos 3feffe075a4ddc6d 3f9676fd7fb4cda5
+  #|asin 3feff87d202d7df6 3ff87290e4823108
+  #|acos 3feff87d202d7df6 3fa5ed4df83f8217
+  #|asin 3feffed68ac9800c 3ff8dcfe39f78961
+  #|acos 3feffed68ac9800c 3f913f469328edee
+  #|asin 3feff7f7e8540f31 3ff86c971e80e1c6
+  #|acos 3feff7f7e8540f31 3fa6ac86b8696a4c
+  #|asin 3feffe3a37cf6024 3ff8ccc58650604e
+  #|acos 3feffe3a37cf6024 3f954d737cf33298
+  #|asin 3feffb39de4d0329 3ff89623933a8616
+  #|acos 3feffb39de4d0329 3fa17af82134e040
+  #|asin 3feff8b46c774ee3 3ff8751b68ddc7f0
+  #|acos 3feff8b46c774ee3 3fa59bfd6ccca504
+  #|asin 3fefffa35cfb548c 3ff8fb7b7f342074
+  #|acos 3fefffa35cfb548c 3f833fea880651f7
+  #|asin 3feff95e706df4d9 3ff87d2a2e662fda
+  #|acos 3feff95e706df4d9 3fa49a24bbbfa7b9
+  #|asin 3feffef9de8d75d7 3ff8e13822df050d
+  #|acos 3feffef9de8d75d7 3f9030cc594a02ea
+  #|asin 3feff8991ebf2534 3ff873d9075c23f8
+  #|acos 3feff8991ebf2534 3fa5c4499d012414
+  #|asin 3feffc0692f9363d 3ff8a2635d1ca3cf
+  #|acos 3feffc0692f9363d 3f9fe5fdc9e2524d
+  #|asin 3feffd858cc848a1 3ff8bd39de17c9bf
+  #|acos 3feffd858cc848a1 3f99305d8b18d643
+  #|asin 3feffacb98aeb8d1 3ff88ff732114a56
+  #|acos 3feffacb98aeb8d1 3fa24084465c5848
+  #|asin 3feff8b0cd921e24 3ff874f0863e02e3
+  #|acos 3feff8b0cd921e24 3fa5a159c0c546aa
+  #|asin 3feff8420ac6b2d8 3ff86fe4178229c1
+  #|acos 3feff8420ac6b2d8 3fa642e798406ada
+  #|asin 3feffc08879caf32 3ff8a282c60187d0
+  #|acos 3feffc08879caf32 3f9fde2390a95209
+  #|asin 3feffe3e323f8e7f 3ff8cd255bceebbc
+  #|acos 3feffe3e323f8e7f 3f95357e1d5056fd
+  #|asin 3feff933aef48075 3ff87b1a0feefee3
+  #|acos 3feff933aef48075 3fa4dc288aa5c6a9
+  #|asin 3feffd9a7d0e17d6 3ff8bee7162322c5
+  #|acos 3feffd9a7d0e17d6 3f98c50f884294e9
+  #|asin 3fefff5c25512ca7 3ff8eec77981217a
+  #|acos 3fefff5c25512ca7 3f8999ed6185cf01
+  #|asin 3feff9fd3fd36061 3ff88510839a1c2b
+  #|acos 3feff9fd3fd36061 3fa39d5a15421dac
+  #|asin 3feffa3e32179e8d 3ff8886980e58131
+  #|acos 3feffa3e32179e8d 3fa3323a6bd57cf0
+  #|asin 3feffd0dc6072d60 3ff8b4202faf291e
+  #|acos 3feffd0dc6072d60 3f9b76c92540fe90
+  #|asin 3fefface66bb0f71 3ff8901e90bd61e7
+  #|acos 3fefface66bb0f71 3fa23b9870d9662b
+  #|asin 3feffbfe12d7859a 3ff8a1db2f1bfa5e
+  #|acos 3feffbfe12d7859a 3fa00404a5065746
+  #|asin 3feffa7e63c18023 3ff88bcb52b45cd7
+  #|acos 3feffa7e63c18023 3fa2c60031fa0820
+  #|asin 3feffedbceb2ddee 3ff8dd9b3ca737b8
+  #|acos 3feffedbceb2ddee 3f911805e73d5830
+  #|asin 3feffd488a02f0f3 3ff8b87e12742326
+  #|acos 3feffd488a02f0f3 3f9a5f5074027c90
+  #|asin 3feffc2c6afce089 3ff8a4c8a59be849
+  #|acos 3feffc2c6afce089 3f9f4cabaa1133ca
+  #|asin 3feffae64e12a4c1 3ff8916fc7fba136
+  #|acos 3feffae64e12a4c1 3fa2117189117c54
+  #|asin 3feff95ae36eb4b1 3ff87cfe1223c92f
+  #|acos 3feff95ae36eb4b1 3fa49fa8440c7d29
+  #|asin 3feffbe42d12adde 3ff8a03fbde20e88
+  #|acos 3feffbe42d12adde 3fa03772cc43d1fa
+  #|asin 3fefff3d4c69e470 3ff8ea2ac902630a
+  #|acos 3fefff3d4c69e470 3f8be845a0e506fb
+  #|asin 3fefffb6855efd97 3ff8ffb195daff03
+  #|acos 3fefffb6855efd97 3f8124df34970aba
+  #|asin 3feffcb932f1cafa 3ff8ae2130932d9e
+  #|acos 3feffcb932f1cafa 3f9cf688ec3fde97
+  #|asin 3feffeb0bb3409f2 3ff8d8bd4936ff07
+  #|acos 3feffeb0bb3409f2 3f924f82c34b845a
+  #|asin 3feffc46b87946b3 3ff8a679e72b193b
+  #|acos 3feffc46b87946b3 3f9ee05b4644f76e
+  #|asin 3feff85ccd5b386d 3ff87118f801d5ed
+  #|acos 3feff85ccd5b386d 3fa61c4b884ae571
+  #|asin 3feff8c4677d0801 3ff875d9309c17b7
+  #|acos 3feff8c4677d0801 3fa584447502ac1c
+  #|asin 3feffdf19e242c67 3ff8c6352ee36bae
+  #|acos 3feffdf19e242c67 3f96f18958305a88
+  #|asin 3feffabde02a9df3 3ff88f3733cac75f
+  #|acos 3feffabde02a9df3 3fa258840f2cb738
+  #|asin 3feffa9cab010b89 3ff88d6a8a577524
+  #|acos 3feffa9cab010b89 3fa292193d96fe87
+  #|asin 3fefff222823e114 3ff8e66753cd7a33
+  #|acos 3fefff222823e114 3f8dca003b5972c3
+  #|asin 3feffa2c47bb3898 3ff8877b3fb991fc
+  #|acos 3feffa2c47bb3898 3fa3500291536380
+  #|asin 3feffd758a92cd83 3ff8bbf676d02a3f
+  #|acos 3feffd758a92cd83 3f9981375d00b668
+  #|asin 3feff9c0e8b846c8 3ff882045d4a5d1a
+  #|acos 3feff9c0e8b846c8 3fa3fededf39ffc5
+  #|asin 3fefff8d2ad97e94 3ff8f71e18cc8b27
+  #|acos 3fefff8d2ad97e94 3f856e9dbbd0f8d9
+  #|asin 3feffca1fc877dc6 3ff8ac899719e03b
+  #|acos 3feffca1fc877dc6 3f9d5c6f4a933750
+  #|asin 3feff9ffe8b06b0b 3ff885333fe26256
+  #|acos 3feff9ffe8b06b0b 3fa399028c395848
+  #|asin 3fefff95ac43f03b 3ff8f8bc4e46c416
+  #|acos 3fefff95ac43f03b 3f849f82feb480f2
+  #|asin 3feffd4e3945805a 3ff8b8ecac63f165
+  #|acos 3feffd4e3945805a 3f9a43a9f80eece8
+  #|asin 3feff8c313c728e0 3ff875c9665a620f
+  #|acos 3feff8c313c728e0 3fa5863dbd39612b
+  #|asin 3feffeb18ad833f7 3ff8d8d3fb18e4bd
+  #|acos 3feffeb18ad833f7 3f9249d64ad216c5
+  #|asin 3feff9a5441f314f 3ff880a3e1f6978c
+  #|acos 3feff9a5441f314f 3fa42aee49b2b17b
+  #|asin 3feffe7b4aa20dcd 3ff8d31e26609679
+  #|acos 3feffe7b4aa20dcd 3f93b74b78e5a7b3
+  #|asin 3feffe46b7c56898 3ff8cdf412f927f1
+  #|acos 3feffe46b7c56898 3f9501d052c149e7
+  #|asin 3feffdbb90b103c8 3ff8c19c551db6e3
+  #|acos 3feffdbb90b103c8 3f9817bfc99d8d5a
+  #|asin 3feff9ee8953a6e1 3ff88450e62e29fb
+  #|acos 3feff9ee8953a6e1 3fa3b54dc2c063a2
+  #|asin 3feffa895ec21cab 3ff88c6161dbeefc
+  #|acos 3feffa895ec21cab 3fa2b33e4d07c381
+  #|asin 3feff8d5359a8379 3ff876a1a5d4faf6
+  #|acos 3feff8d5359a8379 3fa56b35cde6444d
+  #|asin 3feffe01de1eb16d 3ff8c7a2af23fe54
+  #|acos 3feffe01de1eb16d 3f969629480bb0fd
+  #|asin 3feffb229b3d0fb6 3ff894d071595825
+  #|acos 3feffb229b3d0fb6 3fa1a55c5d5a9e64
+  #|asin 3feffe907f38f853 3ff8d54c95bce40a
+  #|acos 3feffe907f38f853 3f932bafa1d24395
+  #|asin 3feffbe65b07458b 3ff8a0622bf94138
+  #|acos 3feffbe65b07458b 3fa03325095d7bfa
+  #|asin 3fefffb0e8035511 3ff8fe6864c0c0b6
+  #|acos 3fefffb0e8035511 3f81c977c1b630e5
+  #|asin 3feffcfa180a1bc5 3ff8b2b3a010bb07
+  #|acos 3feffcfa180a1bc5 3f9bd1ed0cdc8449
+  #|asin 3feffcdf9c23032f 3ff8b0d040df47c0
+  #|acos 3feffcdf9c23032f 3f9c4ac4d939560b
+  #|asin 3feffcefdb2d038e 3ff8b1f7ce3133ef
+  #|acos 3feffcefdb2d038e 3f9c00e184be4a49
+  #|asin 3feffc0ad4f3d211 3ff8a2a7c97d896b
+  #|acos 3feffc0ad4f3d211 3f9fd4e2b1a8eb3d
+  #|asin 3feffb430e34e710 3ff896aa66971f19
+  #|acos 3feffb430e34e710 3fa16a1db5a1bfef
+  #|asin 3feffb866497f42f 3ff89a969c2d23be
+  #|acos 3feffb866497f42f 3fa0ec9702e12b3f
+  #|asin 3fefffbc9b767863 3ff90124f9e53035
+  #|acos 3fefffbc9b767863 3f806b2d2f7e71ca
+  #|asin 3fefffc62a502a14 3ff9038fe127aaa8
+  #|acos 3fefffc62a502a14 3f7e6b731c827029
+  #|asin 3feff9a63c82260c 3ff880b03428ea38
+  #|acos 3feff9a63c82260c 3fa4296403685bfb
+  #|asin 3feffc0c3c557494 3ff8a2be60f33974
+  #|acos 3feffc0c3c557494 3f9fcf3cd43ce8fe
+  #|asin 3feffd1f6d505d77 3ff8b56b47c4343d
+  #|acos 3feffd1f6d505d77 3f9b24031ffe36ee
+  #|asin 3feff9dab509d35f 3ff88350147abdfa
+  #|acos 3feff9dab509d35f 3fa3d567f92de3c5
+  #|asin 3feffcdb788589e0 3ff8b0856f5c2f37
+  #|acos 3feffcdb788589e0 3f9c5d7939ff783e
+  #|asin 3feffc67709c7a26 3ff8a89d480a1aeb
+  #|acos 3feffc67709c7a26 3f9e57830e848b5c
+  #|asin 3feffd52005cbf04 3ff8b9366cefba79
+  #|acos 3feffd52005cbf04 3f9a3139d51ca7c4
+  #|asin 3feffb467d6e56b1 3ff896dcef2d20a1
+  #|acos 3feffb467d6e56b1 3fa163cca2e18ef6
+  #|asin 3feffb4d608025d9 3ff897427bc87f41
+  #|acos 3feffb4d608025d9 3fa1571b0f75baf7
+  #|asin 3feffc263247e22d 3ff8a46305236413
+  #|acos 3feffc263247e22d 3f9f6613c832416b
+  #|asin 3feffc2cb1be3b45 3ff8a4cd2b4add57
+  #|acos 3feffc2cb1be3b45 3f9f4b8a3e53f04b
+  #|asin 3feffc046f9c2709 3ff8a2410e977455
+  #|acos 3feffc046f9c2709 3f9fee916b2e30c5
+  #|asin 3feffeba23d227c7 3ff8d9c641b9a212
+  #|acos 3feffeba23d227c7 3f920d44a2a2c1ab
+  #|asin 3feff8271393829b 3ff86eaef18c0c86
+  #|acos 3feff8271393829b 3fa6698c57041249
+  #|asin 3fefffb930e3aaf8 3ff900528a2070d4
+  #|acos 3fefffb930e3aaf8 3f80d46511de21e9
+  #|asin 3feffe785935b9bc 3ff8d2d1dc985790
+  #|acos 3feffe785935b9bc 3f93ca5deaf56206
+  #|asin 3feffbd43176990c 3ff89f4457383152
+  #|acos 3feffbd43176990c 3fa056dfa17f78bb
+  #|asin 3feffa44014af8f8 3ff888b7126320e3
+  #|acos 3feffa44014af8f8 3fa328883c2186b1
+  #|asin 3feffa758939d6f9 3ff88b52c11a14d0
+  #|acos 3feffa758939d6f9 3fa2d51265430908
+  #|asin 3fefff3f3391b914 3ff8ea70c899b9a1
+  #|acos 3fefff3f3391b914 3f8bc545d539bbd8
+  #|asin 3feffa2cf55bcd8e 3ff887843e1288bc
+  #|acos 3feffa2cf55bcd8e 3fa34ee2c6348b85
+  #|asin 3feffeedd94553d3 3ff8dfc03fe769a2
+  #|acos 3feffeedd94553d3 3f908ec51730ddaf
+  #|asin 3feffec7bd382946 3ff8db4c193a0aba
+  #|acos 3feffec7bd382946 3f91abcec28897a8
+  #|asin 3feffdb0c0fdd121 3ff8c0b79e202fed
+  #|acos 3feffdb0c0fdd121 3f9850ed88ff4aea
+  #|asin 3feffd71dcd28a03 3ff8bbacb62693b3
+  #|acos 3feffd71dcd28a03 3f9993a78766594d
+  #|asin 3feffee9d1acee11 3ff8df4417b3d5bc
+  #|acos 3feffee9d1acee11 3f90adcf2415d6ff
+  #|asin 3feffd53c3451c6c 3ff8b958e1c99dc4
+  #|acos 3feffd53c3451c6c 3f9a289c9ea3d4f8
+  #|asin 3feffc4094ead3da 3ff8a614411903ff
+  #|acos 3feffc4094ead3da 3f9ef9c4caca463f
+  #|asin 3feffe20374b0ca1 3ff8ca5d3bd2ff66
+  #|acos 3feffe20374b0ca1 3f95e7861c4b6c84
+  #|asin 3feffafa0e7f1752 3ff89288c236dcd7
+  #|acos 3feffafa0e7f1752 3fa1ee5241aa0836
+  #|asin 3feffe6d9c10f7b6 3ff8d1bde60323f5
+  #|acos 3feffe6d9c10f7b6 3f940f5b904248c1
+  #|asin 3fefffe39068d5fb 3ff90ca6cf596d63
+  #|acos 3fefffe39068d5fb 3f755484eabfb50c
+  #|asin 3feffd8a3cc55ee8 3ff8bd9955356f96
+  #|acos 3feffd8a3cc55ee8 3f99187fc3af60ae
+  #|asin 3feffa5a100cae4f 3ff889deff673cf4
+  #|acos 3feffa5a100cae4f 3fa3038a9b9e0495
+  #|asin 3feffa720c324c67 3ff88b235a47f7f9
+  #|acos 3feffa720c324c67 3fa2daff3f86a3e1
+  #|asin 3fefff4075210ef7 3ff8ea9f2d637aee
+  #|acos 3fefff4075210ef7 3f8bae1370591520
+  #|asin 3feffb0df11a23a8 3ff893a5d2c30030
+  #|acos 3feffb0df11a23a8 3fa1cab030259cff
+  #|asin 3feff8bc79b17d27 3ff8757aed4bb9dd
+  #|acos 3feff8bc79b17d27 3fa5900cdf0e6774
+  #|asin 3feffb242c2b8250 3ff894e72ce0a641
+  #|acos 3feffb242c2b8250 3fa1a284ec70daf6
+  #|asin 3feff8eff9debb2b 3ff877e2d5b3f8c8
+  #|acos 3feff8eff9debb2b 3fa5430fd2068a08
+  #|asin 3feff9e469cdbbc5 3ff883cd95eb1fc2
+  #|acos 3feff9e469cdbbc5 3fa3c5b7cb21aabf
+  #|asin 3fefffdba8499c64 3ff909de26e99739
+  #|acos 3fefffdba8499c64 3f781d2d5a95df47
+  #|asin 3fefface6ed6cd02 3ff8901f029c6df4
+  #|acos 3fefface6ed6cd02 3fa23b8a34f7e481
+  #|asin 3feffafc96476b5c 3ff892ace90c2747
+  #|acos 3feffafc96476b5c 3fa1e9cd6700ba2c
+  #|asin 3feffcb6d83a5d7b 3ff8adf797f8bb24
+  #|acos 3feffcb6d83a5d7b 3f9d00ef12dc7d14
+  #|asin 3feffdd95cf7c141 3ff8c41df9ab8d95
+  #|acos 3feffdd95cf7c141 3f977756a627e0da
+  #|asin 3feff9e1f95710ec 3ff883ae01e3f2e4
+  #|acos 3feff9e1f95710ec 3fa3c9aa4c074696
+  #|asin 3feff7f158672556 3ff86c4d10366950
+  #|acos 3feff7f158672556 3fa6b5c881b8790f
+  #|asin 3fefff9ab4627441 3ff8f9b92d918402
+  #|acos 3fefff9ab4627441 3f84211359548b0f
+  #|asin 3feffdeb04b2e130 3ff8c5a25c17112b
+  #|acos 3feffdeb04b2e130 3f97163e0b46fb6d
+  #|asin 3feffd8743bb7886 3ff8bd5cbf4c25bc
+  #|acos 3feffd8743bb7886 3f9927a53e01d6fc
+  #|asin 3feffefac8ce32ce 3ff8e155197e6e1f
+  #|acos 3feffefac8ce32ce 3f90298eb16fbe36
+  #|asin 3feffa1f1c239aad 3ff886cd02b9cd38
+  #|acos 3feffa1f1c239aad 3fa365ca314bfbfb
+  #|asin 3feffd6ad6375eeb 3ff8bb206dc6e4d4
+  #|acos 3feffd6ad6375eeb 3f99b6b99f521101
+  #|asin 3feffe1a594be0ec 3ff8c9d47fafa5e0
+  #|acos 3feffe1a594be0ec 3f9609b52521cdf6
+  #|asin 3feff94e96fafa6d 3ff87c65a4701500
+  #|acos 3feff94e96fafa6d 3fa4b2b5fa830312
+  #|asin 3feffabf13cd0f98 3ff88f47fa748a1f
+  #|acos 3feffabf13cd0f98 3fa2566b39f45f20
+  #|asin 3feffcf8d2a3f271 3ff8b29c3d233768
+  #|acos 3feffcf8d2a3f271 3f9bd7c5c83d6c16
+  #|asin 3feffdfec2187244 3ff8c75c4c89b1c0
+  #|acos 3feffdfec2187244 3f96a7c1ee9ed620
+  #|asin 3feffc18550574e6 3ff8a381b2863b96
+  #|acos 3feffc18550574e6 3f9f9e686f7c607e
+  #|asin 3feffc2f68476e54 3ff8a4f997d3cffe
+  #|acos 3feffc2f68476e54 3f9f406f1c1746ae
+  #|asin 3feffa340211a6f5 3ff887e1d81de5b1
+  #|acos 3feffa340211a6f5 3fa3432f84c8eced
+  #|asin 3feffc0b2c26ee1c 3ff8a2ad4469089c
+  #|acos 3feffc0b2c26ee1c 3f9fd383f6c91f20
+  #|asin 3feffe00827a92c2 3ff8c783eb4acb64
+  #|acos 3feffe00827a92c2 3f969dda3e586d0c
+  #|asin 3feff86c9ca7c71e 3ff871d072178861
+  #|acos 3feff86c9ca7c71e 3fa6055c459496f6
+  #|asin 3feff8ce94387f66 3ff8765272e0b1e4
+  #|acos 3feff8ce94387f66 3fa5751c2c6f6681
+  #|asin 3feff991e4055ad2 3ff87fae9aa85fe6
+  #|acos 3feff991e4055ad2 3fa449973379a64f
+  #|asin 3fefffdff4e3ffc0 3ff90b56c6cf9a86
+  #|acos 3fefffdff4e3ffc0 3f76a48d749291ce
+  #|asin 3feffd9dc3b0de97 3ff8bf2ae5eee03f
+  #|acos 3feffd9dc3b0de97 3f98b41b95533647
+  #|asin 3feffe1702ed2dc9 3ff8c98716d4f4f6
+  #|acos 3feffe1702ed2dc9 3f961d0f5bce0889
+  #|asin 3feffcdc383dd02b 3ff8b092f536ef0b
+  #|acos 3feffcdc383dd02b 3f9c5a17c34f834b
+  #|asin 3feff91f5f3eb285 3ff87a2172fbb419
+  #|acos 3feff91f5f3eb285 3fa4fb3c290f1fea
+  #|asin 3feffd8cd937730c 3ff8bdceaa4cf4cd
+  #|acos 3feffd8cd937730c 3f990b2a7dce12c8
+  #|asin 3feff86642566b29 3ff87186a14946b3
+  #|acos 3feff86642566b29 3fa60e965f5ccca6
+  #|asin 3feffdb131df519a 3ff8c0c0e79c4774
+  #|acos 3feffdb131df519a 3f984e9b29f968fb
+  #|asin 3feff9682f4d6d6b 3ff87da37c6f0d16
+  #|acos 3feff9682f4d6d6b 3fa48afafaa4003c
+  #|asin 3feffbceb0ddf4e0 3ff89eee3a5e0a4c
+  #|acos 3feffbceb0ddf4e0 3fa061a33cc4598f
+  #|asin 3fefff784627d4b8 3ff8f3618353a20c
+  #|acos 3fefff784627d4b8 3f874ce87845860f
+  #|asin 3feffc102ac060d9 3ff8a2fdba6d830d
+  #|acos 3feffc102ac060d9 3f9fbf6675aa82ee
+  #|asin 3fefff8829767695 3ff8f6317d8a318d
+  #|acos 3fefff8829767695 3f85e4eb5cfdc582
+  #|asin 3feffe9f00ab1d63 3ff8d6d3eaca9268
+  #|acos 3feffe9f00ab1d63 3f92c9da5e66ac28
+  #|asin 3fefffb8e4d8209f 3ff900407bf58e4c
+  #|acos 3fefffb8e4d8209f 3f80dd6c274f6652
+  #|asin 3feffe02faf953ce 3ff8c7bbec5b7faa
+  #|acos 3feffe02faf953ce 3f968fd9fa2b5b88
+  #|asin 3feffca9927b45b4 3ff8ad0e2e6fd75f
+  #|acos 3feffca9927b45b4 3f9d3b4975156e56
+  #|asin 3feffa36d601d553 3ff88807743154a3
+  #|acos 3feffa36d601d553 3fa33e7c025b0eb8
+  #|asin 3feffa63505c4b0f 3ff88a5bc88d873c
+  #|acos 3feffa63505c4b0f 3fa2f3f176d4bb99
+  #|asin 3feffbb9f1d8a8c2 3ff89dab8386d7e9
+  #|acos 3feffbb9f1d8a8c2 3fa089fa17aaa5dc
+  #|asin 3feff8e373b7e3b9 3ff8774c423e6951
+  #|acos 3feff8e373b7e3b9 3fa555e240b878ea
+  #|asin 3feffa03a38b2781 3ff88564038ba3fb
+  #|acos 3feffa03a38b2781 3fa392ea171123a3
+  #|asin 3feffe5f38ecd6e3 3ff8d051e3214e64
+  #|acos 3feffe5f38ecd6e3 3f946a5c48b7ad01
+  #|asin 3fefffb53a259dd4 3ff8ff64a430712d
+  #|acos 3fefffb53a259dd4 3f814b5809ddf5aa
+  #|asin 3feffff9828253ec 3ff917ca997b5cb7
+  #|acos 3feffff9828253ec 3f64617591a0c33d
+  #|asin 3feff7d23e51202a 3ff86aefa9bd04e1
+  #|acos 3feff7d23e51202a 3fa6e17550e506e0
+  #|asin 3feffef564e764f2 3ff8e0ab358b447e
+  #|acos 3feffef564e764f2 3f905407ae3a269d
+  #|asin 3fefff1f1624713f 3ff8e5fe24fe943e
+  #|acos 3fefff1f1624713f 3f8dfe97a2cc6d5e
+  #|asin 3fefff5d296c8f6a 3ff8eef02db68855
+  #|acos 3fefff5d296c8f6a 3f89859346d261b2
+  #|asin 3feffdce41602fcd 3ff8c32cceab9f6a
+  #|acos 3feffdce41602fcd 3f97b3a166236baf
+  #|asin 3feff8c6a62feeb0 3ff875f3ea520b2a
+  #|acos 3feff8c6a62feeb0 3fa580ed3e443dc7
+  #|asin 3fefff6d857e05f5 3ff8f191f4f8952d
+  #|acos 3fefff6d857e05f5 3f8834afa5cbf59d
+  #|asin 3feffed35d026c15 3ff8dca01b3209ed
+  #|acos 3feffed35d026c15 3f9156ce4488cabb
+  #|asin 3feffc960919341f 3ff8abb9e0e59a80
+  #|acos 3feffc960919341f 3f9d905cd7a4a605
+  #|asin 3feff8d51b923c77 3ff876a06e9a9627
+  #|acos 3feff8d51b923c77 3fa56b5cb532de33
+  #|asin 3fefffe58e4adea3 3ff90d698449ef0a
+  #|acos 3fefffe58e4adea3 3f7491cffa3e0e63
+  #|asin 3feffb7e238dad60 3ff89a19f5434a97
+  #|acos 3feffb7e238dad60 3fa0fc2be01c5036
+  #|asin 3feff817650b207f 3ff86dfc1cd33345
+  #|acos 3feff817650b207f 3fa67fe6ee1f3a6d
+  #|asin 3feffd565ac7d9d2 3ff8b98baa56a9d8
+  #|acos 3feffd565ac7d9d2 3f9a1bea7b60cff6
+  #|asin 3feffee59b03abfc 3ff8dec33a989d22
+  #|acos 3feffee59b03abfc 3f90ce066ae3fd90
+  #|asin 3feffaf49f50b1ce 3ff8923b3d33a5de
+  #|acos 3feffaf49f50b1ce 3fa1f802e210e747
+  #|asin 3feffdb968ac15b4 3ff8c16e8bd7cd18
+  #|acos 3feffdb968ac15b4 3f9823321b180020
+  #|asin 3feffce16bdbc52e 3ff8b0f10ea3d58a
+  #|acos 3feffce16bdbc52e 3f9c42916815e3a3
+  #|asin 3feff9d983548340 3ff88340aa594d8a
+  #|acos 3feff9d983548340 3fa3d7553d5bf1c4
+  #|asin 3feff8cae5cb9c54 3ff876268984192f
+  #|acos 3feff8cae5cb9c54 3fa57a9958027d20
+  #|asin 3feff9d2f2fe0bcc 3ff882ec0af0c321
+  #|acos 3feff9d2f2fe0bcc 3fa3e1e92a6d3eef
+  #|asin 3feffb5ecead6791 3ff89844cd67bbad
+  #|acos 3feffb5ecead6791 3fa136d0db8e2d5f
+  #|asin 3feffde3d74bf5d5 3ff8c503b4a967a5
+  #|acos 3feffde3d74bf5d5 3f973de7e6b15cc2
+  #|asin 3feffeac0597475f 3ff8d83a0dafea26
+  #|acos 3feffeac0597475f 3f927051a510bcaa
+  #|asin 3feffc66bc2fa4ac 3ff8a891639ce94b
+  #|acos 3feffc66bc2fa4ac 3f9e5a7c29d0f353
+  #|asin 3feffd0fb7eba645 3ff8b44478ca1cb1
+  #|acos 3feffd0fb7eba645 3f9b6db6de8419e3
+  #|asin 3feffe7b29ca16ac 3ff8d31ad17ca7a5
+  #|acos 3feffe7b29ca16ac 3f93b820b1e15cba
+  #|asin 3fefff609f91ff27 3ff8ef7bd01a1625
+  #|acos 3fefff609f91ff27 3f893fc2150b79d2
+  #|asin 3feff8db08f3feb7 3ff876e759fe60f2
+  #|acos 3feff8db08f3feb7 3fa5627f48b984ca
+  #|asin 3feffe3f403392a3 3ff8cd3ed4f82391
+  #|acos 3feffe3f403392a3 3f952f1fd30261e3
+  #|asin 3feffbaff2a7dd43 3ff89d111a0a7339
+  #|acos 3feffbaff2a7dd43 3fa09d4747373bdf
+  #|asin 3feffdd3dbcfc3c9 3ff8c3a6298cdacb
+  #|acos 3feffdd3dbcfc3c9 3f97954aadd4936b
+  #|asin 3feff991f3b9db3f 3ff87faf60e35972
+  #|acos 3feff991f3b9db3f 3fa4497e6c1a74cc
+  #|asin 3feffbddf4646b8b 3ff89fdda836a8d2
+  #|acos 3feffbddf4646b8b 3fa043b581b088d6
+  #|asin 3feffeb2f36b3a27 3ff8d8fb74de182c
+  #|acos 3feffeb2f36b3a27 3f923ff7d9853b2c
+  #|asin 3feffc4f683ae697 3ff8a70a4c049157
+  #|acos 3feffc4f683ae697 3f9ebc420fe6f05f
+  #|asin 3feffd7571af6867 3ff8bbf48327eeaa
+  #|acos 3feffd7571af6867 3f9981b4470f9b8e
+  #|asin 3fefff9dcba15b52 3ff8fa57a1ca08c2
+  #|acos 3fefff9dcba15b52 3f83d1d93d122b5a
+  #|asin 3feffae5f3bb60f4 3ff8916ac7cd127d
+  #|acos 3feffae5f3bb60f4 3fa212118ee35377
+  #|asin 3feffd074e89a905 3ff8b3a7df3cfa0f
+  #|acos 3feffd074e89a905 3f9b94dd41ccc244
+  #|asin 3feffd109f7d548f 3ff8b4555d3aa576
+  #|acos 3feffd109f7d548f 3f9b697dc261e88a
+  #|asin 3feffe1326a8a792 3ff8c92de06a64b1
+  #|acos 3feffe1326a8a792 3f96335cf67219bd
+  #|asin 3feffc29211a0b98 3ff8a492e35a6519
+  #|acos 3feffc29211a0b98 3f9f5a1c3a71ffcb
+  #|asin 3feffad37716da04 3ff89065bfa54028
+  #|acos 3feffad37716da04 3fa232b293dd9dfe
+  #|asin 3feff88894615bfd 3ff87316dbea2f1c
+  #|acos 3feff88894615bfd 3fa5dc8f0b3fbf8d
+  #|asin 3feffc23fa8abdb1 3ff8a43edf1e5983
+  #|acos 3feffc23fa8abdb1 3f9f6f1d4974e53f
+  #|asin 3feffabd818aba0b 3ff88f320b31409c
+  #|acos 3feffabd818aba0b 3fa25929225d8f80
+  #|asin 3feffaeaca8db337 3ff891af69b5bfbf
+  #|acos 3feffaeaca8db337 3fa2097d51cdab34
+  #|asin 3feffacbda9a4d19 3ff88ffacee52483
+  #|acos 3feffacbda9a4d19 3fa24010abe112aa
+  #|asin 3feffe31c56cf287 3ff8cbfb6df30ef5
+  #|acos 3feffe31c56cf287 3f957ff9944788e9
+  #|asin 3feffb162249fb27 3ff8941be993848b
+  #|acos 3feffb162249fb27 3fa1bbed561511a0
+  #|asin 3feffa7e09b5b08e 3ff88bc6869c7047
+  #|acos 3feffa7e09b5b08e 3fa2c699b4f79a20
+  #|asin 3fefff8954610937 3ff8f6683c71ecf0
+  #|acos 3fefff8954610937 3f85c98be9201428
+  #|asin 3feffd42113abeff 3ff8b800b41ffcaa
+  #|acos 3feffd42113abeff 3f9a7ea8090c1b85
+  #|asin 3feff82b5bc7094d 3ff86edfe55d8c1a
+  #|acos 3feff82b5bc7094d 3fa6636ddcd41fd8
+  #|asin 3feffb52c51baf28 3ff8979234f34f15
+  #|acos 3feffb52c51baf28 3fa14d23ea1bc060
+  #|asin 3feff8c75e3dfdb3 3ff875fc7a58b091
+  #|acos 3feff8c75e3dfdb3 3fa57fdb3d6f90e2
+  #|asin 3feff97ecc26b0e6 3ff87ebe4e177ed3
+  #|acos 3feff97ecc26b0e6 3fa467a0c595c89d
+  #|asin 3fefff1933eea697 3ff8e53691b6ff82
+  #|acos 3fefff1933eea697 3f8e62614696cb11
+  #|asin 3feffc70562046bf 3ff8a933caa0c169
+  #|acos 3feffc70562046bf 3f9e31e268daebd6
+  #|asin 3feffa964baf4df8 3ff88d12c7537f76
+  #|acos 3feffa964baf4df8 3fa29d119e15b443
+  #|asin 3feffa38f41da3e6 3ff88823a407517b
+  #|acos 3feffa38f41da3e6 3fa33af6079b73ab
+  #|asin 3feffa7d2bd97472 3ff88bbab56cb91e
+  #|acos 3feffa7d2bd97472 3fa2c813daee7f51
+  #|asin 3feffa387739c437 3ff8881d2532b7cb
+  #|acos 3feffa387739c437 3fa33bc5e22ea9b0
+  #|asin 3feffda11651c1d7 3ff8bf6fdda2e5f9
+  #|acos 3feffda11651c1d7 3f98a2dda851c7c4
+  #|asin 3feffcad4ef57c85 3ff8ad4fb40d6134
+  #|acos 3feffcad4ef57c85 3f9d2ae80db2f91d
+  #|asin 3feffd87db4566df 3ff8bd68ccbcb7c4
+  #|acos 3feffd87db4566df 3f9924a1e1dd551b
+  #|asin 3feffb7509c6788b 3ff89991092c2253
+  #|acos 3feffb7509c6788b 3fa10d49630158a5
+  #|asin 3feff899fba11a93 3ff873e32e408cd2
+  #|acos 3feff899fba11a93 3fa5c304c07408ca
+  #|asin 3fefff14ad4839c3 3ff8e49ec57a0839
+  #|acos 3fefff14ad4839c3 3f8eae4765126fd8
+  #|atan2 0000000000000000 0000000000000000 0000000000000000
+  #|atan2 0000000000000000 8000000000000000 400921fb54442d18
+  #|atan2 0000000000000000 3ff0000000000000 0000000000000000
+  #|atan2 0000000000000000 bff0000000000000 400921fb54442d18
+  #|atan2 0000000000000000 7ff0000000000000 0000000000000000
+  #|atan2 0000000000000000 fff0000000000000 400921fb54442d18
+  #|atan2 0000000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 0000000000000000 000012688b70e62b 0000000000000000
+  #|atan2 0000000000000000 800012688b70e62b 400921fb54442d18
+  #|atan2 0000000000000000 7e37e43c8800759c 0000000000000000
+  #|atan2 0000000000000000 fe37e43c8800759c 400921fb54442d18
+  #|atan2 0000000000000000 4000000000000000 0000000000000000
+  #|atan2 0000000000000000 c000000000000000 400921fb54442d18
+  #|atan2 0000000000000000 3fe0000000000000 0000000000000000
+  #|atan2 0000000000000000 bfe0000000000000 400921fb54442d18
+  #|atan2 0000000000000000 3bc79ca10c924223 0000000000000000
+  #|atan2 0000000000000000 4415af1d78b58c40 0000000000000000
+  #|atan2 8000000000000000 0000000000000000 8000000000000000
+  #|atan2 8000000000000000 8000000000000000 c00921fb54442d18
+  #|atan2 8000000000000000 3ff0000000000000 8000000000000000
+  #|atan2 8000000000000000 bff0000000000000 c00921fb54442d18
+  #|atan2 8000000000000000 7ff0000000000000 8000000000000000
+  #|atan2 8000000000000000 fff0000000000000 c00921fb54442d18
+  #|atan2 8000000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 8000000000000000 000012688b70e62b 8000000000000000
+  #|atan2 8000000000000000 800012688b70e62b c00921fb54442d18
+  #|atan2 8000000000000000 7e37e43c8800759c 8000000000000000
+  #|atan2 8000000000000000 fe37e43c8800759c c00921fb54442d18
+  #|atan2 8000000000000000 4000000000000000 8000000000000000
+  #|atan2 8000000000000000 c000000000000000 c00921fb54442d18
+  #|atan2 8000000000000000 3fe0000000000000 8000000000000000
+  #|atan2 8000000000000000 bfe0000000000000 c00921fb54442d18
+  #|atan2 8000000000000000 3bc79ca10c924223 8000000000000000
+  #|atan2 8000000000000000 4415af1d78b58c40 8000000000000000
+  #|atan2 3ff0000000000000 0000000000000000 3ff921fb54442d18
+  #|atan2 3ff0000000000000 8000000000000000 3ff921fb54442d18
+  #|atan2 3ff0000000000000 3ff0000000000000 3fe921fb54442d18
+  #|atan2 3ff0000000000000 bff0000000000000 4002d97c7f3321d2
+  #|atan2 3ff0000000000000 7ff0000000000000 0000000000000000
+  #|atan2 3ff0000000000000 fff0000000000000 400921fb54442d18
+  #|atan2 3ff0000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 3ff0000000000000 000012688b70e62b 3ff921fb54442d18
+  #|atan2 3ff0000000000000 800012688b70e62b 3ff921fb54442d18
+  #|atan2 3ff0000000000000 7e37e43c8800759c 01a56e1fc2f8f359
+  #|atan2 3ff0000000000000 fe37e43c8800759c 400921fb54442d18
+  #|atan2 3ff0000000000000 4000000000000000 3fddac670561bb4f
+  #|atan2 3ff0000000000000 c000000000000000 40056c6e7397f5ae
+  #|atan2 3ff0000000000000 3fe0000000000000 3ff1b6e192ebbe44
+  #|atan2 3ff0000000000000 bfe0000000000000 4000468a8ace4df6
+  #|atan2 3ff0000000000000 3bc79ca10c924223 3ff921fb54442d18
+  #|atan2 3ff0000000000000 4415af1d78b58c40 3bc79ca10c924223
+  #|atan2 bff0000000000000 0000000000000000 bff921fb54442d18
+  #|atan2 bff0000000000000 8000000000000000 bff921fb54442d18
+  #|atan2 bff0000000000000 3ff0000000000000 bfe921fb54442d18
+  #|atan2 bff0000000000000 bff0000000000000 c002d97c7f3321d2
+  #|atan2 bff0000000000000 7ff0000000000000 8000000000000000
+  #|atan2 bff0000000000000 fff0000000000000 c00921fb54442d18
+  #|atan2 bff0000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 bff0000000000000 000012688b70e62b bff921fb54442d18
+  #|atan2 bff0000000000000 800012688b70e62b bff921fb54442d18
+  #|atan2 bff0000000000000 7e37e43c8800759c 81a56e1fc2f8f359
+  #|atan2 bff0000000000000 fe37e43c8800759c c00921fb54442d18
+  #|atan2 bff0000000000000 4000000000000000 bfddac670561bb4f
+  #|atan2 bff0000000000000 c000000000000000 c0056c6e7397f5ae
+  #|atan2 bff0000000000000 3fe0000000000000 bff1b6e192ebbe44
+  #|atan2 bff0000000000000 bfe0000000000000 c000468a8ace4df6
+  #|atan2 bff0000000000000 3bc79ca10c924223 bff921fb54442d18
+  #|atan2 bff0000000000000 4415af1d78b58c40 bbc79ca10c924223
+  #|atan2 7ff0000000000000 0000000000000000 3ff921fb54442d18
+  #|atan2 7ff0000000000000 8000000000000000 3ff921fb54442d18
+  #|atan2 7ff0000000000000 3ff0000000000000 3ff921fb54442d18
+  #|atan2 7ff0000000000000 bff0000000000000 3ff921fb54442d18
+  #|atan2 7ff0000000000000 7ff0000000000000 3fe921fb54442d18
+  #|atan2 7ff0000000000000 fff0000000000000 4002d97c7f3321d2
+  #|atan2 7ff0000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 7ff0000000000000 000012688b70e62b 3ff921fb54442d18
+  #|atan2 7ff0000000000000 800012688b70e62b 3ff921fb54442d18
+  #|atan2 7ff0000000000000 7e37e43c8800759c 3ff921fb54442d18
+  #|atan2 7ff0000000000000 fe37e43c8800759c 3ff921fb54442d18
+  #|atan2 7ff0000000000000 4000000000000000 3ff921fb54442d18
+  #|atan2 7ff0000000000000 c000000000000000 3ff921fb54442d18
+  #|atan2 7ff0000000000000 3fe0000000000000 3ff921fb54442d18
+  #|atan2 7ff0000000000000 bfe0000000000000 3ff921fb54442d18
+  #|atan2 7ff0000000000000 3bc79ca10c924223 3ff921fb54442d18
+  #|atan2 7ff0000000000000 4415af1d78b58c40 3ff921fb54442d18
+  #|atan2 fff0000000000000 0000000000000000 bff921fb54442d18
+  #|atan2 fff0000000000000 8000000000000000 bff921fb54442d18
+  #|atan2 fff0000000000000 3ff0000000000000 bff921fb54442d18
+  #|atan2 fff0000000000000 bff0000000000000 bff921fb54442d18
+  #|atan2 fff0000000000000 7ff0000000000000 bfe921fb54442d18
+  #|atan2 fff0000000000000 fff0000000000000 c002d97c7f3321d2
+  #|atan2 fff0000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 fff0000000000000 000012688b70e62b bff921fb54442d18
+  #|atan2 fff0000000000000 800012688b70e62b bff921fb54442d18
+  #|atan2 fff0000000000000 7e37e43c8800759c bff921fb54442d18
+  #|atan2 fff0000000000000 fe37e43c8800759c bff921fb54442d18
+  #|atan2 fff0000000000000 4000000000000000 bff921fb54442d18
+  #|atan2 fff0000000000000 c000000000000000 bff921fb54442d18
+  #|atan2 fff0000000000000 3fe0000000000000 bff921fb54442d18
+  #|atan2 fff0000000000000 bfe0000000000000 bff921fb54442d18
+  #|atan2 fff0000000000000 3bc79ca10c924223 bff921fb54442d18
+  #|atan2 fff0000000000000 4415af1d78b58c40 bff921fb54442d18
+  #|atan2 7ff8000000000000 0000000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 8000000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 3ff0000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 bff0000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 7ff0000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 fff0000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 000012688b70e62b 7ff8000000000000
+  #|atan2 7ff8000000000000 800012688b70e62b 7ff8000000000000
+  #|atan2 7ff8000000000000 7e37e43c8800759c 7ff8000000000000
+  #|atan2 7ff8000000000000 fe37e43c8800759c 7ff8000000000000
+  #|atan2 7ff8000000000000 4000000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 c000000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 3fe0000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 bfe0000000000000 7ff8000000000000
+  #|atan2 7ff8000000000000 3bc79ca10c924223 7ff8000000000000
+  #|atan2 7ff8000000000000 4415af1d78b58c40 7ff8000000000000
+  #|atan2 000012688b70e62b 0000000000000000 3ff921fb54442d18
+  #|atan2 000012688b70e62b 8000000000000000 3ff921fb54442d18
+  #|atan2 000012688b70e62b 3ff0000000000000 000012688b70e62b
+  #|atan2 000012688b70e62b bff0000000000000 400921fb54442d18
+  #|atan2 000012688b70e62b 7ff0000000000000 0000000000000000
+  #|atan2 000012688b70e62b fff0000000000000 400921fb54442d18
+  #|atan2 000012688b70e62b 7ff8000000000000 7ff8000000000000
+  #|atan2 000012688b70e62b 000012688b70e62b 3fe921fb54442d18
+  #|atan2 000012688b70e62b 800012688b70e62b 4002d97c7f3321d2
+  #|atan2 000012688b70e62b 7e37e43c8800759c 0000000000000000
+  #|atan2 000012688b70e62b fe37e43c8800759c 400921fb54442d18
+  #|atan2 000012688b70e62b 4000000000000000 0000093445b87316
+  #|atan2 000012688b70e62b c000000000000000 400921fb54442d18
+  #|atan2 000012688b70e62b 3fe0000000000000 000024d116e1cc56
+  #|atan2 000012688b70e62b bfe0000000000000 400921fb54442d18
+  #|atan2 000012688b70e62b 3bc79ca10c924223 03b8f2b061aea05c
+  #|atan2 000012688b70e62b 4415af1d78b58c40 0000000000000000
+  #|atan2 800012688b70e62b 0000000000000000 bff921fb54442d18
+  #|atan2 800012688b70e62b 8000000000000000 bff921fb54442d18
+  #|atan2 800012688b70e62b 3ff0000000000000 800012688b70e62b
+  #|atan2 800012688b70e62b bff0000000000000 c00921fb54442d18
+  #|atan2 800012688b70e62b 7ff0000000000000 8000000000000000
+  #|atan2 800012688b70e62b fff0000000000000 c00921fb54442d18
+  #|atan2 800012688b70e62b 7ff8000000000000 7ff8000000000000
+  #|atan2 800012688b70e62b 000012688b70e62b bfe921fb54442d18
+  #|atan2 800012688b70e62b 800012688b70e62b c002d97c7f3321d2
+  #|atan2 800012688b70e62b 7e37e43c8800759c 8000000000000000
+  #|atan2 800012688b70e62b fe37e43c8800759c c00921fb54442d18
+  #|atan2 800012688b70e62b 4000000000000000 8000093445b87316
+  #|atan2 800012688b70e62b c000000000000000 c00921fb54442d18
+  #|atan2 800012688b70e62b 3fe0000000000000 800024d116e1cc56
+  #|atan2 800012688b70e62b bfe0000000000000 c00921fb54442d18
+  #|atan2 800012688b70e62b 3bc79ca10c924223 83b8f2b061aea05c
+  #|atan2 800012688b70e62b 4415af1d78b58c40 8000000000000000
+  #|atan2 7e37e43c8800759c 0000000000000000 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c 8000000000000000 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c 3ff0000000000000 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c bff0000000000000 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c 7ff0000000000000 0000000000000000
+  #|atan2 7e37e43c8800759c fff0000000000000 400921fb54442d18
+  #|atan2 7e37e43c8800759c 7ff8000000000000 7ff8000000000000
+  #|atan2 7e37e43c8800759c 000012688b70e62b 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c 800012688b70e62b 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c 7e37e43c8800759c 3fe921fb54442d18
+  #|atan2 7e37e43c8800759c fe37e43c8800759c 4002d97c7f3321d2
+  #|atan2 7e37e43c8800759c 4000000000000000 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c c000000000000000 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c 3fe0000000000000 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c bfe0000000000000 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c 3bc79ca10c924223 3ff921fb54442d18
+  #|atan2 7e37e43c8800759c 4415af1d78b58c40 3ff921fb54442d18
+  #|atan2 fe37e43c8800759c 0000000000000000 bff921fb54442d18
+  #|atan2 fe37e43c8800759c 8000000000000000 bff921fb54442d18
+  #|atan2 fe37e43c8800759c 3ff0000000000000 bff921fb54442d18
+  #|atan2 fe37e43c8800759c bff0000000000000 bff921fb54442d18
+  #|atan2 fe37e43c8800759c 7ff0000000000000 8000000000000000
+  #|atan2 fe37e43c8800759c fff0000000000000 c00921fb54442d18
+  #|atan2 fe37e43c8800759c 7ff8000000000000 7ff8000000000000
+  #|atan2 fe37e43c8800759c 000012688b70e62b bff921fb54442d18
+  #|atan2 fe37e43c8800759c 800012688b70e62b bff921fb54442d18
+  #|atan2 fe37e43c8800759c 7e37e43c8800759c bfe921fb54442d18
+  #|atan2 fe37e43c8800759c fe37e43c8800759c c002d97c7f3321d2
+  #|atan2 fe37e43c8800759c 4000000000000000 bff921fb54442d18
+  #|atan2 fe37e43c8800759c c000000000000000 bff921fb54442d18
+  #|atan2 fe37e43c8800759c 3fe0000000000000 bff921fb54442d18
+  #|atan2 fe37e43c8800759c bfe0000000000000 bff921fb54442d18
+  #|atan2 fe37e43c8800759c 3bc79ca10c924223 bff921fb54442d18
+  #|atan2 fe37e43c8800759c 4415af1d78b58c40 bff921fb54442d18
+  #|atan2 4000000000000000 0000000000000000 3ff921fb54442d18
+  #|atan2 4000000000000000 8000000000000000 3ff921fb54442d18
+  #|atan2 4000000000000000 3ff0000000000000 3ff1b6e192ebbe44
+  #|atan2 4000000000000000 bff0000000000000 4000468a8ace4df6
+  #|atan2 4000000000000000 7ff0000000000000 0000000000000000
+  #|atan2 4000000000000000 fff0000000000000 400921fb54442d18
+  #|atan2 4000000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 4000000000000000 000012688b70e62b 3ff921fb54442d18
+  #|atan2 4000000000000000 800012688b70e62b 3ff921fb54442d18
+  #|atan2 4000000000000000 7e37e43c8800759c 01b56e1fc2f8f359
+  #|atan2 4000000000000000 fe37e43c8800759c 400921fb54442d18
+  #|atan2 4000000000000000 4000000000000000 3fe921fb54442d18
+  #|atan2 4000000000000000 c000000000000000 4002d97c7f3321d2
+  #|atan2 4000000000000000 3fe0000000000000 3ff5368c951e9cfd
+  #|atan2 4000000000000000 bfe0000000000000 3ffd0d6a1369bd34
+  #|atan2 4000000000000000 3bc79ca10c924223 3ff921fb54442d18
+  #|atan2 4000000000000000 4415af1d78b58c40 3bd79ca10c924223
+  #|atan2 c000000000000000 0000000000000000 bff921fb54442d18
+  #|atan2 c000000000000000 8000000000000000 bff921fb54442d18
+  #|atan2 c000000000000000 3ff0000000000000 bff1b6e192ebbe44
+  #|atan2 c000000000000000 bff0000000000000 c000468a8ace4df6
+  #|atan2 c000000000000000 7ff0000000000000 8000000000000000
+  #|atan2 c000000000000000 fff0000000000000 c00921fb54442d18
+  #|atan2 c000000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 c000000000000000 000012688b70e62b bff921fb54442d18
+  #|atan2 c000000000000000 800012688b70e62b bff921fb54442d18
+  #|atan2 c000000000000000 7e37e43c8800759c 81b56e1fc2f8f359
+  #|atan2 c000000000000000 fe37e43c8800759c c00921fb54442d18
+  #|atan2 c000000000000000 4000000000000000 bfe921fb54442d18
+  #|atan2 c000000000000000 c000000000000000 c002d97c7f3321d2
+  #|atan2 c000000000000000 3fe0000000000000 bff5368c951e9cfd
+  #|atan2 c000000000000000 bfe0000000000000 bffd0d6a1369bd34
+  #|atan2 c000000000000000 3bc79ca10c924223 bff921fb54442d18
+  #|atan2 c000000000000000 4415af1d78b58c40 bbd79ca10c924223
+  #|atan2 3fe0000000000000 0000000000000000 3ff921fb54442d18
+  #|atan2 3fe0000000000000 8000000000000000 3ff921fb54442d18
+  #|atan2 3fe0000000000000 3ff0000000000000 3fddac670561bb4f
+  #|atan2 3fe0000000000000 bff0000000000000 40056c6e7397f5ae
+  #|atan2 3fe0000000000000 7ff0000000000000 0000000000000000
+  #|atan2 3fe0000000000000 fff0000000000000 400921fb54442d18
+  #|atan2 3fe0000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 3fe0000000000000 000012688b70e62b 3ff921fb54442d18
+  #|atan2 3fe0000000000000 800012688b70e62b 3ff921fb54442d18
+  #|atan2 3fe0000000000000 7e37e43c8800759c 01956e1fc2f8f359
+  #|atan2 3fe0000000000000 fe37e43c8800759c 400921fb54442d18
+  #|atan2 3fe0000000000000 4000000000000000 3fcf5b75f92c80dd
+  #|atan2 3fe0000000000000 c000000000000000 40072c43f4b1650a
+  #|atan2 3fe0000000000000 3fe0000000000000 3fe921fb54442d18
+  #|atan2 3fe0000000000000 bfe0000000000000 4002d97c7f3321d2
+  #|atan2 3fe0000000000000 3bc79ca10c924223 3ff921fb54442d18
+  #|atan2 3fe0000000000000 4415af1d78b58c40 3bb79ca10c924223
+  #|atan2 bfe0000000000000 0000000000000000 bff921fb54442d18
+  #|atan2 bfe0000000000000 8000000000000000 bff921fb54442d18
+  #|atan2 bfe0000000000000 3ff0000000000000 bfddac670561bb4f
+  #|atan2 bfe0000000000000 bff0000000000000 c0056c6e7397f5ae
+  #|atan2 bfe0000000000000 7ff0000000000000 8000000000000000
+  #|atan2 bfe0000000000000 fff0000000000000 c00921fb54442d18
+  #|atan2 bfe0000000000000 7ff8000000000000 7ff8000000000000
+  #|atan2 bfe0000000000000 000012688b70e62b bff921fb54442d18
+  #|atan2 bfe0000000000000 800012688b70e62b bff921fb54442d18
+  #|atan2 bfe0000000000000 7e37e43c8800759c 81956e1fc2f8f359
+  #|atan2 bfe0000000000000 fe37e43c8800759c c00921fb54442d18
+  #|atan2 bfe0000000000000 4000000000000000 bfcf5b75f92c80dd
+  #|atan2 bfe0000000000000 c000000000000000 c0072c43f4b1650a
+  #|atan2 bfe0000000000000 3fe0000000000000 bfe921fb54442d18
+  #|atan2 bfe0000000000000 bfe0000000000000 c002d97c7f3321d2
+  #|atan2 bfe0000000000000 3bc79ca10c924223 bff921fb54442d18
+  #|atan2 bfe0000000000000 4415af1d78b58c40 bbb79ca10c924223
+  #|atan2 3bc79ca10c924223 0000000000000000 3ff921fb54442d18
+  #|atan2 3bc79ca10c924223 8000000000000000 3ff921fb54442d18
+  #|atan2 3bc79ca10c924223 3ff0000000000000 3bc79ca10c924223
+  #|atan2 3bc79ca10c924223 bff0000000000000 400921fb54442d18
+  #|atan2 3bc79ca10c924223 7ff0000000000000 0000000000000000
+  #|atan2 3bc79ca10c924223 fff0000000000000 400921fb54442d18
+  #|atan2 3bc79ca10c924223 7ff8000000000000 7ff8000000000000
+  #|atan2 3bc79ca10c924223 000012688b70e62b 3ff921fb54442d18
+  #|atan2 3bc79ca10c924223 800012688b70e62b 3ff921fb54442d18
+  #|atan2 3bc79ca10c924223 7e37e43c8800759c 00000000000007e8
+  #|atan2 3bc79ca10c924223 fe37e43c8800759c 400921fb54442d18
+  #|atan2 3bc79ca10c924223 4000000000000000 3bb79ca10c924223
+  #|atan2 3bc79ca10c924223 c000000000000000 400921fb54442d18
+  #|atan2 3bc79ca10c924223 3fe0000000000000 3bd79ca10c924223
+  #|atan2 3bc79ca10c924223 bfe0000000000000 400921fb54442d18
+  #|atan2 3bc79ca10c924223 3bc79ca10c924223 3fe921fb54442d18
+  #|atan2 3bc79ca10c924223 4415af1d78b58c40 37a16c262777579c
+  #|atan2 4415af1d78b58c40 0000000000000000 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 8000000000000000 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 3ff0000000000000 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 bff0000000000000 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 7ff0000000000000 0000000000000000
+  #|atan2 4415af1d78b58c40 fff0000000000000 400921fb54442d18
+  #|atan2 4415af1d78b58c40 7ff8000000000000 7ff8000000000000
+  #|atan2 4415af1d78b58c40 000012688b70e62b 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 800012688b70e62b 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 7e37e43c8800759c 05cd0b15a491eb84
+  #|atan2 4415af1d78b58c40 fe37e43c8800759c 400921fb54442d18
+  #|atan2 4415af1d78b58c40 4000000000000000 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 c000000000000000 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 3fe0000000000000 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 bfe0000000000000 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 3bc79ca10c924223 3ff921fb54442d18
+  #|atan2 4415af1d78b58c40 4415af1d78b58c40 3fe921fb54442d18
+  #|atan2 c08d8b1b88ba71b1 405b72a8db77c3f4 bff7486b48cfa380
+  #|atan2 4087e26befe424f4 40750ae304f36189 3ff27e6c5bf4b15b
+  #|atan2 c0766179a5209b2d 40613e032560eacf bff33ff1c91433f1
+  #|atan2 c072541cf45410b1 40807fb3a73a27b5 bfe0397e02ae4dbe
+  #|atan2 c074a3ae3076fd77 c078ce613509c19e c00394bd2fee9eaf
+  #|atan2 408370b0968c00b2 c08c688e6c5eac04 400454f05969c41d
+  #|atan2 c079dee3477e17f3 406e75b73fcf6797 bff09ea48acb5429
+  #|atan2 c08503e7bc63a0e4 407c0193b168fae3 bfef74f5b77c7d39
+  #|atan2 c05b675676517651 407c9354713b8d19 bfce1e86396b45de
+  #|atan2 408e0c8de1c3ddf2 c05a9c5398687c17 3ffae58ea26a9200
+  #|atan2 c078ba48d6052732 c07d258fc08bc7d1 c003811931565b06
+  #|atan2 c08b65a4166834b4 408a1b62e246f792 bfe9e776d5beaa51
+  #|atan2 c0721beb36727cae 40471fb336c699a2 bff699aace272604
+  #|atan2 40760fb181a4f5a5 c08d65d0af114d01 400642d26d091059
+  #|atan2 c0709bfffae7562b 4086e2833929c40b bfd64778d139e7df
+  #|atan2 4068cb261b22f0ea 408afcfccb772ac1 3fcce589cecf47a5
+  #|atan2 c076396a8c18384b c081a0a6e7ed14e2 c004a20f17c47bd9
+  #|atan2 408d99a740b29351 40833297fff940c0 3fefda928a359fb1
+  #|atan2 408ab40071c7bad5 405e9520d1cb288d 3ff6db8e6d4933b2
+  #|atan2 c04b1b9260ec35e2 c07c609378be4f05 c0082e9650783723
+  #|atan2 c086ef610bd6cf55 40805ad20aa12270 bfee715ee001578d
+  #|atan2 408d6707b6af826d c085675422e84b90 400199ad6a4ad038
+  #|atan2 408b6bbb4caf3841 40839ac72e7908ff 3fee6742e635bc30
+  #|atan2 408cefcfeb09ba97 40421d340b2d2dda 3ff881cf7a230040
+  #|atan2 c07cbe2cc8e66f37 c0712aabdb2f2f95 c000df9fc4122df4
+  #|atan2 408bb98c0f6bf78e 407147b42bc7c07e 3ff44c970030660c
+  #|atan2 c08af7970bcaa36e c07d526060b2088a c0008cd076ef04e5
+  #|atan2 bfca449dbbac9100 c087af55f4350d32 c009216d5e84d809
+  #|atan2 c072a9a1da62d3c2 407c100df77e8326 bfe2c7a4f146ba91
+  #|atan2 40859fcb54716ef5 4060be9c0ee052a7 3ff612bdda7153b6
+  #|atan2 c07dfe6deb3571e5 c04b21c6401618cb bffaef2b547585bb
+  #|atan2 c084c599e43b1aae 4064ea5c17d2d84c bff52fe3c47ee30c
+  #|atan2 c07c5e573c62c157 c07b5baef6e7ba8b c002b45babf1554c
+  #|atan2 408af72a80871aac 40801e9773d371fa 3ff0831bd41f26e8
+  #|atan2 40629eb7f58e43d1 4079a65b4acb97e8 3fd6488cfb7d0036
+  #|atan2 4083780ec580033f c0879bd4f99b44a3 40039db20b4debdf
+  #|atan2 40844616c97800f0 c0749eaa19fcfe7c 400054795e432c4c
+  #|atan2 406162033a556601 40640a0c7bcdaa4d 3fe6dd7342d240c7
+  #|atan2 c06c8b30bccca31c c0851d36bb36dc52 c0068680ca7d5788
+  #|atan2 c08a0b9be3510fa7 c08127925a3a2edf c00139cd1d89dd68
+  #|atan2 c04a7d2c5f423784 c0186ffe6a7a141c bffaf84072f80912
+  #|atan2 c068ed06d0001424 c076b35196043c18 c0051db479b39bf0
+  #|atan2 407717ae9b21a75d 4082678be36d749d 3fe1edf09b56965d
+  #|atan2 c072340b9448a07e c08515d7ce780891 c005df6dc49c8d00
+  #|atan2 c070e1e292188e1f c0898103845a5fe7 c0069362cd868eae
+  #|atan2 c08d6a458d093540 407904a14b08879b bff2b3057eb192f0
+  #|atan2 40745ab5c88ee52c 40831fb83814c433 3fdf4c9d47bd708b
+  #|atan2 c070c8d9526c3c5b 40727a571181d358 bfe798e61890d5dd
+  #|atan2 408aa18488447c55 406b47d11efd5458 3ff51f12f540dec6
+  #|atan2 408b666ae523d7b0 c08cea1217d5a15a 4003108afa3dc682
+  #|atan2 4079bd7c612e7d9b 40855032033b3a5f 3fe16249ff2b3bb6
+  #|atan2 c08b84856fe60fe1 408f1e5a975eee88 bfe72b88b159bc61
+  #|atan2 c056384e7c4d0a87 c07680f3521c90cd c0073258a9b5356d
+  #|atan2 407ea61df2bbe89d 408c08e116c64802 3fe002081e7ec27f
+  #|atan2 c08c5f92cc40cb3d c08aff08c473c3b9 c002a68f865389f6
+  #|atan2 c076302de8fad065 40810b16bc377750 bfe2770d216d979b
+  #|atan2 c08df768e0f070d2 407dc714d4b4c6ea bff1c1373a3930c3
+  #|atan2 c037173a878951c1 c08b29c25e8e908b c008eb96f2931e09
+  #|atan2 4073e1e52ca34f48 c0896a52769e04bb 400626608b367a69
+  #|atan2 408d062ef4168d3b 408586fcbc60d129 3fedd813dd98f807
+  #|atan2 c07629867b63e564 c058bf639212c662 bffd7d0d32b42398
+  #|atan2 c07534931f687afa c0833db89995bd8d c0051a84c1c05861
+  #|atan2 407e6f620a495b70 407104a91012ab3b 3ff0f9a1254f40ef
+  #|atan2 405f0e6b6a677047 c07dd0d17e1cbca3 4007184391a9563e
+  #|atan2 c082002b20f6d1b7 c041f5a0c498923b bffa2110dfafc9c0
+  #|atan2 c08e8d126323c681 c018369df6a2b2db bff93b57d7f7c2a9
+  #|atan2 c062598fb8607790 c077e03db1fe51e7 c006329e06dfa1d3
+  #|atan2 c06db564dabe5bad c06d947b3c2d8e12 c002d50b9a3bc75e
+  #|atan2 4085de260c469708 407435872ff983af 3ff2350747ca0cac
+  #|atan2 c07681f252423287 c08a7869353c62e4 c005eab1eea4c2e9
+  #|atan2 408574894b52178f 408717a0512c9273 3fe7f5120e55be98
+  #|atan2 40755d0592b33de6 4073f409a73f59a2 3fea39752e25b53a
+  #|atan2 407e3024b2d76520 4052019822313982 3ff6c3aa677a6206
+  #|atan2 4073fc9eed8c19c1 407defbd4a856fbd 3fe2d66fb472a96c
+  #|atan2 406e3361fcaebe20 c08a54aed0c0b8b2 4006e61381ee2a89
+  #|atan2 4076640e008c8502 4059ee2037269540 3ff49fad7f8e59b6
+  #|atan2 40842f36f824115d 402aed3eb07069fc 3ff8cc9daa6b4b18
+  #|atan2 40825253e5674393 c07380a4f51ba6d6 40007aa8e3f5bfea
+  #|atan2 4088a2104d0f9dbe 407774f7687a7e4a 3ff205dace766fc2
+  #|atan2 c07e2e4ba29b0e89 c083d0b814592c8c c003ed081babdf40
+  #|atan2 c02800def1451580 c072004663c2fbef c008ccb0d5bfdf1f
+  #|atan2 c0805d26ae671fa5 4073eaba244b5f29 bff062baf3e4d1af
+  #|atan2 c083b8a54a8a9085 c08066725273990f c0021db7633ef745
+  #|atan2 4072f619016d4316 40816ce129d8a707 3fdfe3daddb8ce93
+  #|atan2 c08e634cbe389f6d 4063b1b727e89ea7 bff6900d1ee16c04
+  #|atan2 c0855761b7fe23dd 40777928edc2a9f8 bff1167f444fddc6
+  #|atan2 c06a2e9b5d9b6e28 40812b6356ab9229 bfd74f656ecf1e63
+  #|atan2 c080db24579bae8a 407d0a561ae65ec3 bfeb82b88c61a232
+  #|atan2 c070116806e510ff 40790ea38ff098cc bfe23f176230ba4c
+  #|atan2 4078c4177893e2ba c079cf3cd9c27bbc 400303bcbfbb1cec
+  #|atan2 4078eb6dd08aada7 404e06b6a2931f48 3ff6bdaa09bf2889
+  #|atan2 c078a9b1511ab69b c075de88e3fcc049 c0025eae4728c65e
+  #|atan2 407cd345779c03c4 408e572a1207e9b6 3fdc61db9eced3ba
+  #|atan2 408e54e279f8d861 407d440337e3b57f 3ff1f0dc7439ab34
+  #|atan2 c06d49b915b5b860 c071f54db8b7bd24 c003a8f7542184eb
+  #|atan2 406bd4f5a8390561 408e754621cfaf97 3fccbf5d705fc4d0
+  #|atan2 402f853d81e8e4bf 408d004bfa4ce25c 3f916363861e0ce7
+  #|atan2 c088aefa8d1dd3fc c02690e14d6b1fb3 bff95c7cbe80d761
+  #|atan2 c07231e4399104c4 4058f07b57fc656b bff3d9c4e5ab6e96
+  #|atan2 c0838f5e960a9210 407d84c874fd0cf1 bfed9483db1e9780
+  #|atan2 4088a691e0c2bcce c06cf9e8066d6b70 3ffdb4b55efb81f6
+  #|atan2 405cd941298da5db 4049104a13b2fef4 3ff2936c486e463f
+  #|atan2 c08be28272652420 c087e3083d8d12d8 c0023ba5a203407c
+  #|atan2 406afd4094dfb708 4083cd4ea1cf3208 3fd50486809699f4
+  #|atan2 c03e03df7af9d2bd 408a1ed91721629f bfa260b3ab0ad143
+  #|atan2 c040eba98479f0bb 4088193295b474dd bfa674458cade7a3
+  #|atan2 bfec76e3f433f570 c07f99f3468eb12e c0091e60fa96a002
+  #|atan2 4084e460b50c16ad c08aede5e8079c6a 4003daacae6698a2
+  #|atan2 c069856b97182410 c03187db185e5b38 bffa80d164311759
+  #|atan2 c05adddfdbd08ac3 c070bbc92ad854da c00614407acee689
+  #|atan2 c0624a5619044291 c07ccb627feb73fc c006ac2af086ffa9
+  #|atan2 c061dda76965b23f c08cdcaf0e524fd3 c007e78b3edd8e5c
+  #|atan2 c055e65672c531b0 408b51275f5fd8fe bfb99196694cd5df
+  #|atan2 c08974f34bff62b6 c075f67ae8234acb bfffa61aed38cfe3
+  #|atan2 408e42eb62a21266 c08cc2334fcddc5f 4002a5599750c784
+  #|atan2 407fc47f8195f789 406d45351002a1fa 3ff239b001a380b2
+  #|atan2 4060cc21e623b1eb 4060f3db1656ddd3 3fe8fc517ca746e5
+  #|atan2 c08660378dd47421 408c8a7d70f54943 bfe546e15e5298a2
+  #|atan2 40833cd5544c2212 4081edfe8a2c945f 3fea42265cb32c46
+  #|atan2 4083815330e8c806 408d7c9c8789f65c 3fe2b37bd5c5b0ff
+  #|atan2 c08aff7831e9dbc3 c081a9068d386e65 c0013358f95eac7b
+  #|atan2 4073fdbd7bec788c c07e84c79479cc70 40047e50bbb41e84
+  #|atan2 c08df10eeb114438 408a09e58f015fb4 bfeb5c359f087722
+  #|atan2 c071173a031267c7 c0771a6b1cb1e370 c0040995aa3c043c
+  #|atan2 40831df556eed904 407038f58b2d6d13 3ff2b65e2bcea9cd
+  #|atan2 c044cf85031c33d7 c0817e9af10d1cf1 c00889ffc64947f8
+  #|atan2 40866857891b8a36 407d579e03aa28e7 3fefb71049b4f00e
+  #|atan2 c085f2fbb73bb494 4043898a7c28412b bff83e58d3575913
+  #|atan2 406f3108a9388782 4089c28c1e5522cc 3fd2cffc10cb20db
+  #|atan2 c062ecc592fc8dd8 408b5bc027411ca6 bfc5eb3b98e169f5
+  #|atan2 4081d4af25a31bbe c0796aa01282c913 40018520da1bee1a
+  #|atan2 4046cf233b44e98e 40688925e8d5ca56 3fcd3aaff4288ee9
+  #|atan2 c0802aeaa0345e07 c08ebae7d682e030 c0054216caba60b7
+  #|atan2 c081fbd649cfba4e c0849f5b5a970dae c00365401e1d5aaf
+  #|atan2 4082ec7421a033b8 c07da569feb6bb69 4001e1d8ea658cb4
+  #|atan2 408afaeecfa0c2f5 408ac079aa6195d2 3fe944cbbb4f6f21
+  #|atan2 c08cb06fc6e42603 c08b970ab568519f c002b17dd83e1eb1
+  #|atan2 c07f4c7a6b4f39cc c0657c447791ffcb bffe6c4047eb74ef
+  #|atan2 405e5b52ec0071e7 c084c53a357ee55d 4007afe8d67a3588
+  #|atan2 c079c356e8ce4071 c08a15461e217a39 c005768219cb14ba
+  #|atan2 406ae9cc1b935f78 c0643c6316df08fe 4001b95c05bcbc4c
+  #|atan2 4087fdf3dcdf84b9 c0694771a2d22708 3ffd40f37dc01849
+  #|atan2 c088171aec1512ad c080118aa0bd90aa c00145b630e1d2fd
+  #|atan2 4084f69399987dfb 408a39869068af4a 3fe59451b49bbc34
+  #|atan2 c0622a903e9db98e c08ebb01e9befa07 c007f57d3d05d4ec
+  #|atan2 4083fa7413ded50c c08bc34c1c000c23 400424839e1975b5
+  #|atan2 c07646d94963a17a c06a7e02917ddac2 c000dba49f140eaa
+  #|atan2 408120f246d4e7bd 405efca0ed025344 3ff593105ef3ca26
+  #|atan2 c075a76141fdc19b c080063b588234fb c004610ff67dfed4
+  #|atan2 4084ed5159ee839c c087d00dabf8b796 40035d65fbda43b4
+  #|atan2 4086740dcebbf4d7 c07445cad20dda92 3fffeae3ff5b09a3
+  #|atan2 c0628527f1a2a250 408d543cecbeb9ae bfc40a957bc488ac
+  #|atan2 408cd300f7bfb29f c0821e3b5736d2ca 40010e40f3795758
+  #|atan2 c066458a97195e41 c063666f69160370 c0024c960381d6ab
+  #|atan2 c07b36dda04cc471 c0749494c50252cc c001bf071fde7774
+  #|atan2 408ed1fe9218f1e9 c087d06572f47fbb 4001d44764209888
+  #|atan2 403897acf4611178 408cf5244bb37f1e 3f9b2b7ebd3733ea
+  #|atan2 c08c68c6263f0677 c07a68a8d43ff4da c0000c0c85145982
+  #|atan2 408e455f52935daa c0837239f17e675e 4001226ed6eb489e
+  #|atan2 c02fc0287c9736a3 c0651c3896be74de c0086207631f89c7
+  #|atan2 407574e191b4c812 407a1f78d9439ebb 3fe6011c57b98da0
+  #|atan2 c07942c9861e475e 407a33ced92810e2 bfe88c218d972739
+  #|atan2 4047153bb586f71f c082353ecb2735c9 4008800cba4519ae
+  #|atan2 40110741484d3716 c0752f61e16e09c4 400908430933c1fc
+  #|atan2 40822b1fbac1e682 c077724a3ee17846 4001268e5b44af41
+  #|atan2 c07d5ee5e8446dad c07e9f59fcc39e03 c00304364ce88df0
+  #|atan2 c07da9f84e6fae26 c07394a7b18c2fad c0013bdba9c528ba
+  #|atan2 c089305163eabdb6 4083d378a50cf197 bfeced544d2b58c5
+  #|atan2 4086a87b7f934f95 c07f2e464b2528ea 400163448724aa50
+  #|atan2 40535ad64f6ae6aa 40824fc0ee7f67ab 3fc0d0700ca6d8d9
+  #|atan2 c089879eac68ac0e 4089a7d1ac36c0d4 bfe90dd9fc7a89cd
+  #|atan2 c084e7184d5e36b9 c07412e3871680a6 c00025cc2dd50722
+  #|atan2 408da67b94c63ca5 40860dd1f92ed252 3fedccfde8ae70af
+  #|atan2 405aed7df2a5915b 4088cfc12a8d3d84 3fc1425f3d245b7e
+  #|atan2 c06f87b1c297b7a8 c089443db9b1c6eb c006b6a7aa50a508
+  #|atan2 407374b9679ad912 c080ad6c3e550bb2 4004e8888f1aa535
+  #|atan2 c0692c79dc5fb71c 40875a12aa3d64c9 bfd0d9173f0c8035
+  #|atan2 405f48f616f75c9b 4045fd0d3e9c0e90 3ff3b9c65a44544e
+  #|atan2 4070f5d2792edf23 c08ccc4d2d8e9446 4006d77cab96c0e3
+  #|atan2 c08a7d75326a5f90 408dba6b79c3aeb6 bfe74aa62b7bb446
+  #|atan2 407f1f1e78e56fbb c07ec689910145aa 4002ce099c45f303
+  #|atan2 40823db2577a6e6b c034115366d84bae 3ff9aebe9067285c
+  #|atan2 c0500bb34c941c86 4088f1c46b1aff75 bfb48a433c993d94
+  #|atan2 c081a89ebe1c4830 c08659aa1d747df5 c003c88cc2c96881
+  #|atan2 407bd97601598195 c060659703124bae 3ffdb6a6761b685f
+  #|atan2 40626651e7431115 c08c06fbd2d4b9a8 4007d4d3f3e8d3ce
+  #|atan2 c0847b8e2c49f5e8 c08a961991c2541e c003e1967ee28fc1
+  #|atan2 c08e1f9364175247 c0249ce616627450 bff94dc63110d011
+  #|atan2 c0808fa7d7206d27 407e167c21c1a6f2 bfeaaaf25f27ccbf
+  #|atan2 40898a73135d589a 40890e67ab232b43 3fe9706e578ff79c
+  #|atan2 c08d062e1e2db813 408450f048d9716d bfeeb908ff50b501
+  #|atan2 c0821776c501a63a c060cf2a888947af bffcc8d1a9dcbffa
+  #|atan2 c06091867affa2ab c082ec2bed54044c c00768a3a186835d
+  #|atan2 408277b9a941c6bb 4075254a068720b6 3ff0d03cfb71446e
+  #|atan2 c077e97ab9c58784 c06ea74cffb9da4b c0012058486e9b9a
+  #|atan2 c07b030739a958a7 c08cb1ecbbcc6e0e c0059d0b986b2b1b
+  #|atan2 406a8ee630f3082f 405bc644faf3c988 3ff16c894992c4ca
+  #|atan2 408dde513a79108b c08bcb736f5fe724 40028fde0b10103c
+  #|atan2 c0890669f119c91a c0824c00b6ecc42c c0019df0a34d8d8c
+  #|atan2 4072630da4be937c 4053065b8fbb13b3 3ff5152e7b804836
+  #|atan2 c06d43bc0ce1b190 c08828bc5010d6f8 c006c7c313f047bf
+  #|atan2 c08bd1f77b5d5e43 4075c33dc94f6f6e bff32ad7296e68d3
+  #|atan2 c082ab20ce79647a c08e3b8894e2dea0 c004b50f39b4d402
+  #|atan2 c08c18d1170784b9 408d97fe684c6734 bfe84d7ce43225eb
+  #|atan2 c0823a9e9419b7af 406d4b99163bb7c2 bff305300e0c30fc
+  #|atan2 4087425ee871c159 4071ed96605cc377 3ff33f405386972e
+  #|atan2 407d5ea7c99054cb c08633ac41e0b281 4004753381615177
+  #|atan2 405798c659aad4dc c08536cfecfe581d 4008070b034638eb
+  #|atan2 c076cac7bd3aa4a6 c0730573d27263a5 c002214ac64ecb1e
+  #|atan2 c087cc65c7e43d91 c085989052a91a7c c0027632a99b6137
+  #|atan2 c07c3325b71f2a34 4087bf0dcd88a5ed bfe1258024e01a57
+  #|atan2 408b5bb117a3f275 c073f0bccbc4d763 3ffeb96ccef34763
+  #|atan2 c0737b725b00a380 4046464c78652757 bff6dc88b64e1ab8
+  #|atan2 c05d618e3b7f2e40 407511111b8667f6 bfd578a0b7da900a
+  #|atan2 c087988c64d75f97 4088f1b54ab6dda7 bfe83e7e733e0d70
+  #|atan2 c029f53ed21b7946 408cdc31650f03cc bf8cc7bcd0f2b5c0
+  #|atan2 c08acba7f66e3b37 408deda2b1980ccd bfe75e03b784a886
+  #|atan2 c07960afe41daf05 c0826ca9c4c98193 c0044ed6026d61b2
+  #|atan2 c082e85113ea0e31 405c7b923b0331f4 bff6279e930edb2d
+  #|atan2 40780989db3256ba c081bffc6b086aa6 40045f04fcb9e989
+  #|atan2 408e7b8aa33df390 40851fd6b67e97c3 3feedf8522657f64
+  #|atan2 402a4c58ca0a08ff c08ead2413ecbe60 4009068ce7aa6a1e
+  #|atan2 c083762da49e43ea c0813901c163aaf3 c0025ca5504e927a
+  #|atan2 c06b60f4a008e8e2 4058b6af372dcc6d bff25972e0bf2738
+  #|atan2 407e292738c474f5 c0766388db89a5db 4001acc5af682d88
+  #|atan2 408566dd29f81844 40804b536af54476 3fed7139dc179b5e
+  #|atan2 c0844d3b26b924ad c077f1e87d81e3ad c000d43b5c87bf54
+  #|atan2 c07234fb85dd8782 c08011472dd6f12b c00502468384de63
+  #|atan2 c04cb857f80a21bd c08eed978e65fc4a c008ab40c7e1ca2c
+  #|atan2 c065ccd9831de893 408e989446872b50 bfc6905b672a2b20
+  #|atan2 407753db4d2a4860 4063b2cd3dd47891 3ff2bd98614c874c
+  #|atan2 408c916701e77b5c 4082fe9c102f5491 3fef7d212209d54d
+  #|atan2 4080f3ce53803591 4081f21c5151dc7c 3fe838dbd80a9b9b
+  #|atan2 406fb2c6ed9d182a 406156d0204df6fb 3ff11fc53be9944f
+  #|atan2 c083ef083ade9df6 4085648fc9522a75 bfe800dec27d2883
+  #|atan2 c08092410087209f c08b87f40ba4b679 c004cc531048d711
+  #|atan2 c06c8b9a8fcf07a1 4080cd56f1b8ed1a bfd9b47a8caa8513
+  #|atan2 408c7e63e8241310 40856ef3acf0693f 3feda0ccdfdfc04c
+  #|atan2 c06dee632250c5f6 c06101c3eb964b3a c000b335c534330c
+  #|atan2 c08121264ff0ea15 c08345faac291c82 c00351f5a8a01c76
+  #|atan2 c08cc67b01072500 c0871e4052be727c c001fb1a484c2dfa
+  #|atan2 4087ca5837024057 40606a7d02b57216 3ff6664868471b10
+  #|atan2 c038bfb7f6eedf31 c07fda8d2db8edd9 c008be9c0df6b62d
+  #|atan2 c06a50a27e1d20a3 c013a711922e201c bff9818ec23a1082
+  #|atan2 408e6e5ee68db2f4 4080bc40a654bef2 3ff11684a64c3988
+  #|atan2 c08c9ad373ff821a 406472e87cde902a bff64d98dcac4bac
+  #|atan2 406cbec0d9dfaa58 c084520ccbfc8593 400669d3628cabf3
+  #|atan2 c087e3b554467e6d c02831f274a9d539 bff962cb8bce07e6
+  #|atan2 408bfc46b80c4bb1 c0873a8b932b526e 40021bd004616441
+  #|atan2 407be013b16cea0f c084d02a329b69f9 40046985053e30ae
+  #|atan2 4061739d1708ccf2 c054bda05305eca8 4000db1117e547c6
+  #|atan2 c085cbd6bba89201 407b28a1ff231207 bff037d083538b67
+  #|atan2 c0879680c92d8803 c08e32de0e92fbb3 c003d3f20f96f69d
+  #|atan2 40604611f95662ef 4066d3ae3141a8a9 3fe3d1aa2f591bea
+  #|atan2 c08d2fcd6c6d0568 407a18b3c82dc18b bff267fe81217af8
+  #|atan2 405491401e17253a 40892bb2dbd564ff 3fba0eaec52e02f2
+  #|atan2 c0579a070cf925b7 c052af82cd20f1de c001ec761584115c
+  #|atan2 c08ae747dcba5182 c0873938e8cf1ab7 c0024368708d3a14
+  #|atan2 40805a91b1802679 408ba65a42d7f278 3fe1177ccbe055e7
+  #|atan2 c0886f8e86008f51 c0789e5199fc5033 c0004ca7e06bdfc6
+  #|atan2 406c82a34b607999 c07e49c377bb881a 40059d1411eba337
+  #|atan2 408a87be93a65c06 c08d002d0a67e636 400334896ae1ebf5
+  #|atan2 408588645b40d165 c0838168d4894915 40027465e8e94885
+  #|atan2 c08c5cb582ef9eb2 c068d07f3c25d5e9 bffc9400c3dc55a8
+  #|atan2 c087debb6b8299f0 407e715c698aceef bff00cd42a85c778
+  #|atan2 408dbd3038039d8a 407ff0dc934f3025 3ff13f61296d8e3f
+  #|atan2 c08b712a4f304f63 406bf41731f2e0f6 bff5249b8cd28867
+  #|atan2 c0568dc5279b0918 408b5bb0d162c58e bfba49a575a7a039
+  #|atan2 c07995e058bee1af c08da56a79ebe5df c005dfad835c9cae
+  #|atan2 c086f6625e86a3b5 c08b1da85c1ad719 c00382f4cb7624bc
+  #|atan2 c06ed7fa89c58924 c02dfb3def2473de bffa1a8507a69173
+  #|atan2 c07c502c1cfbf03d c086abe428c9aea7 c004aad1d00e1a55
+  #|atan2 408355f77a4393fe 4086b0cd487d1572 3fe6956d325eb63b
+  #|atan2 c08a365d41857b74 c08a7d0976c50f1b c002e436e043055e
+  #|atan2 407dd012a091721a c087f0ced9f24821 4004ad7366333f3a
+  #|atan2 c068280ca5434d15 4088420f6dc22384 bfcf3b28b530a2d5
+  #|atan2 4083484f1fb311cc c071a7da2a53c006 400000451ad4f422
+  #|atan2 c0629743a20030a2 c080dc4fd456c7df c006fb1e955a7eaa
+  #|atan2 40825059a1692275 c05ad971f46ce822 3ffc085f1ca0091a
+  #|atan2 c06ee725c6886d86 40728f37d50e9610 bfe637741cc809cd
+  #|atan2 c0712f497c94bb84 c06e2a746b4757de c002544678425f12
+  #|atan2 4048c1dc996556a8 c075fa4ea3206f2c 4008037d3a2e447e
+  #|atan2 c062e2681eae683e 40551956e41c4c6d bff0fb479d996eec
+  #|atan2 4088474f97b2f0b9 c08d0319e7751af4 40038eec97eb327f
+  #|atan2 c06d946319f7dbf9 408cf2904c8de733 bfd001cdd7466f12
+  #|atan2 40719c96adfe7ff3 c07a626c3fd04b6f 40046c91a756b971
+  #|atan2 c088fb7afb2e9109 4087ceffa8cb2562 bfe9e7047ed1d441
+  #|atan2 c0886621023ae146 40624f6fef6e8475 bff62a58c0e6e8fa
+  #|atan2 c06485a33757ee84 c05636b45c7be415 c00088f36893371a
+  #|atan2 c06bba10f823cccf 40878ece2064b72e bfd2508afd3cace8
+  #|atan2 c0797ec2398740cb 40794eb283367cfc bfe9404145d7b2c4
+  #|atan2 c0786a2e881a0fde 4077627d07221bec bfe9d27cc8c49e71
+  #|atan2 c067fe3ee9682066 408364daacabb3ff bfd3327407c861f6
+  #|atan2 40765c45f200e435 c07cf10f149a881d 4003dec87d93f896
+  #|atan2 408908c5d4da8747 c0729d46f8966164 3ffed3ec395ae51f
+  #|atan2 4020884a2dddefcc 4082da5d1ca31056 3f8c0f33dc234754
+  #|atan2 40872b59123bef2d c08ad4d46022cdaa 40036f36c684d8ce
+  #|atan2 40841b253bd0e67a c04c17686f6390be 3ffa86c036d428b9
+  #|atan2 c0841633b03e3481 408d7813a95fbb8f bfe3252533cab15a
+  #|atan2 c078a0186379a7bc 4089d62aadbfc4df bfdc764cacc24f37
+  #|atan2 c088a7d27e0be8aa c083edc61fe6f0c0 c002012b5047ef88
+  #|atan2 c06ce4ec2fca4eab 408b12e6c64f94fc bfd0afe51d75dfef
+  #|atan2 c07fc7a3674def3b 408b1893d4a4ee70 bfe0f8e3b5cbe53f
+  #|atan2 c08ee48651fea6c9 c081f803c63fea5f c000c7eada421964
+  #|atan2 408bc342f57b3e2e 4083544399004ad8 3feecdae007efc76
+  #|atan2 408acbe6a3bd8cde 4065e31f0789da23 3ff5e8ed92791941
+  #|atan2 40828bd861915559 4074cf40ba4cbf2f 3ff0f3d94d2db848
+  #|atan2 c0652c920fd4a325 c086fc6b62705e8e c007526c5366300a
+  #|atan2 408d31e6feaf5388 c07d23f9acb8dbe7 400045039bd5ba55
+  #|atan2 c05f6a132bd735e3 408567851889473e bfc7396cb410fa13
+  #|atan2 407b81ec5f23981b 406fc0864f45b9d9 3ff0c1ede9cb4964
+  #|atan2 4085ff7d417df7d9 c0874f7dac4aeca9 400314cbeec5e184
+  #|atan2 c05d8d50b1abc023 c08885948f97d5e4 c007efc531b0dccd
+  #|atan2 408df41f03f83fb6 c0351a4d17ea932c 3ff97c252021dc5a
+  #|atan2 4073ca9951056686 c08a036f4e9e849d 4006398702bf54ce
+  #|atan2 c078b76eaedd19fc c04028c00bbbd6c1 bffa6ff99ad9fd9f
+  #|atan2 408915e8e076bf47 c06b38e2f2662ff5 3ffd5f14e1d989e9
+  #|atan2 c081697abd2809fc c08214961dc28833 c003000c9d69f254
+  #|atan2 c07c5a6523412802 4059d9b78df23546 bff58c0cad5f8fe2
+  #|atan2 bfd84a4d2851b3a0 407ae168986cf463 bf4cea997a1c227c
+  #|atan2 c08238844625774d 405cbdaadf3722da bff60498bccda06a
+  #|atan2 c082016a33fc4280 4063e45b35738e63 bff4d2361d87234e
+  #|atan2 4078186b1217b43b c0845e8a14c65902 4004dc1b2e984d4d
+  #|atan2 40749d480f4614eb 40634ece5b16a892 3ff220089007662d
+  #|atan2 406d6bcfe42a55f6 c081510a9b59dd96 4005eb60879b1556
+  #|atan2 40852f45e508cc41 405fe9a70960307f 3ff627a0deb42e1e
+  #|atan2 c04743a26fcac092 40809d862dec3861 bfb6588078c12560
+  #|atan2 407823c101363d57 c08486cd71a320e7 4004e15a812aa0c4
+  #|atan2 c08c057424c06cc6 c0688e5589aca9eb bffc9563b31ea406
+  #|atan2 c0861e51cb09b94b 407c3d0bf7c4b9d2 bff00ae1e91c8fa4
+  #|atan2 408a236bc17d38a0 c080da9f4146e80f 400125e6d3e35eb3
+  #|atan2 4073333db6bca358 c086249e51949bc7 4005dc2aee6d74d8
+  #|atan2 406ad47cf0b561cc c0807c5824fe06e3 40060a9bbc6a5fdf
+  #|atan2 c07a496bc84996c3 c074cc1c26847e69 c001ebc8ecfae64a
+  #|atan2 c08693a8faf90f47 c0814dcd54a7d302 c001cc44c916fb36
+  #|atan2 c074e7cc90ac54f7 c07d1da7d62d30b7 c00426ab5085c7c2
+  #|atan2 408c27d622de3c7f 407ac8c5f17be3db 3ff207748d35ccf8
+  #|atan2 4057e1f96b478010 4089b4188460f55d 3fbd99bdfd002567
+  #|atan2 4086a7cae313666c 40755678b1faeffb 3ff217468f695102
+  #|atan2 407b56b52428fb10 c07dd47cf7b23c61 400332adc26ff322
+  #|atan2 404fce965332b520 c08c8bff05b531ff 40089397fd689114
+  #|atan2 4087058230e7ebc2 4081a6277cd24527 3fed55e51b3b9055
+  #|atan2 40839357076ab01d c08012b330c9bff3 400210e99eec24a0
+  #|atan2 407319e0ec4ecbe1 c08d515d2f54b6dc 40069d078369f83e
+  #|atan2 408abe165882edb7 c086990b88c1ef20 40022dda555d48d1
+  #|atan2 406efb36638c47e9 c078da9be9394687 4004ac862bd3fe08
+  #|atan2 4065a76a762438bf 406eac1eb29ee461 3fe3abd613cbc432
+  #|atan2 407789850a2146f1 c07b7f3b27737894 400378135b3d4c70
+  #|atan2 4072c2b138a1b70c c074012e8ee943d9 40031b30d75ed75c
+  #|atan2 c07f3899ecf71671 c06f377c2f415f6d c000466d4121d97e
+  #|atan2 c085c518afd5131c c048028c7f880761 bffa3be09ab7fcb0
+  #|atan2 408c66c9e8d701cc 40734793c3364f36 3ff3e5b9ee2cf8a6
+  #|atan2 c089c7ed0696f530 c07c31befeeef6be c00091c88f771140
+  #|atan2 4041b6fc0b17a12a 40886e3881e82407 3fa73005987af859
+  #|atan2 c081e1d8a6da09ca 404f56dd901637e0 bff7631cd256ec5e
+  #|atan2 c069ff76d88670ea 408844cadda4b84b bfd0bf3ce7abe8e9
+  #|atan2 408837bc4592b93c c087af3e572aa896 4002c2b1334023db
+  #|atan2 408839502868ad5c c084b6b006be0f56 400239d52afa09a2
+  #|atan2 40874bfad5a190d8 4071dd5839470fd1 3ff34653aa94c3f1
+  #|atan2 40854cc448ee332c 407d6701408e94a2 3feeef05af8c03bd
+  #|atan2 40827c438a6b902a 408eaa8b8f2668ad 3fe15bed64a1854c
+  #|atan2 c07e6710ee636f27 407d71f6bde7e9db bfe9a50638a60a2b
+  #|atan2 c081a88c882440c2 40793e9e606bacc2 bfee6810c9b4abaf
+  #|atan2 c08b126981b616ae c07d5ec601f51c9a c0008ae6af7a2795
+  #|atan2 408c45520615936d 4041b64b2962fa9d 3ff881acf93f80da
+  #|atan2 40805400c5d60d7d c08393077f3779ac 40039228888af403
+  #|atan2 4080ceb6314edbde 407c099bde5d34fa 3fec050f7e76b2d8
+  #|atan2 c080bdbe0418929e 4076b4b50970f180 bfef324b415ec64d
+  #|atan2 c08788dac98b68ab 4059a78b1f04461a bff6f7478d574928
+  #|atan2 404e90e964771022 c05d23008b2f3ba8 400544a3e0f19362
+  #|atan2 4089acb63bcd0f13 c080b92e0ed8926b 40012f5c00d5b88c
+  #|atan2 c0811d59a2999fd1 408acfb2c2799e5e bfe22e23bfee7067
+  #|atan2 c0838f0ba8925dce 4075b92c976492c1 bff10598d5fd78c0
+  #|atan2 407fb1caa2934c39 407ecffd5e575fc4 3fe995925dfac1a5
+  #|atan2 c078f40e6f65a2fe 408a5cc4c94f8ecf bfdc4a645050cffb
+  #|atan2 c072046b86265766 c0701c7808b9877c c0026739a579ca66
+  #|atan2 408c45398367d184 408144d7500a1539 3ff05be8d209d3ef
+  #|atan2 4072f0272b67c45f c07728243a084677 4003a60d3587824b
+  #|atan2 c0898f3f0b4d2f69 405e3471a456ee58 bff6c945d7917fdc
+  #|atan2 4088391a6c23f45e 40768b3cf1363e5c 3ff22a05cf5ae114
+  #|atan2 c0768587dbab6773 c0750d3a179407a1 c002946c7057f9a6
+  #|atan2 407ff4244bdfa32c c087e61458177cfb 40046b1fc24a318a
+  #|atan2 4084c2a4faba3b19 40877c41ea98cca9 3fe72a14b05f0dca
+  #|atan2 c088f5730b0b5c72 408ee30b8aee081d bfe5bfa1d9010d74
+  #|atan2 405c07b4254660df 406ad9273c4d5a50 3fdeca56fa40392c
+  #|atan2 4079920b06e8c886 c0697bef6a77f883 400043c5cbbb47e2
+  #|atan2 40534a3330ef415c 4086298896e1efec 3fbbbe515a206574
+  #|atan2 408633632b167435 408d698f62aad249 3fe4b0b8a3c12562
+  #|atan2 4083166c77b888ed 407ac3bf7058f9e2 3feeb2d966b0ad6b
+  #|atan2 c08dcf7a8c83aff9 c05cebd7cbf9cb6e bffb104bb4dcc52d
+  #|atan2 408a2b426f736ba5 4089b59b8d5f742c 3fe96a8cfd44f853
+  #|atan2 c084da8aefdecb84 c085ed39a5b479f1 c0030cd776c764c7
+  #|atan2 c06db3a90fa1c665 4083f45e0fc6f88f bfd6cca946b0bb06
+  #|atan2 c086c7239c442193 c070eafd1ef61c9f bffed2721efe54ac
+  #|atan2 c07d571ad8112d50 40838dadde477495 bfe498ea4d0d482d
+  #|atan2 c0805956f0ba1d23 40856b50d29b8b04 bfe4dcc6be6439a8
+  #|atan2 c060582c452fe352 4081c28c4c5c60ee bfccf21df12c602d
+  #|atan2 c08790aa7889da3f 40899cec998eb871 bfe7cd0bb7d9682c
+  #|atan2 c0887ff53d229054 408aee2a1ceacb03 bfe79f217ea9bea6
+  #|atan2 4057e1b5216b9bf8 c081c269880c3e7a 4007cceb2c51f343
+  #|atan2 4048bc6a3092d22e c08ab77640ebe8ae 4008ab9a65d1056c
+  #|atan2 c0872211a52b8ad2 c088cf6ad078ff1c c00321198b9b3423
+  #|atan2 4080ac6d9fb3e942 c0858ac9343de624 4003dcffa3f8b298
+  #|atan2 4066fb565761575c 407543f0effc5c26 3fdfb4c8baccb9e2
+  #|atan2 4075089a67cbe29d c085caa1c9c401fe 4005891f1c507cc0
+  #|atan2 c06eb08970825b53 4082f672d3201e27 bfd89b27a63d1550
+  #|atan2 40843281e5bd7a4c 4086935bec1cdc7f 3fe75af22558541f
+  #|atan2 c06bf5cd4da30d33 c06ec9cd44ea8a7e c0033c000508db08
+  #|atan2 40864ed3a711b95f 4082e12410113c9a 3febca51ef7e5b8d
+  #|atan2 c08cf91177653e83 408c6c406717ac0c bfe9707d3af5cacf
+  #|atan2 40879da515a7b422 c062c4a6371b6a3a 3ffc45529f623c68
+  #|atan2 408c8e1e5c5c9eb2 408c69e480319f72 3fe936548c4716ec
+  #|atan2 c071d0837c57dadb 4081d708ec532829 bfdda30aba9e3603
+  #|atan2 c086e3ba8a2e74ce 408d70a230ad2b52 bfe525d84e805270
+  #|atan2 c07dc5c12a7e4eff c08b3ee8bfb44db1 c00521e04b1d1008
+  #|atan2 c031b66fc376325c c0828aa0edf245df c008e4dc66ff88e0
+  #|atan2 c080dfe4d35681ee c07425cb9f96f5ff c000df380353ce08
+  #|atan2 c0555042eb3a90a2 408653f148773646 bfbe6707fe26c33e
+  #|atan2 40790f502072476c 4074ac99a09bf414 3fec31258e5143f6
+  #|atan2 40545c2b96a6dfab 406d091e2c985c92 3fd594e727f5e7ed
+  #|atan2 c08a1df48dd538fa 40747881957df1d4 bff328181d96ee72
+  #|atan2 c08eeabe6a3d7db6 408624cb79150e04 bfee60549f115008
+  #|atan2 407ccbbb641dadac 40850d9098fa9a64 3fe331d1a872c8f8
+  #|atan2 4063e88387a1b25f 408913edc1519b9e 3fc913dda867aa1b
+  #|atan2 c073348c0fe5e313 c07751dfdd479d0d c0039f071ffa5389
+  #|atan2 407826ed6bf7f3aa c08169c1e3f85003 4004482c79da5b29
+  #|atan2 407b83aac5252044 4082e1ecfbdd9157 3fe426061b561d4e
+  #|atan2 408e857a6495c416 c01fe1e85c11c083 3ff9436872c63314
+  #|atan2 40701594eb492c7f 40761fe1db072e54 3fe41d948e3d8bff
+  #|atan2 4088ea8d9a042330 4062c0d8019943d8 3ff6282be2fb13f0
+  #|atan2 c0515605c68da908 40816ecbca6037cd bfbfa8f331dbdb67
+  #|atan2 4073ff5493cb6294 c0115828c16433fb 3ff9597cd3c727c4
+  #|atan2 c07ceee44d46e23b c05ba68e3fe4f2d3 bffce294ff29ff29
+  #|atan2 4088d831eab30bdf c080e6c99b8c17c2 4001586ac3f42539
+  #|atan2 407eead6684629e0 4061878cda784fcc 3ff4b67ed383062d
+  #|atan2 407f93eec0eea7cc c06027c9abe34605 3ffd23c11f3f6bba
+  #|atan2 c08d93cb6db935fd c05b86bebf0c7bc8 bffafc5894ad7019
+  #|atan2 405bed3c5889450c c0764d09ff0d58b7 4006b49de197b160
+  #|atan2 c089217e8415e696 4052e62b18fe8abb bff7a212510222cc
+  #|atan2 40800acbe9ff1725 c0882d13e9f56d60 4004722b808826fa
+  #|atan2 408ea86e6dadb1ad 40681d5c847ff2c3 3ff606adc705fdda
+  #|atan2 c08c2612753f676f c077e2cab013496c bfff8d8c0daddf47
+  #|atan2 4063f7833c20951b 40856e4e65d966e1 3fcd4aab722fb991
+  #|atan2 c083356fa34def8a c07d1066ec59a3de c001bf6ab52844a7
+  #|atan2 c063e064278b0eca 406e6ec37cf55d17 bfe283ac2a8802a6
+  #|atan2 c08f00549a5dd231 408a84d0fae73507 bfeb9f16666ab374
+  #|atan2 406556363eee90b4 40724d6ed7767c70 3fe0e34b367b1a64
+  #|atan2 4080899d7e6d2c84 4071eea75ff3c7db 3ff12f0cb7c7b694
+  #|atan2 408775bf51cd7c22 c08176cb91bfc38f 4001af8c08baa305
+  #|atan2 c060f5a2447e031a c08bf5168ee50c56 c007edbdb36fb917
+  #|atan2 c03894c77af56bfc 407f9935a7c7c76f bfa8dfba4eba24a8
+  #|atan2 40859074edc9b9ce 40878c7d98577ca8 3fe7b9d9d6834b88
+  #|atan2 c07c26b864a24dbc c0866d5096b86c28 c004a61e0b612d6a
+  #|atan2 407b32045fd4c023 c079df30ec4c8fd7 4002a66b0b5169b2
+  #|atan2 407cdd6d588a6bf2 40885c58a0d915fc 3fe11d7a5863cbfd
+  #|atan2 4070d833649a1c3a c0474e590d7fdd44 3ffbdf71c2caca09
+  #|atan2 c06349db22a5dcd2 c08151afaf0f899d c006f5d88a6d7d57
+  #|atan2 4006b47f105af67c c089a6d8995b393f 40091ae6985dcabd
+  #|atan2 4086a4035ffd37b7 4053d600b2068902 3ff763305a3fb428
+  #|atan2 c0612fbf65f02679 40794c41618b7af3 bfd4f502f93c46a8
+  #|atan2 c06899254971b8ea 405975e8d675560c bff17dd89b2c8bfd
+  #|atan2 c08869d949a99bc9 405986fe0e12fdf2 bff70da3d1a220d9
+  #|atan2 c06ff25ca5226a26 c0853b89e795ab37 c0064126b5dde9b4
+  #|atan2 c08db91a360463e1 c071382ec3aac5d9 bffda4d7b96492b4
+  #|atan2 c07ca2e177b27996 40615c6d9bf3b7b2 bff46c6bbaebb47e
+  #|atan2 c041ef0937497930 408d8321bb3a39c9 bfa36fa6ab2b242d
+  #|atan2 407e4e575b9d9180 c0782f7846b0e82f 4001f469300d5b62
+  #|atan2 c07ee42ce1d04b06 408d8ad5c348eb2a bfded4eae892beb1
+  #|atan2 c08289ea2b88beda c083daedc2fb0fb2 c0031fae627fe4a0
+  #|atan2 c0701ddd7377417f 40261450026341e8 bff872bb89dbb409
+  #|atan2 bfe914c8768ee790 40769573ac479b6e bf61c4f10547e30e
+  #|atan2 c07493e62836ea0b c06f18098feb43e7 c001be19dd1d7073
+  #|atan2 c0788858e25d2267 40789f61c7dc3d55 bfe912fc751b8253
+  #|atan2 408b803e08134296 407ceb7f92b28c5f 3ff1633835b7280d
+  #|atan2 4088d8a53d5b41d4 c08c74c2cd8dd996 400363f902e88c97
+  #|atan2 408d869fade3a6f4 c088ce03a81633b1 400227f7f3f8cdce
+  #|atan2 4080dbd7a6121f13 40699973c83cb346 3ff353e7edbf8852
+  #|atan2 408537e15dd463f1 408b88e43f490c7e 3fe502810e142767
+  #|atan2 c08f042a012ca0e1 c081bf89de8e81b4 c000b96d529b02d2
+  #|atan2 406acd0c1a8a505c 4051aa2ec4a9d1f7 3ff40a09491c5f4a
+  #|atan2 4089e8992d2ce6a2 40779fc07d26dfe4 3ff249e1b61dd772
+  #|atan2 4071af9859cdef0a 4069dcb827096e95 3fee101e3d9b8f11
+  #|atan2 408d7cca3a8052f0 c08f082619e12bc0 40030dbcb733f976
+  #|atan2 4079ab6dfe974a2c 40708718060deb24 3feff5beb08820f5
+  #|atan2 408db8774d0112cc 4075780019ca4de0 3ff396523543167b
+  #|atan2 c0846dbfd8605b5c c06aa39c161a5468 bffe2cc83a0f698f
+  #|atan2 c075b799b35c6f5d 407a0dadd7bfa3ae bfe63c687bc3ed83
+  #|atan2 c084840811e822bc c08b813e61342800 c004017b65fa733a
+  #|atan2 40763dd2980527dd 4087b93f7bb6f9cf 3fdc0de0007ad0a5
+  #|atan2 407216a1bf30c4e6 c07a8dc08d95c2ed 40045948a363f8fe
+  #|atan2 c08125aae76487ac 4036a8aaf9187136 bff878ef1451fbea
+  #|atan2 c081911759710c11 405f1cb3ab473484 bff5a5953a1bb4e1
+  #|atan2 406b90d9a8303e21 c08dce83a566f2cd 400750a68cf35702
+  #|atan2 408ed9bfe5d51f36 c0862749b84a6303 40018c690db57c75
+  #|atan2 c08b8419451a96f0 40404edf248157f5 bff88a536f0f13db
+  #|atan2 c050fba3ee361a13 4025f70172b6a74e bff69177fb1bf859
+  #|atan2 c0837d6a3c331db2 408a1093f5456f4d bfe48bbf6decba69
+  #|atan2 4075389d91466b2c 408d183b5c376da3 3fd66187716c3718
+  #|atan2 408689463f0d9cce 4089e1efe5a1285c 3fe6ecb6401aad26
+  #|atan2 c0669fe6a2a852d5 4073b981e32c9971 bfe0a9b24b390e0c
+  #|atan2 c08847dcaef297ce 407a4f910a21c662 bff1303271af0836
+  #|atan2 c07ab40079a4fee7 c083fb2b3075cf05 c0046b91426c3d3a
+  #|atan2 408ba723b0aa4643 c07c098ac382c022 400051e58c7b35a5
+  #|atan2 4084e6b2c005ffef 40425491946ec027 3ff841b1a2d7edff
+  #|atan2 c088593c2f89a510 407064859fdde90a bff3eff85b26e03e
+  #|atan2 c08ceead617218df c07c1afc24161fc6 c0002efe6b203d02
+  #|atan2 4084bb584c56ea94 4064aa9c880cece0 3ff539969e797250
+  #|atan2 c07fb2975a674b75 c06c8075cffd6d60 bfffe49745383de7
+  #|atan2 c04e1822d18e571a 407b56b2f21f93cb bfc180b886aa2947
+  #|atan2 c0768ab3b9ea87d0 406002ef6b94c391 bff3ac32a70acec0
+  #|atan2 407e940c861999c9 4088d44f7a463041 3fe1a97243448259
+  #|atan2 c059e1fbf95b1817 c080d674d2081252 c0079d33337669db
+  #|atan2 c08f0a8b6a67e4ca c08099dad909f64e c0007ec4e966200d
+  #|atan2 c062b4a93addc9c8 4086bb084e76cda2 bfc9f8ae606183dc
+  #|atan2 4082dc4d7d5e01c4 c086b505e1b5b814 40039676f3bb0d1d
+  #|atan2 c07d9c0e5bf9cf37 408c7d244dda75d8 bfdeac307e1fcb2f
+  #|atan2 40822fa06d03662f c0753aa8e5a2a65c 4000cafec7d38e16
+  #|atan2 405a20dee46ff898 408f2c3138bf3373 3fbab97195fc1208
+  #|atan2 c06fc430d1647533 c06ea3bc4fd43940 c002b4832f7a67bb
+  #|atan2 c08b23f6f96bce7a c083198b8a37899a c00178e2db76ea0c
+  #|atan2 407be461435b131c c07f4c11098bdcb5 40034f2c6a6827cb
+  #|atan2 4082bb09cb9121d6 c080846a3d98ec76 4002590d4362e146
+  #|atan2 c048072846f8c003 408abc8d7d7da727 bfacba5f526a6389
+  #|atan2 4081ad680e91f263 40831b65cb9697c8 3fe7e3c0f1c631a2
+  #|atan2 4067a75bd464a669 400af19ac46cf49c 3ff8d9166ec1fd25
+  #|atan2 408c21e118dc3758 406f3248bd24a7fa 3ff4ce451655a218
+  #|atan2 408736b60ce77374 c07473c2102d735d 3fffc5956b2a80fb
+  #|atan2 402553ea4c3c9c28 408d8250020a1a94 3f87208e20ebabba
+  #|atan2 c05f4987381c5f46 c0814c2c027d94c5 c0075a9820047f32
+  #|atan2 c08274e024a13857 408e4a533a20e1f5 bfe183086e4bdcda
+  #|atan2 c080debbec422e1c 40442b2165d137e6 bff7f07f17a2336a
+  #|atan2 407d227dfbd32206 c06c4cb4f90e3c9a 40002eed042c7e52
+  #|atan2 40830aa5a3c00345 40879336c675a9c2 3fe5bdccc62f62cc
+  #|atan2 c08430579918c725 c07f33f917950412 c001d469c24e6093
+  #|atan2 4084618853fb9efb c06673b5c311a702 3ffd6ebf27d53d09
+  #|atan2 40716b85cbc95001 4063c549a0fa3a4e 3ff0dfcde394b4b7
+  #|atan2 408081c61d28830f 407476f158effb0e 3ff04113438c4b11
+  #|atan2 403cfbbdaa0db7fb 408e30f27debb2dd 3f9eb5e9206e2359
+  #|atan2 407a0a39c53417c3 c08de4bc352d8cfb 4005d8ba4868d9c8
+  #|atan2 40797bbf271903cc 40704b2019dfae33 3ff007e3af4d774c
+  #|atan2 c07d253a07f298c0 40731d966ab56a8b bfefb096d82faa1e
+  #|atan2 c089b631c7fe9ac6 c0602b99245b8b15 bffba0c138b92061
+  #|atan2 407f6aae8b794aaa 40825bf4bce19e91 3fe6a5d56ebcd092
+  #|atan2 c08dac6c1d5941eb c08cede6df423fa6 c002bf7ab68925dc
+  #|atan2 40581c706649c292 c084ac2aa4eb1b37 4007f97d28823512
+  #|atan2 40430f922f893c6f c08447c412863550 4008a9d11b7c3002
+  #|atan2 406d3a04a1a71d77 c04cd9387ec43a1c 3ffd00efb4a56b87
+  #|atan2 c07aac70f38b8161 408b245de7165549 bfdd3ae67c878f98
+  #|atan2 c07f96bda04f7764 c081ae6def46b4be c0034cce1d501bf7
+  #|atan2 408a89015ba1e2d2 405eea2a78331b1b 3ff6d1a46214c8bc
+  #|atan2 407ac71b34a489b7 c088384a166b739d 400517c0c8f9cc5c
+  #|atan2 c081e60c2efc044b c08814c12ed4f188 c00404f28ec9d372
+  #|atan2 4078ff3849bdd0a8 c06e3ec3a6ec6b40 4000eb3fa6ccc25a
+  #|atan2 c080f9391df8c829 4075efeecc8cda67 bfefe81bd731b761
+  #|atan2 c058c80a6cdc7e9a c04d418eacc1f7bc c000d5130e17c397
+  #|atan2 408c73c2fcbd9014 c06f93f8afbaa1b3 3ffd7697b7638bf9
+  #|atan2 40886d6d55644f59 c04748b0505d7bcb 3ffa15b5aec0199d
+  #|atan2 c03837c76e6b1e44 4089371daeb0bf04 bf9eb9991956a61f
+  #|atan2 c04ce7a6c26d01fa 408e2d1f93993644 bfae9d80e14b1a3b
+  #|atan2 c06380f17fd8fb9a c084368972438cc6 c0073d3608e3358d
+  #|atan2 c043b80e2df392ca 40806225dba30296 bfb338a84f1e50e8
+  #|atan2 408700bb8c1e2c15 406694f77e99f1cc 3ff548348cc9c922
+  #|atan2 c087543167ce2e78 c08668c409e2b835 c002b050462ad3af
+  #|atan2 c08918f9538b2db8 c06dc699983344d6 bffdbf007f57837e
+  #|atan2 40826a20ece9a77f c08eb54ba52a4a7b 4004cfb5c6d212e4
+  #|atan2 406da0c7395ab0c3 c07e33646a7cf78e 40057c067172735a
+  #|atan2 40749c63b310a4bf 406d5378e89dd9c1 3fee7a70337909c6
+  #|atan2 4085057f6a34d006 c07d986d8efb1a98 40017927528dcbfe
+  #|atan2 407a20bbba6998f4 c08075d595a2a1a6 4003c40cb5b400df
+  #|atan2 408320502a0e5f5b 4089dbc580dee982 3fe46106c712adce
+  #|atan2 c07ebeb76ac4af61 c06eae33d113dbd2 c00044d257274a00
+  #|atan2 406c35196c5821d7 408259eed1b09f83 3fd77ad8b0726a6f
+  #|atan2 40877414b89cf02f c0706c12d8aaace8 3ffe855f21b93681
+  #|atan2 c08846995fb2e493 c05a55e8debe8356 bffb4a0eb778d13f
+  #|atan2 407bb1cf870b7d35 4084ae483ded7680 3fe2e15ff7186428
+  #|atan2 407ab2e95d9447f0 408744d9b9fe9cb8 3fe0aade9794d2e5
+  #|atan2 40682e3a1410a750 c085cac5a4fff921 4006f7cc93011c81
+  #|atan2 408f16ce4fbe5234 c082c8aed1a39dd6 4000ea13ea24e440
+  #|atan2 408ac378fb448317 40837d4000552609 3fee1fe466b5d41c
+  #|atan2 c079c00dc35643ad c07b2ac245ea36c8 c003104e89a0d801
+  #|atan2 408d3caac9a94b59 408589aa477e567a 3fedf2c8bebff762
+  #|atan2 408e53e74e3e5cf2 408c618395d7484c 3fea3189600db86e
+  #|atan2 407186d68f986d0e c0877f73795101ac 400646ea68fea607
+  #|atan2 408dacbe1dd70c8b c07aba7d50240fd0 3fffe734e64f30ca
+  #|atan2 c059b4ca71fede21 408e04eb1c682d81 bfbb4c6888f8a95f
+  #|atan2 4051950cef6f6f69 c088ba3ebdcdf9f7 40086c6ecf293c8c
+  #|atan2 407d8cd1c78b3462 c07d662f465b75e6 4002d43e4270c30a
+  #|atan2 407ac9b3743621fb c0831090c21b5cf0 40043bb62c86cd53
+  #|atan2 c085e9a01deeb3ac c085f833b6503623 c002dc24ca673590
+  #|atan2 408780dd4a3a692e c08ca826af0e68c2 4003a32ced05173b
+  #|atan2 c08102a74ca970d5 40847314e1dc3b91 bfe633fb42232a5a
+  #|atan2 40845825d9130df6 c07fec9921757864 4001e37b14bf47c8
+  #|atan2 40811646118e4833 4045f3b64b714b42 3ff7d9cc3d0309d2
+  #|atan2 408b652345bd9bf6 c08a02fbdd8dadd7 4002a472b5ebaf56
+  #|atan2 c089a1673adf4fc9 c07cf30552e50b8a c000adda02e4452e
+  #|atan2 c060d2aad1ef59c8 c085487631d4bca2 c007926cf45e3c2e
+  #|atan2 407e299165f44c6e c04c894999a8141b 3ffb0423c1ce6fa1
+  #|atan2 407c6e6bfc76e303 c07d02f2363b564e 4002ee2ba118ad3e
+  #|atan2 407f074ce790901e 40733425772aa1d6 3ff043f61a9922c9
+  #|atan2 404c8adf33d87cbc 40737077971670de 3fc73be62d846cdc
+  #|atan2 c088f985f12c13a0 405d7a3d79c2d4c8 bff6c9ffd1983e44
+  #|atan2 c08916f90c3dcd76 c08a38ef1d4fc4c2 c00306afb7fbb366
+  #|atan2 4082da817e16c46f 4060b36540ef3d13 3ff5a5501b377928
+  #|atan2 407c3ccb8792295f c07d4949d76f38c4 4002fed285a142b6
+  #|atan2 408d6c5302a7e019 40652656f2c8de36 3ff649b086aacf55
+  #|atan2 c081f5a9f61ff2aa c082f10c7a5c034a c0030ff8f124ce56
+  #|atan2 408d659cff164e25 3fef035586d1acb0 3ff91dc308fd5c28
+  #|atan2 c065e16a548f79bf 408dc2e8f5ef50be bfc74445a4a785a9
+  #|atan2 4062448e8e9743ab c08d3f0b6884fc99 4007e4bd08b20733
+  #|atan2 406d677fe36183ff 405dabdf8ffcddfc 3ff1a806bb6081c6
+  #|atan2 c08128462ab69e78 40863b14f7abd308 bfe508927e164434
+  #|atan2 404d2c70591c54e1 408e4705b2aef59a 3faecbd17bdbf980
+  #|atan2 c06548d0aa40d469 c0506b7d86d4320a bfff05e25cc14037
+  #|atan2 404815c1ed25dc71 c0831d8925d8c336 4008810954ca648e
+  #|atan2 4066d557d5144f2d 4026b99a81cfeb49 3ff8238643da656a
+  #|atan2 4086bcd083cf3f6f 4080f63b415470f6 3fedc1804de4a7b3
+  #|atan2 c08c3c4d5ff46475 408ebcd6ecf0a69a bfe7c69f4879ad8d
+  #|atan2 c0851a8b393dc2b4 406f9fec0dea4829 bff365c4da633b98
+  #|atan2 c0874cca75f2bc34 c08cf5dc9109b4e0 c003b672bf34bbd1
+  #|atan2 408b2a1ed7356079 c06163372a46d6dc 3ffbabeab0260769
+  #|atan2 c05e2eb4100cf5a6 c08e4d73052c8675 c008244d435aa5bc
+  #|atan2 c074270ea24adf75 408c4fd85c39fd84 bfd5e2142add29d6
+  #|atan2 408f1be857710b7c c08d6bad82f15a03 4002a05fef86924a
+  #|atan2 40819feb2b7e7a37 4077ab5a2dd0b138 3fef57cad0d0e611
+  #|atan2 4087cc0c876bb1f8 c07bb8fe7beab688 4000c92edaec2d66
+  #|atan2 4078246e43f9f2ef 4088e095eaa148a3 3fdce9a3c57222dd
+  #|atan2 c081688131b66ea1 406c084f928a1ed7 bff30257d0dd61db
+  #|atan2 c07bea49105db503 405a57f9b67cdd8e bff56cfb909b8336
+  #|atan2 c08b14eb8ada3738 406ac7f6976be568 bff541410cdac942
+  #|atan2 c080222050f15b5d 407a360917e7fd1b bfec6f463f5acd3c
+  #|atan2 40695b858f15da3e c08667c2f2f70196 4006ed478bcc1382
+  #|atan2 c08b6a14958b7bca c07ba4e7dfc95ae7 c0004d656bb01a1a
+  #|atan2 408e9e2f8281db93 40715d776931a44f 3ff4b6299db1a92d
+  #|atan2 4077afd10faed7c8 4084a183c1be2354 3fe0ad144cd77d9c
+  #|atan2 c08b94101fa0576d 4055d5300722a187 bff78df744675ed7
+  #|atan2 c085f243601217b9 c0888f950b520b71 c0034c7fc2c35704
+  #|atan2 404fb876f74f745b c04d68a9a05ead00 40028c12f8fd56b9
+  #|atan2 4084cfbd222c93bb 401f8ae250693d04 3ff8f17bdd06c5fa
+  #|atan2 406c363efde1fffe c085d6affb137270 4006a237d96cd6cd
+  #|atan2 c085d144ac7c01d6 40848d51f636abca bfea1693022aa43a
+  #|atan2 407be076be1710dc 408358f678501aa4 3fe3fa4850c3eb26
+  #|atan2 c03036b40d7f2f60 4032fecc4cbd74a3 bfe69c213258933d
+  #|atan2 c084b27196407790 c07f2231090a8fed c001b9aa1e7bf4cc
+  #|atan2 c06c7a0c1e89ac7c c0745140320aef6d c0043e1e83660754
+  #|atan2 c0816889ac43d27a 407d6dc23b29dc87 bfebcf66c4fd05b9
+  #|atan2 c0755d60ad209cc4 4045b259400526d0 bff71ccb2bda3adc
+  #|atan2 40727bc565f319af c0844fe9af980b3f 4005b7806e1dd89d
+  #|atan2 4085bd86cecd32bf c06deee6dc84fa51 3ffe6fd8a87c52e3
+  #|atan2 40478d621cebb0ae 4083e35b5249a60c 3fb2e9d07af35b1c
+  #|atan2 4072bdc123667a1a 4078b93fff318f7f 3fe4c17e63770784
+  #|atan2 408ec961262e1386 404d88db2bee2bbe 3ff82cafc0db3753
+  #|atan2 407d0084a2ba4da8 c07c04852f5a3fcc 4002b622484a9438
+  #|atan2 4084502e19f56f22 c05f7fd71b8320aa 3ffc32350a6ea35d
+  #|atan2 401ad049e98cf74e c072a28ff203d805 4008f3f1f8c5517e
+  #|atan2 408e9845f0831bf0 c068f3d9df057439 3ffc59d7eb5db6ef
+  #|atan2 408e541856bf2f32 406bde92e925eb32 3ff5850e9e688ee8
+  #|atan2 c07552cf09f6c7b2 c083042da8dd6533 c0050b78238e6054
+  #|atan2 407770637a1c1a23 406a229377f548ba 3ff0fec9c03ef313
+  #|atan2 c08d28d3f2cf8588 4025fff7fe989197 bff8f1b2b589d996
+  #|atan2 40543c068f8a2069 c08a972efbb6c3eb 40085fc259d0c04a
+  #|atan2 4083e21a4b187f17 c08edb834b19e86b 40048db616125c15
+  #|atan2 4079352628b82742 406772e791a2d3c1 3ff22ac7fd3f4191
+  #|atan2 c07244d7ca14bf9f 40845f4d123c2420 bfdaf9e9c18ba18f
+  #|atan2 c076ea8c72074051 c08a82e82bf0fbb7 c005de8012a2264b
+  #|atan2 c087c1dbc3145a54 c08b3527d2bb0930 c00363ed49703681
+  #|atan2 406546a92597cda0 403379bdf6aaebda 3ff74f56b6168d95
+  #|atan2 4018209c7d28850a 4040f65962216c87 3fc685f1db25a13b
+  #|atan2 40744182d448c82c 40740837dd45cb72 3fe94f7ce6ea8029
+  #|atan2 401c48a8f0575726 c041b92c1d2de256 40078ebc8f059ed8
+  #|atan2 40446a953752b873 c06b3174740432f8 4007a5ffbd3e5328
+  #|atan2 408477b3c95d349e c07f5f535e2d5ff1 4001cc327c4e2af0
+  #|atan2 c06691c3757e49a8 408a237bc13a1ae1 bfcb367e1d12b43a
+  #|atan2 c07b4bd0efcd43a5 408ab00d7c72af7b bfde41229bb17fd1
+  #|atan2 c07bfc8746214534 4086bb36016d2a37 bfe1a864f3397a4e
+  #|atan2 4087f459803e0d29 4087a3d87a22a450 3fe9581b87e746fa
+  #|atan2 c074177a0c2819cf c0855e0c34de57a2 c0059deba2717387
+  #|atan2 c06ceabd9b619e4f c08a7882004430a9 c006fffb33832334
+  #|atan2 c043235db0fa1b7b c080a53a3d51f619 c0088f10d1a304f6
+  #|atan2 c072693c589aeb5a c0567cd5e1ff6d39 bffddfe18c16cf64
+  #|atan2 c08aa7e5ad577248 408e26ac5f5a5581 bfe72a9417ef6781
+  #|atan2 c0719dfa216b355d c03c3d83d43f6b82 bffabafc74cbc74b
+  #|atan2 c0654ae3213b9f3e 407e0d00c2a6d4b9 bfd5ca6777e297c0
+  #|atan2 c077fe8963a9fd26 c08a5dc64b2fb002 c005b77266dd5ec2
+  #|atan2 c08102d3e7a78941 c060750eae42c2f9 bffcedfac9c55249
+  #|atan2 c06ce1746f9fb913 c08b88e856d01145 c00714c7a3104068
+  #|atan2 408633d77b800b6c 408e6f9749400b04 3fe42aef6eca5320
+  #|atan2 c071a7016be14283 4081ceed5d825c70 bfdd72e9d1774a38
+  #|atan2 c08cabd09e602d6f 4070f59b2504c1e6 bff488230cf2dd87
+  #|atan2 408c153f0f330f7a 407163ad699df6df 3ff4542bbeccfce1
+  #|atan2 c08cd5981801fa65 c0871d8182d4d125 c001f8ed822afb27
+  #|atan2 40874d539f9cc98d 408a87e862770a29 3fe70feff797e1fc
+  #|atan2 c0841c248cb40fdf 406e7b52e5b212f5 bff35654ca873a22
+  #|atan2 c081c2c3151093d7 40872c9a4145a23b bfe4ece2121817d9
+  #|atan2 c050058b17c26602 405f05a76e24c4f5 bfde82b7d9268cd2
+  #|atan2 c0818ae7896ab223 408e1c44bb3d3678 bfe0e18e376e0d25
+  #|atan2 4048c7e5ad09999d 407564e2786675e3 3fc267abad140358
+  #|atan2 40881542e8483601 4084ceb61cea537d 3feb76ae44ebd65c
+  #|atan2 40773e159237a300 4079b59a8cfefc3b 3fe785812f3f8714
+  #|atan2 c05448a86f41dd3c 4089a58da78fd646 bfb93a052df011fb
+  #|atan2 c07de7ec2854d790 c06fe6eb1a9ceb11 c0007c7c6f0dfc60
+  #|atan2 c0576a56f8cf5d82 c089deea1181dbd8 c0083b42712bbf30
+  #|atan2 c0464baf26af86f0 c027eee5ca7f46fe bffd53e382e71478
+  #|atan2 405bb995ffca98ac 4072af923b1d4ced 3fd6bba36e380d20
+  #|atan2 408184978ff928a5 407f8157be0a7263 3fead43ca7dfa4f3
+  #|atan2 c07b5bd13500200a 407134ebc30ff776 bff026664986bb24
+  #|atan2 408e1312947a91ca c0762c08d75e6c8d 3ffec88a76af6efd
+  #|atan2 408253a4b4c2388a 40791813a7442d69 3fef0e03830185be
+  #|atan2 406ebf5956069f35 4080815db1cf7ae3 3fdbe4f5278bbb4a
+  #|atan2 c078c3d8dc0b88b0 408ef6a3de69e753 bfd858e94774909b
+  #|atan2 407d725add4c276b 4082a1426c2456bf 3fe566d430bbdda8
+  #|atan2 c079e8667fab3eac 4088abfe778e797b bfdef1699a650016
+  #|atan2 c082e61321407b71 c071402af04b1e82 bffffbbaca01b9ab
+  #|atan2 c088ff495fe04fdb c06f6388af7d361a bffdffe7fcf97b4b
+  #|atan2 40809d818bfbb8bd 405aec4474d5a6b3 3ff5ef6cb03329a8
+  #|atan2 408259eb3f54e836 c08576d9393b4f12 40037949257279b5
+  #|atan2 c0679368374bcfe6 c08dc2cd671d9480 c00791920f1b63c7
+  #|atan2 407982b984410202 c0724ac542520ca8 40018afce5168cca
+  #|atan2 c06b808cee4531f4 4076789c935f752e bfe192ae83905d22
+  #|atan2 c07043e52293b47d c08d2819b1f68d44 c006f4e567006cf0
+  #|atan2 c07c816f30712e36 c085ace0fc422713 c0047ab83321ac5c
+  #|atan2 c084f2c0a8fb6485 4084b3c46981aada bfe9525f6c73fac4
+  #|atan2 c08d44c573e32940 4082e337dbd58d37 bfefed51ebbdc77e
+  #|atan2 c0781f498427a44b c07726cacd858eef c002af70acc59d1e
+  #|atan2 408ab2aa30de0dea 4077491ef9be25c6 3ff28d952e40bbbe
+  #|atan2 c04d97f199ecf4af 407b60ee2e9ff0bd bfc130b61c6b45a8
+  #|atan2 c052a9f81c590e36 c07bc525b2fa576d c007cd0eb13e0c6d
+  #|atan2 c05c97ee35d276ed 406703db58bc77c8 bfe1c990cd5d3a92
+  #|atan2 c060ebf1b27b8348 c07ace74a98a08aa c006afd876eb0092
+  #|atan2 c0754c505982e384 c06dbecd4d6d6198 c001716e8baf5423
+  #|atan2 c060d08c32c8216e c08cb23e18b64a63 c007f817c83dca3e
+  #|atan2 c08ce97df0d74135 40750ff00f9d4798 bff38b35504a0cc7
+  #|atan2 408b3b4c19f725fe 4065398500f6e1fe 3ff60dbd60e22eac
+  #|atan2 408bec1ea4c9b10d 4077bfe199d353dc 3ff2b2f436131722
+  #|atan2 c07654fc8754a246 c08444f0c9d469c9 c0051ac5d4cb70be
+  #|atan2 40807e87e97c0ed8 c07be0f4a969cbe2 40022df59fe08522
+  #|atan2 c084b7625a986d0b 407ef483fcd2c808 bfedbb87841c83c5
+  #|atan2 407b36d2c592d05e 40897511292a4817 3fdf6a6985ba9bfa
+  #|atan2 c06bd6db9b474c48 408460974faca12e bfd51062e3963fd3
+  #|atan2 c041405acace879b c0720c9c5b44e2cb c0082e73e36615c5
+  #|atan2 c05426a4aa953d46 c08eeadbb6b44b5d c0087b7f425fc828
+  #|atan2 407651c663412754 4079dc735a1b1bef 3fe6c8e0b768a33d
+  #|atan2 4081ea95c074b589 407dd243b6b3b16c 3fec0df6bffd2406
+  #|atan2 c07795fbcc896cb4 c06c4afc1887b26d c000e37241b381c8
+  #|atan2 c08afb83cc87f840 c02134960106dd1a bff94aca43415bec
+  #|atan2 4066c8afe578197e c080cd8490c303a1 400684a0be156ed2
+  #|atan2 c0610b0c88bcf7b1 c052e465a7700769 c0009d7a0596d0e2
+  #|atan2 408627335c1d3e23 c084be39bdf61385 400296309bf7c79f
+  #|atan2 c08386e434b10308 40732409c4b3f871 bff1d76895d80061
+  #|atan2 c075c51e0ad86e51 c06cfcf19c1807ad c00143f6874c9617
+  #|atan2 406ce59d58cc91a4 408d52bf07b6b994 3fceeb46f5bebe07
+  #|atan2 c0771ce1b742a9bf 4083cd57ffe7143b bfe0e794e78610eb
+  #|atan2 c067fe330025d376 4064d37ded1265a7 bfeb63d9e5619a78
+  #|atan2 c08a67214f96db4a c08a1ca341b27255 c002ce236d91be5b
+  #|atan2 c08506a278f7bf38 c079159f04046bb4 c000de82ba0299ac
+  #|atan2 c08f3efe718aa517 c0514fe1ed6b4538 bffa3d34a6235e69
+  #|atan2 40840726073fba2a c077eeec7ceb3eb4 4000dfff97058284
+  #|atan2 c06698c6255b1f9f c06e0a359a54fa16 c003f92d5bc836ac
+  #|atan2 c0635e556488f2c7 c082903785e39789 c007176b369c5691
+  #|atan2 c076655a14cc86e6 c08acf8aef2bb2bd c005f7b451e01e26
+  #|atan2 c07d593219e1735c 407747570aa6e0e1 bfeccea67833da29
+  #|atan2 4082da0c128f9aa0 406d43298f9c1cc7 3ff335c3ce943f1e
+  #|atan2 c0855ec252a780e1 c079f712fd4b71d1 c000ef0a6b864f30
+  #|atan2 4088411e1f003ae8 c078e88b937f0a51 40005c82eb7479e8
+  #|atan2 40866f4919ec2d6f c07dae1fe1c69177 40013dd8dea50036
+  #|atan2 c0758c2e0a9c0243 c08be70557bc7a8c c0062f51f077159f
+  #|atan2 c0892f1f868da3d9 40843a516efc3ebc bfec9c88f0041875
+  #|atan2 c0819bb329448c2a c085f1c92151f6e5 c003b91f0ae1b648
+  #|atan2 c073d6f40d122bbe 408d4e8363668c16 bfd4e36298cd252e
+  #|atan2 c074dc69d19bb220 40639d4bc6731a78 bff219f2eb6eb7fd
+  #|atan2 4084934be21fc0a5 405cc528c8702c70 3ff65d38bc54ed67
+  #|atan2 c0886cacb2dce714 40778e69fb3c147c bff1f18893ff7c84
+  #|atan2 c07a6bef7c2f300f c0601f4b0a1db6a3 bffddee8ebb3087b
+  #|atan2 c07dadabd36c6943 4068d3742cfdc1d3 bff2cb64e02ca167
+  #|atan2 407c85b4ed7ec0aa c06e20a1abf36a2b 4000741f958da3e8
+  #|atan2 407fae0d0c30387c 40349008f8104f19 3ff87be8d4f30480
+  #|atan2 4061fc96398ee3e3 406556f74838a5a2 3fe6693379ea1474
+  #|atan2 4085d359fe524f9d 4070eaebc5318736 3ff337863a754fc0
+  #|atan2 40494c61bc3f21d5 c04ec2691b0ac49c 4003a05f0be6af09
+  #|atan2 c084ce8a774a2086 408e36fa51bf259a bfe34c3906692ff4
+  #|atan2 406ddb6a539fa97b c08e38b98a843480 40073214d31c093f
+  #|atan2 c081fa43182f5dac 4087fd0145e9500c bfe494944bd25943
+  #|atan2 c05a3d4c2c6e994a c0816e419db69bd0 c007a5106307d265
+  #|atan2 408685e0e948d472 c08d5353d67ac5eb 4003e4a897764e32
+  #|atan2 4087894feed16591 c052c814c85db60a 3ffab93363d1338c
+  #|atan2 c077a95491445adf 408aa28f74d1b970 bfdac09026e33fc4
+  #|atan2 c08a2b1c958f6393 4050c5865752b914 bff7da890fe9c1bc
+  #|atan2 408de145b2bae8b0 c08ad501be29e4aa 40026b866c3ff724
+  #|atan2 c085a25944befd7e c0899d5bbd9e5526 c003859d6249cfa5
+  #|atan2 40895283520aef0e 408d1713771638fc 3fe6eba02c4e5a95
+  #|atan2 40579e142006a5ac c07782e4eb333594 40072a16f0536b06
+  #|atan2 4088d81e978492e5 c07d3e9dc0913a0a 4000d2746fb8da42
+  #|atan2 c0899ce9cd614e29 407b76c1614a5c0a bff14232edf859ff
+  #|atan2 4083282c5628840a c07e6ff5b9be174a 4001efdff5fac750
+  #|atan2 c07cbbee5a817a44 408474573ee357c8 bfe398348a331783
+  #|atan2 c0703d357fa42310 408d36fe5ccf013e bfd1597166aa1345
+  #|atan2 c06a2371b7b10650 40881b380d8d8d8b bfd0f10fa1a2ad6e
+  #|atan2 408d00b41f64bd9f 407a3d0f3edd37fc 3ff255fd8d9a9647
+  #|atan2 4080c401274d6586 c0851f462b4bda32 4003c3f20c42eb16
+  #|atan2 408cdd397d0b5ad1 c06fc0b9f3b7ee77 3ffd6d48ce31845f
+  #|atan2 40805112c86d18c6 c050bc5d65c2fb09 3ffb2c4890b0a2d8
+  #|atan2 408514b8e4ddc756 40774c3e03d9aaa3 3ff10e3b312e298f
+  #|atan2 c08ea1dd53e06fbc 40826e841f53032e bff077482cf2ae8c
+  #|atan2 c08076c097aecfc7 40808dc98bdc0363 bfe90ba827faff94
+  #|atan2 407da1117080af0a 4077bee299adb221 3feca55bb1c6edeb
+  #|atan2 408168ab370dc187 408e024d0378c126 3fe0d253f27cf22e
+  #|atan2 c0843c2e33223bdb 402ccb054fc46fd5 bff8c6eded433026
+  #|atan2 4087f6519989d357 40815ea587a28522 3fee31b2a0a17957
+  #|atan2 c048b3bd0b2c3e7b 407cc6544b75e2a8 bfbb5dbd61b4390e
+  #|atan2 c08ad3fa8cdd5a6d c080c2839a59f96b c001089448292344
+  #|atan2 407634c2ee45093d c08a73198424c732 4005f4053d8ab696
+  #|atan2 c06da4e5a1fb083c 40659b1f5311a91a bfee1c7395c01fc8
+  #|atan2 c0738f124798472b c0798e61d66e4485 c003e825c39040ad
+  #|atan2 c08760dd82ddaef8 c081f5d89610b8e0 c001ce9656622d8e
+  #|atan2 40545f8a4debf667 407f076c56563ce4 3fc4d335c6384ee9
+  #|atan2 408dd0c3ce4baabb c0159bb33f57a663 3ff9392c42c7ff62
+  #|atan2 4088372f3f1a09c7 c047d4af86f96f49 3ffa1d98e1900be8
+  #|atan2 c0861dd31ba19034 4072fcb77ad44703 bff2a52f653f8f4d
+  #|atan2 407828354c612eeb 4087c5e022f4f2b5 3fde15f3271c14e9
+  #|atan2 c08cba415408eca2 c05d0edb734a1bf7 bffb25235c195103
+  #|atan2 4069d56dc4e66842 402f45ec187134c8 3ff7ecab3b2130f9
+  #|atan2 c06d6f08b6029a62 407991b480ca401b bfe0b66145872b83
+  #|atan2 c0214e9a8f080906 c08152f717ef2094 c00902040cccfc1b
+  #|atan2 c06741137e968259 c0460bdd9dc2d5b0 bffcdb344b343cf7
+  #|atan2 408240a4c7a44a58 c05c637ebbcd4089 3ffc347f927ae2a3
+  #|atan2 407c4365d154248d c07f6ba577d4353a 400345b910fcfc87
+  #|atan2 408b0b5417c25b46 c074d01e113fd10b 3fff02909a3ee7a7
+  #|atan2 40835fada17b99f0 407f05e3ff6fd458 3feca942d930de1c
+  #|atan2 4086f4fab74327a9 c085fcf09532f779 4002ad57e0192ecf
+  #|atan2 408c89b614aadcfa 407910e0a01c1caf 3ff2830401f70500
+  #|atan2 40832d430744582a c08c5e76e01c6bac 4004609b9ebd856e
+  #|atan2 408b71b4897b9490 c05d007c187261a8 3ffb3bedae8ac72b
+  #|atan2 408db67edec6070a c08345fac5538fef 40012b77ac8e9671
+  #|atan2 406a5fe65ae9f846 40779b9999f92493 3fe04d2dd8bbdb7c
+  #|atan2 c085bedc2c2c614f c0645c9f6e7a631e bffccfdc720a0f1b
+  #|atan2 c08c5f65cfbe3388 c0715ea1bf4660d0 bffde2aadfa8bb04
+  #|atan2 408d31565c6b017f 402bccc3be47847e 3ff8e50a345a7d0b
+  #|atan2 c080e01cc3bd8125 c08c943a3f107ca7 c004dd97e7c7e570
+  #|atan2 4078e3ad4d79281f c06f43ba60d3e619 40010d84b6656276
+  #|atan2 c080b36a18e029c1 407f42022d513581 bfea317e57a3d289
+  #|atan2 40821994f1dd67aa c069bc9c6a184b77 3ffe98f838b2b390
+  #|atan2 c0767adddfc53b84 c06419ed3d422463 bfffdc1492f63384
+  #|atan2 406ec84511aaf022 405e4669cf743a89 3ff1d1f7fd046d6f
+  #|atan2 404f81eebfe4556b c0750142d97070a2 4007a66324315e57
+  #|atan2 c04a4d3f4fe564c6 40856377c478c7c3 bfb3a3044da35a39
+  #|atan2 40892fec3b3c54a5 c047891723c99b90 3ffa10ec39b4154b
+  #|atan2 407fee30a0170f18 40826239f5d016e2 3fe6e223a5756edd
+  #|atan2 c0852eb67e638c91 407007493dcd5e1c bff3587796037d46
+  #|atan2 407f509c818e9aee c080d3cd8923ecb8 400323361a39f50c
+  #|atan2 408287c81a874ef7 4084eb3b28bf7564 3fe7329917fe0a05
+  #|atan2 4089b25f824c7bf1 407dec954c3a03c6 3ff0b2490ec49826
+  #|atan2 c0881603c694706c 40407f131cd0bf92 bff872c16a174c22
+  #|atan2 408875645d01b9d6 c0705c665b0a97d3 3ffe4c085a83eab9
+  #|atan2 40843c60491ef781 408594455cac53cc 3fe81ae5e8a4fb33
+  #|atan2 407eba7bf7bcf947 c071df6f1ed103f2 4000c7e47da8443d
+  #|atan2 c08d6870263a2a6f c06214e3ac05a358 bffb92b3d5ebea5a
+  #|atan2 408d6ac153f43233 4072085c86433d16 3ff45fca73f78b43
+  #|atan2 c0833964ec3a5166 c0805d7bd21a7913 c0023550c11c3343
+  #|atan2 4027fe02c636ca2a c064ce6d543e862d 40088ea31a393d97
+  #|atan2 c08621717593de07 408e6bf7c8a7605d bfe4201ba904fe7c
+  #|atan2 c07e56cb8752fa88 408d481668fd8f3c bfde975c4776999e
+  #|atan2 c05fecd3d8cbb482 c0565633b6cb63ca c001734a5e4abe1e
+  #|atan2 c080ce0183928ac9 c08874c53370d985 c00451009d49db66
+  #|atan2 408b685bf0c9c3c1 40507d47c980ec5f 3ff7ee861d857bb5
+  #|atan2 4083b8b74b0862aa c079e89e7fccc608 4001374174fcab8f
+  #|atan2 c07d325cbd931bb2 c071ac6f4496ae65 c000ebc5f519d7ce
+  #|atan2 407708934f6d8c91 407645e3fa2c4890 3fe9ab798f434e1f
+  #|atan2 c085dae288995a1f 4032d6fec336f2b2 bff8b3aaf23139de
+  #|atan2 404ad6e13c23ad35 c07c9ca7692f0d89 400832eed50f4477
+  #|atan2 40802e734afd608f c0699c23a5e51fa5 3fff2937672db5da
+  #|atan2 c07dcf657d42cccf c087d3cf784b70eb c004a92b7692f523
+  #|atan2 c072f2f365674651 c05422060955711e bffd496717f803ba
+  #|atan2 4072ea683080ded3 c06838c0c56ef3d5 40011f50aa9eacb2
+  #|atan2 c05b0b410835f882 c08d2db5a24c2371 c00835c34b12080c
+  #|atan2 c0678e93a2343685 408a8845929e0e70 bfcbf54ce6b02832
+  #|atan2 c0772a87a72a40f4 c08205c90ddb99e1 c004901d71a38d03
+  #|atan2 c076c80dbb4c0918 c08eaa3295fb7977 c0064995aaf29b34
+  #|atan2 407c2d25505d31ec c08772868d96e0e9 4004cdef2d535346
+  #|atan2 4087b5e211e45c8a 400f2739ac7c5980 3ff90cf5a3565e49
+  #|atan2 c08b45f61d345e42 4074ce6b3c6c01d1 bff34d5ff925677e
+  #|atan2 c084313784a62f0d 408d11d2d7b4a66e bfe36d6573b5110a
+  #|atan2 407608c4f449515c c079ec73dc1f39f5 40037f376bf5647b
+  #|atan2 c085800eb7a14860 c0641724245f524f bffccdfa5e2fd757
+  #|atan2 40826d4b4e86f21e 408b47248053c4c9 3fe302f4e4a422e8
+  #|atan2 407cb572129da221 c079fa3f2b3be681 40027349436f7526
+  #|atan2 4066473d41fbc272 c080522766f50e2c 4006807912a95a56
+  #|atan2 408c3ca919c3f3b6 c08b3db234dde9f1 4002b4b95a28a8a6
+  #|atan2 406d2b9adb3b978f 40802486a9b5d06b 3fdb27f95da86c6c
+  #|atan2 c06b918dbffa4a17 c05870ab9c76d1e1 bfffcefa3ccc5e30
+  #|atan2 4075b6e65850c51a c03562fcfdee42bf 3ffa1dccb8c24e07
+  #|atan2 c05cd549e0ecc393 c074158dc1e7bdad c0066045bdc6d0f3
+  #|atan2 408de87421626510 4085a8011a2522b7 3fee35e9c8497aea
+  #|atan2 40890dfd2a107daf 40793b33b999ac38 3ff1ab591e802257
+  #|atan2 c086710b9dbf573e c07fe6ad8b907a6e c001827868bdc4c4
+  #|atan2 4035b1d481c4f46f 401a30357721f786 3ff4717a361ec3ad
+  #|atan2 40834ea0a68da4cb c07b54ae599f3b90 40017e6ce307eed1
+  #|atan2 405de44e5174f842 408af03307aa8ab1 3fc1a4461b4a76d4
+  #|atan2 c0843c84e763ed39 408053934b7f3c24 bfec8ab22dc082c3
+  #|atan2 c08594ecf64e3d33 c0896c0b5c62bc4b c0038070fcda8f7e
+  #|atan2 4083b8b14cf750e6 408a906e7798b0d9 3fe46f9c34d8d256
+  #|atan2 c07b359225245613 4082ad7884adf8df bfe42517eeb12cc6
+  #|atan2 c08e954c33c94553 c077ddb1fd2a15ee bfff15bfed036b5f
+  #|atan2 406130b7a6082755 c0872ce6115d743c 4007aa78d99260fe
+  #|atan2 c08b86c5c906cfb6 4075d398488a7ac1 bff317ecf8f5e35e
+  #|atan2 408d0e184405a1bc c0824bb00a2c0fda 40010fe4bf1274ed
+  #|atan2 c04d0991198a5555 c0788d6525cc4bfc c007f565068063b6
+  #|atan2 c075931329d9bc9e c0721927e1f4c92b c002267ddc0d1836
+  #|atan2 c07ed1ad18591bfd c0832fe885ee32a5 c003b839bb13bb1e
+  #|atan2 40660c52d5e8a928 c02a61a73829a535 3ffa53ba0348a397
+  #|atan2 c08a8f4ceee7bed0 407bf70fd1764609 bff1611c7a4f89da
+  #|atan2 4078f5710f026232 c08bdee8214bc26a 4005c3cbda3b71e3
+  #|atan2 407b11d594e9e177 4082dfa2f6004696 3fe3e87f7b21d3bd
+  #|atan2 406f192fabde9cee c06b58b7a4d6ceee 4002563250cfe41a
+  #|atan2 c067ae31007ab838 407292a5880490ee bfe22947543e3d2f
+  #|atan2 406c4e07e03bb5f3 c04578070907872a 3ffc218f6ce1515e
+  #|atan2 406fe83a282110bc c08abde6540e1994 4006d04b63a9e47c
+  #|atan2 4087e9890d2a87b8 c086db3c75f7aeb7 4002ab4219349c82
+  #|atan2 c080a71f55393a73 c05be36f9852d899 bffc6f38804a1c27
+  #|atan2 4080a6cc94d7bfab c07ee31176a57b09 40028c6f76f0bb8d
+  #|atan2 40579a64037436cf 408126c6107fe8a8 3fc5ce1ab903cefe
+  #|atan2 c0574b46ddd2cce6 40700cd196cc2d5b bfd646a69922930e
+  #|atan2 407e6735455ac87e c06ef002d845d172 400054e3ab183854
+  #|atan2 407ae72de43b524e 407ffc70a33ab118 3fe660a1ffff23c6
+  #|atan2 40784e607428aa45 4088ae09ab6934e7 3fdd48dfe77c108a
+  #|atan2 407771c97df167ac 4061f1ae5bc5e0ae 3ff348e6ffbcf2b1
+  #|atan2 c085c19c22bc2359 c075137faaaff2e8 c0002cc5c0358c7a
+  #|atan2 403e2437f433dfe2 4075c103d1dd1f95 3fb61d24241e63c0
+  #|atan2 c0690612eb945856 4086b3ebd2ab7a35 bfd13567164b04da
+  #|atan2 c06e47e029021f67 c048af83918e6be7 bffc597e19c56dae
+  #|atan2 c072d3505be61978 c07094de909fb954 c00257de034c1c6e
+  #|atan2 c089b6b2558d5508 407b88ea9c3f86dc bff1447debac33f6
+  #|atan2 c06f7403b250e3f2 408113dc1ae5519e bfdb9dcd436b701d
+  #|atan2 c04586e062a8d245 4089599f8256e831 bfab25fc27c8028c
+  #|atan2 c07b30ebe58a9819 c0727bdf8192af54 c00157b2332203aa
+  #|atan2 c0684460c2ce7fa6 c072cdec7d8571be c0048c6adbd7f746
+  #|atan2 4080b7b839698b95 4076b95e1ea8050d 3fef29e3b0cfc469
+  #|atan2 c0628b46065fe78b c06e483b9d9cf139 c004bcab45a73a60
+  #|atan2 40844737c8cbe795 4070fd5379083ddc 3ff2c91664f45f01
+  #|atan2 4082d25d75c50456 407a20d208f514a3 3feed971a9eefec9
+  #|atan2 c03d1f630725c308 4074bf4e949754e6 bfb666cca7cfe010
+  #|atan2 4082605c1ffc7275 4082779357d41a5c 3fe90dd16cdb6f92
+  #|atan2 407d604f697cbcfa c0529ed2b4c1c7c7 3ffba5b3a4210f0d
+  #|atan2 40815cc954309fbb c04b584b416bd246 3ffab3df7c352315
+  #|atan2 c0885dcdd2b42e87 c046a246601264a8 bffa0f833d751b36
+  #|atan2 406a4ce3a2ab0f45 4053e60915807751 3ff358a349b562a5
+  #|atan2 c0529685b3882eae c08c0921b94dbf50 c00878a344ae4b5e
+  #|atan2 c08e369a673e1e23 c0756467f9afc4ff bffe93a6de4deed0
+  #|atan2 40838e184d86bb11 4080d8e67af740c9 3feb8239798715be
+  #|atan2 c0772a4456de002c c0348d49a2fb9c50 bffa04dee3867f6b
+  #|atan2 c08d82a04d464f9a c06d2998db875344 bffd020c7f8f6d15
+  #|atan2 c07ce53f69ce4cb3 4088a987d5a6a6d5 bfe0f532da28b36d
+  #|atan2 c08074569abb3c56 c08f187e186e2719 c0053d38dd8f462c
+  #|atan2 407748ff50401652 c07437ffa04d5f5b 4002495eb767e53f
+  #|atan2 4080b4583afc9843 406a07410a6d6051 3ff3307d61979100
+  #|atan2 c06544face014063 c0670909a5d6410e c0032b11f3a45f27
+  #|atan2 c0810e2942ecac38 4085a0adb6308c17 bfe55e286ee5ce78
+  #|atan2 c08ebd29ac45b1e7 c0775efa61c1377b bffef1fb1efc44d8
+  #|atan2 c06d6441fd4d4908 c0730a007ebd27e3 c003dfb78a192b1e
+  #|atan2 408c5989f99f87c6 407e3d7e4f94bbc9 3ff14b172bb9228b
+  #|atan2 c051ba2bf33c593f 402f575b5bf3e2ce bff5a719844df995
+  #|atan2 c07b345bfef7c00e 408327de22bed360 bfe3c245475a8f2d
+  #|atan2 c0865319eb637844 4072378e7893a582 bff2ef3f41beafdc
+  #|atan2 408720ea9d4a37a8 c07ebd6ced5da245 400142355b2c6024
+  #|atan2 40882992585b0f33 408d1979e0a1a5a8 3fe62cc92f106bcf
+  #|atan2 c065d54234b72d21 c08acba232091ca6 c007866ebfd067f2
+  #|atan2 408d33f02533e55c 4073acf1e58a0df5 3ff3ef0aa66c83f9
+  #|atan2 407ba70c7bf53589 4089ce0eb2ee1f17 3fdf7ae3f1cf343e
+  #|atan2 4064b42c6a6c802e 4051552361a93d6e 3ff2ca3ab96d8000
+  #|atan2 c0615f1dffd3e102 408337ca3eda61a6 bfcc729f8468a681
+  #|atan2 4085ed0ed1cb5e38 c0780d8952e1428e 4000947495b66c0e
+  #|atan2 40597391f84275b9 408c01bda034f10d 3fbcf4c85b968ed9
+  #|atan2 404f905169fbe894 40658a17975d850b 3fd67979ed36ce80
+  #|atan2 4048265c0060062c 4071aaf2e7b98a67 3fc5a938961f2cb8
+  #|atan2 c089b1dde741d847 c0808bda042f3588 c00124ae343a73db
+  #|atan2 40627daa1930904b 4088047f55ee764a 3fc856bdb40889f5
+  #|atan2 407c86e4d9d572ca c089cab14d4d3fb9 4005176904b5f31e
+  #|atan2 407778829716df3e 407ef3f370939afc 3fe4c2c21d8acef8
+  #|atan2 c08c4dedda1b0d8d 40600346309d6c93 bff6e27c8346e092
+  #|atan2 40248a65ab7035eb c0745f4a32a8ab88 4008e1795e9d7122
+  #|atan2 c0731a0d2d1f7156 c07b9fbe24e58925 c0044af4d6db0778
+  #|atan2 40800b4a3e2d5dcd c0651e8cda0c6240 3ffe382e9ca81463
+  #|atan2 407c553d142f008f c07205d7331d7120 4001194775703502
+  #|atan2 4076c10dc3b0575b 408ba40325baf19c 3fd8fd7a5cd48835
+  #|atan2 c0872f4c574212b8 40450828c958d2cf bff83a0070149264
+  #|atan2 c08a1066e4d6918a 40850dc2e4718b53 bfec85d2f33e7360
+  #|atan2 c0864afd70a4b262 c073a1223eef9072 bfffc4b2d3b374bd
+  #|atan2 c07ef0e3665ab82b c0857efd68592bc9 c0042466c08c5b10
+  #|atan2 4083bb50f2435749 c08dfc0adbec708a 40047a000d26d0c1
+  #|atan2 c07d9c66faf74b78 c0729189f0cf76ef c0010c110b67cdd0
+  #|atan2 c083ec3d87fd88a9 c0887901e3241174 c003aaa53183b192
+  #|atan2 407a1fbfa2c12361 c08a61e21e2941f2 4005747805cbdbd4
+  #|atan2 400646def9dc7a64 c04791be633d217c 4008a9242e04a45c
+  #|atan2 c0885d76c55179ae c08422c2ba9bb980 c002176e02b50b7e
+  #|atan2 c0792faa80366171 40216315704d4f78 bff8c9a1c4298b32
+  #|atan2 40602314e822482f c08a11810bfed35d 4007e788c2443dd9
+  #|atan2 407cabf941d28919 406cab406eed8a0d 3ff1b70ad492adcc
+  #|atan2 c084a8194b26fe0e c076a76e28e35f39 c0009436a4f51ecf
+  #|atan2 40899d26f7c3f114 4083794ba24a4eda 3fed76c0917ef157
+  #|atan2 408ee7a6751edf4a c08c5d21a5579bd3 400281bbe5eb965c
+  #|atan2 c08daae377ce30a4 c0725dd4c86a306f bffdef8a533833e3
+  #|atan2 c07f7b2f4e805930 c08dae5d1b5d84ca c0053b5a985e7c99
+  #|atan2 4085c19286c6900d 4081077a25286846 3fed0379d22cd02d
+  #|atan2 4088db46e14f5926 407220fe984e7800 3ff389ad52220e1e
+  #|atan2 407a0f9fd9cfe4ad c05344e70e019f0b 3ffc0ea96f80690d
+  #|atan2 c084e2868cd77bed c07baa2e7b232044 c0013f0a231bdaac
+  #|atan2 40820c060d3fade0 c086780f6594715f 4003b82110e95993
+  #|atan2 c042568678b19059 c06ced711c2cb993 c007e016525a68b6
+  #|atan2 4076328130a03b7a c086b8aa0226036c 40057f69bda6f81c
+  #|atan2 408dcdab348cae8a 4089924a2e60d527 3feb92d479e4ffd3
+  #|atan2 c07f531bdbe18285 408930c41c6ef0a9 bfe1cce74d8309fb
+  #|atan2 405705b803b80176 4088c860aa1ac367 3fbd982b247e2151
+  #|atan2 40831840d862b6ae 407177e5e7916613 3ff244cafb82b890
+  #|atan2 408afd618e6f56a1 408d19b2c87f6944 3fe7eddee2857e75
+  #|atan2 c059d48d7f2b8d68 c08240a5aa225937 c007bb68e29b9128
+  #|atan2 408d152deefc5cac c0435179e78c1cf4 3ff9cbeec57df1bd
+  #|atan2 408c4258191fb4e9 408d71a762453526 3fe879cd15f0ddee
+  #|atan2 408c3f35a26825e5 4063030dd3db618a 3ff677299128b434
+  #|atan2 c0740834c48c9766 c083eeeadead482a c005686030d61e18
+  #|atan2 4066ec7cae0ef414 4086f40931fa9a49 3fcf518e127cec99
+  #|atan2 c067f2e489a18f07 c087128b997aa1e0 c0071a00e3c95075
+  #|atan2 4074b227b59c6615 40751a86d5b12be6 3fe8d214eb49e256
+  #|atan2 407edca534c92202 c089589e54599d18 4004c1fd88e8822b
+  #|atan2 408d87f7c59cd8b3 c079c7d9a327bc57 3fffb7c679f8a6e4
+  #|atan2 c076dde62e3cb4f4 c081400c6be0c4ab c004733f36c994c6
+  #|atan2 40620d8fd193d7e6 40895233cae42816 3fc693e2418c91ba
+  #|atan2 c08599a42086681c c0749929b76cb512 c0002031830bf62c
+  #|atan2 4083881d7f1f9759 406b3ee938d09932 3ff3c391fffd04dc
+  #|atan2 4077b72da39827a2 40748e4dba828304 3feb69a874d6d698
+  #|atan2 407fc52e830b2e01 40767b00ae91b8bd 3fee8f490d6215e8
+  #|atan2 4061c8a6efc5a659 c08cf64f8b9d56d4 4007ea07d54a7a64
+  #|atan2 407ba148de1160e0 c087eeaa5f545cbb 4004f1cc9f0d8c22
+  #|atan2 c08bff61bc7432df 408c320394d06ce7 bfe9052606208fbd
+  #|atan2 c08a5e238094e1aa c083835f649dc3aa c001a9c38b4a28dc
+  #|atan2 c06e3fc1e621ed58 c08691b75a6d4d96 c0068bd65767533a
+  #|atan2 c06a282017aab52f c087db1191298acb c006fe0e3c623ae9
+  #|atan2 c087f4a74ce51126 408d710cbb2fc430 bfe5db4bafa96ad4
+  #|atan2 c08e62ba6499d8d6 40835ff95868f884 bff00cf5d0cd7660
+  #|atan2 4080b224e85496eb c06f11dac4fd578e 40000cc9895d96e7
+  #|atan2 408e9903e86b0929 407eabdd73da8b1e 3ff1b2f0b85e25a4
+  #|atan2 c07a40b42cd2dcad 408b51fc1f75c525 bfdcaa555281c85e
+  #|atan2 4081b739cf180f57 40855edd53ea73d5 3fe62631a5325ce2
+  #|atan2 c083a14ed64222b3 408914aa0b4eff96 bfe54036ec1327fd
+  #|atan2 40519f2bef0dc71c 406ab6d30166aacf 3fd463b5f3e265d6
+  #|atan2 c0825465520b736e c08e6afea0d32340 c004cb4d0907a054
+  #|atan2 40781a3e2fcbc34b 406e25e43d67d3f3 3ff030beaaec7e94
+  #|atan2 4073cdfae8642d96 408350dc0d005d4f 3fde51637cf94f7b
+  #|atan2 4083adfd53971262 408a2cd713397f65 3fe4a1390b0a3606
+  #|atan2 408890fb6f9f68cc 404e33d6568840a9 3ff7e7ddb05dcccf
+  #|atan2 408567f91728e74d 4070adc961609e86 3ff3305962d5b614
+  #|atan2 407d77c77fa0ae56 4086fcf6671baea6 3fe23d419846ea24
+  #|atan2 c079ba9c2c3ad680 c084979df14b2bad c004aa60863c5ed4
+  #|atan2 407d55f6183e666a 40893fb7b33dc0a3 3fe0d74b1fb8bbde
+  #|atan2 c08d34d65f8fe6b2 408e5ac9d9ee30be bfe884126dd3cade
+  #|atan2 407edc89b073c087 40700317495f09f7 3ff1799f55c725a2
+  #|atan2 c06409e5e637affa c073948a837e02d7 c00559577bf07692
+  #|atan2 408ec918edb02632 408c586afc19007e 3fea73d95f4c0a87
+  #|atan2 c08bf492647e4005 404f5a10f59df1c3 bff80358fc6ef4e1
+  #|atan2 c0877a40f96ce140 c089dec8f7f6f43b c0033cb578020f3a
+  #|atan2 40739f6fc6621322 404ba86ccf51aa94 3ff657a8e5b3f895
+  #|atan2 c08798f18c79592f c080c1b47e27ac11 c0018194cf9cbc5f
+  #|atan2 4058bc7aeaf5373e c08829b9a5713ddd 40081d532769effd
+  #|atan2 4079f3580a30ccc8 408a44831f999c85 3fdd5d1b37928140
+  #|atan2 c08d4345ad8f498a 407754366797a73e bff310555221ddff
+  #|atan2 c0848e4980e75743 c059c3945433e2e6 bffb9e880662193b
+  #|atan2 408398dd0bc5b960 40898af715eb98d3 3fe4f121569f74b8
+  #|atan2 c089a74bb363eb7c c08b430c19f63cfd c00317b7bb13f437
+  #|atan2 4081971c1165fc54 40845136a549ac88 3fe6d5af175251f5
+  #|atan2 407c63f748711a35 4070fb711c876c2c 3ff081f4787b7248
+  #|atan2 c08eaf0d552e6e9a c07dcdc0783b5783 c0002ee902db0eb4
+  #|atan2 40800b2d112ba06f c0790a7a9815a790 4001de261fe4dcc5
+  #|atan2 c08421dac7d8d422 c086bd0c3f3179aa c00355d62ae44f21
+  #|atan2 c06cd960b5af83f4 c064ca803c790cd3 c0018fe8815be698
+  #|atan2 4081bd0cd8df601a 4056789f20a2beea 3ff69eb815b793d9
+  #|atan2 407d503c835d6e94 c07a99aa476c5a47 4002762fc21f2a4d
+  #|atan2 c086e1770ab2d7ba c06a4ac724c64690 bffd9bcc9c8117c6
+  #|atan2 408700036facf1e6 407a5aa61c007588 3ff0cef9dd58751a
+  #|atan2 c08e29fb90850d38 c0803fa2d6da21d2 c00084ebcb9b8bce
+  #|atan2 408100a9d295ea57 c08a8c44f22ef64f 4004936050db5586
+  #|atan2 4084332947cc4f76 c0728487e26e64b2 400001316c6c0af1
+  #|atan2 40857e0c2f9c682f 40858120d03d0068 3fe91fb06652136d
+  #|atan2 c0775b879a8f4610 408b3591faacb34a bfd9f2ba4f6b5a6f
+  #|atan2 c0863f99285cc3f3 c05c107e184311a0 bffba28cf13ee680
+  #|atan2 40752a3e5c2e5e00 407514dc4b2f30e0 3fe9322db4a5f17b
+  #|atan2 40676f2324208aa8 40869c172790f710 3fd039fd830ee3ec
+  #|atan2 c072939f7a38d8f4 c0567c6ef56155dd bffdd598cf41dd54
+  #|atan2 c083fe9fd6dac117 c060c14330f85ba4 bffc6fd514933479
+  #|atan2 c04ade17a56b6d5d 40884c185ba6411b bfb1aa1b8d0b7c14
+  #|atan2 4081b012f01c6c22 406234b5cbf4cb37 3ff51a5e1ac42160
+  #|atan2 4073eee11a58f10a 407bd2ec762ba956 3fe3e48dcb2e2b59
+  #|atan2 c05900a855898b89 407af970ae4db8f5 bfcd257aaffd66a3
+  #|atan2 408924f816de431c c08b5c7106dce44b 40032fe5dd9b59e3
+  #|atan2 c087433e1959a67b 405e5951b59fc904 bff68bd88184bb77
+  #|atan2 c061df4883fcdc3e c08ad52b5029512d c007d00f259b5979
+  #|atan2 c0810925598966b7 408ad42728e7e252 bfe21a9406a0c54f
+  #|atan2 4052a65bca7ebca0 407e9a75c435744c 3fc35a2645ab2514
+  #|atan2 408bcd2b2401e71c 4086b1a68a02017e 3fec5bc66f6ceb50
+  #|atan2 c084edbd9abf218e 40726361a0bf209d bff2828ab2ff4fff
+  #|atan2 4024684ea24335f1 406886217c5fda2f 3faa9ac8f0b7d938
+  #|atan2 c0585bac400d3789 c08ba5fd493792f6 c008415a28f2a59c
+  #|atan2 408957628e7b262b c05bfb321f48bb6b 3ffb53c4daf24be2
+  #|atan2 4086bf1aec3d78f4 c061e396af0298d7 3ffc3d2a413915f7
+  #|atan2 408ddc42e47535c8 c085fa2329044e77 4001a46690ffa3f6
+  #|atan2 c0397d1ff417fc05 c07392e2442f6a40 c0087baafeb5ae69
+  #|atan2 408df0c33855a38e c08066a392877f8c 40009353bdf52158
+  #|atan2 4082b7f2dfbcaeea 40840c6f27794d6b 3fe8090a80902f13
+  #|atan2 4035a7881fedc7cc c07eddd0803bc3f6 4008c83d98c4e3a0
+  #|atan2 c08a309d945c8ef2 408d9767efcf8f80 bfe72f0dee8529f2
+  #|atan2 c08c67a79d1cd50c 40168a02727fa3d6 bff908971d738e98
+  #|atan2 c087253b3e81a97a c08a2af3c698f5a5 c00356d953677a62
+  #|atan2 4083aebb0b886f8e 408368e0f0fd7a68 3fe95b28f8eca6eb
+  #|atan2 4062979c991240e5 c0732c537f113484 40058566e89ff8b2
+  #|atan2 c087fd0c86598152 4082689b2778468d bfed51f70262406a
+  #|atan2 c0795a929efea217 40642b1d85dd4763 bff3136a5cc49df8
+  #|atan2 c04635e6b162de60 c085beb43b824459 c0089f6b0a2ba06c
+  #|atan2 c074b6e3678e2dbd c0845d3e88d6f306 c0055e64b8e5f33e
+  #|atan2 40866c2a0cab5a24 c08a8bb29edacc93 400385863dba657e
+  #|atan2 c079b042c1d20c7f c08033114583effa c003c508925c6093
+  #|atan2 c0850d438b2ad716 4086d4b750f583f6 bfe7d60a57af56cb
+  #|atan2 4056ccd481a3b804 4085bf887560738b 3fc0adca100335aa
+  #|atan2 c0834e3b464c277a 407ace9ba7fb8e9e bfeed86aa6f9379a
+  #|atan2 4052dff0045641a0 c08090868602533b 4008003a2be2704a
+  #|atan2 c0819b58f586fa12 4060e792bc4c6a0d bff55d13f14a4897
+  #|atan2 c0705712f1d797b3 c08a55922d1be8a8 c006b9e252bc65a7
+  #|atan2 c08666f91d5591a4 40821db65c255eb3 bfec8159c9b42a38
+  #|atan2 c0733720d646377a c0520cf70bca4691 bffcd2caea5fc947
+  #|atan2 c07fda290c3bd151 c056faa7388fef92 bffbfcde4e159341
+  #|atan2 c08a114e4e3c6b84 40780628f82e7596 bff23952c441645e
+  #|atan2 c0792417a6abc575 c06be568b8cfeb51 c0009e56107765f7
+  #|atan2 407d784df21606ed 4088e33f93b1fe77 3fe11b1d0fe47fd2
+  #|atan2 c0820769fa4f9aea 404a58c9df1ea4d1 bff7ace8868e9324
+  #|atan2 c08d7117fdb8d46a 40843f60246b5fa3 bfeefcd3cee4b0b2
+  #|atan2 c0757316cae74ea7 407e3194ebb9d97d bfe3c3f68fd02b19
+  #|atan2 c084db4f9c4b8f5f c087166ab24428dd c003415dc54e2879
+  #|atan2 c06c3f0edb037c74 4082732cb49cf69f bfd7650afdca23c6
+  #|atan2 c08e0311e9917832 c07d2718a1dbab3f c0002ef3e1234a0c
+  #|atan2 c0887526f9ff9334 c07b04508912fc98 c0009a751e7383e6
+  #|atan2 402edb560d0e1953 4081a0147fa035a0 3f9c011d0c0bf002
+  #|atan2 c08e2cb6a7469e83 c0834f06103f0d63 c0011ecb8e9db1ac
+  #|atan2 405ecc35bde4ffbc c08605517e80df25 4007bf8759c15479
+  #|atan2 408930b62a083803 c08a1f687aa153e2 4002feb24a4c68be
+  #|atan2 c073ea86fb948cbb c08ca9d18f8c9119 c006753168545821
+  #|atan2 c08802084f5cd5ef c089ab72dbc6643a c0031df812642f7d
+  #|atan2 c0673f87ef81d574 3ffc653da3d4c8a0 bff8fae5de2b88c6
+  #|atan2 408a3aee704baf0d c06a13f604b41264 3ffd07d1b73f5daa
+  #|atan2 c08099d60d280b9d 407673daa3660bba bfef3cf7d91af2c9
+  #|atan2 4086ac14a3bbb79c c08150224c50a64f 4001c89f2453fb87
+  #|atan2 c084d2b81a857cb1 40723a572ccca9de bff2881dbe5ed08b
+  #|atan2 c0835242c63d003e c08c8cd2343056c0 c0045f84e788c50b
+  #|atan2 c08e09be1cbfb10a 407c0e37bcdf8221 bff2246fb116a77a
+  #|atan2 4079271053d0d3b8 c07298f2ebcf54e6 4001a8e5ad54ae56
+  #|atan2 40727adf686859f7 c05ccb6934704aa0 3fff1375c1dfe607
+  #|atan2 4021af0de6e325fb 406d311d6fd54841 3fa3602b9f121b94
+  #|atan2 c06f99780a0d2f1a c07c737c4599aa46 c00513cc3c6f81cc
+  #|atan2 4079c610e2596032 408b9d148d2202ac 3fdbf1f1d1e09a25
+  #|atan2 407ca78a5cad853c 408bcd40bb0d2e72 3fde742ad8d9fcea
+  #|atan2 c07a44ffa3c932ef 405508440015fb01 bff5f8d32a06b33f
+  #|atan2 c077308b52afb748 c08de235e9848d23 c0062bfafb7d566b
+  #|atan2 408688337fb8a80d c08a9873cabdd776 4003827f5fc8fd94
+  #|atan2 4087284679b3532d c0859342764824ad 400291154e50cb36
+  #|atan2 407f60686590e0fb 4087f0f1ce7e727c 3fe29006cd04513d
+  #|atan2 4085a3227f2ffaf1 40872727ee7842cf 3fe80cde6b801598
+  #|atan2 40886a7e076392c3 c077bb0607dcd7ff 40002f6a432e335a
+  #|atan2 408326c689e64abc c062bb20e1dd91c2 3ffcf839f69bf12f
+  #|atan2 408e708c3d3d817d 408cb2a985b6f21f 3fea132f934aeb2c
+  #|atan2 c05fa9f4c32ee208 40834a1945057bde bfc9e797cf0c347c
+  #|atan2 c082127d6dfe48f1 407050f448347cd8 bff25925b7e2b7c5
+  #|atan2 40883937ffe85e67 c08739ce56f55772 4002ae6e09493e7d
+  #|atan2 c08c34e4bd091a81 c0739457e317cc52 bffe7a4f0523902a
+  #|atan2 c084c58b83baa906 c0861965710f2f36 c00318e278ec1607
+  #|atan2 c0836875a1590400 407dc257bc261264 bfed55b2b1534033
+  #|atan2 40627bcf354a034c c077ea3083abdaab 40062ebe3e9cb1e7
+  #|atan2 c08a741a56e82fdb 406be31935db1e63 bff5027d447f1e7d
+  #|atan2 c053a146580938ad c06fa0036f2fdaa0 c006b9ada5a22fe5
+  #|atan2 403a2ac2cb3394e7 c05315353d3f34ea 40067d9f443f727b
+  #|atan2 4082fc1d7d172977 407489c57aae0923 3ff13307d80f4b11
+  #|atan2 c075ae3b1110c28c c070ccc182000928 c001d71a4e593191
+  #|atan2 c08df03749d53841 c0883ca5159507d5 c00202be542c8104
+  #|atan2 406c98417b5f3f33 40865bdd3cbb28f7 3fd3ce16e52f212b
+  #|atan2 c003990105f088e2 c07654fd9a0eb90d c00913f0e60475a8
+  #|atan2 406a6f31cdad45ea 40878d1b32667485 3fd1822b0633f945
+  #|atan2 c079e5f4f524b103 c0617d36dec46ee3 bffe57c3fbf2894f
+  #|atan2 4089d0c953327b92 4064caa0d72343d5 3ff5f425aba948af
+  #|atan2 c08e531f7206d08f 40572c174dc5f29f bff79bed466893f4
+  #|atan2 c06a35a3a7ebf7a7 408b71e090a046d5 bfcdff8448bca2a3
+  #|atan2 408ec992d1366497 c08a11de32b5ec5b 40022ff2475ddba1
+  #|atan2 c059d6cb5478eecc 40749b7bab5509dc bfd370eb8c8d1423
+  #|atan2 408e589db892d7b4 408d77193631e3f3 3fe99aa0dda88844
+  #|atan2 408bb1e7bb9ace21 c08e2cc5a403f221 400331328c668038
+  #|atan2 4082f137a54d438b c07368f4b0b3052a 40005aab48ee77d8
+  #|atan2 c061e7860dca2efc 4077900017727c37 bfd73cdaef626e58
+  #|atan2 406c05ae0ae5c963 4086f8b480922171 3fd2f1c872d6aaea
+  #|atan2 c08315f5eac92fae c0892aaa5e22d0c9 c003f1284c999bfd
+  #|atan2 4075f78bdb25157b c05ea4b5d4fb37bd 3ffe806aa4da1359
+  #|atan2 4075af630d438baf 408d05b69ad409e9 3fd6e1e35115c758
+  #|atan2 4088fa86a9b89961 407e389e09da592f 3ff06d936bd2abb5
+  #|atan2 c078b0951650bdce c08042832a3669c0 c003f00d1636e250
+  #|atan2 c083f22a35dacac7 c0842aacaaf96de0 c002e4c1a2358360
+  #|atan2 c08b60e6864fdbe2 404026dd91ded3b2 bff88b0633ee5b14
+  #|atan2 4087b68678962efc c08b9601b396df66 400373d04cef96eb
+  #|atan2 407e683562b6dbc3 c081137c4ba79c89 400350290e2191bc
+  #|atan2 c07acc50c5ead1d8 4084d2e82976ab97 bfe24bd112f950e8
+  #|atan2 c083b90fa2b84287 40861e3c6008bbf5 bfe74d89758415a8
+  #|atan2 c06e931dae95d5e3 40805ee6a81c4e2c bfdbf4fd7f1e26cc
+  #|atan2 4089e01ea72019f1 c0715ef8a5dcf90a 3ffe507634122760
+  #|atan2 408122536adc048a 408e99340b487e1d 3fe055b4fbd7970a
+  #|atan2 c072a5afc572f855 c07c92f7e9e6a480 c00481d6af2cf7a6
+  #|atan2 405dab5ad1bcab7c 406c52e9ed0b153c 3fdee0c0a8068799
+  #|atan2 c08b1994defb6b57 4088dbc551cd61a9 bfea8328e54c3032
+  #|atan2 4088b83b36fb490b 40850699b6104f83 3febb60a5e593600
+  #|atan2 c060ed5ec82868d7 c089147d45530ca5 c007cba49b1501ef
+  #|atan2 c089e937b64f2716 4082d6d5cdfa9fed bfee25eee44e4b02
+  #|atan2 c0712bd26216f32b c089a4d0522f67dd c0068c54cf7dacbc
+  #|atan2 c0740a00678d82d3 40783ebd98c8c55b bfe61a401de9f455
+  #|atan2 c078813aa9f92d0c c070ac014857ee93 c001588074141b0d
+  #|atan2 c08c4c6b4abf11fd 406e9bcd624c22cd bff4e8427de7b1a4
+  #|atan2 407ee4b3c79d8a03 408ab3b4877905eb 3fe0c849b590a2f8
+  #|atan2 c086fde3d3d0c7c4 40894619e8f1ee69 bfe79ef0612538c0
+  #|atan2 c08004d7ee856add c06ce8a39f375516 bfffe9f5d27b0dab
+  #|atan2 c05d5a57439c3557 c0796b19eda58ba9 c006e2612dc1c184
+  #|atan2 c03eb41e21e9dc31 4050c3332d097f5e bfdb7ba34bf7e419
+  #|atan2 c0868598c5c39ca5 40811f17005d6bf8 bfed771c877aedba
+  #|atan2 4076df0b227d41a7 c06a8b72af1b93f8 4000c5db731bda94
+  #|atan2 c023364258acc8c4 c087e516c7feb36b c009084125bee4c3
+  #|atan2 406535d251e2fc0b 4078ec10b668b051 3fd9bf9b14b5a687
+  #|atan2 c07fca15242963c2 408c88c63d4cd8dd bfe0436dc9224a39
+  #|atan2 c08d98ba7578898b 406b4fce495f0e40 bff5814865479371
+  #|atan2 405080da791b0dd4 40640b3408da4af4 3fd8fe8df308240d
+  #|atan2 c080807b72aabc79 c08d8f6fc29837aa c0050f3d7cae6f3d
+  #|atan2 407ba789efbe4c48 c083f48c7e6f4762 400448fdc871781c
+  #|atan2 406052fcd27c2cb0 407709c7a408cb23 3fd5ca89994937e3
+  #|atan2 c07108b6b5ed21db 408964eb16a89d55 bfd4b5e689b503fc
+  #|atan2 40853814a3e767b5 4084e9147b0bb33f 3fe95dfc8f9ba8db
+  #|atan2 c08b23cba6a2021f c083dfe4328db052 c0019f7cd3e4c2ae
+  #|atan2 c08d47200b3ddd73 c083ab843964ab8e c0014c893eefbf72
+  #|atan2 c08e2ace1c78b328 c0734155d6d7d192 bffe13559f283a00
+  #|atan2 c07966699441f93c 407b18c0074db2f6 bfe81951767502e2
+  #|atan2 4089b0e25d282bfc c07b73d8408a49a3 40007df03396003f
+  #|atan2 c084587866133267 c08abebe3327d6a5 c003ee1c141a3424
+  #|atan2 c07d0fb896dbd782 c082dd88de92aaf9 c003e1d4756c7c0e
+  #|atan2 c05b45579bef61e0 c0740e62830b09d3 c00682e67bae5fc7
+  #|atan2 407b82d14190c538 40701f0a7537e885 3ff0a6ded466255f
+  #|atan2 c080c6eaadc3b51e c08560547d1690fa c003cf2e6669fe02
+  #|atan2 c08145f3a0d84282 c08661deb41e5914 c003dfe584f2d364
+  #|atan2 4081824045c56e4d 4088cc087e74b547 3fe3ac6d45d1619e
+  #|atan2 4079ac03cf4e75aa 408d7cbc80b91e01 3fda46bb58d31350
+  #|atan2 4074c8237faa2b12 c07cd98737593839 40042383f0ded8e0
+  #|atan2 c062acadea70e323 407adf0142f38d8d bfd56751868c60d2
+  #|atan2 408170de47a59f7b c07cfe54b44adaa7 40021d39875ce056
+  #|atan2 40895024654b84f9 c082ee591905f84f 4001b4186c1e3522
+  #|atan2 c06f849aefedb828 c069c5f37ed0fe11 c0020ccfe79cc27e
+  #|atan2 4086f85958831963 c08354d27b86ac85 400229bfea830d90
+  #|atan2 c06c45265141100d 4080ea30461a65e6 bfd95481ba3ed53b
+  #|atan2 c04ca7ed7912342a 4083400b3c9acade bfb7bfd67fa02bdf
+  #|atan2 4078a4253bcec503 40814ca01f85d5a4 3fe3cdc40809f153
+  #|atan2 c0780a90e28d75eb c08a882283db012b c005bac3019782eb
+  #|atan2 c08098184688b3d4 408ab79212d98367 bfe1c9103643a8fa
+  #|atan2 c0860653f18d27e2 406e01498eff90fb bff3e16c2fbe62ca
+  #|atan2 4058c446d1114cc5 c08334759f46406b 4007daa8d0f07290
+  #|atan2 c088299ab698b12f c04c8ef3fa38a41c bffa5001e060d6a8
+  #|atan2 c08ca0484349339d 40801fab373464d6 bff0ece5520f28ab
+  #|atan2 c07db2879be989e3 c07f96ab6625b20f c00318a9ed5295d9
+  #|atan2 40823a93657ced82 c07cd6faaa834824 4001eba2299130b7
+  #|atan2 c08e565638a1ca53 c080b5b33c3f65a2 c000981254d25050
+  #|atan2 408af2ce87cde31c c080e21212f4bbfd 40010b33fceedd18
+  #|atan2 c06f5ec8f9f0afb7 407e754cce774224 bfde6f77db0f891a
+  #|atan2 407dcb5e6739ef26 4086d03db08b9c4e 3fe282ecf852aac9
+  #|atan2 c08319f46e26a58a 40667dd540843fcf bff48d5cae256f3d
+  #|atan2 c06b08f42ed43728 40806cf3a0f1be90 bfd8fbaab6982695
+  #|atan2 c08439e9ce03417c c0758d7ec60ab12f c0007b8f25e5a3fa
+  #|atan2 40622db44a155e66 40771e0ffbf96f77 3fd7f9a2cd9051ca
+  #|atan2 c083501507be158f c05f0f9192f00304 bffc4e9974b7a383
+  #|atan2 c07626be83e942c0 c0883a7efcc71b51 c005b3dbfa03a342
+  #|atan2 c07a16e223f675ed c0728a90395445f8 c001825de074d973
+  #|atan2 408210a3b3e36733 407de1c7f936beb6 3fec270d65dc2b57
+  #|atan2 4080318436a7e2c6 c072615de4723a66 4000b22a3fce6446
+  #|atan2 408226fa48ad72d9 c0684cf997453928 3ffe4cd43ad93e17
+  #|atan2 c07531946690b1c4 c07e234099bf3c37 c0043ac8ff6402a5
+  #|atan2 4063f66633d23380 c0859be83e57c619 40075124e8e76703
+  #|atan2 4088dd6497ade5c6 c0868311b4f8bf45 400273dcad18e625
+  #|atan2 c077317cbba882cc 408658fe0588e31c bfdea28610ec679c
+  #|atan2 c083bd45ff6b2321 c07a9a517a4b9700 c0014f5fd59770f4
+  #|atan2 408875b6f47e390a c067959b621b4522 3ffcead9603a6c93
+  #|atan2 405f7973197bc8c8 4085156df41e97b5 3fc79d1c1714adaa
+  #|atan2 c081e6162950c873 c083440a06396da3 c00324c863b6ce4e
+  #|atan2 c080649e029062ed c001bad536970e1e bff93349504523d4
+  #|atan2 c017c88b94ad4ca6 c0756b0f19ae76c4 c008fe739c731fc4
+  #|atan2 408901fd9e763c53 c0755fef4ea3c2ca 3fff983b41d82b46
+  #|atan2 c08aa89ad6cf2590 407fc7a68a837e0c bff08854ff800568
+  #|atan2 c05134819b1e4d5f c08c56071cab8f19 c00886d745f40ac3
+  #|atan2 c0827cc84cdd808a 408d4ed7485584bd bfe2021db9614653
+  #|atan2 4087e5c46e5fc740 c088358eaddfeb2c 4002e6c14543519b
+  #|atan2 407cd3cfbb57343a 4076862589a6a55e 3fed0a8b22cf7b98
+  #|atan2 c07202897fa13ac4 c066a5a52a3751fc c0010e7fb8f1a716
+  #|atan2 c07d27fecfa272de 405e9b695e2b3799 bff506bbbcc1ae1d
+  #|atan2 408bd785d0546051 c0778608489a915e 3fff872fa77317ee
+  #|atan2 c071ca1a63fbad80 c08bf177d9b8dc15 c006aad7dc21843a
+  #|atan2 406eb6658697971f c082e7d9d29fcf07 40060be89014139a
+  #|atan2 c077ca19b74fdfe8 c0877b065e6648ee c00561aee4d3e0cc
+  #|atan2 40716665483143d3 4072d8270e0e6496 3fe7dbb27cd87377
+  #|atan2 c064a1e5103d00fa c085e7fd8e0c8422 c00748616b8cd33c
+  #|atan2 40807b9671d566ca 4080c86ecca19922 3fe8d80ffd16785a
+  #|atan2 c063fee778e03195 408bb5a5e8fc9675 bfc6d8965462f100
+  #|atan2 408c1dcaf767ed66 407ffe10ea01e4e4 3ff0db49212171eb
+  #|atan2 c06601c9a2cfdd2e 40807daea7f722cd bfd49bd1f8139814
+  #|atan2 405859a29569c7b0 c0847f3e04b416d1 4007f4107eea40a4
+  #|atan2 4086d1df925d82ca c08d6a8aeedd5d89 4003dabf03af8256
+  #|atan2 407966d3bd4012d1 c011d15ebd914778 3ff94edf54819beb
+  #|atan2 c059dc0f5f6a1c06 408b47b2566aac89 bfbe31687d0d73ed
+  #|atan2 4088cebc9963d38e 405322cd2b058b4c 3ff7984138ebaf87
+  #|atan2 c061d6cad9ae1142 40852084ad9d3342 bfcaa10095922cd8
+  #|atan2 40655b5eb2aa85df c062fa60566039cf 400260d6bab04d7a
+  #|atan2 40675b610605bb38 406809792826fe0a 3fe8ac715d5b9524
+  #|atan2 4042aa7b761532c3 c08e68fd3604b498 4008d373f419baa5
+  #|atan2 4079d987e5c3b306 40889c2508f496ee 3fdef3386df1721f
+  #|atan2 4085cf26acb6f9e0 c08e35495a057811 400421562a275dde
+  #|atan2 406dd83df9a4eacc c0531b919cbadd08 3ffe16f74f08bf11
+  #|atan2 4081c6975645752d c08dbe2f71d53276 4004d2c01a65820e
+  #|atan2 407d2882a94bb783 408ed88f1b321c21 3fdc41ec8155798d
+  #|atan2 c04751c76e86212a c066c83bcca19688 c00720eab0d7b322
+  #|atan2 c08b1d67e8c2f83b c08344033ed4c06f c0018225a0825e0c
+  #|atan2 c082d68d81906c8b 405b8006f3597da4 bff63eb0f54d677a
+  #|atan2 408307961eb26df0 c07da95af0258870 4001dcd053a2aa21
+  #|atan2 c076f940cad2a6e9 408caa3b0eac1f85 bfd8647b1ffd227a
+  #|atan2 c065bf935b1cfa1f 408c6e05a97696f4 bfc82ffc83641ca8
+  #|atan2 c07372498f309296 c08811d989aa818a c0060fb8d4a3c322
+  #|atan2 4050f134071eab67 408e629bf4a1fcca 3fb1d053c5946bfd
+  #|atan2 c08a1bac8bde2c8b c0701d04394961ca bffdebfcdaeada6b
+  #|atan2 c06adbf836a5fcb3 c06a6e2b335f7040 c002c900c6ab7840
+  #|atan2 40746a88c29a8125 c07374583d49015a 4002a819243d1590
+  #|atan2 c08b4ec35f70e7d3 c089a53565e51b68 c00299373cdc4beb
+  #|atan2 c075c57b94207612 408cf0ed96ec0a84 bfd7065d7b9606dc
+  #|atan2 c0868a12fb1359ee c08bd72a3e5d5d29 c003b03194e4db08
+  #|atan2 4081d57616f91d71 c08d3167d172e94b 4004bee0355f600f
+  #|atan2 408e6af4f4169856 406d718bfac5cd40 3ff55579b7211961
+  #|atan2 406445405f2311ae c06a28b7ec481f02 4003dbd97954b48d
+  #|atan2 4061ba9dadff2af0 c08aa1a051ce9b3e 4007d03adb975893
+  #|atan2 40863e9d0a69b180 c082720910f431cc 40021ad276d8f54e
+  #|atan2 40739056e988a13c 408b9ad11f79ccb1 3fd5cb93500d3368
+  #|atan2 c068b85420f1ef5e c089d8c81ee98509 c0074153735cc771
+  #|atan2 4088be4ab6ca56cd 408d46f9573f4252 3fe6740a2543e836
+  #|atan2 407b1ea1ad5a4786 40816a79807c6a18 3fe52b66920436db
+  #|atan2 406e638bbff0feed 4089c46ab30007e7 3fd2598e16be30d3
+  #|atan2 c0751653f4486e1e 4060302d3447de80 bff344cf1e6c3370
+  #|atan2 4089c4b0eabd0559 40709b31eb2482bd 3ff4253052a77ef8
+  #|atan2 406ec3164aeea399 c07ba3fd825d8a8c 400512054e4a478f
+  #|atan2 4060d1f559d2fdc9 4081432c09d5afb0 3fce95a440f04fa3
+  #|atan2 c083d0b6c7f32293 c07312a00cf6e567 c000279d2fdf8fae
+  #|atan2 c047f5de3ceb7a54 c07fbaf87c54b6d7 c008613d91c7430e
+  #|atan2 c08a27c357301120 408dff6077291413 bfe6f251c77a9c0a
+  #|atan2 408c44fb032f3957 c078504f16321ad3 3fffa17aecab5838
+  #|atan2 c0776f3a49a14afa 40894042dc9c4e67 bfdbce320c587b20
+  #|atan2 c07d6b7efba4cf80 408b962be92a3a36 bfdf5a1e302cf5fa
+  #|atan2 408cd413f9241660 406b32b66a48a285 3ff56d3b49cecc49
+  #|atan2 4031dc95054aa008 40742c4f793f8642 3fac4df7aa6833a8
+  #|atan2 c07b77be120a6529 c086559dbb9c9580 c004b8e2501f0e22
+  #|atan2 4062dbdebd71fb0d 40823958d2da0d20 3fd033bf9edb23a1
+  #|atan2 c0831f2d8426fbc8 c08495c67c1987c7 c00324ecc03f23e2
+  #|atan2 40883ef55fc49141 408c13d42fc14f19 3fe6cb2b3030b139
+  #|atan2 4073a2c2ee924fdf c0828350a5dc31ba 40053b59c3d41b25
+  #|atan2 c08555c0c10dc80f c074d2dbe25b6584 c00032d08c5183ba
+  #|atan2 c02b4ae6e750b8d8 c0800470063ed13a c008eb77f1ddb1f3
+  #|atan2 406a1ab3f975fcce c08a349ce3267f34 40072e20823e0b47
+  #|atan2 408bf4214b367dab 4089b43921240b4e 3fea793c88b0acc3
+  #|atan2 c08cdefd959e9a74 408ad03e236b405f bfea508c59f119e4
+  #|atan2 c0823b1af84e0611 c08b70c045a74619 c00470ff6b9cba0d
+  #|atan2 407cc53024baaf49 c07343512fa8e86b 4001494b5a1f363c
+  #|atan2 408d032eb313e7e6 407dd9dbfa767144 3ff187cc7a9597ad
+  #|atan2 c0872b56bd982930 c0891f1055646b74 c0032c3a3d8bf9c4
+  #|atan2 408aa920bedb034a 40751c6728012269 3ff319db2ba388b0
+  #|atan2 4070524bd8a98227 4087c64c290d2dfa 3fd5296a20f5fea8
+  #|atan2 c05d59b6ab0aec56 c0681cb5beadff92 c004c2441390d281
+  #|atan2 c079d257a9bc9d1a 4073e94d4b6fbb38 bfed3ed7647ebfb4
+  #|atan2 c06bfa72fea19266 40724a5e7529059e bfe4e4c535cbe548
+  #|atan2 408dcca2d329dc2f c08f0fad77373c92 400303f1813b619a
+  #|atan2 4074f6d71bb36ddf c06562ae316cfe91 400056ef8f234f58
+  #|atan2 408879664cfb39d8 408eebaa2c2d5bff 3fe56cf05d9d6e61
+  #|atan2 4082de0808a9c6c8 c08aba304d56df01 4004371a1365af20
+  #|atan2 c05ab71c5d65a683 c08d1e23ef685c8d c00838202a74c0c7
+  #|atan2 4088a8f1eddde6db 40849bb84589ccc9 3febfd3ecc2d5876
+  #|atan2 c0870885739230ab 408ef79c98246b6e bfe476ef29e63e8b
+  #|atan2 4087803e690394b9 c07a41484d869ff5 4000a4474c18776c
+  #|atan2 40842f67342bf9bd 408b9329c4c2d651 3fe43871806928a3
+  #|atan2 4071e5f144446e14 408bd3a16464c234 3fd3e9f738fc3f7e
+  #|atan2 c07f8829ddfc89e1 c085f7dbd4111b9c c00427208232e23d
+  #|atan2 c052cd52dc94dddd c08267a621a768fb c0081ddd7d9b623e
+  #|atan2 c06045fb334142f4 408b0402ae4417ae bfc321cb20330934
+  #|atan2 c066b5cb52be21bc 4066ff5b351630e8 bfe8ee7b42e35ffa
+  #|atan2 40773c4639343217 4060ac3736f18e6b 3ff39f05295ae523
+  #|atan2 c087e0b748728ecb c07eb2609f72d250 c00122fde63076ec
+  #|atan2 406c5c9783b0925b 40880b12a3ddfe76 3fd25a80e2502461
+  #|atan2 c08a8431eb8d379f 408021f78413cc62 bff06334a2757735
+  #|atan2 407af238bcdb1cba c082bd979e827f0a 4004256ec6e5d0f4
+  #|atan2 408967804d3b89b3 408ca670104bcdff 3fe736a92dca1f6a
+  #|atan2 4088bda6c3706abd c077e5c8b8c1eaa0 40002a6e4c0a6267
+  #|atan2 c0872e94c21504f7 c06ebfd1fce15bc9 bffe41823f6194c9
+  #|atan2 408b1bcbe267c4ca 40887f5fc8b1b6bc 3feac01ad328ef8d
+  #|atan2 c07784506a072658 405c5afdd3059458 bff472c67f413652
+  #|atan2 c07a2365c4fece14 c0796daa3296e02f c002bd4b54bc6655
+  #|atan2 c080068307a316ec c0893516e426ff83 c0049a395b22b712
+  #|atan2 c08068668bcb6eb2 c0759fe28f711c88 c0013a452ff9bffb
+  #|atan2 c087668b3d2a7287 408bfcfe7943a370 bfe64894c5febc07
+  #|atan2 407548ad95332a4b c06ad608e0421e7f 400110fb4882332c
+  #|atan2 c0794000f373323f c044a17183e8d7d6 bffac2de40b6584c
+  #|atan2 40602e39de7a8737 4084cc248dabd3f3 3fc896d8e4074fb6
+  #|atan2 3fc0e5cd4cd6bb80 c08b32aca91999cf 400921abce03cdff
+  #|atan2 408009e98e8a96dd 4081a33324057d4c 3fe79d5bb40a7a56
+  #|atan2 c07c38e2ae1fd16d c0764c7ed2897c85 c001ea7514bb6942
+  #|atan2 408c9fb22f7629a2 4056828ebe53c140 3ff790a161521d66
+  #|atan2 c0746332b1ed9086 407abff6f08dd968 bfe4d6e8701f30ec
+  #|atan2 40878f9567b66df0 c0630636fbf278c5 3ffc51d949248bef
+  #|atan2 408c8764079814c5 c086f70cbe0b5a88 4001fd0ef5346bd0
+  #|atan2 c0894ffc717c1996 406bdcdf5793ba3f bff4d609247aad3b
+  #|atan2 c081a0dccafdea7e c048b8ea71963af0 bffa8815d996ad52
+  #|atan2 407ff4d3f73364cd 407cdec1dac297f6 3feac14569ed5e6c
+  #|atan2 c08d1557f12e6124 c0813a05d29ff4cf c000d82a3dc88ab9
+  #|atan2 4069e301cc6e3144 c08ba0830fb635d7 40074abaf9949698
+  #|atan2 c08008c3de9817e9 407a71004fbb7231 bfec336a2712d076
+  #|atan2 c07a09e2b8ddd266 c08d6aa68f8280e0 c005cca490bf9c90
+  #|atan2 c086217e510ec1fe c07c87665dce81f8 c001258afa43172f
+  #|atan2 4085fa0ac5cb9cd8 4079e42cc7234b8e 3ff09d867763f412
+  #|atan2 c07b606cb954fa3b c069cdd4e80c14e1 c00016f1cf74d882
+  #|atan2 c076fdc5a887716a 405e37b33a2311eb bff40da723a318da
+  #|atan2 40713c1b22e39b60 4082df64458ba680 3fdb69da184de24b
+  #|atan2 c07184e1d54707d6 4081f3ad9b5bbca8 bfdd0da4927ef37f
+  #|atan2 408e249db0357743 404871888443bb4e 3ff8529085923639
+  #|atan2 c05d340d67b48ffc c08dbfb1004a7e58 c00827ecfdc4715b
+  #|atan2 407a7f0e779abb3a 40508270c3749e86 3ff6a906cc999c43
+  #|atan2 c079f98068f3ee5c c08bd43a6b315316 c005a3be3e1121be
+  #|atan2 c0786883754700ab 40782d42f66d4560 bfe94901cfce3ca2
+  #|atan2 403bbb4cf1639a0b c08a7545a8a56eaa 4008deecd46c927c
+  #|atan2 c075845305283a68 408e165f2ac0569b bfd5fa5b7b6c4c8c
+  #|atan2 407b1638561435b6 4073a6e2075bcf57 3fee2e49d3832c2e
+  #|atan2 407b8afd62eb69e2 4079c096618a66b0 3fea351dc9189804
+  #|atan2 c086d6554425613d 403cfc8890505f91 bff87f99ea1c9042
+  #|atan2 40773ec864f2b155 40784ea185d64a10 3fe86b12fb06a37c
+  #|atan2 c08e258b65449c3d 4071090a27843421 bff4ba183a8616cd
+  #|atan2 c0628625dcf54e51 c08e92011a259262 c007ee13e23b1244
+  #|atan2 4078e2a6a69618c0 c073a1aa24970fa2 4001e8e53ed48b32
+  #|atan2 c083b20349443012 4078abfab9aeafeb bff02e07606bb6f1
+  #|atan2 c089323287f1cb7a 4086ca7a88188cfd bfeabc3a8b5dccf0
+  #|atan2 c06aba2d2ed945d4 4062e0a48b467619 bfee9659c9d77644
+  #|atan2 4080a09f3c0f8a70 408ef2cd78cd47e7 3fdf8d7e743c576b
+  #|atan2 c08d17f70e29cb9d 40775cb13c491ca5 bff30623b0c184a1
+  #|atan2 4083e2b5ba751c03 4040b4f8ff11f38d 3ff84b199dbd3971
+  #|atan2 c08a375d24292c0d c089b153b55a0eeb c002c4d46d46bb62
+  #|atan2 4082765c578cf147 c07b4eca5797d4ad 4001a91e98e4ccf4
+  #|atan2 4089aa00cf39b973 407cfec323ff9170 3ff0e7c7f1be1bda
+  #|atan2 c082c34bb326a644 408d5df46be593d9 bfe23179ad6c665c
+  #|atan2 405e8e0a20af908b c08c8423ef7a7286 4008114d7cfd989e
+  #|atan2 4086321b66fcfacf 408de927dce61f21 3fe46dcccbb5eba2
+  #|atan2 c08d01df1c32b6da 4038a767396a04d4 bff8b537ab0314c8
+  #|atan2 c0847f9158eef7bf 404ebad9f56956e0 bff7a3518885f432
+  #|atan2 c071f804ac697f6a c080b8b9255767ac c005303e5ae73df1
+  #|atan2 408d16050f3ed90f c07295adc3a77a00 3ffe1495ccc53aa1
+  #|atan2 4077c167a79ec0aa 407b81d5bece2543 3fe6cb837ca18d12
+  #|atan2 407916c9b65f7a21 4064c8ab750c326b 3ff2d98663dd6ec1
+  #|atan2 4089b4369b37cdee c050b6f0f3aa7c0d 3ffa6e310f99516a
+  #|atan2 406ae3ce2c0f8beb 40879c571cf68435 3fd1c09d1d70cff1
+  #|atan2 408b1b3a42621180 4053b3cf71f6a0b7 3ff7aed9e31f0a38
+  #|atan2 408c1b4d546f7a5c 4067fd406f7a3ba0 3ff5c4e6fc56f26b
+  #|atan2 40846e5fc1d4ebd3 406e82a0e2944c61 3ff36a74cfa1a614
+  #|atan2 c08edd723689d44e 4086f886f8999f64 bfedcab70e189f36
+  #|atan2 c0730f29ee219f5b c0816a8ca9b97803 c005209d68dc5fab
+  #|atan2 40502d0be32a3ccd 406291bc3c4667df 3fda4a3204ef7e5f
+  #|atan2 c07b7994f256336f c0759cf09192b786 c001e6134519a031
+  #|atan2 c08e8e4bf80545a2 4088d71697a63fd5 bfec6c3c890a64ff
+  #|atan2 4071a0f7ae5e7460 c08e995d3ddc4a49 4006e3958d0ad79c
+  #|atan2 c081b1372585b82a 40834e86dbab96d1 bfe7bcbd7bc1ac8e
+  #|atan2 406bd4807a8f8cad 407debeca8417f68 3fdbdbf0cf4dad9e
+  #|atan2 4068709845169aff 404c2dbe62b28d13 3ff4a47cad68ffdd
+  #|atan2 408d0dc92d1172bb c08a8b7372aaca4b 40027d1fd4e44989
+  #|atan2 406985723dfb5182 408123188130c37f 3fd6cf6e800c7590
+  #|atan2 c08def09b9795875 406ea70748f66c6c bff51f7121f1deb0
+  #|atan2 c089e866ff12270a c08d38bd3a5a2db6 c00354716c207526
+  #|atan2 40812e7a512e1dc1 c08ec15c843e8465 40050e9a500c0739
+  #|atan2 4087ce70608e8683 408e4cd4479c8032 3fe54f7b2fa6ac0c
+  #|atan2 405700d9a6a08acd 40705b4967b4ebb9 3fd5a34aac4f4f21
+  #|atan2 c08164ae0122c51e c0585e491c51220d bffbe81a1300226c
+  #|atan2 c085e4e7d4673844 c07bbb57fd660588 c0011533d595a086
+  #|atan2 4067f012ebb4fe58 c07f85e6e1935b56 40063ad11d0f52ba
+  #|atan2 c05ab0d3ea300aec c086890af0b8ac1b c007f4f68f412212
+  #|atan2 408ae01cc077fc61 405a86bd1bbc5dd9 3ff72b2c72ebe806
+  #|atan2 408a974273987a8f c089149647edeea8 40029da306c9a16b
+  #|atan2 405b5d9dcc52816c c0608a0880ffa16a 40039a794b6f2c89
+  #|atan2 c075f525e816dd9e c081cf744aa6a7c1 c004b6a4c0f64c53
+  #|atan2 c08d89601074430b c0759fe751e31bf1 bffebf534d0da667
+  #|atan2 4081f6f32b52b3b5 4089e20f029cddfe 3fe36a5fd0131f06
+  #|atan2 407b7659ddad9020 40708f2f6320cf2d 3ff073732ff97092
+  #|atan2 4082933fb70a25d9 406b9ff83ac0b5ec 3ff36ff7a19e1817
+  #|atan2 4058b2824a663521 40894b4f73ed99b1 3fbf1752c24f9e19
+  #|atan2 40888d5235b4f984 c08beb596377178f 40035cbc1359b175
+  #|atan2 c058dfc7df966ad9 c0889c6f0fde8d4a c008209bdbb4ca51
+  #|atan2 405ec305b0014edb 408c38f94372b1c1 3fc15534a2307b37
+  #|atan2 4068ca1c707f6306 408f00e0264d4eb9 3fc940e4d429b025
+  #|atan2 403116e2308dd560 c0758a2e9f821405 4008bc82e1cad93a
+  #|atan2 c071bcce38ab7fe8 405a0691ca0e0945 bff381ec45e44cd8
+  #|atan2 c07c619b23ad5c80 408568b7e606192a bfe2bb23845f9211
+  #|atan2 408d7ffefd350e62 c08817b4ec7146e8 40020b8b5bb5573e
+  #|atan2 40860de2d8447503 c08d227b1f64f7da 4003f2fab62b27ad
+  #|atan2 407209b87efccedc c07b33beb17491f5 400472ce2077e4fc
+  #|atan2 c082cc78ff594796 408469343021953a bfe7d154c1c5e23e
+  #|atan2 c0701974a8b3113f c07bd696b7476526 c004f0293d7f2990
+  #|atan2 40889e60c5630481 4064e3bb72ad09f3 3ff5c9c88a54c4da
+  #|atan2 c06ea69b1195b9c5 4089f39f7aedc5e2 bfd260035c31f60f
+  #|atan2 c0813fc1dca63266 c073ca28466bbcd7 c000bb9f0d4f14e8
+  #|atan2 c07596a21f3f9aad c07b5cdbf8a86191 c003c9f57d8bba20
+  #|atan2 408d3a9f7440a0ae 408559f2571ceb58 3fee13ad5afc4298
+  #|atan2 c07a4ea68d40e5bd c03d2309923ef94e bffa3d10da2cfa01
+  #|atan2 c084c079d0d5a673 c084c7fcd6ae2271 c002daeee7a958c1
+  #|atan2 408d8af96b238bf8 408164682286cb29 3ff09e97a9b4defe
+  #|atan2 c08b305c86c29c7c 407cc6347a1f471a bff15877b03bd508
+  #|atan2 406656e3b3e91c93 c0322dc5a1c114d2 3ffac13228e7592f
+  #|atan2 407333630311e21c c06bf20b660d0179 4001995d2564f926
+  #|atan2 408ec81182b7a8c3 40800b2d6b591365 3ff171f7f381257f
+  #|atan2 c0888e9c52a3f6d0 c05e4b7f9e11ffcb bffb94ad05d97c9b
+  #|atan2 4086eb8fd07b4b77 408c5e2cbce2b375 3fe5bf185b737135
+  #|atan2 c08919262e7fd630 c082b2b106d4e8f7 c001b04d7b3492ab
+  #|atan2 c0782bad96f53f60 408670e337a474f0 bfdf9db42e1cef5e
+  #|atan2 407af5188d24f61f c0845244a44580d6 40047290aaef3ed1
+  #|atan2 c08def97e7a4d438 407b16725c34da58 bff255b5aa78604e
+  #|atan2 c085e14ed3e59e70 40894ee17cce7e6a bfe6cfe98ff34e22
+  #|atan2 4072472991f2ca67 408bab3d508e0175 3fd46ac3f1519992
+  #|atan2 c04c8ad89558cb26 4077ee1ed81cd5d6 bfc2f1b96ec9d746
+  #|atan2 c070c91d05496be7 408300771bee6daa bfda9e61e1520c0e
+  #|atan2 c07b677e36bf8b62 407749eb20de0d46 bfebb99893b88126
+  #|atan2 4087f4725e25b182 408cfb2feb8e9c57 3fe61a77f87acefa
+  #|atan2 4078947bc620ec5e 40682855a2e317f6 3ff1d32314124172
+  #|atan2 c088fa5e30bde081 c0731edd4b446596 bffefb42444c88c4
+  #|atan2 408740f2669e41f2 40897ac1f3ccc3e2 3fe7ac154cd0ad64
+  #|atan2 405f89e7f3408a5a 408643b877ace82f 3fc66ea46676d3b8
+  #|atan2 c08f3ece23af559d c05fcfe55421a10c bffb287b46e45aa5
+  #|atan2 4080ade5c9c6b616 c07e329d0e328b46 400273b75eeeebd9
+  #|atan2 c08c069db28dfd51 c073bd195fb51511 bffe8cd8a2669777
+  #|atan2 c08b88769d19af0e 40801bd4648a7be4 bff0a9b11bab9815
+  #|atan2 408017d2477a4266 4088b26ab85e6309 3fe27afee3d5c182
+  #|atan2 407b194ea49f5734 c08c90426f2b6df1 400596ddef15ecb9
+  #|atan2 c0841c816b111d01 c068c4601f2b890e bffde950b62cb337
+  #|atan2 c07fc366704d1aeb c0726cd1232cdf99 c000c5801f350692
+  #|atan2 c0752220cfc1f0d1 4086601a15535c7a bfdc3c94f21e0ae7
+  #|atan2 4082bcfc92c3405c c061fb03d9a59e7f 3ffce65a09ba8cb9
+  #|atan2 408063bc9c79c816 c07b6c3fd4eefdb3 400223bfa1c6f3ec
+  #|atan2 c06a6196ba9881be c07845cc2339cf9a c00526829a6883d2
+  #|atan2 c05df8b0eac4df60 407d6ea547d3f447 bfcfe89177fc26f4
+  #|atan2 c05ef985f0fde7de c069ee0fe386dcde c004d34ee0057b4b
+  #|atan2 408eb226938dc891 c08c5bd50bec4c72 40028879c799c902
+  #|atan2 c075af933a9d5b64 c0834c93538958aa c00509a4aa212705
+  #|atan2 c04547208b954a79 c08585b8fad5a705 c008a398bcf51a04
+  #|atan2 405e777f5af0f67d c08498b5c5e88677 4007ab87d5b5f758
+  #|atan2 c07a676b91bf6c0e c052f7cd379fd1d1 bffbf9d6c8a76620
+  #|atan2 40669d7d98f9c5e3 c08129e5f8e7be7c 400696491cb7cf38
+  #|atan2 4089c594258a4611 c068dfd8c1d15bf8 3ffcebc98dcf16b6
+  #|atan2 c083ecabd517e0bb 407e7b0c5a123f68 bfed5ed1d085e95e
+  #|atan2 4068b1bf1dc0d195 c0801ad937c390fc 4006344b077ffd67
+  #|atan2 408d10b44b6d2697 c088775b788c1ec1 400229f80ee45d06
+  #|atan2 4088707455682614 407ad200d800a9d1 3ff11a622e81b1d7
+  #|atan2 c08c9e757220ee51 c0884d670ce414d9 c00232ce71c2f57a
+  #|atan2 408026a255e381dd 4078c4552a3ab212 3fed555e43db5ec6
+  #|atan2 c076931b612d3169 c07d27751c9b5a21 c003dc95ab0bc502
+  #|atan2 c07cbc29f993f2a2 40832b70a3295c64 bfe494e444bb1974
+  #|atan2 40579e62b3e8662b 408a1657e70c1a0f 3fbcd96283125b95
+  #|atan2 c07c083fd4dcab97 4083431b8f2db98d bfe4211ff289ba1e
+  #|atan2 4081c55a8935b1b6 4083145408f74933 3fe7ff382ac455c5
+  #|atan2 4081ebfa05988231 4050baa12103e28b 3ff746356912bc18
+  #|atan2 408b25593352507a 408f3d2aa0881f95 3fe6e49fa9ac6e5c
+  #|atan2 4076335e94288710 407944ad109c8235 3fe7115268b2d764
+  #|atan2 c073d0bf10b1d74e c0828e9bdde794f5 c00535a359552de0
+  #|atan2 c0235e95d6d4622c 4086accca80eedd7 bf8b555e41a903a7
+  #|atan2 4064e2eb41a7c6dc 40799dda70b20468 3fd8c64d8cfac2ba
+  #|atan2 c071d92bd4d0146b 408a398dd6ae0d1d bfd4fdfe1b376987
+  #|atan2 c0795e59ddec82d8 40105fc0d0d73ea2 bff8f8acb31ec1fd
+  #|atan2 4083dc88ceba3050 4086af8c5ea81fd4 3fe702fecada6722
+  #|atan2 407c92856a01f546 4077742535a7dbd9 3fec4560ac88f252
+  #|atan2 c08c3ab8428bcd76 c0872a6220a2d73d c0021059e68167fd
+  #|atan2 40794d3a5e61dd8c 4077f34c16ae463c 3fea02aee8299ce5
+  #|atan2 405cf275586665bc c07ede9d81763e85 40074a62585e0abb
+  #|atan2 408604fc6dad5c49 c06b2ce22913fd4d 3ffdebcb6defed68
+  #|atan2 40825499883e2f40 c0763ad9cb6b0950 4000ed53bf05ad6a
+  #|atan2 c0813ee4d34b59c7 40870fb216f2f26f bfe48c1cd7658834
+  #|atan2 c074e9a6be1f1d18 c085d5d202a5513b c0058f558746f408
+  #|atan2 c0596a80e9fe4936 c070d3962c101beb c0063e8574f4e2ba
+  #|atan2 c0621b1105da4810 4061c1be1a856681 bfe971aebf76111e
+  #|atan2 c07c0914d2d048da c083705a2aa45b31 c0042279752db476
+  #|atan2 c08db18ffdd2d01c c07da9e390728a66 c00045b6cc64fcb4
+  #|atan2 c08986a893ddb7b4 c06bc04837548027 bffd60fc33fa195f
+  #|atan2 c063aec610ba066b c07115f6029d1d0f c004f3bb5a6825a6
+  #|atan2 407feae5e5defc7d 407a53e3023b9cf3 3fec31c7bf034a8f
+  #|atan2 4073ae586f971877 c077be1b19bc77a8 4003987cb88fc716
+  #|atan2 c07be4ab8c547879 408411feba2840c9 bfe36ee5ea52ed29
+  #|atan2 4086213a6ce91b10 407def4cebe3302a 3fef3c666ca3eab5
+  #|atan2 4089918aea12ddf3 c072e783a1f6c3ef 3ffecc5e9014cc1b
+  #|atan2 c08d7b68b1cf686b c0867cd8a21dd585 c001c78048b9a734
+  #|atan2 c0718b145e9af57b 40810ea8d4d2e42e bfde6611c260c835
+  #|atan2 c07d6e4b8fd1c465 c07ad46d6343f673 c0027aded150d023
+  #|atan2 c0733232b42a413a c08d325ce5f1df88 c0069785378c0c1c
+  #|atan2 408abce5baf6a41b 40862873a25e4576 3fec1f0f004593a8
+  #|atan2 407bf34052b3641c c02b7ecf81d34d06 3ff99fdbee8f4dc1
+  #|atan2 c07740a17747e6e1 4053d125f811c13e bff5c621c3ab032c
+  #|atan2 c074ae8173e9ab17 c084d2227d2fa787 c00571ea281ca029
+  #|atan2 c051e7b0ad4584e3 c08cd7d65c75844a c0088361ae5c4898
+  #|atan2 404e8f52ce9e2531 c067b2f95c9eec74 4006a34dd358a7e3
+  #|atan2 40793a3331492e5e 4065dab9019c8018 3ff297bb57aafa1c
+  #|atan2 c03f6485060fcc4a 4058fc18ade1c490 bfd37a9b82fcab9f
+  #|atan2 c07111f224c283bb c07a6d5d9e4b8f8a c0048b6ff396b26d
+  #|atan2 4045ba31cc21eb03 c05301373cf60e9e 4004fa7623107c56
+  #|atan2 40811e0c52ba4f71 c08489d3c28a3f18 400393097729f66a
+  #|atan2 40750558824ea6d1 c07f8cb147e82e9c 40046e4cad01afab
+  #|atan2 4060da0ae9864849 c075a807be693976 40062a128d8cba0e
+  #|atan2 c070ff7775d1e81c 40384fe1622f5665 bff7b4cc0563d052
+  #|atan2 c03df10610920850 c0874a0f4a387563 c008cfbed5073025
+  #|atan2 408bc623c16d99e1 40796f719d8f4712 3ff24325d3f04f94
+  #|atan2 408635a2270a3273 4056a85b6dbfec45 3ff71a746b844c7d
+  #|atan2 408b3388708ac338 c07261b9d8fa2c52 3ffe589f730cce9b
+  #|atan2 c08f333e175e9364 402b672a9a2a9ecc bff8e9c6395ffd77
+  #|atan2 407e74ef303684de 405cdb4c779f442c 3ff569567b8d2489
+  #|atan2 c08e140c295c186f 40838b5d11057ca1 bfefd38b79f3aad4
+  #|atan2 c0545c7ec0f0558c 407aa80387e340f5 bfc826fc76994446
+  #|atan2 40657cf2c6c52f4e c0769207e83f295c 400594175b201e44
+  #|atan2 c081d6f4eb146622 c0821980a7382a4d c002e84c8b4f2635
+  #|atan2 407dcb2ade0b0ce9 40849d9215a9d387 3fe40604b34382a1
+  #|atan2 4077a67c2ae6ad7f c08b493ceae3469b 4005dc768567f6bd
+  #|atan2 403fc0768a413a3c c08e18f1f9cfa669 4008de7d01efddca
+  #|atan2 4053c6d1da847183 c07130de92a6462e 4006e472ef01970a
+  #|atan2 c07765a2c29d28fb c089263af5eb5e63 c005a64d457054d4
+  #|atan2 c08e7d173ec21a60 406e512b97946388 bff53bf96572f525
+  #|atan2 407769f2cffb34a6 c07b9c95d901e3f1 400381980a6c53b7
+  #|atan2 408e63d1a2387f0a 404657d492786d2c 3ff865e639d0b37d
+  #|atan2 c086e6fe3d0b4a26 c0830eb013851482 c0021e5794e10dc1
+  #|atan2 c087b651e9426fae 4086249de7aca0ad bfea3a334b803fff
+  #|atan2 c055dfc3f9b20f31 406a7ea08294f72b bfd90e3bbcc073ef
+  #|atan2 4089a27d9a31a507 c079b6542c5ce525 400049041ec44eae
+  #|atan2 4087527789864309 4070050be6543dd8 3ff3d6ee917708a2
+  #|atan2 c07f2d89196b88b3 40708b52d368d3ff bff153b6e205c4e8
+  #|atan2 c082112d5c6e252c c07ad5bad3a48a76 c001ad34eef35f5c
+  #|atan2 c080f373c7ae0f78 407ac897aaac2120 bfecde8802e7eec9
+  #|atan2 4083e0640bc184aa c078062fbe86b350 4000ea492405cf4c
+  #|atan2 40804ab8237133a2 c05ea4c0c6c6c04a 3ffcd3d467259c83
+  #|atan2 4076e0736f6d8af2 408c79ac9b518970 3fd8722476c7ab3e
+  #|atan2 c088e75abab4264d c05662c4840c2792 bffaec4b0cf48dbf
+  #|atan2 c07b3b53282337d8 c05a9aa87f4ad009 bffcf72c38f7fbab
+  #|atan2 40840ff2dc6efa34 c07ab834cc270453 400144274bc69062
+  #|atan2 406e798c355f2ed7 c0740ddf7f4a9a56 4003ef4ad380d219
+  #|atan2 405aec9b9e881d69 c076f61bf1d5a8b8 4006d9fa56a74210
+  #|atan2 c051eb87f23ae4bf 402515a402b37f79 bff6cbdb2112dbbe
+  #|atan2 c0815b85c7133b67 40881d686f54e6ee bfe3f6d559077849
+  #|atan2 c05999dea595b2c5 c08d43f085aa1423 c00842ec00e8f781
+  #|atan2 c0820f8bedf42514 408bd10354e54122 bfe26d87c8ee786a
+  #|atan2 c0653a1b71103de5 402b27ee6c84537b bff7db2c2bbd3fe9
+  #|atan2 40805f4017c47232 c08c075ccdf6f8f1 4004e749d4af5428
+  #|atan2 408a5ece382e2c7f 408cdbd9928a716a 3fe7b11ff8fb928b
+  #|atan2 c0809ecd56d53f4a c0866b2a337794d3 c0040775b0bbec01
+  #|atan2 c07312af824a4ccb c083b69475f184b8 c00587355da445fd
+  #|atan2 c0251324a42ed9fe c0081a7005d1ee92 bffd96b27df7d517
+  #|atan2 4040a3db63f87c4a c07a5075819a88ee 4008806f12b420bc
+  #|atan2 c07bee641f41d8e5 40730726dfe5b699 bfef20ef59c6a787
+  #|atan2 4068fd0af9589ef8 408558f9ed137f6e 3fd23859258b4049
+  #|atan2 c08842f24d5581ce c07464b52712a92e bfff7fa68528cf97
+  #|atan2 c085eec3ea7bfbd1 408bab10c86fbf9d bfe572e5a18ab346
+  #|atan2 408b9ba64977b3f4 4078933d601f5527 3ff26ec91ada506b
+  #|atan2 408cdd72ac36bacf 407834fcc1d4a5d9 3ff2c7b06972bc4b
+  #|atan2 4081d72a7c5b4499 406c12123f4153b3 3ff322f1ddcdfcb8
+  #|atan2 c06929448c1c325c 4088c53027d20850 bfcfd5083bf2f314
+  #|atan2 408293c2ab100d33 c04c10babb618816 3ffaa396ae9373e9
+  #|atan2 40682b3379c30dc7 408e909b76c854a8 3fc8fb418475708f
+  #|atan2 407130587e901e75 c07aca93b5bf3ef0 400491baef36ba89
+  #|atan2 c08d2c441aeac626 408c22c4c7015e73 bfe9b636b9ef2553
+  #|atan2 408ef93dcf0b574a 408cfc7766419a67 3fea316937fff8ed
+  #|atan2 c0770d2bf18fd77b 408c031c08d59b2f bfd8fb5c5cb3de85
+  #|atan2 c08c02a3cf082826 4069d037d540ef40 bff5827b93e94c5e
+  #|atan2 c0414b81abe29183 40725890d48a97b0 bfbe073ddefcc88f
+  #|atan2 c04d6fcb9728a39c c0802d3a02a7ab32 c0083a0e7934e4ef
+  #|atan2 c07658eb5780ffa5 408aadebe72ca1cc bfd96232a6633f65
+  #|atan2 406f49b5ce9d3a35 c03e11a5f8f6673a 3ffb0baff48b534a
+  #|atan2 c071c98790ba63a8 406b55519ee8de8e bfed4d173ea97da3
+  #|atan2 c07e07473a5b169d 405b1955724ea140 bff59518ba973a6d
+  #|atan2 408b1bc809cae096 c079335d8977ba5a 40000c144efe104c
+  #|atan2 c08887ab2fed0c98 c07a6247f3554cdc c0008384041d79b6
+  #|atan2 c06193aed9a52bed c072404ccfe6428e c0058aeb6dd8cd1a
+  #|atan2 4039d3cf1929e712 407f91e35367f929 3faa280f7aa75997
+  #|atan2 4073b07d834c9764 4084ad0bc4c08924 3fdc70b9e1cbabf1
+  #|atan2 c05fdd804e0bf1c7 4060cfcd5755b5df bfe8461954356f19
+  #|atan2 4056284992046017 c06633876d9b4fc0 40056e0d6afdf0be
+  #|atan2 40849b111e335a4b c088599189c3a344 400383a9813b7307
+  #|atan2 407ff10f29390be6 408746c7f651d013 3fe33e5759e9fafa
+  #|atan2 40763d94d7b03fd7 c08a1f74c6748f98 4005e9c08966d837
+  #|atan2 408278123dc2e837 c05ec478751a9d7c 3ffc6ae712d802dd
+  #|atan2 407dea6d825c3f8f c084920548de61f9 40041a5d4fedb587
+  #|atan2 40761684c2ff3c98 4086db7ab85295cb 3fdcce53a73181a5
+  #|atan2 4063ac072480df5a 407104feff327f10 3fe0c4d8e1be0038
+  #|atan2 4054739148afa09e 401ec929e99bc288 3ff7a1c0b8f9627e
+  #|atan2 c07a9d3c558b6c62 c075416cbe3ebfa0 c001f52dfbab1457
+  #|atan2 c08abecbba9a24b7 40616226e5555541 bff68e301f45f083
+  #|atan2 c075f875864edede 40406f7f1dacae97 bff7a4146b25e171
+  #|atan2 c08598efbb2422e4 408da56439cb651a bfe425b77ba64acb
+  #|atan2 c074515da766b8a6 c08ce0998b32d646 c0066d32a16affb9
+  #|atan2 c07628b1eeaf4f8f c05331c34175fbce bffc8b7efe5148fa
+  #|atan2 4086235944afd722 4089d4505980e01f 3fe6acd1367c3d53
+  #|atan2 408c0d8a52c9782e c0793fd998bb5a63 3fffe619f5648fff
+  #|atan2 c04de3d7a61cfe3e 4088ccf0d4d4f8e3 bfb33f420e425ef9
+  #|atan2 407c8acd28de4fdf c08e3344d13fa7fc 400599e64c8b32e2
+  #|atan2 c086a08778911531 40867eb1d819d941 bfe939fa0a976713
+  #|atan2 4079d8ef524f0888 4073cfa5382e3e31 3fed56c2de6a2d10
+  #|atan2 4081f8c391d20e03 c08626b70efa843a 4003ae0dd91813bb
+  #|atan2 4081ab34291cfa5d c081e08ff087f960 4002e57ebdd2957d
+  #|atan2 c085552585128179 c07827502b09e137 c000affc43a30fce
+  #|atan2 408a2895ac9d124c 408203f6637f7133 3feef75567c0ac28
+  #|atan2 406e31f1f40851aa 40640077dd46b475 3fef8b2dec47ed91
+  #|atan2 c08c349f5b34f238 4088a4eb751e5aa1 bfeb492cd855211e
+  #|atan2 40809a60a4c6122d 408aef6f3a968746 3fe1ad3725c823f8
+  #|atan2 408e52555a55f19e c0613ce618e0cb4a 3ffb644126af393d
+  #|atan2 408606d9381df644 4088547f2e0c8503 3fe78b488e225572
+  #|atan2 408d105e2088809c c08b560148a9f8f8 40029ac264340de1
+  #|atan2 c057c8ad724da222 408afb4e6c89912c bfbc181a000af67c
+  #|atan2 c05214629b647a8d 4071b5f5cc03adec bfcffbd5d7ff03d3
+  #|atan2 4080e8a24a43ef10 c050f5f75338a706 3ffb20e4769b0693
+  #|atan2 408db7f3096fd30c c06fc9ac90f7cf7c 3ffd503d50dc6cc9
+  #|atan2 c075fa2f7ba85ec6 c08bd73c42007dbc c0062015f27edfd2
+  #|atan2 4060960f56048f08 408272c8d63bb894 3fcc4cb0d2c52a42
+  #|atan2 408850dda6684d9f 4088191cdb025f55 3fe946d519691f4e
+  #|atan2 c0887e7358b18f64 c037f8de172b730f bff99f374280178c
+  #|atan2 c0695ee092714a71 406b3d941f99b894 bfe7fef0db72dfd9
+  #|atan2 4086f3d0aec6a467 c08ecf4852c2158e 400402b22972d0e4
+  #|atan2 408c875af1da3e6e 406084e404493140 3ff6d5242c64a8c4
+  #|atan2 c080ef588bb3321d 4089d8f576a5ff2d bfe28f777bf8f3d5
+  #|atan2 c079098ca84e1fe8 4077e2041b0399a2 bfe9e343200ca43b
+  #|atan2 408e4c464687bde9 c08be837e9747a53 40028568d233eb4a
+  #|atan2 4086962688f8cccb c083f6696b7a4016 40025b58d1e12d3a
+  #|atan2 c06eca87b3e6abb5 407570034dc7c4d6 bfe3ee0e0db72f82
+  #|atan2 406164cdab270c4e c088d785bedb2af7 4007bf15f43f1787
+  #|atan2 407e98f9265550c9 405d3a8e939856c4 3ff561c6bdaf037c
+  #|atan2 4075c571c7eedae0 402b6fd45726e5f1 3ff880c165bca949
+  #|atan2 408c777d60308cde 407f07f1c2a6b86b 3ff125f78b9d9eb6
+  #|atan2 4077f3cc537f78d1 407c91f0ae1dbf82 3fe65397bff96c90
+  #|atan2 c081eb7539b6a687 c08a5bdbe66cf161 c0045b307cb7ac7a
+  #|atan2 40872651fc332f94 c07fb210b9cec9e8 40015e683fed3522
+  #|atan2 406b5e7cb5ecca2f 408070ec20fff548 3fd93d4e07ca2b5e
+  #|atan2 c083d87ae3aafc42 c07c08a2d2d8b9b9 c0017c6277fcfb99
+  #|atan2 4087c52ce97737b2 c0802f1338a3aeef 40015931db693232
+  #|atan2 4089baffedc61af4 408cafaaf4b7b501 3fe76574c02d063e
+  #|atan2 c06b671add899ad1 407aa5e7e631ea47 bfde64f328ee3678
+  #|atan2 c08a5d6934331f2a 40712853598e20cc bff4197567f73d66
+  #|atan2 c071df3d5cb71e66 408a31e81b338758 bfd50a54e80c5e7a
+  #|atan2 c0859ab7f7d3a106 c054ae6635d57689 bffb09c910e53dc7
+  #|atan2 c08f20d31660e2df c045874ed044aa1b bff9d2ec6517b23b
+  #|atan2 4086bf54bce3e84c 4075e71963a5c317 3ff1f42b3634f2c9
+  #|atan2 c0898fa2a479b007 c0735aa05c9f88f0 bffeec5c2f251c05
+  #|atan2 4079636de78e2a5c c080fc7c6a12f0d5 4003ff9b84bbd116
+  #|atan2 40760b9b19ef7ecc c08b77e2e75c3762 4006146f13b50e0b
+  #|atan2 4085ec753618f7b6 c08c8dd0da288586 4003e4f66d34981e
+  #|atan2 407921b7dcac79e6 c0827e858f5dfa50 40045bbce3df1585
+  #|atan2 408b94dd8cdbac0b c086179480265a08 4001f813f1cd0309
+  #|atan2 c07e1ad1717ed221 4082e31cba111a80 bfe58849edc966a5
+  #|atan2 c07cd139cb2b3493 c081cc74067eb3fe c003b0425be7d7ee
+  #|atan2 c07181f18b9dc8f3 4079e23877c650e7 bfe307d80a9dd02a
+  #|atan2 40880c3f27ca6456 408d4e88d3e8d48e 3fe5fd2187db124c
+  #|atan2 c02946ff16583e08 c08d44c8087d7f4b c0090658e5399231
+  #|atan2 4089746dc039d6e5 40869de36e25d0ca 3feb050f6f68a8e0
+  #|atan2 c0534b4b5b885133 408c1278b0aa4093 bfb5f09b61c28d20
+  #|atan2 c08ae7cbf4414741 408e9bdc2b21e857 bfe71338ddfb9c30
+  #|atan2 c08752f7c8705493 407c8b2d5787a54c bff058cb7c7925a7
+  #|atan2 4083c0a862366493 4077b600a6093e84 3ff07bd2f0ee3353
+  #|atan2 c083a47d24689791 c068a43c17e909fc bffdfecb458c91fb
+  #|atan2 407731b702cc26f3 4080b633ab657f16 3fe369b56ef1c4a5
+  #|atan2 c067e924a1c0b81f 40764b4faf8665d7 bfdf80ad78155306
+  #|atan2 c08e37edfb6f710e 4076d1157b32db96 bff35b618b9d0882
+  #|atan2 c07c0f08bf9bdc76 c06f3c33e5fbe426 c000a12af2d4cbae
+  #|atan2 408aae1891e5425c 408378efe661e0a6 3fee17142c4fa724
+  #|atan2 408125f34ae04f87 40876f84bd125321 3fe436dca8158b30
+  #|atan2 c06f7f4a150a7134 405c1ad3423fdb44 bff26b1d779068c5
+  #|atan2 c087240bdc947239 c06d1aeae89c1a94 bffe01d0e5b6c471
+  #|atan2 407e022c98845a51 3ff193da709746c8 3ff9189c17406652
+  #|atan2 406408b41788aecb 408d893109c0d028 3fc58037892e1c67
+  #|atan2 c08cbd7bfec994d7 406e951ce973bc36 bff4f901b8e62df2
+  #|atan2 c06172a2b9e01a58 408605a1ef7cc151 bfc9077f8c207a19
+  #|atan2 c07f1b9f42397467 4084e5aac34cfb4c bfe479a5dcb43ec0
+  #|atan2 c07c905bbdcbe1fb c084eea6625e6c9a c00457c0ecb764b6
+  #|atan2 406141fc116ffb96 40819f5938a2604b 3fcebbb441c7c1b6
+  #|atan2 40897f4a33a13dc4 c07261ff8972fd53 3ffeab240a9a756e
+  #|atan2 402ee8f2bb2d901e c0826e8e5353ba89 4008ec549c1c071d
+  #|atan2 407471efec0907a5 c04ef4c137fc6288 3ffc2024bd0d57ca
+  #|atan2 c08985bc877aee9b 40699a13ac73165f bff5338ca3830324
+  #|atan2 40701ec8c859d63f 4085502cdc1f6d3e 3fd723aa3b3a3248
+  #|atan2 c07806c89d7ab81b 408a951314d0afcb bfdb2a43cedb78c7
+  #|atan2 c087d62d9891f121 408ed5e406464c0c bfe50ef3d4627e97
+  #|atan2 c088bbbe9c3fdda1 4084174c361126c6 bfec6f657e51b133
+  #|atan2 40719d59ce0ea9c9 c07946c649bdccde 400443829f883f18
+  #|atan2 4088994512eb1063 4073eea3604ea5de 3ff2f949450862a6
+  #|atan2 40600e83c6ff9ed2 c08d25edb442026b 400809b3b27e0920
+  #|atan2 c05af59e310885e6 c08d8102dd28e0db c0083911bd43487f
+  #|atan2 c057188b6f024aaf 407ac9271de69a88 bfcb2d0e73d60032
+  #|atan2 408081651ee0f558 4059caa15248531f 3ff60be0022897e3
+  #|atan2 c065e2bcfcd2d284 406885b7125ec114 bfe7510f8a60fab3
+  #|atan2 c07a8c70a3de2b41 407328c978279fde bfee42f6ba4b03c2
+  #|atan2 4049e607971d9289 406eb8fc9e766315 3fca9619d0dcf91f
+  #|atan2 408d2b7962cb4757 c06513732530c3fd 3ffbfdf4d28ccddd
+  #|atan2 c085e6e21fbc65b7 c081b2610d80bba9 c00200d0c4ed1c9a
+  #|atan2 c0852642ba7d3fb1 c081f769528bcfc1 c00233330dabb368
+  #|atan2 c0806f8f4b068207 40701abe263fde26 bff1d80a96e4011a
+  #|atan2 40589f6335d03688 4079e56feb652441 3fcddf2d8a6e6eb1
+  #|atan2 40857a305332e36f c0800118e1cae219 4001b089dc97dac5
+  #|atan2 4089566680429bde 4083f6adca4ed9bc 3fece9400a1022f0
+  #|atan2 4089a0bd0333250f c074a2bf32271cf0 3fff41b81b47cb41
+  #|atan2 4074dfd072ba14fa c08d386529f7ea3a 4006636305104df1
+  #|atan2 4072f2e64c0eb141 c08bf859d29bb933 40068519751d06c1
+  #|atan2 c070b69172050034 c067591419c42347 c00171ae6ff487ec
+  #|atan2 404dd1dc01ce6e24 407bb9d8381e954d 3fc11b10a98b4cb3
+  #|atan2 c05625849a187e09 c07e9d685f5d2abf c007b390c2953ddb
+  #|atan2 c08000efbcd8bf1e 405cf8111341c691 bff5928878f6f244
+  #|atan2 408c83a80f650226 c06b1aa9f69fac3f 3ffcdd9db6bd8858
+  #|atan2 407ad070b2844785 c06efdcd7b6b13e3 4000c226f8b7552d
+  #|atan2 4086bf771b7dcd8c 4020e8bb29be3ac9 3ff8f2693ab1e69d
+  #|atan2 407e9e0d3ea510f8 c0799103a347576b 400221dd5ffb1aec
+  #|atan2 c077fdd36555e430 40614cb4b30b569d bff398a405d7b809
+  #|atan2 4085eb4ce2de0a0c 408f01b34726ca48 3fe3b0fa08e06096
+  #|atan2 408216d8e07fc38c c07b7b5260e0f736 4001c36cf70f5df1
+  #|atan2 403b130ac07a64b6 c07871a3836dcf41 4008946ee07a4915
+  #|atan2 40724754d71aed91 406c25a0932a415e 3fed44d88e20df62
+  #|atan2 c081090e904ef850 407cc32f898a78f1 bfebd46c7ccfd1da
+  #|atan2 c07d32cae1c87832 c06621e0d5ee849b bffeedd91c485542
+  #|atan2 4053b4ba212c683a c05a55b24752c7cd 4003fe56840c4021
+  #|atan2 c051a3756eb318c0 c07857ade8ba0bac c007b2f7c66faf3f
+  #|atan2 403b24cde6d32c46 c08c447e819eb99f 4008e48b66cfe635
+  #|atan2 408560183531fcee 407800a7df2a6751 3ff0f27dd0ca86a8
+  #|atan2 408da5315649501d 408d9a64bcdf1e59 3fe927d07c8ecccf
+  #|atan2 4076d9f0634a540a 403131cbba26a1e2 3ff8617ef80cc9bb
+  #|atan2 c0705a3ae7bf87d9 c0884450e63233d8 c006886a2239a0db
+  #|atan2 408f1da833ca08ae c077e82df3437eaa 3fff004d4d2ff3e6
+  #|atan2 c0875da15facb2cb 407f03701b07534f bfef842b518fc41d
+  #|atan2 c08c4a34f5630199 406e859c7a4f65bd bff4eade6819e86c
+  #|atan2 c0820bf5b13c79b7 408a7fc8b7ed7bbf bfe321d66ed8bcae
+  #|atan2 40831800c582e7a1 4089ed86fe8b5538 3fe44fe4c10cec29
+  #|atan2 407b083cc8d6c1d7 c089237a008dcb9f 40052fa865ba9043
+  #|atan2 407ced81ba3f5cc0 408619ca39458877 3fe28b40ee8cf6ae
+  #|atan2 c0510c870ba5486d 40752f1004970d57 bfc96a2047718a20
+  #|atan2 407bf4cde5ae4f52 c057663d4824aab4 3ffc6ee0d801b6b5
+  #|atan2 c08401e144ce5897 c086e0dd4940c412 c0036263411f2931
+  #|atan2 c08a18c4ecfe5968 4087650ddf669eda bfeae0c8c9d4575a
+  #|atan2 408de3909e3b90bd 4072e2fe76a9c031 3ff43c82e4b43f14
+  #|atan2 c082208b041d0ac5 406558410f2bede4 bff48d57892f76c6
+  #|atan2 408164b69b253942 c079d9bd360791f6 4001add30fd58f2a
+  #|atan2 407ee60bc95196c0 408c7cc396e08481 3fdfcdaf033fcdf7
+  #|atan2 c07668fa20db1be4 4088154156ad6e98 bfdbdedaf9b7fe9f
+  #|atan2 c06e8fc09abeedaa c0352dab48f60bd6 bffa83e6dc8dc415
+  #|atan2 40848014db9017dd 408654d3b3a63eb4 3fe7c3fd77b66fe0
+  #|atan2 c0877e628329e892 c08a440326f0b7e3 c0034b753f3e0ef2
+  #|atan2 c080ffdf9e954989 40882c20b5b5e742 bfe39cf8ff3a9ad2
+  #|atan2 408e8c04c2872312 408aa3fab3af1a27 3feb50b2e0397aaf
+  #|atan2 c082b24cba59f1e8 c08d1c8c9254b516 c00490c83866f005
+  #|atan2 c0811852bbc078a6 4081f9f0e12aee47 bfe8542a64e59619
+  #|atan2 40889a6810e707fa c0826fcddbc9f0a8 4001b60c5f0b152e
+  #|atan2 4080420065601ad6 c08daf90e0511b1c 40051fd64530d7ea
+  #|atan2 408436a432838032 c07a96e3c7559c22 4001387a28b15a4c
+  #|atan2 408cae51f110891a c04298ca232383d9 3ff9c7e1e4a3f5eb
+  #|atan2 40880e60510f97f7 40899b54c2d88dbe 3fe8224a141f8327
+  #|atan2 c07bf01c29df8deb c08b6b6c0de27d25 c0055d01377e9742
+  #|atan2 40426210c4cef1f1 407f28aff86894af 3fb2d85c9ab36664
+  #|atan2 c06e7e6e1c6ee0fd 408200c4b1206dfd bfd9a2cd03268392
+  #|atan2 c079928f53e9f38d c0830f02f0365126 c00467c6acba0803
+  #|atan2 4068199efccaf7af 406daf879add749f 3fe5d24aaa12dbdf
+  #|atan2 c056e9fed3836cce c086cff4fa396dd3 c008222dcf2aa618
+  #|atan2 c08192bbc4547e5b 4087c3cb111534fc bfe46007fc2a6082
+  #|atan2 4081d393604ad8cb c08d0ec486ef171d 4004bb04110d0996
+  #|atan2 408ec14e2e3a6d82 c08943a33d9a307b 40021162924e723b
+  #|atan2 c04a7a5da3883613 4056852936395d99 bfe101adbe402e43
+  #|atan2 c08abd232db352e3 c062f7206834029d bffbf0d054f00319
+  #|atan2 c0782cc2075a0bd4 40163f14d8bc8238 bff8e717515cbed8
+  #|atan2 c081b88e989dd7c2 c0778cc61de76b7e c0014218b6935f32
+  #|atan2 407a4dd35017a851 408a1f6afa42f466 3fddd9d175b8dcb2
+  #|atan2 408c3dadfa9e75dd 408ebcc9a35c09a1 3fe7c76d3f279662
+  #|atan2 c06133ba7ba522b4 c03c41ed03ad6960 bffc5f814577e0a7
+  #|atan2 c083ffd111b05c23 c05acba2a5e73ac7 bffbc9a977124c5e
+  #|atan2 c076ea0045a923eb c079cdc34806528c c00352d235127d62
+  #|atan2 407a99c532aa2838 4066eac581bd9007 3ff29ff91816c7b3
+  #|atan2 404437fcf17c266e c08734bdd8585ae5 4008b291bbb7f924
+  #|atan2 406aa033a36a9a15 c0838b551cafd5bf 400681b3fb95efcc
+  #|atan2 408ec08af718af32 4081c3e7d2ca7bc8 3ff0c04574e6b21d
+  #|atan2 c080955e33d320a6 4070f1c08c9dcb51 bff193620ed03ce0
+  #|atan2 408cac9d174a0c15 c080ecbecf7f87f7 4000d50385c381eb
+  #|atan2 c08c48c2db34ada0 4088a5e4efc8fe5f bfeb53d9ebc30cba
+  #|atan2 4077d81fa38be5ab c0849ec81d6dc8be 4004f0626e18ab0b
+  #|atan2 40762893e89f6e9d 408d8e1e0b810672 3fd6f430bc57a45a
+  #|atan2 c080436c4d0f973c c0859dc6eb20af29 c003f8fe95227790
+  #|atan2 4087d7423a3f34f6 4071c194b05e8619 3ff36dd6c27fb161
+  #|atan2 406d359c05061629 404731eb5873f303 3ff5ff445d5fb88f
+  #|atan2 c08cf7d7d1bcc7c3 407e09e34b3286c0 bff17ac8c651056d
+  #|atan2 40865ed7214d8bae c068120131745ae7 3ffd56506e137e4f
+  #|atan2 408e383f5b7e9bcf c049495f5c12ebd6 3ff9f7ff3c65ec0d
+  #|atan2 404a8596cd741ded 407350d11cc77bf7 3fc5c1d54b128e94
+  #|atan2 407d6dfc30838988 c063615fa1f93b3a 3ffe38dc5adc3b70
+  #|atan2 c0648b8f42adb1d0 4085814c9ec22ef4 bfce02695a887ee3
+  #|atan2 4087c9c959ba0c0a c0840f7b239b16bf 40022bcb9065e5a3
+  #|atan2 40866d069b57400b c05d9d326a96fe9d 3ffbc00d0bd2a034
+  #|atan2 c0554b2e8db612fd c085252cb664cce3 c00821887b689b48
+  #|atan2 40612709bfb1920a c08e27c289327574 400800b16f7e781b
+  #|atan2 407ca85a52fa65a5 c0841361bf7b3d2e 40042c73df0f5c71
+  #|atan2 c075743a47c3f6de 407db986edd86e61 bfe401778c60039e
+  #|atan2 406dbe3c8cc06ebf 3fffd2c6a8649928 3ff8ffbe95c5e4ec
+  #|atan2 40797deff80685ac c085ab664c431ce0 4004e1115abfc534
+  #|atan2 407d4e45b8909155 c04d757d4ec58910 3ffb21f98ee439dd
+  #|atan2 c07a658fe26c64a8 c0897f8bcc9309fe c0054fc4c1edc94d
+  #|atan2 40894bd31e6745e9 c089ce90986bad91 4002edf3d89504b8
+  #|atan2 c06b3b1970a73bed c067deaf352e4b7e c00252faa0852e08
+  #|atan2 40861ffdf5d50ca7 c0828851ac007877 400224feaddb70fd
+  #|atan2 c0715f26ecacbbc5 408d8a4f93ef710d bfd24d678b2cf156
+  #|atan2 4065d970c91eb0d6 4079f8d592f202b8 3fd97b8dad50acd9
+  #|atan2 c0896f45c945b366 4067f31fbba6bddd bff56f01d1b31170
+  #|atan2 c089c0a00450ce93 407743a390268087 bff258388d5a4e64
+  #|atan2 c053b39eea6f5e0a c08553a6fb6a2398 c008368835cb1cc5
+  #|atan2 408de215a1b0bcc5 407a2fd74939923a 3ff2867f906c8d4c
+  #|atan2 40614a89332b0cec c089235f07ae547b 4007c537606a94a2
+  #|atan2 408c7a9379417911 4085f80d6c39961b 3fed3d47cda598ae
+  #|atan2 c083aa3f6844b910 4057e986cbecd004 bff6b82185b613c4
+  #|atan2 4084fcd1fe8d0f62 c07a78a137fd00f1 4001114987a0c3ce
+  #|atan2 408e71ec40e8de50 c0804681264fb32c 40007e6a8b251f95
+  #|atan2 4084f4214e21d0af c08ac0d3affbfef3 4003d13d9371ff2e
+  #|atan2 c07e24d108a219da 40051994df2997d8 bff90b9530259c7e
+  #|atan2 c08111bae61753bf c079420253c54622 c001a987ce73de3a
+  #|atan2 4084101e3de6df38 c08e443ab66764f6 40047322c981f0f6
+  #|atan2 c05a186413f04118 40889c9953139149 bfc0ddbce771069f
+  #|atan2 c081c524fb1421ad 4084a45bf5c6e9d8 bfe6bea234793a92
+  #|atan2 402cce1bf0198867 c040c5093fcff445 4005e34a78ea23e0
+  #|atan2 407f44094fef8900 c08066a672a12fe1 40030a953bfacc08
+  #|atan2 c08bb7cf76ca08ee 4074f6aa72073cc9 bff3592179efc60e
+  #|atan2 c08bac029a4416c0 408c11d07efd331f bfe8e78a02673851
+  #|atan2 c088bc41fe5f7dfb c082272b77fa61b8 c001a19970955f24
+  #|atan2 40841d30168a9e6b c06381670597084f 3ffcf0346c697a31
+  #|atan2 40857e40cfb71f1a c089aaef7bbfa2d2 40038e4c406ba902
+  #|atan2 407c8777c428511b c08f2722a3d1924f 4005b2944832d1ca
+  #|atan2 c077e97bd2ca3b28 c075fe31ff7b44ef c00283eaf8b65080
+  #|atan2 407e00f216a87190 c0842c500c92b4aa 4004046e8e84ee6c
+  #|atan2 c06c6cb7f4677d3c 406df04f74f49de2 bfe84d8462a01255
+  #|atan2 c06bdaaf3d19fd3a c0847fffec4a7cb9 c00683599ff03e0e
+  #|atan2 c07a246cc8282f5d 40696a5b3d30fa98 bff1e4afa78ec0fe
+  #|atan2 4080cc39b2e3e6b4 407c85f51231f6d2 3febbd68e2ffa295
+  #|atan2 4084f749d9fc05f1 408b2fd6b4bbe3c3 3fe5057b2ed505c8
+  #|atan2 c05e6bebd9a0ae4b c0789099aaa35655 c006bb1479c352dc
+  #|atan2 40888f6468877663 c071714f19198db7 3ffe9795392c8be8
+  #|atan2 4044ac602a22f7b7 c06b34ebe8af6e46 4007a183841f244b
+  #|atan2 4089d81eb2a9d4b3 4071baaf32c19ae0 3ff3d88d90965667
+  #|atan2 408af01a6587b87e c0769c040c7bca14 3fff7d7a04a2c4f5
+  #|atan2 4076f3900ede43c8 c076bffc01105461 4002d075260f1521
+  #|atan2 c08b82d65546840b 40647be9aadaeac3 bff6302a5db28d4c
+  #|atan2 406e466c188f364f 40652be18202d2a4 3feebcbd1d9e078e
+  #|atan2 c05c933249284c9e 4085a4907fbe6b2f bfc4efa0f1be2387
+  #|atan2 c06c26da93002b14 4080bf1b5c1804ed bfd97667285987dc
+  #|atan2 c08eff15b46f1ae2 4086ce64f0005dea bfedf78589ff1077
+  #|atan2 c07545d54c31ae40 c07f9c28d18ab6a9 c00464d502e20f54
+  #|atan2 c08c0ad48afc401d c08dc3c74dc9124b c003167de0c26f19
+  #|atan2 408d220cd4637ebc c082ac1fdf65fdd3 4001204d5057756c
+  #|atan2 c0651c647b48c86a c0754f0a4aaa8774 c005740d2e195150
+  #|atan2 c0872dbc849c170a 408b9b02fabe25aa bfe659af83d6c36a
+  #|atan2 c0601b87e7f5080c 40825cc26e454123 bfcba2145a535052
+  #|atan2 c088a09d05f05016 c073ddc14d36127e bfff444d456f3a5a
+  #|atan2 4074088868789087 401401643e98c2e2 3ff8e21378841ffa
+  #|atan2 c035832bc8d92163 408268779cf9d717 bfa2b09e0722f6d7
+  #|atan2 4074c265d44e9dee 40771ee92560578b 3fe7698f41ca342b
+  #|atan2 4070e890f21200dd 40741f0647337c6d 3fe65d02e9ef0ce8
+  #|atan2 c08bfe02fbbef4bb 40878b493d71a13c bfebe34af4346fcd
+  #|atan2 4084b9d7f010c5c5 408350a2610d2ba4 3fea4288cb675e70
+  #|atan2 c054650f21244814 c0887975510f99cc c0084d6bddb796df
+  #|atan2 c083297be28d5a52 405a2ceb820bc2b2 bff66d447417dc83
+  #|atan2 408c1dd370e8e1c4 c082220abee8203e 40012614a288357e
+  #|atan2 4089f308d87f8321 408cc17b55f700e7 3fe77e17567abebd
+  #|atan2 40638accbbd32c17 c063cfef7be9762b 4002e78a4190a67a
+  #|atan2 408a042dc34e4383 408589a2f7c90d5d 3fec233e51fc247e
+  #|atan2 4085a35f5bfa649f 408190a077926d40 3fec72177ed45521
+  #|atan2 408ca16fbb5d1ebe 4074a5dbc71d5c0e 3ff398717afe61a0
+  #|atan2 c06fb776344693cb c08d2e7d96a1b3c8 c007029f4dbd48ef
+  #|atan2 c08c291675b47d8a 40801ecab8da0642 bff0d06da5356514
+  #|atan2 c083a17c93b4da09 c07975d37c3b5051 c0012b3699110a83
+  #|atan2 407551e5006dcd72 4081af6ecc86782c 3fe15bb5e05ededf
+  #|atan2 407f6cc807b673cb c07e556a58cf82f8 4002b54d4ca85f02
+  #|atan2 406708d9ce782664 c08da04fa18e84d1 400798cd203d0b44
+  #|atan2 c056a6be95ada18e 408c7f96467abc82 bfb959f0eb780151
+  #|atan2 c08d5e635fb928a4 c084da52e540e964 c001817c99631d87
+  #|atan2 406e29f447a098b2 c07011a03fa61c12 40031a5945204aea
+  #|atan2 406e44bcde7a9a2a c06690a7042e9c9b 4001b0f6fc5f5c8a
+  #|atan2 c0863d4c5c9cabc6 407f9892edf40eca bfee8037e02d3dc7
+  #|atan2 408a89c32d3323bb 4067a8a015dcf0a3 3ff59fc4a4e4f06e
+  #|atan2 c088b1590ccff488 c06277b5ed7adc20 bffc1715ddde293b
+  #|atan2 408347a2664c679b 4079a140a6dbfcab 3fef7e50427a3a1e
+  #|atan2 c083e3d3e5381c90 c0819444e9ccafbc c0025b57cb6e6f64
+  #|atan2 c03d07bfb2244b5f 40806157d3373b7d bfac53d260839a15
+  #|atan2 407bf3ea2f25ac64 c08d51d69e769f64 400592fa442f81e2
+  #|atan2 408a3b439b5614d2 4077d0f8c6a92169 3ff2507dae306d70
+  #|atan2 c089b83219c855ca c0876b3153df34ed c00279a9bf163b78
+  #|atan2 c07941aeafd94d02 4089d83b143f17ab bfdd169a00cbaed2
+  #|atan2 4086803a16e23ddc c06b8ebdcddf63b8 3ffde2fc15571d31
+  #|atan2 c04683e99befc063 c08002513d262dd3 c0086e6c3f55c2a8
+  #|atan2 c080f4a9e57729b0 407da091293321ae bfeb49824347b271
+  #|atan2 c02089cb87e575f8 40861554b494637e bf87f6bb389e1817
+  #|atan2 40796d4d4efba5aa c07e98689a1623bf 400395e499ec88f0
+  #|atan2 c084cca5dd371d52 c07391ac19d11651 c0001582dddb9f62
+  #|atan2 407fe36f96ce26ca c082ffcc267771bc 40038c152b1d8b26
+  #|atan2 408a140ea0060ffc 4076b715ccffe06c 3ff28f915bf5633f
+  #|atan2 403952dce0a1eb85 c07246ff747d738c 40087113760d2a65
+  #|atan2 408622fffef91e28 c062a6a84368aa4c 3ffc744f44d531ce
+  #|atan2 c0892553336480ee 408e19db21e70146 bfe6452f6da87394
+  #|atan2 406717fceadb19e6 408bdee2c6ce9ef2 3fca253fa16ce8a7
+  #|atan2 407c646d8d066796 c08ec9acf214279f 4005ad28200a3405
+  #|atan2 c0844326f864d5d0 407942e8903a266c bff036cc5381de1d
+  #|atan2 40839b51d6de072d c087d64d13ecd7a0 4003a0493a8210da
+  #|atan2 c08433004899d99f c08859faa43963f8 c00397d0ee7f45cd
+  #|atan2 c07caf184e06ecea 404683a5b6bda9fe bff7916434d535cc
+  #|atan2 c08ebe8386e22272 c087ac6e038b42e9 c001d0dde6d07126
+  #|atan2 4059b39bff24ef73 c0889dab3fa4ff50 400818316792166f
+  #|atan2 4086a731e2917266 c07a8442f626ec94 4000cd7421343a1f
+  #|atan2 c08058e69217dd8f 407f9bf7a23dc7ca bfe9ac3ab7a1832f
+  #|atan2 c085f5d2be538169 c086483784675a65 c002e86278e90e0c
+  #|atan2 c089ef7530622dcf 4052f2e8fcf8c925 bff7acf0a1da876c
+  #|atan2 40883b940b81a8ad 4068daaf45d7aaca 3ff51dde57147ec9
+  #|atan2 c08653a7e62d9db1 c08d53281cee4ce5 c003ed48104031dc
+  #|atan2 c03588ce5cec96a3 407fb42280a06cb8 bfa5b8ff6ac2d72e
+  #|atan2 c086e23c8bfc0143 4080be7dcd91d74d bfee0d2cc47d1d18
+  #|atan2 c084f338c785852c 4082e8f696c5e2b4 bfeac4e3b724f905
+  #|atan2 406b8f3863a7a916 4071ab2f6f94ae82 3fe5320fde51c141
+  #|atan2 407826124f71c4e2 c06a1f3dc7bfefab 400088621b15e570
+  #|atan2 408a30ca0aa769b2 c085ea70b8dbf1dd 400223f990ca6712
+  #|atan2 c0840bfb9f56e22b 404e8193a7ade618 bff79d953d8bdb16
+  #|atan2 c06013436ff6eb7c 408a14c30bb2f211 bfc391c9b426c32d
+  #|atan2 40609d9ea9c925b0 c06e8d99a4b11fa9 400525e2c412e786
+  #|atan2 4089e46c6a56ba62 c08b316af809e7b2 40030ba8a69873a4
+  #|atan2 407de8f2b3f4948c c08228aabb3bd2e6 40039f05c7d3f03c
+  #|atan2 40867540e492d2a2 406648065aded0a2 3ff53e226c930b40
+  #|atan2 c073a6a4b62d0fcb 4076d14d27718cd9 bfe6c047af323e63
+  #|atan2 c0752ede102840ed c08a21f5e5c394ee c0060d5dd3358d60
+  #|atan2 408c29d08da87a3b 408ca3f3897d5d05 3fe8dd2db61cf5fd
+  #|atan2 c0806bce0810d416 408e997dc0687d51 bfdf85a599cc913b
+  #|atan2 40854ef8b9d9158a c08f34c8722b3a45 40045701ed30df7a
+  #|atan2 403ac0ea68f5ad74 c063d1c10d40eb39 4007cba3aac81695
+  #|atan2 c073d853098c3c08 40814e3ca3b54a3c bfe0a8d2089c6b6e
+  #|atan2 c06e83edc240c8ae 407c7e538ca716a2 bfdf76d0e842c86f
+  #|atan2 c07537aa2ee3bc19 408ca310a5b840d5 bfd6b4b8d36e9ca8
+  #|atan2 403396ab44f41a50 408b1447f904ca74 3f9724ea1e81209e
+  #|atan2 40735a3c7a0c8cfa c075c2ad691a8c62 4003514cda3ff7b8
+  #|atan2 c066b074a2aec49a 408da3f4aef939ca bfc833edcce37491
+  #|atan2 c086d6d72bbbceaa c0629db345fc390b bffc595c5e9af961
+  #|atan2 c083b11947124227 4086c83c5ee85578 bfe6cefc428d48e4
+  #|atan2 c089ff6a299c0eb2 c08e9691cf4942bc c0037f43ae1dbd0c
+  #|atan2 408b180b4950a1ff c081de3147f0dd41 40013affb6e45268
+  #|atan2 c079a350f430dc0a 405bf8f9d3a815e6 bff4df44d90c64b6
+  #|atan2 c08291665c5ae472 c05f05964ae6d452 bffc6d44c918fab4
+  #|atan2 c0593255ca9c66d2 c07ab0f3604cc409 c00747561c35001d
+  #|atan2 406b8e72398c63da c08ddf5b719ef841 400751cb219b82b0
+  #|atan2 40703cac9e542193 4083ca88b69e4987 3fd8e9e5f7e96cc8
+  #|atan2 c08c9d3fbc26f03f c086a4e1f4a83ae2 c001ec0550bb160b
+  #|atan2 c08bd394b1ced9d0 408161151cf0ed25 bff033439357e425
+  #|atan2 40871c4986e525c3 408175fcc10cd07f 3fed8f7015de9ac3
+  #|atan2 c066e399cf88f5ca 408a427f97ba7c1f bfcb76922fc1ee9d
+  #|atan2 c07d6eb54ff45259 4084492567d5c97f bfe4154f71e09860
+  #|atan2 407f9594bf85c06e c05c0ef6b6ba8e83 3ffca123f9143047
+  #|atan2 408d1eb30981d278 c0868a420f687600 4001d6086ad84534
+  #|atan2 c073f077a7ce6033 4072e1dfea624059 bfea00f8b2dc80fc
+  #|atan2 c08a41d88eccaa71 4061c82fba043172 bff6730524d39306
+  #|atan2 4085f1731907afa3 c066d1f6615c5651 3ffd33d77a156ad3
+  #|atan2 405b386edba88bf2 4061d8bc408ddfc6 3fe4d955c2629fce
+  #|atan2 4082668a29fa3f2e c06ca01a63c2554e 3fff1143e2d1bd68
+  #|atan2 408c5b9609adb537 c07636738693166f 3fff1af8ad05cec8
+  #|atan2 c07c384740dc1374 405466d6eead9db5 bff64594b7dfbd62
+  #|atan2 c08dd72f4f37e421 c006905e9fa6654a bff92e1482b52ea3
+  #|atan2 c07e5125b094e63d c064eaa2334013de bffe7298cce4df68
+  #|atan2 c082f197993e364a c089ff1c5cf50ab5 c004184b37c326f3
+  #|atan2 c073e0f4ed762f04 c079f6de93b75fa8 c003e7c65bd17d01
+  #|atan2 408c8f2080c43eb6 c079fb8622dc7608 3ffff69e77cef532
+  #|atan2 c08f21d8383e648e c08260f85ef747ae c000d52bcdfeb758
+  #|atan2 c08135c80c00e831 c08ccc353eba3884 c004d2ca34f817a5
+  #|atan2 c0795fe746f60300 c089d969fc89cbad c0057b876af10355
+  #|atan2 407f409910c2b3e9 40848ee75289635e 3fe4cc396f152a68
+  #|atan2 406186a6a44e0c58 407efc72b805f79d 3fd1a38a15588221
+  #|atan2 40812d6eed173c5c 4065310e772dc7b3 3ff45899ebe25ae2
+  #|atan2 c061bcfc7a3d1541 c084587cde1246ff c0076a78c555af7d
+  #|atan2 c06f6c34ea023f24 c08288a278363d12 c005eceeaf59c815
+  #|atan2 4067993b8109b0b3 4087a55a90e88c1c 3fcf4c052871d1e1
+  #|atan2 4086f3ac092aa25a 4085bb7db0ac1cbb 3fea017d8e73ee0c
+  #|atan2 404b0bcaac8ef892 407c97ef62c3709d 3fbe20daa2e99c36
+  #|atan2 408dc1f3a5ab885c c082ede01b231737 40011949518b6247
+  #|atan2 4080b40cf441d1a5 c0830cb05cebcbfa 40035fb10caa3348
+  #|atan2 c065043cf6a2570f 405f9911c74da2ee bfeda34af3667a15
+  #|atan2 c07c370435c4ae2e 408f236bfb9f4863 bfdb39a461fbea4a
+  #|atan2 c0759bf70c6bb907 c08619d7f73e7b4d c0057ebd081741e7
+  #|atan2 c075c90177fa3bb3 c072297812f83a3f c002203d90bd9550
+  #|atan2 c08b554719a467cc c0862fe51a046639 c002056c8b1423de
+  #|atan2 40757b0f285aae67 40810319b14acdb0 3fe20542de3599e5
+  #|atan2 c06715a881cd7f59 4083770a28cdcf0d bfd27265a27ba629
+  #|atan2 c08eb821b6e431dd 4086747395c01ed5 bfee111592292d6e
+  #|atan2 4069eada71b568e5 c0631acdd916c4e3 4001a5eb2c9a0a7a
+  #|atan2 40772f2409cb6c1d c08ce675e03232a9 400614c07f2aedde
+  #|atan2 c088c145a39a7586 407e51a8303677bb bff0575635ba8a9f
+  #|atan2 4087455756acaf09 4081d8d224ab289a 3fed54657ae4e22f
+  #|atan2 c082c2163d23383f c0883227dd91efe4 c003db618489cac2
+  #|atan2 408a2ed1a5dc493c c08ae5954d1b3fb6 4002f507c161ec1f
+  #|atan2 c07596f5b47d7b22 c073cc99a700df72 c00280f22526c869
+  #|atan2 c0618aa57a81e8d4 c0605db070a288c9 c00292821c123af4
+  #|atan2 c06b0112113e3a6c 40383f8ef0746559 bff758266b690abb
+  #|atan2 c089bb1ac6241253 40709c32758ddf8a bff4232aacfe6160
+  #|atan2 c0885c018c1f54ce c040283bcb4fe56a bff9cbaf55b1510b
+  #|atan2 c08e9f104610f797 c04dc13cb066e2b9 bffa1a6eb324356a
+  #|atan2 40829515d98b22eb 4069406f0c1fc47e 3ff3e491970c8ab0
+  #|atan2 c07c8df8095c4b1e 407ac98726d042cd bfea278169a83a03
+  #|atan2 c0806e0d53b5aa86 4084083a6b0f4ce4 bfe5fb4644a55bfd
+  #|atan2 c07c13431fe97bc9 c077245482a5e0d1 c00214d3739fd68f
+  #|atan2 c07b937d9b89ee0d c043fcb625ecb0a2 bffa941184cde9af
+  #|atan2 4080412ede84e27c 407455daa18cd3e0 3ff030692ecc9577
+  #|atan2 407bf91fb80878bb 4080c052eafa66c9 3fe6432287fba8ea
+  #|atan2 c08e0ed4cbc2a638 c082c867616cdc79 c00108d62a34df5a
+  #|atan2 407d7a866376599a 40665bdd86a7dc0a 3ff355420534ac40
+  #|atan2 404dbe6fa8e20778 c07175c38c1d0b61 4007744aebbba098
+  #|atan2 c08eab7cdde85149 c023f85961c6feca bff94ba71881df5b
+  #|atan2 c0870794bcdb6c1d 408086a80da8207f bfee58f0f2f04226
+  #|atan2 405f5fda3871d4b7 408eb59ba700042a 3fc0422b8c49a201
+  #|atan2 4085247ac94d1bd9 4081e3c878f9c274 3febcb14cae9194d
+  #|atan2 408f13bdb3c4e830 c085dddf784347b0 400178bbf7723187
+  #|atan2 4089d201dec9cf35 4077e9c4b73f9296 3ff231ad51c138f6
+  #|atan2 408d385f28c18a09 4085e6f620fb27bf 3fedaeba5e20008c
+  #|atan2 c071eea7cae83270 c06891f25d8cfa90 c0015f1bb7a37edd
+  #|atan2 408bbbbaf6aa1e04 408026c47bdde366 3ff0b1e45ceb8aba
+  #|atan2 406a9fe11883549e c08ba4ccb7341398 40073e120ef0876f
+  #|atan2 408b0b7d5d35fe05 c08cf146bd2db334 40031edf9dcb20c6
+  #|atan2 405185d1e75d6e99 c0856373de3a3a5f 400850fad13a3901
+  #|atan2 40740ee122b8aac6 408e4fcf67cdf542 3fd4731e4a3565a7
+  #|atan2 c060a56e71f20ab5 407e0a7aed7b09b4 bfd14c4199965a7a
+  #|atan2 c07bd92f78defc79 c08dc63fd315a37d c005a21b0e557558
+  #|atan2 408f30b0670794e9 40882a4d5c3d060c 3fed2c11d9b4a773
+  #|atan2 c081001085882c8c c07d02c27c396cfa c00237a5bf253184
+  #|atan2 c080caed510bab91 4057ae526ac3278a bff6574de488045f
+  #|atan2 4084da7a2083b0f6 c083f742e6ab1f51 4002acf658325802
+  #|atan2 408e771d570ac36f 406db6db7db2bbda 3ff54e575f88602e
+  #|atan2 408642adea8b4b69 c062ef7f66c80073 3ffc7c3f28c379cd
+  #|atan2 407ea447e20e52a6 c06ad633aff97c51 3fffbca1276ff486
+  #|atan2 403cfebb1fef6264 c073c7cf948ea625 400866e06e658673
+  #|atan2 c085af70be210d11 c088a7366a0eedf9 c0035c79fb3563b2
+  #|atan2 c05521a5d4436e44 c07366ed98910c6c c007018b37cf69c4
+  #|atan2 c0402aa88d19d6d8 c08c6cbb863cfccd c008d9364c248a8c
+  #|atan2 4070956222fb6198 408213613ebdcec5 3fdb8684aa3724d5
+  #|atan2 c07924de830911a4 c06511d57303e63e bfff7b1ca47a7866
+  #|atan2 c065d97cae2f3fe4 c0857d1336f7c380 c007242dab53a6bb
+  #|atan2 c05d4d7521d5110e 4085d0d5b5831e9d bfc54ad6ed4b8799
+  #|atan2 c071066d2de41841 4073becda1706e07 bfe6c50d3c9864e6
+  #|atan2 407f297a5ca53d65 407591d4763fec2e 3feee4102f7dfaca
+  #|atan2 c0628745e4d2708d c088fe625a17d41f c007aaaeaabd4b58
+  #|atan2 c058fd57d6ec5a60 40637f415f1492b7 bfe23cc805f90173
+  #|atan2 402122dfb303ab21 c08a7780568b835d 40090d438227f2ea
+  #|atan2 403b14df127679d2 408416d929aa1dba 3fa58e64bb703571
+  #|atan2 c070f926f7351123 c080ea6e43408f8a c00569a600020838
+  #|atan2 c06b1c4dbce2c0c4 4065f4698b39a313 bfec7ba82d8141cb
+  #|atan2 c078d3d89b06a820 c0735a6cc4c28e07 c001dd02fec158de
+  #|atan2 c08923939b33d1b0 40719a63c863c825 bff3be8a56403c0b
+  #|atan2 c0825676cb44dd01 4084ce2581fd0dca bfe71e4115934621
+  #|atan2 408e5f7a702304c9 40828221321b9361 3ff06053371e3bd0
+  #|atan2 407624b1b610441a 407b1e6d612266b3 3fe5e96137d14e24
+  #|atan2 c086e9403fe4d558 4086abe426b0cfb4 bfe94d0eaa630a17
+  #|atan2 40799f5ae1f0dec0 c0800dde58964818 4003be9c8fd50e1b
+  #|atan2 c0142e8d51b235e2 c083669912ad3c2a c009115684da4d7d
+  #|atan2 40544d99d6215182 408a581c372ae9cb 3fb8960c6758bbdc
+  #|atan2 c089a1f169a1cab9 c087cbfbbb35e5d9 c0028d75ae6ce948
+  #|atan2 c08e9cda2a60da64 40744d5a1b561677 bff4027ef7351eb0
+  #|atan2 c078c5fb4c7898e9 c0804b3aafa7fed6 c003eec7cf8bc6b4
+  #|atan2 407a991945bc67e5 c079e718a887fdfe 4002be5d36fb347d
+  #|atan2 404b96c22ba6a4d8 4078c064e0919141 3fc1b856095bc93e
+  #|atan2 408563652ae36218 c081c948bb0c4e2b 40021db4bda4c5d0
+  #|atan2 c03a042f2c8a471e c06980b084888cd1 c0081e3a3ed50cc8
+  #|atan2 c079dcb966da3eda c08e44573558d945 c005e713abba6868
+  #|atan2 407441e4373a239d c08bd89076a07084 40065782c6861824
+  #|atan2 4071fd92eb5b5c7a 4089983ff0ef7e20 3fd5a13b6bde3670
+  #|atan2 40816a9ee3e33d5a 4059ce53449dd75d 3ff633da65d03a95
+  #|atan2 c07f698706d025d4 404945025d34d73a bff7877bab2a9777
+  #|atan2 c0885e569169d14c 40845ed5d30ac3e9 bfebfc1cfe0e6570
+  #|atan2 c08c0359604ef794 408655a0dbacd5e2 bfecba0d4ee587d0
+  #|atan2 4086bd9c29f5975b 405dc93309f4042b 3ff68941cfc92425
+  #|atan2 403a0ba288a195ca 408da285cae04b35 3f9c1df779ae7425
+  #|atan2 406a9778130739f5 407e5a430cc52d74 3fda6c71a068cc89
+  #|atan2 403c2cabf41b2004 c082f0e103eb68bf 4008c2d9c7e13959
+  #|atan2 c04cb7fb7f6351cd c0452e1c2bb72976 c001a6671b324189
+  #|atan2 4082fe07c264d7cc 40883539aaae117f 3fe549b7996c1aba
+  #|atan2 408bd65813ee3685 408614bbaaa2842d 3fecce7b9c76e661
+  #|atan2 c082df63f6e6fdc9 40831d0ddaa92876 bfe8ee0944307cfc
+  #|atan2 408ccfc86a0fbc29 40838c1d21cc5db4 3fef30921aa428bc
+  #|atan2 40872f99deb45945 c061cf9374bdced5 3ffc2b2165a11293
+  #|atan2 c07d2748819d41b6 406bcb440df8c98f bff203fda75bade4
+  #|atan2 4089a663fc65d843 c069deb351b75c7a 3ffd15acc762db91
+  #|atan2 4070a33644ba05ff 408491cb4e468797 3fd8989604f4f816
+  #|atan2 c083059024d35636 408ae70594abccc0 bfe3b1c6420b1ebb
+  #|atan2 40779ed623eccd70 407d9d99801a1187 3fe58b4fe5fff7ba
+  #|atan2 c085a6b1141dc930 c0754179b3f08680 c0003786eae8e5d8
+  #|atan2 408d1f91604f248a 40515d8435fe6f93 3ff7f141885ba21c
+  #|atan2 c069fe63b5941deb c08b5757f26f3182 c007441518b83ce6
+  #|atan2 407fc2963099bf2a c08b846c94174a7d 4004f20ba44fe156
+  #|atan2 c060b078c88bd60e 4073c7eea70e0104 bfd98c8791bed760
+  #|atan2 c08f34b4e65d3d94 405f372f01fc8bd8 bff72477a6cc2f32
+  #|atan2 40844cad11b81c57 c07b1d68a0c96451 400146ecece772b0
+  #|atan2 c084a63c0a392f42 c03bfc87c71ad4d1 bff9cf5bdf4da1fc
+  #|atan2 c07ea8e05826538b 407122450bee3a19 bff0faa393dba8db
+  #|atan2 c0609eff7189f094 408edfa7bc47ac67 bfc11fe309485eae
+  #|atan2 408b34ecde938b73 4077dfd53b1c7f7e 3ff2846cfd9624f8
+  #|atan2 4080517b2949c62d c064773a8e22da27 3ffdfe7a4800ad4e
+  #|atan2 40854a2ed58a0531 c087b5c8ea963cdb 400347883397941b
+  #|atan2 c082058cb4239ebc c07c98fec74fc252 c001ee9efca0f0d1
+  #|atan2 407c85d0e95dc671 407742f4f78cd5b1 3fec5f6ccc5d1857
+  #|atan2 4079dcc8c30332cf c08115c1bb1d31e1 4003f31bc6d47379
+  #|atan2 c07852ca8c5f53f8 4073cb5a023ae776 bfec68063a532e1b
+  #|atan2 407409a46cbaf40c c06f28db645cd478 4001da7c4ba71f57
+  #|atan2 c08a170e54865b80 c0659ed0e0bd5f9d bffc66b73a581532
+  #|atan2 c07a459c0883b54d c089f38e8e3679ff c0056256b913e551
+  #|atan2 c06f83ee724be01d 408ca55a6a928c0f bfd12d8eb2731998
+  #|atan2 c08b9a3f30cf70ae 40677af072f1f3c0 bff5c7b28388176e
+  #|atan2 4088f21f08c08ca5 c06d95601e9abb30 3ffdbe8a6a09c15f
+  #|atan2 4076cc8379a92142 4085b1eeea768b7e 3fdef67109e48a53
+  #|atan2 407606cecf29415c c0870956bea896dd 400590a86c0f387b
+  #|atan2 402740cac1f9b6d4 4079b26592b72c89 3f9cf2f780291f02
+  #|atan2 408cb72d8e8f56f1 c081e0f227494b04 4001057c09629082
+  #|atan2 408432c65771ea86 4086327004789749 3fe7a0108bcf2e77
+  #|atan2 c07de6b50466e049 c0848a2196884f6b c0041960903076b9
+  #|atan2 4080d0beebd293a4 c08dbf86250a564a 4005045206b1c494
+  #|atan2 407ca4db3bc37a99 c07ee00db626f4fc 40032639aa46d2f2
+  #|atan2 c068938dfb0ca262 c06c2c52f28cb4f2 c00364ea1d6b0829
+  #|atan2 c085e2307e24873a c06b457a01e05378 bffdf70e90c0bc49
+  #|atan2 4065cc2d3c02b54c c06e1c046b05ee0c 40041eac14c6818e
+  #|atan2 4078610e9b813083 c08d2a8d2738e5cf 4005f73d02c00a8b
+  #|atan2 408b7b3c4c87a675 c042ccd0e32b094d 3ff9d101527f93f3
+  #|atan2 c065a1c49702a8a6 4082b1db105e17d4 bfd20596e4567295
+  #|atan2 40813a18bbe672ad c08c13655c6f3a10 4004badd2d195deb
+  #|atan2 408a57bb5964dbd7 40776ab58f934eaa 3ff270dd18c678ef
+  #|atan2 406765ce0f1c5878 c08cb2a3ec4fae15 4007862ed5e79e95
+  #|atan2 c070d5dd64b38cea 4067edce34cc0ccc bfee7e832f3e1981
+  #|atan2 40497d53e4098b01 407be5403771b69f 3fbd1d26e869c482
+  #|atan2 c077bd2218b45729 406dbd1c20397ec3 bff02dea803672f7
+  #|atan2 4051b561155da586 c05871de5a391bab 40041e05930bf21d
+  #|atan2 408d7c75acbf3e9c c071c1af5ecb126d 3ffdcfebf8bc0a3b
+  #|atan2 c05988064bcf0216 407b78fdaa3b236d bfcd386c92cfc15a
+  #|atan2 407edee4189edc4b 4064833b4adfd31d 3ff400246b94c5c8
+  #|atan2 c0803b648c1c3733 4036e69b46ec800c bff86d82bf57fbe7
+  #|atan2 c0700375aaa8c5d5 c08a0b5290c1ff36 c006bf25ee543a64
+  #|atan2 c088c39701908534 4076bbf193642219 bff23f5db244e673
+  #|atan2 406a82482f165cf0 407471ad262641ba 3fe2680828efc8a1
+  #|atan2 c07d3671b42f4ae9 c0746609534f2027 c0017163b4efcdb0
+  #|atan2 405a8f06c552a253 c05e043fbc82feba 4003568156378169
+  #|atan2 c0591d89388a6e08 40549f7b5cafe8e3 bfec440607de4656
+  #|atan2 c062cb0e90a056e6 4002c4bdb7d60d5c bff8e2122a5c73a9
+  #|atan2 c08cefef8c244e3b c07b918c867416b2 c0001f6dbe1d8072
+  #|atan2 c08e8ab43109df33 408ba4e9ea806dd1 bfeab999a88d3ffe
+  #|atan2 c082702f0d72d4b6 c068e7c3f73e0dfb bffe57e5d42eab35
+  #|atan2 c0786d88e196f4e7 40892c5035edcccf bfdce93dfb5461b9
+  #|atan2 c07bc69e794a0636 c086996f2a51eb8d c004b9773cb46217
+  #|atan2 c0629c8e2e14de26 c079d460ce284ff8 c0065dc8d6482656
+  #|atan2 c07317b33e96d8d0 c071a2cb3706ee04 c002884def2a008a
+  #|atan2 c06f6cf0df105d8b c08427c10ba42a6f c00628c9edbfb375
+  #|atan2 c072cc0b35d795c8 c07580d56fd18ea0 c00362ce402ff2a0
+  #|atan2 4088c1e544b4fa22 4065bdb96217f7cd 3ff5acc881fcdd2f
+  #|atan2 c06a8416da0984ca c08739dbda35e79e c006e89875960ea1
+  #|atan2 408598833950856c 40853586974a1750 3fe96bfaf0c0a876
+  #|atan2 c08d5c91343db097 c087739d71081428 c001f5420a543564
+  #|atan2 c0738ed0d78b7686 406bb8c6a2954bcf bfee893248eeed95
+  #|atan2 c089edf0ca36ad68 4072a08319ae7e9c bff39d89bf859e71
+  #|atan2 40860fa08af786bf 4023211c8c6ce125 3ff8ea7d79a50cdc
+  #|atan2 407dbe9b16ef262d c0871d3b212668a8 40048f0ecce6fbad
+  #|atan2 4083119f6d0e9b57 408e4aa4086f8585 3fe1fa8f09cccd59
+  #|atan2 c08176c17e408bf9 c087bd4505633d73 c0040f070ad80f3a
+  #|atan2 c08228a053d9c536 40873563a5a71a37 bfe53ee087fcdb8b
+  #|atan2 408aee7424e130d9 c07afe5f43c1959a 4000486e866724dc
+  #|atan2 c089a5313965611a 403877e50db0ce7b bff8a7e46a9639a7
+  #|atan2 408d521f461ab533 c0849ffd82aa3f24 4001787501988223
+  #|atan2 406357e4f7394eea 40506dc61334b955 3ff2b516a9430198
+  #|atan2 c08207ccedcf4e49 c04bec88667ee639 bffaad385455d067
+  #|atan2 c08a038249b86993 4086ce77435496ac bfeb3b60234413ff
+  #|atan2 c0826ede456eec14 c080f23727b5057d c002837695611045
+  #|atan2 c084e181581a23ab 4058cf77652c7e67 bff6c60b5b1464f8
+  #|atan2 408d7f5f647e0596 c089d5e6d0f12a47 4002522527cca50e
+  #|atan2 c07d1e6db0975dbc 408c61571c671f1f bfde5613d9564d80
+  #|atan2 4074cff3b6f93892 c078900f62b667f6 40038260a33b80b0
+  #|atan2 405e4a0f029e9ca6 408583506266217f 3fc64c87b6a5aa33
+  #|atan2 40823601af728d79 4081e84568a382eb 3fe966da1fbd5003
+  #|atan2 408e13c257ec575e 4074c184609659e9 3ff3d11298b68279
+  #|atan2 c081d25531dc55d5 c01e360132d49c02 bff958397c131502
+  #|atan2 408d750bb2f18fe9 4069738af3001771 3ff5ba9f41954429
+  #|atan2 4059fbeacdb69def c08db64cac79898a 400842fcf9d441bb
+  #|atan2 c079b0d47c0ea2b2 c085c0da8dfc240f c004dd910ca17e8d
+  #|atan2 408b16abdca3f9c1 408ca05ae003e7b8 3fe83fed14b537b8
+  #|atan2 c085d2c984f2f926 c0827082455df3c9 c0022dc3f11c7fb3
+  #|atan2 40835d7c312be7ab 3ff9f1df7310b838 3ff917437e55539c
+  #|atan2 407035f2e9fe3785 4073b5af66f3d5da 3fe6068495a8c6d1
+  #|atan2 c08a8881d869c387 c089fbad36cce940 c002c408ac500068
+  #|atan2 408bda3a424ba320 4088503b58956f04 3feb4ce508d3e0c6
+  #|atan2 c08e20e0a86d9c49 4087a17f3ee8823b bfecfb52b4d8b74c
+  #|atan2 c080a91195272c88 c08eddb29b339a82 c0052c51d90524ef
+  #|atan2 408be544d6c31f95 408a238d3d990f03 3fea2c3794e5fcc0
+  #|atan2 c0813a809797d29a c06efe2084269a87 bfffe511a989da12
+  #|atan2 407283748091f11f c075d3055a05de8a 400381343948a5e9
+  #|atan2 40774713320a042f c080b8d97269656b 400444b3b1f4139d
+  #|atan2 c086311cad1885fd 4040c6e8b5ec78b8 bff8609711a830f4
+  #|atan2 c08dd5c310804334 404343a4dd04ccd0 bff87cc63056a10c
+  #|atan2 406a47e730d59ef6 40663619218d0cf6 3febcfdc982322be
+  #|atan2 c082881c5dd5787c c08160ce4b0fecb2 c00297b887e113cd
+  #|atan2 4080a86a01cfdffc c06377abbc81629e 3ffdae49b35e45b7
+  #|atan2 c070b8d6d91719bc c0830695d00de349 c005d2004a3803b5
+  #|atan2 c080423956adc9bb c06d0e82c59e8710 bfffdb08befee7c9
+  #|atan2 408e97c8d6e77827 40675b172e4b5d4b 3ff61d82aad51741
+  #|atan2 406e29b858dd0824 c072f24e02008218 4003c11cd7483ade
+  #|atan2 c07db279b7247a6f 407b399e3425d7eb bfea858836a887ed
+  #|atan2 c0884ab1ba87a220 c08cbafc6698fc27 c00384880db93c70
+  #|atan2 408658af3f523bc5 40713937bc0c4cc7 3ff33f53f53b6792
+  #|atan2 c08aed8587096024 c080e14b25d07831 c0010bbe5efa8228
+  #|atan2 408aa147610727d8 c0826ba9783dd5de 40016855d743c21c
+  #|atan2 c055aec4e0679d29 408d0b50d90d58ea bfb7d20146e7954a
+  #|atan2 4087cbfce3f521a2 4079d1c1873b7a74 3ff12e025e57a170
+  #|atan2 c07ba07620d54390 4083dd3463935ca2 bfe371b3060e2804
+  #|atan2 c071291a7f51e84e 40754a54679a3924 bfe5b57c881fe954
+  #|atan2 c08d48c2063a375e c08531b28a82fbca c001940646b00c2a
+  #|atan2 407dd6512c522022 c0553760433d1823 3ffbf296e18d26e1
+  #|atan2 40403009872f1052 c055e275a4ba1519 40064c7f91d3a050
+  #|atan2 40868dd15def578a 403db28ec1ad67dc 3ff879890e38c9e9
+  #|atan2 408d5b410876a9ea c083fb0078dc7528 400158defc80507a
+  #|atan2 c076bb2ef559f750 c08bee5a42cf7dcf c0060a861b596cee
+  #|atan2 c08b06cc02ebbbea c061241205d18a42 bffba610df3fc6b1
+  #|atan2 c07657eadbc5bb83 4071efb37da3bc8e bfec9ebc25140808
+  #|atan2 408692e1708b7a0c 408556851fe252ad 3fea0876c2a1b37e
+  #|atan2 406b661fe962339d 4081b88f1fe20430 3fd79b21dd13bb60
+  #|atan2 408495a3dc7ca2ff c07af51fb60e229d 4001344da2e6cc1e
+  #|atan2 408ba9ad8000e4bc 408145e63af3e3ae 3ff033af6835db89
+  #|atan2 4084603e945f6311 c03b24d021400f4a 3ff9cc65fc5844f2
+  #|atan2 c079016f116557f5 406ea2c6e127d00e bff056bf1e275d7a
+  #|atan2 c07f26a103028988 c06d5c7095e7f36f c00016ef4cb820bc
+  #|atan2 407b967079cd82f9 4088d0a99a17f48f 3fe03c15b3a5b7b3
+  #|atan2 4069c1df364517e9 c0849819740ddaab 4006b5578c983651
+  #|atan2 c07c843bfd3da6d4 c0862e76a61e0f99 c0048ff716a393be
+  #|atan2 c080562a321590b9 408c90a4185df64a bfe09fcf990f7062
+  #|atan2 c080adee28045813 401f156b4075326e bff8e659d74887e5
+  #|atan2 c069c4db2e784116 405cc46823cfe536 bff0fcb712298002
+  #|atan2 403888ea8ac6519f c07276416cd55b12 400878444edef990
+  #|atan2 4089f8d515a3f94f c07edcc91c9a52db 4000daef74547a79
+  #|atan2 c0869b04965f2b45 4080c0e22f0547c0 bfeddb26623945e9
+  #|atan2 405657edda480ca8 40827494f1d2b7c5 3fc33993a14a0a15
+  #|atan2 c080c3cff4db2839 4064568cde559d1f bff46bd87ec4a049
+  #|atan2 c086a32d66611827 4069bdbac1f20582 bff4b3836afc85a2
+  #|atan2 4085b7e3865ed7a4 c05d20aae35d4053 3ffbca537ca79749
+  #|atan2 c05ead10dc87cf88 c06c12682e612788 c00521dab0ba27c4
+  #|atan2 408226a16694181e 408ec327e8554f40 3fe10ed689c5fabc
+  #|atan2 402c953800f7f546 c0824a4f1db8074c 4008effbedd272f8
+  #|atan2 40779ca1a12e83f8 4071eb521ee49747 3fed7de5915fc289
+  #|atan2 c0848851508a74df c0792369c26d0088 c000f5fbad44e24d
+  #|atan2 c07b60d77738e96e c0866e7327a71a36 c004bfd041300cb0
+  #|atan2 c079111c38e3f832 4060ca675599bf85 bff3f64139d309db
+  #|atan2 c054f65ecdf9b4cb c0333cb00557cca3 bffcbdb717339f1c
+  #|atan2 408de6b5688a7645 c0829df1b70080d0 4001057cd1c59ca3
+  #|atan2 c07b203d87ab30f7 c03f92774b36c0df bffa4b6b2ae7713d
+  #|atan2 40816a105433424c 40628ad6e89ae7b3 3ff4f85caef25788
+  #|atan2 c0860b8884059f4a c07121c409fb29f8 bfff10008a6678c7
+  #|atan2 407802b248a517d2 c08d0d8a4b545b43 4005ff783948ab99
+  #|atan2 404806a1783d158c c086ac86b9b86bbc 40089a8c1ce466c0
+  #|atan2 c053c7733c6955fc 40709116219b9077 bfd2904fa06a6383
+  #|atan2 4065a3f0775b0228 c060cb69d75420f0 4001d8a241127102
+  #|atan2 40706ee9fe2b1a8b 4052e1bb4b10db29 3ff4a841895811e0
+  #|atan2 c068daaeaed8f635 c046f7c26b1bb41b bffcc3f1f5c608b9
+  #|atan2 c082715574e58803 c08dca3133aa9900 c004b2b0c8700922
+  #|atan2 c046db22d699b304 4074fc1787b3aa15 bfc151fd5bed79e9
+  #|atan2 407001132c9a13ef 4079236cfa9b44de 3fe22447b1098a14
+  #|atan2 c0771e8071ad4384 c06aba79ecf7f0f2 c000c2687b7c3a44
+  #|atan2 c06a06c0eaf85f10 c08e4d643ef5d79a c00770ce93f37abf
+  #|atan2 c05dc45fd0fcfce8 c08c4bdf60706499 c00816366156eaef
+  #|atan2 407055c08cb01d6b 40584ad479135f70 3ff37004d5845adc
+  #|atan2 c0853484e3150f41 4086175a77ecd674 bfe87a5a906ec053
+  #|atan2 408217145e044cac 408a35fe8d6558f6 3fe354ceab83f483
+  #|atan2 c07913230dea1275 407889a5c63b5c98 bfe97aa8abe28128
+  #|atan2 c07cc094aae22fdd 4066b7b5cf9ee453 bff31ce884412832
+  #|atan2 408d94c0ab1d27cd c08d46e8f0bfb365 4002cee7f097321c
+  #|atan2 c070c58ff88679c8 c087fc89caf31db1 c006712fe2476c09
+  #|atan2 c07047fb68bb3c1b c089c6e4d031fd5d c006af8153da2afd
+  #|atan2 4082ef31f906650e c06989de86228386 3ffe561ab278337f
+  #|atan2 c05bb1d485424ebe c08cc79d1315226d c0082ccfcd5c527e
+  #|atan2 c07dbcfaed8423ba 408751749473fb3d bfe22a35055d47d6
+  #|atan2 407ae8a34a8430ab c081a4360206309b 4003eb9a3ea6256a
+  #|atan2 407f8e41111e3f00 c07dfe7650ca2037 4002a588b244e46e
+  #|atan2 40762e8f75ddd303 408d32fbaad8f220 3fd73b79fe7e15b3
+  #|atan2 c078981694021fbf c008cb07478db698 bff9423d7024fa76
+  #|atan2 c0736a345bc39a03 406118f07c155567 bff27f122f0201ac
+  #|atan2 40837c2dfcb22387 40741a036933415e 3ff1835e4d8610d4
+  #|atan2 404fb9df161c94a7 40610923cca694f8 3fdbe3195f8f2099
+  #|atan2 c0684f635db227d3 4077f6fb1a3c0176 bfde0a91d9350af1
+  #|atan2 c088a146430067fd 40886a8be7f6e450 bfe945b046f3263c
+  #|atan2 c08391667dcac31b 4059990719525c54 bff68a16218fb2d4
+  #|atan2 40833120c0c7fe9b 40836e2b4ffb6e70 3fe8ef684c2f4baa
+  #|atan2 40880609c8d9211f c059fccd329b0981 3ffb487f9fec91d5
+  #|atan2 c0867ba9a6f34af0 c07d27ef92ee8f33 c0012b19e4d3408d
+  #|atan2 407f76b56f2c50f6 c07387b1b0143894 400102aeb010d39e
+  #|atan2 406a76a746d5466f c08eaf8bfa1a3cee 40076f1684315fa9
+  #|atan2 c068fafbfb8f1803 4064f325d017265f bfebef08f6b21f36
+  #|atan2 c0764ee8626fc670 4077af8fb8cc7a90 bfe82cb2eb050115
+  #|atan2 4053568780d13bcd 40519e589cebd41e 3fea9eda8ae34ef8
+  #|atan2 40767e779f1e1608 c06bc445488c3ee6 4000fd7a283ca132
+  #|atan2 4085ed4a5dfe0004 c064820fec8d5a98 3ffcced12ab83db3
+  #|atan2 c081ceef659a58aa 405146032778d93f bff733c57cab1080
+  #|atan2 407fb0581e7cfd27 c0882f8ebfb406a8 40047e387f7e18f3
+  #|atan2 c079391d19447584 405b7aa11fc0b04d bff4e0d0a0adcf4c
+  #|atan2 40820a365b1b397b 4079937258308f83 3fee8851aca42fac
+  #|atan2 405ce38517220b68 c0361d9e2d686853 3ffc2889159f3a8e
+  #|atan2 c089aab2265f2561 c08ae2ca1d7258bd c00308fcbc509835
+  #|atan2 40316b87896e6161 40777cd2b53be288 3fa7b769c07a807c
+  #|atan2 406e9b9587ea489a c08920734d15beaa 4006c4923306801f
+  #|atan2 408c365d2e6983b6 4082c0ed21a11e9f 3fef7e09456c0d76
+  #|atan2 4004ef398c21a290 407ac15002e31df9 3f7909ba14790518
+  #|atan2 4084c2c18ea464ed c075e44dfd763759 400072aef4081aac
+  #|atan2 c064ff65f4c8f3bf c07f77a8a79d94fa c0068e7826540df9
+  #|atan2 408904ed3b1ba1a2 407069481827ee6a 3ff40fe280098293
+  #|atan2 4085a1be3f4a5bab 404eb387d35e6f6f 3ff7b7991f60f694
+  #|atan2 4057d8b6fb617dc8 4073cb6122c09826 3fd2b8ea6e82cb38
+  #|atan2 c083e2749f5790f0 c08342048b3b068a c002b8b2d6a41ff0
+  #|atan2 40653bac5bae7dba c08831ee4bd5a120 400767ab1f5d245c
+  #|atan2 c08603b894042e2f 406fb048fbfffc66 bff39b17e328dcbb
+  #|atan2 c08a794ef0b7b399 4068ab7452c2218e bff5787c4e7211a2
+  #|atan2 c080ad812fb385c9 40320cc8237f7466 bff89780d39dca22
+  #|atan2 4046c39af73f8421 c05ee06aba43af44 40064eae67338a24
+  #|atan2 4085de2072df52fe 4083275573c3b8c1 3feb3f303df24e95
+  #|atan2 4044397c974e865b 408a513243a7c8ef 3fa892a887ab7759
+  #|atan2 408ac3ece1c61f33 4081bf7d755f14a6 3fef87534bc3bf51
+  #|atan2 c0864f400863d714 406c90d669994c58 bff42d0ac642289f
+  #|atan2 4080eae8335c07a7 c081d97c810a9100 4003105eec64734b
+  #|atan2 408edb3d73d4facb 4070ce69d6475743 3ff4e0ecc4310bf6
+  #|atan2 c08e9722af6b45e0 c08b881e3d065360 c0026dcf62da149c
+  #|atan2 c07d773235213fcb 402d8470c61f48c9 bff8a1cc82f2cfc7
+  #|atan2 c086955a41576587 c083ffaaa3f2ede9 c0025d537ede04b5
+  #|atan2 4072759c24b1e939 40388c802d59f9f8 3ff7ce5019730c6a
+  #|atan2 408b3a646511f1b9 c082b14d4b0e27b1 4001611c0a32f60d
+  #|atan2 c072171c9a2dc7af c0608540bbda21c3 bffffc7624c71fa3
+  #|atan2 c08d2b32bbe8216a c071670aeeb3e686 bffdc56d027254af
+  #|atan2 407df0ff0c5c1978 4074eec19cc71b03 3feebdbbd37f7f62
+  #|atan2 407799d4c5b3f2af 4081116c2d825599 3fe35b7655341ce4
+  #|atan2 c08ab74a7aca35f1 4081815c515f1a49 bfefb43506ded31d
+  #|atan2 c088a2d136e4a266 c08142b0ba745708 c001749c811a219e
+  #|atan2 c08b4e1b27793d84 408204e1ce672af3 bfef9973aac1715c
+  #|atan2 c060c89420d41bfb 4084460913e289e8 bfca1f585d755926
+  #|atan2 40281ed114dffc02 407d3b9176d73778 3f9a65dbb0e31e7c
+  #|atan2 c08ecaa85348d857 c06fd881ac45f92b bffd2e5713d49784
+  #|atan2 c0678e040f84acd3 c080330b0456ffbc c00657ec038f61bd
+  #|atan2 c08e1a09a36f26ac 408bc0d398cc59e4 bfea6e556a6c5632
+  #|atan2 c08f1249adce59da c042be8c2c438090 bff9bc58383058a6
+  #|atan2 c0801c31f0f7d213 407ae8fe1da3f324 bfebffb01e19e3b0
+  #|atan2 40831098c737fb71 4080624a889610fa 3feb8c57191ebcee
+  #|atan2 407224965c249000 407d9d883f7fef8d 3fe196b3ad87f80a
+  #|atan2 40832ee73dba04a4 40825a74d0ce11b7 3fe9d71052d9ad7c
+  #|atan2 4084ea987fb2b45b 408777e24ebce62d 3fe74b7fb494434f
+  #|atan2 c060d0356dbf7874 c0827b8a84253ac6 c007580345c56b90
+  #|atan2 4078e1dbcf0189a4 c060876145bd2504 3ffe43796d5950ec
+  #|atan2 c08c3c929f2e2e07 4076298820eaf2d8 bff32632f9281651
+  #|atan2 40408f2a2e6358e8 407e6c84b35685b3 3fb163e9a8522c9d
+  #|atan2 406af536ee6eb980 c05a4ca1e0d44778 4000326ea7158c54
+  #|atan2 405f1516ec6011a6 c08c9f92d8ce80cf 40080dad67d9f7e1
+  #|atan2 c08d648afd8c2a97 40890f39aba0e6db bfebac865a010eed
+  #|atan2 408e2ee0ff741be8 4084f81c185772a2 3feed5ee86b58492
+  #|atan2 c0895ea431e87ab3 c0790a075527f9be c0003bd73df009bc
+  #|atan2 40836f44c5ee18c7 407c99d787db1ec8 3fedf73bda471a3b
+  #|atan2 c067d6f45925b331 408a6278f3f8db09 bfcc6fa66589f524
+  #|atan2 407bd7c855ba5e70 c068ff3faa3a1163 3fffe239a805ca15
+  #|atan2 c08d23bee9539dcf 40632f790b5ca926 bff685c665162cde
+  #|atan2 406803c3eef558f1 c0768d87a73cb11f 40053805c886ccae
+  #|atan2 c07c51a8e4cd7ecd c05e4206214f7cae bffd4f215dce449e
+  #|atan2 4061a0666ed0d0e3 40822b7997775412 3fce748875e0a08d
+  #|atan2 406a164d36c9c8c7 407a3ae8ccee47fd 3fdd88a298522f6b
+  #|atan2 407a953c276933f1 c0738eeaa592d2ee 4001a411852d66cf
+  #|atan2 40852ab5bb5b063f 407c594aab5b5e82 3fef62248d6588a5
+  #|atan2 c088a989c06271b9 4061cc737976226f bff646d4e6fd33b3
+  #|atan2 40803cc47377d22a c06b4c20bb1c588e 3fff7fa992b8e62f
+  #|atan2 c04e8ac1e831fd74 c08134635f0dff63 c0083faddf54c057
+  #|atan2 c08913fb49d0592b 407c3317526cfaa4 bff0f00e40d4277f
+  #|atan2 407690e1c3e85487 c08a969fd720f33c 4005ec10d4f3a7f5
+  #|atan2 40768141bc0ce63a c07603b39008f782 4002c2ece05a8dca
+  #|atan2 406d860c5d5453b6 c089c690511f01b3 4006e6d11613c935
+  #|atan2 408af0f1dab97a75 4071394d1752c1fa 3ff42eb761949d84
+  #|atan2 4074768d28c4c5dd c08f3888c3f4c0ab 40069968c04d0189
+  #|atan2 40838717a8e72fbf c0725bf771773ca2 400014f082c8d23a
+  #|atan2 406b92df4f38ef38 4087470c79d9a765 3fd26d28ecc5e3e0
+  #|atan2 c06dc0e3dcfba0ab c0880e007da024fc c006bbc90be1f810
+  #|atan2 408b2b429a533598 c08d5f06ee6946fb 40032936f57e3006
+  #|atan2 c082420a8106ad11 407212d2b1acea67 bff1c7774a6b1e58
+  #|atan2 4075d1d895167923 c07aaccf93bf5dd3 4003a5da4222396c
+  #|atan2 c080cc77fda24997 402ed73a112f8bef bff8ac8434422f3d
+  #|atan2 4085ae9f331416cf 4080c6d87d09db12 3fed313fb23eb3ad
+  #|atan2 c0839d9281c8be2a 4084a0a6cf74df2f bfe8540378948776
+  #|atan2 c07f15df2c34fc46 c06f31b9e7338005 c0004968149f80b6
+  #|atan2 4083ebbd1073f366 40726716f534543a 3ff235a29003f4a7
+  #|atan2 c08ca054b6f4fb6e 4081504d2ab61ccc bff06df218c0474a
+  #|atan2 407c3fd3ef3f5c75 c0819f4a7bdb9cbb 4003ba357c5d704a
+  #|atan2 406f612eda1f1101 40895a8325ffb488 3fd33474a347b192
+  #|atan2 408e7a0128d67c9b 40816694f517bbb0 3ff0d506c52a87a4
+  #|atan2 4087266eccee9b09 4075712403b53021 3ff2318c23cbc9b3
+  #|atan2 c07a2a0a7409f7ff c0705b05c9d071b5 c001092aa1d5243c
+  #|atan2 408b32b0a237fdc7 c0835f0686ba612b 400184781ace92df
+  #|atan2 407a230066d62fb8 c078c86bcca88b99 4002a30c39bd2622
+  #|atan2 c064b1a3763ce43d c06762565b86fc96 c0035653e7628740
+  #|atan2 c08689645c2f123a c06053d477e9f693 bffbffe58d3ea265
+  #|atan2 c06245f04dced2f1 407a7e7aa8b0ef15 bfd540dbbbcede73
+  #|atan2 c083d3ebc022134e 406039c4f3eb8437 bff5e76b56b9b857
+  #|atan2 c075f090aa2d210b 405319d85bbc430f bff5b42a97f8feb4
+  #|atan2 40777723d12373b8 4081b323a8659804 3fe2bb5d47a978c3
+  #|atan2 c08c8d5140eb413a 406474885ce3174a bff64c10cf01e6c8
+  #|atan2 c063bd8a0cfbfd5d 4070bd26fd86b9e1 bfe10c87bbcd6a32
+  #|atan2 c078a40607c17ae7 4042a662e2a0f17f bff79f9c9a60b8e9
+  #|atan2 4052a4e477613468 c083e81aa21fef3b 4008334df90d1bf8
+  #|atan2 407c728ca5ceba6b 40762937daeceb34 3fed16626e5f76ab
+  #|atan2 c08cf50b139e67d0 4067553857918171 bff5f3c4ad4219e0
+  #|atan2 40859cade66d0c43 c0855b496bd68e75 4002cd4fc04e2904
+  #|atan2 408e7d8e348cff40 c06fe91fcfb01b63 3ffd3a2e2b51f650
+  #|atan2 c02a0712bf6bdfb0 c04347e2dc435d26 c0068766a71cba92
+  #|atan2 40830bd93ec22e8b 408a17db1f3a314d 3fe42d5602bb307c
+  #|atan2 c011074c8f09ac15 404232190f1104a9 bfbdcfd3fe5a5792
+  #|atan2 bff9b1325ea3d8ac c0577d9258fd1239 c008fefc66dfa97d
+  #|atan2 40518652677e901a c03abdb86fce40e0 3ffef6b7893f43b1
+  #|atan2 402ab2cee774f616 4015fca563dbb12b 3ff2e20f706ae304
+  #|atan2 4041f2de61ed8de0 40470d3283759517 3fe52ba16d3c63fc
+  #|atan2 c03f0d542aeb2035 4041eb39fcdb5db9 bfe6d8e169025faa
+  #|atan2 c028f904ac4bfdf5 c031c805852b4386 c0043c2b9431c84d
+  #|atan2 c054f6f50d93f057 401163882a2d9e85 bff84dd6377fcab9
+  #|atan2 c00a6c4be6cd407d 402f7ea3468de628 bfca769fc3fc20c8
+  #|atan2 c03945e2735343c6 c025ec68ad71677e bfffae3f5074bf79
+  #|atan2 402a009352831667 40365fc77e6c98b7 3fe0d8304d28f0ad
+  #|atan2 40509c9edf5b118b 401b38caa2b63f7a 3ff77fee4ee394e8
+  #|atan2 4053fd51931d74f9 c03a068548dae225 3ffe2ae2ea74bf07
+  #|atan2 4046638463671750 4022225e5b96fa90 3ff5efa2b9e8302b
+  #|atan2 c04b233b9b2f9bec 403873a8e3f90665 bff25c3833d153a5
+  #|atan2 40078220b1622c4b bfee2ca340175dfe 3ffe19d51d48d509
+  #|atan2 c045183dbea842c5 4043a7205adcff6c bfea43bc46fc11ca
+  #|atan2 c034bf94c8f4ed1b c0389fa941008feb c00387fc83594b0a
+  #|atan2 4025ed8fd158f30b 4048a7f969615361 3fcc00f3ed2b8aec
+  #|atan2 c008d6c920cca61c 402e7bc0125adbee bfc9b90b85e24728
+  #|atan2 bfd6263b5b160bae bfef0a62a7f13274 c006642077a58b00
+  #|atan2 c034828698080865 403aa9bdc1e465fa bfe4fb6cd1807673
+  #|atan2 c040871009dc5282 4032510694ebc454 bff10967a7e6fb61
+  #|atan2 40549c5c98199ca4 401102b0d9793c62 3ff84ee300ee5d30
+  #|atan2 c05440d27a957ffd c04470587cf737b4 c0004e093dc6d036
+  #|atan2 4053c85b4d7a8702 4044548ee4d72dab 3ff189c679ddb73a
+  #|atan2 40325da63ee74185 40476918f1b34a82 3fd7ec8a0293f175
+  #|atan2 3ff03966efe4acfa c051f683ef5eff5a 40090514c3d1a884
+  #|atan2 c0528319160370c0 c04eaefa15cb9cb4 c0021a40b0d5b6e2
+  #|atan2 c02a46372768f87d 4017c244c5520d66 bff256b79dc2c49d
+  #|atan2 c04d717b1aa141f2 c05021bcf9cec02b c003370644ba28f2
+  #|atan2 403e1537bbd6d3aa 40130d936cacd520 3ff69ec517ab3d7a
+  #|atan2 c04766f10a0ead13 4050e0ace0cfd63f bfe3660bcf7eb9d2
+  #|atan2 40476242cd45e07d 400e9e984e4fcffc 3ff7d38349b0cedc
+  #|atan2 c0046bb4abced9e5 3fef191abe5b76b6 bff34ff757596781
+  #|atan2 c02184d58d548ad0 c0484d33e119e20e c007b4cdb58bd05e
+  #|atan2 40413a17041ac567 40448c5e262bcde7 3fe6538b98903317
+  #|atan2 4023c5bb90ece28e 4053491b5a259b54 3fc050a0c318de5f
+  #|atan2 3fa298ebe874d839 bfade567042b2be6 4004ae4c07e3e52b
+  #|atan2 4054902a5b9e548f 404af53c9ec1356d 3fefb2bfcd87a0e3
+  #|atan2 3fe953c377ec005c 40079d8bbd2a013e 3fd0c3f487a2a3c5
+  #|atan2 bff601bd6e8fc144 402248f750644f90 bfc31d03a6ed33e8
+  #|atan2 403dfb176f568f0d 4045db780e3dac84 3fe33ca56cbef164
+  #|atan2 c051efafa1fca9cd c050a49f1208cf1c c0028cedf256550e
+  #|atan2 4040dca9434403b1 c02a650e1caafe45 3fff19d9d8434e43
+  #|atan2 c040da5bc13ed942 c044b0bc0b89b4e0 c003aa17f2aecd72
+  #|atan2 c056e5cdf2fdb4da c03a0e416cf9508e bffd913858c91db1
+  #|atan2 4037eabee45c9d15 40290dd4d217b8c5 3ff169bb4ba87f06
+  #|atan2 4043d04cf7a17e10 c04d3f65c3f0ba0a 40045e8bd4602ebc
+  #|atan2 40507eabf5d00736 404230f79a8b8fe9 3ff111dc1a3cfded
+  #|atan2 403e8686d66c3719 c04ddb1e0de6bf3c 40055a245fa13a6c
+  #|atan2 404ac032de2101f2 404d955f941315b7 3fe78666d5e1a3f7
+  #|atan2 404264c21b17b9f0 400d4ad0f9ab7fda 3ff78ba235e4ad17
+  #|atan2 4011da1325b96247 c01aa8517a44e4b9 4004697e3be8b2bb
+  #|atan2 403c333910abfc4e c034cf8ba532f1a7 4001a704769fe437
+  #|atan2 c022febd83f61ad1 c0264e142df8b39b c0037d44f31afb70
+  #|atan2 403ed82a00225585 c0484aeb0edd02ef 40049b871f61083e
+  #|atan2 c050ca6d44aace62 4049ef16b51fc0f9 bfed38e35c1cfd6a
+  #|atan2 4048f4fd456e4bae c050eaeba88204a3 40040c706433d3ab
+  #|atan2 401889ea7f1e3bbb 4038b98783307dd5 3fcf216fbf9eef62
+  #|atan2 402903fbd8764091 c014415e3b9aee2a 3fff49a65cef31f5
+  #|atan2 4046186cf1b0240d 4047ed01141c8fdf 3fe7dc55fb43b6e1
+  #|atan2 401e61816fbd5e82 c0363919873bbda6 40067f8586c07ed6
+  #|atan2 c042a63d2c1f03c4 c02ccb4f865924f6 bfff06d7ba1e555d
+  #|atan2 4051835b347b0c0a 40418ba1db0b28ad 3ff1b3db9e77d270
+  #|atan2 4008f74c9a333b78 c039cbe7a9625e41 40082b6beb352809
+  #|atan2 40231113ab5ca820 404f5025348d619d 3fc356271b340704
+  #|atan2 401d83abcd4a5c3a 40529a77efb22d6f 3fb94d24f4b49293
+  #|atan2 c0429c0c508a46b0 c043c9162d539644 c0031830ef070b7a
+  #|atan2 4046ec6dcc527a03 403532632d782dd5 3ff234248f227683
+  #|atan2 40200fa32a0648cf c029aa41a83b8215 4004a8cc93ef03fb
+  #|atan2 4018ae673ce10a84 c04f173d645134d6 4008576ba8290ea2
+  #|atan2 40298576db3828c7 c040817942dcb0ac 40062e8e7c0c5215
+  #|atan2 4042a3c1987d295e 404e235ff58b3b97 3fe1b97cac3c708d
+  #|atan2 c03bcb45ff1ce41f c02bc7148120d428 c000460eef067dab
+  #|atan2 c04ddad5837118f1 4002844805351cc5 bff8834890bec585
+  #|atan2 c0176ed22ceb7ef3 3fca02cc8f5004f8 bff893f4d6bcbde9
+  #|atan2 c02ff20746868eb3 40507957583cb559 bfce7070051a9a2a
+  #|atan2 c03cf1b5207238c2 c03d430e1bcfc32d c002e4aab56e2bc2
+  #|atan2 4046262a75537ee7 401c93a77c3b2ad2 3ff69309c8e491a5
+  #|atan2 c048a8acbd858520 c022ef9b37259f68 bffc2ae031ebe0dd
+  #|atan2 3fc32695c5e8cf6e c04c195897018d7e 40091c87878939a9
+  #|atan2 4013933013f039a9 3fd0a1f14a724f49 3ff848aa7b8bd661
+  #|atan2 40229abb59ff5b79 4041db5fd02e4aeb 3fd04eb394be8593
+  #|atan2 c03b67a4d9d576d7 4057127264251c90 bfd27952bb2297d4
+  #|atan2 c0447f43252c69dc 4049576be4cc8e5a bfe5c36d34271622
+  #|atan2 3ff9fcf627d62fe7 403a97cdee5b82d3 3faf3bbd9e1b1c72
+  #|atan2 40563e58665b3972 40334b2a2d07951c 3ff5b753552e368b
+  #|atan2 c00b205c4be00279 bff3b5fdb3cd54e9 bffeb56345933372
+  #|atan2 c048328766364fa8 c0393c794fe3fcd6 c0006968925b7cc5
+  #|atan2 402323e4b85e5b71 4012c88efea5b050 3ff1d588f0510a53
+  #|atan2 403c3f92186c5076 c0211a7ed55a63ab 3ffdd60ec2e0e52b
+  #|atan2 402dec13dc334e49 403dc6e56963b460 3fddcc564a683d23
+  #|atan2 4050e9e558c8afac bfe1c5597cb3791a 3ff9439a557d79ba
+  #|atan2 40301f9397e0bb46 4055e416ad500bad 3fc74ed076c6df34
+  #|atan2 c03e8acc8f06773d 40455e6661d6bc2e bfe3db09b3de7762
+  #|atan2 4035d5af43a42ea6 c034255a5a6b7ccd 40028724cff518d4
+  #|atan2 c04f84390d33675f 40445154a46af65a bfeff1132cc4eea3
+  #|atan2 c02ec31ee344d3eb c037b176f7b9fda7 c00486c02795dd4a
+  #|atan2 40152e1fd16cbfc0 405604d56491948a 3faebe7d85a25092
+  #|atan2 c0479447b860cf9e 4020c960009c005b bff650869b0c04e5
+  #|atan2 c0513ade1816f0dd 40441ddafae89a77 bff0ada85cb8d6f5
+  #|atan2 c029f5c75f6fd5e6 c02f2dfb6e189eeb c003940c21ecd67c
+  #|atan2 404956e7414cdfa1 c053ccbce400fbd3 4004942eec26cd6b
+  #|atan2 4042d1fde832516b c0357ebb87281cc7 4000b7a25d41736c
+  #|atan2 4014c8c3a1cca5d8 c04013f7fbe71976 4007d9e2266ac542
+  #|atan2 40268d9b6287a7b5 40530c18d538d92e 3fc2cef76a3ab678
+  #|atan2 4042749e06c1ab2b 404fb9b0c788d6b0 3fe0dc2b393092db
+  #|atan2 c04fbfe71e5363e9 c041fefc27b04acb c000b10f1c732a7f
+  #|atan2 4057941e063dce01 4011cb1ce8f97754 3ff860efad5f6574
+  #|atan2 c047ee1024e14983 40458355c691ea1a bfead544661cc3ca
+  #|atan2 c01dbb6df93f0198 c05785d841b2ad92 c008808767ecca3a
+  #|atan2 40494e7aca1ebae1 c052cea64b05f856 40046518f06639a4
+  #|atan2 c03b651388747d62 c00ca05985ee017d bffb35fc9fa4d861
+  #|atan2 c04bf9515565ddbd c046372f076e82f0 c001ef89c50a6026
+  #|atan2 c04c28cb98b17b22 403768737d09b29a bff2d4852f3b74a9
+  #|atan2 40121b732fcebfe2 401011213613eadd 3feb0a7e0c392180
+  #|atan2 4045e0927e1e2a08 4051f02d82b1c0a9 3fe185dc668c6440
+  #|atan2 c04158236ace5207 bfe782aecf1280b0 bff978b8cc911992
+  #|atan2 403be9fc719293ca c05210c588de39e6 40062f06b9e22c6c
+  #|atan2 404cfe3b7f16182d c0445744f17f99ce 400175ec884338cb
+  #|atan2 c037ddded6da0cf5 4055b9fc4665897b bfd12738371c9ab4
+  #|atan2 c053800ac408c078 c0415039208c8bb1 bfffd143ca699c95
+  #|atan2 40500bcbccf79006 4020ac6fa9d40a8a 3ff710ebe0373eda
+  #|atan2 c0340bbb7dc5e905 40531f6bab0341cc bfd067497a190bf3
+  #|atan2 4044182272bf719c 4036e68f526bc5bc 3ff0d88002018c5f
+  #|atan2 c04e198c298b7491 c046990f31b8698f c001b7e2581850d1
+  #|atan2 c044c9f921c2a48f 40153a9b9bfae0be bff719f538620e19
+  #|atan2 40445288b88d23a8 40411843932267a7 3febe2e19f1534cc
+  #|atan2 4039065e31be1853 40498ecea3ffc391 3fdd232b40d448da
+  #|atan2 c035453d7ad57cb6 c04b898eec91982d c0062f29ecb3e224
+  #|atan2 4055535e1b454e06 4048c0c4ad0532d5 3ff0b8186e80d39b
+  #|atan2 4048941c2a320112 40350c38ca392bb4 3ff2a8ec9fbe735e
+  #|atan2 402e4cf8be12aca8 4054544cfe39a6e2 3fc793da8d1b4222
+  #|atan2 bff3f636dbf30fb7 c04d3504134106d0 c008f63f482b356c
+  #|atan2 c0304b1f12803797 c040e268e0787e38 c005894dee5be08b
+  #|atan2 c055a1aa3cb794eb 402ba14903eb7cc7 bff69979b6d5608d
+  #|atan2 c050a3736e4e5609 40332abf5d536e0a bff4a5726b5aecd5
+  #|atan2 c053068f528a0aae c031f0fd49a2682d bffcd64efc2aa23e
+  #|atan2 40381fc294d4ea8f 40380d857f5968b3 3fe92e189f055ccb
+  #|atan2 c02af17fddd5f947 402b91096e683b23 bfe8c4545d2d5f9a
+  #|atan2 c027c2f999c032a4 40567ace19ffeb94 bfc0d0a43da073e9
+  #|atan2 3ff65dc7332d6acb c000112cc95bce0d 400444aeec000cad
+  #|atan2 4030d890bc6123f3 4021337fe7959f66 3ff1947adc4f86a7
+  #|atan2 c051d8f59dbea42a 402599f3482b307f bff6baf4eddcf671
+  #|atan2 401a4454c5dca404 bff15d21eb805b6f 3ffbc0d5dec55473
+  #|atan2 4046f8b896119a38 4055edc90cf4afa9 3fdee10ddf0e306f
+  #|atan2 401c326153cd712f 401781fc535321da 3fec06e161189cc3
+  #|atan2 40537c068e198c91 403ef5db511bbd52 3ff3152af124babd
+  #|atan2 40473ffa981d03c5 c01e24e546ab9ca8 3ffbb414c77340ff
+  #|atan2 401a8618107e1b20 403b0d397d6d1099 3fcec4d7cd4f3b6f
+  #|atan2 4051aebaab3051e6 c02aba4916a18644 3ffc1ede40c9cee2
+  #|atan2 c040ef58c8f5f713 c032233ac9b2fd59 c0007fe37379a910
+  #|atan2 c02c2065751b8388 c016de89e9440476 bfff4f9625ed651a
+  #|atan2 402ec4a5320845a2 c0269c808f7e7dfa 4001a2f01a8479a3
+  #|atan2 c0407cb5cbe08cd3 c04fca306126c064 c0054e22c483cb9f
+  #|atan2 404029da955b68ec 403e0a38bf2b2495 3fea4e417819c557
+  #|atan2 3fe95d1743d72a7b c01127d47bb2121c 4007abb8c4e9204c
+  #|atan2 4054f50e053d439b c0457bf31e26bfdc 40005b08e7dce136
+  #|atan2 4056069379c0049b c03e2a07449520f3 3ffe691cb1239d36
+  #|atan2 c0106f7e151e4832 4015f1bd16f4b091 bfe492227c6d66f3
+  #|atan2 404a62a00c1fb304 c0426fba2282275d 400172065a961d15
+  #|atan2 c0146bb00edcd107 c02b828db15a42ec c0064a240cf6ef1e
+  #|atan2 c0586f082208283e 401586e0ec9b0c62 bff840aa5089b145
+  #|atan2 c0114a0b201f8b5d c0116d8af62bd729 c002e1aaa14be54c
+  #|atan2 4013f5e0cf589c36 40192b277f96f86f 3fe574bfb8e15152
+  #|atan2 c03c5034a527247c c02078f309d4dc97 bffda97e34f62c26
+  #|atan2 c040e37bc12dab24 40241a3a4ed8b938 bff4814bef551de5
+  #|atan2 c030cb773e38b4ea 400b2d72f45cfadd bff5f07cc33af625
+  #|atan2 c03961313feb0bcf 403716aba783533c bfeaa4ee55ac328a
+  #|atan2 402c97647bd31a96 403d06fb23bbd0dc 3fdd49b1a98c3765
+  #|atan2 c047c82a01006b32 40285f8f17f9a815 bff51e9e5032f549
+  #|atan2 c03e2999bb190e4a 402716523882b775 bff348d40ff98fd5
+  #|atan2 c056c38c75e8a18f c02df6365b0a4510 bffbbde4593ec92a
+  #|atan2 40332fe5e466cbb3 4050fc9b6305e2b5 3fd19d29c26ce2b6
+  #|atan2 c03c58a4ae5b7091 4042c6f1c66741c7 bfe4b0b65f25c702
+  #|atan2 c03aa45323e0b66e c051852de302b6ce c00639f8e07b444c
+  #|atan2 3fc77612d3b333a4 bff247fe1c79ff7d 4007dc3828bc33e0
+  #|atan2 c0450cbef940c59e 40383572a8397e71 bff0c86fe9923005
+  #|atan2 403ae2b65dc5a8a5 4053edc832214406 3fd4d18a849f0935
+  #|atan2 c041cf10b4eeb869 400c01bedc91ecc8 bff790ad1baf0c5d
+  #|atan2 c0504140c80c278b c01b8e8ae3887d00 bffad25d0cbe3915
+  #|atan2 402bbef997f1f025 4042d3404b7de4a6 3fd698155e17c52d
+  #|atan2 4042844ff09c4aeb c049ae9bf843de11 400422a16883c56c
+  #|atan2 40505c066aa133db c04f82de6824d81e 4002b2fb4e9bb427
+  #|atan2 c03a3e44d890acb3 c0107c8778d6b1da bffba0104050ce19
+  #|atan2 4055400d630d1c46 c04745b8916a6588 40009300f927e927
+  #|atan2 4043b36b990c9064 c0542eebde9a2b06 4005801b0a4e05ad
+  #|atan2 404b30e4869fe054 403fddbe71bac934 3ff0a6f0f2d95f8b
+  #|atan2 c03346f7e2120a86 403732e2a1aec4ed bfe62fcd5046a463
+  #|atan2 c025eb5f350ae316 40394fa9b6fb6cf6 bfda26ee1bb49784
+  #|atan2 c0311ced39e8ed9f 4022d6ab259c0939 bff11506c596ffd1
+  #|atan2 4043c64cc1481ebe c015cc4b9521c3ef 3ffb52d708ae5ded
+  #|atan2 402f2aa803b13c9e c0364bf48502cae1 400440b7ee0b8493
+  #|atan2 4021c6b681b70579 c047b203c1c3204f 4007a64a88f5f7ca
+  #|atan2 403c913c361912b6 405485ac87e217a5 3fd56ef44ab5ba1d
+  #|atan2 40515a082f5d9b6f 4046eac2955c3b10 3fef96dde4caab50
+  #|atan2 4042a9c0ad673373 404a898dd5228026 3fe39d0ee44e551c
+  #|atan2 c04aac04e3cbabdb c04b4af1972168d9 c002f10b896786b8
+  #|atan2 40326a6d3f4859eb 404520448cfa1ca2 3fda4e476cd05ce4
+  #|atan2 c044fe207f41b04d 404a06e4ebf4315c bfe5b837c251a2eb
+  #|atan2 c04235fad99ac90a 403bb4a7c2bedee9 bfed74a2d9e524a3
+  #|atan2 c03e3742244e7cdb c05031eb4e6628a5 c005a4275e685524
+  #|atan2 4035a0924683a476 c036ff31dce396b7 40031853217a9ea5
+  #|atan2 4041136920d30ba4 4040df6e6ca3cbbe 3fe952fa18f7c2e0
+  #|atan2 4027bc98a3c7b3ed 403c0212b37c7529 3fd9a6dad143b823
+  #|atan2 40457d73600889fd c043ec4443a38d17 40028c06282ca582
+  #|atan2 c04acdddb28cd193 4054d9c7b6a10478 bfe247db5809e90a
+  #|atan2 bff54576a26e8a25 3fea1fef9819fb56 bff052457a35c105
+  #|atan2 4044b6bb00c43599 c03023170d563de4 3fff136a1cebd049
+  #|atan2 c03736015c03110b 4043f7a7051f2328 bfe0d9110b78e822
+  #|atan2 c053cda9a4f4d258 4049736b13d99e73 bfeffd1f2a033cd2
+  #|atan2 4030d32e289e1d44 400881e52a7b93fe 3ff64046f1253fb8
+  #|atan2 c01b08c94a74a1ee 40514d2b6cfc4d57 bfb8ebf6381427d1
+  #|atan2 403b2928378141b2 c003bb8212e0ea55 3ffa94ef6538acb2
+  #|atan2 c038863c143c65f3 403a2bd40ff56f99 bfe817f515932292
+  #|atan2 c051b176cf4b6e1d 402643ce48001f8b bff6a2ece6b4f615
+  #|atan2 400ae136bf37d375 4047574a483783a1 3fb264e19129d5d8
+  #|atan2 4030850db3c4a231 4058359b2e6acf39 3fc5a0aae354e684
+  #|atan2 402c38a7ae8add78 c0526f6765fc3627 40079ec47842bc5f
+  #|atan2 c02965d84a03a155 c047f9a48b18004d c0070fc5b50aff32
+  #|atan2 c001b3421a4baac0 c016c79a5a628d1c c0062b1297ecf2be
+  #|atan2 c013f7e3b15d9245 4055176c4b9d39a5 bfae42b8b50f9224
+  #|atan2 3fe43937f75da016 4031013231ed895b 3fa30518b63d8e02
+  #|atan2 c01d9869f3dea245 403dd4047b796637 bfcf1f405085078a
+  #|atan2 40418fafce294da3 401c2a577fab802d 3ff5f78fbde200a5
+  #|atan2 404689eba19224ca 4012f09f994e66f7 3ff7754e574f533c
+  #|atan2 4005a729f2611a64 403b9b88db3b4472 3fb904a146e30ec6
+  #|atan2 c04e46aa360fb6a0 4020e043685eb062 bff6ead9c7421091
+  #|atan2 c0451483b0686a43 40414225381a9d1e bfec4fe86e4f90c2
+  #|atan2 c040de7a104becf2 40525debe777ddba bfdb8d4a2abdb614
+  #|atan2 40507cc34a333fec c04de25658b42099 400274df93ccc5c1
+  #|atan2 40434c3dc3fb5d54 4030a54cfe83d467 3ff29e2a4e13dade
+  #|atan2 c03c6708c482dba8 c03091818600a176 c000ca807d578f70
+  #|atan2 40348db1ceeab322 4033ed526eb221db 3fe9a0bf27515818
+  #|atan2 c05599dfd8b3eef7 402ea7688cecfbab bff652e2d22b93b5
+  #|atan2 c040377532b13e8e 405270da530f0fce bfda83132072c1b5
+  #|atan2 c04c35f0c6cd94e3 c03f31daf51aae99 c0009b5996531fdb
+  #|atan2 405165af6a80ff38 403407e063c5d558 3ff4a600f7468025
+  #|atan2 bff14e71f8f7d09b 40530933beefff7d bf8d17361971c48d
+  #|atan2 401709a9b9a99b33 c026519152c7ce61 40055234e83a4b4e
+  #|atan2 403a950b01c53595 403999d66f132fc7 3fe9bc024f06ceaa
+  #|atan2 4057803f7264cd0a c01c8ffd144fd21f 3ffa58856216f097
+  #|atan2 c0100ed72fc66865 c0201e882725e0f6 c0056f8c81c2593d
+  #|atan2 4040b812a0a962ea c05157e9a171dcd1 40058a228fcd747b
+  #|atan2 3ffb8901d422812c c04536a03491af15 4008cef4623fd8fd
+  #|atan2 40420042ae561a2e 403bd7cec3c225d2 3fed333abab89695
+  #|atan2 402e1381225d4576 c05490af36668c09 4007afacebedaede
+  #|atan2 4049c4553ca8960e 4030b9510569a415 3ff41ca841fa46d5
+  #|atan2 c0121a11cb0fc709 40509accf38bc033 bfb16a6bb4dae5d2
+  #|atan2 c04de833a016db8a 403f91c2835fad05 bff15cd4373b1091
+  #|atan2 40506fd2c161a15e c03f054ff0c2b184 400017d997715561
+  #|atan2 3fede8ead71cb21c 403c94b0d7170b20 3fa0bcefe6765918
+  #|atan2 4021df06fdc64bd7 c00302d228ac78e7 3ffd4aa60bb406d1
+  #|atan2 c03878d78338033f 3ff6c822339a675b bff833ee8f6326bd
+  #|atan2 c03d65a248dbba1d c033f953e4b25a6c c001573eb1108da3
+  #|atan2 c011f099b29933c3 4014a2decfc2bd34 bfe6e64fd42f1eba
+  #|atan2 404c6c9ed96745ff c03004d8c68e1bfb 3ffd86fdfab91d6d
+  #|atan2 404ffbe02b8b3795 4025d9fdfaf2e141 3ff66d1128720e92
+  #|atan2 402a858e6d0da396 4013e99dad7bcde9 3ff36304310370ef
+  #|atan2 c043b97a9c21a7ea 4044220521a1b877 bfe8ce0d79406b22
+  #|atan2 4040574604a98c1a 40430cab7aad449a 3fe6b03b93b32414
+  #|atan2 c03fb136e4f1d1eb 4045e67e9966af27 bfe40b24f573b70a
+  #|atan2 400d8b52271199d8 402de8831d5ff521 3fcefd8cd5ac2042
+  #|atan2 4033f59550a3af90 c03e198e31e1fbb9 400472cff2dc3327
+  #|atan2 40410596e1e1cb74 404195f0b43baaaa 3fe89c84d9ee923f
+  #|atan2 c04dafd15bb3f100 404e51778fe7b38f bfe8cbc77b215e4a
+  #|atan2 4003bbd2f7012653 4024322c343805cd 3fceaabc29b074af
+  #|atan2 403b6258e83d9733 4054a5d9b8fd0566 3fd47d6d4a513da1
+  #|atan2 4015287c85c45e90 c00ae4a4e7209ed9 4001186e94059117
+  #|atan2 c050587d6df11e44 403163bbb0e160b4 bff4f93babe07bf9
+  #|atan2 404e693f22b87668 c04d5e110583053c 4002b5bbe588f50b
+  #|atan2 c035d2c7f6b9dbca bff50d3d9e575b57 bffa18a1a40cc162
+  #|atan2 c030cad5082bd7c4 c014cfd880e83efc bffdf0aca8dac32d
+  #|atan2 4038f9d414f8f96e 4056fc63c531a5f1 3fd0f9be7daedf2b
+  #|atan2 c04fa3c76e6db476 4045cd84da9a1b3d bfeef5288e535fa3
+  #|atan2 c032b9dc6f15dc80 c05348ca7b84c487 c0073a3d906af18c
+  #|atan2 403be9b405ce03b9 c05089ed275bf8c5 4005f047a3ef5e99
+  #|atan2 4032c43a8d7cad39 403c4fc96d461da0 3fe2bb426dc67128
+  #|atan2 405700df7fecbefc 402fac0b1b3d2d21 3ff667e0c91af37e
+  #|atan2 40064e7f140623c6 c04715aa3fdd90ac 4008a672184ea0bd
+  #|atan2 c03ad2291e8708e3 3fdd269b3154aea0 bff8dc6dce188615
+  #|atan2 bfe390bc249eb3e9 3fd1c86a30b7dc69 bff24ed90c905c6d
+  #|atan2 40324a0bdef60d1b c04f01179ea588c4 4006d695c7f9ecfb
+  #|atan2 405645a511c5b126 c03aeba4999e68fa 3ffdd3f7c01d154b
+  #|atan2 c032b928fa8d0524 404a31ce22945fb5 bfd5f7adaded9d94
+  #|atan2 40271cd151592561 c01084e208b7f096 3ffe9fcd1a1edef7
+  #|atan2 401c406e4dead3d2 bff8df42a0c96b0b 3ffc9956dabed77d
+  #|atan2 401baf6805d8db20 c01887fd586b4cb7 40025deee91dc13d
+  #|atan2 c02c97caf01da1a0 c042ff9b89f624ea c00640f859dde592
+  #|atan2 bff4a651fff6072e c0404b4fc026cc60 c008d0eaa9d68336
+  #|atan2 4026cda0e86ca2d9 c0313927402a8fc6 40047465dcf598f1
+  #|atan2 405092ae93eb5c9c 40277188c6db4bb3 3ff65522c5a6ee81
+  #|atan2 c042d00b4f783eb1 c03159dcb89f26d5 c00005e90dc0d951
+  #|atan2 4046bf0b3d73d941 4032069bf2eb5e90 3ff318bb8f672f24
+  #|atan2 c01e1d4f6dfd4cc3 4006a494770dce1c bff3610ef5995a01
+  #|atan2 40559385817c692a 403adf4438f9aa1e 3ff44d9ca9306056
+  #|atan2 c02d1823ea667245 404468e3318a5dbe bfd5e8fcf17484b4
+  #|atan2 c00a32ec65bf6bbf c02aef820db5834a c00739772868591a
+  #|atan2 c025680d59de3165 4048d48f08c449b5 bfcb2bfffefd04c8
+  #|atan2 c03b911d505ba647 c036afcab93fbc6a c00213399145c04a
+  #|atan2 c053e62731983c93 3fd7a4dbda313127 bff90ef88212fcc5
+  #|atan2 4023c77839d7f1c5 c04f2f60cef8d023 4007dfed1a3a44da
+  #|atan2 40438deb3dd3bfa6 c040f5416c525482 40024819d2592198
+  #|atan2 4028b8174d918206 4046ace0a154ed78 3fd10750f97807b4
+  #|atan2 4006a8f0be3847c4 bff0d22fdd8bbccb 3ffed1b5b2933df1
+  #|atan2 403616dfa2385b07 404bd3e38fd637a9 3fd82e50df7caf49
+  #|atan2 404e7eecc2c6ab67 c03025dec4718861 3ffd461a0047ee5d
+  #|atan2 405157037bf8cc86 c04f6ccbd7246fbf 400274bae6551499
+  #|atan2 c029af0690e3c4b9 403b7e89c6ca16ed bfdbf72b264a4ec5
+  #|atan2 c054465265d5e273 c0242afeff8b259d bffb1caf7dbebc6e
+  #|atan2 405385c9766d2832 40409c75dc3e8f4a 3ff2b269b69f2bf3
+  #|atan2 403288dc0fb863f1 c05699b7f791117d 400783d4a1abc9d4
+  #|atan2 c03175f78e83b8d7 bffc486ee2f4a40d bffabf3dcfb202da
+  #|atan2 402a2dd9bb10f6ad 40162ffaca900f72 3ff2b837674e57d9
+  #|atan2 40490881b4c36e6e c01efe064eeee5b0 3ffb96df52e08e85
+  #|atan2 c04bf99a1a6703f2 c04896049a93f9e7 c002559e79e5f07a
+  #|atan2 3fd37375fd5f2ecd 400df7236e7d1b99 3fb4b9efd9d4d5fb
+  #|atan2 4055f99bb6d68afe c04656b15b81b6b3 4000540d1d4db4e2
+  #|atan2 4025beb30e74dc5b 4010cc4117eaebbb 3ff33c37100301b9
+  #|atan2 c016ed845fbcff28 c046cfd5a02f1a81 c00822058afc5833
+  #|atan2 401189d74d18056f 402be69c90d83dbb 3fd37d508323f96f
+  #|atan2 403553f3a99001ec 40446eae13bb19b4 3fdec922b865abbe
+  #|atan2 402a4ef58f0ab2b5 c04737ca83e62a19 4006eca4465952d9
+  #|atan2 3fd7cfd99e868fa7 3f9a0735fbaaffb8 3ff80a96d054508f
+  #|atan2 c037b3e422c46a94 c044b55df6999c5c c004f96ef5722006
+  #|atan2 c00e4fb570878882 bfd9aee1f3f0a8a0 bffad23181ceaf56
+  #|atan2 40361678e769c6c5 405413c3824b5e3c 3fd12d7458c509dd
+  #|atan2 c056ea88a8cbca0d 403a604c9e9422a6 bff4a65fe5ec39e5
+  #|atan2 c01267d6c4097bca c0287eb3af813cfa c00641f5435d4c06
+  #|atan2 4022a84236805715 c0042349cd943d98 3ffd59881f5899cb
+  #|atan2 bfee3df8dee2a0cf 3ff9e7c85919c748 bfe0e83d755bab12
+  #|atan2 c03d0b994f1310bb 40420e0ece42786e bfe5ad361965018a
+  #|atan2 4031ad403073a656 c0548d307b53f146 40077034adc83d6a
+  #|atan2 bfe02376d137c6a6 404f9b72e27d4875 bf8056b76b34928e
+  #|atan2 40277a7e275b39cc c04650ff2c8a0c16 40071340002865bd
+  #|atan2 c03186fe9d4e5d4c 40519f899808f7d3 bfcf318111c4db28
+  #|atan2 403ffeae383f7480 c052b3edb61328e3 4005e6514743a9cb
+  #|atan2 c0458fad185ac00f 4037c1fc9b32e9cf bff113640a270d61
+  #|atan2 403ae6870e7a928b c01d1f13960fb3ad 3ffd5c96855ea0bb
+  #|atan2 c01886262454f192 c0216b3b0e74d08c c00439cbcbc2de70
+  #|atan2 c012b606d2201fe0 c053c34b9128fa94 c008a8ef75b52f6c
+  #|atan2 4047540dace827d7 400b18dcbfb9e1a6 3ff7f9250a3d1d4a
+  #|atan2 bff37aa70d6d5a4b c02bc785b641809f c0086eee242d0821
+  #|atan2 c049bdb6b9e40a9d c041a4d5c700485c c0015f9a9a6441de
+  #|atan2 c0506895656b1d70 c044ce3b0c504111 c001162f24f0b8f6
+  #|atan2 c057b0d260972161 c03d758d761ac89f bffdf485f962e17d
+  #|atan2 bfd3c148940d684c bfd15910470f52af c00254ce1adc52d4
+  #|atan2 400eeb106ef14e3a c047c30ef587e9c2 40087bcc5dc5e6d5
+  #|atan2 c0212dd5650f1a5d 3ffaf904883d2c6e bff6082eb18277a1
+  #|atan2 4056f71729a2fad1 c0429b89bdcd2b6e 3fff4a9a14bd8203
+  #|atan2 c0264eba09e777f3 c034e6db590b4768 c0053614996b70bb
+  #|atan2 40277fb72e8e44bf 403a0a9f12ad6c22 3fdb2021f44cee22
+  #|atan2 c039d3c792baff07 40382000b013ca12 bfea390996010022
+  #|atan2 c02a24316919ec15 401d4c13d6eddf24 bff0f5e606ba0341
+  #|atan2 c01b990e572a472e c0330696ac046e94 c0065980fdb8b027
+  #|atan2 400ae9fe767c950f 40212836ad9b2844 3fd7eb570b207a07
+  #|atan2 4044567a476aa1d0 c02ed462c2cda11a 3ffeedbe11db83ee
+  #|atan2 403ad64de8bdf08e c0379fedf5d9e3d3 400257494c844ad7
+  #|atan2 4032603ffe4753fc c052bf0b6bf2549a 400735cb846fb16f
+  #|atan2 c039084a062324e6 c02dc465af65e2e4 c000db9425ed6887
+  #|atan2 4038862c8b94598f c0511c127a7e03b5 4006614cc8ddf423
+  #|atan2 40156c8b090fbfc2 c0357fddedaf1195 40072df5299f91fe
+  #|atan2 40442a5fab8cb108 c056ae7b5a7ec017 4005c94d80b8f821
+  #|atan2 403500001f55bbb6 c0392443dec33e8e 400390d29e98ca77
+  #|atan2 c04c66873b4f33ff 401711113e428d42 bff7838f290110dd
+  #|atan2 3fea99a2c0e2a656 c001e30da8b2ef64 40064900f49ac037
+  #|atan2 c02e1db17e2c8dc3 40372164c6ff3636 bfe27770de697b63
+  #|atan2 c0307215e0369307 c04e9b93ded8229d c007087960476634
+  #|atan2 c04220755f2beaf8 c02207264749a040 bffd082804cd3ffd
+  #|atan2 403318a0a2a82c70 402c48546b406920 3fedde4a362e5145
+  #|atan2 403a47be7c056080 c042aa9e8b90e6f0 400439ce70198709
+  #|atan2 c0324fcb5e517a69 403a3ef5bae9fe35 bfe37e637232ad62
+  #|atan2 403d683e5e7ec149 40548772d7495964 3fd6023dfab3ae8f
+  #|atan2 c020f1b06c04f74c 403e898fe53ddcff bfd151f045019f55
+  #|atan2 403c948e2d57af56 403f3203843d37b9 3fe7bbd35f852067
+  #|atan2 c03079fe65121633 4034f710ee4111f9 bfe550937abe3bc2
+  #|atan2 c04cfe76966e78ac 405010208d67930d bfe77e9009388e71
+  #|atan2 c02253b34b2cae16 c033c5ab3d283e8b c005a92dd6c86c88
+  #|atan2 c02a970f756fa3e1 403586cc4c2c9c24 bfe1b45fc1836a7a
+  #|atan2 c0378bc7f8b8f831 c054dc33347fea79 c006eeb48e38b8e4
+  #|atan2 4041a64e9aa1a3e9 40184ecca684c06d 3ff667add9c56406
+  #|atan2 c028d82723dc81bc 40318aa96df5e8c4 bfe3b7b8bf83d2fa
+  #|atan2 404ee8eb32f9fbc1 bfb71e4d8bf7f76c 3ff927f716497fbb
+  #|atan2 401fd2077b7cdf4a c02ca0b69ed33fd4 4005131f4865ec02
+  #|atan2 c00274445fd04920 bffab011097ef5e6 c0019324260cd77e
+  #|atan2 c01ce8419044351c 403a87a8daf9d7ee bfd105517389f2e5
+  #|atan2 c0411578423089c3 c0557cd2ff5d8b53 c0061b125ce517f0
+  #|atan2 401b51b876ff9f7d bfdbc2d0bf62d0c1 3ffa25c5c8294f20
+  #|atan2 c039598be14a4152 c04b26dbc522a007 c005a3849529301e
+  #|atan2 40147bda8af9d815 4000da6e73ce6704 3ff2e367413040aa
+  #|atan2 4035aed5e5d5fc26 405053d6f911ad30 3fd483e659ed40c7
+  #|atan2 c0061976fe25fa17 40558514dbcb1625 bfa06ce13db7cea4
+  #|atan2 c04975cd5faeaacf c054d4a15e3b06a2 c004be885823f51b
+  #|atan2 40229616de12a1a7 3ff6447a5536718b 3ff6c1198f501c9f
+  #|atan2 c01721d75cddd9d3 c03fa709984cd7f1 c007afe29ecdc7c8
+  #|atan2 c01318772ffede67 c0218f3c3242b4b2 c0052607b3d7e971
+  #|atan2 40283b4ae83244e0 404953088b0ed9ef 3fce0defcc8eb617
+  #|atan2 c020dfbbbd461d67 400adeb6f82d8475 bff31225988c947d
+  #|atan2 401804932f74b9e8 c053b4297b887d98 40088641d337a41f
+  #|atan2 4035dcb59428d3b4 402f3942cf7320f7 3fee6bde10c65ad5
+  #|atan2 bff13df25353cee5 c02bfe225ec6473e c008849c3868d554
+  #|atan2 c044b5c442052bea 40554a392449a7a0 bfdcf8ebb6c3dfa4
+  #|atan2 4049f7a63b8ad060 c03ea35a865f96e1 4000d48b86a8219a
+  #|atan2 40475036683687d3 c03659d1b2bca0df 4000247152f203ae
+  #|atan2 c014452fa92ab130 c0226b65dfda4c92 c0051bc8b5c45060
+  #|atan2 40162325452a62c6 4030f3ab9b17cc29 3fd43232b84a841b
+  #|atan2 c03cdb1bbc6bd591 c042fbccc2ddfc64 c003ef04c86067c2
+  #|atan2 c05398363d51a70b 4046f1b8ef8beba6 bff0a873ff48bfa1
+  #|atan2 c024aa082b6ad0aa 403501c431b66353 bfdd4122f7add3e5
+  #|atan2 4047290af91234bb c03648feaae23a34 4000275a0b2236ea
+  #|atan2 4029b794c1bc72ed bff4549556b527b4 3ffab56da97a15d3
+  #|atan2 403e33c91171b2fe c03958faf936fbe7 400226f52892ab1c
+  #|atan2 c00052459a5988ae c053e6e3555b1e75 c008ed81e5ffaac9
+  #|atan2 404d6f79e255094a c0290f66c6b95bb4 3ffc7cf4dded0bcb
+  #|atan2 c041e0a7d992df7f 4034ae026559e427 bff0be2fe101caa1
+  #|atan2 4023c24aaade7609 c0564580f0339ec0 40083fc958e14d0c
+  #|atan2 402f6160d8aee8cc 3fcab59672027471 3ff8eb82f47dfac5
+  #|atan2 c04c305e07b2f78f c032af708200ceaa bffe40d9e38f870e
+  #|atan2 40344169d214b5df c04c8a086b8a10c5 40066798a4829294
+  #|atan2 c054ecad2301795f 402aa64763f63f28 bff69b52df84cd71
+  #|atan2 c04089534939973e c01231402ec69d55 bffb51be15bb13bd
+  #|atan2 c0478a37acc16fdb 4044e0581ecdaa9f bfeb0ca789fbffb2
+  #|atan2 4034ba59c538e1b3 40562a72faf38677 3fcd656edfc226e9
+  #|atan2 4038789ede0c977f c0450fb2a84efc32 4004ec2142eadc33
+  #|atan2 c035e2c75660f6a9 405842bb385d6347 bfcc64807ac560e8
+  #|atan2 40245925d0cd975c c02a403c710389e3 4003db87f3e920f9
+  #|atan2 404cec5b22f154bb 404c83e85dfa0e6d 3fe95c2bb5d0d6b4
+  #|atan2 40563ce36472c060 404509db5c4308e6 3ff2103184510f44
+  #|atan2 bffd2078b7d4e8e3 404626c681e45c16 bfa506c7a545c422
+  #|atan2 3ffb4e4c5b395769 bfc37286c39bbbc1 3ffa8dac07f5d9d7
+  #|atan2 40065d59afba3d82 401a5d8db8e506d9 3fd9ac25135f752c
+  #|atan2 c0400c5f772e41e6 4051d447975bab9a bfdb10d1113b91f6
+  #|atan2 c0341e1d85177b5f c035fc2aefbec7d9 c00334432b31cabb
+  #|atan2 c027da68ce72af33 402095309b0ba8b6 bfeed3556629acea
+  #|atan2 bf91c2c733ecfb47 3fc8c5777fb640da bfb6e1f197e5ebd3
+  #|atan2 3ff18cbe46df26f6 4040f02e8d5db2ea 3fa0926848ab549d
+  #|atan2 c034168626bf631a 40210af2d4fe7ea7 bff2b6af7254f385
+  #|atan2 40303499c3a181fe 40460c717fc54925 3fd68a0526aa75bb
+  #|atan2 4026c05e6ca53d69 4011778e7560db5d 3ff344b6305fdd14
+  #|atan2 4034017d36ca8171 40200df9202cfaec 3ff30705f575ac71
+  #|atan2 c0546dea08ef5d1a c011c6f800143b78 bffa008757de9192
+  #|atan2 403d61a42d415270 c03d7a7a0454928b 4002dcdca1063739
+  #|atan2 4017fb8a03c65753 c02e02b155bb790f 40061777031d9302
+  #|atan2 c04d7274e6be1da1 402c5449d634490f bff55b3733b37ef5
+  #|atan2 404e1b329adea2e7 c0410973a5ff49b6 4000afa2d1a2406a
+  #|atan2 c022c191b86a672b 40120d923feec200 bff1f4c2769816e5
+  #|atan2 403709a07fb2cd87 4009bd3a6288bebb 3ff6e99dec8b2690
+  #|atan2 c057a4b1b54f53eb 40265d7726646200 bff73fe68a5ba5fd
+  #|atan2 4048b7e41b626bba 40535312de868a96 3fe23540107f4ec5
+  #|atan2 c03028668425543d c05506049f2d3109 c0079d379d46fe3a
+  #|atan2 4046d46fc9cb70f8 403aecea7ad8ae31 3ff09b96c60e0377
+  #|atan2 c05227b1476213d0 c02b638799b70eb5 bffc1d6c08016921
+  #|atan2 c03af5d3eb3995df c037b8e9c1797cc1 c00256d2df590f1c
+  #|atan2 404c91ff62286e5f 403db2f0b50bec8b 3ff176ab08512c50
+  #|atan2 404d5bcc1b1a5125 c04c8eaa1b953680 4002bd272097a3ae
+  #|atan2 c0404e1e94996c63 4028b90045b44a7a bff355e3c5d901e9
+  #|atan2 c054e41abd5b6740 c0456473a8c4fac8 c0005a1b3b8a26ba
+  #|atan2 40505bc25e3cdaa6 c02ac19c26592a11 3ffc5c09bd7ce6cd
+  #|atan2 c03de49152d093f3 403ec274ea963c74 bfe8acec017de642
+  #|atan2 400d41ff5201829a 3ffda11bf8dffc1c 3ff1a220f6e13247
+  #|atan2 403306ba03f20920 c053cf3d66ac3533 40073f5cd394a6d9
+  #|atan2 c02e280920753e1c 403f9118d41ac85d bfdc84fb2b2fc485
+  #|atan2 40426d7c60fea2ac c00bc63ccff8ef7c 3ffaa2b128430b9d
+  #|atan2 403616df25b86d5d c050905e37b95acb 40068eec3b1810a9
+  #|atan2 c03f69c156b2de96 c011cd3d47286c2f bffb627174391879
+  #|atan2 c054b39e646e0878 3fe0970eb01eb936 bff908566f31e219
+  #|atan2 c049924b8c84a3a5 4045b5eb94f49510 bfebbd6c17317d6a
+  #|atan2 c0448f67e19db7f0 c0442541d4cb86a5 c002c4a01845ca78
+  #|atan2 4041a106e1d08956 c03e0efb3a6cab12 400236cc8d0786ee
+  #|atan2 40449628d807c098 404067285637c630 3fecbc986e817db0
+  #|atan2 40549c6a2e2074a9 c04588f933c3f56e 40006af0365f92d3
+  #|atan2 40237cc22e98064e c054aaad1dab25f2 400831b3036adb6f
+  #|atan2 4040e533cca94bb5 400c9432aa24c9e0 3ff7728da71569e1
+  #|atan2 40297960eb9463f4 c055c75ad3c4bf67 4007f8a68af2ce89
+  #|atan2 401e1cf653f7e3a2 40293dad8cf1d169 3fe136160421c603
+  #|atan2 c02af369f517d538 40505ddc8fa597a0 bfc9fbf24c82d029
+  #|atan2 40511764cfa1b3a7 401fbae0446f7021 3ff748d604d1282a
+  #|atan2 402c339ba213cf93 bfde59dec7c1d50d 3ff9abaf8b95ec90
+  #|atan2 403f017353939e0c 401ab377df818485 3ff5bd679c6a57d3
+  #|atan2 c04edecfb6e8c437 c035e32b9f1da4ee bffe956abe373e9d
+  #|atan2 4041a7a89875bdbc 4044bb179dcbbf33 3fe692f166ad2381
+  #|atan2 4053486f152d7db7 c02e3377c2cbde0f 3ffc39dcef5acb8d
+  #|atan2 40299cfc262bd16f c03c9529f4a30005 4005c34aafe65133
+  #|atan2 402c8528fa11d0ee c048a769413a1863 4006e16bd5193ef7
+  #|atan2 4046b0f43e3f54c2 4054e7d90ad78ad6 3fdfd28b1f3c6a0c
+  #|atan2 c0155428ebfab85e 4045d8759784065f bfbf16d862c7b4d1
+  #|atan2 40367e888598577d 40576fc7deb1afd0 3fce24b7523d17cb
+  #|atan2 40557bb8ff04ea76 3fc0dbb58810e7dd 3ff91bb43c7a6b6f
+  #|atan2 402f4a63b206e6ad 40586db07de5ba7d 3fc4526f446a5250
+  #|atan2 c00e5cbda577ff33 405346bc5be3e2dd bfa92e70500ff124
+  #|atan2 c01457a0bf20b0ff c038523766b89b28 c0077bd3671d837e
+  #|atan2 40444a34f4d1186e 405239bac71393ec 3fe040e5ffe3d90e
+  #|atan2 c0409d2ad8c5e8a1 4055bab0dfe8f0e7 bfd75e9e6cd2a9e4
+  #|atan2 40439aacc0c38af5 4004ac62fc374c08 3ff81468e4baf60e
+  #|atan2 c0269fc1a2de38f6 c038e219c56c6232 c005b825e0ce4e58
+  #|atan2 c013f0699f5394c7 c0170bf7bc6f964d c0036d49c258b02b
+  #|atan2 403d67ecff600c0a 4019e94eca9d0b00 3ff5a9dbd274ed0c
+  #|atan2 c0211f8460af26aa 40441ceefc22bd5c bfcad7adedea0d08
+  #|atan2 c023a0ffd59fa6d4 c0428a3d78174ec4 c007100ffcf313f6
+  #|atan2 c051b09dedb2c80d c045e7be9e2381d5 c001005b7ddb877e
+  #|atan2 4045358afaf5d094 40464ee7ce484bcf 3fe85321059909c8
+  #|atan2 c054b0c34690c146 404855fea3de2ddd bff0a077e18d9571
+  #|atan2 3ff48b62e1a8acb7 40412d8c77702c1c 3fa32075eae214a2
+  #|atan2 404c76776802e4e4 40106bef99c494bc 3ff7fb17dfb84d48
+  #|atan2 c0194d0ca856c5aa c0525db1882c52e7 c008721535c8cc25
+  #|atan2 c028881737229fe4 404fc7eb8423f79b bfc866984d140568
+  #|atan2 c0257ecc966e4c76 404101efa04590f3 bfd39629bdd984e4
+  #|atan2 c0553c20ce2867e1 4011ae027012a484 bff84d088f5a624d
+  #|atan2 c037ad1fbab054af c052c9716d96b9c1 c006b0e4c8912ba0
+  #|atan2 c05349343d8a8df2 c046e356f783ac48 c000d9c81c2a48a5
+  #|atan2 4056203e93d09067 c0340363d9c408be 3ffcb0e270d705e5
+  #|atan2 c04116986939cf7a 403ff3294f5f5c51 bfea35ba2c518773
+  #|atan2 4033b08033a6e50f 402d233159273302 3fede179f28cfe90
+  #|atan2 3fe6a43751894a86 3fe4ff0bef87b319 3fea56aef1fb7fdf
+  #|atan2 c0469f87a5b20e58 c03588aaefc4240c c0001eb7da87149d
+  #|atan2 403062305bbd5533 c02b30e364b9130f 40021b914b96ee51
+  #|atan2 c04ff89737c4803c c0202c368d78c3d3 bffb253ddcf80ab5
+  #|atan2 404011f1f78f226e c02a53f17f2a8639 3fff5a3f6e669e00
+  #|atan2 4041196993d1cfde 4047954bad3465a2 3fe4133d938b0ff2
+  #|atan2 401fc6af000c8f72 404116308034c926 3fcd3c68639757f7
+  #|atan2 400686cdb8d7d41b c0239425f86e6416 4006e46091b310b9
+  #|atan2 c03a59005480f1ce 403066f918d3ef83 bff0393d31976bf1
+  #|atan2 c04ddfaa00d51262 c0412dbd68ae8d50 c000bdc64604ff0a
+  #|atan2 40417650c9336d72 405497c7d59cbc63 3fd9aa29b764919f
+  #|atan2 40226d9eef0a475e c00c9604f82e49a5 3fff0d49196e5964
+  #|atan2 40101009728d9629 3f9c466b91b910fa 3ff905d1409bac80
+  #|atan2 c0301de13ec2ca21 c03aa267a5e0c597 c004c786a9bb9ded
+  #|atan2 c0555feb5c75fc08 402214617c9b5f44 bff7728375de1469
+  #|atan2 c0286de33a1b52ca 4034c049ee2c836f bfe106409f91fdab
+  #|atan2 c006dbc0dbf29aa0 c0330831631bca93 c007f0cabd4aefc8
+  #|atan2 c0541f0cd6d856cb 4022a4cf5122ecac bff749aea383d4dd
+  #|atan2 402fd366e0410eda c049e5fcdd8ffc42 4006bf8b32ef472d
+  #|atan2 402e043f4e84ddc1 c051490e6bbb3678 40076c389078eebb
+  #|atan2 4012c133bcb6f68f c04fba73aefbca58 40088aef19281006
+  #|atan2 c0488ba289f6d063 c0430a465b85b13d c001d82a50d5cac8
+  #|atan2 4048ac097bf51da8 4041d58c5cee5113 3fee3c9c47770a3a
+  #|atan2 c01b774a60cc73d7 4038d0b528f27929 bfd146dd04c7dbc4
+  #|atan2 c0349d3530081b43 40282855bda6a891 bff0a702234418e5
+  #|atan2 c01a65e9a13787a2 c0556a2aa17be82c c00884819485b5fc
+  #|atan2 404f4118bb0f9800 c041a81b66a34a7a 4000ae2677a86758
+  #|atan2 c05015a1644b1b23 404e3624df2aadf8 bfea22f5f76ef032
+  #|atan2 c032048f743dfd35 4038c93adb3401f0 bfe41d480d7e922a
+  #|atan2 c02c82c6954bca9a 4022d91ffee052a5 bfef92c5d31caff2
+  #|atan2 c02b899283df67a7 c02e590fc820ac39 c0033cd848af10c7
+  #|atan2 c052537ab0a8e14e 400fe3179432013c bff8437babefedcd
+  #|atan2 4032da0a78e6f54f c024df1f1c4f1071 40009c6bf1cd5275
+  #|atan2 c000d7b7fd7fdacb bfbffa481b2d953e bffa14b83455d1ee
+  #|atan2 4040c120e78895c1 40006b8a95874298 3ff8276735b07cad
+  #|atan2 40420189093ff88f 40319b68c25dd358 3ff1db5755785f62
+  #|atan2 404a5cd569742278 c036c61171d44e06 3fffa8081e157071
+  #|atan2 c0264fe73baf6af7 4050a55c8523eb7b bfc53fba0787fa89
+  #|atan2 4051efd1d86f02e5 bfb5d3041f24cab9 3ff926d9433b141c
+  #|atan2 c0115a4ad4de2b93 c005c0f3cb990b9b c0010baaac829ffa
+  #|atan2 4036be96931fe5e1 c0510656e9fa3679 40068dd303d5cc6c
+  #|atan2 40333c00dc93fe9a 40573b08c15b18b8 3fca2053574c6809
+  #|atan2 404020a0b464b542 c0427d8fac61c901 40036510fe5879f0
+  #|atan2 c03b072cc4ded170 404b3584d452fc89 bfdd80bdb78c5fd5
+  #|atan2 c047b8e5806b67a4 c01366d4fb05584b bffac347dde9e192
+  #|atan2 c00bb780f5c2dafa c024342ec96adb38 c0067d55f28b7dd1
+  #|atan2 40520d0aac162fc8 c03b1c05e8296d9f 3ffee1265c420e01
+  #|atan2 4030f46b8dd0268b 40425819ab988e15 3fdbb48f81fd0047
+  #|atan2 c019b800c555d4a5 c0265d0db4b0208d c004f53d4a5dd1a4
+  #|atan2 403cc5264d552f87 c0556351059c81fd 4006899811234d1a
+  #|atan2 4024a5e5ba7569dd c01efc2699df7a7d 4001b74a72d8e373
+  #|atan2 40145dd032ca97f0 c0460fdb80944b38 400836b23fdf943e
+  #|atan2 404674b5d6b37e9e 40532aa30853259f 3fe0f51aeb4e61ea
+  #|atan2 c045d452bb6c6ff1 c042b64eacd1e827 c0023c5301df92f4
+  #|atan2 c01aeefcfc0f4fd6 c0243234cbe85234 c0046d902f8d8bf0
+  #|atan2 c015e1bfb8d2fdae c0013ef2501e81f6 bfff238c91fe3d9a
+  #|atan2 402effe1430885d9 c0205d6ff7f1667e 400073c2144670da
+  #|atan2 c057a0651f391414 40274672d42a5e19 bff72c1f4df0861d
+  #|atan2 40509e1b45c32c8d c041950103a8ae81 400075881afcddfe
+  #|atan2 c00c89404d921a32 c04919a87b4cadce c00890b44d763228
+  #|atan2 4042a9d9eb756d4e 400a43bf0f1afbda 3ff7baa4f0786048
+  #|atan2 3ffe41fb89e198af 40097479e2058e16 3fe128ed8a37d1e1
+  #|atan2 404005a76bae48b5 c02071bfdd588e26 3ffd26c61dcc4a6f
+  #|atan2 402bc7a51481c9a2 4037bb5103bf5b6e 3fe0f1ef84bd1b01
+  #|atan2 40505f0abd7ba40a 401d3bd4aa1b8082 3ff75abbbc3795b2
+  #|atan2 c02878124bacc076 c00eb86a6e9bbaa4 bffdffb55675f8d5
+  #|atan2 bff0dd98d8b5c55f c045dea7c64db026 c008f0a2af67de86
+  #|atan2 403b3073a25e5808 c047b9b44ae2b53a 4004f85906f8cb65
+  #|atan2 4048a6dd94a23b1e 3ffd856fe481ba59 3ff888c50a585aed
+  #|atan2 c03b5a5b7d6803c8 4044dfb614d705c8 bfe28f84b5b2025a
+  #|atan2 40121f5046e180d0 404604d8bf9382bd 3fba3ea736b978e7
+  #|atan2 c049464fe881920c c040e6fae50731cb c00148298673a788
+  #|atan2 c011043575698afe 4037bea52f813b4b bfc6b11864c7e4e9
+  #|atan2 c05272c4c2c92a89 403c15f1b7fb937a bff350626055da4d
+  #|atan2 400371e7dd9d7f18 404fc2cc0b57b142 3fa394ee28497870
+  #|atan2 4049507bda154189 4043b06b38c9343d 3fed1caa134ac1ed
+  #|atan2 c0189141762bc316 3ff749b782dceedf bff568e4929f6bfd
+  #|atan2 400a73b340ee93a4 40056a723d7dd750 3fec7cb3241ba9e8
+  #|atan2 c036e86f06dcacb5 c03dbfbdd12d5c5b c003e2132f3eab1d
+  #|atan2 4023946dd5e85c72 c026776d99701a20 400365df6874433d
+  #|atan2 c0259dce3c8df4e5 c03860474e42f0f9 c005cb4159f1d89a
+  #|atan2 c04ba74fcc14222f c0502972161eac08 c00378a2cf9208de
+  #|atan2 c023709ce018cb27 404038b546883337 bfd2a138bfe85295
+  #|atan2 c041c48f271d1ca3 c057044e1eba7aab c0062f9607c42098
+  #|atan2 3ff3c9e33871a3e9 4039291c5dcb88bf 3fa925c47f4a501f
+  #|atan2 c0528627d33f2ab6 402bbba75fdbc9f1 bff62c368754b995
+  #|atan2 40499d3c90f53207 c04a774e9a19c71e 4002fafb1e887d75
+  #|atan2 c0216b303dbbd27c 4036ab2ccaa40bec bfd779e1cde08d44
+  #|atan2 4043809287d6d4e2 c04972b9efdee554 4003e6d395784fcc
+  #|atan2 c04ceef8dfb2b03b 40522cd590aa824e bfe583466ca7db33
+  #|atan2 c018c56b10e24947 400340a858010d85 bff333cf1167e956
+  #|atan2 403db6de75cbea51 4032ccab32b23d0d 3ff01b6ef26398f8
+  #|atan2 c0483794a9cca304 40422519b0e80bb0 bfedb0480aa6b32b
+  #|atan2 c048228dc0736ab2 404de83884d42a6e bfe5ba5054d0a54b
+  #|atan2 c0294695422db9fc 40347030d366fcef bfe1b8b74f8e87ea
+  #|atan2 4053bbf5a49f0312 c0493a2b4318946a 40011dbea4e4e8fb
+  #|atan2 4031d52855888ead c0402524bfcbe5be 4005189af6c25a3f
+  #|atan2 bffd3c5dfce4d443 4003c4a14f0fba07 bfe46012c673c61a
+  #|atan2 4054a86d7d4315a7 404b7a28f16c3717 3fef7c35b5fc9657
+  #|atan2 c02bc89e74c5ca79 c050f28e1c8688cd c0078406e3484bff
+  #|atan2 403e0baeee81f15d c0419b1a05e915b5 40037b4753c49fb9
+  #|atan2 c048396633cdf346 40461a26844cfb7d bfea98f82deb8b5a
+  #|atan2 405448ba870f7e97 403a42b220c47066 3ff41fdb7fa26d05
+  #|atan2 402920cf7cbc5071 c056e3001b435ad8 40080aa7afc9bb9f
+  #|atan2 3ffb1bc965908cf1 404145d7d8c6acfe 3fa917403831c911
+  #|atan2 bfef17facbfd0720 3fccbbb354ad26f0 bff5800887b7f809
+  #|atan2 c0054eae66279355 c03e308227d68750 c0086dc450ec6f66
+  #|atan2 40108246df092955 4014e0c30a3802cf 3fe568f9c7e23d6e
+  #|atan2 c025ffb34bf460ef c0155799649c7b3f c0002df170d45c45
+  #|atan2 c013a6e3929e492e 400a6042831014d8 bfef5a10fd591c0b
+  #|atan2 c05474d32e4870fd 4046ec0497d6dfdc bff0f63220fc7d95
+  #|atan2 40519015ff901c80 4047fbe6a2774243 3fef183303bdf024
+  #|atan2 4051013f197b9006 3ff52aa4b55a3235 3ff8d25424768f9d
+  #|atan2 405667e2fa3a2b88 c0402e89698b7865 3ffead63c84a1ba2
+  #|atan2 c03081e2e86b12e6 4030b8d1128aa518 bfe8ed15941eaa02
+  #|atan2 402297a4aecf77f0 c015c6a333e6588f 4000cdf86f2c634a
+  #|atan2 4037faa9febcece3 40301e1414152c59 3fef540ca2b27aff
+  #|atan2 4049fad5f747942e c03098329566bbbb 3ffe14321c46298d
+  #|atan2 c015ac7591fc3887 400765398f29506d bff136ce1bf064f1
+  #|atan2 c0365a27b2850641 c05059b5003c56ab c0067f87bd75a2c6
+  #|atan2 c00a3f9cff552594 3fe9a972764da64e bff54c1d6efa3871
+  #|atan2 402a0d4135367dfd 4041ba2b1aee49a2 3fd688a1532b4087
+  #|atan2 3fa29a8f6fb125c9 c045bbfded14520b 4009204513c451c1
+  #|atan2 4012c0359c7aa198 3ffa51313f94a05f 3ff3bbc04101ea94
+  #|atan2 c03ee1b8045a4d31 c022e4254f89c4e3 bffde1c9b3340b05
+  #|atan2 c0429e38cbb48200 c0480fa54696d918 c003dd46389de5e3
+  #|atan2 c04788647fd0e035 40237d0fb17a5c57 bff5ddc6e47390c9
+  #|atan2 400b0b57bdcbf92c 402c19cd006d0aeb 3fce38f4dbc7af10
+  #|atan2 4055672e50ab8508 c048b9ffbff140b5 4000c1c485cc1e18
+  #|atan2 4009e13fb656608c 402a62623ae45e39 3fcec7e37fd09b17
+  #|atan2 401813626b30ded8 400e1b9fea60b4a7 3ff03125e6834ad1
+  #|atan2 4002d5f974077b95 c0218630532f9538 4007085be3c4865d
+  #|atan2 4044b991b4421bbe 404c5f6e5038cd50 3fe430182bce587f
+  #|atan2 401f0a0050eab579 bff7144f84ed474d 3ffc12cad1a7433b
+  #|atan2 402b1e83a00d31fe c0244326dca29605 4001b326802c9bce
+  #|atan2 c04bb1b53523af4d c04ef24dc887882f c0034af4ca84bfc0
+  #|atan2 c0513350ac5abff3 c03de56fc685ece7 bfffb0fb8c854516
+  #|atan2 c0392e8ae41463a8 bff6bbd275d7289c bffa08d960f03e9e
+  #|atan2 c05472c769747c5c c04252232c0c4eee bfffdf19c767ff4e
+  #|atan2 404a45403c30524d 4054defdf6dcd9da 3fe1f9a2b3751198
+  #|atan2 4054274b3ce59af3 4044d594c41be98c 3ff17fe8a2d4c2cf
+  #|atan2 c03738074ca4e2d0 bfe4bca7a9b6712f bff99445127df7be
+  #|atan2 404454ff1199fb09 c0108a7d42b82ae0 3ffac116bf0902f5
+  #|atan2 c030feea18909859 c0438bae75107985 c005da0f76419adc
+  #|atan2 403dd509497f5c09 c036e7db12cccfa4 4001ce096dd02030
+  #|atan2 c0146f1077f386a0 c00afba264e93840 c0013c18e859dd07
+  #|atan2 4026f664085f3214 c04c3a73154539de 4007871893c70980
+  #|atan2 bfccb436f354ebbb c040201459aaea2b c00913bdd50e1720
+  #|atan2 401249665150db21 4029fa561f353aba 3fd5a8c65d6b8dd5
+  #|atan2 c034f9c1191e9b50 403234a45c0035d3 bfeb642a06d678ea
+  #|atan2 c051e5bf768a37c3 c035f33009e05c08 bffde4926b6e5d99
+  #|atan2 400eb5c14efc46c5 40139591d81ba401 3fe5472be865dbec
+  #|atan2 40448bd564d21abb c05040c6143bace8 40049f95e2b1b6d2
+  #|atan2 403310ed36283853 404e3db1a3130c01 3fd38b4708b630e2
+  #|atan2 c03c1811fa76cbb1 40447723a2ee7a7b bfe33fb2e6a4295a
+  #|atan2 c026440462e50333 c020710aea81447a c001a7a0777c67b3
+  #|atan2 bff0ea8ead9349e6 3fbb2810c86bcae5 bff78861f5248ccd
+  #|atan2 40182755a72caacd c05671bd1b738d5c 40089870bf9a7745
+  #|atan2 c00782ab14afbfb4 c03afa31909a5919 c00843c1c9e4d141
+  #|atan2 3fd9a7c62863e70b 4010c5da997baa5b 3fb86628e0cbf46d
+  #|atan2 c02645b3bdeb5856 40024aba8b311be3 bff5e483352d4581
+  #|atan2 c01a280d96d52ee8 c042dd43f5bfb30d c007c283c0ea6da3
+  #|atan2 c0313158cccd3c65 c0443747a4cfdd11 c005ea8e2b846f88
+  #|atan2 4036704e400c202c 4044c85497c0afae 3fdfae4b7849b03b
+  #|atan2 40326d39126772d6 c0439223fb5b05d8 40059ce2307ae3ae
+  #|atan2 4028bbbaf010c196 40376ef1826c6fbc 3fdf13e94efe813a
+  #|atan2 c027f8115e34bc2a c0509ffa51938aad c007b4d013e3b7f7
+  #|atan2 3ff08ae60499c8e0 4057fd452bbea9ad 3f8610d298a3ac97
+  #|atan2 403d20c216cb4c3c c0232fb5d9136207 3ffe39280b34c72d
+  #|atan2 40348dd60198cb45 c03775444f15e9d6 4003606c39008936
+  #|atan2 402a4073a83b6ab5 bff141c529832e2e 3ffa71cbf41af44c
+  #|atan2 c04695f43d9caba9 c040943037061528 c001a1cd4c5e7d26
+  #|atan2 4043c6f7bf9dbf80 402198061de12178 3ff5a19e4d8d7637
+  #|atan2 40417f3bc7eaebb0 bff8624f891d4f0c 3ff9d440592c52b9
+  #|atan2 c0514d85d2b2bd27 c043fa1ef107531c c000c1354dd74472
+  #|atan2 404d9224ecfd0ead 4030aa3c7c52b3e5 3ff4bcfa9cd5d8ba
+  #|atan2 c032c552a50bdfda c0376f8945d57c10 c003baed7db92cf6
+  #|atan2 40403a9cdb144710 3ffc405ec920321f 3ff84360cddc7e30
+  #|atan2 40291bd334f725cb 40255dd9319707de 3febb42a453c7de5
+  #|atan2 c0321e864bbb76ee 405534909f055702 bfcaf02354cf688a
+  #|atan2 4041942353ef0e9f 4032854fc0fb1d89 3ff16004f9073549
+  #|atan2 404672fa548da6e2 c0251e37d28efb38 3ffcd412a854bdae
+  #|atan2 3ff79ce70705c6a6 c0219b65cfd23097 4007cdd241009552
+  #|atan2 c031659c8f32a853 4056dbf393dde813 bfc810dcfab96e0a
+  #|atan2 4052f616b39acc3f c02e04b972bd3639 3ffc42366c007cfd
+  #|atan2 402ab82510833485 4055b13df3913894 3fc38de4bb3f5fe5
+  #|atan2 3ff37e4e37c1d308 bfc40bc34b2b8988 3ffb2d9fa5153bf4
+  #|atan2 3ff0682a12ad34a4 bfe2be8e5f531368 4000b7e6f7499521
+  #|atan2 c0508bbe18d57e32 401bafdfe10f484f bff77727f96eb58d
+  #|atan2 c051d5a10309cfcb c04773b5540965a9 c00138274fbedc88
+  #|atan2 40312c5e9f07fc73 405269057e59e868 3fcd536ebcf92355
+  #|atan2 c0406e66d02bae99 c03e520890472d27 c0028721f16e1ff6
+  #|atan2 405614ee109ddef3 c01e062c2298cf7a 3ffa7d39b3e062b9
+  #|atan2 c047b524cfa942f6 4015ffee0d41eebb bff748fabe174a15
+  #|atan2 4036f98b22fcac48 c011d89f29ad1217 3ffc339e5a453dc5
+  #|atan2 c03353fdf5b506f2 40514bde71ba18e3 bfd16f58f67fa195
+  #|atan2 40273e17d4738cfa c03f7e55a9866ed6 40064e00ea96f712
+  #|atan2 4024de99e26c1484 4028448d9a0e2811 3fe6ba648140e25d
+  #|atan2 c04d0d7ef8abf853 40538e9df9a74ac7 bfe4718162f5ea93
+  #|atan2 bfcfeb9848ef0d21 3fdf7c3ddccdaea2 bfde06b0d9569d36
+  #|atan2 40302f6268041d15 40443bd6152f7177 3fd8598e46c44d44
+  #|atan2 c0396a965e1e2d07 c02137ee893dcfb0 bffe5bba63ad2529
+  #|atan2 4049b83be9fc2813 404c8c11cae5e03d 3fe777896aaf8c9b
+  #|atan2 c05019893071ab88 404508799575f48b bfefbfd3868f641a
+  #|atan2 c04bc9a54841da45 4033141ed8490402 bff3d77d2492c4dd
+  #|atan2 c037bbf7e6ea8fa3 404fccd45fe56044 bfd6dbebf60a8395
+  #|atan2 c046ad72afcad5b3 c054ada73231d5c4 c0051ec527b97624
+  #|atan2 404c39b648fedf70 40439ad2b5748b11 3feed6c7d5f8c2c0
+  #|atan2 4036a11cda97b8cb c02c72182e9dba5f 40010e2afcad7b16
+  #|atan2 c003435a44aaa068 3fdcbaef92ae27c4 bff62f04ef1ec631
+  #|atan2 c0054c7312fa7ec3 c050077e2b1bde13 c008ccfdda91a622
+  #|atan2 404ce687c795ce00 4033bf464f9c44da 3ff3dd8b77184e97
+  #|atan2 40334ea5be978cc9 4031534e1794eac4 3feadcbbae03f3c2
+  #|atan2 4014ca9127b8c879 c0499918e68b846e 400852c35918c22f
+  #|atan2 4053b8e6d52dbcf5 c0207691dcbbb769 3ffacbd526d7f2c7
+  #|atan2 4045721a1bd78fed c04fdbb51d2385f8 4004649289ff2974
+  #|atan2 c03a8ffc9c7a4068 c0502c1606a99270 c0060406b0b75194
+  #|atan2 404698c5624d534f c048899d3fdacabc 40032dc44b2265c3
+  #|atan2 404ef5ebd00a32cc 404e760c4bc88bf8 3fe96499c41ef613
+  #|atan2 c03bc49f9fdd2242 403308b5d485c428 bfef095bbc7c335a
+  #|atan2 c03f2c5ed3c68b0b c031469acea2ef95 c0009d62121233e3
+  #|atan2 c0421b1fcd9e5f82 bff3fbb0c02ecbb4 bff9af325c5b232a
+  #|atan2 4050b2158f05108c c028ed06badcf19b 3ffc15aee164fad8
+  #|atan2 bfb91c16473f475c 40153e2ace1c47d1 bf92e90d5c99fc45
+  #|atan2 c04388d4dd5e0a59 401762e17aad0722 bff6c18ac9bb21ad
+  #|atan2 401fdf875f016b9b 402f8c9dafd69d52 3fddef8ac525ceb5
+  #|atan2 4034656abdfc0622 404a9b5004f87a5b 3fd76cda19426894
+  #|atan2 c026a37baa1d9943 c03f62eaf9600cff c0065d1e09ced656
+  #|atan2 c03e66caab61c56f 40451b7072b6855b bfe3f8ea39c840c2
+  #|atan2 3fd3fffb3a8a2d4c 3f9d70f9b4bdcbe0 3ff7aa3087695081
+  #|atan2 40293097a6e2129d 404d80bf05389625 3fcaeafab342842f
+  #|atan2 bff176d20f02e279 3fc116ea459d65c9 bff72f70ff32e865
+  #|atan2 c01987cad4758097 c00cf2e266bc333b c000b144b7b661e7
+  #|atan2 4049194ceec72f47 404190e36356ff65 3feeb99994e28c0b
+  #|atan2 c025779f320b2993 401d6283fa2f224c bfef0f3d72d64b22
+  #|atan2 c00efa31f777bef4 c031e3eec29983e5 c0076d72e81afa79
+  #|atan2 401bd0a06bbf8fcc 4011583724417294 3ff0362bca76fd5d
+  #|atan2 40277d7750b0c151 c02d11021c8eca0a 4003b1f8fb85c5b1
+  #|atan2 402a99e7a4353e6f 4039e599a9d8f890 3fde5dab3bcb9dff
+  #|atan2 c04bcb04f7b53179 c0301eccc2e07127 bffda621b5a12cbe
+  #|atan2 c03c34d70789bffb c032e12898d54f3b c00148ff95e4e2ad
+  #|atan2 3fe572aeb4030f0f c003bf3220749e83 400702f7cb8a7b9a
+  #|atan2 40401aae501a9410 402dda5ec70ad4af 3ff23071184a60f9
+  #|atan2 4012026dd97be0bc 40194a3829b9dfb3 3fe3cd54a806192a
+  #|atan2 401cc08ad450583a 4042e9208a0868dd 3fc80a3d8c2efbf1
+  #|atan2 c02714472f868ed6 4028c0e915ed6d15 bfe8035843fea07a
+  #|atan2 c03111416b9480fe c03b4d6213a303b2 c004a9c858cd122a
+  #|atan2 40230d884548a198 404416c3276929aa 3fcdcca21565302a
+  #|atan2 c04c0cb650d3f563 404b6d993e564619 bfe97dc17d561bdb
+  #|atan2 bfc204c502d894ef bfba19e677499bbc c00194c14dc162d4
+  #|atan2 4047d589ec9f0c3d c04e0142d300f9ad 4003c332f07c8117
+  #|atan2 c023fd101fd11469 40255db8319d8917 bfe81132e1009bfa
+  #|atan2 4048beaa22756ae3 403c3f9f419dc6a5 3ff0d5821b4da38d
+  #|atan2 c011b8ee5803a3af 403b934d02a96bf0 bfc464498f331429
+  #|atan2 403ee66dc4649712 405707eb91bbd911 3fd4b64e18a5dff2
+  #|atan2 4043d4ac6e27d290 4051b1ffb61a12e7 3fe0580959d0e467
+  #|atan2 c04ddd75caa2b541 c030ccc7bbf805fa bffd8506035b7c66
+  #|atan2 c03ff83aa1228507 c02989042b09c7ce bfff364c8c0fdde6
+  #|atan2 c023d0c09cf88768 4011e7db7216913a bff257ce2c76eed9
+  #|atan2 403d30d51e6c01f2 bffb3cfa48b0c858 3ffa109676aee73e
+  #|atan2 4038b3e523bb25ad c036be898937968c 40028500309d951e
+  #|atan2 c04be755a495525e c04c086f14d2e5dd c002de385ba73d8c
+  #|atan2 c03e42b5e935a109 403427b98313b040 bfef768622e3035a
+  #|atan2 c0355a2fd70758b1 c0527f03f319d873 c006e28e4ab2edd6
+  #|atan2 4049a392e55e91f7 c01048e63f185c41 3ffa66805a22c4ce
+  #|atan2 c046d2d5504bdb7c 4039be470d8cff70 bff0eaafd49df621
+  #|atan2 c024686f494fe3c7 c0311d74cc11ed3c c004d4efda9126f2
+  #|atan2 c02332a6f1e04de3 c01d123156ad58a4 c001c0364a496172
+  #|atan2 401f9b39f3dcf237 402b31af8a557667 3fe0d87a75dd249a
+  #|atan2 c04a9f18668f286d 40527e1771fa4e6a bfe3f6dbeb0e2071
+  #|atan2 4041161259839861 403edcded3f67fbb 3feac283fcb9d7dc
+  #|atan2 403008b0f5b524f4 4037fc269a3fba5e 3fe2db4e758eebbc
+  #|atan2 4043d3aafe60976f 402dace759957c72 3ff36764c76d1a2c
+  #|atan2 4014476960dd3550 4000762fde80f89e 3ff2f6b47ff8ad3a
+  #|atan2 c01a82efb7788d4b 4021f47fd3ca2687 bfe459ba31ed5ff1
+  #|atan2 40386c80b5d78382 c0573fa534386f85 400713fac15d022b
+  #|atan2 c02e55a14d9520c9 c039f99ff8abeefe c004e798cb55c942
+  #|atan2 40248807a9eeacbb 4050bcc08963a478 3fc379a8c67f5000
+  #|atan2 c049021eb4230021 4037ad48bc1bd809 bff20f08063d3639
+  #|atan2 40316aef0bfe956d c051fae6ef1fcfdf 40073b5d7a22bcc9
+  #|atan2 c017d48894d69910 c04ebd7981920821 c0085c24fa1a1865
+  #|atan2 bff94841980517e3 c03edd4c787d60b8 c008b939385e8516
+  #|atan2 40210ae5800bd768 401d37778131be47 3feb96c7c52d0ddc
+  #|atan2 c028f0f557db598d c04c872d4d0585c7 c007694904ef8cb1
+  #|atan2 c05228f4c00cd9bb 400525dcc0bfeae8 bff88cfcbf3877e9
+  #|atan2 c02e3bbe7a020473 c028e0f4f573a0db c0021320966a7be6
+  #|atan2 3ec1ce049e8f5966 c0e31c774d37ccfa 400921fb54425018
+  #|atan2 3ecefb954ed34460 c0a7710d4690be66 400921fb5419e1bd
+  #|atan2 3ecf2051619e2ae9 c0b3faf01b250bd7 400921fb542b4022
+  #|atan2 3ec66eee0387a44b 40e46d853cade9b0 3dd192202c0a93e7
+  #|atan2 bed29e32b0eedde6 40e73a2954ed34c7 bdd9a65ea1a3e299
+  #|atan2 3ec24e7b12891ac7 c0e079a3860d66cb 400921fb5441f42e
+  #|atan2 3ec8d5a9956a0a46 40dd246b66a9f681 3ddb451ad49a8583
+  #|atan2 bea854ffcd7bacb6 40e1ef6ca7e0af4d bdb5b4e082fb41df
+  #|atan2 beca3151b1d61935 c0e07945b17859a6 c00921fb5440ff08
+  #|atan2 3ed32be92a3e1ce9 40e016d9f8c92195 3de310ae7f9dc6de
+  #|atan2 3ec0509323c4977e c0aa4e28690b8b26 400921fb5430545b
+  #|atan2 bec7dc3346e5a925 c0d563115b496548 c00921fb543fb6ae
+  #|atan2 bed08a0073dc441c 40cc859f74a9c53f bdf28e4e51d79ade
+  #|atan2 becb032501247d9b c0e6f13861a85ba6 c00921fb5441d244
+  #|atan2 3ec6531e9efea1eb 40ca0e34cb60e0c2 3deb6b03292e4b2d
+  #|atan2 3ed1de68f63a0587 40e40547170b4187 3ddc8f84f0b9fe60
+  #|atan2 3ec51e3a5b07aa72 c0be0c2e90bf13d1 400921fb5438ee57
+  #|atan2 3ec31642d55b2a24 40dd97552c72b031 3dd4a4068282c602
+  #|atan2 3ec3a96665b45a6c 40a83b788a0e79c8 3e09f6dc96fde2a9
+  #|atan2 bed252d87a29e6a0 40d2d8a66ed61694 bdef1cce99a00856
+  #|atan2 3ececb15a0d15fdf c0d9bec2158d6f1a 400921fb543f644f
+  #|atan2 beb9aaa922065c00 40bdef12f7fa9c6c bdeb702f6e63be18
+  #|atan2 beb14b72feff4f11 c0e7877d50cb8c78 c00921fb544370ed
+  #|atan2 3eb0aa6170efe484 40c821b7ace26568 3dd61975c8a2f2df
+  #|atan2 3ec3d6aedc95642e 40daa8bbf23833bf 3dd7d02536e71615
+  #|atan2 bea19aeaec9ae4c3 c068d595e6f70d49 c00921fb53e96fbb
+  #|atan2 bea20f23f35894d4 c0c93b6949a1c64f c00921fb5442bea5
+  #|atan2 3ecf649df1092935 c0c66037b6ebc49c 400921fb5438f3c7
+  #|atan2 3eb0d169c23f9f22 c0ddcf3553be74ae 400921fb54430c3b
+  #|atan2 3eab9d416013adac 40e74108f513b874 3db30004a2ec5feb
+  #|atan2 bea35250325784b6 409102db13b60438 be022c4d03b9f31a
+  #|atan2 bed128154185384c 40e2b35592e5f07d bddd5ba738b6891a
+  #|atan2 3ebca186772efc56 40d28349d824842e 3dd8bea67fde5bc6
+  #|atan2 3ec3f3cf916b3b97 40d18e8800654e38 3de22ee65fc3c6b6
+  #|atan2 becd7257adc2040c 40e41aace43e668e bdd76f6ab6a590bf
+  #|atan2 be996aa99733cd80 40e0d59793efc2ca bda8282dda3e8d8b
+  #|atan2 bed09bdba6703ad5 c0e42a5f05d2e168 c00921fb5440e1b4
+  #|atan2 3ecbaab13d173530 c0d26086722b0e7a 400921fb543e2775
+  #|atan2 3ec7c80c1c2b4458 40d80ff1113e9880 3ddfa06390b35ad6
+  #|atan2 3ed14a72ea6b8f14 40c8ce25480b2d2c 3df64e562e713088
+  #|atan2 bebdfbb64d3d628d 40b7f7ab3d7e112e bdf40416ebaa7473
+  #|atan2 3ed4a0de58559d39 40db1cb3fbff2a44 3de858ec8e744076
+  #|atan2 3ec6c9cac8063b62 c0d46e94000edd23 400921fb543fb701
+  #|atan2 3ec38e4bbc9e47f3 40d35a574a5287e6 3de02af423edfc0d
+  #|atan2 3ed375d57136f168 40ce0da698f00e92 3df4b8870ac23b92
+  #|atan2 3ec57b9d404b1891 40e62957152775f8 3dcf05262a059f2f
+  #|atan2 bec611dcdc8600bb 40c9d7da323684d5 bdeb53dffc964954
+  #|atan2 3ecd8b9d6895059b c0d39562dae25452 400921fb543e2434
+  #|atan2 3ec9637809b166b8 c072b6f93ba6d7f6 400921fb52e8e27d
+  #|atan2 bea7d3933abde50d c0d434f13aa844f8 c00921fb5442ff3d
+  #|atan2 bea401c961b0bc1c 40e821e090365868 bdaa8799d30ebc3e
+  #|atan2 bebb86c7920d8cc0 40de838a3df3d323 bdccddfdf47a0b35
+  #|atan2 bed05f9139bd6b4c 40ce44dea2be2786 bdf14f44a42f1e85
+  #|atan2 bec0310cdca34141 c0beee8b6a8cbc88 c00921fb543bcd00
+  #|atan2 3ec015146f74dadf 4098814c6e2bf53a 3e15004c1a361a1b
+  #|atan2 3eca868536638419 40cf5513902f9820 3deb1738bdbefdd1
+  #|atan2 bebfedd11596fe6d 40d07f9b5b0aa715 bddef6dcf4185a26
+  #|atan2 bea5d158f7dac4bc c0d8dce23cfa4a57 c00921fb54434c73
+  #|atan2 bec45f7c21c70a13 40dc521fb2207565 bdd70509a01b81aa
+  #|atan2 3ec4b8fea15bb2b1 c0659e0e537a2cc8 400921fb52595e53
+  #|atan2 bec2193c7cc13cb4 40e08482a32103ae bdd1880afdfa7df7
+  #|atan2 becae3cdfa663c62 c0e540d614d9e89a c00921fb5441a54f
+  #|atan2 bec1f89de93594ac 40d52ceb1a984111 bddb285fccd2e418
+  #|atan2 bed2e45f54c4ecba 40e20a12259cd6ad bde0c19f637f7c57
+  #|atan2 3eca54a561939108 40e2ced3b0607537 3dd6664e157d218b
+  #|atan2 3eb5ed6e91f969b3 40d2dba181445486 3dd29ab65b6e5d54
+  #|atan2 3ec8542fd5320074 40e777c98a2574f1 3dd09643b144671d
+  #|atan2 becd40ca5532bbb1 c0d430af4d803811 c00921fb543e6172
+  #|atan2 beba05c8786bf336 c0d9b710770a7244 c00921fb544226f9
+  #|atan2 be92ef5fec86e964 c0d6337c04c3f729 c00921fb5443bfed
+  #|atan2 bed3420d38bcaa72 c0e0affc5fef431f c00921fb543f8f5b
+  #|atan2 beb0310971f44873 40e1542e82440471 bdbde65cc6b0da63
+  #|atan2 becad69d920292c3 40d3369d42f74a30 bde65989db748eae
+  #|atan2 beb91e27e2bcb7f7 40d2de47cf16f686 bdd54cab20683440
+  #|atan2 bed06baa39b569b9 c0d38d210e7f5b4f c00921fb543d750a
+  #|atan2 beaa3f79ad3df3fb c09ca482303eec93 c00921fb5435838a
+  #|atan2 3ea0d59bf9e43742 c0d0cb91505b6f27 400921fb54432c7f
+  #|atan2 3ecea7a383420163 40e236328713c3e1 3ddaee966cfdfa19
+  #|atan2 beb53c66a5b9e6cb c0d78ac6142c3cfc c00921fb54425f40
+  #|atan2 3eab76bc78a78756 c0d37bfc8eb5cc77 400921fb5442c441
+  #|atan2 bebf1cd11c96a79f c0e64a2e9cb7782e c00921fb5442c7c4
+  #|atan2 beb0cd6ab50b2472 c0e36814b32c767c c00921fb54434f73
+  #|atan2 bec2e41c70e3266d c0ada4befceda1a5 c00921fb542fc88c
+  #|atan2 bed09f8ee7765ad4 40d4cafb1900535b bde9954007611896
+  #|atan2 becfb0d7ece36b3a c0db9d1f38f7ddac c00921fb543f95e8
+  #|atan2 3ec320964d1eb097 c0d67a34b2674846 400921fb5440c5b7
+  #|atan2 bec48429e7fcef9c 40de335bcdc24246 bdd5bd17a73b86aa
+  #|atan2 beb1f89687cefbf2 40c134916e9e90b3 bde0b64997a24130
+  #|atan2 bec8b75c373f3f39 40d1f2a2ad3374d9 bde608ae081c0da8
+  #|atan2 bed2121f50bc6762 40e1d3e87447dbd5 bde037d5fb9fbac1
+  #|atan2 3ecacc5e9bc12ae3 40ddf7100f528e5b 3ddc9e40ce0724fb
+  #|atan2 becb2892eb1adb75 40e64f0f08d94d9b bdd37a6bc11c13b5
+  #|atan2 3e9792a31bc995c0 c0d3bf1b5f934ac4 400921fb5443944b
+  #|atan2 beb02dc1a8ff7e75 40d11bc77a197d40 bdce42cc8a70cb24
+  #|atan2 bec7c04dca1f4f38 c0e31d5cddce6d9d c00921fb5441b0e7
+  #|atan2 bec236e7497089d5 40e36e0172dd1fb3 bdcdffa05bdaa355
+  #|atan2 bec2759592092482 c0d85bca731aa782 c00921fb54412517
+  #|atan2 3ed18a5d2f67d320 40d556bc5a104568 3dea4dd11bc3bfc7
+  #|atan2 3ed047b9a2c93427 40bbf16e0debeaad 3e02a4d0e2534169
+  #|atan2 bec7ce242c9100ff c0e6632151bf9947 c00921fb54420caa
+  #|atan2 3ed02a088c1077a9 40e3825429893a07 3dda8373dad2f420
+  #|atan2 3e42298bc7ef598a 40cfab563cff5efc 3d625a19a6f2785f
+  #|atan2 3ed3d87e67442d58 40b54244b6a47e0a 3e0ddf6fe0546cde
+  #|atan2 bed47c0d6455032e 40e85cac9860979a bddae82bb387ea80
+  #|atan2 3ec685b887396c74 c0e39d0a1e0e13b3 400921fb5441e129
+  #|atan2 beb482869f065ca5 40e42c9b0e03c523 bdc0442479deb85a
+  #|atan2 3ed0e3bedc4f0d69 4072078a3b5296de 3e4dfa1a0f0fcbfa
+  #|atan2 3ed1cd7639caa06d c0e474e0d98d8271 400921fb5440b1f2
+  #|atan2 3eccdb6fc2befa93 40b92289e89171c6 3e025e94c3aff5e9
+  #|atan2 bec0531516ee938a 40d0f97cac7f005b bddec64c5cdffdda
+  #|atan2 becf7e917733b05c c0c26fd1e47087de c00921fb543682a0
+  #|atan2 becc5e8204d2e91f c0cb83d4db974da0 c00921fb543bed84
+  #|atan2 bed0fa3018f06224 40e112723131eebd bddfd287bf54f2fc
+  #|atan2 3eb8592bda0d2b51 40e0115d719ec47c 3dc83edb775635a3
+  #|atan2 3eb8fbcb70de053f c0e4bb21d0eb3fd2 400921fb5442f895
+  #|atan2 3ec6555c3b14e416 c0e3588b7e57a831 400921fb5441de07
+  #|atan2 bec72bb1ca981c5a 40dca157eb6f380e bdd9e5d961a8e6dc
+  #|atan2 beaabcdfbe60c500 40dc40d49298744d bdbe48986fcd75b8
+  #|atan2 3ec65830e2cb0fa6 c0d8e01cd7ce1581 400921fb54409548
+  #|atan2 bec222090346ce37 40ddf4cf76f3cb1b bdd35eba9e60216a
+  #|atan2 3ecf24f39dee641f c0e00c87064ea4fa 400921fb54404b84
+  #|atan2 beb7b87e1979849f c0e4d4022548fe50 c00921fb5443098b
+  #|atan2 3eb94cba13bd318b c0cfec61b4fb0247 400921fb5441018f
+  #|atan2 3ead8a59c688cc1b 40b7f612134dec06 3de3b9ba6184f796
+  #|atan2 bec96380a43c1216 c0e84e60dc60a1f9 c00921fb5442164b
+  #|atan2 3e851e6d916e3a7e c0e633793931bd54 400921fb54440ea8
+  #|atan2 3eb76bc591428851 40db070fd4af6086 3dcbbad8dc5d6fe6
+  #|atan2 3ebd4c99931f3575 40b9bdefcbd3299b 3df23606b15133bd
+  #|atan2 bec85a6eb8795dc9 40e40f23753f588e bdd36cd7b4a5de27
+  #|atan2 3eb0e2d8be0f3ad2 40d3bcc29e3ec7cc 3dcb6098cfa5717f
+  #|atan2 3ed132a070532746 40e1f216665727f0 3ddeaa9830fa0de4
+  #|atan2 3ed095aa06739654 c0df3c6b24e1cc86 400921fb543fedb8
+  #|atan2 be90d160f23a026b 40dff809bf9ff005 bda0d59135a7b71b
+  #|atan2 3ed1c0ea13a7018c c0d3f10c5065b21b 400921fb543d0dce
+  #|atan2 bed285b9f5b5e318 40cb4a3256167e8b bdf5b8238669f69b
+  #|atan2 3ed0cfaf262545cd c0e3bae7e7f95dc1 400921fb5440c495
+  #|atan2 bed03465dff4766e c0c08c0decda7f14 c00921fb543481da
+  #|atan2 3ec66b3bf49c2655 40e2956c3863ec33 3dd34d4f820f40b7
+  #|atan2 bead1c7c71b76cb6 40e85e7d65fee4e8 bdb31d128fcbbad5
+  #|atan2 3ec1996c8888dedb 40d59c59e9cd1cef 3dda0f62025e0361
+  #|atan2 beb47b26cdc0918e 40ad879470dbc1df bdf631c8a1fe6bb5
+  #|atan2 bed27e5a33eb42ec 40e1d7c74fd313e7 bde0955e8fbf4e2e
+  #|atan2 3ec8e476342dce71 c0be1223af76b2a1 400921fb5436ee75
+  #|atan2 3ea89a8181cff435 40e2461208180b85 3db58acfef2551f4
+  #|atan2 bed30be74595add7 c0e3aaf50ee4b614 c00921fb54404d71
+  #|atan2 be9df542ceca7530 c0d47252ecce1de1 c00921fb5443718d
+  #|atan2 3ebc405752442f7f c0d928cd3efda99c 400921fb5441ee2c
+  #|atan2 becfd9365582394e c0e782dd049c9412 c00921fb54417789
+  #|atan2 bec33dfc2c2373d4 40e7a2469a19e9cf bdca0db956c7ba3a
+  #|atan2 bec1d2c5e651b9e3 c0e53a7b105938ae c00921fb54427f39
+  #|atan2 3ed46316761d9747 c0da31ccdfd793e9 400921fb543df326
+  #|atan2 3eb9a441ac51cb1a 40d03c27476968dc 3dd9453ff2ed29c4
+  #|atan2 bebe09b9b344f56d c0b82026c2980865 c00921fb543a3732
+  #|atan2 3ed28d1d67d9bd33 40db35e4bd50fe72 3de5d10896bedf14
+  #|atan2 bec8dce3110fd5be c0e4a14682b27bfc c00921fb5441c40b
+  #|atan2 bed30b6546184069 40deb2c910771527 bde3da1d19959212
+  #|atan2 3ec06ae8fb6d222c c0bcfc2b9219986b 400921fb543b1d0d
+  #|atan2 becc5c9fc5e66307 40d503b3f4855676 bde59818abf2d2bc
+  #|atan2 3ecc2067ea9c2fdb c0d7ee356d02a8e3 400921fb543f798b
+  #|atan2 3ec2e70e2c346199 40cfdaa8359a607a 3de2fd370c631737
+  #|atan2 3ecb9c74071b5db8 40c8c840f47ceaff 3df1d38f6fad7405
+  #|atan2 3ec913bae3d403fc c0df14ed89a96803 400921fb5440f2ec
+  #|atan2 3eb61a808f2cfab8 40e6560befdc2b3b 3dbfaab1778e7019
+  #|atan2 bec1d542682e9f68 40d390226832d172 bddd2b9278e379bd
+  #|atan2 3ea1bb9c735f2cb0 c0d18e39504492da 400921fb54432a82
+  #|atan2 3ea01c1ca4197397 40df868fa4a4a9ab 3db05a2b00fac205
+  #|atan2 bed0e4a3eece16d4 c0c1c068db1967fe c00921fb5434f32e
+  #|atan2 beb5a6faf3856785 c0e5a633e478ceaa c00921fb54432d0f
+  #|atan2 3ea1267e875a6f9e 40e5ff16e4d739da 3da8f334c4e83ab9
+  #|atan2 3eacd544520e4cc3 40dd57caf5973b65 3dbf71a79a10331d
+  #|atan2 bead044f07879a1d c0dc4e4cddf4abb9 c00921fb544326aa
+  #|atan2 bed4e23e981b5000 40e801bf8e2dd4a1 bddbd64c5942aab2
+  #|atan2 3ecbc9811e565a76 c0cc87144e91d7b6 400921fb543c6242
+  #|atan2 bebe4cbc66c99aa3 c0dd684a776d2756 c00921fb54421d8f
+  #|atan2 becfd376fd53b58c 40d39306b0496a86 bdea03b78c96b50f
+  #|atan2 bed15c94ebfc8bd5 40e452bafa5620bd bddb5640468ad36e
+  #|atan2 3ed3b31e25ed4425 4095ae628cd051e6 3e2d134ea958161a
+  #|atan2 3ec2ad94f146770d 40a57212658512cc 3e0bded3f475911c
+  #|atan2 bed0f0369775293e 40ac6702accadb52 be131576c0f2ad1f
+  #|atan2 3e9f633aeae0a417 40e037bbc385c810 3daef75d34ff6f3f
+  #|atan2 bea69642145b221a 40df089027c5e45d bdb74a595d6a50d9
+  #|atan2 bec75e8aa97cfee0 40da016f5d33aef6 bddcc18a828946d9
+  #|atan2 be912bca5e96bffb c0de98fceacb368e c00921fb5443e543
+  #|atan2 3eb9d65852111189 40e0b66454767f3f 3dc8bc5e831ae9db
+  #|atan2 3ebca3a9cd6d0bf7 c0d50c82823d0876 400921fb54417476
+  #|atan2 3eb4d41f7097dcad c0e3245c2b37b15c 400921fb5443168a
+  #|atan2 3e8bfc4f020005e7 40de2e60839f9e4b 3d9dac0f2008c5f2
+  #|atan2 3e88cee23cfae2ec 40e2e0ae87d17565 3d9506c568250a2d
+  #|atan2 bebdd995ae6c59dc c0dbe76e96bb8780 c00921fb54420964
+  #|atan2 3ea61c11c3fc925a c0e0a860d0fcda6e 400921fb54438334
+  #|atan2 3ed0697b4b500737 40e015a78a31b841 3de05362e627c06a
+  #|atan2 3ecc5d2cc2075152 c0cf3d1fe07a7f30 400921fb543ce991
+  #|atan2 3ed1b80fc6f3ef46 c0e4499c447a6cae 400921fb5440aebe
+  #|atan2 3ec001efe2750945 c0e26bfdaec8a283 400921fb54427032
+  #|atan2 3ecc1fb92a628f06 c0d2993c3310537b 400921fb543e20a6
+  #|atan2 bec70934b0eae27b 40d378b747081a52 bde2edcdc18b0fd1
+  #|atan2 3ec33a1a51805e99 c0e3cb6511560c20 400921fb54423bc6
+  #|atan2 beb0ade6eb74413e c0e205ec28e42fc4 c00921fb5443402f
+  #|atan2 3ea683970d60d6f6 40e621f6869de1e6 3db046936e029256
+  #|atan2 3ec38c5d9af32bcf c0df9cd528ef0d4f 400921fb5441b3e2
+  #|atan2 3ece13df117dbb21 40d8d425510d56c8 3de361eaf7b2fda8
+  #|atan2 3ed30ea036040f6a 40dda7370e215c51 3de490bb0d3e8d04
+  #|atan2 beb4141b9e280fff c0d83547a72417a0 c00921fb5442846f
+  #|atan2 be99131058f2d39a c0da62fbc603c5dc c00921fb5443b376
+  #|atan2 bec9ac69d74222ec 40d076d7dfc18b55 bde8f31863dfe03b
+  #|atan2 3eb02df97309ca33 c0e6c28304b32b14 400921fb5443771c
+  #|atan2 3ed3f0a648ee290b c0e20a8be0ccb4b9 400921fb543fc152
+  #|atan2 3ed10c3d83e2ee88 c0dd9dc44d9f65f1 400921fb543f9238
+  #|atan2 3ecbf9143a306bda c0abd1e5b22f8477 400921fb54240007
+  #|atan2 bec4902dc76a4523 c0e8477a041ca165 c00921fb54427b75
+  #|atan2 beac2512b418581c c0d8217a7cf615c1 c00921fb54430283
+  #|atan2 bece559f0a7985ba 40cc75e5d7cb280d bdf10db11c38fe1f
+  #|atan2 be82908bb2698699 40e64b4ec0c2ce5b bd8aa5946c435b1d
+  #|atan2 bec43002ec11964d c0e404489f70f418 c00921fb544228ba
+  #|atan2 be90c453e1d9b0de 40e7b2295eb3b218 bd96a48a3bf5a87b
+  #|atan2 3eca3b9c80fc1317 40dedad467b10c6f 3ddb34dd9eb96ee2
+  #|atan2 3ecec974235cd265 40cfd207b5cfd19e 3deef5ee341375f8
+  #|atan2 3ed459b6df9cbe51 40dcb3819bf6b626 3de6b07fa407c61a
+  #|atan2 3eccfd86a2497233 c0d3ebf8987d3ac6 400921fb543e5af6
+  #|atan2 3e90c3dafadcb4b8 c0d7614849709956 400921fb5443d14f
+  #|atan2 beb84beddeda83b3 c0c5199aea455356 c00921fb543f91f6
+  #|atan2 3ed2f0757c6be532 40793c322a17a5e1 3e48043326dbf78a
+  #|atan2 be81b4fbdf0a9fe9 c0d354ff86f21548 c00921fb5443f27a
+  #|atan2 beb55745f362c96a 40e03924284895f5 bdc50c1b420c68b6
+  #|atan2 3ea41170a3c0f9a7 c0e195d63f0fa90e 400921fb54439b06
+  #|atan2 bed0c3b21674bb02 c0e4051cb3ebbc78 c00921fb5440d39d
+  #|atan2 beb6200dd7cd42ad 40db752d73265612 bdc9c90c0526140d
+  #|atan2 bec8112b88218ece 40d2854c41d18a8a bde4caa01a083356
+  #|atan2 3eb313c7501df550 c0d3a1c0e2405051 400921fb54423b8f
+  #|atan2 be9f846fd0463282 c0e7376db2510f56 c00921fb5443d636
+  #|atan2 bed1c42af2218821 c0e49b4c0215e669 c00921fb5440ba3d
+  #|atan2 3ecf6b3ef3242c28 c0e115d7a51c3c09 400921fb54407f8e
+  #|atan2 3ecaf024d78ebada c0b3fa51cbaebe95 400921fb542e9a0d
+  #|atan2 3eccd80dde2aa19f c0e547f4cece6c3f 400921fb54417724
+  #|atan2 bec57208585d64e3 c0e0d0dc3a3c8091 c00921fb5441a023
+  #|atan2 bed4a1c6bd96ba35 40e22038898b7de0 bde2364fca1866e6
+  #|atan2 3e993edd9b54b7ff c0b1e94ba70fb07a 400921fb54415b71
+  #|atan2 becf5dccb840ac4a c0d028136d1aaaaf c00921fb543c6919
+  #|atan2 beccbce168001eae c0e6b07c32fe31b3 c00921fb5441a49c
+  #|atan2 beb5bdc9fc13e54e 40ca135a2ba1cf44 bddaae57bca26582
+  #|atan2 3ec2cedfce8abd7c 40c0d8d002efcad4 3df1dcd27b158b44
+  #|atan2 bebc66426a279373 40c96accb4840afe bde1e0982979ecb7
+  #|atan2 3ed415289ca83f9c 4086d1cdb60cb691 3e3c297b20c36fa7
+  #|atan2 3ea360a1c53dfe09 c0c1e8fb36030754 400921fb54420325
+  #|atan2 bea64f2c539a61db 40ccbded9cc733e9 bdc8d692eebf4e94
+  #|atan2 bed3f600ea011b7b c0d2dc5ff4c61603 c00921fb543bb5a4
+  #|atan2 beaddea94c6f9ea4 c0d518835739934d c00921fb5442c29f
+  #|atan2 bed344952d75414a c0e6b54710fe7354 c00921fb5440c83a
+  #|atan2 3ed138e0b9c7ce47 c0c09aa693f6aed9 400921fb543394a0
+  #|atan2 3eb18393780a7c12 40c3235ad0496c73 3ddd48cb5b68c57d
+  #|atan2 3e987e6cab515644 c0dbcf342826d29b 400921fb5443bc5b
+  #|atan2 3ec76c5b246969ab 40be32a4c2b33010 3df8d23647b957be
+  #|atan2 3ec71cf1af03c246 c0e08c092704471d 400921fb544161ed
+  #|atan2 bed2bfedcdfadda2 40b1885fd9e56a06 be111c51801004c5
+  #|atan2 3ed04f6511cbd92c 40baec94881a1dab 3e03628f0a90d197
+  #|atan2 be9571cd92d2e02d c0e41f7ecd4dcf18 c00921fb5443e8e4
+  #|atan2 3ed22b34a01b227b c0aac8bed5f144aa 400921fb5418c32c
+  #|atan2 3eb8f14c2b23f809 40d56a118fb658a4 3dd2a2dc03e4eb8a
+  #|atan2 bed25c856b2298f2 c0e50dd4a36a57f1 c00921fb5440b00e
+  #|atan2 3ecaad8536578cc6 40909ac07403c72e 3e29b4e2f8b49a86
+  #|atan2 3ec4c09004ee1887 c0e738ef263b957a 400921fb5442638f
+  #|atan2 3eaa03b1a9962ad9 40c45c1bb23e16c3 3dd4719a71aa3d57
+  #|atan2 3ec2d847738d9ab3 c0c71240cd5e0704 400921fb543da445
+  #|atan2 3ecdee1e9359cd53 c0d62ca08490578f 400921fb543ec6ef
+  #|atan2 3ecffe2b8b25f8ed 40d0b143c23cef9e 3deeaa6c5e64c684
+  #|atan2 3ecb3d6a57adc84c 40e248c7a354c1da 3dd7d63631f7671d
+  #|atan2 bec0ededd0a3f7e3 c0ce4d25235a7809 c00921fb543fb4e0
+  #|atan2 3ec0dddc75a63d69 c0cb0d6d063e6633 400921fb543f3035
+  #|atan2 bec97e2c7fae278d c0e5306e6ef881d8 c00921fb5441c51b
+  #|atan2 3ed360be4134065b 40c8a0a125a87bc9 3df92dcdea103a2b
+  #|atan2 3ed4e8bd72312e4f 40b78b25746dbafa 3e0c6b5b9cd2af48
+  #|atan2 bed0cbfe26d95bc0 c0d6809f53c86c54 c00921fb543e3460
+  #|atan2 3eb3d669d649d034 40e53b3c1408d9ec 3dbde632b482b6af
+  #|atan2 beb77a8f9d5f87a4 40cd627a27f7764a bdd99184cf5bacf2
+  #|atan2 bec68a769913a0a0 c0ba90b97f8ae4cf c00921fb5436999c
+  #|atan2 bed3f95bba96b24c c0e08b26dad4de36 c00921fb543f58c2
+  #|atan2 3ea053284fd17488 40d033161508fd59 3dc01fad17566e9d
+  #|atan2 becf9b74d3241961 40e508d1459e8ab8 bdd80ad302c42c11
+  #|atan2 bead835418948593 c0deba1e1ecc3ccf c00921fb54433736
+  #|atan2 3eaeede6e8ec1aff c0a91dd0801f4fb3 400921fb543a531d
+  #|atan2 beb432d10c85cbb0 c0de6065397684be c00921fb5442d8a6
+  #|atan2 bea99403a7d09d99 40e1f871d7cbf6f2 bdb6c6041ca5ff49
+  #|atan2 bece6dd1a1005297 40c9d34dbde37ea7 bdf2da24a67aa5b7
+  #|atan2 3eceb7111b5dc0c0 c0cf3a58e358d37f 400921fb543c4eba
+  #|atan2 beba142a53f7625c 40d6546ee2c0ea47 bdd2afad77bf89d9
+  #|atan2 3ecc3b4662594d17 40c0f8f20beee2c5 3dfa9d2f666022a5
+  #|atan2 bec7a3958968da8b c0e0a187e9f9f893 c00921fb54415559
+  #|atan2 3ed4575ebf0d7912 40cad3e619857661 3df843541a211d14
+  #|atan2 3eccb838dd6d98f2 40b1016d0f9d9bb5 3e0b0578c9a0c6fa
+  #|atan2 3ec54e4cb492bed3 c0d390984b86bb68 400921fb543fd1f9
+  #|atan2 bed0eabe495fc3bd 40cfda2d2672b3c3 bdf0fed4eb7065f9
+  #|atan2 bece1f189914208a c09ea4cc3905a0b6 c00921fb54054455
+  #|atan2 3e620d2a0844115e 40e838d37b4fe9a1 3d67d9160887d63a
+  #|atan2 3eb75da6f78a1840 c0da0856b95bd528 400921fb5442618b
+  #|atan2 3ec1be770d28c81f 40e82d9b4611be03 3dc77bfe4f5c2605
+  #|atan2 3ed0047b6078dc53 40d89fbec8450df7 3de4d0c2a9eeb1f3
+  #|atan2 3ecfa5dd1ca22869 4075782fb563965d 3e4795dd8ebbf0f5
+  #|atan2 bec9628b10cc8e10 40e6831b0173c102 bdd20ab235d44b36
+  #|atan2 3eb745a3d9b1e532 408a949044f7ce5a 3e1c0463fa0b62dd
+  #|atan2 3ecfeed78bc70094 40e4e6f8a0280be1 3dd871958d62cc33
+  #|atan2 c0d61eeb74988162 bea5596753320b15 bff921fb54461b3d
+  #|atan2 40a305c4e180ead7 3eafedb8ae40b498 3ff921fb5429521e
+  #|atan2 c0a2a137ed6d98b1 3ec11f864f5b3fd6 bff921fb54095a18
+  #|atan2 c0d6a2b9961f596f bed22c52d78f738d bff921fb54510597
+  #|atan2 c0e5b41454b228f5 bea40fc3fbeb8f6c bff921fb544519bb
+  #|atan2 c0dee9cb3894aacf bed1ec56c632e3e7 bff921fb544d73eb
+  #|atan2 40de0d99fad50775 3e8a1921b5b3a6b6 3ff921fb5443bdf1
+  #|atan2 40e02a170a63bfa4 bec2e481821125d0 3ff921fb5448d9ed
+  #|atan2 40d883ab75f3f95f bed0319003531565 3ff921fb544ebed2
+  #|atan2 c0c887394cfdcbf7 3ec6c4a16bd80d19 bff921fb54355305
+  #|atan2 40b9fda1caf9f789 3ed1cfe28aef755d 3ff921fb541850c5
+  #|atan2 408b7fdd11a8f8e9 bec21674b3b53306 3ff921fb54ec8f44
+  #|atan2 40d530d73187d1b3 3ed28f66b07f7f34 3ff921fb54362992
+  #|atan2 c0e435f09c2442d5 bebe01e4963f1653 bff921fb54472547
+  #|atan2 c0cc2ed578cc89fd becd898b92038fdd bff921fb5454f1ee
+  #|atan2 c07cc3a3366021cf be9f45fa6860e815 bff921fb5489c24c
+  #|atan2 40d65e2ca6f28fc2 3eb40c4bbfc4e984 3ff921fb5440974c
+  #|atan2 c0b8dc9d225a9400 bed3b5a625e828be bff921fb5476e9c6
+  #|atan2 40e2418890e70428 bec1dc7d8a0acec8 3ff921fb544816f5
+  #|atan2 c0e177123fe4fd1b bec0536c846a204b bff921fb5447ea4d
+  #|atan2 c0d691f9bbd03731 bed45dd536e430cc bff921fb54529d2d
+  #|atan2 40e4b81744d64ea7 beb64f2f4fcebfad 3ff921fb54465465
+  #|atan2 c0dbec8d404df973 bec93e2e6ca07c33 bff921fb544b6875
+  #|atan2 c0e7fa4e7460acfe 3ecb0069c7f2757c bff921fb543fabf5
+  #|atan2 40e6d0b342f3db70 bea98e8b6d6f402b 3ff921fb54454bdc
+  #|atan2 c0db619bfbf7129d 3ea41e71369307fd bff921fb5442b4e5
+  #|atan2 40d9719e9562107c bebb744685ca2d6d 3ff921fb54487e01
+  #|atan2 40c68eedf941369d beae63cc664b0261 3ff921fb54499099
+  #|atan2 c0a9507e45ef948e beb6e865117a1fee bff921fb54612249
+  #|atan2 40d640110943ebe3 bec816b3aa0c0364 3ff921fb544cd650
+  #|atan2 40d56d1c20b59458 bea6a5c38ef075b3 3ff921fb54464a48
+  #|atan2 c0d112a944db1276 bec78ba61f98bafb bff921fb544f3587
+  #|atan2 c0e8538a8171a3a2 becf4f4eeb057fcb bff921fb54495310
+  #|atan2 c0b970abcd7faac2 3ecad673cf972bbf bff921fb54226b0f
+  #|atan2 c0e74cb378f67f66 3ec76a155fc7cf6f bff921fb5440280d
+  #|atan2 c0d435fdc1017063 3ed1ea10298915af bff921fb5435fe87
+  #|atan2 c0d8f9d355217d67 beb05b5715b7ca9c bff921fb5446cbb8
+  #|atan2 c0db335efc655c4c bec696de9a6e0131 bff921fb544ad1e6
+  #|atan2 40d1b39f29bf9136 3eb6b3cf9523dad5 3ff921fb543f0bd0
+  #|atan2 40da236de7a18f56 3ec2551b48925c5e 3ff921fb543e90b5
+  #|atan2 c0e3b7ef25d3367c bed05f42ccd56a97 bff921fb544ad189
+  #|atan2 c0e452ecf49a193b 3ec0377d50ceef9b bff921fb5440fc08
+  #|atan2 40e2c143244cc070 3ed1e4c230f12ee9 3ff921fb543c8b27
+  #|atan2 c0e30d0c0e8e6611 3ea21dfc8b5f8a92 bff921fb544339a5
+  #|atan2 40b70735f78fa82e 3ed14a52dcb8903b 3ff921fb54141f6f
+  #|atan2 40d91d5ab2e9b530 3ebeb93f061a01f8 3ff921fb543f4867
+  #|atan2 c0d59fa7c0053ff4 3eacef22add426ff bff921fb54418000
+  #|atan2 40cb2e34588eed63 becaf54606f8b3e7 3ff921fb54540b95
+  #|atan2 c0c591174ae1afca 3ec829b909d2c472 bff921fb54324004
+  #|atan2 40ae98d31bf224f5 3ebba7be79e3fb94 3ff921fb542740b5
+  #|atan2 40c60591d3a2721f 3ed085d9b34c3a74 3ff921fb542c2aaa
+  #|atan2 40e2fbe29dec92fe bed016a19545daf3 3ff921fb544af4ba
+  #|atan2 40c8773b42596094 3ecf7632235e05b5 3ff921fb542f99d9
+  #|atan2 40d6ab904e703b38 beb4d07fe71e8878 3ff921fb5447d946
+  #|atan2 c0cf1a5a34df3efe bed0f8947f7c6358 bff921fb5455a2fb
+  #|atan2 40d5836568610acc 3ea948c5c0528a0a 3ff921fb5441d359
+  #|atan2 c0e5a36e1cff7b50 3ec101ffa6c10c2b bff921fb5441083b
+  #|atan2 40d2f9c3d5a174f2 bed3a668089771c2 3ff921fb5454beaa
+  #|atan2 c0e3130749205542 bed1bb76f40504e2 bff921fb544b9d00
+  #|atan2 c0e5a3591a217cf6 bec674c0386a2c6c bff921fb544853ce
+  #|atan2 c0df970646049faa 3eb5a5fdccb911b8 bff921fb54416f5a
+  #|atan2 c0e818aaa8cae20e 3ed143bf752a20bd bff921fb543e71bd
+  #|atan2 c0d0e66596cbca61 3eb330c6180ac04f bff921fb543fa24f
+  #|atan2 c0ce6996bcf0ba7b bed2d56789e3bf93 bff921fb5457fe2e
+  #|atan2 40d0842738a2148f 3ed256ec5a81339c 3ff921fb543268ea
+  #|atan2 c0d0703b85a5a60c 3ec5982713b9aa2e bff921fb5439aabc
+  #|atan2 c0e75403f8c135b8 3ed104096af1b2ec bff921fb543e5744
+  #|atan2 40e67ff29d82ded2 3eced182f43133b2 3ff921fb543eb281
+  #|atan2 c0e204ee5867c8dd bec4413314664d00 bff921fb5448ac22
+  #|atan2 40e7c1e2eb300178 bec2e2860cec0111 3ff921fb54475b14
+  #|atan2 c0dcc447722d4438 3ed1544fdb2e804b bff921fb543a89a0
+  #|atan2 c0710ec32aa4a4b7 3ebdb06f5ed67737 bff921fb52869a69
+  #|atan2 c0cb543d23b3d482 3eb7fec34ede80e2 bff921fb543d26ef
+  #|atan2 40def4b1bfbe6522 bec0f7e6860d6f6c 3ff921fb54488fb4
+  #|atan2 40c30a4fb0c25463 bea9b7ce69e32ce5 3ff921fb5449943b
+  #|atan2 40a55772586cc1d2 3ec6d4c676a4fde7 3ff921fb53ffb58d
+  #|atan2 40c6e0125d28f034 3ec32507e933d6d9 3ff921fb5436c918
+  #|atan2 40e3e5742d962951 be8c2e54f9c59aab 3ff921fb544487bf
+  #|atan2 c0e622efab121832 3ecad2eab59d09b8 bff921fb543f5443
+  #|atan2 40e4f3f11d7cf2e0 bebdbb80eecf563c 3ff921fb544703a2
+  #|atan2 40e2f766e048082c becaedbcfa6326e5 3ff921fb5449dafb
+  #|atan2 40cf4ff0288f3994 3ec073143e037555 3ff921fb543bc54f
+  #|atan2 c0d420e147c61198 3ed2ee4231fa26f2 bff921fb543520d4
+  #|atan2 c0c0efeecba14d10 becc100f0de4dcf2 bff921fb545eaf9e
+  #|atan2 c0d27b61a6fe886f 3ed2d126dabd5dfc bff921fb5433e2d8
+  #|atan2 c0e40193dba756a8 3ec80a486ff8e310 bff921fb543f5e9e
+  #|atan2 40d1ef7c27ac3fb6 3ec97d8fbafa77ef 3ff921fb5438ce6a
+  #|atan2 40b8c39d9ee2396d bed3de797221bb93 3ff921fb54778680
+  #|atan2 c0cc2a7e43f66b1c bec46c9c45be9b09 bff921fb544fc744
+  #|atan2 c0b8fb5b160d3d61 beb8b77c5b76d995 bff921fb545401a1
+  #|atan2 c0e60134ec366a03 bea8e32986ffdffe bff921fb54454ea2
+  #|atan2 c0e06f80640f6949 3ed3461c38bc8a0b bff921fb543acb6b
+  #|atan2 40a618eda2794298 beb38488ef387b26 3ff921fb546070c2
+  #|atan2 40d651b30529464e 3eb5e7120cf1e70f 3ff921fb54404034
+  #|atan2 40d77d8b52074a1b 3ed2672b11bef386 3ff921fb5437a42e
+  #|atan2 c0e75c3dc380c17d becd7321d1864c89 bff921fb54493807
+  #|atan2 40e7066fce31215d becd505cc14f937d 3ff921fb544944c7
+  #|atan2 40e0476b0e78e15a becd6a6f40a08391 3ff921fb544b6771
+  #|atan2 40c98b1f2cec61a3 3ebc2875c8aae485 3ff921fb543b5b77
+  #|atan2 c0de60fc4d8878bc 3eb64cce12862bf9 bff921fb54413d6a
+  #|atan2 c0e03fafe377bd7f 3eccba9b548e6424 bff921fb543d1a98
+  #|atan2 c0e4932f45ac5b53 beb5be78369a2ac4 bff921fb54464a30
+  #|atan2 40de2930d58bbf57 beb8a11b7be2a79c 3ff921fb5447714b
+  #|atan2 40ce0e607de75ebb 3ebe949970e12ed2 3ff921fb543c095e
+  #|atan2 408a4044157e3961 3ea043667d51c14b 3ff921fb541c86bb
+  #|atan2 40d89c227ce7ae1d bece0ab4914da4af 3ff921fb544df122
+  #|atan2 c0a2bf909b15a7b5 3ea44bf408bcd899 bff921fb5432dad0
+  #|atan2 40d2babdb8fcd38b 3e920d944fa30f52 3ff921fb54433657
+  #|atan2 c0dd180fbbddcb88 beb617c69c7dc192 bff921fb544736af
+  #|atan2 c089816aca9fb284 3ed30ee5bd15fcbf bff921fb52c599c0
+  #|atan2 40c2b243fdcde606 3ed2a29898b6eedf 3ff921fb542447ea
+  #|atan2 40bca621ff17d245 beb84edea6b1ed5b 3ff921fb5451c079
+  #|atan2 40d049214ec75289 bed05103dc3b0244 3ff921fb545434d8
+  #|atan2 40e77ede45bd67ef 3eb551f97e86386d 3ff921fb54425c80
+  #|atan2 40de25c41c6883af be99a1735b4fa662 3ff921fb544506be
+  #|atan2 40e10315e91ccc86 bed42f0226ddb27d 3ff921fb544daae8
+  #|atan2 40dcf2b9e5a9a7a9 be823aec025a0e6b 3ff921fb54447db4
+  #|atan2 40e3cfa043b70906 bec0a1aab48baf22 3ff921fb544788c1
+  #|atan2 c0e08be23213736b 3ea9ac0279179fd4 bff921fb54429fe9
+  #|atan2 c0d155b694b26df3 bea72fddac3cd284 bff921fb5446d9f2
+  #|atan2 c0d5b5a61606c34d beb6e81703918f50 bff921fb5448658f
+  #|atan2 40da2a75926e5a7f bed0ee8a0d2dcb1f 3ff921fb544e8799
+  #|atan2 c0d6be610fc2cf0f 3e33501a39194079 bff921fb544429b3
+  #|atan2 c0dee3431b17afe5 becb6fc58021b5ec bff921fb544b4845
+  #|atan2 40ab9379687c7b0a 3ed419917291cd31 3ff921fb53e6e0e2
+  #|atan2 c0e2aae20c24c813 3ec8bb29c03a005c bff921fb543ee07a
+  #|atan2 40df6fece5c7adf5 bea297af0d604025 3ff921fb54455be7
+  #|atan2 c0d5c70965123cd6 3ec184c2e764b74f bff921fb543dbd9c
+  #|atan2 40e2f5483786f31e 3ecd0788a391ddca 3ff921fb543e0d1b
+  #|atan2 c0ce611729142206 3ebb699f021433dc bff921fb543cf517
+  #|atan2 40c102d9162b29af 3e80370aad86171a 3ff921fb54433913
+  #|atan2 40be1fe95e5b468a bec4db940368e096 3ff921fb545a5514
+  #|atan2 c0e031f0fe191939 3eca8b16b26e4d50 bff921fb543d9ec9
+  #|atan2 c0e21879c8379d34 beaacb162e79d5c6 bff921fb5445a825
+  #|atan2 c0ca3ef1b25ed72f 3ec43391e51f44fd bff921fb5437dc68
+  #|atan2 c0e1547fe1b3cd03 becd0c64b84815ed bff921fb544ae183
+  #|atan2 40d3b92a9123c264 bec1e9bc1a6bfcb2 3ff921fb544b7120
+  #|atan2 40bcbab2b6959c5f 3ed4699b316370d3 3ff921fb5416b40e
+  #|atan2 40b19483c49764aa bed44f5ae04e6fba 3ff921fb548e1d35
+  #|atan2 c0dc64a69eddf9bc 3eba5c596f59be92 bff921fb54407665
+  #|atan2 40e012a6e72cbf60 3eca5cd43f66cc52 3ff921fb543d9d89
+  #|atan2 40e11af53d11cda7 bed0f3cefcc06b88 3ff921fb544c1ac9
+  #|atan2 c0b18faaf627bb68 bec2d120de75d7a3 bff921fb546676dd
+  #|atan2 c0e1291da9328c0a bec77e250f9c4b4d bff921fb5449a6f2
+  #|atan2 40d7b318a03ccd4b 3ec65af00d1390ce 3ff921fb543ca145
+  #|atan2 40e57d7cc1acb163 bea1a15bb537da4c 3ff921fb5444ff1e
+  #|atan2 40e26964ee45de26 be9f0ed9572821f5 3ff921fb54450504
+  #|atan2 40d948403dbf6577 3e80ccdd99f3e061 3ff921fb5443d80a
+  #|atan2 c0e2230680884b8d 3e928916bf30c8df bff921fb5443aa48
+  #|atan2 c0a1ddfc7c0ef836 bed497440840b22f bff921fb54d7b067
+  #|atan2 c0d5e2453244b269 3e89418bc49a8a1f bff921fb5443995f
+  #|atan2 c0ba8b127bdbd6d7 bec1069bc8e1a07d bff921fb5458b3bf
+  #|atan2 c0c4a92cb859e6f9 3e726cb321039779 bff921fb5443baf3
+  #|atan2 c0c2766a749da19c 3eca8e19a43d28f1 bff921fb542d29bc
+  #|atan2 409e9ecf9a1994ec be81f2c5f922d7b2 3ff921fb5448dd8c
+  #|atan2 40e05283e1d21940 3ea9e40eb42e80d2 3ff921fb54429706
+  #|atan2 c09849430278fd87 beae52e2f66eb631 bff921fb546c21a5
+  #|atan2 c0d1623efa45a477 3ec2af559ec4a885 bff921fb543b93cf
+  #|atan2 40c46f7a04f90caa 3ec90c106ea07c37 3ff921fb543090c0
+  #|atan2 c0def041a2412b46 3ed2019544f0c6f8 bff921fb543add3a
+  #|atan2 c0d46a471f996770 3e82776ad9aa7ea6 bff921fb5443b950
+  #|atan2 c0c5a2990884b30e 3eb2b40d7c65e3fc bff921fb543d429f
+  #|atan2 c0b26bf9a7d20eb4 3eb111a5e0ef4b44 bff921fb543559e5
+  #|atan2 c0e076d5e85b8e04 bed2feab228fa330 bff921fb544d67e1
+  #|atan2 c0d2bf8c1f62a973 3ecf772199cd5167 bff921fb5436bfea
+  #|atan2 c097d508be884749 beb607c44239e436 bff921fb547f5663
+  #|atan2 c0e01c9a57cf6b3e bece33d7443e5579 bff921fb544baca7
+  #|atan2 40da64e20d48c5b0 bebf27f9e8207a30 3ff921fb5448e5d9
+  #|atan2 40e1bcf53b5b58fa 3eaff10a4b986172 3ff921fb5442601c
+  #|atan2 c0d21b323737b446 be8c936a4a1d8ab1 bff921fb5444f71c
+  #|atan2 40c70d3675b717cf beb2f3923ab01d0b 3ff921fb544ac0d2
+  #|atan2 c0e37921d457ed0a 3eaa79c5eb70eea3 bff921fb5442d10a
+  #|atan2 c0ca45ca38b75453 3ed045e22c6d874b bff921fb54305b0e
+  #|atan2 c0e80e35ed335487 bec178ebb17ad4ce bff921fb544714dd
+  #|atan2 409ee5c39efb8a58 bec81229deec1811 3ff921fb54a7e543
+  #|atan2 c0da64b26df33009 becf6f490080dfff bff921fb544db448
+  #|atan2 40e0fd534d779660 bec93d06ad7cf9fb 3ff921fb544a1e46
+  #|atan2 40e118792a3aa542 be9bc075d1b4a047 3ff921fb5444fce2
+  #|atan2 40b94229c7c91f55 beb4670ea0ef766d 3ff921fb545119a6
+  #|atan2 40c667829b7973cc 3eb2a30b8d4668b7 3ff921fb543d857b
+  #|atan2 c0c0908d9e354f11 bec3e355044f3e36 bff921fb545762e0
+  #|atan2 c0dfd4d65803194a 3eabb008872f36e4 bff921fb54426fbf
+  #|atan2 4072027b7c738aa0 3eceb1e69201f275 3ff921fb50db8bd2
+  #|atan2 40d9f15c371dd080 3ea1eb24b3a88199 3ff921fb5442cb76
+  #|atan2 c0e6e72d0724020e bec4a87da59ec93e bff921fb5447c8ba
+  #|atan2 40d5821a7d44ee7b 3ec4471554011f49 3ff921fb543ca244
+  #|atan2 40a703d6f3e055a7 bec38fc47ed547fe 3ff921fb547a92ac
+  #|atan2 c0d5e78025917f40 3eb0702ddc38bc85 bff921fb54412ca1
+  #|atan2 c0bc97dd97e161b0 be81ea32d1fa8145 bff921fb54456de3
+  #|atan2 c0c3a95108c00a37 3eaa5dfd4f9b466a bff921fb543ecfd9
+  #|atan2 c0964a4b19a5063f 3ec1e9084898da47 bff921fb53dd53dc
+  #|atan2 c0e5315ee5c119d4 bead506020bc3e8c bff921fb54458f32
+  #|atan2 40e2f444144d50bf 3ec282f65178e7a7 3ff921fb54404502
+  #|atan2 40e5543983065376 bed4975f16a5edce 3ff921fb544be643
+  #|atan2 40e75666cced2a9b beba633ebbdde3ea 3ff921fb54467004
+  #|atan2 40d9b3a7ef0e1f98 3ed4cebe42fbdf9f 3ff921fb54373910
+  #|atan2 40dcbb55e2694c9a 3ebbecf545546a1c 3ff921fb544049d4
+  #|atan2 40a848b223a685b9 becbfb831f644f56 3ff921fb548dec6a
+  #|atan2 408a051b54306297 3eb233af3d180e8b 3ff921fb53eaa2b2
+  #|atan2 c0c174ce0a3ce8c6 bed340eff792be53 bff921fb54677897
+  #|atan2 40d54687260d4268 beca54b5fa70f0de 3ff921fb544e13bc
+  #|atan2 40c70599b94d7db1 3ecb556763c810c7 3ff921fb54312df6
+  #|atan2 c0d6ec360095b1f3 3ed2ec85975957cb bff921fb5436f7a1
+  #|atan2 c0b58838b4f8d8c1 3ed260c1e70cf8aa bff921fb540d8d20
+  #|atan2 40bcf9d3c340c858 bed34d6941b67db3 3ff921fb546ecf5b
+  #|atan2 40da2a63a3a26185 bed115ad2abd3884 3ff921fb544e9f8f
+  #|atan2 c0e178b9ae137d25 3ec95df55372e1c9 bff921fb543e5e59
+  #|atan2 40d231ef736b19d3 3ec85121f9bf872e 3ff921fb54397c08
+  #|atan2 c0a5a57eaf396708 bec4dd43b8561d45 bff921fb5481dd18
+  #|atan2 c0e0b5f974d24be7 bed079326d2bc676 bff921fb544c1000
+  #|atan2 c0dff461c143cc20 3eb0daad6223b8b6 bff921fb544210ff
+  #|atan2 40e3220eb67b8c17 bed352134f50345b 3ff921fb544c412d
+  #|atan2 409e7e1a0bfbd604 3ea5743457ed25ee 3ff921fb542da961
+  #|atan2 c0cea1e56eae5067 3ecc42f84381967b bff921fb54356a1b
+  #|atan2 c0e4001392bedcac 3eb5677aa0c2b51b bff921fb54420928
+  #|atan2 40d8329c85f6f0a7 bed199fe3d3f17f7 3ff921fb544fd08c
+  #|atan2 c0c3b34accf1a8a6 3ed1d850ecddb979 bff921fb5427309e
+  #|atan2 c0e576264528d822 3e9e59b6a0170eab bff921fb54437814
+  #|atan2 c0e4cc2148ec87a3 be70919591fbfa44 bff921fb54444697
+  #|atan2 c0db86796e3a037e be7ca8e9b26f9b68 bff921fb54446fbc
+  #|atan2 c0e77adc6b6cc69b becae88256d3e385 bff921fb5448c29c
+  #|atan2 c0a9b177b82b7646 bec0ad4c8067accd bff921fb546db79d
+  #|atan2 c0e2c259643268df 3ec90624f6dabdf4 bff921fb543ed71f
+  #|atan2 40d8dcc3fa9f5f81 bea63df4a05a93b4 3ff921fb5445f722
+  #|atan2 c0e14c22a7f3dc8c 3ec01370b0fa3c51 bff921fb54407568
+  #|atan2 c0d17b473bcbeb2c bed376e57ff99956 bff921fb5455fdb2
+  #|atan2 c0d118ffa30f936a 3ecc5e3999798335 bff921fb5436e719
+  #|atan2 40ddaec9450363cf bec639f7985bed06 3ff921fb544a2aa3
+  #|atan2 40df71dbbb971ea5 beb3249529c53bf0 3ff921fb54469c7c
+  #|atan2 40d268a039a3c1a5 bebee1975cfae57b 3ff921fb544ae2e4
+  #|atan2 c0e5d254180faec7 becbf8dda0245390 bff921fb54494db7
+  #|atan2 40c000b4e03846a0 beaf1c90d6f80655 3ff921fb544bf3e5
+  #|atan2 c0ab4f12e7e73a20 3ed2632621f233e2 bff921fb53edfe20
+  #|atan2 40cf7ea94257c439 bece41246a637dce 3ff921fb54538bca
+  #|atan2 c0dbd207b3d2eeae be839e2a1c518a9c bff921fb5444875b
+  #|atan2 c0da006a7b1a686d 3ec516afc190e878 bff921fb543db010
+  #|atan2 c0d1093bd0f17a7e 3ea93c263e1cd72a bff921fb544136b0
+  #|atan2 c0db6b622760d496 3e9ea4c32efc5605 bff921fb54430efe
+  #|atan2 40de5f54aaec32e4 3ec198380dea6dc4 3ff921fb543f8ab2
+  #|atan2 c0c6abf39e4f6af3 be970ecebe2bf882 bff921fb544635d1
+  #|atan2 c0e7ad4bee106d51 3ebf2317fe30b96e bff921fb54418bc6
+  #|atan2 c0dd4eba01792acb beba19afc2dc728f bff921fb5447bd0a
+  #|atan2 c0e81f10fd2acc0b bed0861cecad7f3a bff921fb5449a80a
+  #|atan2 40a0ac175d7a92e7 bec139290c2617a9 3ff921fb54864a9f
+  #|atan2 c0e525f90c430dc9 be81ef6e067f6dc6 bff921fb54446360
+  #|atan2 40a53ece7449f7c5 3ed19d4ff8d8f5cc 3ff921fb53da0d29
+  #|atan2 40e7b8471426e4eb bed4baa42dced7c2 3ff921fb544b2adf
+  #|atan2 40b4793155a8db09 beb49681b6d41e6f 3ff921fb54544401
+  #|atan2 40dac480f859ce0b becf636311a3d014 3ff921fb544d8ea0
+  #|atan2 40e30a551ce4bbc6 bead17ac060bfc1d 3ff921fb5445b440
+  #|atan2 c0da44ddbd047153 bed424b8a76066c4 bff921fb545071f7
+  #|atan2 c0ba4a36597b6b06 3ec8ae376648eaf8 bff921fb54262293
+  #|atan2 40db4ec3100b4efb beb04135d2315f5e 3ff921fb54468ea0
+  #|atan2 40e3e4859e3a1c5e 3ec72016c49ee561 3ff921fb543f86b0
+  #|atan2 40e119d0adb5c70d beb0376bcacd09ff 3ff921fb5446129e
+  #|atan2 40c8c5101263e5c5 3ec5ac217e6c0071 3ff921fb54362d4a
+  #|atan2 40d2ad75186e350b 3ed269c1633bdb25 3ff921fb54346717
+  #|atan2 40a067ab20e3af46 bed0ffed07487af1 3ff921fb54c8d117
+  #|atan2 c0e4382f34830650 3eb901d8f8bc02e9 bff921fb5441b3dc
+  #|atan2 c0e33fc1322b0e05 3ec84f81e5fcfbac bff921fb543f1fd6
+  #|atan2 40e1d5c2b917b7cb 3ec0c596067fe05a 3ff921fb54406a23
+  #|atan2 40e1bfe03f0ab929 3ed06d3a631e4aa3 3ff921fb543cc5bb
+  #|atan2 c0a43b60a176c575 bed39ba7f3528ac0 bff921fb54c03a99
+  #|atan2 c0d1c185b5d33be2 3ea046799b9fd05d bff921fb544257ca
+  #|atan2 40b8651adb236417 3ed49d0240a05244 3ff921fb540e18e4
+  #|atan2 c0d3f3cb661ad374 beba65a887068b80 bff921fb544977dc
+  #|atan2 c0d3cfe1ce28dfbd 3e83a8ae27a58c7f bff921fb5443ae16
+  #|atan2 40c93d27f4d80be8 becf2b7260175d31 3ff921fb5457ef9b
+  #|atan2 c0d899a2e42016ba bec6ad3ab2fff4b9 bff921fb544b8cf7
+  #|atan2 40b28d0e571d39a3 bec3f4176bcef85d 3ff921fb5466986c
+  #|atan2 c0da906e9bce1a41 bed017d9e859bafd bff921fb544dde8b
+  #|atan2 40ca58b7f16fe24d 3ec8986bc4b62e4f 3ff921fb54353d57
+  #|atan2 40e213d7cec5e137 bed0704b63957b97 3ff921fb544b736e
+  #|atan2 c0e3f4b42b1f398d 3ecc9020b9df985d bff921fb543e7370
+  #|atan2 40e43f8e0220ac9d bebaaecf253dc913 3ff921fb5446cfcd
+  #|atan2 c0b3562f91983dc4 3ed153cc51a07158 bff921fb540ad39a
+  #|atan2 c0d925feb62f8dc4 beaa83e5e2eac6b8 bff921fb544648ec
+  #|atan2 c0df1280b7f29995 beb7f41ac2926404 bff921fb5447427f
+  #|atan2 40aa174b2cdbeb73 be9baf198156f4c8 3ff921fb544caa23
+  #|atan2 40dcd3626578e82d 3e6a5e433a99a60e 3ff921fb54440fd3
+  #|atan2 40a565e4785df41a becf63c279393426 3ff921fb54a20f80
+  #|atan2 c0e666101242538b 3ead6e841ac6edd1 bff921fb5442dcb6
+  #|atan2 40e0e4da2c4cfef6 3eb598d6e5af4d80 3ff921fb54419e8f
+  #|atan2 c0d9911a89e65aa4 bec88777c81945fa bff921fb544bd9fa
+  #|atan2 40e2aaee983a1332 3ec7997baab65da3 3ff921fb543f1e90
+  #|atan2 c0bc2d6133fca20f becb5f8ef9e10866 bff921fb5463435a
+  #|atan2 40e37253b6dafa59 3ec53ccc98ca1e30 3ff921fb543fceca
+  #|atan2 40dc1c36b5d68217 beb1fb066ff7dbdb 3ff921fb5446bc18
+  #|atan2 40d2af93cd790477 3eb88cfb8098a27e 3ff921fb543eebb2
+  #|atan2 c0c74ed44213544f 3ec4813869301663 bff921fb543619b5
+  #|atan2 c0c399d84dfaca94 3ed412570eb47df9 bff921fb54236861
+  #|atan2 c0dba6e1be7e4c1b bed3e615383c19f7 bff921fb544fb0a6
+  #|atan2 40e44256c6bbfecb 3e839a855f77cb93 3ff921fb5443ef2a
+  #|atan2 c0c1275d4f7ef036 bed19d89b1947a07 bff921fb5465098c
+  #|atan2 40e5f1aa7228aca8 bed0171fefac5c33 3ff921fb544a0ac8
+  #|atan2 c0cbebf2872a6904 3ed0c37a3c3b1f7c bff921fb5430f6ca
+  #|atan2 c0de57a66d7c75f6 3ec584a0813b61eb bff921fb543e80b4
+  #|atan2 40d603d0b5bc0c07 3ec7914be1db0b27 3ff921fb543b9ca7
+  #|atan2 40d7c398c5e9c367 3ec69a487becc4e8 3ff921fb543c912f
+  #|atan2 c0e75074a182f589 beb4fe30f27d9483 bff921fb5445fa1e
+  #|atan2 403b662490fc4072 3ff0000000000000 3ff88c8db568029a
+  #|atan2 c028133239bf5f30 3ff0000000000000 bff7ce7db8457312
+  #|atan2 3ffa4c18468c426c 3ff0000000000000 3ff06321e8abe65f
+  #|atan2 c01f0e0d238a4736 3ff0000000000000 bff71549e633a0e6
+  #|atan2 4038ad2db335cbd9 3ff0000000000000 3ff87c15a1dfb1fb
+  #|atan2 3fd29b9b9a79a7a0 3ff0000000000000 3fd21bcd10634a63
+  #|atan2 c04728f718314357 3ff0000000000000 bff8c99136c60392
+  #|atan2 4017f8711e03e128 3ff0000000000000 3ff67cb6f6610d5a
+  #|atan2 403995caabe4253e 3ff0000000000000 3ff881f85d2b8ad6
+  #|atan2 c031bb60cd38952f 3ff0000000000000 bff83b3b0c899cd7
+  #|atan2 4045d21d1da6cdf1 3ff0000000000000 3ff8c424807f4a08
+  #|atan2 c02523055c6918cc 3ff0000000000000 bff79f8fd03da592
+  #|atan2 403b0a5aafa70644 3ff0000000000000 3ff88a92ef416b02
+  #|atan2 c04202137375c133 3ff0000000000000 bff8b048cff6bb96
+  #|atan2 40478d0ba57b40eb 3ff0000000000000 3ff8cb08d1c5f2ad
+  #|atan2 c042fa5baaffcee1 3ff0000000000000 bff8b617919a577f
+  #|atan2 c03b232ba778d47f 3ff0000000000000 bff88b1d444e3b33
+  #|atan2 c01d187357d6af42 3ff0000000000000 bff6f260f6f3185a
+  #|atan2 403aa1dfd6cf192b 3ff0000000000000 3ff88841820c4799
+  #|atan2 4029890ac75ea6d6 3ff0000000000000 3ff7e1d326f2c1f9
+  #|atan2 403faa7b3fb53599 3ff0000000000000 3ff8a0aca5c1cba5
+  #|atan2 403895dad03ca5d9 3ff0000000000000 3ff87b786bcb99d9
+  #|atan2 c031a81ef7ad7277 3ff0000000000000 bff83a3feaeb9fcf
+  #|atan2 c0473c4ce697ac47 3ff0000000000000 bff8c9dac3a84419
+  #|atan2 4046ec95f93991d9 3ff0000000000000 3ff8c8a86a25f9a4
+  #|atan2 400efd7f6fd9ef4e 3ff0000000000000 3ff51734f601ddf3
+  #|atan2 403a4bfa741367a4 3ff0000000000000 3ff8864bdb6a9d62
+  #|atan2 c043a977b6ba7f5c 3ff0000000000000 bff8b9d803334e7f
+  #|atan2 4034f2da6620f15c 3ff0000000000000 3ff85e9ab309628b
+  #|atan2 c033fe797c180164 3ff0000000000000 bff8554a9170990c
+  #|atan2 404811076a739d4b 3ff0000000000000 3ff8cce5826ca17c
+  #|atan2 400a969648112184 3ff0000000000000 3ff474d98fd33601
+  #|atan2 c0212c8b93c682e1 3ff0000000000000 bff7471ee7472507
+  #|atan2 4031f62ce9d5522b 3ff0000000000000 3ff83e2cd85b3a16
+  #|atan2 c036f4f71547c02d 3ff0000000000000 bff86fac529f83c8
+  #|atan2 c03d5a8622accc09 3ff0000000000000 bff8967eec0d5d95
+  #|atan2 4018e6845d5fd088 3ff0000000000000 3ff69593583b93fc
+  #|atan2 c0310b876dcaf576 3ff0000000000000 bff831f3cad43d46
+  #|atan2 402eaa3c1876117d 3ff0000000000000 3ff81736e63757d4
+  #|atan2 4046b1ad770b83e3 3ff0000000000000 3ff8c7c0a04f5f91
+  #|atan2 4006d5c4ac42920a 3ff0000000000000 3ff3bdb9a62d7345
+  #|atan2 4024c0d5800e0301 3ff0000000000000 3ff79876ba327719
+  #|atan2 403dc48719405dfc 3ff0000000000000 3ff8986f42addcaa
+  #|atan2 c04736dec70003cd 3ff0000000000000 bff8c9c6280b8e14
+  #|atan2 40365d4645428c90 3ff0000000000000 3ff86af47f627473
+  #|atan2 c0331abaa41b3cd7 3ff0000000000000 bff84bc6c814960f
+  #|atan2 c0256f41a40f1004 3ff0000000000000 bff7a4e6341f517e
+  #|atan2 402315226d58da5e 3ff0000000000000 3ff7764032831b58
+  #|atan2 403857975671a1d2 3ff0000000000000 3ff879cefc7215a3
+  #|atan2 4036b15eb216fbed 3ff0000000000000 3ff86d99e077cdf6
+  #|atan2 404714cb57bb7712 3ff0000000000000 3ff8c943f8c7724a
+  #|atan2 c044cca9902f2c53 3ff0000000000000 bff8bf8960a60d49
+  #|atan2 403c8877c387235b 3ff0000000000000 3ff8927ce044d818
+  #|atan2 c023a2be4ebaaf2b 3ff0000000000000 bff7823775f81d37
+  #|atan2 4041e885b68c3c7d 3ff0000000000000 3ff8afa6a8db7972
+  #|atan2 c040adf3c150c42b 3ff0000000000000 bff8a73baa0a3051
+  #|atan2 4032a7c35ab0a42d 3ff0000000000000 3ff846a1349b4994
+  #|atan2 401913c2cdd897aa 3ff0000000000000 3ff69a18cdd7e399
+  #|atan2 c0282218cd050f34 3ff0000000000000 bff7cf4e60cc6bae
+  #|atan2 c048f486bdf61ba9 3ff0000000000000 bff8cfecf4926262
+  #|atan2 4024366aeb54f434 3ff0000000000000 3ff78e011ec2a79e
+  #|atan2 400659322c874e7a 3ff0000000000000 3ff3a1f656042e90
+  #|atan2 c042b22380f55123 3ff0000000000000 bff8b47700e94dc2
+  #|atan2 c0406d9e9d398f16 3ff0000000000000 bff8a55b46d0b791
+  #|atan2 40430fa587c032ef 3ff0000000000000 3ff8b69002b93914
+  #|atan2 403bed977438c348 3ff0000000000000 3ff88f61cc291a1f
+  #|atan2 c0425cc3ed1b09eb 3ff0000000000000 bff8b27a11987bb6
+  #|atan2 c03d15e3409d23e5 3ff0000000000000 bff8953605047f2c
+  #|atan2 c047881085b567c6 3ff0000000000000 bff8caf66bb17061
+  #|atan2 4044024274aee589 3ff0000000000000 3ff8bba5f1fb8443
+  #|atan2 403b350db0ebaea1 3ff0000000000000 3ff88b8057351b22
+  #|atan2 c04208ec07f61f45 3ff0000000000000 bff8b073f31d0ae1
+  #|atan2 bfe77da6d731bdbc 3ff0000000000000 bfe4437fc3cbe14a
+  #|atan2 4039649a1b286859 3ff0000000000000 3ff880c2b7dd14e0
+  #|atan2 403b30fde59d0a75 3ff0000000000000 3ff88b69e209fae0
+  #|atan2 402193975d1c4714 3ff0000000000000 3ff751e6d5f88aef
+  #|atan2 402bda7ffdfcb687 3ff0000000000000 3ff7fc6025298574
+  #|atan2 403a5e0de939127b 3ff0000000000000 3ff886b67be25f84
+  #|atan2 c032c7dd42b57185 3ff0000000000000 bff848176d373457
+  #|atan2 401cda598aad5a77 3ff0000000000000 3ff6edbba307cd0d
+  #|atan2 c00a8372c1fc5b0d 3ff0000000000000 bff471a9fac4bdc3
+  #|atan2 4034ef156855f056 3ff0000000000000 3ff85e7792630dca
+  #|atan2 4046887cd587dedc 3ff0000000000000 3ff8c71bbe583978
+  #|atan2 c02de0c208266487 3ff0000000000000 bff8103548fb87dd
+  #|atan2 4021288178bb0750 3ff0000000000000 3ff746b01c12498a
+  #|atan2 c0470d86a93697ae 3ff0000000000000 bff8c9280266139d
+  #|atan2 c02ae39e0ea5f43a 3ff0000000000000 bff7f1e21fe5189b
+  #|atan2 c02d30487d34c554 3ff0000000000000 bff809c32569636e
+  #|atan2 c001162999d90846 3ff0000000000000 bff22063b11fbdd4
+  #|atan2 4048e16f6bcc3ce2 3ff0000000000000 3ff8cfae028979ec
+  #|atan2 c04850f43505314d 3ff0000000000000 bff8cdc5207757b3
+  #|atan2 c041e7e21cbeb3b5 3ff0000000000000 bff8afa294c9d1b3
+  #|atan2 bffe8dd92b4444cb 3ff0000000000000 bff16a155bc2a46f
+  #|atan2 404014e667dde711 3ff0000000000000 3ff8a2ac2df2423c
+  #|atan2 403d85fe8c45da66 3ff0000000000000 3ff8974c24ec6201
+  #|atan2 402fc92052fbfbe0 3ff0000000000000 3ff820983e78b66e
+  #|atan2 3ff6d9e82e275d9c 3ff0000000000000 3feeb7e53b7ca2d8
+  #|atan2 4034678bac8fd6be 3ff0000000000000 3ff85966e6f8a377
+  #|atan2 c024f6088fff8858 3ff0000000000000 bff79c576fd6f9f6
+  #|atan2 4044e08ddc722938 3ff0000000000000 3ff8bfe723e7b559
+  #|atan2 402f639c3f1190e6 3ff0000000000000 3ff81d5a0e5f8ac7
+  #|atan2 c03ff5d7f73d573e 3ff0000000000000 bff8a1dd5a75783b
+  #|atan2 402178d484c82718 3ff0000000000000 3ff74f262543f73f
+  #|atan2 c02c715a74c47a58 3ff0000000000000 bff80270318b2f5e
+  #|atan2 403fe6d84f53ae37 3ff0000000000000 3ff8a1a12884bc31
+  #|atan2 c0410fd8f008a6e2 3ff0000000000000 bff8a9fb8bb8b687
+  #|atan2 40485e3ef44494be 3ff0000000000000 3ff8cdf30c6a7cac
+  #|atan2 3fe21ab3c3747cc0 3ff0000000000000 3fe079c0183ab116
+  #|atan2 c044e3927e97fe91 3ff0000000000000 bff8bff54e3a0c2b
+  #|atan2 c019cf304742b350 3ff0000000000000 bff6ac2ee51ae1bd
+  #|atan2 c0448368a230ed76 3ff0000000000000 bff8be29f72561d8
+  #|atan2 4043362f7bc5d4be 3ff0000000000000 3ff8b76765c58eca
+  #|atan2 c0449bbe9f90a89d 3ff0000000000000 bff8be9fca96163d
+  #|atan2 c03ff167d211d338 3ff0000000000000 bff8a1cb909392bd
+  #|atan2 c010f9f9c27e3770 3ff0000000000000 bff56e2b28b8a7d6
+  #|atan2 403adb71d48c3bf1 3ff0000000000000 3ff8898ab97bdacc
+  #|atan2 c0481c20c4b668ce 3ff0000000000000 bff8cd0caadb20f6
+  #|atan2 c0454282879ecfc3 3ff0000000000000 bff8c1aae042933c
+  #|atan2 c035ad78a9578ca3 3ff0000000000000 bff8652a3da463b0
+  #|atan2 40227ca5444a382e 3ff0000000000000 3ff76892e5809d9f
+  #|atan2 4021ad2885cb165c 3ff0000000000000 3ff754806574ebb0
+  #|atan2 403d3e1f254b06e5 3ff0000000000000 3ff895f78cc5e641
+  #|atan2 c0390c015e38084a 3ff0000000000000 bff87e890b04321f
+  #|atan2 4045b9ca24de50e6 3ff0000000000000 3ff8c3bb7a0bb79b
+  #|atan2 4031c2d886acb5e0 3ff0000000000000 3ff83b9bdd2153b8
+  #|atan2 403720aada00a8d9 3ff0000000000000 3ff870fcd60e99dc
+  #|atan2 c042269696a706a5 3ff0000000000000 bff8b12d694b4b08
+  #|atan2 c047c5b4b09b3e20 3ff0000000000000 bff8cbd7fe5a5b47
+  #|atan2 4044eb365edb91b4 3ff0000000000000 3ff8c01917c98404
+  #|atan2 c0287c06cfa1f9aa 3ff0000000000000 bff7d424c496c3e8
+  #|atan2 4024cd3fb1d98f64 3ff0000000000000 3ff7996025cfd4a9
+  #|atan2 c02116bc4a4a4380 3ff0000000000000 bff744c650875156
+  #|atan2 c03eb72055a06860 3ff0000000000000 bff89cacde44d631
+  #|atan2 402dc4320ff99759 3ff0000000000000 3ff80f2f5f0f2242
+  #|atan2 40483244e7a8c6b1 3ff0000000000000 3ff8cd5a5d0de232
+  #|atan2 c0457f6e9b51994e 3ff0000000000000 bff8c2bbb8692da2
+  #|atan2 c044994a0dee9e1b 3ff0000000000000 bff8be93f3e51a64
+  #|atan2 3fde163df6ae03e0 3ff0000000000000 3fdc1fee946c310d
+  #|atan2 402d4058c803c10a 3ff0000000000000 3ff80a5c8d901ffa
+  #|atan2 c02d218546eb6b80 3ff0000000000000 bff8093595ab5516
+  #|atan2 c0413d955579c436 3ff0000000000000 bff8ab39b38ea226
+  #|atan2 c005ca9d817abd94 3ff0000000000000 bff380d74fcbc154
+  #|atan2 4043ced2c77deaa5 3ff0000000000000 3ff8ba9c52947363
+  #|atan2 40481428864cb990 3ff0000000000000 3ff8ccf0906d9bcd
+  #|atan2 c0362c2b11e623d3 3ff0000000000000 bff8695fb048dc6c
+  #|atan2 c036da548715ff6a 3ff0000000000000 bff86edcc4b7e930
+  #|atan2 4044cd8da292c15c 3ff0000000000000 3ff8bf8d9787cbf1
+  #|atan2 40307e02b21f90dc 3ff0000000000000 3ff829ed11e96b75
+  #|atan2 40272b3f5c020ee0 3ff0000000000000 3ff7c14779b0e289
+  #|atan2 4040ffce4d1957fc 3ff0000000000000 3ff8a98a5f497c86
+  #|atan2 c022327c5398dbe9 3ff0000000000000 bff7619a3b68feec
+  #|atan2 c047e37b2e95f190 3ff0000000000000 bff8cc4353a85915
+  #|atan2 c03eb2e9b276aafa 3ff0000000000000 bff89c9a95b6fb1a
+  #|atan2 402eb2ba7cfeff74 3ff0000000000000 3ff817808068b87c
+  #|atan2 4044c934678e8b4d 3ff0000000000000 3ff8bf79020835bb
+  #|atan2 403ad40e8f4363e1 3ff0000000000000 3ff88960c922dc46
+  #|atan2 c02a715c5ee5a6d0 3ff0000000000000 bff7ecc517c9a486
+  #|atan2 404183bf9764704f 3ff0000000000000 3ff8ad15304796a1
+  #|atan2 c02316089392e5c3 3ff0000000000000 bff7765432e68e9a
+  #|atan2 40421863446bcdde 3ff0000000000000 3ff8b0d4ee83ff6e
+  #|atan2 c021a75a81c75360 3ff0000000000000 bff753e9f087682a
+  #|atan2 bfc6c09ca595c798 3ff0000000000000 bfc6846776452b36
+  #|atan2 3ffe0319ea6180ee 3ff0000000000000 3ff14bcd988531f6
+  #|atan2 bff6edeb35408114 3ff0000000000000 bfeec50831c15a43
+  #|atan2 c0457eeabf8f75b5 3ff0000000000000 bff8c2b9705a358c
+  #|atan2 bff956f2e5c673af 3ff0000000000000 bff01f1952bc312e
+  #|atan2 4044b74de28bee5b 3ff0000000000000 3ff8bf23eba30ff3
+  #|atan2 c04553c613e3937a 3ff0000000000000 bff8c1f8cfb5ca78
+  #|atan2 c02fd26e0f465977 3ff0000000000000 bff820e34c2b556c
+  #|atan2 4026e7c25db19bd2 3ff0000000000000 3ff7bd3d7d4dc453
+  #|atan2 c03b89d370740b9e 3ff0000000000000 bff88d4f293b22da
+  #|atan2 4047cca238c8a522 3ff0000000000000 3ff8cbf10f7c4c74
+  #|atan2 c047b3be406914a9 3ff0000000000000 bff8cb96bbb33cb6
+  #|atan2 40370993812145af 3ff0000000000000 3ff8704ba69bdf2c
+  #|atan2 c048dfe825f26bf2 3ff0000000000000 bff8cfa8f44ab13f
+  #|atan2 c035ebfc90d0e25b 3ff0000000000000 bff86743f24db850
+  #|atan2 c003eea540c3c5e8 3ff0000000000000 bff306a04c3af397
+  #|atan2 3fd35e3c9442f800 3ff0000000000000 3fd2ceaec3b75dfc
+  #|atan2 401b6f52b276a739 3ff0000000000000 3ff6d0f6b77ba24a
+  #|atan2 403cb49ef5f5e478 3ff0000000000000 3ff893596924a39d
+  #|atan2 404423c8a4047f83 3ff0000000000000 3ff8bc5037818077
+  #|atan2 c042978c93e1815c 3ff0000000000000 bff8b3da73b14daa
+  #|atan2 4042dcc223076666 3ff0000000000000 3ff8b56e5782dedb
+  #|atan2 4047dbd77b9ec7cd 3ff0000000000000 3ff8cc27e35b8ba5
+  #|atan2 c03743d2ce3757c3 3ff0000000000000 bff87207f71fe92a
+  #|atan2 c01b9a887e057bc8 3ff0000000000000 bff6d48a3664cc2f
+  #|atan2 c048454c2735eca5 3ff0000000000000 bff8cd9cb1a80109
+  #|atan2 c032bcc11c0f8bd4 3ff0000000000000 bff847967a14b4a9
+  #|atan2 c024bf7e7f7655d1 3ff0000000000000 bff7985d789b5f28
+  #|atan2 c03625f5889815c4 3ff0000000000000 bff8692c0150782d
+  #|atan2 404251ad397bab70 3ff0000000000000 3ff8b2369b782daf
+  #|atan2 c0357c8e83ba2387 3ff0000000000000 bff8637d030723c5
+  #|atan2 c0488a76b06e5330 3ff0000000000000 bff8ce8a6a748f6c
+  #|atan2 4043af2eb33ac30a 3ff0000000000000 3ff8b9f63ba96131
+  #|atan2 40318c78719f8b2c 3ff0000000000000 3ff838d393a5fa61
+  #|atan2 c03fdfb1f11beab4 3ff0000000000000 bff8a18462a9dbe2
+  #|atan2 c04580a92235ff8e 3ff0000000000000 bff8c2c1292589b9
+  #|atan2 401ddd485258497d 3ff0000000000000 3ff7009d3aec0ea8
+  #|atan2 c03e9351e64060fa 3ff0000000000000 bff89c10ddc953ef
+  #|atan2 403f16490912abe1 3ff0000000000000 3ff89e44a49a7638
+
+///|
+pub let cases : String = cases_part0 + "\n" + cases_part1 + "\n" + cases_part2

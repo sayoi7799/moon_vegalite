@@ -91,6 +91,13 @@ fn bound_symbol(bounds : Bounds, item : Item) -> Bounds raise SceneError {
 }
 
 ///|
+fn bound_arc(bounds : Bounds, item : Item) -> Bounds {
+  let ctx = Bound(BoundCtx::new(bounds, deg=item.num0("angle")))
+  draw_arc(ctx, item)
+  bound_stroke(bounds, item).translate(item.num0("x"), item.num0("y"))
+}
+
+///|
 pub fn bound_group(bounds : Bounds, group : Item) -> Bounds {
   let clip = group.truthy("clip")
   if !clip {
@@ -137,6 +144,7 @@ pub fn bound_mark(mark : Mark) -> Unit raise SceneError {
           Rule => ignore(bound_rule(item.bounds, item))
           Text => ignore(bound_text(item.bounds, item))
           Symbol => ignore(bound_symbol(item.bounds, item))
+          Arc => ignore(bound_arc(item.bounds, item))
           _ => ()
         }
         ignore(mark.bounds.union(item.bounds))

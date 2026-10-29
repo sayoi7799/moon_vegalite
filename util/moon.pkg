@@ -1,6 +1,7 @@
 import {
   "moonbitlang/core/double",
   "moonbitlang/core/math",
+  "sayoi7799/moon_rough/jsmath",
 }
 
 import {
