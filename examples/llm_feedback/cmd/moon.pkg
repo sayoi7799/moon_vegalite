@@ -1,0 +1,7 @@
+import {
+  "moonbitlang/x/fs",
+  "sayoi7799/llm_feedback/feedback",
+  "sayoi7799/moon_vegalite",
+}
+
+pkgtype(kind: "executable")

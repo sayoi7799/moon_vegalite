@@ -1,0 +1,15 @@
+{
+  "data": {
+    "values": [
+      {"month": 1, "temp": 3}, {"month": 2, "temp": 5}, {"month": 3, "temp": 10},
+      {"month": 4, "temp": 16}, {"month": 5, "temp": 21}, {"month": 6, "temp": 26},
+      {"month": 7, "temp": 29}, {"month": 8, "temp": 28}, {"month": 9, "temp": 23},
+      {"month": 10, "temp": 16}, {"month": 11, "temp": 9}, {"month": 12, "temp": 4}
+    ]
+  },
+  "mark": {"type": "line", "interpolate": "monotone"},
+  "encoding": {
+    "x": {"field": "month", "type": "quantitative", "title": "月份"},
+    "y": {"field": "temp", "type": "quantitative", "title": "平均气温 (℃)"}
+  }
+}
