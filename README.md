@@ -107,6 +107,13 @@ summarises it, lets MoonFrame generate the Vega-Lite specification and renders i
 MoonBit program and without the Vega editor. The three SVG files it writes are identical to the official vega output.
 MoonFrame 0.7.0 needs a small setup step with the current toolchain, which the demo's `setup.sh` performs and its README explains.
 
+## Feeding errors back to a language model
+
+Models often answer with Vega-Lite that is wrong or uses unsupported features, and the errors of this library start with the
+JSON path of the offending property. [`examples/llm_feedback`](examples/llm_feedback) takes recorded model replies (no API key,
+no network): a reply that renders becomes an SVG, one that fails becomes a correction prompt with the JSON path and the reason,
+ready to be sent straight back to the model.
+
 ## Side by side with the official output
 
 Left: this library. Right: vega-lite 5.23.0 + vega 5.33.1. Apart from the accessibility attributes the SVG text is identical.

@@ -1,0 +1,22 @@
+下面是带悬停高亮的柱状图，鼠标放上去的柱子会变色：
+
+```json
+{
+  "data": {
+    "values": [
+      {"team": "A", "score": 31}, {"team": "B", "score": 47},
+      {"team": "C", "score": 22}, {"team": "D", "score": 38}
+    ]
+  },
+  "params": [{"name": "hover", "select": {"type": "point", "on": "mouseover"}}],
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "team", "type": "nominal"},
+    "y": {"field": "score", "type": "quantitative"},
+    "color": {
+      "condition": {"param": "hover", "value": "firebrick"},
+      "value": "steelblue"
+    }
+  }
+}
+```

@@ -51,6 +51,15 @@ jobs:
           head -c 4 "$RUNNER_TEMP/hello.svg" | grep -q '<svg'
           moon run cmd/vl2svg --target native -- examples/bar_basic.vl.json "$RUNNER_TEMP/bar.svg"
           head -c 4 "$RUNNER_TEMP/bar.svg" | grep -q '<svg'
+      - name: LLM feedback example
+        shell: bash
+        run: |
+          (cd examples/llm_feedback && moon test -p sayoi7799/llm_feedback/feedback --target native && moon run cmd | tail -1)
+          test "$(ls examples/llm_feedback/out/*.svg | wc -l)" -eq 3
+          test "$(ls examples/llm_feedback/out/*.feedback.txt | wc -l)" -eq 3
+      - name: The committed outputs of the example are current
+        if: runner.os == 'Linux'
+        run: git diff --exit-code -- examples/llm_feedback/out
       - name: Interface files are up to date
         run: |
           moon info

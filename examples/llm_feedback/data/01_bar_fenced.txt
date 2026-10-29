@@ -1,0 +1,23 @@
+好的，下面是各地区销量的柱状图，数据直接写在规格里：
+
+```json
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "各地区销量",
+  "data": {
+    "values": [
+      {"region": "华北", "sales": 120},
+      {"region": "华东", "sales": 210},
+      {"region": "华南", "sales": 160},
+      {"region": "西南", "sales": 90}
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "region", "type": "nominal", "title": "地区"},
+    "y": {"field": "sales", "type": "quantitative", "title": "销量"}
+  }
+}
+```
+
+如果想按销量排序，可以给 x 加上 `sort`。

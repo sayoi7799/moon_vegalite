@@ -1,0 +1,21 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/llm_feedback/feedback"
+
+// Values
+pub fn extract_json(String) -> String
+
+pub fn repair_prompt(String) -> String
+
+pub fn split_error(String) -> ErrorInfo
+
+// Errors
+
+// Types and methods
+pub(all) struct ErrorInfo {
+  path : String?
+  reason : String
+}
+
+// Type aliases
+
+// Traits

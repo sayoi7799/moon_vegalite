@@ -106,6 +106,12 @@ node scripts/build_site.mjs && node scripts/serve_site.mjs     # http://localhos
 它写出的三张 SVG 与官方 vega 的输出逐字相同。MoonFrame 0.7.0 在当前工具链下需要一步准备工作，
 由示例里的 `setup.sh` 完成，示例自己的 README 里有说明。
 
+## 把报错反馈给大模型
+
+大模型常常直接输出 Vega-Lite，但经常写错或用到不支持的特性；本库的报错以出错属性的 JSON 路径开头。
+[`examples/llm_feedback`](examples/llm_feedback) 用事先录好的大模型回复作为输入（不需要 API key，不访问网络）：
+能渲染的输出 SVG，渲染失败的输出一条包含 JSON 路径和原因的修正提示，可以直接发回给模型。
+
 ## 与官方输出并排对照
 
 左：本库；右：vega-lite 5.23.0 + vega 5.33.1。除无障碍属性外，SVG 文本逐字相同。

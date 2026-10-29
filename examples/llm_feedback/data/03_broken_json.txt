@@ -1,0 +1,18 @@
+这是你要的散点图：
+
+```json
+{
+  "data": {
+    "values": [
+      {"height": 160, "weight": 52},
+      {"height": 172, "weight": 66},
+      {"height": 181, "weight": 78},
+    ]
+  },
+  "mark": "point",
+  "encoding": {
+    "x": {"field": "height", "type": "quantitative"},
+    "y": {"field": "weight", "type": "quantitative"}
+  }
+}
+```
