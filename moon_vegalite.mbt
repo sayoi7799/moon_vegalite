@@ -49,6 +49,15 @@ pub fn render_svg(
 ///|
 /// Render an already compiled specification as SVG.
 pub fn svg_of(c : Compiled, scale~ : Double = 1.0) -> String raise RenderError {
+  svg_with(c, scale, None)
+}
+
+///|
+fn svg_with(
+  c : Compiled,
+  scale : Double,
+  shapes : ((@svg.Shape) -> String?)?,
+) -> String raise RenderError {
   @svg.render_svg(
     c.scene,
     @svg.SvgOptions::new(
@@ -57,10 +66,37 @@ pub fn svg_of(c : Compiled, scale~ : Double = 1.0) -> String raise RenderError {
       origin=(c.origin.0 + c.padding, c.origin.1 + c.padding),
       background?=c.background,
       scale~,
+      shapes?,
     ),
   ) catch {
     @scene.SceneError(m) => raise RenderError(m)
   }
+}
+
+///|
+/// The options of the hand-drawn style: the seed, `roughness`, `bowing` and `fill_style`.
+pub using @sketch {type SketchOptions, type FillStyle}
+
+///|
+/// Render a Vega-Lite specification (JSON text) as a hand-drawn SVG document: the
+/// rectangles, lines, paths and symbols are drawn by moon_rough (rough.js), the text is
+/// left as it is. The same specification and `options.seed` always give the same bytes.
+pub fn render_svg_sketch(
+  spec : String,
+  options~ : SketchOptions = SketchOptions::new(),
+  scale~ : Double = 1.0,
+) -> String raise RenderError {
+  svg_sketch_of(compile(spec), options~, scale~)
+}
+
+///|
+/// Render an already compiled specification as a hand-drawn SVG.
+pub fn svg_sketch_of(
+  c : Compiled,
+  options~ : SketchOptions = SketchOptions::new(),
+  scale~ : Double = 1.0,
+) -> String raise RenderError {
+  svg_with(c, scale, Some(@sketch.shape_drawer(options)))
 }
 
 ///|

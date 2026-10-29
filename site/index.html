@@ -23,6 +23,12 @@
     <select id="example"></select>
   </label>
   <span id="badge" class="badge" role="status"></span>
+  <span class="sketch-controls">
+    <label class="inline"><input type="checkbox" id="sketch-on"> 手绘风格</label>
+    <label class="inline">seed <input type="number" id="seed" value="7" min="1" max="2147483646"></label>
+    <button type="button" id="reseed" title="换一个 seed">换一个</button>
+    <label class="inline">粗糙度 <input type="range" id="rough" min="0" max="3" step="0.1" value="1"> <output id="rough-out">1</output></label>
+  </span>
 </div>
 
 <main class="grid">
@@ -36,6 +42,11 @@
     <div id="ours" class="stage"></div>
     <pre id="error" class="error" hidden></pre>
     <p id="ours-status" class="status"></p>
+    <div id="sketch-block" hidden>
+      <h2>手绘风格 <span class="muted">moon_rough · rough.js 4.6.6 的 MoonBit 移植</span></h2>
+      <div id="sketch" class="stage"></div>
+      <p id="sketch-status" class="status"></p>
+    </div>
     <details>
       <summary>SVG 源码</summary>
       <pre id="svg-source" class="source"></pre>
@@ -54,6 +65,7 @@
     <li>本库是子集渲染器：遇到不支持的特性会报错，并给出出错位置的 JSON 路径（见「Not supported」里的示例），而不是画成别的样子。官方一侧仍会尽力渲染，方便对照。</li>
     <li>官方一侧关闭了浏览器的 canvas 文字测量（<code>vega.textMetrics.canvas(false)</code>），使用与测试基准相同的估算，两边的 SVG 才能逐字比较；比较时忽略无障碍属性。</li>
     <li>带时间轴的图：本库按 UTC 处理时间，官方在浏览器里按本地时区，时区不是 UTC 时两边可能不同。</li>
+    <li>手绘风格：矩形、线、路径和符号交给 moon_rough 画，文字不变；同样的规格和 seed 得到逐字节相同的 SVG（为了体积，坐标只保留两位小数）。官方 vega-embed 只画普通版，所以手绘版不参与「是否相同」的比较；它与官方 rough.js 的一致性在测试里逐字节验证。</li>
     <li>官方一侧的 vega、vega-lite、vega-embed 从 jsDelivr 加载，需要联网。</li>
   </ul>
 </footer>

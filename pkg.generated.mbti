@@ -2,6 +2,8 @@
 package "sayoi7799/moon_vegalite"
 
 import {
+  "sayoi7799/moon_rough/core",
+  "sayoi7799/moon_vegalite/sketch",
   "sayoi7799/moon_vegalite/vl",
 }
 
@@ -10,9 +12,13 @@ pub fn compile(String) -> @vl.Compiled raise RenderError
 
 pub fn render_svg(String, scale? : Double) -> String raise RenderError
 
+pub fn render_svg_sketch(String, options? : @sketch.SketchOptions, scale? : Double) -> String raise RenderError
+
 pub fn scene_json(@vl.Compiled) -> Json
 
 pub fn svg_of(@vl.Compiled, scale? : Double) -> String raise RenderError
+
+pub fn svg_sketch_of(@vl.Compiled, options? : @sketch.SketchOptions, scale? : Double) -> String raise RenderError
 
 pub fn version() -> String
 
@@ -26,5 +32,9 @@ pub fn RenderError::message(Self) -> String
 
 // Type aliases
 pub using @vl {type Compiled}
+
+pub using @core {type FillStyle}
+
+pub using @sketch {type SketchOptions}
 
 // Traits

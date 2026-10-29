@@ -1,0 +1,31 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sayoi7799/moon_vegalite/sketch"
+
+import {
+  "sayoi7799/moon_rough/core",
+  "sayoi7799/moon_vegalite/svg",
+}
+
+// Values
+pub fn shape_drawer(SketchOptions) -> (@svg.Shape) -> String?
+
+pub fn shape_seed(Int32, Array[Int32]) -> Int32
+
+// Errors
+
+// Types and methods
+pub struct SketchOptions {
+  seed : Int32
+  roughness : Double
+  bowing : Double
+  fill_style : @core.FillStyle
+  hachure_gap : Double?
+  fill_weight : Double?
+  fixed_decimals : Int32?
+}
+pub fn SketchOptions::new(seed? : Int32, roughness? : Double, bowing? : Double, fill_style? : @core.FillStyle, hachure_gap? : Double, fill_weight? : Double, fixed_decimals? : Int32) -> Self
+
+// Type aliases
+pub using @core {type FillStyle}
+
+// Traits

@@ -16,4 +16,5 @@ description = "Spec-driven Vega-Lite renderer: Vega-Lite JSON in, backend-neutra
 
 import {
   "moonbitlang/x@0.5.6",
+  "sayoi7799/moon_rough@0.2.0",
 }

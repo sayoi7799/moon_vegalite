@@ -4,5 +4,10 @@ import {
 
 options(
   "is-main": false,
-  link: { "js": { "exports": [ "render", "version" ], "format": "esm" } },
+  link: {
+    "js": {
+      "exports": [ "render", "render_sketch", "version" ],
+      "format": "esm",
+    },
+  },
 )

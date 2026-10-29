@@ -19,3 +19,19 @@ pub fn render(spec : String) -> String {
 pub fn version() -> String {
   @moon_vegalite.version()
 }
+
+///|
+/// Like `render`, in the hand-drawn style (moon_rough). The same specification, `seed` and
+/// `roughness` always give the same SVG; coordinates are rounded to two decimals to keep it small.
+pub fn render_sketch(spec : String, seed : Int32, roughness : Double) -> String {
+  @moon_vegalite.render_svg_sketch(
+    spec,
+    options=@moon_vegalite.SketchOptions::new(
+      seed~,
+      roughness~,
+      fixed_decimals=2,
+    ),
+  ) catch {
+    e => "ERROR: " + e.message()
+  }
+}
