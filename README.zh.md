@@ -118,9 +118,9 @@ vl2svg --sketch --seed 42 --roughness 1.5 spec.vl.json chart.svg      # 再加 -
 
 **可复现。** 同样的规格和 `seed`，在 `js`、`wasm-gc`、`native` 上输出逐字节相同。每个图形有自己的 seed：由基础 seed 和图形在场景图里的位置
 （图元、标记、图元……的下标序列）做哈希得到，落在 `[1, 2^31-2]`。所以柱子不会抖得一模一样，增删一个数据点也不会改变别的图形。
-输出用官方包验证过：12 个用例（柱、分层、各种形状的符号、面积、MoonFrame、其他填充样式、粗糙度、弯曲度、斜线间距和线宽、取整）的 SVG 与
+输出用官方包验证过：16 个用例（柱、分层、各种形状的符号、面积、弧形、MoonFrame、其他填充样式、粗糙度、弯曲度、斜线间距和线宽、取整）的 SVG 与
 vega-lite 5.23.0 + vega 5.33.1 + rough.js 4.6.6 给出的逐字节相同（`scripts/lib/sketch.mjs`、`fixtures/sketchcases`）；
-[画廊](gallery/index.html)里的 30 张图也都逐字节相同，每张图有三个版本。
+[画廊](gallery/index.html)里的 32 张图也都逐字节相同，每张图有三个版本。
 [在线演示](https://sayoi7799.github.io/moon_vegalite/)里有「手绘风格」开关，可以改 seed 和粗糙度。
 
 ## 在线演示
@@ -151,7 +151,7 @@ node scripts/build_site.mjs && node scripts/serve_site.mjs     # http://localhos
 ## 与官方输出并排对照
 
 左：本库；中：vega-lite 5.23.0 + vega 5.33.1，除无障碍属性外 SVG 文本逐字相同；右：手绘风格（见下）。
-直接用浏览器打开 [`gallery/index.html`](gallery/index.html)（不需要启动服务器）可以看到全部 30 张图，每张都有三个版本。
+直接用浏览器打开 [`gallery/index.html`](gallery/index.html)（不需要启动服务器）可以看到全部 32 张图，每张都有三个版本。
 
 ![画廊页面](docs/gallery.png)
 
@@ -180,14 +180,15 @@ node scripts/build_site.mjs && node scripts/serve_site.mjs     # http://localhos
 
 | 方面 | 支持内容 |
 | --- | --- |
-| 标记（mark） | `bar`、`line`、`point`、`circle`、`square`、`area`、`rule`、`tick`、`rect`、`text` |
-| 通道 | `x`、`y`（字段或数值 `datum`）、`x2`、`y2`（用于 `rule`、`bar`、`rect`）、`color`（名义字段用分类色板，有序字段按取值个数从 blues 色带取样，定量字段用 blues 渐变并配渐变图例，常量值）、`size`、`opacity`、`shape`、`text`（`point`、`circle`、`square` 上的大小、透明度和形状；定量字段得到连续比例尺，形状为名义型） |
+| 标记（mark） | `bar`、`line`、`point`、`circle`、`square`、`area`、`rule`、`tick`、`rect`、`text`、`arc` |
+| 通道 | `theta`（用于 `arc`）、`x`、`y`（字段或数值 `datum`）、`x2`、`y2`（用于 `rule`、`bar`、`rect`）、`color`（名义字段用分类色板，有序字段按取值个数从 blues 色带取样，定量字段用 blues 渐变并配渐变图例，常量值）、`size`、`opacity`、`shape`、`text`（`point`、`circle`、`square` 上的大小、透明度和形状；定量字段得到连续比例尺，形状为名义型） |
 | 字段类型 | `quantitative`、`ordinal`、`nominal`、`temporal` |
 | 聚合 | `count`、`sum`、`mean`、`average`、`min`、`max`、`median`、`distinct` 等（vega 的聚合操作） |
 | 变换 | `filter`（表达式或谓词）、`calculate`（表达式子集）、`aggregate`、`bin`、`timeUnit`、`fold`；字段上的 `bin`、`timeUnit`、`aggregate` |
 | 时间单位 | year、quarter、month、week、date、day、hours、minutes、seconds、milliseconds 及其组合（按 UTC；"本地时间"即 UTC） |
 | 比例尺 | `linear`、`log`、`sqrt`、`pow`、`time`、`utc`、`band`、`point`、`ordinal`（`domain`、`range`、`zero`、`nice`、`reverse`、`clamp`、`base`、`exponent`） |
 | 堆叠 | `bar` 和 `area` 默认堆叠；`stack: zero / center / normalize / null` |
+| 弧形 | `mark: arc` 加 `theta`（定量字段，绕圆堆叠：`zero` 或 `normalize`，按颜色升序；`scale.range` 以弧度为单位）、`color`，以及 mark 属性 `innerRadius`、`outerRadius`、`padAngle`、`cornerRadius`、`stroke`、`strokeWidth`：饼图和环形图。扇形画在 200 × 200 的无边框视图中央；`radius`、`theta2`、极坐标文字和 `tooltip` 暂不支持 |
 | 排序 | 离散 x / y 上的 `sort`：`ascending`、`descending`、取值列表、`-x` / `-y`、`{op, field, order}` |
 | 分层（layer） | 位置比例尺默认共享（合并定义域，band 比例尺优先于 point）；`resolve.scale.x / y: independent` 让每层有自己的比例尺和坐标轴，第二根轴放到另一侧；颜色比例尺及其图例默认共享，也可用 `resolve.scale.color` 独立；对同一字段做相同 `bin` 的各层共用一次分箱（在公共数据上计算，与 vega-lite 提升分箱的做法一致）和一个分箱比例尺；各层的 mark 命名为 `layer_0_marks` 等 |
 | 辅助元素 | 坐标轴（网格、刻度、带首尾对齐和重叠剔除的标签、标题）、符号图例、图表标题 |
@@ -210,11 +211,11 @@ node scripts/build_site.mjs && node scripts/serve_site.mjs     # http://localhos
 | 数字格式化、刻度、`nice`、时间格式、比例尺 | vega 5.33.1 内置的 d3 / vega-format / vega-scale | `fixtures/{numfmt,ticks,formatcases,timecases,scalecases}` |
 | 表达式、数据变换 | vega-expression、vega-transforms | `fixtures/{exprcases,transformcases}` |
 | 场景图包围盒、SVG | vega-scenegraph | `fixtures/scenecases` |
-| **端到端：78 个官方 Vega-Lite 示例（其中 15 个是 `layer_*`）、边界情况、MoonFrame 规格** | vega-lite 5.23.0 编译 + vega 场景图与 SVG | `fixtures/vlexamples` |
+| **端到端：80 个官方 Vega-Lite 示例（其中 15 个是 `layer_*`，2 个是 `arc_*`）、边界情况、MoonFrame 规格** | vega-lite 5.23.0 编译 + vega 场景图与 SVG | `fixtures/vlexamples` |
 
 端到端用例要求场景图（每个 mark、每个图元属性和包围盒，数值在相对 `1e-9` 内）和 SVG 文本
 （逐字相同，只忽略无障碍属性 `role` / `aria-label`）都与官方输出一致。
-用例包括 `examples/official.txt` 里列出的 78 个官方示例、`examples/edge_*.vl.json` 里的边界情况、
+用例包括 `examples/official.txt` 里列出的 80 个官方示例、`examples/edge_*.vl.json` 里的边界情况、
 `examples/channel_*.vl.json` 里的通道规格（空数据、全空列、单值定义域、含非正值的对数比例尺），
 以及 MoonFrame 生成的六张图（`examples/moonframe`）。非法 JSON 和不支持的特性由 `vl/errors_test.mbt` 覆盖。
 

@@ -119,9 +119,9 @@ A shape that has a fill but no stroke (a bar) gets an outline in the colour of i
 **Reproducible.** The same specification and `seed` give the same bytes, on `js`, `wasm-gc` and `native`. Every shape gets a seed of its
 own, a hash of the base seed and the position of the shape in the scenegraph (item, mark, item, ...), in `[1, 2^31-2]`: the bars do not
 all wobble alike, and adding or removing a data point does not change the other shapes. The output is tested against the official
-packages: for 12 cases (bars, layers, symbols of every shape, areas, MoonFrame, other fill styles, roughness, bowing, hachure gap and
+packages: for 16 cases (bars, layers, symbols of every shape, areas, arcs, MoonFrame, other fill styles, roughness, bowing, hachure gap and
 weight, rounding) the SVG equals what vega-lite 5.23.0 + vega 5.33.1 + rough.js 4.6.6 give (`scripts/lib/sketch.mjs`,
-`fixtures/sketchcases`), byte for byte; so do all 30 charts of the [gallery](gallery/index.html), which shows every chart in the three versions.
+`fixtures/sketchcases`), byte for byte; so do all 32 charts of the [gallery](gallery/index.html), which shows every chart in the three versions.
 The [online demo](https://sayoi7799.github.io/moon_vegalite/) has a hand-drawn switch with a seed and a roughness slider.
 
 ## Online demo
@@ -154,7 +154,7 @@ ready to be sent straight back to the model.
 ## Side by side with the official output
 
 Left: this library. Middle: vega-lite 5.23.0 + vega 5.33.1; apart from the accessibility attributes the SVG text is identical. Right: the hand-drawn style (see below).
-Open [`gallery/index.html`](gallery/index.html) directly in a browser (no server needed) for all 30 charts, each in the three versions.
+Open [`gallery/index.html`](gallery/index.html) directly in a browser (no server needed) for all 32 charts, each in the three versions.
 
 ![the gallery page](docs/gallery.png)
 
@@ -184,14 +184,15 @@ Open [`gallery/index.html`](gallery/index.html) directly in a browser (no server
 
 | Area | Supported |
 | --- | --- |
-| Marks | `bar`, `line`, `point`, `circle`, `square`, `area`, `rule`, `tick`, `rect`, `text` |
-| Channels | `x`, `y` (fields, or a numeric `datum`), `x2`, `y2` (on `rule`, `bar`, `rect`), `color` (nominal fields with the category scheme, ordinal fields with a blues ramp sampled per value, quantitative fields with a blues ramp and gradient legend, constant values), `size`, `opacity`, `shape`, `text` (size, opacity and shape on `point`, `circle`, `square`; quantitative fields give continuous scales, shape is nominal) |
+| Marks | `bar`, `line`, `point`, `circle`, `square`, `area`, `rule`, `tick`, `rect`, `text`, `arc` |
+| Channels | `theta` (on `arc`), `x`, `y` (fields, or a numeric `datum`), `x2`, `y2` (on `rule`, `bar`, `rect`), `color` (nominal fields with the category scheme, ordinal fields with a blues ramp sampled per value, quantitative fields with a blues ramp and gradient legend, constant values), `size`, `opacity`, `shape`, `text` (size, opacity and shape on `point`, `circle`, `square`; quantitative fields give continuous scales, shape is nominal) |
 | Field types | `quantitative`, `ordinal`, `nominal`, `temporal` |
 | Aggregates | `count`, `sum`, `mean`, `average`, `min`, `max`, `median`, `distinct`, … (vega aggregate ops) |
 | Transforms | `filter` (expression or predicate), `calculate` (expression subset), `aggregate`, `bin`, `timeUnit`, `fold`; field `bin`, `timeUnit`, `aggregate` |
 | Time units | year, quarter, month, week, date, day, hours, minutes, seconds, milliseconds and combinations (UTC; "local" time is UTC) |
 | Scales | `linear`, `log`, `sqrt`, `pow`, `time`, `utc`, `band`, `point`, `ordinal` (`domain`, `range`, `zero`, `nice`, `reverse`, `clamp`, `base`, `exponent`) |
 | Stacking | default stacking for `bar` and `area`; `stack: zero / center / normalize / null` |
+| Arcs | `mark: arc` with `theta` (a quantity, stacked around the circle: `zero` or `normalize`, ascending by colour; `scale.range` in radians), `color`, and the mark properties `innerRadius`, `outerRadius`, `padAngle`, `cornerRadius`, `stroke`, `strokeWidth`: pie and donut charts. The slices are centred in a 200 × 200 view without a frame; `radius`, `theta2`, polar text and `tooltip` are not supported yet |
 | Sorting | `sort` on discrete x / y: `ascending`, `descending`, a value list, `-x` / `-y`, `{op, field, order}` |
 | Layers | position scales are shared by default (domains are merged, a band scale wins over a point scale); `resolve.scale.x / y: independent` gives each layer its own scale and axis, the second one on the opposite side; colour scales and their legend are shared, or independent with `resolve.scale.color`; layers that bin the same field identically share one bin (computed on the common data, as vega-lite hoists it) and one binned scale; marks are named `layer_0_marks`, ... |
 | Guides | axes (grid, ticks, labels with flush / overlap removal, title), symbol legends, chart title |
@@ -213,11 +214,11 @@ Every expected value in the tests comes from the official packages, never from t
 | number formatting, ticks, `nice`, time formats, scales | d3 / vega-format / vega-scale as bundled in vega 5.33.1 | `fixtures/{numfmt,ticks,formatcases,timecases,scalecases}` |
 | expressions, data transforms | vega-expression, vega-transforms | `fixtures/{exprcases,transformcases}` |
 | scenegraph bounds, SVG | vega-scenegraph | `fixtures/scenecases` |
-| **end to end: 78 official Vega-Lite examples (15 of them `layer_*`), edge cases, MoonFrame specs** | vega-lite 5.23.0 compile + vega scenegraph and SVG | `fixtures/vlexamples` |
+| **end to end: 80 official Vega-Lite examples (15 of them `layer_*`, 2 of them `arc_*`), edge cases, MoonFrame specs** | vega-lite 5.23.0 compile + vega scenegraph and SVG | `fixtures/vlexamples` |
 
 For the end-to-end cases the scenegraph (every mark, item property and bounds, numbers within a relative `1e-9`) and the
 SVG text (exactly, ignoring only the accessibility `role` / `aria-label` attributes) must equal the official output.
-The cases cover the 78 official examples listed in `examples/official.txt`, the edge cases in `examples/edge_*.vl.json`, the channel specs in `examples/channel_*.vl.json`
+The cases cover the 80 official examples listed in `examples/official.txt`, the edge cases in `examples/edge_*.vl.json`, the channel specs in `examples/channel_*.vl.json`
 (empty data, all-null column, single-value domain, log scale with non-positive values), and six charts generated by MoonFrame
 (`examples/moonframe`). Invalid JSON and unsupported features are covered by `vl/errors_test.mbt`.
 
