@@ -87,7 +87,21 @@ import {
 
 Repositories: [GitHub](https://github.com/sayoi7799/moon_vegalite) · [GitLink](https://gitlink.org.cn/sayoi7799/moon_vegalite).
 
-See the [gallery](gallery/index.html): the SVG from this library next to the official vega output.
+## Side by side with the official output
+
+Left: this library. Right: vega-lite 5.23.0 + vega 5.33.1. Apart from the accessibility attributes the SVG text is identical.
+Open [`gallery/index.html`](gallery/index.html) directly in a browser (no server needed) for all 30 charts.
+
+![the gallery page](docs/gallery.png)
+
+| Chart | moon_vegalite | official vega |
+| --- | --- | --- |
+| `stacked_bar_v` | <img src="gallery/ours/stacked_bar_v.svg" width="320" alt="moon_vegalite: stacked_bar_v"> | <img src="gallery/official/stacked_bar_v.svg" width="320" alt="vega: stacked_bar_v"> |
+| `point_color` | <img src="gallery/ours/point_color.svg" width="320" alt="moon_vegalite: point_color"> | <img src="gallery/official/point_color.svg" width="320" alt="vega: point_color"> |
+| `layer_bar_line` | <img src="gallery/ours/layer_bar_line.svg" width="320" alt="moon_vegalite: layer_bar_line"> | <img src="gallery/official/layer_bar_line.svg" width="320" alt="vega: layer_bar_line"> |
+| `layer_histogram` | <img src="gallery/ours/layer_histogram.svg" width="320" alt="moon_vegalite: layer_histogram"> | <img src="gallery/official/layer_histogram.svg" width="320" alt="vega: layer_histogram"> |
+| `layer_color_legend_left` | <img src="gallery/ours/layer_color_legend_left.svg" width="320" alt="moon_vegalite: layer_color_legend_left"> | <img src="gallery/official/layer_color_legend_left.svg" width="320" alt="vega: layer_color_legend_left"> |
+| `layer_circle_independent_color` | <img src="gallery/ours/layer_circle_independent_color.svg" width="320" alt="moon_vegalite: layer_circle_independent_color"> | <img src="gallery/official/layer_circle_independent_color.svg" width="320" alt="vega: layer_circle_independent_color"> |
 
 ## Positioning and differences from other charting libraries
 

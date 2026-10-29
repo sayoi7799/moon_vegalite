@@ -87,7 +87,21 @@ import {
 
 仓库：[GitHub](https://github.com/sayoi7799/moon_vegalite) · [GitLink](https://gitlink.org.cn/sayoi7799/moon_vegalite)。
 
-[画廊（gallery）](gallery/index.html)：本库输出的 SVG 与官方 vega 输出并排显示。
+## 与官方输出并排对照
+
+左：本库；右：vega-lite 5.23.0 + vega 5.33.1。除无障碍属性外，SVG 文本逐字相同。
+直接用浏览器打开 [`gallery/index.html`](gallery/index.html)（不需要启动服务器）可以看到全部 30 张图。
+
+![画廊页面](docs/gallery.png)
+
+| 图 | moon_vegalite | 官方 vega |
+| --- | --- | --- |
+| `stacked_bar_v` | <img src="gallery/ours/stacked_bar_v.svg" width="320" alt="moon_vegalite: stacked_bar_v"> | <img src="gallery/official/stacked_bar_v.svg" width="320" alt="vega: stacked_bar_v"> |
+| `point_color` | <img src="gallery/ours/point_color.svg" width="320" alt="moon_vegalite: point_color"> | <img src="gallery/official/point_color.svg" width="320" alt="vega: point_color"> |
+| `layer_bar_line` | <img src="gallery/ours/layer_bar_line.svg" width="320" alt="moon_vegalite: layer_bar_line"> | <img src="gallery/official/layer_bar_line.svg" width="320" alt="vega: layer_bar_line"> |
+| `layer_histogram` | <img src="gallery/ours/layer_histogram.svg" width="320" alt="moon_vegalite: layer_histogram"> | <img src="gallery/official/layer_histogram.svg" width="320" alt="vega: layer_histogram"> |
+| `layer_color_legend_left` | <img src="gallery/ours/layer_color_legend_left.svg" width="320" alt="moon_vegalite: layer_color_legend_left"> | <img src="gallery/official/layer_color_legend_left.svg" width="320" alt="vega: layer_color_legend_left"> |
+| `layer_circle_independent_color` | <img src="gallery/ours/layer_circle_independent_color.svg" width="320" alt="moon_vegalite: layer_circle_independent_color"> | <img src="gallery/official/layer_circle_independent_color.svg" width="320" alt="vega: layer_circle_independent_color"> |
 
 ## 定位，以及与其他图表库的区别
 
