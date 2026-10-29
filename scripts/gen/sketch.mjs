@@ -29,6 +29,10 @@ const cases = [
   { name: 'custom_channel_shape_size', file: custom('channel_shape_size'), seed: 11 },
   { name: 'custom_series_area', file: custom('series_area'), seed: 5 },
   { name: 'custom_layer_independent_y', file: custom('layer_independent_y'), seed: 2, fillStyle: 'dashed' },
+  { name: 'arc_pie', file: official('arc_pie'), seed: 6 },
+  { name: 'arc_donut_cross_hatch', file: official('arc_donut'), seed: 3, fillStyle: 'cross-hatch', roughness: 1.5 },
+  { name: 'custom_arc_aggregate_solid', file: custom('arc_aggregate'), seed: 8, fillStyle: 'solid' },
+  { name: 'custom_arc_normalize_stroke', file: custom('arc_normalize'), seed: 2, fillStyle: 'zigzag' },
   { name: 'moonframe_bar_stacked', file: path.join(root, 'examples/moonframe/bar_stacked.vl.json'), seed: 12 },
 ];
 
