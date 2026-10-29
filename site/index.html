@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>moon_vegalite 在线演示</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>moon_vegalite <span id="version" class="muted"></span></h1>
+  <p>用 MoonBit 写的 Vega-Lite 渲染器，编译成 JavaScript 后直接运行在你的浏览器里。
+     左边修改 Vega-Lite JSON，中间是本库实时渲染的 SVG，右边是官方 vega-embed 的渲染结果。</p>
+  <p class="links">
+    <a href="https://github.com/sayoi7799/moon_vegalite">GitHub</a> ·
+    <a href="https://gitlink.org.cn/sayoi7799/moon_vegalite">GitLink</a> ·
+    <a href="https://github.com/sayoi7799/moon_vegalite/blob/main/README.zh.md">中文 README</a>
+  </p>
+</header>
+
+<div class="toolbar">
+  <label>示例
+    <select id="example"></select>
+  </label>
+  <span id="badge" class="badge" role="status"></span>
+</div>
+
+<main class="grid">
+  <section class="panel">
+    <h2>Vega-Lite JSON</h2>
+    <textarea id="spec" spellcheck="false" wrap="off" aria-label="Vega-Lite specification"></textarea>
+  </section>
+
+  <section class="panel">
+    <h2>moon_vegalite <span class="muted">MoonBit → js</span></h2>
+    <div id="ours" class="stage"></div>
+    <pre id="error" class="error" hidden></pre>
+    <p id="ours-status" class="status"></p>
+    <details>
+      <summary>SVG 源码</summary>
+      <pre id="svg-source" class="source"></pre>
+    </details>
+  </section>
+
+  <section class="panel">
+    <h2>官方 vega-embed <span class="muted">vega-lite 5.23.0 · vega 5.33.1</span></h2>
+    <div id="official" class="stage"></div>
+    <p id="official-status" class="status"></p>
+  </section>
+</main>
+
+<footer>
+  <ul>
+    <li>本库是子集渲染器：遇到不支持的特性会报错，并给出出错位置的 JSON 路径（见「Not supported」里的示例），而不是画成别的样子。官方一侧仍会尽力渲染，方便对照。</li>
+    <li>官方一侧关闭了浏览器的 canvas 文字测量（<code>vega.textMetrics.canvas(false)</code>），使用与测试基准相同的估算，两边的 SVG 才能逐字比较；比较时忽略无障碍属性。</li>
+    <li>带时间轴的图：本库按 UTC 处理时间，官方在浏览器里按本地时区，时区不是 UTC 时两边可能不同。</li>
+    <li>官方一侧的 vega、vega-lite、vega-embed 从 jsDelivr 加载，需要联网。</li>
+  </ul>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5.33.1/build/vega.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.23.0/build/vega-lite.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.29.0/build/vega-embed.min.js" defer></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

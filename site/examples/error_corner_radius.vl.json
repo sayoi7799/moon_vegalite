@@ -1,0 +1,14 @@
+{
+  "data": {
+    "values": [
+      {"a": "A", "b": 28},
+      {"a": "B", "b": 55},
+      {"a": "C", "b": 43}
+    ]
+  },
+  "mark": {"type": "bar", "cornerRadius": 4},
+  "encoding": {
+    "x": {"field": "a", "type": "nominal"},
+    "y": {"field": "b", "type": "quantitative"}
+  }
+}

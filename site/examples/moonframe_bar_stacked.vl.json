@@ -1,0 +1,19 @@
+{
+  "title": "Units by quarter",
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "quarter", "type": "nominal"},
+    "y": {"field": "units", "type": "quantitative"},
+    "color": {"field": "product", "type": "nominal"}
+  },
+  "data": {
+    "values": [
+      {"quarter": "Q1", "units": 30, "product": "A"},
+      {"quarter": "Q1", "units": 45, "product": "B"},
+      {"quarter": "Q2", "units": 38, "product": "A"},
+      {"quarter": "Q2", "units": 52, "product": "B"},
+      {"quarter": "Q3", "units": 41, "product": "A"},
+      {"quarter": "Q3", "units": 60, "product": "B"}
+    ]
+  }
+}

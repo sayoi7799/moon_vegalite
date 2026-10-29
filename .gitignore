@@ -7,3 +7,4 @@ node_modules/
 scripts/node_modules/
 scripts/.cache/
 *.log
+_site/
