@@ -21,6 +21,35 @@ export function generate() {
     lines.push(`log10 ${hex16(x)} ${hex16(Math.log10(x))}`);
   }
 
+  // Math.sin / cos / asin / acos / atan / atan2: the functions the arc path of d3-shape needs, bit for bit.
+  const angles = [0, -0, 1e-10, 1e-300, 0.5, -0.5, 1, -1, Math.PI / 2, Math.PI, 2 * Math.PI, 3 * Math.PI / 2, 6.283185307179586, 6.28318530718, 100, 1e6, 1e15, Infinity, -Infinity, NaN];
+  for (let i = 0; i < 1500; i++) angles.push((rnd() - 0.5) * 20);
+  for (let i = 0; i < 300; i++) angles.push(rnd() * 2 * Math.PI);
+  for (let i = 0; i < 300; i++) angles.push((rnd() - 0.5) * 1e-3);
+  for (let i = 0; i < 200; i++) angles.push((rnd() - 0.5) * 1e4);
+  for (const a of angles) {
+    lines.push(`sin ${hex16(a)} ${hex16(Math.sin(a))}`);
+    lines.push(`cos ${hex16(a)} ${hex16(Math.cos(a))}`);
+    lines.push(`atan ${hex16(a)} ${hex16(Math.atan(a))}`);
+  }
+  const unit = [0, -0, 1, -1, 0.5, -0.5, 0.4999999999999999, -0.5000000000000001, 1.0000000000000002, -1.0000000000000002, 2, NaN, 1e-20, 2 ** -57, 2 ** -58, 0.9999999999999999, -0.9999999999999999, 0.975, 0.9749999999999999, 0.9750000000000001];
+  for (let i = 0; i < 2500; i++) unit.push((rnd() - 0.5) * 2);
+  for (let i = 0; i < 300; i++) unit.push((rnd() - 0.5) * 0.02);
+  for (let i = 0; i < 300; i++) unit.push(1 - rnd() * 1e-3);
+  for (const u of unit) {
+    lines.push(`asin ${hex16(u)} ${hex16(Math.asin(u))}`);
+    lines.push(`acos ${hex16(u)} ${hex16(Math.acos(u))}`);
+  }
+  const specials = [0, -0, 1, -1, Infinity, -Infinity, NaN, 1e-310, -1e-310, 1e300, -1e300, 2, -2, 0.5, -0.5, 1e-20, 1e20];
+  const pairs = [];
+  for (const y of specials) for (const x of specials) pairs.push([y, x]);
+  for (let i = 0; i < 2500; i++) pairs.push([(rnd() - 0.5) * 2000, (rnd() - 0.5) * 2000]);
+  for (let i = 0; i < 800; i++) { const a = rnd() * 2 * Math.PI, r = rnd() * 100; pairs.push([r * Math.sin(a), r * Math.cos(a)]); }
+  for (let i = 0; i < 300; i++) pairs.push([(rnd() - 0.5) * 1e-5, (rnd() - 0.5) * 1e5]);
+  for (let i = 0; i < 300; i++) pairs.push([(rnd() - 0.5) * 1e5, (rnd() - 0.5) * 1e-5]);
+  for (let i = 0; i < 200; i++) pairs.push([(rnd() - 0.5) * 100, 1]);
+  for (const [y, x] of pairs) lines.push(`atan2 ${hex16(y)} ${hex16(x)} ${hex16(Math.atan2(y, x))}`);
+
   // Table of 10^k for every integer exponent that can produce a finite or subnormal result.
   // Math.pow(10, k) is not used: V8 builds disagree on it by one ulp for a few k (Linux and macOS differ from
   // Windows, Node 22 from Node 24), so the table holds the correctly rounded value, which is the same everywhere.

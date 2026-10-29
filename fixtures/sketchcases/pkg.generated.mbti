@@ -10,6 +10,14 @@ pub let spec_10_0 : String
 
 pub let spec_11_0 : String
 
+pub let spec_12_0 : String
+
+pub let spec_13_0 : String
+
+pub let spec_14_0 : String
+
+pub let spec_15_0 : String
+
 pub let spec_1_0 : String
 
 pub let spec_2_0 : String
@@ -37,6 +45,22 @@ pub let svg_10_0 : String
 pub let svg_11_0 : String
 
 pub let svg_11_1 : String
+
+pub let svg_12_0 : String
+
+pub let svg_12_1 : String
+
+pub let svg_12_2 : String
+
+pub let svg_13_0 : String
+
+pub let svg_14_0 : String
+
+pub let svg_14_1 : String
+
+pub let svg_15_0 : String
+
+pub let svg_15_1 : String
 
 pub let svg_1_0 : String
 

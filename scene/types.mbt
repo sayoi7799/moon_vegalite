@@ -11,6 +11,7 @@ pub(all) enum MarkType {
   Symbol
   Line
   Area
+  Arc
 }
 
 ///|
@@ -23,6 +24,7 @@ pub fn MarkType::name(self : MarkType) -> String {
     Symbol => "symbol"
     Line => "line"
     Area => "area"
+    Arc => "arc"
   }
 }
 
@@ -36,6 +38,7 @@ pub fn MarkType::from_name(name : String) -> MarkType? {
     "symbol" => Some(Symbol)
     "line" => Some(Line)
     "area" => Some(Area)
+    "arc" => Some(Arc)
     _ => None
   }
 }

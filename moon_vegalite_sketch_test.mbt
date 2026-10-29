@@ -131,7 +131,7 @@ fn first_difference(a : String, b : String) -> String {
 ///|
 test "sketch: the hand-drawn output is what vega-lite + vega + rough.js 4.6.6 give" {
   let cases = @sketchcases.cases()
-  assert_true(cases.length() >= 12)
+  assert_true(cases.length() >= 16)
   for c in cases {
     let options = @moon_vegalite.SketchOptions::new(
       seed=c.seed,

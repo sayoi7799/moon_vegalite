@@ -31,6 +31,7 @@ pub(all) enum ShapeKind {
   Symbol
   Line
   Area
+  Arc
   Background
   Foreground
 }

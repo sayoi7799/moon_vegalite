@@ -379,6 +379,8 @@ priv struct UnitModel {
   popacity : Pos?
   pshape : Pos?
   ptext : Pos?
+  /// the angle of an arc (the only position channel of an arc)
+  ptheta : Pos?
   color_value : String?
   size_value : Double?
   opacity_value : Double?
@@ -409,6 +411,8 @@ priv struct UnitScales {
   opacity_scale : @scale.Continuous?
   shape_scale : @scale.Ordinal
   shape_domain : Array[@value.Value]
+  /// angle (radians) of an arc: linear over the stacked extent
+  theta_scale : @scale.Continuous?
 }
 
 ///|
@@ -457,7 +461,8 @@ fn build_unit(
     mark != "text" &&
     mark != "rect" &&
     mark != "circle" &&
-    mark != "square" {
+    mark != "square" &&
+    mark != "arc" {
     raise CompileError("mark " + mark + " 暂不支持")
   }
   let mut rows = source.map(fn(r) { r.copy() })
@@ -610,12 +615,22 @@ fn build_unit(
       if find_channel(spec, ch) is Some(_) &&
         !constant_size &&
         !(ch == "opacity" &&
-        (mark == "bar" || mark == "tick" || mark == "area" || mark == "rect")) {
+        (
+          mark == "bar" ||
+          mark == "tick" ||
+          mark == "area" ||
+          mark == "rect" ||
+          mark == "arc"
+        )) {
         raise CompileError(
           "encoding." + ch + " 暂不支持用于 mark " + mark,
         )
       }
     }
+  }
+  let ptheta : Pos? = match find_channel(spec, "theta") {
+    Some(d) => Some(resolve_pos("theta", d))
+    None => None
   }
   let ptext : Pos? = match find_channel(spec, "text") {
     Some({ field: Some(_), .. } as d) => Some(resolve_pos("text", d))
@@ -629,7 +644,7 @@ fn build_unit(
   let measures : Array[@transform.Measure] = []
   let groupby : Array[String] = []
   let measured : Array[Pos] = positions.copy()
-  for o in [px2, py2, ptext, psize, popacity, pshape] {
+  for o in [px2, py2, ptext, psize, popacity, pshape, ptheta] {
     match o {
       Some(p) => measured.push(p)
       None => ()
@@ -748,7 +763,14 @@ fn build_unit(
   } else {
     None
   }
+  // an arc stacks its angle channel around the circle
+  let stack_chan0 : String? = if mark == "arc" {
+    Some("theta")
+  } else {
+    stack_chan0
+  }
   let stack_req : String? = match stack_chan0 {
+    Some("theta") => ptheta.unwrap().def.stack
     Some("y") => py.unwrap().def.stack
     Some("x") => px.unwrap().def.stack
     _ => None
@@ -759,13 +781,19 @@ fn build_unit(
     None => "zero"
   }
   let stacked_field = match stack_chan {
+    Some("theta") => ptheta.unwrap().field
     Some("y") => py.unwrap().field
     Some("x") => px.unwrap().field
     _ => ""
   }
   match stack_chan {
     Some(c) => {
-      let dim = if c == "y" { px.unwrap().field } else { py.unwrap().field }
+      // an arc stacks around one circle (no dimension) and in ascending order of its colour
+      let dim = match c {
+        "theta" => ""
+        "y" => px.unwrap().field
+        _ => py.unwrap().field
+      }
       // stacked areas are imputed so every series has a point at every key
       match pcolor {
         Some(col) if mark == "area" =>
@@ -775,9 +803,13 @@ fn build_unit(
       @transform.stack(
         rows,
         Some(stacked_field),
-        [dim],
+        if c == "theta" {
+          []
+        } else {
+          [dim]
+        },
         match pcolor {
-          Some(c) => Some({ fields: [c.field], descending: [true], })
+          Some(c2) => Some({ fields: [c2.field], descending: [c != "theta"], })
           None => None
         },
         stack_offset,
@@ -794,7 +826,7 @@ fn build_unit(
       valid_fields.push(p.field)
     }
   }
-  for o in [psize, popacity, pcolor] {
+  for o in [psize, popacity, pcolor, ptheta] {
     match o {
       Some(p) =>
         if p.typ == "quantitative" && p.aggregate != Some("count") {
@@ -870,6 +902,7 @@ fn build_unit(
     orient,
     vertical,
     config_zero,
+    ptheta,
     stack_chan,
     stack_offset,
     valid_fields,
@@ -886,6 +919,15 @@ fn build_unit(
 fn unit_size(u : UnitModel) -> (Double, Double) {
   let spec = u.spec
   let data = u.data
+  if u.mark == "arc" {
+    let side = fn(v : @value.Value?) -> Double {
+      match v {
+        Some(Num(x)) => x
+        _ => 200.0
+      }
+    }
+    return (side(spec.width), side(spec.height))
+  }
   let count = fn(p : Pos?) -> Int32 {
     match p {
       Some(q) if q.discrete => sorted_unique(data, q.field).length()
@@ -1106,6 +1148,30 @@ fn unit_scales(
   }
   shape_scale.set_domain(shape_domain)
   shape_scale.set_range(symbol_shapes.map(fn(x) { Str(x) }))
+  let theta_scale : @scale.Continuous? = match u.ptheta {
+    Some(p) => {
+      let c = @scale.Continuous::new(Linear)
+      let fields = if u.stack_chan == Some("theta") {
+        [p.field + "_start", p.field + "_end"]
+      } else {
+        [p.field]
+      }
+      match domain_extent(data, fields, true) {
+        Some((lo, hi)) => c.domain = [lo, hi]
+        None => ()
+      }
+      c.range = match p.def.scale {
+        Some(m) =>
+          match m.get("range") {
+            Some(Arr([Num(a), Num(b)])) => [a, b]
+            _ => [0.0, 6.283185307179586]
+          }
+        None => [0.0, 6.283185307179586]
+      }
+      Some(c)
+    }
+    None => None
+  }
   {
     xs,
     ys,
@@ -1117,6 +1183,7 @@ fn unit_scales(
     opacity_scale,
     shape_scale,
     shape_domain,
+    theta_scale,
   }
 }
 
@@ -1374,6 +1441,7 @@ fn unit_mark(
   let popacity = u.popacity
   let pshape = u.pshape
   let ptext = u.ptext
+  let ptheta = u.ptheta
   let color_value = u.color_value
   let size_value = u.size_value
   let opacity_value = u.opacity_value
@@ -1743,6 +1811,50 @@ fn unit_mark(
         }
         items.push(it)
       }
+      "arc" => {
+        let it = mk_item([("fill", str(color_of(r)))])
+        apply_opacity(it, r)
+        let radius = fn(key : String, default : Double) -> Double {
+          match spec.mark.props.get(key) {
+            Some(Num(v)) => v
+            _ => default
+          }
+        }
+        it.set_num("x", width * 0.5)
+        it.set_num("y", height * 0.5)
+        it.set_num(
+          "outerRadius",
+          radius("outerRadius", min(width, height) / 2.0),
+        )
+        it.set_num("innerRadius", radius("innerRadius", 0.0))
+        // the stack runs clockwise from the top: a slice starts at its end value and ends at its start value
+        match (sc.theta_scale, ptheta) {
+          (Some(ts), Some(p)) => {
+            let value = fn(suffix : String) -> Double {
+              match ts.map(@value.get_field(r, p.field + suffix).to_number()) {
+                Some(v) => v
+                None => @double.not_a_number
+              }
+            }
+            if stack_chan == Some("theta") {
+              it.set_num("startAngle", value("_end"))
+              it.set_num("endAngle", value("_start"))
+            }
+          }
+          _ => ()
+        }
+        for k in ["padAngle", "cornerRadius", "strokeWidth"] {
+          match spec.mark.props.get(k) {
+            Some(v) => it.set(k, v)
+            None => ()
+          }
+        }
+        match spec.mark.props.get("stroke") {
+          Some(v) => it.set("stroke", v)
+          None => ()
+        }
+        items.push(it)
+      }
       "rect" => {
         let it = mk_item([("fill", str(color_of(r)))])
         apply_opacity(it, r)
@@ -1914,6 +2026,7 @@ fn unit_mark(
     "area" => @scene.MarkType::Area
     "rule" => @scene.MarkType::Rule
     "text" => @scene.MarkType::Text
+    "arc" => @scene.MarkType::Arc
     _ => @scene.MarkType::Rect
   }
   // the series (colour) of every item, kept in step with `items`
@@ -2066,6 +2179,10 @@ fn unit_legends(
       None => default_opacity
     },
     shape_override?,
+    mark_stroke?=match spec.mark.props.get("stroke") {
+      Some(Str(c)) => Some(c)
+      _ => None
+    },
   )
   match (pcolor, color_seq) {
     (Some(c), Some(sq)) =>
@@ -2106,7 +2223,16 @@ pub fn compile(text : String) -> Compiled raise CompileError {
     Some(t) => Some(build_title(t))
     None => None
   }
-  assemble(spec, axes, [marks], legends, title, width, height)
+  assemble(
+    spec,
+    axes,
+    [marks],
+    legends,
+    title,
+    width,
+    height,
+    framed=u.px is Some(_) || u.py is Some(_),
+  )
 }
 
 ///|

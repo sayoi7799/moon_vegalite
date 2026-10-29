@@ -19,7 +19,7 @@ const items = [
   ['stacked_bar_v', 'Stacked bars with a colour legend'], ['point_2d', 'Scatter plot'], ['point_color', 'Scatter plot with colour legend'],
   ['circle', 'Circles'], ['line', 'Time series line'], ['line_month', 'Monotone line over a time unit'], ['area', 'Area chart'],
   ['bar_month', 'Bars over a time unit'], ['tick_strip', 'Tick strip'], ['rule_extent', 'Rule ranges'], ['text_scatterplot_colored', 'Coloured text marks'],
-  ['point_log', 'Log scale'],
+  ['point_log', 'Log scale'], ['arc_pie', 'Pie chart'], ['arc_donut', 'Donut chart'],
   ['point_ordinal_color', 'Ordinal colour'], ['stacked_area_ordinal', 'Stacked area, ordinal colour'],
   ['layer_bar_line', 'Layers: bars and a line'], ['layer_histogram', 'Layers: shared bins'], ['layer_histogram_global_mean', 'Layers: histogram and a mean rule'],
   ['layer_rect_extent', 'Layers: a rect over the extent'], ['layer_bar_annotations', 'Layers: annotated bars'], ['layer_line_datum_rule', 'Layers: a datum rule'],

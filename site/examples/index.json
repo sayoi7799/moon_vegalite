@@ -36,6 +36,24 @@
     "file": "point_log.vl.json"
   },
   {
+    "id": "arc_pie",
+    "title": "Pie chart",
+    "group": "Charts",
+    "file": "arc_pie.vl.json"
+  },
+  {
+    "id": "arc_donut",
+    "title": "Donut chart",
+    "group": "Charts",
+    "file": "arc_donut.vl.json"
+  },
+  {
+    "id": "arc_aggregate",
+    "title": "Rounded donut with padding",
+    "group": "Charts",
+    "file": "arc_aggregate.vl.json"
+  },
+  {
     "id": "binned_count_size",
     "title": "Binned circles sized by count",
     "group": "Charts",

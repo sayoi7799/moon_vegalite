@@ -53,6 +53,27 @@ const multiText = () => {
   if (rnd() < 0.5) { t.text = ['first line', 'second', 'third one']; } else { t.text = 'one\ntwo\nthree'; t.lineBreak = '\n'; }
   return t;
 };
+// arcs: angles in radians clockwise from twelve o'clock; many kinds of sector on purpose
+const arcAngles = () => pick([
+  () => [0, 6.283185307179586], // a full circle
+  () => { const a = num(0, 6.28); return [a, a + 6.283185307179586]; },
+  () => [num(0, 3), num(3, 6.28)], // a sector
+  () => [num(3, 6.28), num(0, 3)], // reversed angles
+  () => { const a = num(0, 6); return [a, a + 0.001]; }, // a sliver
+  () => { const a = num(0, 6); return [a, a]; }, // collapsed
+  () => [num(0, 6.28), num(0, 6.28)],
+  () => [0, 3.141592653589793], // a half circle
+  () => [num(0, 1), num(4, 6.2)], // a big sector
+])();
+const arcItem = () => {
+  const [startAngle, endAngle] = arcAngles();
+  return clean(styled({
+    x: num(0, 150), y: num(0, 150), startAngle, endAngle,
+    innerRadius: maybe(0.7, () => pick([0, 5, 20, 40, 80])), outerRadius: pick([0, 30, 60, 100, 40, 10]),
+    padAngle: maybe(0.35, () => pick([0.02, 0.05, 0.1, 0.5, 2])), cornerRadius: maybe(0.4, () => pick([2, 5, 10, 30, 100])),
+    angle: maybe(0.1, () => pick([30, 90])),
+  }));
+};
 const shapes = ['circle', 'square', 'cross', 'diamond', 'triangle-up', 'triangle-down', 'triangle-left', 'triangle-right', 'triangle', 'arrow', 'wedge', 'stroke'];
 const symbolItem = () => clean(styled({ x: num(0, 150), y: num(0, 150), size: maybe(0.8, () => pick([0, 10, 30, 64, 100, 400])), shape: maybe(0.8, () => pick(shapes)), angle: maybe(0.2, () => pick([0, 45, 90, 33])) }));
 function lineItems(kind) {
@@ -67,7 +88,7 @@ function lineItems(kind) {
 }
 
 function simpleMark(type, n) {
-  const make = { rect: rectItem, rule: ruleItem, text: () => (rnd() < 0.25 ? multiText() : textItem()), symbol: symbolItem }[type];
+  const make = { rect: rectItem, rule: ruleItem, text: () => (rnd() < 0.25 ? multiText() : textItem()), symbol: symbolItem, arc: arcItem }[type];
   return clean({
     marktype: type, name: maybe(0.3, () => pick(['marks', 'foo'])), role: maybe(0.4, () => pick(['mark', 'axis-tick', 'axis-label'])),
     interactive: maybe(0.2, () => false), clip: undefined, zindex: undefined, items: Array.from({ length: n }, make),
@@ -116,6 +137,8 @@ export function generate() {
   for (const t of ['rect', 'rule', 'text', 'symbol']) for (let i = 0; i < 8; i++) scenes.push(simpleMark(t, 3 + Math.floor(rnd() * 10)));
   for (const t of ['line', 'area']) for (let i = 0; i < 10; i++) scenes.push(pathMark(t));
   for (let i = 0; i < 24; i++) scenes.push(clean({ marktype: 'group', name: 'root', role: 'frame', items: [groupItem(0)] }));
+  // arcs come last so that the scenes above stay as they were
+  for (let i = 0; i < 40; i++) scenes.push(simpleMark('arc', 3 + Math.floor(rnd() * 10)));
   scenes.forEach((json, n) => {
     const id = `sc${n}`;
     const text = JSON.stringify(json);

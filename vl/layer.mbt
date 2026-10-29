@@ -784,5 +784,14 @@ fn compile_layers(top : @spec.Spec) -> Compiled raise CompileError {
     Some(t) => Some(build_title(t))
     None => None
   }
-  assemble(top, axes, marks, legends, title, width, height)
+  assemble(
+    top,
+    axes,
+    marks,
+    legends,
+    title,
+    width,
+    height,
+    framed=units.any(fn(u) { u.px is Some(_) || u.py is Some(_) }),
+  )
 }

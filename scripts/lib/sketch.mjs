@@ -89,6 +89,9 @@ function collect(mark, position, out) {
     case 'symbol':
       mark.items.forEach((item, i) => out.push({ kind: 'symbol', item, pos: [...position, i] }));
       break;
+    case 'arc':
+      mark.items.forEach((item, i) => out.push({ kind: 'arc', item, pos: [...position, i] }));
+      break;
     case 'line':
     case 'area':
       if (mark.items.length > 0) out.push({ kind: mark.marktype, item: mark.items[0], pos: [...position, 0] });
@@ -169,7 +172,7 @@ function drawShape(shape, element, o) {
     g = svg.path(d, options);
   }
   let wrapper = '';
-  if (shape.kind === 'symbol') wrapper += ` transform="${escapeAttr(element.attrs.transform)}"`;
+  if (shape.kind === 'symbol' || shape.kind === 'arc') wrapper += ` transform="${escapeAttr(element.attrs.transform)}"`;
   let opacity = item.opacity;
   if (fillOnly && item.fillOpacity !== undefined && item.fillOpacity !== null) opacity = (opacity ?? 1) * item.fillOpacity;
   if (opacity !== undefined && opacity !== null) wrapper += ` opacity="${num(opacity)}"`;
