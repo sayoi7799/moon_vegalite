@@ -120,7 +120,7 @@ See the [gallery](gallery/index.html): the SVG from this library next to the off
 | Layout | single view or `layer` (nested layers, inherited `data` / `transform` / `encoding`, `resolve.scale` / `legend`), `autosize: pad`, `width` / `height` as numbers or `{step}` |
 | Config | accepted keys are recorded; a subset (`view`, `scale.zero`, …) is honoured |
 
-Not supported — each raises an error that names the JSON path: `params` / `selection`, `tooltip`, `projection`, `layer`,
+Not supported — each raises an error that names the JSON path: `params` / `selection`, `tooltip`, `projection`,
 `facet`, `concat` (`hconcat` / `vconcat`), `repeat`, `data.url` (embed `data.values` instead), `condition`, and the full
 Vega expression language (only the subset used by `calculate` / `filter` is implemented). Gradient legends for
 quantitative colour is limited to the default blues ramp (no `scale` options on non-positional channels).
@@ -135,7 +135,7 @@ Every expected value in the tests comes from the official packages, never from t
 | number formatting, ticks, `nice`, time formats, scales | d3 / vega-format / vega-scale as bundled in vega 5.33.1 | `fixtures/{numfmt,ticks,formatcases,timecases,scalecases}` |
 | expressions, data transforms | vega-expression, vega-transforms | `fixtures/{exprcases,transformcases}` |
 | scenegraph bounds, SVG | vega-scenegraph | `fixtures/scenecases` |
-| **end to end: 60 official Vega-Lite examples, edge cases, MoonFrame specs** | vega-lite 5.23.0 compile + vega scenegraph and SVG | `fixtures/vlexamples` |
+| **end to end: 78 official Vega-Lite examples (15 of them `layer_*`), edge cases, MoonFrame specs** | vega-lite 5.23.0 compile + vega scenegraph and SVG | `fixtures/vlexamples` |
 
 For the end-to-end cases the scenegraph (every mark, item property and bounds, numbers within a relative `1e-9`) and the
 SVG text (exactly, ignoring only the accessibility `role` / `aria-label` attributes) must equal the official output.
