@@ -25,5 +25,6 @@ pub struct SketchOptions {
 pub fn SketchOptions::new(seed? : Int32, roughness? : Double, bowing? : Double, fill_style? : @core.FillStyle, hachure_gap? : Double, fill_weight? : Double) -> Self
 
 // Type aliases
+pub using @core {type FillStyle}
 
 // Traits

@@ -75,7 +75,7 @@ fn svg_with(
 
 ///|
 /// The options of the hand-drawn style: the seed, `roughness`, `bowing` and `fill_style`.
-pub using @sketch {type SketchOptions}
+pub using @sketch {type SketchOptions, type FillStyle}
 
 ///|
 /// Render a Vega-Lite specification (JSON text) as a hand-drawn SVG document: the

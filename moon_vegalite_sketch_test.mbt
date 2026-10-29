@@ -93,3 +93,57 @@ test "sketch: unsupported features still fail with their JSON path" {
   }
   assert_eq(r, "params 暂不支持")
 }
+
+///|
+fn fill_style_of(name : String) -> @moon_vegalite.FillStyle {
+  match name {
+    "hachure" => Hachure
+    "solid" => Solid
+    "zigzag" => Zigzag
+    "cross-hatch" => CrossHatch
+    "dots" => Dots
+    "dashed" => Dashed
+    "zigzag-line" => ZigzagLine
+    _ => abort("unknown fill style " + name)
+  }
+}
+
+///|
+/// Where two strings first differ, with a little context.
+fn first_difference(a : String, b : String) -> String {
+  let n = if a.length() < b.length() { a.length() } else { b.length() }
+  let mut i = 0
+  while i < n && a[i] == b[i] {
+    i += 1
+  }
+  let from = if i > 40 { i - 40 } else { 0 }
+  let ta = if a.length() < i + 60 { a.length() } else { i + 60 }
+  let tb = if b.length() < i + 60 { b.length() } else { i + 60 }
+  "at " +
+  i.to_string() +
+  ": ours \"" +
+  a[from:ta].to_owned() +
+  "\" expected \"" +
+  b[from:tb].to_owned() +
+  "\""
+}
+
+///|
+test "sketch: the hand-drawn output is what vega-lite + vega + rough.js 4.6.6 give" {
+  let cases = @sketchcases.cases()
+  assert_true(cases.length() >= 8)
+  for c in cases {
+    let options = @moon_vegalite.SketchOptions::new(
+      seed=c.seed,
+      roughness=c.roughness,
+      bowing=c.bowing,
+      fill_style=fill_style_of(c.fill_style),
+      hachure_gap?=c.hachure_gap,
+      fill_weight?=c.fill_weight,
+    )
+    let got = @moon_vegalite.render_svg_sketch(c.spec, options~)
+    if got != c.svg {
+      fail(c.name + ": " + first_difference(got, c.svg))
+    }
+  }
+}

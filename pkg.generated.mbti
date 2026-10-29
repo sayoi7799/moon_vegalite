@@ -2,6 +2,7 @@
 package "sayoi7799/moon_vegalite"
 
 import {
+  "sayoi7799/moon_rough/core",
   "sayoi7799/moon_vegalite/sketch",
   "sayoi7799/moon_vegalite/vl",
 }
@@ -31,6 +32,8 @@ pub fn RenderError::message(Self) -> String
 
 // Type aliases
 pub using @vl {type Compiled}
+
+pub using @core {type FillStyle}
 
 pub using @sketch {type SketchOptions}
 

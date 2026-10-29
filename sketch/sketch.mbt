@@ -9,6 +9,11 @@
 // give the same bytes, and editing one shape does not change the others.
 
 ///|
+/// How rough.js fills a shape: `Hachure` (the default), `Solid`, `Zigzag`, `CrossHatch`, `Dots`,
+/// `Dashed` or `ZigzagLine`.
+pub using @moon_rough {type FillStyle}
+
+///|
 /// Options of the hand-drawn style.
 pub struct SketchOptions {
   /// the base seed; each shape derives its own from it
@@ -17,7 +22,7 @@ pub struct SketchOptions {
   roughness : Double
   /// how much the lines bow (rough.js `bowing`, default 1)
   bowing : Double
-  fill_style : @moon_rough.FillStyle
+  fill_style : FillStyle
   /// distance between hachure lines; rough.js uses four times the stroke width when absent
   hachure_gap : Double?
   /// width of the hachure lines; rough.js uses half the stroke width when absent
@@ -29,7 +34,7 @@ pub fn SketchOptions::new(
   seed~ : Int32 = 1,
   roughness~ : Double = 1.0,
   bowing~ : Double = 1.0,
-  fill_style~ : @moon_rough.FillStyle = Hachure,
+  fill_style~ : FillStyle = Hachure,
   hachure_gap? : Double,
   fill_weight? : Double,
 ) -> SketchOptions {

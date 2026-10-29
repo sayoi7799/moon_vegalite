@@ -14,7 +14,7 @@ const LIMIT = 50000;
 const stripAria = (s) => s.replace(/ (role|aria-roledescription|aria-label)="[^"]*"/g, '');
 
 /** Keep only the data fields that the spec text refers to (in every data source, also those inside layers). */
-function project(spec) {
+export function project(spec) {
   const stripped = JSON.stringify(spec, (k, v) => (k === 'values' ? undefined : v));
   const out = JSON.parse(JSON.stringify(spec));
   (function walk(node) {

@@ -13,6 +13,7 @@
     "serve": "node serve_site.mjs"
   },
   "dependencies": {
+    "roughjs": "4.6.6",
     "vega": "5.33.1",
     "vega-datasets": "3.2.1",
     "vega-lite": "5.23.0"
