@@ -73,15 +73,16 @@ jobs:
         run: |
           npm ci
           npm run fixtures
+          npm run site-examples
       - name: Format the generated sources like the committed ones
         run: |
           moon update
           moon fmt
       - name: Fixtures are up to date
         run: |
-          if ! git diff --quiet -- fixtures scale util; then
-            files=$(git diff --name-only -- fixtures scale util | paste -sd, -)
+          if ! git diff --quiet -- fixtures scale util site; then
+            files=$(git diff --name-only -- fixtures scale util site | paste -sd, -)
             echo "::error::fixtures differ: $files"
-            git diff -- fixtures scale util | head -60
+            git diff -- fixtures scale util site | head -60
             exit 1
           fi

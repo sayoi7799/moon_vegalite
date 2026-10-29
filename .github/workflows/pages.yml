@@ -1,0 +1,67 @@
+name: Pages
+
+# Builds the demo page (site/ + the js build of the web package) on every push and pull request,
+# and publishes it to GitHub Pages from main.
+# One-time setup: Settings -> Pages -> Source: GitHub Actions.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install MoonBit
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - name: Update the package registry
+        run: moon update
+      - name: Build the web package (js)
+        run: moon build --target js --release
+      - name: Assemble the site
+        run: node scripts/build_site.mjs
+      - name: Smoke test the built module
+        run: |
+          node --input-type=module -e '
+            const { pathToFileURL } = await import("node:url");
+            const { render, version } = await import(pathToFileURL(process.cwd() + "/_site/web.js").href);
+            const ok = render(JSON.stringify({data:{values:[{a:"A",b:1}]},mark:"bar",encoding:{x:{field:"a",type:"nominal"},y:{field:"b",type:"quantitative"}}}));
+            if (!ok.startsWith("<svg ")) throw new Error("no SVG: " + ok.slice(0, 80));
+            const bad = render(JSON.stringify({data:{values:[]},mark:"bar",params:[{}]}));
+            if (bad !== "ERROR: params 暂不支持") throw new Error("unexpected error text: " + bad);
+            console.log("web.js " + version() + " renders and reports errors");
+          '
+      - uses: actions/configure-pages@v5
+        if: github.ref == 'refs/heads/main'
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: _site
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
