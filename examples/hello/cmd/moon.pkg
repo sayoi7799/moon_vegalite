@@ -1,0 +1,5 @@
+import {
+  "sayoi7799/moon_vegalite",
+}
+
+pkgtype(kind: "executable")

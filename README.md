@@ -1,8 +1,54 @@
 # moon_vegalite
 
+[中文说明](README.zh.md)
+
 A spec-driven [Vega-Lite](https://vega.github.io/vega-lite/) renderer written in MoonBit.
 A Vega-Lite JSON specification goes in; a backend-neutral **scenegraph** and an **SVG** string come out.
-It runs on the `wasm-gc`, `js` and `native` backends and has no dependency outside the MoonBit core library.
+It runs on the `wasm-gc`, `js` and `native` backends; the library packages use nothing but the MoonBit core library (only the
+`vl2svg` tool uses `moonbitlang/x`, to read and write files).
+
+## Quick start
+
+A Vega-Lite specification (JSON text) in, an SVG document out
+([`examples/hello`](examples/hello), a complete project you can run):
+
+```moonbit
+let spec : String =
+  #|{
+  #|  "data": {"values": [{"a": "A", "b": 28}, {"a": "B", "b": 55}, {"a": "C", "b": 43}]},
+  #|  "mark": "bar",
+  #|  "encoding": {
+  #|    "x": {"field": "a", "type": "nominal"},
+  #|    "y": {"field": "b", "type": "quantitative"}
+  #|  }
+  #|}
+
+fn main {
+  let svg = @moon_vegalite.render_svg(spec) catch {
+    e => {
+      println("error: " + e.message())   // names the JSON path of an unsupported feature
+      return
+    }
+  }
+  println(svg)
+}
+```
+
+```sh
+git clone https://github.com/sayoi7799/moon_vegalite
+cd moon_vegalite/examples/hello
+moon run cmd > bar.svg                     # open bar.svg in a browser
+```
+
+The same chart from the command line, with the `vl2svg` tool of this repository:
+
+```sh
+cd moon_vegalite
+moon run cmd/vl2svg --target native -- examples/bar_basic.vl.json bar.svg   # SVG file (stdout without the second argument)
+moon run cmd/vl2svg --target native -- --scene examples/bar_basic.vl.json   # scenegraph JSON, with the bounds of every item
+```
+
+The library API (`moon_vegalite.mbt`):
 
 ```moonbit
 let svg = @moon_vegalite.render_svg(spec_json)        // SVG document
@@ -10,15 +56,59 @@ let c = @moon_vegalite.compile(spec_json)             // scenegraph + view metad
 let scene = @moon_vegalite.scene_json(c)              // the scenegraph as JSON
 ```
 
-```sh
-moon build --target native cmd/vl2svg
-vl2svg spec.vl.json chart.svg        # SVG file (stdout without the second argument)
-vl2svg --scene spec.vl.json          # scenegraph JSON, with the bounds of every item
+### Installation
+
+Requirements: the [MoonBit toolchain](https://www.moonbitlang.com/download/) (developed and tested with `moon 0.1.20261016`).
+
+The module `sayoi7799/moon_vegalite` is not on mooncakes.io yet, so it is used from a local checkout through a
+`moon.work` workspace. In your own module (see [`examples/hello`](examples/hello) for the whole layout):
+
+```
+// moon.mod
+import {
+  "sayoi7799/moon_vegalite@0.1.0",
+}
+```
+
+```
+// moon.work, next to your moon.mod
+members = [
+  ".",
+  "../moon_vegalite",   // the checkout
+]
+```
+
+```
+// your package's moon.pkg
+import {
+  "sayoi7799/moon_vegalite",
+}
 ```
 
 Repositories: [GitHub](https://github.com/sayoi7799/moon_vegalite) · [GitLink](https://gitlink.org.cn/sayoi7799/moon_vegalite).
 
-See the [gallery](gallery/index.html): the SVG from this library next to the official vega output.
+## From a CSV file with MoonFrame
+
+[`examples/moonframe_demo`](examples/moonframe_demo) reads a CSV with [MoonFrame](https://github.com/ihb2032/MoonFrame),
+summarises it, lets MoonFrame generate the Vega-Lite specification and renders it to SVG with this library, all in one
+MoonBit program and without the Vega editor. The three SVG files it writes are identical to the official vega output.
+MoonFrame 0.7.0 needs a small setup step with the current toolchain, which the demo's `setup.sh` performs and its README explains.
+
+## Side by side with the official output
+
+Left: this library. Right: vega-lite 5.23.0 + vega 5.33.1. Apart from the accessibility attributes the SVG text is identical.
+Open [`gallery/index.html`](gallery/index.html) directly in a browser (no server needed) for all 30 charts.
+
+![the gallery page](docs/gallery.png)
+
+| Chart | moon_vegalite | official vega |
+| --- | --- | --- |
+| `stacked_bar_v` | <img src="gallery/ours/stacked_bar_v.svg" width="320" alt="moon_vegalite: stacked_bar_v"> | <img src="gallery/official/stacked_bar_v.svg" width="320" alt="vega: stacked_bar_v"> |
+| `point_color` | <img src="gallery/ours/point_color.svg" width="320" alt="moon_vegalite: point_color"> | <img src="gallery/official/point_color.svg" width="320" alt="vega: point_color"> |
+| `layer_bar_line` | <img src="gallery/ours/layer_bar_line.svg" width="320" alt="moon_vegalite: layer_bar_line"> | <img src="gallery/official/layer_bar_line.svg" width="320" alt="vega: layer_bar_line"> |
+| `layer_histogram` | <img src="gallery/ours/layer_histogram.svg" width="320" alt="moon_vegalite: layer_histogram"> | <img src="gallery/official/layer_histogram.svg" width="320" alt="vega: layer_histogram"> |
+| `layer_color_legend_left` | <img src="gallery/ours/layer_color_legend_left.svg" width="320" alt="moon_vegalite: layer_color_legend_left"> | <img src="gallery/official/layer_color_legend_left.svg" width="320" alt="vega: layer_color_legend_left"> |
+| `layer_circle_independent_color` | <img src="gallery/ours/layer_circle_independent_color.svg" width="320" alt="moon_vegalite: layer_circle_independent_color"> | <img src="gallery/official/layer_circle_independent_color.svg" width="320" alt="vega: layer_circle_independent_color"> |
 
 ## Positioning and differences from other charting libraries
 
@@ -51,7 +141,7 @@ See the [gallery](gallery/index.html): the SVG from this library next to the off
 | Layout | single view or `layer` (nested layers, inherited `data` / `transform` / `encoding`, `resolve.scale` / `legend`), `autosize: pad`, `width` / `height` as numbers or `{step}` |
 | Config | accepted keys are recorded; a subset (`view`, `scale.zero`, …) is honoured |
 
-Not supported — each raises an error that names the JSON path: `params` / `selection`, `tooltip`, `projection`, `layer`,
+Not supported — each raises an error that names the JSON path: `params` / `selection`, `tooltip`, `projection`,
 `facet`, `concat` (`hconcat` / `vconcat`), `repeat`, `data.url` (embed `data.values` instead), `condition`, and the full
 Vega expression language (only the subset used by `calculate` / `filter` is implemented). Gradient legends for
 quantitative colour is limited to the default blues ramp (no `scale` options on non-positional channels).
@@ -66,7 +156,7 @@ Every expected value in the tests comes from the official packages, never from t
 | number formatting, ticks, `nice`, time formats, scales | d3 / vega-format / vega-scale as bundled in vega 5.33.1 | `fixtures/{numfmt,ticks,formatcases,timecases,scalecases}` |
 | expressions, data transforms | vega-expression, vega-transforms | `fixtures/{exprcases,transformcases}` |
 | scenegraph bounds, SVG | vega-scenegraph | `fixtures/scenecases` |
-| **end to end: 60 official Vega-Lite examples, edge cases, MoonFrame specs** | vega-lite 5.23.0 compile + vega scenegraph and SVG | `fixtures/vlexamples` |
+| **end to end: 78 official Vega-Lite examples (15 of them `layer_*`), edge cases, MoonFrame specs** | vega-lite 5.23.0 compile + vega scenegraph and SVG | `fixtures/vlexamples` |
 
 For the end-to-end cases the scenegraph (every mark, item property and bounds, numbers within a relative `1e-9`) and the
 SVG text (exactly, ignoring only the accessibility `role` / `aria-label` attributes) must equal the official output.

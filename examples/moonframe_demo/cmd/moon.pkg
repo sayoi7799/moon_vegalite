@@ -1,0 +1,9 @@
+import {
+  "ihb2032/MoonFrame" @moonframe,
+  "ihb2032/MoonFrame/io" @mfio,
+  "sayoi7799/moon_vegalite",
+}
+
+pkgtype(kind: "executable")
+
+warnings = "-alert_engine"

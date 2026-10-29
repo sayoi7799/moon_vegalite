@@ -18,6 +18,10 @@ const items = [
   ['circle', 'Circles'], ['line', 'Time series line'], ['line_month', 'Monotone line over a time unit'], ['area', 'Area chart'],
   ['bar_month', 'Bars over a time unit'], ['tick_strip', 'Tick strip'], ['rule_extent', 'Rule ranges'], ['text_scatterplot_colored', 'Coloured text marks'],
   ['point_log', 'Log scale'],
+  ['point_ordinal_color', 'Ordinal colour'], ['stacked_area_ordinal', 'Stacked area, ordinal colour'],
+  ['layer_bar_line', 'Layers: bars and a line'], ['layer_histogram', 'Layers: shared bins'], ['layer_histogram_global_mean', 'Layers: histogram and a mean rule'],
+  ['layer_rect_extent', 'Layers: a rect over the extent'], ['layer_bar_annotations', 'Layers: annotated bars'], ['layer_line_datum_rule', 'Layers: a datum rule'],
+  ['layer_color_legend_left', 'Layers: legend on the left'], ['layer_circle_independent_color', 'Layers: independent legends'],
 ];
 const files = items.map(([n, t]) => ({ name: n, title: t, file: path.join(specDir, n + '.vl.json') }));
 for (const n of ['bar', 'bar_stacked', 'point_color', 'line', 'bar_titled']) {
