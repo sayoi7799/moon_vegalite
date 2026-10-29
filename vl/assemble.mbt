@@ -8,15 +8,19 @@ fn assemble(
   title : Title?,
   width : Double,
   height : Double,
+  // vega-lite styles a view "cell" (stroked) only when it has an x or y channel, otherwise "view"
+  framed~ : Bool = true,
 ) -> Compiled raise CompileError {
   let root = mk_item([
     ("fill", str("transparent")),
-    ("stroke", str("#ddd")),
     ("x", num(0.0)),
     ("y", num(0.0)),
     ("width", num(width)),
     ("height", num(height)),
   ])
+  if framed {
+    root.set_str("stroke", "#ddd")
+  }
   try {
     for m in marks {
       @scene.bound_mark(m)

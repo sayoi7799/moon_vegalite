@@ -1,0 +1,1 @@
+{"data": {"values": [{"region": "all", "sales": 10}]}, "mark": {"type": "arc", "innerRadius": 20}, "encoding": {"theta": {"field": "sales", "type": "quantitative"}, "color": {"field": "region", "type": "nominal"}}}

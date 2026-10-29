@@ -60,6 +60,7 @@ fn legends_of(
   has_color_field : Bool,
   default_opacity : Double?,
   shape_override? : String,
+  mark_stroke? : String,
 ) -> Array[Legend] raise CompileError {
   let groups : Array[Array[LegCh]] = []
   for c in chs {
@@ -135,6 +136,11 @@ fn legends_of(
       }
     } else if !g.any(fn(c) { c.channel == "fill" }) {
       symbol["fill"] = str("transparent")
+    }
+    // a stroke given to the mark is drawn on the legend symbols too
+    match mark_stroke {
+      Some(c) if filled => symbol["stroke"] = str(c)
+      _ => ()
     }
     if !has_opacity && default_opacity is Some(o) {
       symbol["opacity"] = num(o)

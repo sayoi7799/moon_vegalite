@@ -1,3 +1,5 @@
+arc_donut
+arc_pie
 area
 area_vertical
 bar

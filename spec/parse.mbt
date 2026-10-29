@@ -3,25 +3,25 @@
 ///|
 let supported_marks : Array[String] = [
   "bar", "line", "point", "area", "rule", "tick", "rect", "text", "circle", "square",
+  "arc",
 ]
 
 ///|
 let known_unsupported_marks : Array[String] = [
-  "arc", "trail", "geoshape", "image", "boxplot", "errorbar", "errorband",
+  "trail", "geoshape", "image", "boxplot", "errorbar", "errorband",
 ]
 
 ///|
 let supported_channels : Array[String] = [
-  "x", "y", "x2", "y2", "color", "size", "shape", "opacity", "text",
+  "x", "y", "x2", "y2", "color", "size", "shape", "opacity", "text", "theta",
 ]
 
 ///|
 let unsupported_channels : Array[String] = [
   "detail", "order", "tooltip", "href", "key", "fill", "stroke", "strokeWidth", "strokeDash",
-  "fillOpacity", "strokeOpacity", "xOffset", "yOffset", "theta", "theta2", "radius",
-  "radius2", "latitude", "longitude", "latitude2", "longitude2", "row", "column",
-  "facet", "url", "description", "time", "angle", "xError", "yError", "xError2",
-  "yError2",
+  "fillOpacity", "strokeOpacity", "xOffset", "yOffset", "theta2", "radius", "radius2",
+  "latitude", "longitude", "latitude2", "longitude2", "row", "column", "facet", "url",
+  "description", "time", "angle", "xError", "yError", "xError2", "yError2",
 ]
 
 ///|
@@ -34,16 +34,16 @@ let supported_mark_props : Array[String] = [
   "width", "height", "align", "baseline", "dx", "dy", "angle", "font", "fontSize",
   "fontWeight", "fontStyle", "text", "limit", "ellipsis", "lineBreak", "lineHeight",
   "thickness", "minBandSize", "discreteBandSize", "shape", "invalid", "x", "y", "x2",
-  "y2", "radius", "blend", "ariaRole",
+  "y2", "radius", "blend", "ariaRole", "innerRadius", "outerRadius", "padAngle",
 ]
 
 ///|
 let unsupported_mark_props : Array[String] = [
-  "point", "line", "tooltip", "clip", "href", "cursor", "style", "innerRadius", "outerRadius",
-  "padAngle", "theta", "theta2", "radius2", "aspect", "url", "smooth", "radiusOffset",
-  "thetaOffset", "timeUnitBandPosition", "timeUnitBandSize", "bandSize", "xOffset",
-  "yOffset", "x2Offset", "y2Offset", "dir", "description", "ariaRoleDescription",
-  "aria", "endAngle", "startAngle", "tooltipContent", "overlay",
+  "point", "line", "tooltip", "clip", "href", "cursor", "style", "theta", "theta2",
+  "radius2", "aspect", "url", "smooth", "radiusOffset", "thetaOffset", "timeUnitBandPosition",
+  "timeUnitBandSize", "bandSize", "xOffset", "yOffset", "x2Offset", "y2Offset", "dir",
+  "description", "ariaRoleDescription", "aria", "endAngle", "startAngle", "tooltipContent",
+  "overlay",
 ]
 
 ///|

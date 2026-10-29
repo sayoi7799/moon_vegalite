@@ -338,3 +338,87 @@ test "only the side of a symbol legend can be set" {
     content="encoding.color.legend.title 暂不支持",
   )
 }
+
+///|
+test "arc: what is not implemented fails with its path" {
+  let theta = "\"theta\":{\"field\":\"b\",\"type\":\"quantitative\"}"
+  // theta is required
+  inspect(
+    message_of(
+      enc("\"arc\"", "{\"color\":{\"field\":\"a\",\"type\":\"nominal\"}}"),
+    ),
+    content="encoding.theta 缺失 (mark arc 需要 theta 通道)",
+  )
+  // an arc has no x or y
+  inspect(
+    message_of(
+      enc(
+        "\"arc\"",
+        "{" + theta + ",\"x\":{\"field\":\"a\",\"type\":\"nominal\"}}",
+      ),
+    ),
+    content="encoding.x (mark arc) 暂不支持",
+  )
+  // theta is a quantity, only on arcs, and stacks only as zero or normalize
+  inspect(
+    message_of(
+      enc("\"arc\"", "{\"theta\":{\"field\":\"a\",\"type\":\"nominal\"}}"),
+    ),
+    content="encoding.theta.type nominal 暂不支持",
+  )
+  inspect(
+    message_of(enc("\"point\"", "{" + theta + "}")),
+    content="encoding.theta (mark point) 暂不支持",
+  )
+  inspect(
+    message_of(
+      enc(
+        "\"arc\"", "{\"theta\":{\"field\":\"b\",\"type\":\"quantitative\",\"stack\":\"center\"}}",
+      ),
+    ),
+    content="encoding.theta.stack 暂不支持",
+  )
+  // radius, theta2, tooltip and the polar properties of other marks
+  inspect(
+    message_of(
+      enc(
+        "\"arc\"",
+        "{" + theta + ",\"radius\":{\"field\":\"c\",\"type\":\"quantitative\"}}",
+      ),
+    ),
+    content="encoding.radius 暂不支持",
+  )
+  inspect(
+    message_of(enc("\"arc\"", "{" + theta + ",\"tooltip\":{\"field\":\"a\"}}")),
+    content="encoding.tooltip 暂不支持",
+  )
+  inspect(
+    message_of(
+      enc("{\"type\":\"arc\",\"innerRadius\":\"x\"}", "{" + theta + "}"),
+    ),
+    content="mark.innerRadius 暂不支持",
+  )
+  inspect(
+    message_of(enc("{\"type\":\"bar\",\"innerRadius\":10}", "{}")),
+    content="mark.innerRadius 暂不支持",
+  )
+  // a size is not an arc property
+  inspect(
+    message_of(
+      enc(
+        "\"arc\"",
+        "{" + theta + ",\"size\":{\"field\":\"c\",\"type\":\"quantitative\"}}",
+      ),
+    ),
+    content="encoding.size 暂不支持用于 mark arc",
+  )
+  // the angle scale takes only a range of two numbers
+  inspect(
+    message_of(
+      enc(
+        "\"arc\"", "{\"theta\":{\"field\":\"b\",\"type\":\"quantitative\",\"scale\":{\"type\":\"sqrt\"}}}",
+      ),
+    ),
+    content="encoding.theta.scale.type 暂不支持",
+  )
+}

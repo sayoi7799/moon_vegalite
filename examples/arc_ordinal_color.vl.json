@@ -1,0 +1,1 @@
+{"data": {"values": [{"level": "0", "n": 5}, {"level": "1", "n": 9}, {"level": "2", "n": 3}, {"level": "3", "n": 7}]}, "mark": "arc", "encoding": {"theta": {"field": "n", "type": "quantitative"}, "color": {"field": "level", "type": "ordinal"}}}

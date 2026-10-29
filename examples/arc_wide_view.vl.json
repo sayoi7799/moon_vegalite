@@ -1,0 +1,1 @@
+{"data": {"values": [{"region": "north", "sales": 34}, {"region": "south", "sales": 21}, {"region": "east", "sales": 48}, {"region": "west", "sales": 12}, {"region": "centre", "sales": 30}]}, "width": 320, "height": 180, "mark": {"type": "arc", "opacity": 0.6}, "encoding": {"theta": {"field": "sales", "type": "quantitative"}, "color": {"field": "region", "type": "nominal"}}}

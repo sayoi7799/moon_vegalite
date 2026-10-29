@@ -13,6 +13,12 @@ let honoured_mark_props : Array[String] = [
 ]
 
 ///|
+/// Mark properties that only mean something for `arc`.
+let honoured_arc_props : Array[String] = [
+  "innerRadius", "outerRadius", "padAngle", "cornerRadius", "stroke", "strokeWidth",
+]
+
+///|
 /// Mark properties that only mean something for `text`.
 let honoured_text_props : Array[String] = [
   "align", "baseline", "dx", "dy", "fontSize", "text", "x", "y",
@@ -95,6 +101,7 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
     if !honoured_mark_props.contains(k) &&
       !(spec.mark.typ == "text" && honoured_text_props.contains(k)) &&
       !(spec.mark.typ == "rule" && honoured_rule_props.contains(k)) &&
+      !(spec.mark.typ == "arc" && honoured_arc_props.contains(k)) &&
       !(spec.mark.typ == "line" && k == "size") {
       raise nope("mark." + k)
     }
@@ -116,6 +123,21 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
     match spec.mark.props.get("text") {
       Some(Str(_)) | None => ()
       Some(_) => raise nope("mark.text")
+    }
+  }
+  if spec.mark.typ == "arc" {
+    for
+      k in [
+        "innerRadius", "outerRadius", "padAngle", "cornerRadius", "strokeWidth",
+      ] {
+      match spec.mark.props.get(k) {
+        Some(Num(_)) | None => ()
+        Some(_) => raise nope("mark." + k)
+      }
+    }
+    match spec.mark.props.get("stroke") {
+      Some(Str(_)) | None => ()
+      Some(_) => raise nope("mark.stroke")
     }
   }
   match spec.mark.props.get("strokeDash") {
@@ -141,11 +163,21 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
       }
     }
   }
+  // an arc is drawn around the middle of the view, by its angle
+  if mark == "arc" {
+    let has_theta = spec.encoding.any(fn(e) { e.0 == "theta" })
+    if !has_theta {
+      raise CompileError("encoding.theta 缺失 (mark arc 需要 theta 通道)")
+    }
+  }
   for e in spec.encoding {
     let (name, d) = e
     let path = "encoding." + name
     let positional = name == "x" || name == "y"
     let typ = inferred_type(d)
+    if mark == "arc" && (positional || name == "x2" || name == "y2") {
+      raise nope(path + " (mark arc)")
+    }
     if d.sort is Some(_) &&
       !(positional && (typ == "nominal" || typ == "ordinal")) {
       raise nope(path + ".sort")
@@ -153,7 +185,11 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
     match d.stack {
       Some("none") => ()
       Some(o) =>
-        if !(positional && (mark == "bar" || mark == "area")) ||
+        if name == "theta" {
+          if !(o == "zero" || o == "normalize") {
+            raise nope(path + ".stack")
+          }
+        } else if !(positional && (mark == "bar" || mark == "area")) ||
           !(o == "zero" || o == "normalize" || o == "center") {
           raise nope(path + ".stack")
         }
@@ -233,12 +269,25 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
           typ != "nominal" &&
           typ != "ordinal" &&
           d.bin is None
-        for k, _ in m {
-          if !allowed || !honoured_scale_props.contains(k) {
-            raise nope(path + ".scale." + k)
+        if name == "theta" {
+          // the angles the value range maps to, in radians
+          for k, v in m {
+            let two_numbers = match v {
+              Arr([Num(_), Num(_)]) => true
+              _ => false
+            }
+            if k != "range" || !two_numbers {
+              raise nope(path + ".scale." + k)
+            }
           }
-          if typ == "temporal" && k != "type" {
-            raise nope(path + ".scale." + k)
+        } else {
+          for k, _ in m {
+            if !allowed || !honoured_scale_props.contains(k) {
+              raise nope(path + ".scale." + k)
+            }
+            if typ == "temporal" && k != "type" {
+              raise nope(path + ".scale." + k)
+            }
           }
         }
       }
@@ -250,6 +299,14 @@ pub fn validate(spec : @spec.Spec) -> Unit raise CompileError {
           raise nope(path + " (mark " + mark + ")")
         }
       "text" => if mark != "text" { raise nope(path + " (mark " + mark + ")") }
+      "theta" => {
+        if mark != "arc" {
+          raise nope(path + " (mark " + mark + ")")
+        }
+        if typ != "quantitative" {
+          raise nope(path + ".type " + typ)
+        }
+      }
       "color" =>
         if d.field is Some(_) &&
           typ != "nominal" &&
