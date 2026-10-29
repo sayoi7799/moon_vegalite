@@ -1,0 +1,4 @@
+import {
+  "moonbitlang/core/bench",
+  "sayoi7799/moon_vegalite",
+} for "test"
