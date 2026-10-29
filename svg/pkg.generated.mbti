@@ -11,14 +11,33 @@ pub fn render_svg(@scene.Mark, SvgOptions) -> String raise @scene.SceneError
 // Errors
 
 // Types and methods
+pub(all) struct Shape {
+  kind : ShapeKind
+  item : @scene.Item
+  d : String
+  transform : String?
+  position : Array[Int32]
+}
+
+pub(all) enum ShapeKind {
+  Rect
+  Rule
+  Symbol
+  Line
+  Area
+  Background
+  Foreground
+}
+
 pub struct SvgOptions {
   width : Double
   height : Double
   origin : (Double, Double)
   background : String?
   scale : Double
+  shapes : ((Shape) -> String?)?
 }
-pub fn SvgOptions::new(Double, Double, origin? : (Double, Double), background? : String, scale? : Double) -> Self
+pub fn SvgOptions::new(Double, Double, origin? : (Double, Double), background? : String, scale? : Double, shapes? : (Shape) -> String?) -> Self
 
 // Type aliases
 

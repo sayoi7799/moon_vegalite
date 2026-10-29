@@ -100,11 +100,49 @@ fn Markup::close(self : Markup) -> Unit {
 }
 
 ///|
+/// Write ready-made markup in place of an element (an element the caller drew itself).
+fn Markup::raw(self : Markup, markup : String) -> Unit {
+  if self.outer != "" {
+    self.buf.write_string(self.outer + ">" + self.inner)
+    self.clear()
+  }
+  self.buf.write_string(markup)
+}
+
+///|
 fn Markup::text(self : Markup, t : String) -> Unit {
   self.inner = self.inner + inner_text(t)
 }
 
 // ---- rendering ----
+
+///|
+/// What a `Shape` is, i.e. which part of the scenegraph it was made from.
+pub(all) enum ShapeKind {
+  Rect
+  Rule
+  Symbol
+  Line
+  Area
+  /// the background of a group (the plot frame)
+  Background
+  /// the stroke of a group drawn above its content
+  Foreground
+}
+
+///|
+/// A graphic element the renderer is about to write, offered to `SvgOptions::shapes`.
+pub(all) struct Shape {
+  kind : ShapeKind
+  /// the scenegraph item: its geometry (`x`, `y`, `width`, ...) and style (`fill`, `stroke`, ...)
+  item : @scene.Item
+  /// the path data of the element (empty for a rule)
+  d : String
+  /// the `transform` of the element (symbols), if it has one
+  transform : String?
+  /// where the shape is in the scenegraph: the index of the item, of the mark inside its group, ...
+  position : Array[Int32]
+}
 
 ///|
 /// Output options for `render_svg`.
@@ -115,6 +153,9 @@ pub struct SvgOptions {
   origin : (Double, Double)
   background : String?
   scale : Double
+  /// Draws a shape itself: the markup it returns replaces the element. `None` keeps the
+  /// standard element. Text is never offered.
+  shapes : ((Shape) -> String?)?
 }
 
 ///|
@@ -124,8 +165,9 @@ pub fn SvgOptions::new(
   origin~ : (Double, Double) = (0.0, 0.0),
   background? : String,
   scale~ : Double = 1.0,
+  shapes? : (Shape) -> String?,
 ) -> SvgOptions {
-  { width, height, origin, background, scale, }
+  { width, height, origin, background, scale, shapes, }
 }
 
 ///|
@@ -137,6 +179,33 @@ priv struct Defs {
   clips : Array[(String, @scene.Item)]
   mut next_clip : Int32
   gradients : Array[(String, @value.Value)]
+  shapes : ((Shape) -> String?)?
+  /// position of the item being rendered (see `Shape::position`)
+  path : Array[Int32]
+}
+
+///|
+/// Let `SvgOptions::shapes` draw a shape; true when it did.
+fn Markup::try_shape(
+  self : Markup,
+  defs : Defs,
+  kind : ShapeKind,
+  item : @scene.Item,
+  d : () -> String,
+  transform : String?,
+) -> Bool {
+  match defs.shapes {
+    None => false
+    Some(draw) =>
+      match
+        draw({ kind, item, d: d(), transform, position: defs.path.copy(), }) {
+        Some(markup) => {
+          self.raw(markup)
+          true
+        }
+        None => false
+      }
+  }
 }
 
 ///|
@@ -347,14 +416,32 @@ fn render_mark(
       } else {
         @scene.area_path(mark.items)
       }
-      a.emit("d", if d == "" { None } else { Some(d) })
-      style_attrs(a, item, mark.interactive, tag, defs)
-      m.open(tag, [a])
-      m.close()
+      defs.path.push(0)
+      let drawn = d != "" &&
+        m.try_shape(
+          defs,
+          if mark.marktype is Line {
+            Line
+          } else {
+            Area
+          },
+          item,
+          fn() { d },
+          None,
+        )
+      ignore(defs.path.pop())
+      if !drawn {
+        a.emit("d", if d == "" { None } else { Some(d) })
+        style_attrs(a, item, mark.interactive, tag, defs)
+        m.open(tag, [a])
+        m.close()
+      }
     }
   } else {
-    for item in mark.items {
-      render_item(m, mark, item, tag, defs)
+    for i in 0..<mark.items.length() {
+      defs.path.push(i)
+      render_item(m, mark, mark.items[i], tag, defs)
+      ignore(defs.path.pop())
     }
   }
   m.close()
@@ -368,6 +455,21 @@ fn render_item(
   tag : String,
   defs : Defs,
 ) -> Unit raise @scene.SceneError {
+  let drawn = match mark.marktype {
+    Rect => m.try_shape(defs, Rect, item, fn() { @scene.rect_path(item) }, None)
+    Rule => m.try_shape(defs, Rule, item, fn() { "" }, None)
+    Symbol =>
+      if defs.shapes is Some(_) {
+        let d = @scene.symbol_path(item)
+        m.try_shape(defs, Symbol, item, fn() { d }, Some(rotate_item(item)))
+      } else {
+        false
+      }
+    _ => false
+  }
+  if drawn {
+    return
+  }
   let a = Attrs::new()
   item_aria(a, item)
   match mark.marktype {
@@ -466,29 +568,43 @@ fn render_group_content(
   let stroke = item.get("stroke")
   let has_fore_stroke = fore && stroke.truthy()
   // background (without the stroke when it is drawn in the foreground)
-  let bg = Attrs::new()
-  bg.emit("class", Some("background"))
-  bg.emit("aria-hidden", Some("true"))
-  bg.emit("d", Some(@scene.rect_path(item, x=off, y=off)))
   let bg_item = if has_fore_stroke {
     with_prop(item, "stroke", Null)
   } else {
     item
   }
-  style_attrs(bg, bg_item, mark.interactive, "bgrect", defs)
-  m.open("path", [bg])
-  m.close()
+  let frame = fn() { @scene.rect_path(item, x=off, y=off) }
+  if !m.try_shape(defs, Background, bg_item, frame, None) {
+    let bg = Attrs::new()
+    bg.emit("class", Some("background"))
+    bg.emit("aria-hidden", Some("true"))
+    bg.emit("d", Some(@scene.rect_path(item, x=off, y=off)))
+    style_attrs(bg, bg_item, mark.interactive, "bgrect", defs)
+    m.open("path", [bg])
+    m.close()
+  }
   // content
   let content = Attrs::new()
   if item.truthy("clip") {
     content.emit("clip-path", Some(clip_ref(defs, item)))
   }
   m.open("g", [content])
-  for child in ordered_marks(item) {
-    render_mark(m, child, Some(item), defs)
+  let children = ordered_marks(item)
+  for j in 0..<children.length() {
+    defs.path.push(j)
+    render_mark(m, children[j], Some(item), defs)
+    ignore(defs.path.pop())
   }
   m.close()
   // foreground
+  let fi = if has_fore_stroke && item.truthy("fill") {
+    with_prop(item, "fill", Null)
+  } else {
+    item
+  }
+  if has_fore_stroke && m.try_shape(defs, Foreground, fi, frame, None) {
+    return
+  }
   let fg = Attrs::new()
   fg.emit("class", Some("foreground"))
   fg.emit("aria-hidden", Some("true"))
@@ -498,11 +614,6 @@ fn render_group_content(
     fg.emit("d", Some(""))
   }
   if has_fore_stroke {
-    let fi = if item.truthy("fill") {
-      with_prop(item, "fill", Null)
-    } else {
-      item
-    }
     style_attrs(fg, fi, mark.interactive, "bgrect", defs)
   } else {
     style_attrs(fg, item, mark.interactive, "bgfore", defs)
@@ -559,7 +670,13 @@ pub fn render_svg(
 ) -> String raise @scene.SceneError {
   let m = Markup::new()
   gradient_counter.val = 0
-  let defs : Defs = { clips: [], next_clip: 1, gradients: [], }
+  let defs : Defs = {
+    clips: [],
+    next_clip: 1,
+    gradients: [],
+    shapes: opts.shapes,
+    path: [],
+  }
   let root = Attrs::new()
   root.emit("xmlns", Some("http://www.w3.org/2000/svg"))
   root.emit("xmlns:xlink", Some("http://www.w3.org/1999/xlink"))
