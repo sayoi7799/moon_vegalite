@@ -131,13 +131,23 @@ pub(all) enum ShapeKind {
 }
 
 ///|
+/// The outline of a `Shape`.
+pub(all) enum Geometry {
+  /// an axis-aligned rectangle with square corners: x, y, width, height
+  Box(Double, Double, Double, Double)
+  /// a straight line: x1, y1, x2, y2
+  Segment(Double, Double, Double, Double)
+  /// anything else, as SVG path data (symbols are centred on the origin, see `Shape::transform`)
+  Path(String)
+}
+
+///|
 /// A graphic element the renderer is about to write, offered to `SvgOptions::shapes`.
 pub(all) struct Shape {
   kind : ShapeKind
-  /// the scenegraph item: its geometry (`x`, `y`, `width`, ...) and style (`fill`, `stroke`, ...)
+  /// the scenegraph item with the style (`fill`, `stroke`, `strokeWidth`, `opacity`, ...)
   item : @scene.Item
-  /// the path data of the element (empty for a rule)
-  d : String
+  geometry : Geometry
   /// the `transform` of the element (symbols), if it has one
   transform : String?
   /// where the shape is in the scenegraph: the index of the item, of the mark inside its group, ...
@@ -185,20 +195,36 @@ priv struct Defs {
 }
 
 ///|
+/// A rect-like item: a box, unless a corner is rounded.
+fn box_of(item : @scene.Item, x : Double, y : Double) -> Geometry {
+  if item.has_corner_radius() {
+    Path(@scene.rect_path(item, x~, y~))
+  } else {
+    Box(x, y, item.num0("width"), item.num0("height"))
+  }
+}
+
+///|
 /// Let `SvgOptions::shapes` draw a shape; true when it did.
 fn Markup::try_shape(
   self : Markup,
   defs : Defs,
   kind : ShapeKind,
   item : @scene.Item,
-  d : () -> String,
+  geometry : () -> Geometry,
   transform : String?,
 ) -> Bool {
   match defs.shapes {
     None => false
     Some(draw) =>
       match
-        draw({ kind, item, d: d(), transform, position: defs.path.copy(), }) {
+        draw({
+          kind,
+          item,
+          geometry: geometry(),
+          transform,
+          position: defs.path.copy(),
+        }) {
         Some(markup) => {
           self.raw(markup)
           true
@@ -426,7 +452,7 @@ fn render_mark(
             Area
           },
           item,
-          fn() { d },
+          fn() { Path(d) },
           None,
         )
       ignore(defs.path.pop())
@@ -456,12 +482,47 @@ fn render_item(
   defs : Defs,
 ) -> Unit raise @scene.SceneError {
   let drawn = match mark.marktype {
-    Rect => m.try_shape(defs, Rect, item, fn() { @scene.rect_path(item) }, None)
-    Rule => m.try_shape(defs, Rule, item, fn() { "" }, None)
+    Rect =>
+      m.try_shape(
+        defs,
+        Rect,
+        item,
+        fn() { box_of(item, item.num0("x"), item.num0("y")) },
+        None,
+      )
+    Rule =>
+      m.try_shape(
+        defs,
+        Rule,
+        item,
+        fn() {
+          let x = item.num0("x")
+          let y = item.num0("y")
+          Segment(
+            x,
+            y,
+            match item.opt_num("x2") {
+              Some(v) => v
+              None => x
+            },
+            match item.opt_num("y2") {
+              Some(v) => v
+              None => y
+            },
+          )
+        },
+        None,
+      )
     Symbol =>
       if defs.shapes is Some(_) {
         let d = @scene.symbol_path(item)
-        m.try_shape(defs, Symbol, item, fn() { d }, Some(rotate_item(item)))
+        m.try_shape(
+          defs,
+          Symbol,
+          item,
+          fn() { Path(d) },
+          Some(rotate_item(item)),
+        )
       } else {
         false
       }
@@ -573,7 +634,7 @@ fn render_group_content(
   } else {
     item
   }
-  let frame = fn() { @scene.rect_path(item, x=off, y=off) }
+  let frame = fn() { box_of(item, off, off) }
   if !m.try_shape(defs, Background, bg_item, frame, None) {
     let bg = Attrs::new()
     bg.emit("class", Some("background"))

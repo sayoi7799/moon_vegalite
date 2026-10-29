@@ -11,10 +11,16 @@ pub fn render_svg(@scene.Mark, SvgOptions) -> String raise @scene.SceneError
 // Errors
 
 // Types and methods
+pub(all) enum Geometry {
+  Box(Double, Double, Double, Double)
+  Segment(Double, Double, Double, Double)
+  Path(String)
+}
+
 pub(all) struct Shape {
   kind : ShapeKind
   item : @scene.Item
-  d : String
+  geometry : Geometry
   transform : String?
   position : Array[Int32]
 }

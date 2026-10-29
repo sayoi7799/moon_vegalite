@@ -1,5 +1,6 @@
 import {
   "sayoi7799/moon_vegalite/scene",
+  "sayoi7799/moon_vegalite/sketch",
   "sayoi7799/moon_vegalite/svg",
   "sayoi7799/moon_vegalite/vl",
 }
