@@ -212,6 +212,8 @@ node scripts/build_site.mjs && node scripts/serve_site.mjs     # http://localhos
 
 ## 与官方实现的一致性
 
+整体流程、为什么能和官方输出一致、测试是怎么做的，见 [`docs/defense.md`](docs/defense.md)。
+
 测试里所有期望值都来自官方包，没有一个来自本仓库自己：
 
 | 层次 | 参照 | 位置 |

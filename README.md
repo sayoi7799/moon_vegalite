@@ -217,6 +217,8 @@ and the full Vega expression language (only the subset `calculate` and `filter` 
 
 ## Accuracy against the official implementation
 
+A short walkthrough of the pipeline, of why the output can be identical to the official one and of how the tests are made: [`docs/defense.md`](docs/defense.md) (in Chinese).
+
 Every expected value in the tests comes from the official packages, never from this repository:
 
 | Layer | Reference | Where |
