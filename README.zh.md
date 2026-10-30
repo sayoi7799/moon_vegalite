@@ -66,7 +66,7 @@ let scene = @moon_vegalite.scene_json(c)              // 场景图的 JSON 形�
 ```
 // moon.mod
 import {
-  "sayoi7799/moon_vegalite@0.1.0",
+  "sayoi7799/moon_vegalite@0.2.0",
 }
 ```
 
@@ -178,31 +178,41 @@ node scripts/build_site.mjs && node scripts/serve_site.mjs     # http://localhos
 
 ## 支持范围
 
+下面是已经实现的内容。其余一律报错并给出 JSON 路径（`encoding.color.condition 暂不支持`、`mark.tooltip 暂不支持`）；
+即使是已支持特性上的属性，没实现的也会报错，不会被悄悄忽略（`vl/validate.mbt`、`vl/errors_test.mbt`）。
+
 | 方面 | 支持内容 |
 | --- | --- |
+| 数据 | 内嵌的 `data.values`。不读取 `data.url` 和 `datasets`，`data.format.parse` 会报错：请把数据直接写进规格 |
 | 标记（mark） | `bar`、`line`、`point`、`circle`、`square`、`area`、`rule`、`tick`、`rect`、`text`、`arc` |
-| 通道 | `theta`（用于 `arc`）、`x`、`y`（字段或数值 `datum`）、`x2`、`y2`（用于 `rule`、`bar`、`rect`）、`color`（名义字段用分类色板，有序字段按取值个数从 blues 色带取样，定量字段用 blues 渐变并配渐变图例，常量值）、`size`、`opacity`、`shape`、`text`（`point`、`circle`、`square` 上的大小、透明度和形状；定量字段得到连续比例尺，形状为名义型） |
+| mark 属性 | `color`、`filled`、`opacity`、`interpolate`（`linear`、`step`、`step-before`、`step-after`、`monotone`）；`rule` 和 `line` 的 `size`（线宽）；`rule`：`strokeDash`；`text`：`align`、`baseline`、`dx`、`dy`、`fontSize`、`text`、`x`、`y`（`"width"` / `"height"` 或像素）；`arc`：`innerRadius`、`outerRadius`、`padAngle`、`cornerRadius`、`stroke`、`strokeWidth` |
+| 位置通道 | `x`、`y`（字段或数值 `datum`）、`x2`、`y2`（用于 `rule`、`bar`、`rect`：区间柱、区间矩形、横贯绘图区的线）、`theta`（用于 `arc`） |
+| 其他通道 | `color`（名义字段用分类色板，有序字段按取值个数从 blues 色带取样，定量字段用 blues 渐变并配渐变图例，常量值）、`size`、`opacity`（也可以是常量）、`shape`（名义型）、`text`（可带 `format`）；没有字段的 `aggregate: count` 可用于 size、颜色、透明度和形状 |
 | 字段类型 | `quantitative`、`ordinal`、`nominal`、`temporal` |
 | 聚合 | `count`、`sum`、`mean`、`average`、`min`、`max`、`median`、`distinct` 等（vega 的聚合操作） |
 | 变换 | `filter`（表达式或谓词）、`calculate`（表达式子集）、`aggregate`、`bin`、`timeUnit`、`fold`；字段上的 `bin`、`timeUnit`、`aggregate` |
 | 时间单位 | year、quarter、month、week、date、day、hours、minutes、seconds、milliseconds 及其组合（按 UTC；"本地时间"即 UTC） |
-| 比例尺 | `linear`、`log`、`sqrt`、`pow`、`time`、`utc`、`band`、`point`、`ordinal`（`domain`、`range`、`zero`、`nice`、`reverse`、`clamp`、`base`、`exponent`） |
-| 堆叠 | `bar` 和 `area` 默认堆叠；`stack: zero / center / normalize / null` |
-| 弧形 | `mark: arc` 加 `theta`（定量字段，绕圆堆叠：`zero` 或 `normalize`，按颜色升序；`scale.range` 以弧度为单位）、`color`，以及 mark 属性 `innerRadius`、`outerRadius`、`padAngle`、`cornerRadius`、`stroke`、`strokeWidth`：饼图和环形图。扇形画在 200 × 200 的无边框视图中央；`radius`、`theta2`、极坐标文字和 `tooltip` 暂不支持 |
+| 比例尺 | 位置通道上的 `linear`、`log`、`sqrt`、`pow`、`time`、`utc`、`band`、`point`、`ordinal`，支持 `domain`、`domainMin`、`domainMax`、`range`、`zero`、`nice`、`reverse`、`clamp`、`base`、`exponent`；`arc` 的角度比例尺支持 `range` |
+| 堆叠 | `bar` 和 `area` 默认堆叠（堆叠面积图会像 vega-lite 那样补零）；`stack: zero / center / normalize / null`；`arc` 把 `theta` 绕圆堆叠（`zero`、`normalize`） |
 | 排序 | 离散 x / y 上的 `sort`：`ascending`、`descending`、取值列表、`-x` / `-y`、`{op, field, order}` |
-| 分层（layer） | 位置比例尺默认共享（合并定义域，band 比例尺优先于 point）；`resolve.scale.x / y: independent` 让每层有自己的比例尺和坐标轴，第二根轴放到另一侧；颜色比例尺及其图例默认共享，也可用 `resolve.scale.color` 独立；对同一字段做相同 `bin` 的各层共用一次分箱（在公共数据上计算，与 vega-lite 提升分箱的做法一致）和一个分箱比例尺；各层的 mark 命名为 `layer_0_marks` 等 |
-| 辅助元素 | 坐标轴（网格、刻度、带首尾对齐和重叠剔除的标签、标题）、符号图例、图表标题 |
-| 布局 | 单视图或 `layer`（嵌套分层，继承 `data` / `transform` / `encoding`，`resolve.scale` / `legend`），`autosize: pad`，`width` / `height` 取数字或 `{step}` |
-| 配置 | 接受的键会被记录；其中一部分（`view`、`scale.zero` 等）会生效 |
+| 坐标轴 | 网格、刻度、带首尾对齐和重叠剔除的标签、标题；属性 `domain`、`grid`、`labels`、`ticks`、`format`、`labelAngle`、`labelFlush`、`labelOverlap`、`tickMinStep`、`titlePadding`、`offset`、`position` 以及颜色 / 宽度 / 大小一类；`axis: null` |
+| 图例 | 符号图例（大小、形状、透明度、颜色，字段相同时合并）、定量颜色的渐变图例（默认 blues 色带）；`legend.orient`：`left` 或 `right`；`legend: null` |
+| 分层（layer） | `layer`，可嵌套，继承 `data` / `transform` / `encoding`；位置比例尺默认共享（合并定义域，band 优先于 point），也可用 `resolve.scale.x / y` 独立（各有一根轴，第二根放到另一侧）；颜色比例尺及其图例默认共享，也可用 `resolve.scale.color` 独立；一个 size 比例尺配多个独立图例（`resolve.legend.size`）；对同一字段做相同 `bin` 的各层共用一次分箱和一个分箱比例尺；坐标轴和图例标题按 vega-lite 的规则合并 |
+| 弧形 | `mark: arc` 加 `theta` 和 `color`：饼图和环形图，画在 200 × 200 的无边框视图里 |
+| 布局 | 单视图或 `layer`；`width` / `height` 取数字或 `{step}`；`padding`；`background`；字符串形式的 `title` |
+| 手绘风格 | `render_svg_sketch` / `vl2svg --sketch`：矩形、线、面积、符号、弧形和绘图区边框交给 moon_rough 来画，文字不变（见上） |
+| 配置 | 只有 `config.scale.zero`；其他 `config` 键一律带路径报错 |
+| 接受但不影响画面 | `description`、`name`、`usermeta` |
 
-不支持——每一项都会报错并给出 JSON 路径：`params` / `selection`、`tooltip`、`projection`、`facet`、
-`concat`（`hconcat` / `vconcat`）、`repeat`、`data.url`（请改用内嵌的 `data.values`）、`condition`，
-以及完整的 Vega 表达式语言（只实现了 `calculate` / `filter` 用到的子集）。
-定量颜色的渐变图例只支持默认的 blues 色带（非位置通道上不支持 `scale` 选项）。
-凡是编译器本来会忽略的内容一律报错并给出路径：未知的 mark 属性、`scale.zero` 以外的 `config` 键、
-尚未实现的坐标轴 / 比例尺 / 图例选项、其他通道上的 `sort` 等（见 `vl/validate.mbt`）。
+不支持，每一项都会报错并给出路径：交互（`params`、`selection`、`tooltip`、`condition`）、`projection` 和地理标记、
+`facet`、`concat`（`hconcat` / `vconcat`）、`repeat`、`autosize`、对象形式的 `title`、`radius` / `theta2` 通道和极坐标文字、`trail`、
+`boxplot`、`errorbar`、`errorband`、变换 `window`、`joinaggregate`、`flatten`、`loess`、`regression`、`density`、`pivot`、`lookup`、
+完整的 Vega 表达式语言（只实现了 `calculate` / `filter` 用到的子集）、比例尺类型 `symlog`、`quantile`、`quantize`、`threshold`、
+`bin-ordinal`、`sequential`，非位置通道上的比例尺选项（`scheme`、`range`），`scale.zero` 以外的 `config`，以及上面没有列出的坐标轴和图例选项。
 
 ## 与官方实现的一致性
+
+整体流程、为什么能和官方输出一致、测试是怎么做的，见 [`docs/defense.md`](docs/defense.md)。
 
 测试里所有期望值都来自官方包，没有一个来自本仓库自己：
 
@@ -300,5 +310,5 @@ vega 一侧在三次预热后计时，并且包含对规格文本的 `JSON.parse
 
 ## 许可证
 
-Apache-2.0。部分代码移植自 vega、vega-lite 和 d3（BSD-3-Clause / ISC），详见各文件头部。
+Apache-2.0。部分代码移植自 vega、vega-lite 和 d3（BSD-3-Clause / ISC）以及 V8 采用的 fdlibm，它们的版权声明和许可证全文见 [`THIRD_PARTY_LICENSES`](THIRD_PARTY_LICENSES) 和各文件头部。
 手绘风格依赖 [moon_rough](https://github.com/sayoi7799/moon_rough)（MIT），它是 [rough.js](https://github.com/rough-stuff/rough)（MIT）的移植。

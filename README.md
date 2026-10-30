@@ -66,7 +66,7 @@ The module `sayoi7799/moon_vegalite` is not on mooncakes.io yet, so it is used f
 ```
 // moon.mod
 import {
-  "sayoi7799/moon_vegalite@0.1.0",
+  "sayoi7799/moon_vegalite@0.2.0",
 }
 ```
 
@@ -182,30 +182,42 @@ Open [`gallery/index.html`](gallery/index.html) directly in a browser (no server
 
 ## Support
 
+What is implemented. Anything else raises an error that names the JSON path (`encoding.color.condition 暂不支持`, `mark.tooltip 暂不支持`),
+including a property of something that is supported: nothing is silently ignored (`vl/validate.mbt`, `vl/errors_test.mbt`).
+
 | Area | Supported |
 | --- | --- |
+| Data | inline `data.values`. `data.url` and `datasets` are not read, `data.format.parse` is rejected: embed the values |
 | Marks | `bar`, `line`, `point`, `circle`, `square`, `area`, `rule`, `tick`, `rect`, `text`, `arc` |
-| Channels | `theta` (on `arc`), `x`, `y` (fields, or a numeric `datum`), `x2`, `y2` (on `rule`, `bar`, `rect`), `color` (nominal fields with the category scheme, ordinal fields with a blues ramp sampled per value, quantitative fields with a blues ramp and gradient legend, constant values), `size`, `opacity`, `shape`, `text` (size, opacity and shape on `point`, `circle`, `square`; quantitative fields give continuous scales, shape is nominal) |
+| Mark properties | `color`, `filled`, `opacity`, `interpolate` (`linear`, `step`, `step-before`, `step-after`, `monotone`); `size` for `rule` and `line` (the stroke width); `rule`: `strokeDash`; `text`: `align`, `baseline`, `dx`, `dy`, `fontSize`, `text`, `x`, `y` (`"width"` / `"height"` or pixels); `arc`: `innerRadius`, `outerRadius`, `padAngle`, `cornerRadius`, `stroke`, `strokeWidth` |
+| Position channels | `x`, `y` (a field, or a numeric `datum`), `x2`, `y2` (on `rule`, `bar`, `rect`: ranged bars and rects, rules across the plot), `theta` (on `arc`) |
+| Other channels | `color` (nominal fields with the category scheme, ordinal fields with a blues ramp sampled per value, quantitative fields with a blues ramp and a gradient legend, constant values), `size`, `opacity` (also constant), `shape` (nominal), `text` (with `format`); `aggregate: count` without a field works on size, colour, opacity and shape |
 | Field types | `quantitative`, `ordinal`, `nominal`, `temporal` |
-| Aggregates | `count`, `sum`, `mean`, `average`, `min`, `max`, `median`, `distinct`, … (vega aggregate ops) |
-| Transforms | `filter` (expression or predicate), `calculate` (expression subset), `aggregate`, `bin`, `timeUnit`, `fold`; field `bin`, `timeUnit`, `aggregate` |
+| Aggregates | `count`, `sum`, `mean`, `average`, `min`, `max`, `median`, `distinct`, … (the vega aggregate ops) |
+| Transforms | `filter` (expression or predicate), `calculate` (expression subset), `aggregate`, `bin`, `timeUnit`, `fold`; field-level `bin`, `timeUnit`, `aggregate` |
 | Time units | year, quarter, month, week, date, day, hours, minutes, seconds, milliseconds and combinations (UTC; "local" time is UTC) |
-| Scales | `linear`, `log`, `sqrt`, `pow`, `time`, `utc`, `band`, `point`, `ordinal` (`domain`, `range`, `zero`, `nice`, `reverse`, `clamp`, `base`, `exponent`) |
-| Stacking | default stacking for `bar` and `area`; `stack: zero / center / normalize / null` |
-| Arcs | `mark: arc` with `theta` (a quantity, stacked around the circle: `zero` or `normalize`, ascending by colour; `scale.range` in radians), `color`, and the mark properties `innerRadius`, `outerRadius`, `padAngle`, `cornerRadius`, `stroke`, `strokeWidth`: pie and donut charts. The slices are centred in a 200 × 200 view without a frame; `radius`, `theta2`, polar text and `tooltip` are not supported yet |
+| Scales | `linear`, `log`, `sqrt`, `pow`, `time`, `utc`, `band`, `point`, `ordinal` with `domain`, `domainMin`, `domainMax`, `range`, `zero`, `nice`, `reverse`, `clamp`, `base`, `exponent` (position channels); the angle scale of `arc` takes `range` |
+| Stacking | default stacking for `bar` and `area` (stacked areas are imputed, as vega-lite does); `stack: zero / center / normalize / null`; `arc` stacks `theta` around the circle (`zero`, `normalize`) |
 | Sorting | `sort` on discrete x / y: `ascending`, `descending`, a value list, `-x` / `-y`, `{op, field, order}` |
-| Layers | position scales are shared by default (domains are merged, a band scale wins over a point scale); `resolve.scale.x / y: independent` gives each layer its own scale and axis, the second one on the opposite side; colour scales and their legend are shared, or independent with `resolve.scale.color`; layers that bin the same field identically share one bin (computed on the common data, as vega-lite hoists it) and one binned scale; marks are named `layer_0_marks`, ... |
-| Guides | axes (grid, ticks, labels with flush / overlap removal, title), symbol legends, chart title |
-| Layout | single view or `layer` (nested layers, inherited `data` / `transform` / `encoding`, `resolve.scale` / `legend`), `autosize: pad`, `width` / `height` as numbers or `{step}` |
-| Config | accepted keys are recorded; a subset (`view`, `scale.zero`, …) is honoured |
+| Axes | grid, ticks, labels with flush / overlap removal, title; the properties `domain`, `grid`, `labels`, `ticks`, `format`, `labelAngle`, `labelFlush`, `labelOverlap`, `tickMinStep`, `titlePadding`, `offset`, `position` and the colour / width / size family; `axis: null` |
+| Legends | symbol legends (size, shape, opacity, colour, merged when the channels share a field), gradient legend for quantitative colour (the default blues ramp); `legend.orient`: `left` or `right`; `legend: null` |
+| Layers | `layer` with nested layers and inherited `data` / `transform` / `encoding`; position scales shared by default (domains merged, a band scale wins over a point scale) or independent with `resolve.scale.x / y` (each with its own axis, the second on the opposite side); colour scales and legends shared, or independent with `resolve.scale.color`; one size scale with independent legends (`resolve.legend.size`); layers that bin the same field identically share one bin and one binned scale; axis and legend titles merge as in vega-lite |
+| Arcs | `mark: arc` with `theta` and `color`: pie and donut charts, in a 200 × 200 view without a frame |
+| Layout | one view or `layer`; `width` / `height` as numbers or `{step}`; `padding`; `background`; a single-string `title` |
+| Hand-drawn style | `render_svg_sketch` / `vl2svg --sketch`: rects, rules, lines, areas, symbols, arcs and plot frames drawn by moon_rough, text unchanged (see above) |
+| Config | `config.scale.zero` only; every other `config` key is rejected with its path |
+| Accepted, no effect on the picture | `description`, `name`, `usermeta` |
 
-Not supported — each raises an error that names the JSON path: `params` / `selection`, `tooltip`, `projection`,
-`facet`, `concat` (`hconcat` / `vconcat`), `repeat`, `data.url` (embed `data.values` instead), `condition`, and the full
-Vega expression language (only the subset used by `calculate` / `filter` is implemented). Gradient legends for
-quantitative colour is limited to the default blues ramp (no `scale` options on non-positional channels).
-Anything the compiler would otherwise ignore is rejected with the JSON path: unknown mark properties, `config` keys other than `scale.zero`, axis / scale / legend options that are not implemented, `sort` on other channels, and so on (`vl/validate.mbt`).
+Not supported, each raising an error with its path: interaction (`params`, `selection`, `tooltip`, `condition`), `projection` and geo marks,
+`facet`, `concat` (`hconcat` / `vconcat`), `repeat`, `autosize`, a title given as an object, the `radius` / `theta2` channels and polar text, `trail`,
+`boxplot`, `errorbar`, `errorband`, the transforms `window`, `joinaggregate`, `flatten`, `loess`, `regression`, `density`, `pivot`, `lookup`
+and the full Vega expression language (only the subset `calculate` and `filter` need), the scale types `symlog`, `quantile`, `quantize`,
+`threshold`, `bin-ordinal` and `sequential` and scale options (`scheme`, `range`) on non-positional channels, any `config` except
+`scale.zero`, and axis / legend options that are not listed above.
 
 ## Accuracy against the official implementation
+
+A short walkthrough of the pipeline, of why the output can be identical to the official one and of how the tests are made: [`docs/defense.md`](docs/defense.md) (in Chinese).
 
 Every expected value in the tests comes from the official packages, never from this repository:
 
@@ -301,5 +313,5 @@ for a GitHub issue and merged through a pull request that closes the issue.
 
 ## License
 
-Apache-2.0. Parts of the code are ports of vega, vega-lite and d3 (BSD-3-Clause / ISC); see the file headers.
+Apache-2.0. Parts of the code are ports of vega, vega-lite and d3 (BSD-3-Clause / ISC) and of fdlibm as adapted in V8; their notices and licence texts are in [`THIRD_PARTY_LICENSES`](THIRD_PARTY_LICENSES) and the file headers.
 The hand-drawn style depends on [moon_rough](https://github.com/sayoi7799/moon_rough) (MIT), a port of [rough.js](https://github.com/rough-stuff/rough) (MIT).

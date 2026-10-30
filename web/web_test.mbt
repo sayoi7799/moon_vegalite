@@ -21,7 +21,7 @@ test "render reports invalid JSON" {
 
 ///|
 test "version is the library version" {
-  inspect(@web.version(), content="0.1.0")
+  inspect(@web.version(), content="0.2.0")
 }
 
 ///|

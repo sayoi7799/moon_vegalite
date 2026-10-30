@@ -4,7 +4,7 @@ let tiny : String =
 
 ///|
 test "version is exposed" {
-  assert_eq(@moon_vegalite.version(), "0.1.0")
+  assert_eq(@moon_vegalite.version(), "0.2.0")
 }
 
 ///|
