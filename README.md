@@ -66,7 +66,7 @@ The module `sayoi7799/moon_vegalite` is not on mooncakes.io yet, so it is used f
 ```
 // moon.mod
 import {
-  "sayoi7799/moon_vegalite@0.1.0",
+  "sayoi7799/moon_vegalite@0.2.0",
 }
 ```
 

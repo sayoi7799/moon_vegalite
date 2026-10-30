@@ -66,7 +66,7 @@ let scene = @moon_vegalite.scene_json(c)              // 场景图的 JSON 形�
 ```
 // moon.mod
 import {
-  "sayoi7799/moon_vegalite@0.1.0",
+  "sayoi7799/moon_vegalite@0.2.0",
 }
 ```
 
