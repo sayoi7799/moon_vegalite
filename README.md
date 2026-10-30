@@ -311,5 +311,5 @@ for a GitHub issue and merged through a pull request that closes the issue.
 
 ## License
 
-Apache-2.0. Parts of the code are ports of vega, vega-lite and d3 (BSD-3-Clause / ISC); see the file headers.
+Apache-2.0. Parts of the code are ports of vega, vega-lite and d3 (BSD-3-Clause / ISC) and of fdlibm as adapted in V8; their notices and licence texts are in [`THIRD_PARTY_LICENSES`](THIRD_PARTY_LICENSES) and the file headers.
 The hand-drawn style depends on [moon_rough](https://github.com/sayoi7799/moon_rough) (MIT), a port of [rough.js](https://github.com/rough-stuff/rough) (MIT).

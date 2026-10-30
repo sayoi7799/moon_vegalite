@@ -308,5 +308,5 @@ vega 一侧在三次预热后计时，并且包含对规格文本的 `JSON.parse
 
 ## 许可证
 
-Apache-2.0。部分代码移植自 vega、vega-lite 和 d3（BSD-3-Clause / ISC），详见各文件头部。
+Apache-2.0。部分代码移植自 vega、vega-lite 和 d3（BSD-3-Clause / ISC）以及 V8 采用的 fdlibm，它们的版权声明和许可证全文见 [`THIRD_PARTY_LICENSES`](THIRD_PARTY_LICENSES) 和各文件头部。
 手绘风格依赖 [moon_rough](https://github.com/sayoi7799/moon_rough)（MIT），它是 [rough.js](https://github.com/rough-stuff/rough)（MIT）的移植。
